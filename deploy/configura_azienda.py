@@ -56,12 +56,14 @@ elif phase == "finanza":
 
     # --- IVA (solo con la localizzazione Regno Unito) ---------------------------------------
     #
-    # Due tipi di servizio, con regole diverse per i privati esteri:
-    # - servizi "generali" (es. check-up): imposta 20% standard. Privati esteri: regola
-    #   generale B2C -> IVA UK 20%.
-    # - servizi digitali (abbonamenti app, ESS): imposta "20% Digital". Privati UE: IVA del
-    #   paese del cliente (regime OSS non-Union); privati extra UE: fuori campo IVA UK.
-    # Aziende estere con partita IVA: entrambi fuori campo IVA UK (0% EX, inversione contabile).
+    # Segue lo studio IVA del progetto (specifica M07, invarianti INV-IVA-01…10, e la
+    # matrice dei trattamenti), prestatore UK:
+    # - cura (check-up): esente, VATA 1994 Sch. 9 Group 7, per qualunque cliente;
+    # - dato/piattaforma (abbonamenti app, imposta "20% Digital"):
+    #     Regno Unito 20% · aziende UE con VIES valido: inversione contabile (art. 196) ·
+    #     privati UE (o VIES non valido): IVA del paese via OSS, con due prove di
+    #     localizzazione · resto del mondo: fuori campo IVA UK.
+    # Ogni trattamento stampa in fattura la propria dicitura (INV-IVA-08).
     rest_of_world = ref("account_fiscal_position_rest_of_world_b2b")
     st11, st_0_ex = ref("ST11"), ref("ST_0_EX")
     if rest_of_world and st11 and st_0_ex:
@@ -83,6 +85,21 @@ elif phase == "finanza":
         def tax_by_name(name):
             return Tax.search([("company_id", "=", company.id), ("name", "=", name), ("type_tax_use", "=", "sale")], limit=1)
 
+        def legal_note(tax, en, it):
+            # Dicitura in fattura: inglese (testo base) e italiano, scritte separatamente.
+            # Il campo si traduce frase per frase: testo inglese, poi la sua traduzione.
+            tax.with_context(lang="en_US").invoice_legal_notes = f"<p>{en}</p>"
+            if env["res.lang"]._lang_get("it_IT"):
+                tax.update_field_translations("invoice_legal_notes", {"it_IT": {en: it}})
+
+        vat_rules = "vies_required" in Fpos._fields  # modulo my_erp_crm_iva installato
+        if vat_rules:
+            company.vat_check_vies = True
+
+        OUTSIDE = ("Outside the scope of UK VAT: place of supply outside the United Kingdom.",
+                   "Operazione fuori campo IVA UK: luogo della prestazione fuori dal Regno Unito.")
+        legal_note(st_0_ex, *OUTSIDE)
+
         # Privati: regole che valgono per tutti i paesi esteri (vendite generali con IVA UK,
         # acquisti da fornitori esteri con inversione contabile / IVA d'importazione posticipata).
         consumer_native = [ref(x) for x in ("ST11", "ST5", "ST0", "ST2", "PT_20_RCI", "PT_20_PVA", "PT_0_EX")]
@@ -96,6 +113,48 @@ elif phase == "finanza":
                                  "original_tax_ids": [(5, 0, 0)]})
         st_0_ex.original_tax_ids |= digital
 
+        # 1b. Cura (check-up): esente per qualunque cliente; nessuna posizione la sostituisce.
+        health = tax_by_name("Exempt Health")
+        if not health:
+            health = ref("ST2").copy({"name": "Exempt Health", "description": "Exempt", "invoice_label": "Exempt"})
+        # Nessuna posizione fiscale la sostituisce (la copia eredita i collegamenti dell'originale).
+        health.write({"fiscal_position_ids": [(5, 0, 0)], "original_tax_ids": [(5, 0, 0)],
+                      "replacing_tax_ids": [(5, 0, 0)]})
+        legal_note(health, "Exempt supply — VATA 1994, Sch. 9, Group 7 (health and welfare).",
+                   "Prestazione esente — VATA 1994, Sch. 9, Group 7 (cure mediche).")
+
+        # 1c. Aziende UE con partita IVA verificata VIES: inversione contabile (art. 196).
+        eu_b2b = Fpos.search([("company_id", "=", company.id), ("name", "=", "EU businesses - reverse charge (B2B)")], limit=1)
+        eu_b2b_vals = {"name": "EU businesses - reverse charge (B2B)", "company_id": company.id,
+                       "auto_apply": True, "vat_required": True, "sequence": 3,
+                       "country_group_id": env.ref("base.europe").id}
+        if vat_rules:
+            eu_b2b_vals["vies_required"] = True
+        if eu_b2b:
+            eu_b2b.write(eu_b2b_vals)
+        else:
+            eu_b2b = Fpos.create(eu_b2b_vals)
+        reverse_charge = tax_by_name("0% RC EU")
+        if not reverse_charge:
+            reverse_charge = st_0_ex.copy({"name": "0% RC EU", "description": "0% RC", "invoice_label": "0% RC"})
+        reverse_charge.write({"original_tax_ids": [(6, 0, (digital | st11).ids)], "replacing_tax_ids": [(5, 0, 0)],
+                              "fiscal_position_ids": [(6, 0, eu_b2b.ids)]})
+        legal_note(reverse_charge,
+                   "Reverse charge: VAT to be accounted for by the recipient — Article 196, Council Directive 2006/112/EC.",
+                   "Reverse charge: imposta assolta dal destinatario mediante inversione contabile — art. 196 Dir. 2006/112/CE.")
+        for xmlid in ("PT_20_RCI", "PT_20_PVA", "PT_0_EX"):
+            if ref(xmlid):
+                ref(xmlid).fiscal_position_ids |= eu_b2b
+
+        # Fattura elettronica (UBL/Peppol) leggibile dal gestionale del cliente B2B: la riga
+        # dichiara l'inversione contabile, così il cliente può autofatturare / integrare.
+        def ubl_codes(tax, category, reason):
+            if "ubl_cii_tax_category_code" in tax._fields:
+                tax.write({"ubl_cii_tax_category_code": category, "ubl_cii_tax_exemption_reason_code": reason})
+
+        ubl_codes(reverse_charge, "AE", "VATEX-EU-AE")
+        ubl_codes(st_0_ex, "O", "VATEX-EU-O")
+
         # 2. Privati extra UE: servizi generali con IVA UK, servizi digitali fuori campo.
         b2c = fiscal_position("Rest of the world - consumers (B2C)", 6)
         for tax in consumer_native:
@@ -103,7 +162,10 @@ elif phase == "finanza":
         digital_outside = tax_by_name("0% EX Digital")
         if not digital_outside:
             digital_outside = st_0_ex.copy({"name": "0% EX Digital", "description": "0% EX Digital"})
-        digital_outside.write({"original_tax_ids": [(6, 0, digital.ids)], "fiscal_position_ids": [(6, 0, b2c.ids)]})
+        digital_outside.write({"original_tax_ids": [(6, 0, digital.ids)], "fiscal_position_ids": [(6, 0, b2c.ids)],
+                               "replacing_tax_ids": [(5, 0, 0)]})
+        legal_note(digital_outside, *OUTSIDE)
+        ubl_codes(digital_outside, "O", "VATEX-EU-O")
 
         # 3. Privati UE: servizi digitali con l'IVA del paese del cliente (OSS non-Union).
         tax_map_src = open(file_path("l10n_eu_oss/models/eu_tax_map.py")).read()
@@ -127,6 +189,8 @@ elif phase == "finanza":
         for code, rate in sorted(eu_rates.items()):
             country = env["res.country"].search([("code", "=", code)], limit=1)
             fpos = fiscal_position(f"EU consumers - {country.name} (OSS)", 5, country)
+            if vat_rules:
+                fpos.oss_location_proofs_required = True
             for tax in consumer_native:
                 tax.fiscal_position_ids |= fpos
             group_name = f"OSS {rate:g}%"
@@ -147,16 +211,21 @@ elif phase == "finanza":
                     "invoice_repartition_line_ids": lines["invoice"], "refund_repartition_line_ids": lines["refund"],
                 })
             oss_tax.write({"amount": rate, "original_tax_ids": [(6, 0, digital.ids)], "fiscal_position_ids": [(6, 0, fpos.ids)]})
+            legal_note(oss_tax, "VAT of the consumer's country at the local rate, paid via the non-Union OSS scheme.",
+                       "IVA del Paese del consumatore ad aliquota locale, assolta via OSS regime non-UE.")
 
         # 4. Prodotti di partenza (prezzi da completare nel listino in euro).
         Product = env["product.template"]
         for default_code, name, tax in (("APP-SUB", "App subscription", digital),
-                                        ("BIO-CHECKUP", "Biometric check-up", st11)):
-            if not Product.search([("default_code", "=", default_code)], limit=1):
+                                        ("BIO-CHECKUP", "Biometric check-up", health)):
+            existing = Product.search([("default_code", "=", default_code)], limit=1)
+            if existing and existing.taxes_id == st11 and tax != st11:
+                existing.taxes_id = tax  # allinea i prodotti creati con la versione precedente
+            if not existing:
                 Product.create({"name": name, "default_code": default_code, "type": "service",
                                 "sale_ok": True, "purchase_ok": False, "list_price": 0.0,
                                 "taxes_id": [(6, 0, tax.ids)]})
-        print(f"IVA: UK, aziende estere 0%, privati UE con OSS ({len(eu_rates)} paesi), privati extra UE")
+        print(f"IVA: UK 20%, cura esente, aziende UE in inversione contabile (VIES), privati UE con OSS ({len(eu_rates)} paesi), resto del mondo fuori campo")
     else:
         print("Localizzazione Regno Unito non installata: posizioni fiscali non modificate")
 

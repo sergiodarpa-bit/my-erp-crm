@@ -15,8 +15,8 @@ Dal 7 novembre 2026 il codice è stato modificato da my-erp-crm come segue:
 - nome del prodotto cambiato in "my-erp-crm" (`odoo/release.py`, titoli di pagina e finestre);
 - il nome "Odoo" nei testi del codice e delle traduzioni sostituito automaticamente con
   "my-erp-crm" da `scripts/rebrand.py`, lasciando intatte le note di copyright e licenza;
-- aggiunto il modulo `my_erp_crm_currency_ecb` (tassi di cambio BCE) e la configurazione
-  aziendale in `deploy/`;
+- aggiunti i moduli `my_erp_crm_currency_ecb` (tassi di cambio BCE) e `my_erp_crm_iva`
+  (regole IVA e verifica VIES diretta) e la configurazione aziendale in `deploy/`;
 - logo, icone e favicon sostituiti (`addons/web/static/img`);
 - aggiunti i moduli `my_erp_crm_brand`, `my_erp_crm_brand_mail` e `my_erp_crm_brand_portal`
   (nome, colori e diciture dell'interfaccia, delle email e del portale);

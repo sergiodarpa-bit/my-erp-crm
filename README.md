@@ -51,30 +51,40 @@ avvio con i dati di `.env`:
 
 - **Azienda nel Regno Unito** (`COMPANY_COUNTRY=GB`): piano dei conti britannico, imposte e
   dichiarazione IVA **VAT100**, contabilità in **sterline (GBP)**.
-- **IVA sulle vendite**, scelta automaticamente in base al cliente e al tipo di servizio
-  (prodotti di partenza: *App subscription* e *Biometric check-up*):
+- **IVA sulle vendite**, secondo lo studio IVA del progetto (invarianti INV-IVA-01…10 e
+  matrice dei trattamenti), per una società britannica. Il trattamento dipende da **cosa si
+  vende**, **chi è il cliente** e **dove si trova**:
 
-  | Cliente | Abbonamento app (servizio digitale) | Check-up biometrico (servizio generale) |
+  | Cliente | Abbonamento app (dato/piattaforma) | Check-up biometrico (cura) |
   |---|---|---|
-  | Regno Unito | IVA UK 20% | IVA UK 20% |
-  | Estero, azienda con partita IVA | 0% fuori campo IVA UK (inversione contabile) | 0% fuori campo IVA UK |
-  | Privato nell'UE | IVA del paese del cliente (es. 22% Italia, 19% Germania) tramite **OSS** | IVA UK 20% |
-  | Privato fuori dall'UE (Svizzera, Emirati, USA…) | 0% fuori campo IVA UK | IVA UK 20% |
+  | Regno Unito | IVA UK 20% | Esente (VATA 1994, Sch. 9, Group 7) |
+  | Azienda UE con partita IVA **verificata VIES** | Inversione contabile, art. 196 Dir. 2006/112/CE | Esente |
+  | Azienda UE **senza** verifica VIES valida | trattata come privato (riga sotto) | Esente |
+  | Privato UE | IVA del paese del cliente tramite **OSS** non-UE, con **due prove di localizzazione** | Esente |
+  | Resto del mondo (aziende e privati) | Fuori campo IVA UK | Esente |
 
-  Le aliquote UE vengono dalla tabella aggiornata del modulo `l10n_eu_oss`; l'IVA UE va su un
-  conto separato (*VAT payable OSS (EU)*) e non entra nella dichiarazione VAT100.
+  Ogni trattamento stampa in fattura la propria **dicitura** (in inglese, e in italiano per i
+  clienti di lingua italiana). Il modulo `my_erp_crm_iva` rende i controlli automatici:
 
-  Da verificare con il commercialista prima di vendere:
-  - **OSS**: per vendere servizi digitali a privati UE un'azienda britannica deve registrarsi
-    al regime OSS "non-Union" in un paese UE, dalla prima vendita.
-  - **App store**: gli abbonamenti venduti tramite Apple App Store o Google Play sono fatturati
-    da Apple/Google, che versano l'IVA al consumatore; la tabella vale per le vendite dirette.
-  - **Svizzera ed Emirati**: per i servizi digitali a privati possono servire registrazioni
-    IVA locali (indicativamente 8,1% CH, 5% AE).
-  - **Check-up**: se li vende l'azienda britannica, si applica l'IVA UK al 20% salvo che
-    rientrino nell'esenzione per cure mediche. Se invece li vende direttamente la clinica e
-    l'azienda incassa una commissione, la commissione è B2B (0%) e l'IVA del check-up è
-    quella del paese della clinica.
+  - **VIES** verificato direttamente sul servizio della Commissione europea (pulsante
+    *Verifica VIES* sul contatto); esito, data e nome registrato restano sul cliente;
+  - l'inversione contabile si applica **solo** con VIES valido, altrimenti il cliente è
+    trattato come privato;
+  - una fattura **non si emette** senza paese del cliente, con righe senza imposta, in
+    inversione contabile senza VIES valido, o in OSS senza le due prove di localizzazione;
+  - ogni fattura conserva le **prove** del suo trattamento (*Altre informazioni*).
+
+  **Clienti B2B e autofatturazione.** Per le aziende UE la fattura è senza IVA, riporta la
+  loro partita IVA verificata e la dicitura dell'art. 196; la **fattura elettronica UBL/Peppol**
+  allegata marca le righe come inversione contabile (codice `AE`, motivo `VATEX-EU-AE`), così il
+  gestionale del cliente la importa e genera l'autofattura o l'integrazione (in Italia: documento
+  TD17 verso lo SdI) senza ribattere i dati.
+
+  Da confermare con i consulenti prima della prima fattura: registrazione OSS non-UE e Stato
+  scelto; qualificazione dei check-up come cura esente; separazione tra attività clinica e
+  attività dati/piattaforma (le voci esenti limitano la detrazione dell'IVA sugli acquisti);
+  registrazioni IVA locali per i servizi digitali a privati (es. Svizzera, Emirati).
+  Gli abbonamenti venduti tramite Apple App Store o Google Play sono fatturati da Apple/Google.
 - **Prezzi pubblici in euro**: il listino predefinito è *Public prices (EUR)*. Il prezzo in
   euro di ogni prodotto si imposta nel listino (regola "prezzo fisso"); la contabilità
   converte in sterline.
@@ -116,6 +126,7 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 | `addons/my_erp_crm_brand_mail` | "Fornito da my-erp-crm" nelle email; assistente "my-erp-crm Bot" |
 | `addons/my_erp_crm_brand_portal` | collegamento "Fornito da" nel portale clienti |
 | `addons/my_erp_crm_currency_ecb` | tassi di cambio BCE giornalieri |
+| `addons/my_erp_crm_iva` | regole IVA: VIES, inversione contabile, OSS, prove in fattura |
 | `addons/web/static/img` | logo, icone e favicon |
 | `my-erp-crm` | comando di avvio (equivalente a `odoo-bin`) |
 | `Dockerfile`, `docker-compose.yml`, `deploy/`, `scripts/`, `.github/` | installazione e pubblicazione |

@@ -22,7 +22,7 @@ load_env() {
 }
 load_env .env
 
-APPS="${APPS:-crm,sale_management,contacts,calendar,account,my_erp_crm_currency_ecb}"
+APPS="${APPS:-crm,sale_management,contacts,calendar,account,my_erp_crm_currency_ecb,my_erp_crm_iva}"
 BIN="/opt/my-erp-crm/my-erp-crm"
 CONF="--config=/etc/my-erp-crm/my-erp-crm.conf"
 APP="$BIN $CONF"

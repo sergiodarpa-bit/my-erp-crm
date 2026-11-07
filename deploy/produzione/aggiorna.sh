@@ -69,7 +69,7 @@ else
   : "${ADMIN_PASSWORD:?ADMIN_PASSWORD vuota in .env}"
   $RUN app $APP -i base --load-language="${ADMIN_LANG:-it_IT}" --stop-after-init
   SETUP_PHASE=azienda $RUN "${ENVVARS[@]}" app $BIN shell $CONF --no-http < configura_azienda.py
-  $RUN app $APP -i "${APPS:-crm,sale_management,contacts,calendar,account,my_erp_crm_currency_ecb}" --stop-after-init
+  $RUN app $APP -i "${APPS:-crm,sale_management,contacts,calendar,account,my_erp_crm_currency_ecb,my_erp_crm_iva}" --stop-after-init
   SETUP_PHASE=finanza $RUN "${ENVVARS[@]}" app $BIN shell $CONF --no-http < configura_azienda.py
 fi
 
