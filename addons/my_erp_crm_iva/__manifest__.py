@@ -3,8 +3,7 @@
     "summary": "Inversione contabile solo con VIES verificato, OSS con prove di localizzazione, "
                "nessuna fattura senza trattamento IVA determinato.",
     "description": """
-Rende operativi in contabilità gli invarianti dello studio IVA del progetto
-(INV-IVA-01…10):
+Regole IVA rese automatiche in contabilità:
 
 - controllo VIES diretto sul servizio della Commissione europea, con la prova
   (data, nome, esito) conservata sul cliente;

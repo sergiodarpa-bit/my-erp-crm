@@ -55,7 +55,9 @@ class ResPartner(models.Model):
     def _get_vat_required_valid(self, company=None):
         valid = super()._get_vat_required_valid(company=company)
         if valid and company and company.vat_check_vies and self._is_eu_partner():
-            valid = self.vies_valid and self.vies_check_result == "valid"
+            # Vale l'esito VIES: quello della verifica automatica o, se il servizio non
+            # risponde, quello impostato a mano e tracciato nel chatter.
+            valid = self.vies_valid
         return valid
 
     @staticmethod

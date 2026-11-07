@@ -49,42 +49,39 @@ dell'azienda). Il file `.env` resta solo sul server.
 Lo script [`deploy/configura_azienda.py`](deploy/configura_azienda.py) viene eseguito al primo
 avvio con i dati di `.env`:
 
-- **Azienda nel Regno Unito** (`COMPANY_COUNTRY=GB`): piano dei conti britannico, imposte e
-  dichiarazione IVA **VAT100**, contabilità in **sterline (GBP)**.
-- **IVA sulle vendite**, secondo lo studio IVA del progetto (invarianti INV-IVA-01…10 e
-  matrice dei trattamenti), per una società britannica. Il trattamento dipende da **cosa si
-  vende**, **chi è il cliente** e **dove si trova**:
+- **Azienda nel Regno Unito** (`COMPANY_COUNTRY=GB`): piano dei conti britannico e
+  contabilità in **sterline (GBP)**. La configurazione IVA preparata è quella di una società
+  britannica **non registrata alla VAT** che vende servizi in Europa, in Svizzera e nel resto
+  del mondo; se `COMPANY_VAT` è valorizzata lo script si ferma, perché per una società
+  registrata le scelte vanno fatte col commercialista.
+- **IVA sulle vendite**, scelta automaticamente in base al cliente:
 
-  | Cliente | Abbonamento app (dato/piattaforma) | Check-up biometrico (cura) |
+  | Cliente | IVA in fattura | Dicitura in fattura |
   |---|---|---|
-  | Regno Unito | IVA UK 20% | Esente (VATA 1994, Sch. 9, Group 7) |
-  | Azienda UE con partita IVA **verificata VIES** | Inversione contabile, art. 196 Dir. 2006/112/CE | Esente |
-  | Azienda UE **senza** verifica VIES valida | trattata come privato (riga sotto) | Esente |
-  | Privato UE | IVA del paese del cliente tramite **OSS** non-UE, con **due prove di localizzazione** | Esente |
-  | Resto del mondo (aziende e privati) | Fuori campo IVA UK | Esente |
+  | Regno Unito | nessuna | *No VAT charged: the supplier is not registered for UK VAT.* |
+  | Impresa UE con numero IVA **verificato VIES** | nessuna | *Outside the scope of UK VAT. Reverse charge: the customer accounts for any VAT due in its own country.* |
+  | Impresa svizzera con numero IVA | nessuna | *Outside the scope of UK VAT. Swiss acquisition tax (Bezugsteuer) may be due by the recipient in Switzerland.* |
+  | Impresa o privato del resto del mondo | nessuna | *Outside the scope of UK VAT: place of supply outside the United Kingdom.* |
+  | Privato UE (o impresa UE senza VIES valido) | servizi generali: nessuna; **servizi digitali: fattura fermata** finché non c'è la registrazione **OSS non-UE** (`OSS_REGISTERED=1`, poi l'IVA del paese del cliente) | — |
 
-  Ogni trattamento stampa in fattura la propria **dicitura** (in inglese, e in italiano per i
-  clienti di lingua italiana). Il modulo `my_erp_crm_iva` rende i controlli automatici:
+  Le diciture sono in inglese, con la traduzione italiana per i clienti di lingua italiana.
+  Il modulo `my_erp_crm_iva` rende i controlli automatici:
 
   - **VIES** verificato direttamente sul servizio della Commissione europea (pulsante
-    *Verifica VIES* sul contatto); esito, data e nome registrato restano sul cliente;
-  - l'inversione contabile si applica **solo** con VIES valido, altrimenti il cliente è
-    trattato come privato;
-  - una fattura **non si emette** senza paese del cliente, con righe senza imposta, in
-    inversione contabile senza VIES valido, o in OSS senza le due prove di localizzazione;
+    *Verifica VIES* sul contatto); se il servizio non risponde l'esito si può impostare a mano
+    e resta nella cronologia del contatto;
+  - il reverse charge si applica **solo** con VIES valido, altrimenti il cliente è trattato
+    come privato;
+  - una fattura **non si emette** senza paese del cliente, con righe senza imposta e senza
+    posizione fiscale, in reverse charge senza VIES valido, per vendite non ancora ammesse
+    (es. servizi digitali a privati UE senza OSS) o in OSS senza due prove di localizzazione;
   - ogni fattura conserva le **prove** del suo trattamento (*Altre informazioni*).
 
-  **Clienti B2B e autofatturazione.** Per le aziende UE la fattura è senza IVA, riporta la
-  loro partita IVA verificata e la dicitura dell'art. 196; la **fattura elettronica UBL/Peppol**
-  allegata marca le righe come inversione contabile (codice `AE`, motivo `VATEX-EU-AE`), così il
-  gestionale del cliente la importa e genera l'autofattura o l'integrazione (in Italia: documento
-  TD17 verso lo SdI) senza ribattere i dati.
-
-  Da confermare con i consulenti prima della prima fattura: registrazione OSS non-UE e Stato
-  scelto; qualificazione dei check-up come cura esente; separazione tra attività clinica e
-  attività dati/piattaforma (le voci esenti limitano la detrazione dell'IVA sugli acquisti);
-  registrazioni IVA locali per i servizi digitali a privati (es. Svizzera, Emirati).
-  Gli abbonamenti venduti tramite Apple App Store o Google Play sono fatturati da Apple/Google.
+  **Clienti B2B e autofatturazione.** Per le imprese UE e svizzere la fattura è senza IVA e
+  porta la dicitura; la **fattura elettronica UBL/Peppol** marca le righe come reverse charge
+  (codice `AE`), così il gestionale del cliente la importa. Un modulo esterno di
+  autofatturazione (per esempio uno che prepari il TD17 italiano) si collega indicando in
+  `SELF_BILLING_FLAG_FIELD` il campo con cui si accende sulle posizioni fiscali.
 - **Prezzi pubblici in euro**: il listino predefinito è *Public prices (EUR)*. Il prezzo in
   euro di ogni prodotto si imposta nel listino (regola "prezzo fisso"); la contabilità
   converte in sterline.

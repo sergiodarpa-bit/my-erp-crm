@@ -8,6 +8,7 @@
             <xpath expr="//field[@name='vat_required']" position="after">
                 <field name="vies_required"/>
                 <field name="oss_location_proofs_required"/>
+                <field name="blocked_tax_ids" widget="many2many_tags"/>
             </xpath>
         </field>
     </record>

@@ -97,6 +97,22 @@ class TestVatRules(TransactionCase):
     def test_line_without_tax_is_blocked(self):
         partner = self.env["res.partner"].create({"name": "Cliente UK", "country_id": self.env.ref("base.uk").id})
         invoice = self._invoice(partner)
+        invoice.fiscal_position_id = False
         invoice.invoice_line_ids.tax_ids = False
         with self.assertRaises(UserError):
             invoice.action_post()
+
+    def test_blocked_market_stops_invoice(self):
+        self.fp_oss.blocked_tax_ids = self.tax
+        partner = self.env["res.partner"].create({"name": "Privato DE bloccato", "country_id": self.de.id})
+        invoice = self._invoice(partner, oss_location_proof_1="a", oss_location_proof_2="b")
+        with self.assertRaises(UserError):
+            invoice.action_post()
+
+    def test_manual_vies_is_accepted_and_declared(self):
+        partner, _mocked = self._partner("DE123456788", {"isValid": False, "userError": "MS_UNAVAILABLE"})
+        partner.vies_valid = True  # impostato a mano, tracciato nel chatter
+        invoice = self._invoice(partner)
+        self.assertEqual(invoice.fiscal_position_id, self.fp_rc)
+        invoice.action_post()
+        self.assertIn("indicata valida a mano", invoice.vat_treatment_proof)
