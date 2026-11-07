@@ -1,0 +1,18 @@
+// Nasconde le opzioni che esistono solo nella versione a pagamento del progetto originale
+// (interruttori con il badge "Enterprise" nelle Impostazioni).
+.o_setting_box:has(.o_field_upgrade_boolean),
+.o_setting_box:has(.o_enterprise_label) {
+    display: none !important;
+}
+
+// Crediti per i servizi a pagamento di Odoo S.A. (IAP): non li usiamo, quindi
+// nascondiamo la voce nelle Impostazioni.
+#iap_portal,
+#iap_credits_setting {
+    display: none !important;
+}
+
+// Applicazioni: il pulsante "Scopri di più" porta alle pagine commerciali di odoo.com.
+.o_modules_kanban a[href*="odoo.com"] {
+    display: none !important;
+}

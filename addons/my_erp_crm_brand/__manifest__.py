@@ -14,6 +14,7 @@ Si installa automaticamente con ogni nuovo database.
     "license": "LGPL-3",
     "depends": ["web"],
     "data": [
+        "data/ir_actions.xml",
         "views/webclient_templates.xml",
     ],
     "assets": {
