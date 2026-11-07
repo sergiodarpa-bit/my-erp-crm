@@ -2,7 +2,7 @@
 <odoo>
 
     <!-- "Powered by my-erp-crm" ovunque venga usato il messaggio standard (portale, sondaggi, sito...) -->
-    <template id="brand_promotion_message" inherit_id="web.brand_promotion_message">
+    <template id="brand_promotion_message" inherit_id="web.brand_promotion_message" priority="1">
         <xpath expr="//t[@t-set='odoo_logo']" position="replace">
             <t t-set="odoo_logo">
                 <a target="_blank" href="https://github.com/sergiodarpa-bit/my-erp-crm"
@@ -13,15 +13,14 @@
 
     <!-- Pagina di accesso: logo sempre visibile (quello di my-erp-crm finché l'azienda
          non carica il proprio, vedi controllers/binary.py) -->
-    <template id="login_layout" inherit_id="web.login_layout">
+    <template id="login_layout" inherit_id="web.login_layout" priority="1">
         <xpath expr="//div[img[contains(@t-attf-src, 'company_logo')]]" position="attributes">
             <attribute name="t-if">True</attribute>
         </xpath>
-        <xpath expr="//a[contains(@href, 'utm_medium=auth')]" position="replace">
-            <t t-call="web.brand_promotion_message">
-                <t t-set="_message"/>
-                <t t-set="_utm_medium" t-valuef="auth"/>
-            </t>
+        <!-- Il testo dice già «Powered by my-erp-crm» (scripts/rebrand.py): si cambia solo
+             l'indirizzo, senza toccare la struttura su cui si appoggiano altri moduli. -->
+        <xpath expr="//a[contains(@href, 'utm_medium=auth')]" position="attributes">
+            <attribute name="href">https://github.com/sergiodarpa-bit/my-erp-crm</attribute>
         </xpath>
     </template>
 

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <template id="portal_record_sidebar" inherit_id="portal.portal_record_sidebar">
+    <!-- priority 1: le nostre modifiche si applicano per prime, così i moduli che
+         personalizzano la firma (es. un tema aziendale) lavorano sopra. -->
+
+    <template id="portal_record_sidebar" inherit_id="portal.portal_record_sidebar" priority="1">
         <xpath expr="//a[contains(@href, 'utm_medium=portal')]" position="attributes">
             <attribute name="href">https://github.com/sergiodarpa-bit/my-erp-crm</attribute>
             <attribute name="title">my-erp-crm</attribute>
