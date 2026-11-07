@@ -1,0 +1,54 @@
+# my-erp-crm in produzione: database, applicazione e Caddy (HTTPS automatico).
+name: my-erp-crm
+
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: ${POSTGRES_USER:-myerp}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?imposta POSTGRES_PASSWORD nel file .env}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-myerp}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    image: ${IMAGE:-ghcr.io/sergiodarpa-bit/my-erp-crm:19.0}
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PGHOST: db
+      PGUSER: ${POSTGRES_USER:-myerp}
+      PGPASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - app-data:/var/lib/my-erp-crm
+      - ./my-erp-crm.conf:/etc/my-erp-crm/my-erp-crm.conf:ro
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    depends_on:
+      - app
+    environment:
+      DOMAIN: ${DOMAIN:?imposta DOMAIN nel file .env}
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+
+volumes:
+  db-data:
+  app-data:
+  caddy-data:
+  caddy-config:

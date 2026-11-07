@@ -1,0 +1,16 @@
+[options]
+addons_path = /opt/my-erp-crm/addons
+data_dir = /var/lib/my-erp-crm
+db_name = my-erp-crm
+dbfilter = ^my-erp-crm$
+list_db = False
+proxy_mode = True
+http_interface = 0.0.0.0
+admin_passwd = __MASTER_PASSWORD__
+workers = 3
+max_cron_threads = 1
+gevent_port = 8072
+limit_time_cpu = 600
+limit_time_real = 1200
+limit_memory_soft = 2147483648
+limit_memory_hard = 2684354560

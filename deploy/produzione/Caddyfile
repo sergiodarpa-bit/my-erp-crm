@@ -1,0 +1,6 @@
+{$DOMAIN} {
+	encode zstd gzip
+	# Notifiche e chat in tempo reale
+	reverse_proxy /websocket app:8072
+	reverse_proxy app:8069
+}
