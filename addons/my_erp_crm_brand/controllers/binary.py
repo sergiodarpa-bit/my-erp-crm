@@ -1,8 +1,13 @@
+import logging
+
 from odoo import SUPERUSER_ID, http
 from odoo.http import request
+from odoo.http.stream import Stream
 from odoo.tools.misc import file_path
 
 from odoo.addons.web.controllers.binary import Binary
+
+_logger = logging.getLogger(__name__)
 
 BRAND_LOGO = "my_erp_crm_brand/static/img/company_logo.png"
 
@@ -21,7 +26,7 @@ class Binary(Binary):
                     uid = request.session.uid or SUPERUSER_ID
                     company = request.env["res.users"].sudo().browse(uid).company_id
                 if company.exists() and company.uses_default_logo:
-                    return http.Stream.from_path(file_path(BRAND_LOGO)).get_response()
+                    return Stream.from_path(file_path(BRAND_LOGO)).get_response()
             except Exception:  # noqa: BLE001 - in caso di dubbio si torna al comportamento standard
-                pass
+                _logger.warning("Logo di my-erp-crm non servito, uso quello standard", exc_info=True)
         return super().company_logo(dbname=dbname, **kw)

@@ -18,7 +18,7 @@ services:
 
   app:
     build: .
-    image: my-erp-crm:19.0
+    image: my-erp-crm:20.0
     restart: unless-stopped
     depends_on:
       db:

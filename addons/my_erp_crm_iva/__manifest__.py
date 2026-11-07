@@ -19,7 +19,7 @@ Rende operativi in contabilità gli invarianti dello studio IVA del progetto
     "author": "my-erp-crm",
     "website": "https://github.com/sergiodarpa-bit/my-erp-crm",
     "license": "LGPL-3",
-    "depends": ["account", "base_vat"],
+    "depends": ["account", "l10n_eu_account_vies"],
     "data": [
         "views/res_partner_views.xml",
         "views/account_fiscal_position_views.xml",

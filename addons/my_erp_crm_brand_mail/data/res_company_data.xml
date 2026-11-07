@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <function model="res.company" name="_my_erp_crm_apply_brand_colors"/>
+</odoo>

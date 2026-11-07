@@ -4,7 +4,7 @@
 
 | Versione | Supportata |
 | -------- | ---------- |
-| 19.0     | sì         |
+| 20.0     | sì         |
 
 ## Segnalare una vulnerabilità
 

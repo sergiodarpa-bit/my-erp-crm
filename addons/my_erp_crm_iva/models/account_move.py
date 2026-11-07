@@ -33,7 +33,8 @@ class AccountMove(models.Model):
             raise UserError(_(
                 "Fattura %(name)s: le righe %(lines)s non hanno un'imposta. Ogni riga deve avere "
                 "un trattamento IVA esplicito (anche esente o 0%%).",
-                name=self.name or "", lines=", ".join(missing.mapped("name"))))
+                name=self.name or "",
+                lines=", ".join(line.name or line.product_id.display_name or "?" for line in missing)))
 
         proofs = []
         fpos = self.fiscal_position_id

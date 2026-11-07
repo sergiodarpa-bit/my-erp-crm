@@ -1,6 +1,6 @@
 {
     "name": "my-erp-crm: marchio nelle email",
-    "summary": "Firma \"Powered by my-erp-crm\" nelle email e nome dell'assistente automatico.",
+    "summary": "Firma \"Powered by my-erp-crm\" nelle email, colore dei pulsanti e nome dell'assistente automatico.",
     "version": "1.0",
     "category": "Hidden",
     "author": "my-erp-crm",
@@ -9,6 +9,7 @@
     "depends": ["mail", "my_erp_crm_brand"],
     "data": [
         "data/res_partner_data.xml",
+        "data/res_company_data.xml",
         "views/mail_templates_email_layouts.xml",
     ],
     "auto_install": True,

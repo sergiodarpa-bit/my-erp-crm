@@ -19,11 +19,11 @@ class ResPartner(models.Model):
     vies_check_name = fields.Char(string="Nome registrato in VIES", readonly=True, copy=False)
 
     # --- verifica diretta sul servizio VIES della Commissione europea -------------------
-    def _check_vies_iap(self):
-        """Sostituisce la verifica tramite il servizio a pagamento IAP con la chiamata
-        diretta al servizio pubblico VIES. Restituisce 'valid', 'invalid' o 'fault'."""
+    def _check_vies_validity_iap(self):
+        """Sostituisce la verifica tramite il servizio di Odoo S.A. (vies.api.odoo.com) con la
+        chiamata diretta al servizio pubblico VIES. Restituisce 'valid', 'invalid' o 'fault'."""
         self.ensure_one()
-        prefix, number = self._split_vat(self.vat or "")
+        prefix, number = self._vies_split(self.vat or "")
         country = {"GR": "EL"}.get(prefix, prefix)
         result, name = "fault", False
         if country and number:
@@ -48,7 +48,7 @@ class ResPartner(models.Model):
 
     def action_check_vies(self):
         for partner in self.filtered("vat"):
-            partner._update_vies_status(partner._check_vies_iap())
+            partner._update_vies_status(partner._check_vies_validity_iap())
         return True
 
     # --- inversione contabile solo con VIES valido, anche per aziende extra UE ---------
@@ -57,6 +57,14 @@ class ResPartner(models.Model):
         if valid and company and company.vat_check_vies and self._is_eu_partner():
             valid = self.vies_valid and self.vies_check_result == "valid"
         return valid
+
+    @staticmethod
+    def _vies_split(vat):
+        """'DE 123 456 788' -> ('DE', '123456788'); senza prefisso -> ('', numero)."""
+        vat = (vat or "").replace(" ", "").replace(".", "").replace("-", "").upper()
+        if len(vat) > 2 and vat[:2].isalpha():
+            return vat[:2], vat[2:]
+        return "", vat
 
     def _is_eu_partner(self):
         self.ensure_one()

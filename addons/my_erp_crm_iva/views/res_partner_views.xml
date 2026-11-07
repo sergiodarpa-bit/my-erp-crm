@@ -3,14 +3,14 @@
     <record id="view_partner_form_vies_proof" model="ir.ui.view">
         <field name="name">res.partner.form.vies.proof</field>
         <field name="model">res.partner</field>
-        <field name="inherit_id" ref="base_vat.view_partner_base_vat_form"/>
+        <field name="inherit_id" ref="l10n_eu_account_vies.view_partner_l10n_eu_account_vies_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//div[@name='vat_vies_container']" position="after">
+            <xpath expr="//div[@id='vat_div']" position="after">
                 <field name="vies_check_result" invisible="not vies_check_date"/>
                 <field name="vies_check_date" invisible="not vies_check_date"/>
                 <field name="vies_check_name" invisible="not vies_check_name"/>
             </xpath>
-            <xpath expr="//div[@name='vat_vies_container']" position="inside">
+            <xpath expr="//div[@id='vat_div']" position="inside">
                 <button name="action_check_vies" type="object" string="Verifica VIES"
                         class="btn btn-link oe_inline" icon="fa-refresh"
                         invisible="not vat or not perform_vies_validation"/>

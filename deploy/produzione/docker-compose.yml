@@ -18,7 +18,7 @@ services:
       retries: 10
 
   app:
-    image: ${IMAGE:-ghcr.io/sergiodarpa-bit/my-erp-crm:19.0}
+    image: ${IMAGE:-ghcr.io/sergiodarpa-bit/my-erp-crm:20.0}
     restart: unless-stopped
     depends_on:
       db:

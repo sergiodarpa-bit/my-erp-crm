@@ -8,7 +8,7 @@ magazzino, progetti e tutte le altre applicazioni incluse.
 
 - **Gratuito** e con **codice sorgente pubblico**
 - Licenza **GNU LGPL v3** (vedi [LICENSE](LICENSE))
-- Basato su **Odoo Community Edition 19.0** (vedi [NOTICE.md](NOTICE.md))
+- Basato su **Odoo Community Edition 20.0** (vedi [NOTICE.md](NOTICE.md))
 - Interfaccia in italiano e inglese
 
 | Accesso | CRM |
@@ -107,7 +107,7 @@ Apri http://localhost:8069 ed entra con `admin` e la password di `ADMIN_PASSWORD
 
 ## Avvio senza Docker (sviluppo)
 
-Servono Python 3.10–3.13 e PostgreSQL.
+Servono Python 3.12–3.14 e PostgreSQL.
 
 ```bash
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
@@ -138,7 +138,7 @@ fatturazione elettronica), dove i nomi possono avere valore tecnico o legale.
 ## Aggiornamenti di sicurezza dal progetto originale
 
 Il file `UPSTREAM_COMMIT` indica la versione di Odoo Community da cui partiamo. Per portare
-dentro le correzioni pubblicate in seguito sul ramo 19.0:
+dentro le correzioni pubblicate in seguito sul ramo 20.0:
 
 ```bash
 ./scripts/aggiorna-da-odoo.sh

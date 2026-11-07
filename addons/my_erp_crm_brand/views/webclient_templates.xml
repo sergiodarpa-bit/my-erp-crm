@@ -11,8 +11,12 @@
         </xpath>
     </template>
 
-    <!-- Pagina di accesso -->
+    <!-- Pagina di accesso: logo sempre visibile (quello di my-erp-crm finché l'azienda
+         non carica il proprio, vedi controllers/binary.py) -->
     <template id="login_layout" inherit_id="web.login_layout">
+        <xpath expr="//div[img[contains(@t-attf-src, 'company_logo')]]" position="attributes">
+            <attribute name="t-if">True</attribute>
+        </xpath>
         <xpath expr="//a[contains(@href, 'utm_medium=auth')]" position="replace">
             <t t-call="web.brand_promotion_message">
                 <t t-set="_message"/>

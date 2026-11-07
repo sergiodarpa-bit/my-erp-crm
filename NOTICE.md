@@ -1,10 +1,10 @@
 # Provenienza e licenza
 
-my-erp-crm è un'opera derivata da **Odoo Community Edition 19.0**.
+my-erp-crm è un'opera derivata da **Odoo Community Edition 20.0**.
 
 - Codice originale: Copyright (c) 2004 e anni successivi Odoo S.A. e collaboratori
   (vedi [COPYRIGHT](COPYRIGHT)), pubblicato con licenza **GNU LGPL v3** (vedi [LICENSE](LICENSE)).
-- Sorgente di partenza: https://github.com/odoo/odoo, ramo `19.0`, commit indicato nel file
+- Sorgente di partenza: https://github.com/odoo/odoo, ramo `20.0`, commit indicato nel file
   [`UPSTREAM_COMMIT`](UPSTREAM_COMMIT).
 - Le modifiche di my-erp-crm sono distribuite con la stessa licenza GNU LGPL v3.
 

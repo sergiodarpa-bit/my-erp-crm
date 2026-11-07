@@ -35,7 +35,7 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ env.IMAGE }}:19.0
+            ${{ env.IMAGE }}:20.0
             ${{ env.IMAGE }}:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Porta in my-erp-crm le correzioni pubblicate da Odoo Community sul ramo indicato
-# (predefinito 19.0), partendo dalla versione scritta in UPSTREAM_COMMIT.
+# (predefinito 20.0), partendo dalla versione scritta in UPSTREAM_COMMIT.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 

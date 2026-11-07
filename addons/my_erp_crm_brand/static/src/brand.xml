@@ -3,8 +3,8 @@
 
     <!-- Titoli delle finestre (es. "Odoo Server Error" -> "my-erp-crm Server Error"), in ogni lingua -->
     <t t-inherit="web.Dialog.header" t-inherit-mode="extension">
-        <xpath expr="//h4[hasclass('modal-title')]/t[@t-esc='props.title']" position="attributes">
-            <attribute name="t-esc">props.title and props.title.toString().replaceAll('Odoo', 'my-erp-crm')</attribute>
+        <xpath expr="//h4[hasclass('modal-title')]/t[@t-out]" position="attributes">
+            <attribute name="t-out">window.String(this.props.title).replaceAll('Odoo', 'my-erp-crm')</attribute>
         </xpath>
     </t>
 
