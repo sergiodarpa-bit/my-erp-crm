@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- L'utente di sistema che invia i messaggi automatici in Discussioni -->
+    <record id="base.partner_root" model="res.partner">
+        <field name="name">my-erp-crm Bot</field>
+        <field name="image_1920" type="base64" file="my_erp_crm_brand/static/description/icon.png"/>
+    </record>
+</odoo>

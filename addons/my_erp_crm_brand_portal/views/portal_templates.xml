@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="portal_record_sidebar" inherit_id="portal.portal_record_sidebar">
+        <xpath expr="//a[contains(@href, 'utm_medium=portal')]" position="attributes">
+            <attribute name="href">https://github.com/sergiodarpa-bit/my-erp-crm</attribute>
+            <attribute name="title">my-erp-crm</attribute>
+        </xpath>
+        <xpath expr="//img[@src='/web/static/img/logo.png']" position="attributes">
+            <attribute name="alt">my-erp-crm</attribute>
+        </xpath>
+    </template>
+
+</odoo>

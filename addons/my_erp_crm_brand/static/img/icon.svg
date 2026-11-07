@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64.00 64.00">
+<title>my-erp-crm</title>
+<rect x="0" y="0" width="64" height="64" rx="14.00" fill="#0B2545"/>
+<line x1="20.00" y1="43.00" x2="44.00" y2="43.00" stroke="#FFFFFF" stroke-width="3.50" stroke-linecap="round"/>
+<line x1="44.00" y1="43.00" x2="32.00" y2="21.00" stroke="#FFFFFF" stroke-width="3.50" stroke-linecap="round"/>
+<line x1="32.00" y1="21.00" x2="20.00" y2="43.00" stroke="#FFFFFF" stroke-width="3.50" stroke-linecap="round"/>
+<circle cx="20.00" cy="43.00" r="7.00" fill="#FFFFFF"/>
+<circle cx="44.00" cy="43.00" r="7.00" fill="#FFFFFF"/>
+<circle cx="32.00" cy="21.00" r="7.00" fill="#13A89E"/>
+</svg>
