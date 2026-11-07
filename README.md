@@ -51,18 +51,30 @@ avvio con i dati di `.env`:
 
 - **Azienda nel Regno Unito** (`COMPANY_COUNTRY=GB`): piano dei conti britannico, imposte e
   dichiarazione IVA **VAT100**, contabilità in **sterline (GBP)**.
-- **IVA sulle vendite**, scelta automaticamente in base al cliente:
+- **IVA sulle vendite**, scelta automaticamente in base al cliente e al tipo di servizio
+  (prodotti di partenza: *App subscription* e *Biometric check-up*):
 
-  | Cliente | IVA applicata |
-  |---|---|
-  | Regno Unito (privati e aziende) | IVA UK 20% (o 5% / 0% / esente secondo il prodotto) |
-  | Estero, azienda con partita IVA | 0% "EX": fuori campo IVA UK, il cliente applica l'inversione contabile |
-  | Estero, privato | IVA UK 20% (regola generale dei servizi B2C) |
+  | Cliente | Abbonamento app (servizio digitale) | Check-up biometrico (servizio generale) |
+  |---|---|---|
+  | Regno Unito | IVA UK 20% | IVA UK 20% |
+  | Estero, azienda con partita IVA | 0% fuori campo IVA UK (inversione contabile) | 0% fuori campo IVA UK |
+  | Privato nell'UE | IVA del paese del cliente (es. 22% Italia, 19% Germania) tramite **OSS** | IVA UK 20% |
+  | Privato fuori dall'UE (Svizzera, Emirati, USA…) | 0% fuori campo IVA UK | IVA UK 20% |
 
-  Le eccezioni per i privati esteri (servizi digitali, consulenza e pubblicità a privati fuori
-  dal Regno Unito, merci esportate) si gestiscono impostando l'imposta **0% EX** sul prodotto.
-  Le vendite di servizi digitali a privati nell'UE richiedono la registrazione IVA UE
-  (regime OSS "non-Union"): da valutare con il commercialista prima di vendere.
+  Le aliquote UE vengono dalla tabella aggiornata del modulo `l10n_eu_oss`; l'IVA UE va su un
+  conto separato (*VAT payable OSS (EU)*) e non entra nella dichiarazione VAT100.
+
+  Da verificare con il commercialista prima di vendere:
+  - **OSS**: per vendere servizi digitali a privati UE un'azienda britannica deve registrarsi
+    al regime OSS "non-Union" in un paese UE, dalla prima vendita.
+  - **App store**: gli abbonamenti venduti tramite Apple App Store o Google Play sono fatturati
+    da Apple/Google, che versano l'IVA al consumatore; la tabella vale per le vendite dirette.
+  - **Svizzera ed Emirati**: per i servizi digitali a privati possono servire registrazioni
+    IVA locali (indicativamente 8,1% CH, 5% AE).
+  - **Check-up**: se li vende l'azienda britannica, si applica l'IVA UK al 20% salvo che
+    rientrino nell'esenzione per cure mediche. Se invece li vende direttamente la clinica e
+    l'azienda incassa una commissione, la commissione è B2B (0%) e l'IVA del check-up è
+    quella del paese della clinica.
 - **Prezzi pubblici in euro**: il listino predefinito è *Public prices (EUR)*. Il prezzo in
   euro di ogni prodotto si imposta nel listino (regola "prezzo fisso"); la contabilità
   converte in sterline.
