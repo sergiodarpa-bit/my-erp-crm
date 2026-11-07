@@ -6,10 +6,10 @@
     'category': 'Hidden',
     'version': '1.0',
     'description': """
-Odoo Web core module.
+my-erp-crm Web core module.
 ========================
 
-This module provides the core of the Odoo Web Client.
+This module provides the core of the my-erp-crm Web Client.
 """,
     'depends': ['base'],
     'auto_install': True,

@@ -21,7 +21,7 @@
 # Nedžad Beus <nedzad.beus@implex.si>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0+e\n"
+"Project-Id-Version: my-erp-crm Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-03 17:35+0000\n"
 "PO-Revision-Date: 2026-09-10 11:12+0000\n"
@@ -2767,11 +2767,11 @@ msgstr "Število sporočil, ki niso bila pravilno dostavljena."
 #: model_terms:ir.actions.act_window,help:hr_recruitment.action_hr_job_applications
 #: model_terms:ir.actions.act_window,help:hr_recruitment.crm_case_categ0_act_job
 msgid ""
-"Odoo helps you track applicants in the recruitment\n"
+"my-erp-crm helps you track applicants in the recruitment\n"
 "                process and follow up all operations: meetings, interviews, "
 "etc."
 msgstr ""
-"Odoo vam pomaga slediti prosilcem v postopku zaposlovanja\n"
+"my-erp-crm vam pomaga slediti prosilcem v postopku zaposlovanja\n"
 "                 in spremljati vse operacije: sestanke, intervjuje itd."
 
 #. module: hr_recruitment
@@ -3636,11 +3636,11 @@ msgstr "Naslednjim kandidatom manjka e-poštni naslov: %s."
 #. module: hr_recruitment
 #: model:ir.model.fields,help:hr_recruitment.field_hr_job__alias_model_id
 msgid ""
-"The model (Odoo Document Kind) to which this alias corresponds. Any incoming "
+"The model (my-erp-crm Document Kind) to which this alias corresponds. Any incoming "
 "email that does not reply to an existing record will cause the creation of a "
 "new record of this model (e.g. a Project Task)"
 msgstr ""
-"Model (Odoo Document Kind) kateremu pripada vzdevek. Vsa prispela e-pošta, "
+"Model (my-erp-crm Document Kind) kateremu pripada vzdevek. Vsa prispela e-pošta, "
 "ki se ne nanaša na kateri obstoječi zapis, ustvari nov zapis tega modela "
 "(npr. projektno opravilo)"
 

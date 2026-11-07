@@ -2,7 +2,7 @@
 
 {
     'name': 'Greece - myDATA E-invoicing through e-invoo (direct API)',
-    'author': 'Odoo',
+    'author': 'my-erp-crm',
     'countries': ['gr'],
     'category': 'Accounting/Localizations/EDI',
     'depends': ['l10n_gr_edi', 'l10n_gr_edi_e_invoo'],

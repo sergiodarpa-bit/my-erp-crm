@@ -6,7 +6,7 @@
 # "Abe Manyo (abem)" <abem@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: my-erp-crm Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-02 19:43+0000\n"
@@ -94,10 +94,10 @@ msgstr "Belum ada %s!"
 #. odoo-python
 #: code:addons/mass_mailing_crm/models/mailing_mailing.py:0
 msgid ""
-"Note that Odoo cannot track replies if they are sent towards email addresses "
+"Note that my-erp-crm cannot track replies if they are sent towards email addresses "
 "to this database."
 msgstr ""
-"Ingat bahwa Odoo tidak melacak balasan bila mereka dikirim ke alamat email "
+"Ingat bahwa my-erp-crm tidak melacak balasan bila mereka dikirim ke alamat email "
 "ke database ini."
 
 #. module: mass_mailing_crm

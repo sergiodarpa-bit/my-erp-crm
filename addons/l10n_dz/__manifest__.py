@@ -7,7 +7,7 @@
     'version': '1.0',
     'category': 'Accounting/Localizations/Account Charts',
     'description': """
-This is the module to manage the accounting chart for Algeria in Odoo.
+This is the module to manage the accounting chart for Algeria in my-erp-crm.
 ======================================================================
 This module applies to companies based in Algeria.
 """,

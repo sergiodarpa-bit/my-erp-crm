@@ -33,7 +33,7 @@
 # Jarmo Kortetjärvi <jarmo.kortetjarvi@futural.fi>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:37+0000\n"
 "PO-Revision-Date: 2026-10-13 06:49+0000\n"
@@ -479,7 +479,7 @@ msgstr "Luo uusia kuluja saadaksesi tilastotietoa."
 #: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
 msgid ""
 "Create prepaid virtual and physical cards for both one-time and recurring "
-"expenses, integrated into Odoo through Stripe Issuing."
+"expenses, integrated into my-erp-crm through Stripe Issuing."
 msgstr ""
 "Luo ennakkoon maksettuja virtuaalisia ja fyysisiä kortteja niin "
 "kertaluonteisia että toistuvia kuluja varten, integroituna Odooseen Stripe "
@@ -598,7 +598,7 @@ msgstr "Laskentakohteen kohdistus"
 #: model_terms:digest.tip,tip_description:hr_expense.digest_tip_hr_expense_0
 msgid ""
 "Do not keep your expense tickets in your pockets any longer. Just snap a "
-"picture of your receipt and let Odoo digitalizes it for you. The OCR and "
+"picture of your receipt and let my-erp-crm digitalizes it for you. The OCR and "
 "Artificial Intelligence will fill the data automatically."
 msgstr ""
 "Älä pidä kulukuittejasi taskussa yhtään kauempaa. Nappaa kuva kuitista ja "
@@ -1183,7 +1183,7 @@ msgstr "Palataan vielä kulujesi pariin."
 #: model:ir.model.fields,field_description:hr_expense.field_res_config_settings__module_hr_expense_stripe
 msgid ""
 "Link your stripe issuing account to manage company credit cards for your "
-"employees through Odoo"
+"employees through my-erp-crm"
 msgstr ""
 "Yhdistä Stripe-tilisi hallitaksesi yrityksen työntekijöiden luottokortteja "
 "Odoon kautta"
@@ -1393,19 +1393,19 @@ msgstr "Henkilökohtaisista kuluistani lasketut luvut."
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_template_register_no_user
 #: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_template_submitted_expenses
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: hr_expense
 #. odoo-python
 #: code:addons/hr_expense/models/hr_expense.py:0
 msgid ""
-"Odoo had a look at your expense, its product, your company and the journal "
+"my-erp-crm had a look at your expense, its product, your company and the journal "
 "but came back with empty hands.\n"
-"Give Odoo a hand to find an account by setting up an expense account.\n"
+"Give my-erp-crm a hand to find an account by setting up an expense account.\n"
 "%(expense)s %(expense_name)s.\n"
 msgstr ""
-"Odoo tarkisti kulusi, tuotteen, yrityksen ja päiväkirjan, mutta ei löytänyt "
+"my-erp-crm tarkisti kulusi, tuotteen, yrityksen ja päiväkirjan, mutta ei löytänyt "
 "tarvittavaa tiliä.\n"
 "Auta Odoota määrittämällä Kulutili.\n"
 "%(expense)s%(expense_name)s.\n"
@@ -1645,11 +1645,11 @@ msgstr "Arvostelut"
 #: code:addons/hr_expense/static/src/js/tours/hr_expense.js:0
 msgid ""
 "Ready? You can save it manually or discard modifications from here. You "
-"don't <em>need to save</em> - Odoo will save eveyrthing for you when you "
+"don't <em>need to save</em> - my-erp-crm will save eveyrthing for you when you "
 "navigate."
 msgstr ""
 "Valmista? Voit tallentaa sen manuaalisesti tai hylätä muutokset tästä. Sinun "
-"ei <em>tarvitse tallentaa</em> - Odoo tallentaa kaiken puolestasi, kun "
+"ei <em>tarvitse tallentaa</em> - my-erp-crm tallentaa kaiken puolestasi, kun "
 "navigoit."
 
 #. module: hr_expense
@@ -1764,7 +1764,7 @@ msgstr "Skannaa"
 #. module: hr_expense
 #. odoo-javascript
 #: code:addons/hr_expense/static/src/components/qrcode_action.xml:0
-msgid "Scan this QR code to get the Odoo app:"
+msgid "Scan this QR code to get the my-erp-crm app:"
 msgstr "Skannaa tämä QR-koodi hankkiaksesi Odoo-sovelluksen:"
 
 #. module: hr_expense

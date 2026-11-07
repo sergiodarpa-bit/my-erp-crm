@@ -12,7 +12,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:38+0000\n"
 "PO-Revision-Date: 2026-08-03 03:07+0000\n"
@@ -36,8 +36,8 @@ msgstr "\"QR kodlar\""
 #. odoo-python
 #: code:addons/pos_self_order/models/pos_config.py:0
 #, fuzzy
-msgid "(require Odoo Enterprise)"
-msgstr "(Odoo Enterprise talab qilinadi)"
+msgid "(require my-erp-crm Enterprise)"
+msgstr "(my-erp-crm Enterprise talab qilinadi)"
 
 #. module: pos_self_order
 #: model_terms:ir.ui.view,arch_db:pos_self_order.qr_codes_page

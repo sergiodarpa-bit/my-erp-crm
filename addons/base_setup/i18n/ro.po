@@ -12,7 +12,7 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-04 22:23+0000\n"
@@ -142,10 +142,10 @@ msgstr "Chei API"
 #. module: base_setup
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
 msgid ""
-"API Keys allow your users to access Odoo with external tools when multi-"
+"API Keys allow your users to access my-erp-crm with external tools when multi-"
 "factor authentication is enabled."
 msgstr ""
-"Cheile API permit utilizatorilor dvs. să acceseze Odoo cu instrumente "
+"Cheile API permit utilizatorilor dvs. să acceseze my-erp-crm cu instrumente "
 "externe atunci când autentificarea multi-factor este activată."
 
 #. module: base_setup
@@ -493,8 +493,8 @@ msgstr "Autentificare OAuth"
 
 #. module: base_setup
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: base_setup
 #: model:ir.model.fields,field_description:base_setup.field_res_config_settings__module_partner_autocomplete
@@ -589,10 +589,10 @@ msgstr ""
 #. module: base_setup
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
 msgid ""
-"This name will be used for the application when Odoo is installed through "
+"This name will be used for the application when my-erp-crm is installed through "
 "the browser."
 msgstr ""
-"Acest nume va fi utilizat pentru aplicație atunci când Odoo este instalat "
+"Acest nume va fi utilizat pentru aplicație atunci când my-erp-crm este instalat "
 "prin browser."
 
 #. module: base_setup
@@ -639,11 +639,11 @@ msgstr "TVA"
 #. module: base_setup
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
 msgid ""
-"When populating your address book, Odoo provides a list of matching "
+"When populating your address book, my-erp-crm provides a list of matching "
 "companies. When selecting one item, the company data and logo are auto-"
 "filled."
 msgstr ""
-"Când completați agenda dvs. de adrese, Odoo oferă o listă a companiilor "
+"Când completați agenda dvs. de adrese, my-erp-crm oferă o listă a companiilor "
 "potrivite. La selectarea unui articol, datele companiei și sigla sunt "
 "completate automat."
 

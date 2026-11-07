@@ -12,7 +12,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:38+0000\n"
 "PO-Revision-Date: 2026-08-04 03:53+0000\n"
@@ -2350,10 +2350,10 @@ msgstr "Bu joriy versiya, taqqoslashga hech narsa yo‘q."
 #, fuzzy
 msgid ""
 "This type of image is not supported for cropping.<br/>If you want to crop "
-"it, please first download it from the original source and upload it in Odoo."
+"it, please first download it from the original source and upload it in my-erp-crm."
 msgstr ""
 "Bu turdagi rasmni kesib bo‘lmaydi.<br/>Agar uni kesmoqchi bo‘lsangiz, avval "
-"asl manbadan yuklab olib, Odoo tizimiga yuklang."
+"asl manbadan yuklab olib, my-erp-crm tizimiga yuklang."
 
 #. module: html_editor
 #. odoo-javascript

@@ -26,7 +26,11 @@ fi
 # File che nel nostro repository sono stati riscritti o rimossi: non li tocchiamo.
 EXCLUDE=(':!.github' ':!README.md' ':!CONTRIBUTING.md' ':!SECURITY.md')
 
-if ! git diff --binary "$BASE" "$NEW" -- . "${EXCLUDE[@]}" | git apply --3way --index; then
+# Le patch originali passano dallo stesso cambio di nome applicato al nostro codice
+# (scripts/rebrand.py), così si applicano senza conflitti.
+if ! git diff --binary "$BASE" "$NEW" -- . "${EXCLUDE[@]}" \
+    | python3 scripts/rebrand.py --patch \
+    | git apply --3way --index; then
   echo "Alcune modifiche vanno in conflitto con le nostre: risolvi i file segnalati," >&2
   echo "poi aggiorna UPSTREAM_COMMIT con $NEW e fai il commit." >&2
   exit 1

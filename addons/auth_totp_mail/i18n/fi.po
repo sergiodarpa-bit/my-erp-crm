@@ -7,7 +7,7 @@
 # Saara Hakanen <sahak@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~18.4\n"
+"Project-Id-Version: my-erp-crm Server saas~18.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-14 11:38+0000\n"
@@ -280,7 +280,7 @@ msgstr "Tunnus"
 
 #. module: auth_totp_mail
 #: model:mail.template,subject:auth_totp_mail.mail_template_totp_invite
-msgid "Invitation to activate two-factor authentication on your Odoo account"
+msgid "Invitation to activate two-factor authentication on your my-erp-crm account"
 msgstr "Kutsu kaksivaiheisen tunnistautumisen käyttöönottoon Odoo-tililläsi"
 
 #. module: auth_totp_mail

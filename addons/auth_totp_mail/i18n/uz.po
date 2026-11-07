@@ -12,7 +12,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-04 10:17+0000\n"
@@ -278,9 +278,9 @@ msgstr "ID"
 #. module: auth_totp_mail
 #: model:mail.template,subject:auth_totp_mail.mail_template_totp_invite
 #, fuzzy
-msgid "Invitation to activate two-factor authentication on your Odoo account"
+msgid "Invitation to activate two-factor authentication on your my-erp-crm account"
 msgstr ""
-"Odoo hisobingizda ikki bosqichli tasdiqlashni faollashtirish uchun taklif"
+"my-erp-crm hisobingizda ikki bosqichli tasdiqlashni faollashtirish uchun taklif"
 
 #. module: auth_totp_mail
 #. odoo-python

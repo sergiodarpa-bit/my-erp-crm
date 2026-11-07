@@ -9,7 +9,7 @@
 # "Kwanghee Park (kwpa)" <kwpa@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.5alpha1\n"
+"Project-Id-Version: my-erp-crm Server 15.5alpha1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-02 14:07+0000\n"
@@ -102,9 +102,9 @@ msgstr "<i class=\"fa fa-2x fa-arrow-right text-primary\" title=\"작업\"/>"
 #: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
 msgid ""
 "<i class=\"fa fa-info-circle\"/> The default target record getter will work "
-"out-of-the-box for any webhook coming from another Odoo instance."
+"out-of-the-box for any webhook coming from another my-erp-crm instance."
 msgstr ""
-"<i class=\"fa fa-info-circle\"/> 기본 대상 레코드 가져오기는 다른 Odoo "
+"<i class=\"fa fa-info-circle\"/> 기본 대상 레코드 가져오기는 다른 my-erp-crm "
 "인스턴스에서 오는 모든 웹후크에 대해 즉시 작동합니다."
 
 #. module: base_automation

@@ -16,7 +16,7 @@
 # Andrea Zucca <a.zucca@gruppohermes.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:38+0000\n"
 "PO-Revision-Date: 2026-10-30 09:33+0000\n"
@@ -1412,10 +1412,10 @@ msgstr "Verifica i permessi del browser"
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.webclient_offline
 msgid ""
-"Check your network connection and come back here. Odoo will load as soon as "
+"Check your network connection and come back here. my-erp-crm will load as soon as "
 "you're back online."
 msgstr ""
-"Verifica la connessione internet e torna qui. Odoo sarà pronto non appena "
+"Verifica la connessione internet e torna qui. my-erp-crm sarà pronto non appena "
 "tornerai online."
 
 #. module: web
@@ -3100,8 +3100,8 @@ msgstr "Gemelli"
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/webclient/settings_form_view/fields/upgrade_dialog.xml:0
-msgid "Get this feature and much more with Odoo Enterprise!"
-msgstr "Ottieni questa e altre funzionalità aggiuntive con Odoo Enterprise."
+msgid "Get this feature and much more with my-erp-crm Enterprise!"
+msgstr "Ottieni questa e altre funzionalità aggiuntive con my-erp-crm Enterprise."
 
 #. module: web
 #. odoo-javascript
@@ -4956,41 +4956,41 @@ msgstr "Oggetti"
 #: code:addons/web/static/src/core/install_scoped_app/install_scoped_app.xml:0
 #: code:addons/web/static/src/webclient/settings_form_view/widgets/res_config_edition.xml:0
 #: model_terms:ir.ui.view,arch_db:web.brand_promotion_message
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Client Error"
-msgstr "Errore client Odoo"
+msgid "my-erp-crm Client Error"
+msgstr "Errore client my-erp-crm"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/webclient/settings_form_view/fields/upgrade_dialog.xml:0
-msgid "Odoo Enterprise"
-msgstr "Odoo Enterprise"
+msgid "my-erp-crm Enterprise"
+msgstr "my-erp-crm Enterprise"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Error"
-msgstr "Errore Odoo"
+msgid "my-erp-crm Error"
+msgstr "Errore my-erp-crm"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Network Error"
-msgstr "Errore Odoo Network"
+msgid "my-erp-crm Network Error"
+msgstr "Errore my-erp-crm Network"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/views/widgets/notification_alert/notification_alert.xml:0
 msgid ""
-"Odoo Push notifications have been blocked. Go to your browser settings to "
+"my-erp-crm Push notifications have been blocked. Go to your browser settings to "
 "allow them."
 msgstr ""
-"Le notifiche push di Odoo sono state bloccate. Per consentirle, andare nelle "
+"Le notifiche push di my-erp-crm sono state bloccate. Per consentirle, andare nelle "
 "impostazioni del browser."
 
 #. module: web
@@ -5003,32 +5003,32 @@ msgstr "Odoo S.A."
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Server Error"
-msgstr "Errore Odoo Server"
+msgid "my-erp-crm Server Error"
+msgstr "Errore my-erp-crm Server"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/public/error_notifications.js:0
-msgid "Odoo Session Expired"
-msgstr "Sessione Odoo scaduta"
+msgid "my-erp-crm Session Expired"
+msgstr "Sessione my-erp-crm scaduta"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Warning"
-msgstr "Avviso Odoo"
+msgid "my-erp-crm Warning"
+msgstr "Avviso my-erp-crm"
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.webclient_offline
-msgid "Odoo logo"
-msgstr "Logo Odoo"
+msgid "my-erp-crm logo"
+msgstr "Logo my-erp-crm"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/barcode/barcode_video_scanner.js:0
-msgid "Odoo needs your authorization first."
-msgstr "Odoo ha bisogno della tua autorizzazione prima."
+msgid "my-erp-crm needs your authorization first."
+msgstr "my-erp-crm ha bisogno della tua autorizzazione prima."
 
 #. module: web
 #. odoo-javascript
@@ -5427,8 +5427,8 @@ msgstr "Fornito da %s%s"
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.login_layout
-msgid "Powered by <span>Odoo</span>"
-msgstr "Fornito da <span>Odoo</span>"
+msgid "Powered by <span>my-erp-crm</span>"
+msgstr "Fornito da <span>my-erp-crm</span>"
 
 #. module: web
 #. odoo-javascript
@@ -7970,10 +7970,10 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/web/static/src/webclient/actions/reports/utils.js:0
 msgid ""
-"You need to start Odoo with at least two workers to print a pdf version of "
+"You need to start my-erp-crm with at least two workers to print a pdf version of "
 "the reports."
 msgstr ""
-"Per stampare una versione PDF dei report è necessario avviare Odoo con "
+"Per stampare una versione PDF dei report è necessario avviare my-erp-crm con "
 "almeno due worker."
 
 #. module: web
@@ -7992,9 +7992,9 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/public/error_notifications.js:0
-msgid "Your Odoo session expired. The current page is about to be refreshed."
+msgid "Your my-erp-crm session expired. The current page is about to be refreshed."
 msgstr ""
-"La sessione Odoo è scaduta. La pagina corrente sta per essere aggiornata."
+"La sessione my-erp-crm è scaduta. La pagina corrente sta per essere aggiornata."
 
 #. module: web
 #. odoo-javascript

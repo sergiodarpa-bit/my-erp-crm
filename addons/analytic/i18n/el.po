@@ -14,7 +14,7 @@
 # VARVARA STRATIKOPOULOU <v.stratikopoulou@dileanity.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~11.5\n"
+"Project-Id-Version: my-erp-crm Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-10-13 08:29+0000\n"
@@ -577,12 +577,12 @@ msgstr "Αν επιλεγεί, κάποια μηνύματα έχουν σφάλ
 #: model_terms:ir.actions.act_window,help:analytic.account_analytic_line_action
 #: model_terms:ir.actions.act_window,help:analytic.account_analytic_line_action_entries
 msgid ""
-"In Odoo, sales orders and projects are implemented using\n"
+"In my-erp-crm, sales orders and projects are implemented using\n"
 "                analytic accounts. You can track costs and revenues to "
 "analyse\n"
 "                your margins easily."
 msgstr ""
-"Στην Odoo, οι εντολές πωλήσεων και τα έργα υλοποιούνται χρησιμοποιώντας\n"
+"Στην my-erp-crm, οι εντολές πωλήσεων και τα έργα υλοποιούνται χρησιμοποιώντας\n"
 "                αναλυτικούς λογαριασμούς. Μπορείτε να παρακολουθείτε τα "
 "κόστη και τα έσοδα για να \n"
 "                αναλύσετε τα περιθώρια σας εύκολα."

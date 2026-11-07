@@ -11,7 +11,7 @@
 # "Malaz Siddig Elsayed Abuidris (msea)" <msea@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~12.5\n"
+"Project-Id-Version: my-erp-crm Server saas~12.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-24 05:10+0000\n"
@@ -300,7 +300,7 @@ msgstr "الحالة"
 #. module: base_import_module
 #. odoo-python
 #: code:addons/base_import_module/models/ir_module.py:0
-msgid "Studio customizations require the Odoo Studio app."
+msgid "Studio customizations require the my-erp-crm Studio app."
 msgstr "تخصيصات الاستوديو تتطلب وجود تطبيق الاستوديو من أودو."
 
 #. module: base_import_module

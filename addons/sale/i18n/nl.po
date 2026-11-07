@@ -11,7 +11,7 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:38+0000\n"
 "PO-Revision-Date: 2026-10-27 11:33+0000\n"
@@ -30,7 +30,7 @@ msgstr ""
 #: code:addons/sale/static/src/views/sale_file_upload_list/sale_file_upload_list_renderer.js:0
 msgid ""
 "\n"
-"            If your customer runs on Odoo 18 or higher, customer data and "
+"            If your customer runs on my-erp-crm 18 or higher, customer data and "
 "sales order lines\n"
 "            will be automatically created. Any other pdf containing an "
 "attached\n"
@@ -38,7 +38,7 @@ msgid ""
 "        "
 msgstr ""
 "\n"
-"            Als je klant met Odoo 18 of hoger werkt, worden klantgegevens en "
+"            Als je klant met my-erp-crm 18 of hoger werkt, worden klantgegevens en "
 "verkooporderregels\n"
 "            automatisch aangemaakt. Elke andere pdf met een bijgevoegd\n"
 "            UBL-RequestForQuotation-bestand werkt ook.\n"
@@ -1629,10 +1629,10 @@ msgstr ""
 #. module: sale
 #: model_terms:ir.actions.act_window,help:sale.action_orders_upselling
 msgid ""
-"As an example, if you sell pre-paid hours of services, Odoo recommends you\n"
+"As an example, if you sell pre-paid hours of services, my-erp-crm recommends you\n"
 "            to sell extra hours when all ordered hours have been consumed."
 msgstr ""
-"Als je bijvoorbeeld vooruitbetaalde uren aan diensten verkoopt, raadt Odoo "
+"Als je bijvoorbeeld vooruitbetaalde uren aan diensten verkoopt, raadt my-erp-crm "
 "je aan:\n"
 "            om extra uren te verkopen wanneer alle bestelde uren zijn "
 "verbruikt."
@@ -2672,9 +2672,9 @@ msgstr "Conceptfacturen"
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
 msgid ""
 "Drag and drop the request for quotation PDF file into your list of "
-"quotations in Odoo. Enjoy the automation!"
+"quotations in my-erp-crm. Enjoy the automation!"
 msgstr ""
-"Sleep het PDF-bestand met de inkoopofferte naar je offertelijst in Odoo. "
+"Sleep het PDF-bestand met de inkoopofferte naar je offertelijst in my-erp-crm. "
 "Geniet van de automatisering!"
 
 #. module: sale
@@ -3643,7 +3643,7 @@ msgstr "Geen upsell orders gevonden."
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Not using Odoo?"
+msgid "Not using my-erp-crm?"
 msgstr "Geen Odoo-gebruiker?"
 
 #. module: sale
@@ -3696,8 +3696,8 @@ msgstr "Aantal berichten met leveringsfout"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: sale
 #: model:product.template,description_sale:sale.product_product_1_product_template
@@ -5130,8 +5130,8 @@ msgstr "Starshipit-connector"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Start on Odoo"
-msgstr "Begin met Odoo"
+msgid "Start on my-erp-crm"
+msgstr "Begin met my-erp-crm"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order__state
@@ -6012,8 +6012,8 @@ msgstr "Volume"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Want to import this document in Odoo?"
-msgstr "Wil je dit document in Odoo importeren?"
+msgid "Want to import this document in my-erp-crm?"
+msgstr "Wil je dit document in my-erp-crm importeren?"
 
 #. module: sale
 #. odoo-python

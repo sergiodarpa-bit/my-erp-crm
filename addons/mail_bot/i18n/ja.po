@@ -10,7 +10,7 @@
 # MAHAMADASIF ANSARI <maan@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.5alpha1\n"
+"Project-Id-Version: my-erp-crm Server 15.5alpha1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-05 22:00+0000\n"
@@ -159,7 +159,7 @@ msgstr ""
 #. odoo-python
 #: code:addons/mail_bot/models/res_users.py:0
 msgid ""
-"Odoo's chat helps employees collaborate efficiently. I'm here to help you "
+"my-erp-crm's chat helps employees collaborate efficiently. I'm here to help you "
 "discover its features."
 msgstr ""
 "Odooのチャットは従業員同士の効率的なコラボレーションをサポートします。その機"
@@ -248,7 +248,7 @@ msgstr "それは優しくない！私はボットだけど感情はあります
 msgid ""
 "That’s the end of this overview. You can %(bold_start)sclose this "
 "conversation%(bold_end)s or type %(command_start)sstart the tour%"
-"(command_end)s to see it again. Enjoy exploring Odoo!"
+"(command_end)s to see it again. Enjoy exploring my-erp-crm!"
 msgstr ""
 "これで概要は終わりです。%(bold_start)sの会話を閉じる%(bold_end)sまたは %"
 "(command_start)sツアーを開始%(command_end)sと入力するともう一度見ることができ"

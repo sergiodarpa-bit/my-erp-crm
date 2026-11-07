@@ -18,7 +18,7 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0+e\n"
+"Project-Id-Version: my-erp-crm Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:40+0000\n"
 "PO-Revision-Date: 2026-08-05 05:23+0000\n"
@@ -3443,10 +3443,10 @@ msgstr "Приетият отговор е изтрит"
 #: model_terms:ir.ui.view,arch_db:website_forum.faq_karma
 msgid ""
 "The goal of this site is create a relevant knowledge base that would answer "
-"questions related to Odoo."
+"questions related to my-erp-crm."
 msgstr ""
 "Целта на този сайт е да създаде уместна база знания, която да отговаря на "
-"въпроси, свързани с Odoo."
+"въпроси, свързани с my-erp-crm."
 
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.post_description_full
@@ -4135,9 +4135,9 @@ msgstr "тук"
 #. module: website_forum
 #: model_terms:forum.forum,faq:website_forum.forum_help
 #: model_terms:ir.ui.view,arch_db:website_forum.default_faq
-msgid "how to configure or customize Odoo to specific business needs,"
+msgid "how to configure or customize my-erp-crm to specific business needs,"
 msgstr ""
-"как да конфигурирате или персонализирате Odoo за конкретни бизнес нужди,"
+"как да конфигурирате или персонализирате my-erp-crm за конкретни бизнес нужди,"
 
 #. module: website_forum
 #: model_terms:forum.forum,faq:website_forum.forum_help
@@ -4148,8 +4148,8 @@ msgstr "как да разработите модули за собствени 
 #. module: website_forum
 #: model_terms:forum.forum,faq:website_forum.forum_help
 #: model_terms:ir.ui.view,arch_db:website_forum.default_faq
-msgid "how to install Odoo on a specific infrastructure,"
-msgstr "как да инсталирате Odoo на конкретна инфраструктура,"
+msgid "how to install my-erp-crm on a specific infrastructure,"
+msgstr "как да инсталирате my-erp-crm на конкретна инфраструктура,"
 
 #. module: website_forum
 #. odoo-javascript
@@ -4248,8 +4248,8 @@ msgstr "публикации"
 #. module: website_forum
 #: model_terms:forum.forum,faq:website_forum.forum_help
 #: model_terms:ir.ui.view,arch_db:website_forum.default_faq
-msgid "specific questions about Odoo service offers, etc."
-msgstr "конкретни въпроси за предлаганите от Odoo услуги и др."
+msgid "specific questions about my-erp-crm service offers, etc."
+msgstr "конкретни въпроси за предлаганите от my-erp-crm услуги и др."
 
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.no_results_message
@@ -4300,9 +4300,9 @@ msgstr ""
 #. module: website_forum
 #: model_terms:forum.forum,faq:website_forum.forum_help
 #: model_terms:ir.ui.view,arch_db:website_forum.default_faq
-msgid "what's the best way to use Odoo for a specific business need,"
+msgid "what's the best way to use my-erp-crm for a specific business need,"
 msgstr ""
-"какъв е най-добрият начин да използвате Odoo за конкретни бизнес нужди,"
+"какъв е най-добрият начин да използвате my-erp-crm за конкретни бизнес нужди,"
 
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.author_box

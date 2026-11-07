@@ -38,7 +38,7 @@ Brazilian market.
 Avatax Brazil (l10n_br_avatax)
 ------------------------------
 Add Brazilian tax calculation via Avatax and all necessary fields needed to
-configure Odoo in order to properly use Avatax and send the needed fiscal
+configure my-erp-crm in order to properly use Avatax and send the needed fiscal
 information to retrieve the correct taxes.
 
 Avatax for SOs in Brazil (l10n_br_avatax_sale)
@@ -49,7 +49,7 @@ Electronic invoicing through Avatax (l10n_br_edi)
 -------------------------------------------------
 Create electronic sales invoices with Avatax.
 """,
-    'author': 'Akretion, Odoo Brasil',
+    'author': 'Akretion, my-erp-crm Brasil',
     'depends': [
         'account',
         'account_qr_code_emv',

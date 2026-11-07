@@ -686,7 +686,7 @@ class TestPoSProductsWithTax(TestPoSCommon):
         )
 
         pos_user = self.env['res.users'].create({
-            'name': 'Joe Odoo',
+            'name': 'Joe my-erp-crm',
             'login': 'pos_user',
             'password': 'pos_user',
             'group_ids': [

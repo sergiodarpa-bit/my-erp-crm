@@ -39,13 +39,13 @@ test("Search highlight", async () => {
             searchTerm: "odoo",
         },
         {
-            input: markup`<a href="https://www.odoo.com">Odoo</a>`,
-            output: `<a href="https://www.odoo.com"><span class="${HIGHLIGHT_CLASS}">Odoo</span></a>`,
+            input: markup`<a href="https://www.odoo.com">my-erp-crm</a>`,
+            output: `<a href="https://www.odoo.com"><span class="${HIGHLIGHT_CLASS}">my-erp-crm</span></a>`,
             searchTerm: "odoo",
         },
         {
-            input: markup`<a href="https://www.odoo.com">Odoo</a> Odoo is a free software`,
-            output: `<a href="https://www.odoo.com"><span class="${HIGHLIGHT_CLASS}">Odoo</span></a> <span class="${HIGHLIGHT_CLASS}">Odoo</span> is a free software`,
+            input: markup`<a href="https://www.odoo.com">my-erp-crm</a> my-erp-crm is a free software`,
+            output: `<a href="https://www.odoo.com"><span class="${HIGHLIGHT_CLASS}">my-erp-crm</span></a> <span class="${HIGHLIGHT_CLASS}">my-erp-crm</span> is a free software`,
             searchTerm: "odoo",
         },
         {
@@ -60,18 +60,18 @@ test("Search highlight", async () => {
         },
         {
             input: markup`<ul>
-                <li>Odoo</li>
-                <li><a href="https://odoo.com">Odoo ERP</a> Best ERP</li>
+                <li>my-erp-crm</li>
+                <li><a href="https://odoo.com">my-erp-crm ERP</a> Best ERP</li>
             </ul>`,
             output: `<ul>
-                <li><span class="${HIGHLIGHT_CLASS}">Odoo</span></li>
-                <li><a href="https://odoo.com"><span class="${HIGHLIGHT_CLASS}">Odoo</span> ERP</a> Best ERP</li>
+                <li><span class="${HIGHLIGHT_CLASS}">my-erp-crm</span></li>
+                <li><a href="https://odoo.com"><span class="${HIGHLIGHT_CLASS}">my-erp-crm</span> ERP</a> Best ERP</li>
             </ul>`,
             searchTerm: "odoo",
         },
         {
-            input: markup`test <strong>Odoo</strong> test`,
-            output: `<span class="${HIGHLIGHT_CLASS}">test</span> <strong><span class="${HIGHLIGHT_CLASS}">Odoo</span></strong> <span class="${HIGHLIGHT_CLASS}">test</span>`,
+            input: markup`test <strong>my-erp-crm</strong> test`,
+            output: `<span class="${HIGHLIGHT_CLASS}">test</span> <strong><span class="${HIGHLIGHT_CLASS}">my-erp-crm</span></strong> <span class="${HIGHLIGHT_CLASS}">test</span>`,
             searchTerm: "odoo test",
         },
         {

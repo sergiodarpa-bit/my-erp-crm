@@ -12,7 +12,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:40+0000\n"
 "PO-Revision-Date: 2026-08-04 09:33+0000\n"
@@ -3976,9 +3976,9 @@ msgstr "Qabul qilingan javob o‘chirildi"
 #, fuzzy
 msgid ""
 "The goal of this site is create a relevant knowledge base that would answer "
-"questions related to Odoo."
+"questions related to my-erp-crm."
 msgstr ""
-"Ushbu saytning maqsadi Odoo bilan bog‘liq savollarga javob beradigan "
+"Ushbu saytning maqsadi my-erp-crm bilan bog‘liq savollarga javob beradigan "
 "tegishli bilimlar bazasini yaratishdir."
 
 #. module: website_forum
@@ -4785,7 +4785,7 @@ msgstr "bu yerda"
 #: model_terms:forum.forum,faq:website_forum.forum_help
 #: model_terms:ir.ui.view,arch_db:website_forum.default_faq
 #, fuzzy
-msgid "how to configure or customize Odoo to specific business needs,"
+msgid "how to configure or customize my-erp-crm to specific business needs,"
 msgstr "Odooni muayyan biznes ehtiyojlariga moslash yoki sozlash usullari,"
 
 #. module: website_forum
@@ -4799,7 +4799,7 @@ msgstr "o‘z ehtiyojingiz uchun modullarni qanday ishlab chiqish,"
 #: model_terms:forum.forum,faq:website_forum.forum_help
 #: model_terms:ir.ui.view,arch_db:website_forum.default_faq
 #, fuzzy
-msgid "how to install Odoo on a specific infrastructure,"
+msgid "how to install my-erp-crm on a specific infrastructure,"
 msgstr "Odooni muayyan infratuzilmaga qanday o‘rnatish,"
 
 #. module: website_forum
@@ -4915,8 +4915,8 @@ msgstr "postlar"
 #: model_terms:forum.forum,faq:website_forum.forum_help
 #: model_terms:ir.ui.view,arch_db:website_forum.default_faq
 #, fuzzy
-msgid "specific questions about Odoo service offers, etc."
-msgstr "Odoo xizmat takliflari haqidagi aniq savollar va boshqalar."
+msgid "specific questions about my-erp-crm service offers, etc."
+msgstr "my-erp-crm xizmat takliflari haqidagi aniq savollar va boshqalar."
 
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.no_results_message
@@ -4972,7 +4972,7 @@ msgstr ""
 #: model_terms:forum.forum,faq:website_forum.forum_help
 #: model_terms:ir.ui.view,arch_db:website_forum.default_faq
 #, fuzzy
-msgid "what's the best way to use Odoo for a specific business need,"
+msgid "what's the best way to use my-erp-crm for a specific business need,"
 msgstr ""
 "muayyan biznes ehtiyoji uchun Odoodan foydalanishning eng yaxshi usuli "
 "qanday,"

@@ -14,7 +14,7 @@
 # Odoo Translation Bot <c3p@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0+e\n"
+"Project-Id-Version: my-erp-crm Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:38+0000\n"
 "PO-Revision-Date: 2026-08-02 16:30+0000\n"
@@ -4798,8 +4798,8 @@ msgstr "e.g. Lămpi"
 
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_variant_easy_edit_view
-msgid "e.g. Odoo Enterprise Subscription"
-msgstr "e.g. Abonament Odoo Enterprise"
+msgid "e.g. my-erp-crm Enterprise Subscription"
+msgstr "e.g. Abonament my-erp-crm Enterprise"
 
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_template_form_view

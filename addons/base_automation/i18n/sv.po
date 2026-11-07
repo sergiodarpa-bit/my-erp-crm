@@ -16,7 +16,7 @@
 # Hanna Kharraziha <hakha@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.5alpha1\n"
+"Project-Id-Version: my-erp-crm Server 15.5alpha1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-09-29 13:33+0000\n"
@@ -109,7 +109,7 @@ msgstr "<i class=\"fa fa-2x fa-arrow-right text-primary\" title=\"Åtgärder\"/>
 #: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
 msgid ""
 "<i class=\"fa fa-info-circle\"/> The default target record getter will work "
-"out-of-the-box for any webhook coming from another Odoo instance."
+"out-of-the-box for any webhook coming from another my-erp-crm instance."
 msgstr ""
 "<i class=\"fa fa-info-circle\"/> Standardinställningen för att hämta "
 "målposter fungerar direkt för alla webhook som kommer från en annan Odoo-"

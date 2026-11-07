@@ -9,7 +9,7 @@
 # "Dylan Kiss (dyki)" <dyki@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.5alpha1\n"
+"Project-Id-Version: my-erp-crm Server 15.5alpha1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-07 05:49+0000\n"
@@ -116,10 +116,10 @@ msgstr "Source de fabrication de %s"
 #. odoo-python
 #: code:addons/purchase_mrp/models/stock_move.py:0
 msgid ""
-"Odoo is not able to generate the anglo saxon entries. The total valuation of "
+"my-erp-crm is not able to generate the anglo saxon entries. The total valuation of "
 "%s is zero."
 msgstr ""
-"Odoo n'est pas capable de générer les écritures anglo-saxonnes. La "
+"my-erp-crm n'est pas capable de générer les écritures anglo-saxonnes. La "
 "valorisation totale de %s est zéro"
 
 #. module: purchase_mrp

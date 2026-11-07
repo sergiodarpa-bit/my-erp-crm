@@ -71,7 +71,7 @@ class MailThread(models.AbstractModel):
         communication history. ``mail.thread`` also manages followers of
         inheriting classes. All features and expected behavior are managed
         by mail.thread. Widgets has been designed for the 7.0 and following
-        versions of Odoo.
+        versions of my-erp-crm.
 
         Inheriting classes are not required to implement any method, as the
         default implementation will work for any model. However it is common
@@ -1005,7 +1005,7 @@ class MailThread(models.AbstractModel):
         """This method returns True if the incoming email should be ignored.
 
         The goal of this method is to prevent loops which can occur if an auto-replier
-        send emails to Odoo.
+        send emails to my-erp-crm.
         """
         email_from = message_dict.get('email_from')
         if not email_from:
@@ -2229,7 +2229,7 @@ class MailThread(models.AbstractModel):
         :param list(int) partner_ids: partner_ids to notify in addition to partners
             computed based on subtype / followers matching;
         :param str outgoing_email_to: comma-separated list of emails to notify in
-            addition to partner_ids. Experimental support as of Odoo v19;
+            addition to partner_ids. Experimental support as of my-erp-crm v19;
         :param str incoming_email_to: comma-separated list of emails, already notified
             by incoming email;
         :param str incoming_email_cc: comma-separated list of emails, already notified
@@ -4348,7 +4348,7 @@ class MailThread(models.AbstractModel):
         ]
 
     def _notify_get_recipients_for_extra_notifications(self, message, recipients_data, msg_vals=False):
-        """ Never send to author and to people outside Odoo (email) except comments """
+        """ Never send to author and to people outside my-erp-crm (email) except comments """
         notif_pids = []
         notif_pids_notinbox = []
         for recipient in (r for r in recipients_data if r['active'] and r['id']):

@@ -12,7 +12,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-08-03 16:04+0000\n"
@@ -493,11 +493,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_call_to_action
 #, fuzzy
 msgid ""
-"<font style=\"color: white;\"><strong>50,000+ companies</strong> run Odoo.</"
+"<font style=\"color: white;\"><strong>50,000+ companies</strong> run my-erp-crm.</"
 "font>"
 msgstr ""
 "<font style=\"color: white;\"><strong>50 000 dan ortiq kompaniya</strong> "
-"Odoo‘dan foydalanadi.</font>"
+"my-erp-crm‘dan foydalanadi.</font>"
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_numbers
@@ -4065,8 +4065,8 @@ msgstr ""
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_schedule
 #, fuzzy
-msgid "Interactive Odoo demo"
-msgstr "Interaktiv Odoo namoyishi"
+msgid "Interactive my-erp-crm demo"
+msgstr "Interaktiv my-erp-crm namoyishi"
 
 #. module: mass_mailing
 #: model:ir.model.fields.selection,name:mass_mailing.selection__mailing_trace__failure_type__mail_email_invalid
@@ -5197,9 +5197,9 @@ msgstr ""
 #, fuzzy
 msgid ""
 "No need to import mailing lists, you can send mailings to contacts saved in "
-"other Odoo apps."
+"other my-erp-crm apps."
 msgstr ""
-"Xat jo‘natish ro‘yxatlarini kiritish shart emas, xatlarni boshqa Odoo "
+"Xat jo‘natish ro‘yxatlarini kiritish shart emas, xatlarni boshqa my-erp-crm "
 "ilovalarida saqlangan kontaktlarga yuborishingiz mumkin."
 
 #. module: mass_mailing
@@ -5338,7 +5338,7 @@ msgstr "OCHILDI (%i)"
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_section_mobile
-msgid "Odoo Mobile"
+msgid "my-erp-crm Mobile"
 msgstr ""
 
 #. module: mass_mailing
@@ -7302,11 +7302,11 @@ msgstr "Istisno ro‘yxatidan foydalanish"
 #: model_terms:ir.ui.view,arch_db:mass_mailing.res_config_settings_view_form
 #, fuzzy
 msgid ""
-"Use a specific mail server in priority. Otherwise Odoo relies on the first "
+"Use a specific mail server in priority. Otherwise my-erp-crm relies on the first "
 "outgoing mail server available (based on their sequencing) as it does for "
 "normal mails."
 msgstr ""
-"Birinchi navbatda ma'lum bir pochta serveridan foydalaning. Aks holda, Odoo "
+"Birinchi navbatda ma'lum bir pochta serveridan foydalaning. Aks holda, my-erp-crm "
 "oddiy xatlar uchun bo‘lgani kabi mavjud bo‘lgan birinchi chiquvchi pochta "
 "serveriga (ularning ketma-ketligiga asoslangan holda) tayanadi."
 
@@ -7679,9 +7679,9 @@ msgstr ""
 #, fuzzy
 msgid ""
 "You don't need to import your mailing lists, you can easily\n"
-"                send emails<br> to any contact saved in other Odoo apps."
+"                send emails<br> to any contact saved in other my-erp-crm apps."
 msgstr ""
-"Tarqatma ro‘yxatlaringizni import qilishingiz shart emas, boshqa Odoo "
+"Tarqatma ro‘yxatlaringizni import qilishingiz shart emas, boshqa my-erp-crm "
 "ilovalarida saqlangan har qanday kontaktga osongina xat yuborishingiz "
 "mumkin<br>."
 

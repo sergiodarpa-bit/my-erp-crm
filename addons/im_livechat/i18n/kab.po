@@ -6,7 +6,7 @@
 # Martin Trigaux <mat@odoo.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: my-erp-crm Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-08-04 00:35+0000\n"
@@ -246,7 +246,7 @@ msgstr ""
 #. module: im_livechat
 #: model_terms:ir.ui.view,arch_db:im_livechat.im_livechat_channel_view_form
 msgid ""
-"Agents who are inactive in Odoo for more than 30 minutes will be considered "
+"Agents who are inactive in my-erp-crm for more than 30 minutes will be considered "
 "disconnected."
 msgstr ""
 
@@ -1997,7 +1997,7 @@ msgstr ""
 #. module: im_livechat
 #: model:chatbot.script,title:im_livechat.chatbot_script_welcome_bot_demo
 #: model_terms:ir.ui.view,arch_db:im_livechat.livechat_email_template
-msgid "Odoo"
+msgid "my-erp-crm"
 msgstr ""
 
 #. module: im_livechat

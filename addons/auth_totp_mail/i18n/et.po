@@ -5,7 +5,7 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-02 12:13+0000\n"
@@ -209,8 +209,8 @@ msgstr "ID"
 
 #. module: auth_totp_mail
 #: model:mail.template,subject:auth_totp_mail.mail_template_totp_invite
-msgid "Invitation to activate two-factor authentication on your Odoo account"
-msgstr "Kutse kaheastmelise autentimise aktiveerimiseks teie Odoo kontol"
+msgid "Invitation to activate two-factor authentication on your my-erp-crm account"
+msgstr "Kutse kaheastmelise autentimise aktiveerimiseks teie my-erp-crm kontol"
 
 #. module: auth_totp_mail
 #. odoo-python

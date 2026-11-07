@@ -1785,8 +1785,8 @@ class HrExpense(models.Model):
 
         if not account:
             raise UserError(self.env._(
-                "Odoo had a look at your expense, its product, your company and the journal but came back with empty hands.\n"
-                "Give Odoo a hand to find an account by setting up an expense account.\n"
+                "my-erp-crm had a look at your expense, its product, your company and the journal but came back with empty hands.\n"
+                "Give my-erp-crm a hand to find an account by setting up an expense account.\n"
                 "%(expense)s %(expense_name)s.\n",
                 expense=self,
                 expense_name=self.name,

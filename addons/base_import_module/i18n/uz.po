@@ -12,7 +12,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-04 04:09+0000\n"
@@ -342,8 +342,8 @@ msgstr "Holat"
 #. odoo-python
 #: code:addons/base_import_module/models/ir_module.py:0
 #, fuzzy
-msgid "Studio customizations require the Odoo Studio app."
-msgstr "Studio moslashtirishlari uchun Odoo Studio ilovasi talab qilinadi."
+msgid "Studio customizations require the my-erp-crm Studio app."
+msgstr "Studio moslashtirishlari uchun my-erp-crm Studio ilovasi talab qilinadi."
 
 #. module: base_import_module
 #. odoo-python

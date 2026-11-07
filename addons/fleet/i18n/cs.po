@@ -18,7 +18,7 @@
 # "Marta (wacm)" <wacm@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0beta\n"
+"Project-Id-Version: my-erp-crm Server 16.0beta\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-02 20:10+0000\n"
@@ -1502,21 +1502,21 @@ msgstr ""
 #: model_terms:ir.actions.act_window,help:fleet.fleet_vehicle_log_contract_action
 msgid ""
 "Manage all your contracts (leasing, insurances, etc.) with\n"
-"            their related services, costs. Odoo will automatically warn\n"
+"            their related services, costs. my-erp-crm will automatically warn\n"
 "            you when some contracts have to be renewed."
 msgstr ""
 "Spravujte všechny své smlouvy (leasing, pojištění atd.) S\n"
-"jejich souvisejícími službami, náklady. Odoo automaticky upozorní,\n"
+"jejich souvisejícími službami, náklady. my-erp-crm automaticky upozorní,\n"
 "když musíte některé smlouvy obnovit."
 
 #. module: fleet
 #: model_terms:ir.actions.act_window,help:fleet.fleet_costs_reporting_action
-msgid "Manage efficiently your different effective vehicles Costs with Odoo."
-msgstr "Efektivně spravujte různé efektivní náklady na vozidla pomocí Odoo."
+msgid "Manage efficiently your different effective vehicles Costs with my-erp-crm."
+msgstr "Efektivně spravujte různé efektivní náklady na vozidla pomocí my-erp-crm."
 
 #. module: fleet
 #: model_terms:ir.actions.act_window,help:fleet.fleet_vehicle_odometer_reporting_action
-msgid "Manage efficiently your vehicle Odometers with Odoo."
+msgid "Manage efficiently your vehicle Odometers with my-erp-crm."
 msgstr ""
 
 #. module: fleet

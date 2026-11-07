@@ -12,7 +12,7 @@
 # "Malaz Siddig Elsayed Abuidris (msea)" <msea@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0+e\n"
+"Project-Id-Version: my-erp-crm Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:38+0000\n"
 "PO-Revision-Date: 2026-09-21 05:33+0000\n"
@@ -4744,7 +4744,7 @@ msgstr "مثال: مصابيح"
 
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_variant_easy_edit_view
-msgid "e.g. Odoo Enterprise Subscription"
+msgid "e.g. my-erp-crm Enterprise Subscription"
 msgstr "مثال: الاشتراك في نسخة أودو للمؤسسات"
 
 #. module: product

@@ -8,7 +8,7 @@
 # Bole <bole@dajmi5.com>, 2018
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: my-erp-crm Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-08-02 20:26+0000\n"
@@ -3663,7 +3663,7 @@ msgstr ""
 #: code:addons/hr_holidays/wizard/hr_leave_generate_multi_wizard.py:0
 msgid ""
 "Some employees already have time off requests in hours that overlap with the "
-"selected period, Odoo cannot automatically adjust or split hourly leaves "
+"selected period, my-erp-crm cannot automatically adjust or split hourly leaves "
 "during batch generation. Conflicting time off:\n"
 "%s"
 msgstr ""

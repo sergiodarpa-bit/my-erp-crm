@@ -5,7 +5,7 @@
 # Bone NI <bounkirdni@gmail.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:38+0000\n"
 "PO-Revision-Date: 2026-08-02 18:43+0000\n"
@@ -2018,10 +2018,10 @@ msgstr "ນີ້ແມ່ນເວີຊັນປັດຈຸບັນ, ບໍ�
 #: code:addons/html_editor/static/src/main/media/image_crop.js:0
 msgid ""
 "This type of image is not supported for cropping.<br/>If you want to crop "
-"it, please first download it from the original source and upload it in Odoo."
+"it, please first download it from the original source and upload it in my-erp-crm."
 msgstr ""
 "ຮູບພາບປະເພດນີ້ບໍ່ຮອງຮັບການຕັດ.<br/>ຫາກທ່ານຕ້ອງການຕັດມັນ, ກະລຸນາດາວໂຫຼດຈາກແຫຼ່ງຕົ້ນສະບັບກ່ອນ "
-"ແລ້ວຈຶ່ງອັບໂຫຼດລົງໃນ Odoo."
+"ແລ້ວຈຶ່ງອັບໂຫຼດລົງໃນ my-erp-crm."
 
 #. module: html_editor
 #. odoo-javascript

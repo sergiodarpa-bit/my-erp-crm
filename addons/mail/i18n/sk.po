@@ -24,11 +24,11 @@
 # Odoo Translation Bot <c3p@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:37+0000\n"
 "PO-Revision-Date: 2026-08-02 19:22+0000\n"
-"Last-Translator: Odoo Translation Bot <c3p@odoo.com>\n"
+"Last-Translator: my-erp-crm Translation Bot <c3p@odoo.com>\n"
 "Language-Team: Slovak <https://translate.odoo.com/projects/odoo-19/mail/sk/"
 ">\n"
 "Language: sk\n"
@@ -65,13 +65,13 @@ msgid ""
 "            <p class=\"o_view_nocontent_smiling_face\">\n"
 "                Add addresses to the Allowed List\n"
 "            </p><p>\n"
-"                To protect you from spam and reply loops, Odoo automatically "
+"                To protect you from spam and reply loops, my-erp-crm automatically "
 "blocks emails\n"
 "                coming to your gateway past a threshold of <b>%(threshold)i</"
 "b> emails every <b>%(minutes)i</b>\n"
 "                minutes. If there are some addresses from which you need to "
 "receive very frequent\n"
-"                updates, you can however add them below and Odoo will let "
+"                updates, you can however add them below and my-erp-crm will let "
 "them go through.\n"
 "            </p>"
 msgstr ""
@@ -80,12 +80,12 @@ msgstr ""
 "                Pridať adresy do zoznamu povolených\n"
 "           </p><p> \n"
 "                Aby vás ochránilo pred spamom a nekonečnými reťazcami "
-"odpovedí, Odoo automaticky blokuje e-maily\n"
+"odpovedí, my-erp-crm automaticky blokuje e-maily\n"
 "                prichádzajúce na vašu bránu, ktoré prekročia limit <b>%"
 "(threshold)i</b> e-mailov každých <b>%(minutes)i</b> \n"
 "                minút. Ak existujú adresy, z ktorých potrebujete dostávať "
 "veľmi časté\n"
-"                aktualizácie, môžete ich pridať nižšie a Odoo ich prepustí.\n"
+"                aktualizácie, môžete ich pridať nižšie a my-erp-crm ich prepustí.\n"
 "           </p>"
 
 #. module: mail
@@ -5687,10 +5687,10 @@ msgstr ""
 #. module: mail
 #: model:ir.model.fields,help:mail.field_res_config_settings__alias_domain_id
 msgid ""
-"If you have setup a catch-all email domain redirected to the Odoo server, "
+"If you have setup a catch-all email domain redirected to the my-erp-crm server, "
 "enter the domain name here."
 msgstr ""
-"Ak máte nastavenú catch-all emailovú doménu presmerovanú na server Odoo, tu "
+"Ak máte nastavenú catch-all emailovú doménu presmerovanú na server my-erp-crm, tu "
 "zadajte názov domény."
 
 #. module: mail
@@ -5756,8 +5756,8 @@ msgstr "V %(country)s"
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__res_users__notification_type__inbox
-msgid "In Odoo"
-msgstr "V Odoo"
+msgid "In my-erp-crm"
+msgstr "V my-erp-crm"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_compose_message__scheduled_date
@@ -5865,8 +5865,8 @@ msgstr "Inštalovať"
 #. module: mail
 #. odoo-javascript
 #: code:addons/mail/static/src/core/web/messaging_menu_patch.js:0
-msgid "Install Odoo"
-msgstr "Inštalovať Odoo"
+msgid "Install my-erp-crm"
+msgstr "Inštalovať my-erp-crm"
 
 #. module: mail
 #: model:ir.ui.menu,name:mail.discuss_channel_integrations_menu
@@ -6259,7 +6259,7 @@ msgid ""
 "browser will \n"
 "          keep the private key secret and use it for decrypting the payload\n"
 "- auth: The auth value should be treated as a secret and not shared outside "
-"of Odoo"
+"of my-erp-crm"
 msgstr ""
 "Týka sa to kľúčov prehliadača používaných pre notifikácie: \n"
 "- p256dh: Je verejný kľúč pre odoberanie notifikácií vygenerovaný "
@@ -6267,7 +6267,7 @@ msgstr ""
 "          si drží tajný súkromný kľúč, ktorý používa na dešifrovanie dátovej "
 "časti\n"
 "- auth: Hodnota auth by sa mala považovať za tajnú a nemala by sa zdieľať "
-"mimo Odoo"
+"mimo my-erp-crm"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_tracking_duration_mixin__duration_tracking
@@ -8234,20 +8234,20 @@ msgstr "OS"
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_notification_layout
 #: model_terms:ir.ui.view,arch_db:mail.mail_notification_light
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: mail
 #. odoo-javascript
 #: code:addons/mail/static/src/core/common/notification_permission_service.js:0
-msgid "Odoo will not send notifications on this device."
-msgstr "Odoo nebude na tomto zariadení posielať oznámenia."
+msgid "my-erp-crm will not send notifications on this device."
+msgstr "my-erp-crm nebude na tomto zariadení posielať oznámenia."
 
 #. module: mail
 #. odoo-javascript
 #: code:addons/mail/static/src/core/common/notification_permission_service.js:0
-msgid "Odoo will send notifications on this device!"
-msgstr "Odoo bude posielať oznámenia na toto zariadenie!"
+msgid "my-erp-crm will send notifications on this device!"
+msgstr "my-erp-crm bude posielať oznámenia na toto zariadenie!"
 
 #. module: mail
 #. odoo-javascript
@@ -8375,8 +8375,8 @@ msgstr "Upraviť je možné iba custom modely."
 
 #. module: mail
 #: model:ir.model.constraint,message:mail.constraint_res_users_notification_type
-msgid "Only internal user can receive notifications in Odoo"
-msgstr "Iba interní užívatelia môžu dostávať oznámenia v Odoo"
+msgid "Only internal user can receive notifications in my-erp-crm"
+msgstr "Iba interní užívatelia môžu dostávať oznámenia v my-erp-crm"
 
 #. module: mail
 #. odoo-python
@@ -9106,11 +9106,11 @@ msgstr "Počkajte, kým sa súbor nahraje."
 msgid ""
 "Policy on how to handle Chatter notifications:\n"
 "- By Emails: notifications are sent to your email address\n"
-"- In Odoo: notifications appear in your Odoo Inbox"
+"- In my-erp-crm: notifications appear in your my-erp-crm Inbox"
 msgstr ""
 "Zásady spracovaní oznámení v Chatteri:\n"
 "- E-mailom: oznámenia sa posielajú na vašu e-mailovú adresu\n"
-"- V Odoo: oznámenia sa zobrazujú v Odoo"
+"- V my-erp-crm: oznámenia sa zobrazujú v my-erp-crm"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_alias__alias_contact
@@ -9478,8 +9478,8 @@ msgstr "Dôvod"
 
 #. module: mail
 #: model:res.groups,name:mail.group_mail_notification_type_inbox
-msgid "Receive notifications in Odoo"
-msgstr "Prijímať oznámenia v Odoo"
+msgid "Receive notifications in my-erp-crm"
+msgstr "Prijímať oznámenia v my-erp-crm"
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__mail_mail__state__received
@@ -11484,11 +11484,11 @@ msgstr "Správa, z ktorej bol kanál vytvorený."
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_alias__alias_model_id
 msgid ""
-"The model (Odoo Document Kind) to which this alias corresponds. Any incoming "
+"The model (my-erp-crm Document Kind) to which this alias corresponds. Any incoming "
 "email that does not reply to an existing record will cause the creation of a "
 "new record of this model (e.g. a Project Task)"
 msgstr ""
-"Model (Odoo druh dokumentu), ktorému odpovedá tento alias. Každý "
+"Model (my-erp-crm druh dokumentu), ktorému odpovedá tento alias. Každý "
 "prichádzajúci email ktorý neodpovie na existujúci záznam, spôsobí vytvorenie "
 "nového záznamu tohto modelu (napr požiadavku projektu)"
 
@@ -11773,11 +11773,11 @@ msgstr "Táto správa bola odstránená"
 msgid ""
 "This option permanently removes any track of email after it's been sent, "
 "including from the Technical menu in the Settings, in order to preserve "
-"storage space of your Odoo database."
+"storage space of your my-erp-crm database."
 msgstr ""
 "Táto možnosť natrvalo odstráni všetky stopy e-mailov po ich odoslaní, a to "
 "aj z ponuky technické v ponuke nastavenia, aby sa zachoval úložný priestor "
-"vašej databázy Odoo."
+"vašej databázy my-erp-crm."
 
 #. module: mail
 #. odoo-javascript
@@ -12863,7 +12863,7 @@ msgid ""
 "email server (@mycompany.odoo.com)."
 msgstr ""
 "Použitie vlastného emailového servera je nevyhnutné pre príjem/odosielanie "
-"mailov vo verzii Community a Enterprise. Užívatelia Odoo online a .sh "
+"mailov vo verzii Community a Enterprise. Užívatelia my-erp-crm online a .sh "
 "profitujú z pripraveného servera (@moja_spolocnost.odoo.com)."
 
 #. module: mail

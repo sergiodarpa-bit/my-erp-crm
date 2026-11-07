@@ -8,7 +8,7 @@
 # "Anastasiia Koroleva (koan)" <koan@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: my-erp-crm Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-08-10 11:35+0000\n"
@@ -166,10 +166,10 @@ msgstr ""
 #. module: event
 #: model_terms:event.event,description:event.event_0
 msgid ""
-"<b>Technical Rooms</b> - One dedicated to advanced Odoo developers, one for "
+"<b>Technical Rooms</b> - One dedicated to advanced my-erp-crm developers, one for "
 "new developers."
 msgstr ""
-"<b>Технические комнаты</b> - одна для продвинутых разработчиков Odoo, другая "
+"<b>Технические комнаты</b> - одна для продвинутых разработчиков my-erp-crm, другая "
 "для новых разработчиков."
 
 #. module: event
@@ -1852,12 +1852,12 @@ msgid ""
 "At just 13 years old, John DOE was already starting to develop his first "
 "business applications for customers. After mastering civil engineering, he "
 "founded TinyERP. This was the first phase of OpenERP which would later "
-"became Odoo, the most installed open-source business software worldwide."
+"became my-erp-crm, the most installed open-source business software worldwide."
 msgstr ""
 "В возрасте всего 13 лет Джон Доу уже начал разрабатывать свои первые бизнес-"
 "приложения для клиентов. Получив образование в области гражданского "
 "строительства, он основал TinyERP. Это была первая фаза OpenERP, которая "
-"впоследствии стала Odoo, самым устанавливаемым в мире программным "
+"впоследствии стала my-erp-crm, самым устанавливаемым в мире программным "
 "обеспечением для бизнеса с открытым исходным кодом."
 
 #. module: event
@@ -2853,10 +2853,10 @@ msgstr "Указано в часовом поясе мероприятия."
 #. module: event
 #: model:event.stage,description:event.event_stage_done
 msgid ""
-"Finished events. Odoo will automatically move them to this stage once their "
+"Finished events. my-erp-crm will automatically move them to this stage once their "
 "end date has passed."
 msgstr ""
-"Завершенные мероприятия. Odoo автоматически переместит их на этот этап после "
+"Завершенные мероприятия. my-erp-crm автоматически переместит их на этот этап после "
 "наступления даты окончания."
 
 #. module: event
@@ -3826,8 +3826,8 @@ msgstr "Задачи"
 
 #. module: event
 #: model_terms:ir.ui.view,arch_db:event.event_report_full_page_ticket_layout
-msgid "Odoo Community Days"
-msgstr "Дни сообщества Odoo"
+msgid "my-erp-crm Community Days"
+msgstr "Дни сообщества my-erp-crm"
 
 #. module: event
 #: model_terms:event.event,description:event.event_3

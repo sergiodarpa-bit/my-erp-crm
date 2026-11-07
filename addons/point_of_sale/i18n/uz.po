@@ -12,7 +12,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:37+0000\n"
 "PO-Revision-Date: 2026-08-05 05:29+0000\n"
@@ -4722,7 +4722,7 @@ msgstr ""
 #. module: point_of_sale
 #. odoo-javascript
 #: code:addons/point_of_sale/static/src/backend/lna_checklist/lna_checklist.xml:0
-msgid "I use an Epson printer (Check supported printers in Odoo documentation)"
+msgid "I use an Epson printer (Check supported printers in my-erp-crm documentation)"
 msgstr ""
 
 #. module: point_of_sale
@@ -5880,10 +5880,10 @@ msgstr ""
 #: code:addons/point_of_sale/static/src/customer_display/customer_display_data_service.js:0
 #, fuzzy
 msgid ""
-"Make sure there is an IoT Box subscription associated with your Odoo "
+"Make sure there is an IoT Box subscription associated with your my-erp-crm "
 "database, then restart the IoT Box."
 msgstr ""
-"Odoo ma'lumotlar bazangiz bilan bog‘liq IoT qutisi obunasi mavjudligiga "
+"my-erp-crm ma'lumotlar bazangiz bilan bog‘liq IoT qutisi obunasi mavjudligiga "
 "ishonch hosil qiling, so‘ngra IoT qutisini qayta ishga tushiring."
 
 #. module: point_of_sale
@@ -6656,22 +6656,22 @@ msgstr "Raqamlar to‘plami:"
 #. odoo-javascript
 #: code:addons/point_of_sale/static/src/app/screens/receipt_screen/receipt/order_receipt.xml:0
 #, fuzzy
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: point_of_sale
 #. odoo-javascript
 #: code:addons/point_of_sale/static/src/app/components/popups/cash_move_popup/cash_move_list_popup/cash_move_list_popup.js:0
 #: code:addons/point_of_sale/static/src/app/utils/error_handlers.js:0
 #, fuzzy
-msgid "Odoo Server Error"
-msgstr "Odoo server xatosi"
+msgid "my-erp-crm Server Error"
+msgstr "my-erp-crm server xatosi"
 
 #. module: point_of_sale
 #: model:product.template,name:point_of_sale.product_odoo_sneakers_product_template
 #, fuzzy
-msgid "Odoo Sneakers"
-msgstr "Odoo krossovkalari"
+msgid "my-erp-crm Sneakers"
+msgstr "my-erp-crm krossovkalari"
 
 #. module: point_of_sale
 #. odoo-javascript
@@ -8426,9 +8426,9 @@ msgstr "Narxlarsiz asosiy chekni chop etish. Sovg‘alar uchun ishlatish mumkin.
 #, fuzzy
 msgid ""
 "Print information on the receipt to allow the customer to easily access the "
-"invoice anytime, from Odoo's portal."
+"invoice anytime, from my-erp-crm's portal."
 msgstr ""
-"Mijoz Odoo portalidan istalgan vaqtda hisob-fakturaga oson kirishi uchun "
+"Mijoz my-erp-crm portalidan istalgan vaqtda hisob-fakturaga oson kirishi uchun "
 "chekdagi ma'lumotlarni chop etish."
 
 #. module: point_of_sale
@@ -12099,10 +12099,10 @@ msgstr "Sinxronlanmagan buyurtma"
 #: code:addons/point_of_sale/static/src/app/utils/error_handlers.js:0
 #, fuzzy
 msgid ""
-"Until the connection is reestablished, Odoo Point of Sale will operate with "
+"Until the connection is reestablished, my-erp-crm Point of Sale will operate with "
 "limited functionality."
 msgstr ""
-"Aloqa tiklanmaguncha, Odoo Sotuv nuqtasi cheklangan funksiyalar bilan "
+"Aloqa tiklanmaguncha, my-erp-crm Sotuv nuqtasi cheklangan funksiyalar bilan "
 "ishlaydi."
 
 #. module: point_of_sale

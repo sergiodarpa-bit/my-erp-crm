@@ -13,7 +13,7 @@
 # "Kira Petersen François (peti)" <peti@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-08-02 10:49+0000\n"
@@ -1413,9 +1413,9 @@ msgstr "Udkast til tilbudsanmodninger"
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
 msgid ""
 "Drag and drop the request for quotation PDF file into your list of "
-"quotations in Odoo. Enjoy the automation!"
+"quotations in my-erp-crm. Enjoy the automation!"
 msgstr ""
-"Træk og slip PDF-filen med tilbudsanmodningen til din tilbudsliste i Odoo. "
+"Træk og slip PDF-filen med tilbudsanmodningen til din tilbudsliste i my-erp-crm. "
 "Og glæd dig over automatiseringen!"
 
 #. module: purchase
@@ -2070,8 +2070,8 @@ msgstr "Ikke bekræftet"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
-msgid "Not using Odoo?"
-msgstr "Bruger ikke Odoo?"
+msgid "Not using my-erp-crm?"
+msgstr "Bruger ikke my-erp-crm?"
 
 #. module: purchase
 #: model:ir.model.fields.selection,name:purchase.selection__purchase_order_line__display_type__line_note
@@ -2118,8 +2118,8 @@ msgstr "Antal beskeder med leveringsfejl"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: purchase
 #: model:ir.model.fields.selection,name:purchase.selection__product_template__purchase_method__purchase
@@ -3061,8 +3061,8 @@ msgstr "Stjernemarkeret"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
-msgid "Start on Odoo"
-msgstr "Start på Odoo"
+msgid "Start on my-erp-crm"
+msgstr "Start på my-erp-crm"
 
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_bill_line_match__state
@@ -3596,12 +3596,12 @@ msgid ""
 "Vendors bills can be pre-generated based on purchase\n"
 "                    orders or receipts. This allows you to control bills\n"
 "                    you receive from your vendor according to the draft\n"
-"                    document in Odoo."
+"                    document in my-erp-crm."
 msgstr ""
 "Du kan oprette leverandørfakturaer på forhånd baseret på\n"
 "                ordrer eller leverancer, så du kan gennemgå\n"
 "                og kontrollere fakturaerne\n"
-"                i Odoo via fakturaudkastene."
+"                i my-erp-crm via fakturaudkastene."
 
 #. module: purchase
 #. odoo-python
@@ -3639,8 +3639,8 @@ msgstr "Afventer faktura"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
-msgid "Want to import this document in Odoo?"
-msgstr "Vil du importere dette dokument til Odoo?"
+msgid "Want to import this document in my-erp-crm?"
+msgstr "Vil du importere dette dokument til my-erp-crm?"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.view_product_supplier_inherit
@@ -3675,14 +3675,14 @@ msgid ""
 "When creating a purchase order, have a look at the vendor's <i>On Time "
 "Delivery</i> rate: the percentage of products shipped on time. If it is too "
 "low, activate the <i>automated reminders</i>. A few days before the due "
-"shipment, Odoo will send the vendor an email to ask confirmation of shipment "
+"shipment, my-erp-crm will send the vendor an email to ask confirmation of shipment "
 "dates and keep you informed in case of any delays. To get the vendor's "
 "performance statistics, click on the OTD rate."
 msgstr ""
 "Under oprettelse af en indkøbsordre kan du se sælgerens <i>Levering til "
 "tiden</i>-rate: Procentdelen af produkter, der bliver afsendt til tiden. "
 "Aktivér <i>automatiske påmindelser</i>, hvis denne rate er for lav. Nogle "
-"dage før den forventede afsendelsesdato sender Odoo automatisk en e-mail til "
+"dage før den forventede afsendelsesdato sender my-erp-crm automatisk en e-mail til "
 "sælgeren for at bekræfte forsendelsesdatoerne og holde dig opdateret ved "
 "forsinkelser. For at se sælgerens præstationsstatistik kan du klikke på LTT-"
 "raten."
@@ -3690,12 +3690,12 @@ msgstr ""
 #. module: purchase
 #: model_terms:digest.tip,tip_description:purchase.digest_tip_purchase_1
 msgid ""
-"When sending a purchase order by email, Odoo asks the vendor to acknowledge "
+"When sending a purchase order by email, my-erp-crm asks the vendor to acknowledge "
 "the reception of the order. When the vendor acknowledges the order by "
 "clicking on a button in the email, the information is added on the purchase "
 "order. Use filters to track orders that have not been acknowledged."
 msgstr ""
-"Odoo sender en indkøbsordre pr. e-mail til sælgeren for at anmode om "
+"my-erp-crm sender en indkøbsordre pr. e-mail til sælgeren for at anmode om "
 "bekræftelse. Når sælgeren bekræfter via e-mailen, opdateres indkøbsordren. "
 "Brug filtre til at finde ordrer uden bekræftelse."
 

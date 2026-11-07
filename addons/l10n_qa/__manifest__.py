@@ -2,7 +2,7 @@
     'name': 'Qatar - Accounting',
     'countries': ['qa'],
     'description': """
-This is the base module to manage the accounting chart for Qatar in Odoo.
+This is the base module to manage the accounting chart for Qatar in my-erp-crm.
 ==============================================================================
 Qatar accounting basic charts and localization.
 Activates:

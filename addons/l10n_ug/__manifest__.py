@@ -8,7 +8,7 @@
     "author": "Odoo S.A.",
     "license": "LGPL-3",
     "description": """
-This is the basic Ugandian localisation necessary to run Odoo in UG:
+This is the basic Ugandian localisation necessary to run my-erp-crm in UG:
 ================================================================================
     - Chart of accounts
     - Taxes

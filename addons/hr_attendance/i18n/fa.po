@@ -17,7 +17,7 @@
 # Aliraza Habibitanha <alireza.habibitanha@gmail.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.5alpha1\n"
+"Project-Id-Version: my-erp-crm Server 15.5alpha1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-08-09 10:23+0000\n"
@@ -240,7 +240,7 @@ msgstr "همه دپارتمان‌ها"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid "Allow Users to Check in/out from Odoo."
+msgid "Allow Users to Check in/out from my-erp-crm."
 msgstr "اجازه به کاربران برای ثبت ورود/خروج از اودو."
 
 #. module: hr_attendance
@@ -1538,7 +1538,7 @@ msgstr "تایید"
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
-msgid "Odoo Logo"
+msgid "my-erp-crm Logo"
 msgstr "لوگوی اودو"
 
 #. module: hr_attendance

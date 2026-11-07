@@ -81,7 +81,7 @@
         <section class="s_text_block o_mail_snippet_general pb16 pt32" data-vxml="001" style="background-color: rgb(43, 59, 88) !important; padding-left: 15px; padding-right: 15px;" data-snippet="s_text_block" data-name="Text">
             <div class="container s_allow_columns">
                 <p><font style="color: rgb(255, 255, 255);">Hi there!</font></p>
-                <p><font style="color: rgb(255, 255, 255);">The next edition of <span style="font-weight: bolder;">Odoo Experience Online</span> is coming soon!
+                <p><font style="color: rgb(255, 255, 255);">The next edition of <span style="font-weight: bolder;">my-erp-crm Experience Online</span> is coming soon!
                     <br/>To stir up your curiosity, have a look at all the great talks scheduled and highlighted in our agenda!</font>
                 </p>
             </div>
@@ -96,7 +96,7 @@
                             </div>
                             <div class="col-md-7 s_media_list_body">
                                 <h3>Get 6-months' worth of knowledge<br/>in just 2 days</h3>
-                                <p>Learn through workshops, product demos, and inspiring talks from Odoo Experts and Partners.</p>
+                                <p>Learn through workshops, product demos, and inspiring talks from my-erp-crm Experts and Partners.</p>
                                 <p><a class="btn btn-primary" t-att-href="website_url_or_none">See what we've got planned</a></p>
                             </div>
                         </div>
@@ -133,7 +133,7 @@
                 <div class="row">
                     <div class="col-md-12" style="border-color: rgb(56, 62, 69) !important;">
                         <h3 style="text-align: center;"><font style="color: rgb(255, 255, 255);">And it won't cost you a thing!</font></h3>
-                        <p style="text-align: center;"><font style="color: rgb(255, 255, 255);">Zero, zilch, nada! Odoo Experience is free for everyone!</font></p>
+                        <p style="text-align: center;"><font style="color: rgb(255, 255, 255);">Zero, zilch, nada! my-erp-crm Experience is free for everyone!</font></p>
                     </div>
                     <div class="col-md-12" style="text-align: center;">
                         <p><a class="btn btn-primary btn-lg" t-att-href="website_url_or_none">Register now!</a></p>
@@ -1072,7 +1072,7 @@
         </section>
         <section class="s_title o_mail_snippet_general px-3 pb0 pt0" data-vxml="001" data-snippet="s_title" data-name="Title">
             <div class="container s_allow_columns">
-                    <h2 style="" class="">The story of Odoo</h2>
+                    <h2 style="" class="">The story of my-erp-crm</h2>
             </div>
         </section>
         <section class="s_header_social o_mail_block_header_social o_mail_snippet_general bg-white px-3 pt24 pb24" style="" data-vxml="001" data-snippet="s_mail_block_header_social" data-name="Left Logo">
@@ -1180,7 +1180,7 @@
         </section>
         <section class="s_title o_mail_snippet_general px-3 pb0 pt0" data-vxml="001" data-snippet="s_title" data-name="Title">
             <div class="container s_allow_columns">
-                <h3>The Rise of Odoo</h3>
+                <h3>The Rise of my-erp-crm</h3>
             </div>
         </section>
         <section class="s_text_block o_mail_snippet_general px-3 pt16" data-vxml="001" data-snippet="s_text_block" data-name="Text">
@@ -1189,7 +1189,7 @@
                 <p>Our exceptional technology allowed us to move to newer markets (CMS &amp; eCommerce) and propose a product that disrupts existing open source players (Wordpress, Magento, etc). The OpenERP CMS is so good that even top competitors admitted it publicly when we released the beta version.</p>
                 <p>If current open source players have a real technical challenge to follow us, we also have a huge marketing challenge. Wordpress has 22% of all internet websites. We were the leader in management software, but we start with 0% of the website market.</p>
                 <p>To move forward, we raised 10 million USD in May 2014 in order to boost marketing and sales activities. In order to support our vision, we had to change the name that is not restricted to ERPs functions. We needed a name that allowed us to support our ambitions; build business solutions like CMS, eCommerce, Business Intelligence and, who knows, even sky rockets or driverless cars in the future...</p>
-                <p>In May 2014, we renamed the company and product to Odoo.</p>
+                <p>In May 2014, we renamed the company and product to my-erp-crm.</p>
                 <p>And a new story just started...</p>
             </div>
         </section>
@@ -1254,7 +1254,7 @@
                         <h1>We're almost there!</h1>
                     </div>
                 </div>
-                <p>Odoo invites you on <span class="font-weight: bolder">[date]</span> at <span class="font-weight: bolder">[time]</span> for their infamous roadshow in <span class="font-weight: bolder">[city]</span>: an event that combines learning and networking in a casual afterwork-like atmosphere.</p>
+                <p>my-erp-crm invites you on <span class="font-weight: bolder">[date]</span> at <span class="font-weight: bolder">[time]</span> for their infamous roadshow in <span class="font-weight: bolder">[city]</span>: an event that combines learning and networking in a casual afterwork-like atmosphere.</p>
             </div>
         </section>
         <section class="s_text_block o_mail_snippet_general px-3 pt8 pb0" data-vxml="001" data-snippet="s_text_block" data-name="Text">
@@ -1272,7 +1272,7 @@
         </section>
         <section class="s_text_block o_mail_snippet_general px-3 pt0 pb0" data-vxml="001" data-snippet="s_text_block" data-name="Text">
             <div class="container s_allow_columns">
-                <p>Discover Odoo, the all-in-one management platform, and its apps designed to improve employees' daily tasks. From sales and deliveries, to logistics, marketing and accounting ; learn what are the best available options to digitize your company.</p>
+                <p>Discover my-erp-crm, the all-in-one management platform, and its apps designed to improve employees' daily tasks. From sales and deliveries, to logistics, marketing and accounting ; learn what are the best available options to digitize your company.</p>
             </div>
         </section>
         <section class="s_text_block o_mail_snippet_general px-3 pt0 pb0" data-vxml="001" data-snippet="s_text_block" data-name="Text">
@@ -1315,7 +1315,7 @@
                         <td class="p-2">
                             <span class="font-weight: bolder">[speaker] &amp; [speaker]'s conference</span>
                             <ul>
-                                <li>Interactive Odoo demo</li>
+                                <li>Interactive my-erp-crm demo</li>
                                 <li>Best practices to digitize your company</li>
                             </ul>
                         </td>
@@ -1389,15 +1389,15 @@
         </section>
         <section class="s_text_block o_mail_snippet_general px-3 pt8 pb0" data-vxml="001" data-snippet="s_text_block" data-name="Text">
             <div class="container s_allow_columns">
-                <p>You had the chance to discover Odoo during a full 3 hours, how great is that?
-                    <br/>Now that you've seen Odoo in action and asked some questions, you likely need more information to move forward in your project and to work with us. You'll find additional points just below.
+                <p>You had the chance to discover my-erp-crm during a full 3 hours, how great is that?
+                    <br/>Now that you've seen my-erp-crm in action and asked some questions, you likely need more information to move forward in your project and to work with us. You'll find additional points just below.
                 </p>
             </div>
         </section>
         <section class="s_title o_mail_snippet_general pb0 pt0" data-vxml="001" data-snippet="s_title" data-name="Title">
             <div class="container s_allow_columns">
-                <h3>Do you wish to use Odoo?</h3>
-                <p>If you wish to evaluate Odoo while taking into account your company's specific needs, you can book a free appointment with one of our <a href="https://odoo.com/r/meeting" target="_blank">Odoo Experts</a> or <a href="https://odoo.com/page/tour" target="_blank">watch our videos about the product</a>.</p>
+                <h3>Do you wish to use my-erp-crm?</h3>
+                <p>If you wish to evaluate my-erp-crm while taking into account your company's specific needs, you can book a free appointment with one of our <a href="https://odoo.com/r/meeting" target="_blank">my-erp-crm Experts</a> or <a href="https://odoo.com/page/tour" target="_blank">watch our videos about the product</a>.</p>
             </div>
         </section>
         <section class="s_text_block o_mail_snippet_general px-3 pt8 pb0" data-vxml="001" data-snippet="s_text_block" data-name="Text">
@@ -1409,7 +1409,7 @@
                     <li><a href="#" target="_blank">Link 3</a></li>
                     <li><a href="#" target="_blank">Link 4</a></li>
                 </ul>
-                <p>You may test Odoo for free by clicking <a href="https://odoo.com/trial" target="_blank">here</a>.</p>
+                <p>You may test my-erp-crm for free by clicking <a href="https://odoo.com/trial" target="_blank">here</a>.</p>
             </div>
         </section>
         <section class="s_title o_mail_snippet_general pb0 pt0" data-vxml="001" data-snippet="s_title" data-name="Title">

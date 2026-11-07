@@ -5,7 +5,7 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo 9.0\n"
+"Project-Id-Version: my-erp-crm 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-10 18:37+0000\n"
 "PO-Revision-Date: 2026-08-02 11:37+0000\n"
@@ -2874,13 +2874,13 @@ msgstr ""
 
 #. module: survey
 #: model_terms:ir.ui.view,arch_db:survey.certification_report_view_general
-msgid "Odoo"
+msgid "my-erp-crm"
 msgstr ""
 
 #. module: survey
 #. odoo-python
 #: code:addons/survey/models/templates/survey_survey.py:0
-msgid "Odoo Certification"
+msgid "my-erp-crm Certification"
 msgstr ""
 
 #. module: survey
@@ -4764,7 +4764,7 @@ msgstr ""
 #. odoo-python
 #: code:addons/survey/models/templates/survey_survey.py:0
 msgid ""
-"Welcome to this Odoo certification. You will receive 2 random questions out "
+"Welcome to this my-erp-crm certification. You will receive 2 random questions out "
 "of a pool of 3."
 msgstr ""
 
@@ -4801,7 +4801,7 @@ msgstr ""
 #. module: survey
 #. odoo-python
 #: code:addons/survey/models/templates/survey_survey.py:0
-msgid "What does one need to get to pass an Odoo Survey?"
+msgid "What does one need to get to pass an my-erp-crm Survey?"
 msgstr ""
 
 #. module: survey
@@ -4839,7 +4839,7 @@ msgstr ""
 #. module: survey
 #. odoo-javascript
 #: code:addons/survey/static/src/js/tours/survey_tour.js:0
-msgid "Whenever you pick an answer, Odoo saves it for you."
+msgid "Whenever you pick an answer, my-erp-crm saves it for you."
 msgstr ""
 
 #. module: survey

@@ -30,7 +30,7 @@
 # Odoo Turkish Import <dyki+tr@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-10 18:37+0000\n"
 "PO-Revision-Date: 2026-08-02 19:43+0000\n"
@@ -3102,14 +3102,14 @@ msgstr "Olay"
 
 #. module: survey
 #: model_terms:ir.ui.view,arch_db:survey.certification_report_view_general
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: survey
 #. odoo-python
 #: code:addons/survey/models/templates/survey_survey.py:0
-msgid "Odoo Certification"
-msgstr "Odoo Sertifikasyonu"
+msgid "my-erp-crm Certification"
+msgstr "my-erp-crm Sertifikasyonu"
 
 #. module: survey
 #: model:survey.question.answer,value:survey.vendor_certification_page_2_question_2_choice_5
@@ -5046,10 +5046,10 @@ msgstr "Websitesi iletişim geçmişi"
 #. odoo-python
 #: code:addons/survey/models/templates/survey_survey.py:0
 msgid ""
-"Welcome to this Odoo certification. You will receive 2 random questions out "
+"Welcome to this my-erp-crm certification. You will receive 2 random questions out "
 "of a pool of 3."
 msgstr ""
-"Bu Odoo sertifikasyonuna hoş geldiniz. 3 sorudan oluşan bir havuzdan "
+"Bu my-erp-crm sertifikasyonuna hoş geldiniz. 3 sorudan oluşan bir havuzdan "
 "rastgele 2 soru alacaksınız."
 
 #. module: survey
@@ -5089,8 +5089,8 @@ msgstr "\"ODOO\" ne anlama geliyor?"
 #. module: survey
 #. odoo-python
 #: code:addons/survey/models/templates/survey_survey.py:0
-msgid "What does one need to get to pass an Odoo Survey?"
-msgstr "Bir Odoo Anketini geçmek için nelere ihtiyaç vardır?"
+msgid "What does one need to get to pass an my-erp-crm Survey?"
+msgstr "Bir my-erp-crm Anketini geçmek için nelere ihtiyaç vardır?"
 
 #. module: survey
 #. odoo-python
@@ -5127,8 +5127,8 @@ msgstr "Doğum tarihiniz nedir?"
 #. module: survey
 #. odoo-javascript
 #: code:addons/survey/static/src/js/tours/survey_tour.js:0
-msgid "Whenever you pick an answer, Odoo saves it for you."
-msgstr "Bir yanıt seçtiğinizde, Odoo bunu sizin için kaydeder."
+msgid "Whenever you pick an answer, my-erp-crm saves it for you."
+msgstr "Bir yanıt seçtiğinizde, my-erp-crm bunu sizin için kaydeder."
 
 #. module: survey
 #: model:survey.question,title:survey.survey_feedback_p1_q1

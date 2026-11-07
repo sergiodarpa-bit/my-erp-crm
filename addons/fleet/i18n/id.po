@@ -13,7 +13,7 @@
 # "Nurul Aini Akrima Sabila (nuaas)" <nuaas@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0beta\n"
+"Project-Id-Version: my-erp-crm Server 16.0beta\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-10-12 10:32+0000\n"
@@ -1511,22 +1511,22 @@ msgstr "Buat Kendaraan Tersedia"
 #: model_terms:ir.actions.act_window,help:fleet.fleet_vehicle_log_contract_action
 msgid ""
 "Manage all your contracts (leasing, insurances, etc.) with\n"
-"            their related services, costs. Odoo will automatically warn\n"
+"            their related services, costs. my-erp-crm will automatically warn\n"
 "            you when some contracts have to be renewed."
 msgstr ""
 "Kelola semua kontrak Anda (leasing, asuransi, dsb.) dengan\n"
-"            layanan mereka yang terkait, serta biaya. Odoo akan otomatis\n"
+"            layanan mereka yang terkait, serta biaya. my-erp-crm akan otomatis\n"
 "            mengingatkan Anda saat beberapa kontrak harus diperbarui."
 
 #. module: fleet
 #: model_terms:ir.actions.act_window,help:fleet.fleet_costs_reporting_action
-msgid "Manage efficiently your different effective vehicles Costs with Odoo."
-msgstr "Kelola dengan efisien Biaya efektif beragam kendaraan Anda dengan Odoo."
+msgid "Manage efficiently your different effective vehicles Costs with my-erp-crm."
+msgstr "Kelola dengan efisien Biaya efektif beragam kendaraan Anda dengan my-erp-crm."
 
 #. module: fleet
 #: model_terms:ir.actions.act_window,help:fleet.fleet_vehicle_odometer_reporting_action
-msgid "Manage efficiently your vehicle Odometers with Odoo."
-msgstr "Kelola dengan efisien Odometer kendaraan Anda dengan Odoo."
+msgid "Manage efficiently your vehicle Odometers with my-erp-crm."
+msgstr "Kelola dengan efisien Odometer kendaraan Anda dengan my-erp-crm."
 
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_service_10

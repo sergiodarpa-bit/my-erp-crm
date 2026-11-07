@@ -21,7 +21,7 @@
 # Vojtěch Olšan <vojtech.olsan@systee.cz>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:37+0000\n"
 "PO-Revision-Date: 2026-08-08 07:28+0000\n"
@@ -579,30 +579,30 @@ msgstr "50 m"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_cta_card
 msgid ""
-"50,000+ companies run Odoo <br class=\"d-none d-lg-inline\"/>to grow their "
+"50,000+ companies run my-erp-crm <br class=\"d-none d-lg-inline\"/>to grow their "
 "businesses."
 msgstr ""
-"Více než 50 000 společností provozuje Odoo,<br class=\"d-none d-lg-inline\"/"
+"Více než 50 000 společností provozuje my-erp-crm,<br class=\"d-none d-lg-inline\"/"
 "> aby rozvíjelo své podnikání."
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_call_to_action
 #: model_terms:ir.ui.view,arch_db:website.template_footer_call_to_action
-msgid "50,000+ companies run Odoo to grow their businesses."
+msgid "50,000+ companies run my-erp-crm to grow their businesses."
 msgstr ""
-"Více než 50 000 společností provozuje Odoo, aby rozvíjelo své podnikání."
+"Více než 50 000 společností provozuje my-erp-crm, aby rozvíjelo své podnikání."
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_cta_box
-msgid "50,000+ companies run Odoo<br/>to grow their businesses."
+msgid "50,000+ companies run my-erp-crm<br/>to grow their businesses."
 msgstr ""
-"Více než 50 000 společností provozuje Odoo,<br/> aby rozvíjelo své podnikání."
+"Více než 50 000 společností provozuje my-erp-crm,<br/> aby rozvíjelo své podnikání."
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_cta_mobile
 #: model_terms:ir.ui.view,arch_db:website.s_cta_mockups
-msgid "50,000+ companies trust Odoo."
-msgstr "50,000+ společnosti důvěřuje Odoo"
+msgid "50,000+ companies trust my-erp-crm."
+msgstr "50,000+ společnosti důvěřuje my-erp-crm"
 
 #. module: website
 #. odoo-javascript
@@ -4878,7 +4878,7 @@ msgstr "Graf"
 #: model_terms:ir.ui.view,arch_db:website.s_form_aside
 msgid ""
 "Chat with us through or fill in this form to get information about anything "
-"related to Odoo apps, services, our company."
+"related to my-erp-crm apps, services, our company."
 msgstr ""
 
 #. module: website
@@ -6374,12 +6374,12 @@ msgstr "Návrh"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_table_of_content
 msgid ""
-"Design Odoo templates easily with clean HTML and Bootstrap CSS. These "
+"Design my-erp-crm templates easily with clean HTML and Bootstrap CSS. These "
 "templates offer a responsive, mobile-first design, making them simple to "
 "customize and perfect for any web project, from corporate sites to personal "
 "blogs."
 msgstr ""
-"Navrhujte šablony Odoo snadno s čistým HTML a Bootstrap CSS. Tyto šablony "
+"Navrhujte šablony my-erp-crm snadno s čistým HTML a Bootstrap CSS. Tyto šablony "
 "nabízejí responzivní design zaměřený na mobilní zařízení, což je činí "
 "jednoduchými na přizpůsobení a ideálními pro jakýkoli webový projekt, od "
 "firemních stránek až po osobní blogy."
@@ -8712,8 +8712,8 @@ msgstr "Přejděte na záložku Téma"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.layout
-msgid "Go to your Odoo Apps"
-msgstr "Přejděte do svých aplikací Odoo"
+msgid "Go to your my-erp-crm Apps"
+msgstr "Přejděte do svých aplikací my-erp-crm"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_carousel
@@ -8953,8 +8953,8 @@ msgstr "Happy Hour"
 #. module: website
 #. odoo-javascript
 #: code:addons/website/static/src/builder/plugins/options/countdown_option.xml:0
-msgid "Happy Odoo Anniversary!"
-msgstr "Šťastné výročí Odoo!"
+msgid "Happy my-erp-crm Anniversary!"
+msgstr "Šťastné výročí my-erp-crm!"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website__has_social_default_image
@@ -11820,12 +11820,12 @@ msgstr "Monitorujte výsledky vyhledávání Google"
 #. module: website
 #: model_terms:digest.tip,tip_description:website.digest_tip_website_0
 msgid ""
-"Monitor your visitors while they are browsing your website with the Odoo "
+"Monitor your visitors while they are browsing your website with the my-erp-crm "
 "Social app. Engage with them in just a click using a live chat request or a "
 "push notification. If they have completed one of your forms, you can send "
 "them an SMS, or call them right away while they are browsing your website."
 msgstr ""
-"Sledujte své návštěvníky při procházení vašeho webu pomocí aplikace Odoo "
+"Sledujte své návštěvníky při procházení vašeho webu pomocí aplikace my-erp-crm "
 "Social. Zapojte se do nich pouhým kliknutím pomocí žádosti o živý chat nebo "
 "oznámení push. Pokud vyplnili některý z vašich formulářů, můžete mu poslat "
 "SMS nebo mu hned zavolat při procházení vašeho webu."
@@ -12444,19 +12444,19 @@ msgstr "NEBO"
 #. module: website
 #. odoo-javascript
 #: code:addons/website/static/src/builder/plugins/options/website_info_option.xml:0
-msgid "Odoo Information"
-msgstr "Informace o Odoo"
+msgid "my-erp-crm Information"
+msgstr "Informace o my-erp-crm"
 
 #. module: website
 #. odoo-javascript
 #: code:addons/website/static/src/builder/plugins/options/mega_menu_option.xml:0
-msgid "Odoo Menu"
-msgstr "Menu Odoo"
+msgid "my-erp-crm Menu"
+msgstr "Menu my-erp-crm"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.show_website_info
-msgid "Odoo Version"
-msgstr "Verze Odoo"
+msgid "my-erp-crm Version"
+msgstr "Verze my-erp-crm"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_mega_menu_odoo_menu
@@ -14849,12 +14849,12 @@ msgstr "Hledat návštěvníka"
 #: model_terms:digest.tip,tip_description:website.digest_tip_website_1
 msgid ""
 "Search in the media dialogue when you need photos to illustrate your "
-"website. Odoo's integration with Unsplash, featuring millions of royalty "
+"website. my-erp-crm's integration with Unsplash, featuring millions of royalty "
 "free and high quality photos, makes it possible for you to get the perfect "
 "picture, in just a few clicks."
 msgstr ""
 "Vyhledávejte v mediálním dialogu, když potřebujete fotografie pro ilustraci "
-"vašeho webu. Integrace Odoo s Unsplash, která nabízí miliony bezplatných a "
+"vašeho webu. Integrace my-erp-crm s Unsplash, která nabízí miliony bezplatných a "
 "vysoce kvalitních fotografií, vám umožní získat dokonalý obraz pouhými "
 "několika kliknutími."
 
@@ -17129,12 +17129,12 @@ msgstr "Aby byl váš obsah úspěšný, musí být užitečný pro vaše čten�
 #: model_terms:digest.tip,tip_description:website.digest_tip_website_2
 msgid ""
 "To get more visitors, you should target keywords that are often searched in "
-"Google. With the built-in SEO tool, once you define a few keywords, Odoo "
+"Google. With the built-in SEO tool, once you define a few keywords, my-erp-crm "
 "will recommend you the best keywords to target. Then adapt your title and "
 "description accordingly to boost your traffic."
 msgstr ""
 "Chcete-li získat více návštěvníků, měli byste cílit na klíčová slova, která "
-"jsou často hledána na Googlu. Díky integrovanému nástroji SEO vám Odoo po "
+"jsou často hledána na Googlu. Díky integrovanému nástroji SEO vám my-erp-crm po "
 "definování několika klíčových slov doporučí nejlepší klíčová slova, na která "
 "chcete cílit. Poté odpovídajícím způsobem upravte název a popis, abyste "
 "zvýšili svůj provoz."
@@ -19311,7 +19311,7 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/website/static/src/builder/plugins/options/instagram_option.xml:0
 msgid ""
-"Your Instagram page must be public to be integrated into an Odoo website."
+"Your Instagram page must be public to be integrated into an my-erp-crm website."
 msgstr ""
 
 #. module: website
@@ -19361,7 +19361,7 @@ msgstr ""
 #. module: website
 #. odoo-javascript
 #: code:addons/website/static/src/components/resource_editor/resource_editor_warning.xml:0
-msgid "Your changes might be lost during future Odoo upgrade."
+msgid "Your changes might be lost during future my-erp-crm upgrade."
 msgstr ""
 
 #. module: website
@@ -19943,8 +19943,8 @@ msgstr "z loga"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.cookie_policy
-msgid "frontend_lang (Odoo)"
-msgstr "frontend_lang (Odoo)"
+msgid "frontend_lang (my-erp-crm)"
+msgstr "frontend_lang (my-erp-crm)"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets
@@ -20227,15 +20227,15 @@ msgstr "iPhone"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.cookie_policy
 msgid ""
-"im_livechat_previous_operator (Odoo)<br/>\n"
-"                                            utm_campaign (Odoo)<br/>\n"
-"                                            utm_source (Odoo)<br/>\n"
-"                                            utm_medium (Odoo)"
+"im_livechat_previous_operator (my-erp-crm)<br/>\n"
+"                                            utm_campaign (my-erp-crm)<br/>\n"
+"                                            utm_source (my-erp-crm)<br/>\n"
+"                                            utm_medium (my-erp-crm)"
 msgstr ""
-"im_livechat_previous_operator (Odoo)<br/>\n"
-"                                            utm_campaign (Odoo)<br/>\n"
-"                                            utm_source (Odoo)<br/>\n"
-"                                            utm_medium (Odoo)"
+"im_livechat_previous_operator (my-erp-crm)<br/>\n"
+"                                            utm_campaign (my-erp-crm)<br/>\n"
+"                                            utm_source (my-erp-crm)<br/>\n"
+"                                            utm_medium (my-erp-crm)"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets
@@ -20274,7 +20274,7 @@ msgstr "neformální zákazníci"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.show_website_info
 msgid ""
-"instance of Odoo, the <a class=\"o_translate_inline\" target=\"_blank\" "
+"instance of my-erp-crm, the <a class=\"o_translate_inline\" target=\"_blank\" "
 "href=\"https://www.odoo.com\">Open Source ERP</a>."
 msgstr ""
 
@@ -20564,8 +20564,8 @@ msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.cookie_policy
-msgid "session_id (Odoo)<br/>"
-msgstr "session_id (Odoo)<br/>"
+msgid "session_id (my-erp-crm)<br/>"
+msgstr "session_id (my-erp-crm)<br/>"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets

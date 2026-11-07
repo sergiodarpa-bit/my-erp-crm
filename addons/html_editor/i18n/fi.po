@@ -8,7 +8,7 @@
 # Jarmo Kortetjärvi <jarmo.kortetjarvi@futural.fi>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0\n"
+"Project-Id-Version: my-erp-crm Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:38+0000\n"
 "PO-Revision-Date: 2026-10-09 11:33+0000\n"
@@ -2032,7 +2032,7 @@ msgstr "Tämä on nykyinen versio, ei mitään verrattavaa."
 #: code:addons/html_editor/static/src/main/media/image_crop.js:0
 msgid ""
 "This type of image is not supported for cropping.<br/>If you want to crop "
-"it, please first download it from the original source and upload it in Odoo."
+"it, please first download it from the original source and upload it in my-erp-crm."
 msgstr ""
 "Tämäntyyppisiä kuvia ei voi rajata.<br/>Jos haluat rajata kuvan, lataa se "
 "ensin alkuperäisestä lähteestä ja lataa se Odoon."

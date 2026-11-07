@@ -18,7 +18,7 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-24 17:38+0000\n"
 "PO-Revision-Date: 2026-08-05 16:59+0000\n"
@@ -2830,10 +2830,10 @@ msgstr "Standard ruter gjennom varehus"
 #. module: stock
 #: model_terms:ir.actions.act_window,help:stock.action_orderpoint
 msgid ""
-"Define a minimum stock rule so that Odoo automatically creates requests for "
+"Define a minimum stock rule so that my-erp-crm automatically creates requests for "
 "quotations or confirmed manufacturing orders to resupply your stock."
 msgstr ""
-"Definer en minimumslagerregel slik at Odoo automatisk oppretter forespørsel "
+"Definer en minimumslagerregel slik at my-erp-crm automatisk oppretter forespørsel "
 "om pristilbud eller bekreftede produksjonsordrer for å etterfylle lageret "
 "ditt."
 
@@ -2846,14 +2846,14 @@ msgstr "Opprett et nytt lager"
 #: model_terms:ir.actions.act_window,help:stock.action_location_form
 msgid ""
 "Define your locations to reflect your warehouse structure and\n"
-"            organization. Odoo is able to manage physical locations\n"
+"            organization. my-erp-crm is able to manage physical locations\n"
 "            (warehouses, shelves, bin, etc), partner locations (customers,\n"
 "            vendors) and virtual locations which are the counterpart of\n"
 "            the stock operations like the manufacturing orders\n"
 "            consumptions, inventories, etc."
 msgstr ""
 "Definer stedene dine for å gjenspeile lagerstrukturen og \n"
-"                organisasjonen din. Odoo kan håndtere fysiske steder \n"
+"                organisasjonen din. my-erp-crm kan håndtere fysiske steder \n"
 "               (lagre, hyller, kasser osv.), partnersteder (kunder, "
 "leverandører) \n"
 "              og virtuelle steder som er motpartene til lageroperasjoner \n"
@@ -3518,7 +3518,7 @@ msgstr ""
 #. module: stock
 #: model_terms:digest.tip,tip_description:stock.digest_tip_stock_0
 msgid ""
-"Enjoy a quick-paced experience with the Odoo barcode app. It is blazing fast "
+"Enjoy a quick-paced experience with the my-erp-crm barcode app. It is blazing fast "
 "and works even without a stable internet connection. It supports all flows: "
 "inventory adjustments, batch picking, moving lots or pallets, low inventory "
 "checks, etc. Go to the \"Apps\" menu to activate the barcode interface."
@@ -3555,9 +3555,9 @@ msgstr ""
 #. module: stock
 #: model_terms:ir.actions.act_window,help:stock.action_location_form
 msgid ""
-"Every stock operation in Odoo moves the products from one\n"
+"Every stock operation in my-erp-crm moves the products from one\n"
 "            location to another one.  For instance, if you receive products\n"
-"            from a vendor, Odoo will move products from the Vendor\n"
+"            from a vendor, my-erp-crm will move products from the Vendor\n"
 "            location to the Stock location. Each report can be performed on\n"
 "            physical, partner or virtual locations."
 msgstr ""
@@ -4215,83 +4215,83 @@ msgstr ""
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_picking_type__auto_print_delivery_slip
 msgid ""
-"If this checkbox is ticked, Odoo will automatically print the delivery slip "
+"If this checkbox is ticked, my-erp-crm will automatically print the delivery slip "
 "of a picking when it is validated."
 msgstr ""
-"Hvis denne avkrysningsboksen er merket, vil Odoo automatisk skrive ut "
+"Hvis denne avkrysningsboksen er merket, vil my-erp-crm automatisk skrive ut "
 "leveringsslippen for en plukking når den blir validert."
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_picking_type__auto_print_lot_labels
 msgid ""
-"If this checkbox is ticked, Odoo will automatically print the lot/SN labels "
+"If this checkbox is ticked, my-erp-crm will automatically print the lot/SN labels "
 "of a picking when it is validated."
 msgstr ""
-"Hvis denne avkrysningsboksen er merket, vil Odoo automatisk skrive ut LOT-/"
+"Hvis denne avkrysningsboksen er merket, vil my-erp-crm automatisk skrive ut LOT-/"
 "serienummeretikettene for en plukking når den blir validert."
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_picking_type__auto_print_package_label
 msgid ""
-"If this checkbox is ticked, Odoo will automatically print the package label "
+"If this checkbox is ticked, my-erp-crm will automatically print the package label "
 "when \"Put in Pack\" button is used."
 msgstr ""
-"Hvis denne avkrysningsboksen er merket, vil Odoo automatisk skrive ut "
+"Hvis denne avkrysningsboksen er merket, vil my-erp-crm automatisk skrive ut "
 "pakkeetiketten når knappen \"Legg i pakke\" brukes."
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_picking_type__auto_print_packages
 msgid ""
-"If this checkbox is ticked, Odoo will automatically print the packages and "
+"If this checkbox is ticked, my-erp-crm will automatically print the packages and "
 "their contents of a picking when it is validated."
 msgstr ""
-"Hvis denne avkrysningsboksen er merket, vil Odoo automatisk skrive ut "
+"Hvis denne avkrysningsboksen er merket, vil my-erp-crm automatisk skrive ut "
 "pakkene og innholdet deres for en plukking når den blir validert."
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_picking_type__auto_print_product_labels
 msgid ""
-"If this checkbox is ticked, Odoo will automatically print the product labels "
+"If this checkbox is ticked, my-erp-crm will automatically print the product labels "
 "of a picking when it is validated."
 msgstr ""
-"Hvis denne avkrysningsboksen er merket, vil Odoo automatisk skrive ut "
+"Hvis denne avkrysningsboksen er merket, vil my-erp-crm automatisk skrive ut "
 "produktetikettene for en plukking når den blir validert."
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_picking_type__auto_print_reception_report_labels
 msgid ""
-"If this checkbox is ticked, Odoo will automatically print the reception "
+"If this checkbox is ticked, my-erp-crm will automatically print the reception "
 "report labels of a picking when it is validated."
 msgstr ""
-"Hvis denne avkrysningsboksen er merket, vil Odoo automatisk skrive ut "
+"Hvis denne avkrysningsboksen er merket, vil my-erp-crm automatisk skrive ut "
 "mottaksrapportetikettene for en plukking når den blir validert."
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_picking_type__auto_print_reception_report
 msgid ""
-"If this checkbox is ticked, Odoo will automatically print the reception "
+"If this checkbox is ticked, my-erp-crm will automatically print the reception "
 "report of a picking when it is validated and has assigned moves."
 msgstr ""
-"Hvis denne avkrysningsboksen er merket, vil Odoo automatisk skrive ut "
+"Hvis denne avkrysningsboksen er merket, vil my-erp-crm automatisk skrive ut "
 "mottaksrapporten for en plukking når den blir validert og har tildelte "
 "bevegelser."
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_picking_type__auto_print_return_slip
 msgid ""
-"If this checkbox is ticked, Odoo will automatically print the return slip of "
+"If this checkbox is ticked, my-erp-crm will automatically print the return slip of "
 "a picking when it is validated."
 msgstr ""
-"Hvis denne avkrysningsboksen er merket, vil Odoo automatisk skrive ut "
+"Hvis denne avkrysningsboksen er merket, vil my-erp-crm automatisk skrive ut "
 "returslippet for en plukking når den blir validert."
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_picking_type__auto_show_reception_report
 msgid ""
-"If this checkbox is ticked, Odoo will automatically show the reception "
+"If this checkbox is ticked, my-erp-crm will automatically show the reception "
 "report (if there are moves to allocate to) when validating."
 msgstr ""
-"Hvis denne avkrysningsboksen er merket, vil Odoo automatisk vise "
+"Hvis denne avkrysningsboksen er merket, vil my-erp-crm automatisk vise "
 "mottaksrapporten (hvis det er bevegelser å tildele til) ved validering."
 
 #. module: stock
@@ -6118,7 +6118,7 @@ msgstr "Oktober"
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.view_picking_type_form
 msgid ""
-"Odoo opens a PDF preview by default. If you (Enterprise users only) want to "
+"my-erp-crm opens a PDF preview by default. If you (Enterprise users only) want to "
 "print instantly,\n"
 "                                        install the IoT App on a computer "
 "that is on the same local network as the\n"

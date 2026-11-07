@@ -426,7 +426,7 @@ class TestPartnerAddressCompany(TransactionCase):
             {
                 'code': 'OD',
                 'country_id': cls.env.ref('base.be').id,
-                'name': 'Odoo Province',
+                'name': 'my-erp-crm Province',
             },
         ])
         cls.test_industries = cls.env['res.partner.industry'].create([

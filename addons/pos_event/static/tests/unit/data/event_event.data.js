@@ -27,7 +27,7 @@ export class EventEvent extends models.ServerModel {
     _records = [
         {
             id: 1,
-            name: "Odoo Community Days",
+            name: "my-erp-crm Community Days",
             seats_available: 10,
             event_ticket_ids: [1],
             registration_ids: [],

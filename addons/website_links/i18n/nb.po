@@ -9,7 +9,7 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.5alpha1\n"
+"Project-Id-Version: my-erp-crm Server 15.5alpha1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-05 19:30+0000\n"
 "PO-Revision-Date: 2026-08-07 19:21+0000\n"
@@ -273,7 +273,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:website_links.create_shorten_url
 msgid ""
 "Those trackers can be used in Google Analytics to track clicks and visitors, "
-"or in Odoo reports to track opportunities and related revenues."
+"or in my-erp-crm reports to track opportunities and related revenues."
 msgstr ""
 "Sporingen kan brukes i Google Analytics for å følge klikk og besøkende, "
 "eller i Odoo-rapporter for å spore salgsmuligheter og tilknyttet omsetning."

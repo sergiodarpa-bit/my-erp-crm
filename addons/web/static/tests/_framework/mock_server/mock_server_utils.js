@@ -106,7 +106,7 @@ export function makeServerError({
             subType,
             message: description || message,
         },
-        message: message || "Odoo Server Error",
+        message: message || "my-erp-crm Server Error",
         type: "server",
     });
 }

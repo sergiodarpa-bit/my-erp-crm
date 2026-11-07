@@ -12,7 +12,7 @@
 # "Nurul Aini Akrima Sabila (nuaas)" <nuaas@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-09-23 05:34+0000\n"
@@ -3810,12 +3810,12 @@ msgstr "Pengangguran Kecil"
 #: code:addons/hr_holidays/wizard/hr_leave_generate_multi_wizard.py:0
 msgid ""
 "Some employees already have time off requests in hours that overlap with the "
-"selected period, Odoo cannot automatically adjust or split hourly leaves "
+"selected period, my-erp-crm cannot automatically adjust or split hourly leaves "
 "during batch generation. Conflicting time off:\n"
 "%s"
 msgstr ""
 "Beberapa karyawan sudah memiliki permintaan cuti dalam jam-jam yang "
-"bertentangan dengan periode terpilih, Odoo tidak dapat otomatis menyesuaikan "
+"bertentangan dengan periode terpilih, my-erp-crm tidak dapat otomatis menyesuaikan "
 "atau memisahkan jam cuti pada pembuatan batch. Cuti dengan konflik:\n"
 "%s"
 

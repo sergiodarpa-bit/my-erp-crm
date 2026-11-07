@@ -13,7 +13,7 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-10 18:37+0000\n"
 "PO-Revision-Date: 2026-08-02 13:21+0000\n"
@@ -3116,13 +3116,13 @@ msgstr "Vorkommen"
 
 #. module: survey
 #: model_terms:ir.ui.view,arch_db:survey.certification_report_view_general
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: survey
 #. odoo-python
 #: code:addons/survey/models/templates/survey_survey.py:0
-msgid "Odoo Certification"
+msgid "my-erp-crm Certification"
 msgstr "Odoo-Zertifizierung"
 
 #. module: survey
@@ -5088,7 +5088,7 @@ msgstr "Website-Kommunikationsverlauf"
 #. odoo-python
 #: code:addons/survey/models/templates/survey_survey.py:0
 msgid ""
-"Welcome to this Odoo certification. You will receive 2 random questions out "
+"Welcome to this my-erp-crm certification. You will receive 2 random questions out "
 "of a pool of 3."
 msgstr ""
 "Willkommen bei dieser Odoo-Zertifizierung. Sie erhalten 2 zufällige Fragen "
@@ -5131,7 +5131,7 @@ msgstr "Was bedeutet „ODOO“?"
 #. module: survey
 #. odoo-python
 #: code:addons/survey/models/templates/survey_survey.py:0
-msgid "What does one need to get to pass an Odoo Survey?"
+msgid "What does one need to get to pass an my-erp-crm Survey?"
 msgstr "Was benötigt man, um eine Odoo-Umfrage zu bestehen?"
 
 #. module: survey
@@ -5169,8 +5169,8 @@ msgstr "Wann ist Ihr Geburtsdatum?"
 #. module: survey
 #. odoo-javascript
 #: code:addons/survey/static/src/js/tours/survey_tour.js:0
-msgid "Whenever you pick an answer, Odoo saves it for you."
-msgstr "Immer, wenn Sie eine Antwort auswählen, speichert Odoo sie für Sie."
+msgid "Whenever you pick an answer, my-erp-crm saves it for you."
+msgstr "Immer, wenn Sie eine Antwort auswählen, speichert my-erp-crm sie für Sie."
 
 #. module: survey
 #: model:survey.question,title:survey.survey_feedback_p1_q1

@@ -6,7 +6,7 @@
 # Bone NI <bounkirdni@gmail.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo 9.0\n"
+"Project-Id-Version: my-erp-crm 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:38+0000\n"
 "PO-Revision-Date: 2026-08-14 07:18+0000\n"
@@ -1388,9 +1388,9 @@ msgstr "ກວດສອບການອະນຸຍາດຂອງບຣາວເ
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.webclient_offline
 msgid ""
-"Check your network connection and come back here. Odoo will load as soon as "
+"Check your network connection and come back here. my-erp-crm will load as soon as "
 "you're back online."
-msgstr "ກວດສອບການເຊື່ອມຕໍ່ເຄືອຂ່າຍຂອງທ່ານແລ້ວກັບມາທີ່ນີ້. Odoo ຈະໂຫລດທັນທີເມື່ອທ່ານກັບມາອອນໄລນ໌."
+msgstr "ກວດສອບການເຊື່ອມຕໍ່ເຄືອຂ່າຍຂອງທ່ານແລ້ວກັບມາທີ່ນີ້. my-erp-crm ຈະໂຫລດທັນທີເມື່ອທ່ານກັບມາອອນໄລນ໌."
 
 #. module: web
 #. odoo-javascript
@@ -3048,8 +3048,8 @@ msgstr "ເມຖຸນ"
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/webclient/settings_form_view/fields/upgrade_dialog.xml:0
-msgid "Get this feature and much more with Odoo Enterprise!"
-msgstr "ໃຊ້ຟີເຈີນີ້ ແລະ ອື່ນໆອີກຫຼາຍຢ່າງດ້ວຍ Odoo Enterprise!"
+msgid "Get this feature and much more with my-erp-crm Enterprise!"
+msgstr "ໃຊ້ຟີເຈີນີ້ ແລະ ອື່ນໆອີກຫຼາຍຢ່າງດ້ວຍ my-erp-crm Enterprise!"
 
 #. module: web
 #. odoo-javascript
@@ -4878,40 +4878,40 @@ msgstr "ອັອບເຈັກ"
 #: code:addons/web/static/src/core/install_scoped_app/install_scoped_app.xml:0
 #: code:addons/web/static/src/webclient/settings_form_view/widgets/res_config_edition.xml:0
 #: model_terms:ir.ui.view,arch_db:web.brand_promotion_message
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Client Error"
-msgstr "ຂໍ້ຜິດພາດຈາກຄລາຍແອນ Odoo"
+msgid "my-erp-crm Client Error"
+msgstr "ຂໍ້ຜິດພາດຈາກຄລາຍແອນ my-erp-crm"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/webclient/settings_form_view/fields/upgrade_dialog.xml:0
-msgid "Odoo Enterprise"
-msgstr "Odoo ເອັນເຕີໄພຣສ໌"
+msgid "my-erp-crm Enterprise"
+msgstr "my-erp-crm ເອັນເຕີໄພຣສ໌"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Error"
-msgstr "ຂໍ້ຜິດພາດ Odoo"
+msgid "my-erp-crm Error"
+msgstr "ຂໍ້ຜິດພາດ my-erp-crm"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Network Error"
-msgstr "ຂໍ້ຜິດພາດເຄືອຂ່າຍ Odoo"
+msgid "my-erp-crm Network Error"
+msgstr "ຂໍ້ຜິດພາດເຄືອຂ່າຍ my-erp-crm"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/views/widgets/notification_alert/notification_alert.xml:0
 msgid ""
-"Odoo Push notifications have been blocked. Go to your browser settings to "
+"my-erp-crm Push notifications have been blocked. Go to your browser settings to "
 "allow them."
-msgstr "ການແຈ້ງເຕືອນ Odoo ຖືກບລັອກ. ໄປທີ່ການຕັ້ງຄ່າບຣາວເຊີຂອງທ່ານເພື່ອອະນຸຍາດ."
+msgstr "ການແຈ້ງເຕືອນ my-erp-crm ຖືກບລັອກ. ໄປທີ່ການຕັ້ງຄ່າບຣາວເຊີຂອງທ່ານເພື່ອອະນຸຍາດ."
 
 #. module: web
 #. odoo-javascript
@@ -4923,32 +4923,32 @@ msgstr "Odoo S.A."
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Server Error"
-msgstr "ຂໍ້ຜິດພາດຈາກເຊີເວີ Odoo"
+msgid "my-erp-crm Server Error"
+msgstr "ຂໍ້ຜິດພາດຈາກເຊີເວີ my-erp-crm"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/public/error_notifications.js:0
-msgid "Odoo Session Expired"
-msgstr "ເຊດຊັນ Odoo ໝົດອາຍຸ"
+msgid "my-erp-crm Session Expired"
+msgstr "ເຊດຊັນ my-erp-crm ໝົດອາຍຸ"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Warning"
-msgstr "ຄຳເຕືອນ Odoo"
+msgid "my-erp-crm Warning"
+msgstr "ຄຳເຕືອນ my-erp-crm"
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.webclient_offline
-msgid "Odoo logo"
-msgstr "ໂລໂກ້ Odoo"
+msgid "my-erp-crm logo"
+msgstr "ໂລໂກ້ my-erp-crm"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/barcode/barcode_video_scanner.js:0
-msgid "Odoo needs your authorization first."
-msgstr "Odoo ຕ້ອງການການອະນຸຍາດຈາກທ່ານກ່ອນ."
+msgid "my-erp-crm needs your authorization first."
+msgstr "my-erp-crm ຕ້ອງການການອະນຸຍາດຈາກທ່ານກ່ອນ."
 
 #. module: web
 #. odoo-javascript
@@ -5335,8 +5335,8 @@ msgstr "ຂັບເຄື່ອນໂດຍ %s%s"
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.login_layout
-msgid "Powered by <span>Odoo</span>"
-msgstr "ຂັບເຄື່ອນໂດຍ <span>Odoo</span>"
+msgid "Powered by <span>my-erp-crm</span>"
+msgstr "ຂັບເຄື່ອນໂດຍ <span>my-erp-crm</span>"
 
 #. module: web
 #. odoo-javascript
@@ -7840,9 +7840,9 @@ msgstr "ທ່ານຕ້ອງເລືອກໂມເດວກ່ອນທີ
 #. odoo-javascript
 #: code:addons/web/static/src/webclient/actions/reports/utils.js:0
 msgid ""
-"You need to start Odoo with at least two workers to print a pdf version of "
+"You need to start my-erp-crm with at least two workers to print a pdf version of "
 "the reports."
-msgstr "ທ່ານຕ້ອງເລີ່ມ Odoo ດ້ວຍ workers ຢ່າງໜ້ອຍສອງຄົນເພື່ອພິມລາຍງານໃນຮູບແບບ pdf."
+msgstr "ທ່ານຕ້ອງເລີ່ມ my-erp-crm ດ້ວຍ workers ຢ່າງໜ້ອຍສອງຄົນເພື່ອພິມລາຍງານໃນຮູບແບບ pdf."
 
 #. module: web
 #. odoo-javascript
@@ -7859,8 +7859,8 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/public/error_notifications.js:0
-msgid "Your Odoo session expired. The current page is about to be refreshed."
-msgstr "ເຊດຊັນ Odoo ຂອງທ່ານໝົດອາຍຸ. ໜ້າປັດຈຸບັນກຳລັງຈະຖືກໂຫຼດໃໝ່."
+msgid "Your my-erp-crm session expired. The current page is about to be refreshed."
+msgstr "ເຊດຊັນ my-erp-crm ຂອງທ່ານໝົດອາຍຸ. ໜ້າປັດຈຸບັນກຳລັງຈະຖືກໂຫຼດໃໝ່."
 
 #. module: web
 #. odoo-javascript

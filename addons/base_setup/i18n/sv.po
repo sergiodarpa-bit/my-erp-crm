@@ -19,7 +19,7 @@
 # Hanna Kharraziha <hakha@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-07 03:26+0000\n"
@@ -149,10 +149,10 @@ msgstr "API nycklar"
 #. module: base_setup
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
 msgid ""
-"API Keys allow your users to access Odoo with external tools when multi-"
+"API Keys allow your users to access my-erp-crm with external tools when multi-"
 "factor authentication is enabled."
 msgstr ""
-"API-nycklar gör att dina användare kan komma åt Odoo med externa verktyg när "
+"API-nycklar gör att dina användare kan komma åt my-erp-crm med externa verktyg när "
 "multifaktorautentisering är aktiverad."
 
 #. module: base_setup
@@ -501,8 +501,8 @@ msgstr "OAuth-autentisering"
 
 #. module: base_setup
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: base_setup
 #: model:ir.model.fields,field_description:base_setup.field_res_config_settings__module_partner_autocomplete
@@ -597,10 +597,10 @@ msgstr ""
 #. module: base_setup
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
 msgid ""
-"This name will be used for the application when Odoo is installed through "
+"This name will be used for the application when my-erp-crm is installed through "
 "the browser."
 msgstr ""
-"Detta namn kommer att användas för applikationen när Odoo installeras via "
+"Detta namn kommer att användas för applikationen när my-erp-crm installeras via "
 "webbläsaren."
 
 #. module: base_setup
@@ -647,11 +647,11 @@ msgstr "Momsregistreringsnummer"
 #. module: base_setup
 #: model_terms:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
 msgid ""
-"When populating your address book, Odoo provides a list of matching "
+"When populating your address book, my-erp-crm provides a list of matching "
 "companies. When selecting one item, the company data and logo are auto-"
 "filled."
 msgstr ""
-"När du fyller i din adressbok ger Odoo en lista över matchande företag. När "
+"När du fyller i din adressbok ger my-erp-crm en lista över matchande företag. När "
 "du väljer ett objekt fylls företagsdata och logotyp i automatiskt."
 
 #. module: base_setup

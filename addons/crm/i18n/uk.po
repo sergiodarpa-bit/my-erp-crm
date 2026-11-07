@@ -11,7 +11,7 @@
 # Vlad Patenko <vlad.patenko@gmail.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0beta\n"
+"Project-Id-Version: my-erp-crm Server 16.0beta\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-20 18:35+0000\n"
 "PO-Revision-Date: 2026-09-19 15:33+0000\n"
@@ -337,7 +337,7 @@ msgid ""
 "board, you'll discover what <t t-out=\"object.company_id.name or ''\">My "
 "Company (San Francisco)</t> has to offer. My name is <t t-"
 "out=\"object.user_id.name or ''\">Marc Demo</t> and I'll help you get the "
-"most out of Odoo. Could we plan a quick demo soon?<br/>\n"
+"most out of my-erp-crm. Could we plan a quick demo soon?<br/>\n"
 "                            Feel free to reach out at any time!<br/><br/>\n"
 "                            Best,<br/>\n"
 "                            <t t-if=\"object.user_id\">\n"
@@ -390,7 +390,7 @@ msgid ""
 "<tr><td align=\"center\" style=\"min-width: 590px;\">\n"
 "    Powered by <a target=\"_blank\" href=\"https://www.odoo.com?"
 "utm_source=db&amp;utm_medium=email\" t-attf-style=\"color: "
-"{{object.company_id.email_secondary_color or '#875A7B'}};;\">Odoo</a>\n"
+"{{object.company_id.email_secondary_color or '#875A7B'}};;\">my-erp-crm</a>\n"
 "</td></tr>\n"
 "</table>\n"
 "        "
@@ -443,7 +443,7 @@ msgstr ""
 "                            Раді познайомитися! Тепер, коли ви на борту, ви "
 "дізнаєтесь, що пропонує <t t-out=\"object.company_id.name or ''\">My Company "
 "(San Francisco)</t> . Мене звати <t t-out=\"object.user_id.name or ''\">Marc "
-"Demo</t> і я допоможу вам якнайкраще з Odoo. Чи можемо ми запланувати швидке "
+"Demo</t> і я допоможу вам якнайкраще з my-erp-crm. Чи можемо ми запланувати швидке "
 "демо?<br/>\n"
 "                            Ви можете вільно звʼязуватися з нами!<br/><br/>\n"
 "                            З найкращими побажаннями,<br/>\n"
@@ -497,7 +497,7 @@ msgstr ""
 "<tr><td align=\"center\" style=\"min-width: 590px;\">\n"
 "    Зроблено <a target=\"_blank\" href=\"https://"
 "www.odoo.com?utm_source=db&amp;utm_medium=email\" t-attf-style=\"color: {"
-"{object.company_id.email_secondary_color or '#875A7B'}};;\">Odoo</a>\n"
+"{object.company_id.email_secondary_color or '#875A7B'}};;\">my-erp-crm</a>\n"
 "</td></tr>\n"
 "</table>\n"
 "        "
@@ -1060,10 +1060,10 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/crm/static/src/js/tours/crm.js:0
 msgid ""
-"Click on the breadcrumb to go back to your Pipeline. Odoo will save all "
+"Click on the breadcrumb to go back to your Pipeline. my-erp-crm will save all "
 "modifications as you navigate."
 msgstr ""
-"Клікніть на бредкрамб, щоб повернутися до конвеєра. Odoo збереже всі зміни "
+"Клікніть на бредкрамб, щоб повернутися до конвеєра. my-erp-crm збереже всі зміни "
 "під час навігації."
 
 #. module: crm
@@ -1149,8 +1149,8 @@ msgstr "Дата виконання"
 #. module: crm
 #. odoo-javascript
 #: code:addons/crm/static/src/views/crm_form/crm_pls_tooltip_button.xml:0
-msgid "Computed by Odoo AI using your data."
-msgstr "Розраховано штучним інтелектом Odoo на основі ваших даних."
+msgid "Computed by my-erp-crm AI using your data."
+msgstr "Розраховано штучним інтелектом my-erp-crm на основі ваших даних."
 
 #. module: crm
 #: model:ir.model,name:crm.model_res_config_settings
@@ -1540,22 +1540,22 @@ msgstr ""
 #: model_terms:digest.tip,tip_description:crm.digest_tip_crm_4
 msgid ""
 "Did you know you can search a company by name or VAT number to instantly "
-"fill in all its data? Odoo autocompletes everything for you: logo, address, "
+"fill in all its data? my-erp-crm autocompletes everything for you: logo, address, "
 "company size, business information, social media accounts, etc."
 msgstr ""
 "Чи знали ви, що ви можете шукати компанію за назвою або номером ІПН, миттєво "
-"заповнивши усі ці дані? Odoo заповнює все для вас автоматично: логотип, "
+"заповнивши усі ці дані? my-erp-crm заповнює все для вас автоматично: логотип, "
 "адресу, розмір компанії, бізнес-інформацію, акаунти соцмереж тощо."
 
 #. module: crm
 #: model_terms:digest.tip,tip_description:crm.digest_tip_crm_5
 msgid ""
 "Did you know you can turn a list of opportunities into a map view, using the "
-"top-right map icon? A lot of screens in Odoo can be turned into a map: "
+"top-right map icon? A lot of screens in my-erp-crm can be turned into a map: "
 "tasks, contacts, delivery orders, etc."
 msgstr ""
 "Чи знали ви, що можете змінити список нагод у перегляд карти, натиснувши на "
-"іконку карти у правому верхньому куті? Багато інформації в Odoo можна "
+"іконку карти у правому верхньому куті? Багато інформації в my-erp-crm можна "
 "перетворити у перегляд карти: завдання, контакти, замовлення на доставку "
 "тощо."
 
@@ -2592,10 +2592,10 @@ msgstr "MRR"
 #. module: crm
 #: model_terms:ir.ui.view,arch_db:crm.res_config_settings_view_form
 msgid ""
-"Make and receive calls from Odoo with Ringover's dialer. Track calls, SMS "
+"Make and receive calls from my-erp-crm with Ringover's dialer. Track calls, SMS "
 "messages, and get AI-powered transcripts of your conversations."
 msgstr ""
-"Здійснюйте та приймайте дзвінки в Odoo за допомогою панелі викликів "
+"Здійснюйте та приймайте дзвінки в my-erp-crm за допомогою панелі викликів "
 "Ringover. Відстежуйте дзвінки, SMS-повідомлення та отримуйте розшифровки "
 "ваших розмов на основі штучного інтелекту."
 
@@ -3047,25 +3047,25 @@ msgstr "Кількість повідомлень з помилковою дст
 #. module: crm
 #: model_terms:ir.actions.act_window,help:crm.crm_case_form_view_salesteams_opportunity
 msgid ""
-"Odoo helps you keep track of your sales pipeline to follow\n"
+"my-erp-crm helps you keep track of your sales pipeline to follow\n"
 "                    up potential sales and better forecast your future "
 "revenues."
 msgstr ""
-"Odoo допомагає вам стежити за вашим конвеєром продажу, \n"
+"my-erp-crm допомагає вам стежити за вашим конвеєром продажу, \n"
 "                 аби стежити за потенційними продажами та краще прогнозувати "
 "ваші майбутні доходи."
 
 #. module: crm
 #: model_terms:digest.tip,tip_description:crm.digest_tip_crm_2
 msgid ""
-"Odoo's artificial intelligence engine predicts the success rate of each "
+"my-erp-crm's artificial intelligence engine predicts the success rate of each "
 "opportunity based on your history. You can always update the success rate "
-"manually, but if you let Odoo do the job the score is updated while the "
+"manually, but if you let my-erp-crm do the job the score is updated while the "
 "opportunity moves forward in your sales cycle."
 msgstr ""
-"Двигун штучного інтелекту Odoo прогнозує відсоток успіху кожної нагоди на "
+"Двигун штучного інтелекту my-erp-crm прогнозує відсоток успіху кожної нагоди на "
 "основі його історії. Ви можете завжди оновити відсоток успіху вручну, але "
-"якщо ви дозволите це зробити Odoo, оцінка оновлюватиметься під час "
+"якщо ви дозволите це зробити my-erp-crm, оцінка оновлюватиметься під час "
 "переміщення нагоди по вашому конвеєру продажів."
 
 #. module: crm
@@ -3961,11 +3961,11 @@ msgstr "Лід %s не може бути впійманим і втрачени�
 #. module: crm
 #: model:ir.model.fields,help:crm.field_crm_team__alias_model_id
 msgid ""
-"The model (Odoo Document Kind) to which this alias corresponds. Any incoming "
+"The model (my-erp-crm Document Kind) to which this alias corresponds. Any incoming "
 "email that does not reply to an existing record will cause the creation of a "
 "new record of this model (e.g. a Project Task)"
 msgstr ""
-"Модель (тип документу Odoo), до якої відповідає цей псевдонім. Будь-яка "
+"Модель (тип документу my-erp-crm), до якої відповідає цей псевдонім. Будь-яка "
 "вхідна електронна пошта, яка не відповідає існуючому запису, призведе до "
 "створення нового запису цієї моделі (наприклад, завдання проекту)"
 
@@ -4127,8 +4127,8 @@ msgstr "Порада: конвертуйте вхідні електронні �
 #. module: crm
 #: model:digest.tip,name:crm.digest_tip_crm_1
 #: model_terms:digest.tip,tip_description:crm.digest_tip_crm_1
-msgid "Tip: Did you know Odoo has built-in lead mining?"
-msgstr "Порада: Чи знали ви, що Odoo має вбудоване отримання лідів?"
+msgid "Tip: Did you know my-erp-crm has built-in lead mining?"
+msgstr "Порада: Чи знали ви, що my-erp-crm має вбудоване отримання лідів?"
 
 #. module: crm
 #: model:digest.tip,name:crm.digest_tip_crm_4

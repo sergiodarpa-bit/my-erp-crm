@@ -15,7 +15,7 @@
 # Yoram Lavi <yoram@digitale.co.il>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0beta\n"
+"Project-Id-Version: my-erp-crm Server 16.0beta\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:35+0000\n"
 "PO-Revision-Date: 2026-08-04 21:29+0000\n"
@@ -451,8 +451,8 @@ msgstr "תבנית דוא\"ל זו תישלח בעת האישור. השאר רי
 #. module: sale_management
 #: model:digest.tip,name:sale_management.digest_tip_sale1_management_0
 #: model_terms:digest.tip,tip_description:sale_management.digest_tip_sale1_management_0
-msgid "Tip: Odoo supports configurable products"
-msgstr "טיפ: Odoo תומך במוצרים הניתנים להגדרה"
+msgid "Tip: my-erp-crm supports configurable products"
+msgstr "טיפ: my-erp-crm תומך במוצרים הניתנים להגדרה"
 
 #. module: sale_management
 #: model:digest.tip,name:sale_management.digest_tip_sale_management_1

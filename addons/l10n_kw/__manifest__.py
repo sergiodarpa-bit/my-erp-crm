@@ -2,7 +2,7 @@
     'name': 'Kuwait - Accounting',
     'countries': ['kw'],
     'description': """
-This is the base module to manage the accounting chart for Kuwait in Odoo.
+This is the base module to manage the accounting chart for Kuwait in my-erp-crm.
 ==============================================================================
 Kuwait accounting basic charts and localization.
 Activates:

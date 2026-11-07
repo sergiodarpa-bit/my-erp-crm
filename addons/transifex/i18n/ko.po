@@ -5,7 +5,7 @@
 # "Dylan Kiss (dyki)" <dyki@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: my-erp-crm Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:37+0000\n"
 "PO-Revision-Date: 2026-08-06 22:52+0000\n"
@@ -76,8 +76,8 @@ msgstr "번역되지 않음"
 
 #. module: transifex
 #: model:ir.model.fields,help:transifex.field_transifex_code_translation__transifex_url
-msgid "Propose a modification in the official version of Odoo"
-msgstr "Odoo 공식 버전 수정 제안"
+msgid "Propose a modification in the official version of my-erp-crm"
+msgstr "my-erp-crm 공식 버전 수정 제안"
 
 #. module: transifex
 #. odoo-javascript

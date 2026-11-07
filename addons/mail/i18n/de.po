@@ -16,7 +16,7 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:37+0000\n"
 "PO-Revision-Date: 2026-08-11 10:44+0000\n"
@@ -56,13 +56,13 @@ msgid ""
 "            <p class=\"o_view_nocontent_smiling_face\">\n"
 "                Add addresses to the Allowed List\n"
 "            </p><p>\n"
-"                To protect you from spam and reply loops, Odoo automatically "
+"                To protect you from spam and reply loops, my-erp-crm automatically "
 "blocks emails\n"
 "                coming to your gateway past a threshold of <b>%(threshold)i</"
 "b> emails every <b>%(minutes)i</b>\n"
 "                minutes. If there are some addresses from which you need to "
 "receive very frequent\n"
-"                updates, you can however add them below and Odoo will let "
+"                updates, you can however add them below and my-erp-crm will let "
 "them go through.\n"
 "            </p>"
 msgstr ""
@@ -71,12 +71,12 @@ msgstr ""
 "                Fügen Sie der Berechtigungsliste Adressen hinzu.\n"
 "            </p><p>\n"
 "                Um Sie vor Spam und Antwortschleifen zu schützen, blockiert "
-"Odoo automatisch E-Mails,\n"
+"my-erp-crm automatisch E-Mails,\n"
 "                die mit einer Häufigkeit von <b>%(threshold)i</b> E-Mails "
 "pro <b>%(minutes)i</b>\n"
 "                Minuten an Ihrem Gateway ankommen. Wenn es Adressen gibt, "
 "von denen Sie sehr häufig Nachrichten erhalten müssen,\n"
-"                können Sie diese unten hinzufügen, und Odoo wird sie dann "
+"                können Sie diese unten hinzufügen, und my-erp-crm wird sie dann "
 "nicht blockieren.\n"
 "            </p>"
 
@@ -5761,7 +5761,7 @@ msgstr ""
 #. module: mail
 #: model:ir.model.fields,help:mail.field_res_config_settings__alias_domain_id
 msgid ""
-"If you have setup a catch-all email domain redirected to the Odoo server, "
+"If you have setup a catch-all email domain redirected to the my-erp-crm server, "
 "enter the domain name here."
 msgstr ""
 "Wenn Sie eine Catch-All-E-Mail-Domain eingerichtet haben, geben Sie hier die "
@@ -5832,8 +5832,8 @@ msgstr "In %(country)s"
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__res_users__notification_type__inbox
-msgid "In Odoo"
-msgstr "In Odoo"
+msgid "In my-erp-crm"
+msgstr "In my-erp-crm"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_compose_message__scheduled_date
@@ -5944,8 +5944,8 @@ msgstr "Installieren"
 #. module: mail
 #. odoo-javascript
 #: code:addons/mail/static/src/core/web/messaging_menu_patch.js:0
-msgid "Install Odoo"
-msgstr "Odoo installieren"
+msgid "Install my-erp-crm"
+msgstr "my-erp-crm installieren"
 
 #. module: mail
 #: model:ir.ui.menu,name:mail.discuss_channel_integrations_menu
@@ -6343,7 +6343,7 @@ msgid ""
 "browser will \n"
 "          keep the private key secret and use it for decrypting the payload\n"
 "- auth: The auth value should be treated as a secret and not shared outside "
-"of Odoo"
+"of my-erp-crm"
 msgstr ""
 "Bezieht sich auf die von der Benachrichtigung verwendeten "
 "Browserschlüssel: \n"
@@ -6352,7 +6352,7 @@ msgstr ""
 "          hält den privaten Schlüssel geheim und verwendet ihn zum "
 "Entschlüsseln der Nutzdaten.\n"
 "- auth: Der Auth-Wert sollte als Geheimnis behandelt werden und nicht "
-"außerhalb von Odoo weitergegeben werden."
+"außerhalb von my-erp-crm weitergegeben werden."
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_tracking_duration_mixin__duration_tracking
@@ -8334,20 +8334,20 @@ msgstr "BS"
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_notification_layout
 #: model_terms:ir.ui.view,arch_db:mail.mail_notification_light
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: mail
 #. odoo-javascript
 #: code:addons/mail/static/src/core/common/notification_permission_service.js:0
-msgid "Odoo will not send notifications on this device."
-msgstr "Odoo sendet keine Benachrichtigungen auf dieses Gerät."
+msgid "my-erp-crm will not send notifications on this device."
+msgstr "my-erp-crm sendet keine Benachrichtigungen auf dieses Gerät."
 
 #. module: mail
 #. odoo-javascript
 #: code:addons/mail/static/src/core/common/notification_permission_service.js:0
-msgid "Odoo will send notifications on this device!"
-msgstr "Odoo sendet Benachrichtigungen auf dieses Gerät!"
+msgid "my-erp-crm will send notifications on this device!"
+msgstr "my-erp-crm sendet Benachrichtigungen auf dieses Gerät!"
 
 #. module: mail
 #. odoo-javascript
@@ -8475,8 +8475,8 @@ msgstr "Nur das Kundenmodell kann modifiziert werden."
 
 #. module: mail
 #: model:ir.model.constraint,message:mail.constraint_res_users_notification_type
-msgid "Only internal user can receive notifications in Odoo"
-msgstr "Nur interne Benutzer können in Odoo Benachrichtigungen erhalten"
+msgid "Only internal user can receive notifications in my-erp-crm"
+msgstr "Nur interne Benutzer können in my-erp-crm Benachrichtigungen erhalten"
 
 #. module: mail
 #. odoo-python
@@ -9218,11 +9218,11 @@ msgstr "Bitte warten Sie, während die Datei hochgeladen wird."
 msgid ""
 "Policy on how to handle Chatter notifications:\n"
 "- By Emails: notifications are sent to your email address\n"
-"- In Odoo: notifications appear in your Odoo Inbox"
+"- In my-erp-crm: notifications appear in your my-erp-crm Inbox"
 msgstr ""
 "Umgang mit Chat-Benachrichtigungen:\n"
 "- Per E-Mail: Benachrichtigungen werden an Ihre E-Mail-Adresse gesendet\n"
-"- In Odoo: Benachrichtigungen erscheinen in Ihrem Odoo-Posteingang"
+"- In my-erp-crm: Benachrichtigungen erscheinen in Ihrem Odoo-Posteingang"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_alias__alias_contact
@@ -9596,8 +9596,8 @@ msgstr "Begründung"
 
 #. module: mail
 #: model:res.groups,name:mail.group_mail_notification_type_inbox
-msgid "Receive notifications in Odoo"
-msgstr "Benachrichtigungen in Odoo erhalten"
+msgid "Receive notifications in my-erp-crm"
+msgstr "Benachrichtigungen in my-erp-crm erhalten"
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__mail_mail__state__received
@@ -11625,7 +11625,7 @@ msgstr "Die Nachricht, aus der der Kanal erstellt wurde."
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_alias__alias_model_id
 msgid ""
-"The model (Odoo Document Kind) to which this alias corresponds. Any incoming "
+"The model (my-erp-crm Document Kind) to which this alias corresponds. Any incoming "
 "email that does not reply to an existing record will cause the creation of a "
 "new record of this model (e.g. a Project Task)"
 msgstr ""
@@ -11923,7 +11923,7 @@ msgstr "Diese Nachricht wurde entfernt"
 msgid ""
 "This option permanently removes any track of email after it's been sent, "
 "including from the Technical menu in the Settings, in order to preserve "
-"storage space of your Odoo database."
+"storage space of your my-erp-crm database."
 msgstr ""
 "Mit dieser Option wird jede E-Mail nach dem Versand dauerhaft gelöscht, auch "
 "aus dem technischen Menü in den Einstellungen, um Speicherplatz in Ihrer "

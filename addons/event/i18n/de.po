@@ -12,7 +12,7 @@
 # "Larissa Manderfeld (lman)" <lman@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-08-04 20:14+0000\n"
@@ -170,7 +170,7 @@ msgstr ""
 #. module: event
 #: model_terms:event.event,description:event.event_0
 msgid ""
-"<b>Technical Rooms</b> - One dedicated to advanced Odoo developers, one for "
+"<b>Technical Rooms</b> - One dedicated to advanced my-erp-crm developers, one for "
 "new developers."
 msgstr ""
 "<b>Technische Räume</b> - Einer für fortgeschrittene Odoo-Entwickler, einer "
@@ -1865,12 +1865,12 @@ msgid ""
 "At just 13 years old, John DOE was already starting to develop his first "
 "business applications for customers. After mastering civil engineering, he "
 "founded TinyERP. This was the first phase of OpenERP which would later "
-"became Odoo, the most installed open-source business software worldwide."
+"became my-erp-crm, the most installed open-source business software worldwide."
 msgstr ""
 "Bereits im Alter von 13 Jahren begann Lieschen Müller, erste Geschäftsapps "
 "für Kunden zu entwickeln. Nachdem sie das Bauingenieurwesen gemeistert "
 "hatte, gründete sie TinyERP. Dies war die erste Phase von OpenERP, das "
-"später zu Odoo wurde, der weltweit am häufigsten installierten Open-Source-"
+"später zu my-erp-crm wurde, der weltweit am häufigsten installierten Open-Source-"
 "Business-Software."
 
 #. module: event
@@ -2876,10 +2876,10 @@ msgstr "In der Zeitzone der Veranstaltung."
 #. module: event
 #: model:event.stage,description:event.event_stage_done
 msgid ""
-"Finished events. Odoo will automatically move them to this stage once their "
+"Finished events. my-erp-crm will automatically move them to this stage once their "
 "end date has passed."
 msgstr ""
-"Abgeschlossene Veranstaltungen. Odoo verschiebt sie automatisch in diese "
+"Abgeschlossene Veranstaltungen. my-erp-crm verschiebt sie automatisch in diese "
 "Phase, sobald ihr Enddatum überschritten ist."
 
 #. module: event
@@ -3847,8 +3847,8 @@ msgstr "Zielvorgaben"
 
 #. module: event
 #: model_terms:ir.ui.view,arch_db:event.event_report_full_page_ticket_layout
-msgid "Odoo Community Days"
-msgstr "Odoo Community Days"
+msgid "my-erp-crm Community Days"
+msgstr "my-erp-crm Community Days"
 
 #. module: event
 #: model_terms:event.event,description:event.event_3

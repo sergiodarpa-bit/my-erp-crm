@@ -12,7 +12,7 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~18.3\n"
+"Project-Id-Version: my-erp-crm Server saas~18.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:37+0000\n"
 "PO-Revision-Date: 2026-08-02 13:42+0000\n"
@@ -592,27 +592,27 @@ msgstr "50 米"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_cta_card
 msgid ""
-"50,000+ companies run Odoo <br class=\"d-none d-lg-inline\"/>to grow their "
+"50,000+ companies run my-erp-crm <br class=\"d-none d-lg-inline\"/>to grow their "
 "businesses."
 msgstr ""
-"超過 50,000 間公司<br class=\"d-none d-lg-inline\"/>使用 Odoo 發展業務。"
+"超過 50,000 間公司<br class=\"d-none d-lg-inline\"/>使用 my-erp-crm 發展業務。"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_call_to_action
 #: model_terms:ir.ui.view,arch_db:website.template_footer_call_to_action
-msgid "50,000+ companies run Odoo to grow their businesses."
-msgstr "50,000 家以上的公司使用 Odoo 來推動他們的業務成長."
+msgid "50,000+ companies run my-erp-crm to grow their businesses."
+msgstr "50,000 家以上的公司使用 my-erp-crm 來推動他們的業務成長."
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_cta_box
-msgid "50,000+ companies run Odoo<br/>to grow their businesses."
-msgstr "超過 50,000 間公司<br/>使用 Odoo 發展業務。"
+msgid "50,000+ companies run my-erp-crm<br/>to grow their businesses."
+msgstr "超過 50,000 間公司<br/>使用 my-erp-crm 發展業務。"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_cta_mobile
 #: model_terms:ir.ui.view,arch_db:website.s_cta_mockups
-msgid "50,000+ companies trust Odoo."
-msgstr "超過 50,000 間公司信賴 Odoo。"
+msgid "50,000+ companies trust my-erp-crm."
+msgstr "超過 50,000 間公司信賴 my-erp-crm。"
 
 #. module: website
 #. odoo-javascript
@@ -4935,9 +4935,9 @@ msgstr "圖表"
 #: model_terms:ir.ui.view,arch_db:website.s_form_aside
 msgid ""
 "Chat with us through or fill in this form to get information about anything "
-"related to Odoo apps, services, our company."
+"related to my-erp-crm apps, services, our company."
 msgstr ""
-"歡迎與我們聊天，或填寫此表格，獲取有關 Odoo 應用程式、服務及我們公司的更多資"
+"歡迎與我們聊天，或填寫此表格，獲取有關 my-erp-crm 應用程式、服務及我們公司的更多資"
 "訊。"
 
 #. module: website
@@ -6408,12 +6408,12 @@ msgstr "設計"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_table_of_content
 msgid ""
-"Design Odoo templates easily with clean HTML and Bootstrap CSS. These "
+"Design my-erp-crm templates easily with clean HTML and Bootstrap CSS. These "
 "templates offer a responsive, mobile-first design, making them simple to "
 "customize and perfect for any web project, from corporate sites to personal "
 "blogs."
 msgstr ""
-"使用簡潔易用的 HTML 及 Bootstrap CSS，輕鬆設計 Odoo 範本。這些範本提供回應"
+"使用簡潔易用的 HTML 及 Bootstrap CSS，輕鬆設計 my-erp-crm 範本。這些範本提供回應"
 "式、流動裝置優先的設計，容易自訂，也非常適合任何網站架設及設計的專案，從公司"
 "網站到個人網誌都照顧到。"
 
@@ -8722,8 +8722,8 @@ msgstr "前往設計主題分頁"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.layout
-msgid "Go to your Odoo Apps"
-msgstr "前往你的 Odoo 應用程式"
+msgid "Go to your my-erp-crm Apps"
+msgstr "前往你的 my-erp-crm 應用程式"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_carousel
@@ -8961,8 +8961,8 @@ msgstr "歡樂時光"
 #. module: website
 #. odoo-javascript
 #: code:addons/website/static/src/builder/plugins/options/countdown_option.xml:0
-msgid "Happy Odoo Anniversary!"
-msgstr "Odoo 周年快樂！"
+msgid "Happy my-erp-crm Anniversary!"
+msgstr "my-erp-crm 周年快樂！"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website__has_social_default_image
@@ -11798,12 +11798,12 @@ msgstr "監控 Google 搜尋結果數據"
 #. module: website
 #: model_terms:digest.tip,tip_description:website.digest_tip_website_0
 msgid ""
-"Monitor your visitors while they are browsing your website with the Odoo "
+"Monitor your visitors while they are browsing your website with the my-erp-crm "
 "Social app. Engage with them in just a click using a live chat request or a "
 "push notification. If they have completed one of your forms, you can send "
 "them an SMS, or call them right away while they are browsing your website."
 msgstr ""
-"使用 Odoo 社交管理應用程式，監察網站訪客的瀏覽活動。 使用實時聊天請求或推送通"
+"使用 my-erp-crm 社交管理應用程式，監察網站訪客的瀏覽活動。 使用實時聊天請求或推送通"
 "知，只需單擊一下即可與他們互動。 如果他們填寫了你的一份表格，你可以向他們發送"
 "短訊，或在他們瀏覽網站時立即打電話給他們。"
 
@@ -12405,19 +12405,19 @@ msgstr "或"
 #. module: website
 #. odoo-javascript
 #: code:addons/website/static/src/builder/plugins/options/website_info_option.xml:0
-msgid "Odoo Information"
-msgstr "Odoo 資訊"
+msgid "my-erp-crm Information"
+msgstr "my-erp-crm 資訊"
 
 #. module: website
 #. odoo-javascript
 #: code:addons/website/static/src/builder/plugins/options/mega_menu_option.xml:0
-msgid "Odoo Menu"
-msgstr "Odoo 選單"
+msgid "my-erp-crm Menu"
+msgstr "my-erp-crm 選單"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.show_website_info
-msgid "Odoo Version"
-msgstr "Odoo 版本"
+msgid "my-erp-crm Version"
+msgstr "my-erp-crm 版本"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_mega_menu_odoo_menu
@@ -12795,7 +12795,7 @@ msgstr "我們的價值觀"
 #: model_terms:ir.ui.view,arch_db:website.template_footer_mega_columns
 #: model_terms:ir.ui.view,arch_db:website.template_footer_mega_links
 msgid "Our company"
-msgstr "關於 Odoo 公司"
+msgstr "關於 my-erp-crm 公司"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_accordion
@@ -14779,11 +14779,11 @@ msgstr "搜尋訪客"
 #: model_terms:digest.tip,tip_description:website.digest_tip_website_1
 msgid ""
 "Search in the media dialogue when you need photos to illustrate your "
-"website. Odoo's integration with Unsplash, featuring millions of royalty "
+"website. my-erp-crm's integration with Unsplash, featuring millions of royalty "
 "free and high quality photos, makes it possible for you to get the perfect "
 "picture, in just a few clicks."
 msgstr ""
-"需要照片來說明網站時，請在媒體對話窗中搜尋。 Odoo 與 Unsplash 集成，擁有數百"
+"需要照片來說明網站時，請在媒體對話窗中搜尋。 my-erp-crm 與 Unsplash 集成，擁有數百"
 "萬張免版稅的高品質照片，讓你只需點擊幾下，即可獲得完美的照片。"
 
 #. module: website
@@ -17025,12 +17025,12 @@ msgstr "成功的內容必須對讀者有用。"
 #: model_terms:digest.tip,tip_description:website.digest_tip_website_2
 msgid ""
 "To get more visitors, you should target keywords that are often searched in "
-"Google. With the built-in SEO tool, once you define a few keywords, Odoo "
+"Google. With the built-in SEO tool, once you define a few keywords, my-erp-crm "
 "will recommend you the best keywords to target. Then adapt your title and "
 "description accordingly to boost your traffic."
 msgstr ""
 "為了吸引更多訪客，你應該針對經常在 Google 被搜尋的關鍵字。借助內置的 SEO 工"
-"具，當你定義了一些關鍵字，Odoo 會向你推薦最佳的目標關鍵字。然後你可以相應地調"
+"具，當你定義了一些關鍵字，my-erp-crm 會向你推薦最佳的目標關鍵字。然後你可以相應地調"
 "整標題和描述以增加流量。"
 
 #. module: website
@@ -19166,7 +19166,7 @@ msgstr "你的 Instagram 帳戶"
 #. odoo-javascript
 #: code:addons/website/static/src/builder/plugins/options/instagram_option.xml:0
 msgid ""
-"Your Instagram page must be public to be integrated into an Odoo website."
+"Your Instagram page must be public to be integrated into an my-erp-crm website."
 msgstr ""
 
 #. module: website
@@ -19218,8 +19218,8 @@ msgstr ""
 #. module: website
 #. odoo-javascript
 #: code:addons/website/static/src/components/resource_editor/resource_editor_warning.xml:0
-msgid "Your changes might be lost during future Odoo upgrade."
-msgstr "你的變更可能會在未來的 Odoo 升級期間遺失。"
+msgid "Your changes might be lost during future my-erp-crm upgrade."
+msgstr "你的變更可能會在未來的 my-erp-crm 升級期間遺失。"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_faq_list
@@ -19816,8 +19816,8 @@ msgstr "商標 / 標誌用色"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.cookie_policy
-msgid "frontend_lang (Odoo)"
-msgstr "frontend_lang (Odoo)"
+msgid "frontend_lang (my-erp-crm)"
+msgstr "frontend_lang (my-erp-crm)"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets
@@ -20105,16 +20105,16 @@ msgstr "iPhone"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.cookie_policy
 msgid ""
-"im_livechat_previous_operator (Odoo)<br/>\n"
-"                                            utm_campaign (Odoo)<br/>\n"
-"                                            utm_source (Odoo)<br/>\n"
-"                                            utm_medium (Odoo)"
+"im_livechat_previous_operator (my-erp-crm)<br/>\n"
+"                                            utm_campaign (my-erp-crm)<br/>\n"
+"                                            utm_source (my-erp-crm)<br/>\n"
+"                                            utm_medium (my-erp-crm)"
 msgstr ""
-"im_livechat_previous_operator（由 Odoo 使用）<br/>\n"
-"                                            utm_campaign（由 Odoo 使用）<br/"
+"im_livechat_previous_operator（由 my-erp-crm 使用）<br/>\n"
+"                                            utm_campaign（由 my-erp-crm 使用）<br/"
 ">\n"
-"                                            utm_source（由 Odoo 使用）<br/>\n"
-"                                            utm_medium（由 Odoo 使用）"
+"                                            utm_source（由 my-erp-crm 使用）<br/>\n"
+"                                            utm_medium（由 my-erp-crm 使用）"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets
@@ -20153,10 +20153,10 @@ msgstr "讓顧客認識我們"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.show_website_info
 msgid ""
-"instance of Odoo, the <a class=\"o_translate_inline\" target=\"_blank\" "
+"instance of my-erp-crm, the <a class=\"o_translate_inline\" target=\"_blank\" "
 "href=\"https://www.odoo.com\">Open Source ERP</a>."
 msgstr ""
-"Odoo 安裝個體。Odoo 是<a class=\"o_translate_inline\" target=\"_blank\" "
+"my-erp-crm 安裝個體。my-erp-crm 是<a class=\"o_translate_inline\" target=\"_blank\" "
 "href=\"https://www.odoo.com\">開放源碼 ERP</a> 軟件。"
 
 #. module: website
@@ -20471,8 +20471,8 @@ msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.cookie_policy
-msgid "session_id (Odoo)<br/>"
-msgstr "session_id (Odoo)<br/>"
+msgid "session_id (my-erp-crm)<br/>"
+msgstr "session_id (my-erp-crm)<br/>"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets

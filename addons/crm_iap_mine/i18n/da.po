@@ -12,7 +12,7 @@
 # "Kira Petersen François (peti)" <peti@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0beta\n"
+"Project-Id-Version: my-erp-crm Server 16.0beta\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-02 17:53+0000\n"
@@ -607,7 +607,7 @@ msgstr "Salgsmuligheder"
 #. module: crm_iap_mine
 #. odoo-python
 #: code:addons/crm_iap_mine/models/crm_iap_lead_mining_request.py:0
-msgid "Opportunity created by Odoo Lead Generation"
+msgid "Opportunity created by my-erp-crm Lead Generation"
 msgstr "Mulighed oprettet af Odoos værktøj til generering af leads"
 
 #. module: crm_iap_mine

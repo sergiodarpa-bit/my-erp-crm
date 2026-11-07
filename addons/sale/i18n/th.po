@@ -17,7 +17,7 @@
 # Nusara Boonma <nuboo@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:38+0000\n"
 "PO-Revision-Date: 2026-08-05 01:43+0000\n"
@@ -36,7 +36,7 @@ msgstr ""
 #: code:addons/sale/static/src/views/sale_file_upload_list/sale_file_upload_list_renderer.js:0
 msgid ""
 "\n"
-"            If your customer runs on Odoo 18 or higher, customer data and "
+"            If your customer runs on my-erp-crm 18 or higher, customer data and "
 "sales order lines\n"
 "            will be automatically created. Any other pdf containing an "
 "attached\n"
@@ -44,7 +44,7 @@ msgid ""
 "        "
 msgstr ""
 "\n"
-"            หากลูกค้าของคุณใช้ Odoo 18 หรือสูงกว่า ข้อมูลลูกค้าและรายการใบสั่งขาย\n"
+"            หากลูกค้าของคุณใช้ my-erp-crm 18 หรือสูงกว่า ข้อมูลลูกค้าและรายการใบสั่งขาย\n"
 "            จะถูกสร้างขึ้นโดยอัตโนมัติ เอกสาร pdf อื่นๆ ที่มีไฟล์แนบ\n"
 "            UBL-RequestForQuotation จะใช้งานได้เช่นกัน\n"
 "        "
@@ -1281,10 +1281,10 @@ msgstr "คุณแน่ใจหรือไม่ว่าต้องกา
 #. module: sale
 #: model_terms:ir.actions.act_window,help:sale.action_orders_upselling
 msgid ""
-"As an example, if you sell pre-paid hours of services, Odoo recommends you\n"
+"As an example, if you sell pre-paid hours of services, my-erp-crm recommends you\n"
 "            to sell extra hours when all ordered hours have been consumed."
 msgstr ""
-"ตัวอย่างเช่น หากคุณขายการบริการแบบชำระเงินล่วงหน้า Odoo แนะนำให้คุณ\n"
+"ตัวอย่างเช่น หากคุณขายการบริการแบบชำระเงินล่วงหน้า my-erp-crm แนะนำให้คุณ\n"
 "           ขายชั่วโมงเพิ่มเติม เมื่อชั่วโมงที่สั่งซื้อถูกใช้หมดแล้ว"
 
 #. module: sale
@@ -2297,9 +2297,9 @@ msgstr "ร่างใบแจ้งหนี้"
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
 msgid ""
 "Drag and drop the request for quotation PDF file into your list of "
-"quotations in Odoo. Enjoy the automation!"
+"quotations in my-erp-crm. Enjoy the automation!"
 msgstr ""
-"ลากและวางไฟล์ PDF คำขอใบเสนอราคาลงในรายการใบเสนอราคาของคุณใน Odoo "
+"ลากและวางไฟล์ PDF คำขอใบเสนอราคาลงในรายการใบเสนอราคาของคุณใน my-erp-crm "
 "สนุกไปกับการทำงานแบบอัตโนมัติ!"
 
 #. module: sale
@@ -3248,8 +3248,8 @@ msgstr "ไม่พบคำสั่งสำหรับการเพิ่
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Not using Odoo?"
-msgstr "ไม่ได้ใช้ Odoo?"
+msgid "Not using my-erp-crm?"
+msgstr "ไม่ได้ใช้ my-erp-crm?"
 
 #. module: sale
 #: model:ir.model.fields.selection,name:sale.selection__sale_order_line__display_type__line_note
@@ -3299,8 +3299,8 @@ msgstr "จํานวนข้อความที่มีข้อผิด
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: sale
 #: model:product.template,description_sale:sale.product_product_1_product_template
@@ -4715,8 +4715,8 @@ msgstr "Starshipit Connector"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Start on Odoo"
-msgstr "เริ่มใช้งาน Odoo"
+msgid "Start on my-erp-crm"
+msgstr "เริ่มใช้งาน my-erp-crm"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order__state
@@ -5552,8 +5552,8 @@ msgstr "ปริมาตร"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Want to import this document in Odoo?"
-msgstr "ต้องการนำเข้าเอกสารนี้ใน Odoo หรือไม่"
+msgid "Want to import this document in my-erp-crm?"
+msgstr "ต้องการนำเข้าเอกสารนี้ใน my-erp-crm หรือไม่"
 
 #. module: sale
 #. odoo-python

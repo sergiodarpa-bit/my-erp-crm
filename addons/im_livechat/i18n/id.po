@@ -12,7 +12,7 @@
 # "Nurul Aini Akrima Sabila (nuaas)" <nuaas@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0+e\n"
+"Project-Id-Version: my-erp-crm Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-10-02 08:34+0000\n"
@@ -267,10 +267,10 @@ msgstr "Agen-Agen (Riwayat)"
 #. module: im_livechat
 #: model_terms:ir.ui.view,arch_db:im_livechat.im_livechat_channel_view_form
 msgid ""
-"Agents who are inactive in Odoo for more than 30 minutes will be considered "
+"Agents who are inactive in my-erp-crm for more than 30 minutes will be considered "
 "disconnected."
 msgstr ""
-"Agen-Agen yang tidak aktif di Odoo untuk lebih dari 30 menit akan dianggap "
+"Agen-Agen yang tidak aktif di my-erp-crm untuk lebih dari 30 menit akan dianggap "
 "disconnected."
 
 #. module: im_livechat
@@ -2049,8 +2049,8 @@ msgstr "Jumlah pesan dengan kesalahan pengiriman"
 #. module: im_livechat
 #: model:chatbot.script,title:im_livechat.chatbot_script_welcome_bot_demo
 #: model_terms:ir.ui.view,arch_db:im_livechat.livechat_email_template
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: im_livechat
 #: model:ir.model.constraint,message:im_livechat.constraint_im_livechat_channel_member_history_channel_id_guest_id_unique

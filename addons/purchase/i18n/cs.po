@@ -23,7 +23,7 @@
 # Jakub Vera <jakub@origamis.cz>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-09-29 09:41+0000\n"
@@ -1390,7 +1390,7 @@ msgstr "Návrh RFQ"
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
 msgid ""
 "Drag and drop the request for quotation PDF file into your list of "
-"quotations in Odoo. Enjoy the automation!"
+"quotations in my-erp-crm. Enjoy the automation!"
 msgstr ""
 
 #. module: purchase
@@ -2042,7 +2042,7 @@ msgstr "Není potvrzeno"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
-msgid "Not using Odoo?"
+msgid "Not using my-erp-crm?"
 msgstr ""
 
 #. module: purchase
@@ -2089,8 +2089,8 @@ msgstr "Počet zpráv s chybou při doručení"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: purchase
 #: model:ir.model.fields.selection,name:purchase.selection__product_template__purchase_method__purchase
@@ -3025,7 +3025,7 @@ msgstr "Označeno hvězdičkou"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
-msgid "Start on Odoo"
+msgid "Start on my-erp-crm"
 msgstr ""
 
 #. module: purchase
@@ -3546,12 +3546,12 @@ msgid ""
 "Vendors bills can be pre-generated based on purchase\n"
 "                    orders or receipts. This allows you to control bills\n"
 "                    you receive from your vendor according to the draft\n"
-"                    document in Odoo."
+"                    document in my-erp-crm."
 msgstr ""
 "Přijaté faktury lze předem vygenerovat na základě nákupní\n"
 "objednávky nebo účtenek. To vám umožní kontrolovat účty\n"
 "které obdržíte od svého dodavatele podle návrhu \n"
-"dokumentu v Odoo."
+"dokumentu v my-erp-crm."
 
 #. module: purchase
 #. odoo-python
@@ -3589,7 +3589,7 @@ msgstr "Čeká na fakturu"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
-msgid "Want to import this document in Odoo?"
+msgid "Want to import this document in my-erp-crm?"
 msgstr ""
 
 #. module: purchase
@@ -3625,26 +3625,26 @@ msgid ""
 "When creating a purchase order, have a look at the vendor's <i>On Time "
 "Delivery</i> rate: the percentage of products shipped on time. If it is too "
 "low, activate the <i>automated reminders</i>. A few days before the due "
-"shipment, Odoo will send the vendor an email to ask confirmation of shipment "
+"shipment, my-erp-crm will send the vendor an email to ask confirmation of shipment "
 "dates and keep you informed in case of any delays. To get the vendor's "
 "performance statistics, click on the OTD rate."
 msgstr ""
 "Při vytváření nákupní objednávky se podívejte na hodnocení <i>včasného "
 "dodání dodavatele</i>: procento produktů dodaných včas. Pokud je příliš "
 "nízká, aktivujte <i>automatické upomínky</i>. Několik dní před termínem "
-"odeslání Odoo zašle dodavateli e-mail s žádostí o potvrzení termínů odeslání "
+"odeslání my-erp-crm zašle dodavateli e-mail s žádostí o potvrzení termínů odeslání "
 "a bude vás informovat v případě zpoždění. Chcete-li získat statistiku "
 "výkonnosti dodavatele, klikněte na ukazatel OTD."
 
 #. module: purchase
 #: model_terms:digest.tip,tip_description:purchase.digest_tip_purchase_1
 msgid ""
-"When sending a purchase order by email, Odoo asks the vendor to acknowledge "
+"When sending a purchase order by email, my-erp-crm asks the vendor to acknowledge "
 "the reception of the order. When the vendor acknowledges the order by "
 "clicking on a button in the email, the information is added on the purchase "
 "order. Use filters to track orders that have not been acknowledged."
 msgstr ""
-"Při odesílání nákupní objednávky e-mailem Odoo požádá prodejce, aby potvrdil "
+"Při odesílání nákupní objednávky e-mailem my-erp-crm požádá prodejce, aby potvrdil "
 "přijetí objednávky. Když prodejce potvrdí objednávku kliknutím na tlačítko v "
 "e-mailu, informace se přidá k objednávce. Pomocí filtrů můžete sledovat "
 "objednávky, které nebyly potvrzeny."

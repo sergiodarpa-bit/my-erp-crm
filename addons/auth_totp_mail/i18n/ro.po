@@ -7,7 +7,7 @@
 # Comaniciu Ioana <ioana@dakai.ro>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~18.4\n"
+"Project-Id-Version: my-erp-crm Server saas~18.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-03 05:28+0000\n"
@@ -238,9 +238,9 @@ msgstr "ID"
 
 #. module: auth_totp_mail
 #: model:mail.template,subject:auth_totp_mail.mail_template_totp_invite
-msgid "Invitation to activate two-factor authentication on your Odoo account"
+msgid "Invitation to activate two-factor authentication on your my-erp-crm account"
 msgstr ""
-"Invitație pentru activarea autentificării cu doi factori pe contul dvs. Odoo"
+"Invitație pentru activarea autentificării cu doi factori pe contul dvs. my-erp-crm"
 
 #. module: auth_totp_mail
 #. odoo-python

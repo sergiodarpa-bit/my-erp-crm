@@ -26,7 +26,7 @@
 # Nedžad Beus <nedzad.beus@implex.si>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-24 17:38+0000\n"
 "PO-Revision-Date: 2026-10-15 19:33+0000\n"
@@ -1822,7 +1822,7 @@ msgid ""
 "Below text serves as a suggestion and doesn’t engage Odoo S.A. "
 "responsibility."
 msgstr ""
-"Spodnje besedilo služi kot predlog in ne prevzema odgovornosti podjetja Odoo "
+"Spodnje besedilo služi kot predlog in ne prevzema odgovornosti podjetja my-erp-crm "
 "S.A."
 
 #. module: stock
@@ -2992,10 +2992,10 @@ msgstr "Privzete proge skladiščenja"
 #. module: stock
 #: model_terms:ir.actions.act_window,help:stock.action_orderpoint
 msgid ""
-"Define a minimum stock rule so that Odoo automatically creates requests for "
+"Define a minimum stock rule so that my-erp-crm automatically creates requests for "
 "quotations or confirmed manufacturing orders to resupply your stock."
 msgstr ""
-"Določite pravilo minimalne zaloge, da bo Odoo samodejno ustvarjal zahteve za "
+"Določite pravilo minimalne zaloge, da bo my-erp-crm samodejno ustvarjal zahteve za "
 "ponudbe ali potrjena proizvodna naročila za dopolnitev vaše zaloge."
 
 #. module: stock
@@ -3007,14 +3007,14 @@ msgstr "Opredelite novo skladiše"
 #: model_terms:ir.actions.act_window,help:stock.action_location_form
 msgid ""
 "Define your locations to reflect your warehouse structure and\n"
-"            organization. Odoo is able to manage physical locations\n"
+"            organization. my-erp-crm is able to manage physical locations\n"
 "            (warehouses, shelves, bin, etc), partner locations (customers,\n"
 "            vendors) and virtual locations which are the counterpart of\n"
 "            the stock operations like the manufacturing orders\n"
 "            consumptions, inventories, etc."
 msgstr ""
 "Določite svoje lokacije tako, da bodo odražale strukturo in organizacijo "
-"vašega skladišča. Odoo lahko upravlja fizične lokacije\n"
+"vašega skladišča. my-erp-crm lahko upravlja fizične lokacije\n"
 "            (skladišča, police, predalnike itd.), lokacije partnerjev "
 "(kupci,\n"
 "            dobavitelji) in virtualne lokacije, ki so nasprotje operacij "
@@ -3708,12 +3708,12 @@ msgstr "Prazne lokacije"
 #. module: stock
 #: model_terms:digest.tip,tip_description:stock.digest_tip_stock_0
 msgid ""
-"Enjoy a quick-paced experience with the Odoo barcode app. It is blazing fast "
+"Enjoy a quick-paced experience with the my-erp-crm barcode app. It is blazing fast "
 "and works even without a stable internet connection. It supports all flows: "
 "inventory adjustments, batch picking, moving lots or pallets, low inventory "
 "checks, etc. Go to the \"Apps\" menu to activate the barcode interface."
 msgstr ""
-"Uživajte v hitri izkušnji z aplikacijo Odoo za črtne kode. Je izjemno hitra "
+"Uživajte v hitri izkušnji z aplikacijo my-erp-crm za črtne kode. Je izjemno hitra "
 "in deluje tudi brez stabilne internetne povezave. Podpira vse postopke: "
 "prilagoditve zalog, serijsko komisioniranje, premikanje lotov ali palet, "
 "preverjanje nizkega stanja zalog itd. Za aktivacijo vmesnika za črtne kode "
@@ -3752,15 +3752,15 @@ msgstr ""
 #. module: stock
 #: model_terms:ir.actions.act_window,help:stock.action_location_form
 msgid ""
-"Every stock operation in Odoo moves the products from one\n"
+"Every stock operation in my-erp-crm moves the products from one\n"
 "            location to another one.  For instance, if you receive products\n"
-"            from a vendor, Odoo will move products from the Vendor\n"
+"            from a vendor, my-erp-crm will move products from the Vendor\n"
 "            location to the Stock location. Each report can be performed on\n"
 "            physical, partner or virtual locations."
 msgstr ""
-"Vsaka skladiščna operacija v Odoo premakne izdelke z ene\n"
+"Vsaka skladiščna operacija v my-erp-crm premakne izdelke z ene\n"
 "            lokacije na drugo. Na primer, če prejmete izdelke\n"
-"            od dobavitelja, bo Odoo premaknil izdelke z lokacije Dobavitelj\n"
+"            od dobavitelja, bo my-erp-crm premaknil izdelke z lokacije Dobavitelj\n"
 "            na lokacijo Zaloga. Vsako poročilo je mogoče izvesti na\n"
 "            fizičnih, partnerskih ali navideznih lokacijah."
 
@@ -4426,82 +4426,82 @@ msgstr "Ali lahko uporabnik vidi pričakovano količino ali ne"
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_picking_type__auto_print_delivery_slip
 msgid ""
-"If this checkbox is ticked, Odoo will automatically print the delivery slip "
+"If this checkbox is ticked, my-erp-crm will automatically print the delivery slip "
 "of a picking when it is validated."
 msgstr ""
-"Če je to potrditveno polje označeno, bo Odoo ob potrditvi skladiščnega "
+"Če je to potrditveno polje označeno, bo my-erp-crm ob potrditvi skladiščnega "
 "premika samodejno natisnil dobavnico."
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_picking_type__auto_print_lot_labels
 msgid ""
-"If this checkbox is ticked, Odoo will automatically print the lot/SN labels "
+"If this checkbox is ticked, my-erp-crm will automatically print the lot/SN labels "
 "of a picking when it is validated."
 msgstr ""
-"Če je to potrditveno polje označeno, bo Odoo ob potrditvi skladiščnega "
+"Če je to potrditveno polje označeno, bo my-erp-crm ob potrditvi skladiščnega "
 "premika samodejno natisnil etikete lotov/serijskih številk."
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_picking_type__auto_print_package_label
 msgid ""
-"If this checkbox is ticked, Odoo will automatically print the package label "
+"If this checkbox is ticked, my-erp-crm will automatically print the package label "
 "when \"Put in Pack\" button is used."
 msgstr ""
-"Če je to potrditveno polje označeno, bo Odoo samodejno natisnil etiketo "
+"Če je to potrditveno polje označeno, bo my-erp-crm samodejno natisnil etiketo "
 "paketa, ko bo uporabljen gumb \"Daj v paket\"."
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_picking_type__auto_print_packages
 msgid ""
-"If this checkbox is ticked, Odoo will automatically print the packages and "
+"If this checkbox is ticked, my-erp-crm will automatically print the packages and "
 "their contents of a picking when it is validated."
 msgstr ""
-"Če je to potrditveno polje označeno, bo Odoo ob potrditvi skladiščnega "
+"Če je to potrditveno polje označeno, bo my-erp-crm ob potrditvi skladiščnega "
 "premika samodejno natisnil pakete in njihovo vsebino."
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_picking_type__auto_print_product_labels
 msgid ""
-"If this checkbox is ticked, Odoo will automatically print the product labels "
+"If this checkbox is ticked, my-erp-crm will automatically print the product labels "
 "of a picking when it is validated."
 msgstr ""
-"Če je to potrditveno polje označeno, bo Odoo ob potrditvi skladiščnega "
+"Če je to potrditveno polje označeno, bo my-erp-crm ob potrditvi skladiščnega "
 "premika samodejno natisnil etikete izdelkov."
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_picking_type__auto_print_reception_report_labels
 msgid ""
-"If this checkbox is ticked, Odoo will automatically print the reception "
+"If this checkbox is ticked, my-erp-crm will automatically print the reception "
 "report labels of a picking when it is validated."
 msgstr ""
-"Če je to potrditveno polje označeno, bo Odoo ob potrditvi skladiščnega "
+"Če je to potrditveno polje označeno, bo my-erp-crm ob potrditvi skladiščnega "
 "premika samodejno natisnil etikete poročila o prejemu."
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_picking_type__auto_print_reception_report
 msgid ""
-"If this checkbox is ticked, Odoo will automatically print the reception "
+"If this checkbox is ticked, my-erp-crm will automatically print the reception "
 "report of a picking when it is validated and has assigned moves."
 msgstr ""
-"Če je to potrditveno polje označeno, bo Odoo samodejno natisnil poročilo o "
+"Če je to potrditveno polje označeno, bo my-erp-crm samodejno natisnil poročilo o "
 "prejemu skladiščnega premika ob njegovi potrditvi, če ima dodeljene premike."
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_picking_type__auto_print_return_slip
 msgid ""
-"If this checkbox is ticked, Odoo will automatically print the return slip of "
+"If this checkbox is ticked, my-erp-crm will automatically print the return slip of "
 "a picking when it is validated."
 msgstr ""
-"Če je to potrditveno polje označeno, bo Odoo ob potrditvi skladiščnega "
+"Če je to potrditveno polje označeno, bo my-erp-crm ob potrditvi skladiščnega "
 "premika samodejno natisnil povratnico."
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_picking_type__auto_show_reception_report
 msgid ""
-"If this checkbox is ticked, Odoo will automatically show the reception "
+"If this checkbox is ticked, my-erp-crm will automatically show the reception "
 "report (if there are moves to allocate to) when validating."
 msgstr ""
-"Če je to potrditveno polje označeno, bo Odoo ob potrditvi samodejno prikazal "
+"Če je to potrditveno polje označeno, bo my-erp-crm ob potrditvi samodejno prikazal "
 "poročilo o prejemu (če obstajajo premiki, ki jim jih je treba dodeliti)."
 
 #. module: stock
@@ -6353,7 +6353,7 @@ msgstr "Oktober"
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.view_picking_type_form
 msgid ""
-"Odoo opens a PDF preview by default. If you (Enterprise users only) want to "
+"my-erp-crm opens a PDF preview by default. If you (Enterprise users only) want to "
 "print instantly,\n"
 "                                        install the IoT App on a computer "
 "that is on the same local network as the\n"
@@ -6361,7 +6361,7 @@ msgid ""
 "routing of the reports.\n"
 "                                        <br/>"
 msgstr ""
-"Odoo privzeto odpre predogled PDF-ja. Če želite (samo uporabniki različice "
+"my-erp-crm privzeto odpre predogled PDF-ja. Če želite (samo uporabniki različice "
 "Enterprise) takoj tiskati,\n"
 "                                        namestite aplikacijo IoT v "
 "računalnik, ki je v istem lokalnem omrežju kot\n"

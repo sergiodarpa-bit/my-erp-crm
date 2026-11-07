@@ -13,7 +13,7 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:38+0000\n"
 "PO-Revision-Date: 2026-09-19 19:09+0000\n"
@@ -34,7 +34,7 @@ msgstr ""
 #: code:addons/sale/static/src/views/sale_file_upload_list/sale_file_upload_list_renderer.js:0
 msgid ""
 "\n"
-"            If your customer runs on Odoo 18 or higher, customer data and "
+"            If your customer runs on my-erp-crm 18 or higher, customer data and "
 "sales order lines\n"
 "            will be automatically created. Any other pdf containing an "
 "attached\n"
@@ -1615,7 +1615,7 @@ msgstr ""
 #. module: sale
 #: model_terms:ir.actions.act_window,help:sale.action_orders_upselling
 msgid ""
-"As an example, if you sell pre-paid hours of services, Odoo recommends you\n"
+"As an example, if you sell pre-paid hours of services, my-erp-crm recommends you\n"
 "            to sell extra hours when all ordered hours have been consumed."
 msgstr ""
 "كمثال، إذا قمت ببيع ساعات الخدمة المدفوعة مسبقاً، سوف يقترح أودو أن تقوم\n"
@@ -2654,7 +2654,7 @@ msgstr "مسودة فواتير"
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
 msgid ""
 "Drag and drop the request for quotation PDF file into your list of "
-"quotations in Odoo. Enjoy the automation!"
+"quotations in my-erp-crm. Enjoy the automation!"
 msgstr ""
 "قم بسحب ملف PDF لطلب عرض السعر وإفلاته في قائمة عروض الأسعار في أودو. استمتع "
 "بالتشغيل الآلي في كافة تفاصيل عملك!"
@@ -3616,7 +3616,7 @@ msgstr "لم يتم العثور على أي طلبات للارتقاء بال�
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Not using Odoo?"
+msgid "Not using my-erp-crm?"
 msgstr "لا تستخدم أودو؟"
 
 #. module: sale
@@ -3667,7 +3667,7 @@ msgstr "عدد الرسائل الحادث بها خطأ في التسليم"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Odoo"
+msgid "my-erp-crm"
 msgstr "أودو"
 
 #. module: sale
@@ -5090,7 +5090,7 @@ msgstr "Starshipit Connector"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Start on Odoo"
+msgid "Start on my-erp-crm"
 msgstr "ابدأ باستخدام أودو"
 
 #. module: sale
@@ -5946,7 +5946,7 @@ msgstr "الحجم"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Want to import this document in Odoo?"
+msgid "Want to import this document in my-erp-crm?"
 msgstr "أترغب في استيراد هذا المستند إلى أودو؟"
 
 #. module: sale

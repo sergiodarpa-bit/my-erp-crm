@@ -15,7 +15,7 @@
 # "Cécile Collart (cco)" <cco@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:38+0000\n"
 "PO-Revision-Date: 2026-10-21 16:03+0000\n"
@@ -36,7 +36,7 @@ msgstr ""
 #: code:addons/sale/static/src/views/sale_file_upload_list/sale_file_upload_list_renderer.js:0
 msgid ""
 "\n"
-"            If your customer runs on Odoo 18 or higher, customer data and "
+"            If your customer runs on my-erp-crm 18 or higher, customer data and "
 "sales order lines\n"
 "            will be automatically created. Any other pdf containing an "
 "attached\n"
@@ -44,7 +44,7 @@ msgid ""
 "        "
 msgstr ""
 "\n"
-"            Si votre client utilise Odoo 18 ou une version ultérieure, les "
+"            Si votre client utilise my-erp-crm 18 ou une version ultérieure, les "
 "données client et les lignes de commande seront créées automatiquement. Tout "
 "autre PDF contenant un fichier UBL-RequestForQuotation joint fonctionnera "
 "également.\n"
@@ -1634,10 +1634,10 @@ msgstr ""
 #. module: sale
 #: model_terms:ir.actions.act_window,help:sale.action_orders_upselling
 msgid ""
-"As an example, if you sell pre-paid hours of services, Odoo recommends you\n"
+"As an example, if you sell pre-paid hours of services, my-erp-crm recommends you\n"
 "            to sell extra hours when all ordered hours have been consumed."
 msgstr ""
-"Par exemple, si vous vendez des heures de services prépayées, Odoo vous "
+"Par exemple, si vous vendez des heures de services prépayées, my-erp-crm vous "
 "recommande\n"
 "de vendre des heures supplémentaires lorsque toutes les heures commandées "
 "ont été consommées."
@@ -2683,10 +2683,10 @@ msgstr "Factures brouillon"
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
 msgid ""
 "Drag and drop the request for quotation PDF file into your list of "
-"quotations in Odoo. Enjoy the automation!"
+"quotations in my-erp-crm. Enjoy the automation!"
 msgstr ""
 "Faites glisser et déposez le fichier PDF de la demande de prix dans votre "
-"liste de devis sur Odoo. Profitez de l'automatisation !"
+"liste de devis sur my-erp-crm. Profitez de l'automatisation !"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.view_order_form
@@ -3659,8 +3659,8 @@ msgstr "Aucune vente incitative à réaliser."
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Not using Odoo?"
-msgstr "Vous n'utilisez pas Odoo ?"
+msgid "Not using my-erp-crm?"
+msgstr "Vous n'utilisez pas my-erp-crm ?"
 
 #. module: sale
 #: model:ir.model.fields.selection,name:sale.selection__sale_order_line__display_type__line_note
@@ -3712,8 +3712,8 @@ msgstr "Nombre de messages avec des erreurs d'envoi"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: sale
 #: model:product.template,description_sale:sale.product_product_1_product_template
@@ -5153,8 +5153,8 @@ msgstr "Connecteur Starshipit"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Start on Odoo"
-msgstr "Lancez-vous sur Odoo"
+msgid "Start on my-erp-crm"
+msgstr "Lancez-vous sur my-erp-crm"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order__state
@@ -6034,8 +6034,8 @@ msgstr "Volume"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Want to import this document in Odoo?"
-msgstr "Vous souhaitez importer ce document dans Odoo ?"
+msgid "Want to import this document in my-erp-crm?"
+msgstr "Vous souhaitez importer ce document dans my-erp-crm ?"
 
 #. module: sale
 #. odoo-python

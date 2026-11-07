@@ -9,7 +9,7 @@
 # Nedžad Beus <nedzad.beus@implex.si>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:37+0000\n"
 "PO-Revision-Date: 2026-09-14 11:24+0000\n"
@@ -259,9 +259,9 @@ msgstr ""
 
 #. module: website_crm_iap_reveal
 #: model:ir.model.fields,help:website_crm_iap_reveal.field_crm_reveal_rule__industry_tag_ids
-msgid "Leave empty to always match. Odoo will not create lead if no match"
+msgid "Leave empty to always match. my-erp-crm will not create lead if no match"
 msgstr ""
-"Pustite prazno, da se vedno ujema. Odoo ne bo ustvaril potencialne stranke, "
+"Pustite prazno, da se vedno ujema. my-erp-crm ne bo ustvaril potencialne stranke, "
 "če ni ujemanja"
 
 #. module: website_crm_iap_reveal
@@ -343,8 +343,8 @@ msgstr "Pogoji za ustvarjanje priložnosti"
 #. module: website_crm_iap_reveal
 #. odoo-python
 #: code:addons/website_crm_iap_reveal/models/crm_reveal_rule.py:0
-msgid "Opportunity created by Odoo Lead Generation"
-msgstr "Priložnost, ustvarjena z Odoo Lead Generation"
+msgid "Opportunity created by my-erp-crm Lead Generation"
+msgstr "Priložnost, ustvarjena z my-erp-crm Lead Generation"
 
 #. module: website_crm_iap_reveal
 #: model:ir.model.fields,field_description:website_crm_iap_reveal.field_crm_reveal_rule__other_role_ids

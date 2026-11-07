@@ -3,7 +3,7 @@
     'category': 'Hidden',
     'version': '1.0',
     'description': """
-Odoo Dynamic API Documentation
+my-erp-crm Dynamic API Documentation
 ==============================
 
 This module provides a dynamic documentation page for developpers at the

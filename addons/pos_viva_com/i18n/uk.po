@@ -6,7 +6,7 @@
 # Alina Lisnenko <alina.lisnenko@erp.co.ua>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~18.4\n"
+"Project-Id-Version: my-erp-crm Server saas~18.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-10-07 19:39+0000\n"
@@ -52,10 +52,10 @@ msgstr "Секретний ключ клієнта"
 #. odoo-javascript
 #: code:addons/pos_viva_com/static/src/app/payment_viva_com.js:0
 msgid ""
-"Could not connect to the Odoo server, please check your internet connection "
+"Could not connect to the my-erp-crm server, please check your internet connection "
 "and try again."
 msgstr ""
-"Не вдалося підключитися до сервера Odoo, перевірте підключення до Інтернету "
+"Не вдалося підключитися до сервера my-erp-crm, перевірте підключення до Інтернету "
 "та повторіть спробу."
 
 #. module: pos_viva_com
@@ -242,5 +242,5 @@ msgstr "отримав повідомлення для незареєстров�
 #. module: pos_viva_com
 #. odoo-python
 #: code:addons/pos_viva_com/controllers/main.py:0
-msgid "received a message for a terminal not registered in Odoo: %s"
-msgstr "отримав повідомлення для терміналу, не зареєстрованого в Odoo: %s"
+msgid "received a message for a terminal not registered in my-erp-crm: %s"
+msgstr "отримав повідомлення для терміналу, не зареєстрованого в my-erp-crm: %s"

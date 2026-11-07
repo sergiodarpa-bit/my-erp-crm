@@ -9,7 +9,7 @@
 # "Larissa Manderfeld (lman)" <lman@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0beta\n"
+"Project-Id-Version: my-erp-crm Server 16.0beta\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:37+0000\n"
 "PO-Revision-Date: 2026-08-06 23:13+0000\n"
@@ -258,9 +258,9 @@ msgstr "Lead-Generierung: Erzeugung von Leads/Verkaufschancen"
 
 #. module: website_crm_iap_reveal
 #: model:ir.model.fields,help:website_crm_iap_reveal.field_crm_reveal_rule__industry_tag_ids
-msgid "Leave empty to always match. Odoo will not create lead if no match"
+msgid "Leave empty to always match. my-erp-crm will not create lead if no match"
 msgstr ""
-"Leer lassen, um immer übereinzustimmen. Odoo wird keinen Lead erstellen, "
+"Leer lassen, um immer übereinzustimmen. my-erp-crm wird keinen Lead erstellen, "
 "wenn keine Übereinstimmung vorliegt."
 
 #. module: website_crm_iap_reveal
@@ -342,7 +342,7 @@ msgstr "Bedingungen der Generierung von Verkaufschancen"
 #. module: website_crm_iap_reveal
 #. odoo-python
 #: code:addons/website_crm_iap_reveal/models/crm_reveal_rule.py:0
-msgid "Opportunity created by Odoo Lead Generation"
+msgid "Opportunity created by my-erp-crm Lead Generation"
 msgstr "Verkaufschance erzeugt durch Odoo-Lead-Generierung"
 
 #. module: website_crm_iap_reveal

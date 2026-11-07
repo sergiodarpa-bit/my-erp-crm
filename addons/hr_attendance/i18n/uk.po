@@ -10,7 +10,7 @@
 # Vlad Patenko <vlad.patenko@gmail.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.5alpha1\n"
+"Project-Id-Version: my-erp-crm Server 15.5alpha1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-10-29 10:33+0000\n"
@@ -237,8 +237,8 @@ msgstr "Усі відділи"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid "Allow Users to Check in/out from Odoo."
-msgstr "Дозволяє користувачам входити/виходити з Odoo."
+msgid "Allow Users to Check in/out from my-erp-crm."
+msgstr "Дозволяє користувачам входити/виходити з my-erp-crm."
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
@@ -1535,8 +1535,8 @@ msgstr "Ок"
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
-msgid "Odoo Logo"
-msgstr "Логотип Odoo"
+msgid "my-erp-crm Logo"
+msgstr "Логотип my-erp-crm"
 
 #. module: hr_attendance
 #: model:res.groups,name:hr_attendance.group_hr_attendance_user

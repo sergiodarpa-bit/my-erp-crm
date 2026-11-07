@@ -5,7 +5,7 @@
 # "Tiffany Chang (tic)" <tic@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:37+0000\n"
 "PO-Revision-Date: 2026-08-04 03:26+0000\n"
@@ -410,7 +410,7 @@ msgstr "Diojen, Foorumin, Katkelmien vaihtoehdot"
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_2
 msgid ""
 "The goal of this site is create a relevant knowledge base that would answer "
-"questions related to Odoo."
+"questions related to my-erp-crm."
 msgstr ""
 "Tämän sivuston tavoitteena on luoda relevantti tietopohja, joka vastaa "
 "Odooseen liittyviin kysymyksiin."
@@ -507,9 +507,9 @@ msgstr "jokainen vastaus on yhtä pätevä: \"Mikä on suosikki ______si?\""
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_2
-msgid "how to configure or customize Odoo to specific business needs,"
+msgid "how to configure or customize my-erp-crm to specific business needs,"
 msgstr ""
-"kuinka määrittää tai räätälöidä Odoo tiettyä liiketoiminnan tarvetta "
+"kuinka määrittää tai räätälöidä my-erp-crm tiettyä liiketoiminnan tarvetta "
 "vastaavaksi,"
 
 #. module: website_slides_forum
@@ -521,8 +521,8 @@ msgstr "kuinka kehittää moduuleita omaan tarpeeseesi,"
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_2
-msgid "how to install Odoo on a specific infrastructure,"
-msgstr "kuinka asentaa Odoo tietylle alustalle,"
+msgid "how to install my-erp-crm on a specific infrastructure,"
+msgstr "kuinka asentaa my-erp-crm tietylle alustalle,"
 
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
@@ -533,7 +533,7 @@ msgstr "on vuodatus naamioituna kysymykseksi: “______ on surkea, eikö totta?�
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_2
-msgid "specific questions about Odoo service offers, etc."
+msgid "specific questions about my-erp-crm service offers, etc."
 msgstr "kysymykset Odoon palveluista tms."
 
 #. module: website_slides_forum
@@ -559,7 +559,7 @@ msgstr ""
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_2
-msgid "what's the best way to use Odoo for a specific business need,"
+msgid "what's the best way to use my-erp-crm for a specific business need,"
 msgstr "mikä on paras tapa käyttää Odoota tiettyyn liiketoimintatarpeeseen,"
 
 #. module: website_slides_forum

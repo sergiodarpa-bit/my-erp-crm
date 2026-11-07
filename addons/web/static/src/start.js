@@ -37,7 +37,7 @@ export async function startWebClient(Webclient) {
     }
 
     await whenReady();
-    const app = await mountComponent(Webclient, document.body, { name: "Odoo Web Client" });
+    const app = await mountComponent(Webclient, document.body, { name: "my-erp-crm Web Client" });
     const { env } = app;
     Component.env = env;
 

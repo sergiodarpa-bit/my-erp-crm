@@ -9,7 +9,7 @@
 # Zvonimir Galić <zvonimir.galic@viavista.ba>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~11.5\n"
+"Project-Id-Version: my-erp-crm Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-08-03 06:49+0000\n"
@@ -1409,7 +1409,7 @@ msgstr "ZZP u pripremi"
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
 msgid ""
 "Drag and drop the request for quotation PDF file into your list of "
-"quotations in Odoo. Enjoy the automation!"
+"quotations in my-erp-crm. Enjoy the automation!"
 msgstr ""
 "Povucite i ispustite PDF fajl zahtjeva za ponudu na svoj popis ponuda u Odoo-"
 "u. Uživajte u automatizaciji!"
@@ -2067,8 +2067,8 @@ msgstr "Prijem nije potvrđen"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
-msgid "Not using Odoo?"
-msgstr "Ne koriste Odoo?"
+msgid "Not using my-erp-crm?"
+msgstr "Ne koriste my-erp-crm?"
 
 #. module: purchase
 #: model:ir.model.fields.selection,name:purchase.selection__purchase_order_line__display_type__line_note
@@ -2116,8 +2116,8 @@ msgstr "Broj poruka sa greškama pri isporuci"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: purchase
 #: model:ir.model.fields.selection,name:purchase.selection__product_template__purchase_method__purchase
@@ -3057,8 +3057,8 @@ msgstr "Sa zvjezdicom"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
-msgid "Start on Odoo"
-msgstr "Započni s Odoo"
+msgid "Start on my-erp-crm"
+msgstr "Započni s my-erp-crm"
 
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_bill_line_match__state
@@ -3586,12 +3586,12 @@ msgid ""
 "Vendors bills can be pre-generated based on purchase\n"
 "                    orders or receipts. This allows you to control bills\n"
 "                    you receive from your vendor according to the draft\n"
-"                    document in Odoo."
+"                    document in my-erp-crm."
 msgstr ""
 "Ulazni računi mogu biti unaprijed generirani prema narudžbi\n"
 "ili računima. Ovo Vam omogućava kontrolu računa\n"
 "koje primite od svog prodavača prema nacrtu\n"
-"dokumenta u Odoo."
+"dokumenta u my-erp-crm."
 
 #. module: purchase
 #. odoo-python
@@ -3629,8 +3629,8 @@ msgstr "Računi na čekanju"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
-msgid "Want to import this document in Odoo?"
-msgstr "Želite li uvesti ovaj dokument u Odoo?"
+msgid "Want to import this document in my-erp-crm?"
+msgstr "Želite li uvesti ovaj dokument u my-erp-crm?"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.view_product_supplier_inherit
@@ -3665,14 +3665,14 @@ msgid ""
 "When creating a purchase order, have a look at the vendor's <i>On Time "
 "Delivery</i> rate: the percentage of products shipped on time. If it is too "
 "low, activate the <i>automated reminders</i>. A few days before the due "
-"shipment, Odoo will send the vendor an email to ask confirmation of shipment "
+"shipment, my-erp-crm will send the vendor an email to ask confirmation of shipment "
 "dates and keep you informed in case of any delays. To get the vendor's "
 "performance statistics, click on the OTD rate."
 msgstr ""
 "Pri stvaranju naloga za nabavu, pregledajte dobavljačev postotak<i>Dostave "
 "na vrijeme</i>: postotak artikala koji su otpremljeni na vrijeme. Ako je "
 "ovaj postotak prenizak, aktivirajte <i>automatske podsjetnike</i>. Nekoliko "
-"dana prije nego što pošiljka treba biti poslana, Odoo će dobavljaču poslati "
+"dana prije nego što pošiljka treba biti poslana, my-erp-crm će dobavljaču poslati "
 "e-mail za potvrdu datuma slanja pošiljke i informirati Vas u slučaju bilo "
 "kakvih kašnjenja. Kako bi ste pregledali statistiku dobavljačevih "
 "preformansi, kliknite na DNV (OTD) stopu."
@@ -3680,12 +3680,12 @@ msgstr ""
 #. module: purchase
 #: model_terms:digest.tip,tip_description:purchase.digest_tip_purchase_1
 msgid ""
-"When sending a purchase order by email, Odoo asks the vendor to acknowledge "
+"When sending a purchase order by email, my-erp-crm asks the vendor to acknowledge "
 "the reception of the order. When the vendor acknowledges the order by "
 "clicking on a button in the email, the information is added on the purchase "
 "order. Use filters to track orders that have not been acknowledged."
 msgstr ""
-"Kada se nalog za nabavu šaje e-mailom, Odoo od dobavljača traži da potvrdi "
+"Kada se nalog za nabavu šaje e-mailom, my-erp-crm od dobavljača traži da potvrdi "
 "primanje narudžbe. Kada dobavljač potvrdi narudžbu pritiskom na tipku koja "
 "se nalazi u e-mailu, infomacija je dodana u nalogu za nabavu. Koristite "
 "filtere za praćenje narudžbi koje nisu potvrđene."

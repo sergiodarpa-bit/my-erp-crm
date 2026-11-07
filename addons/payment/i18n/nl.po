@@ -10,7 +10,7 @@
 # Bren Driesen <brdri@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:39+0000\n"
 "PO-Revision-Date: 2026-10-30 09:33+0000\n"
@@ -40,7 +40,7 @@ msgid ""
 "<i class=\"fa fa-exclamation-triangle\"/> These properties are set to\n"
 "                                match the behavior of providers and that of "
 "their integration with\n"
-"                                Odoo regarding this payment method. Any "
+"                                my-erp-crm regarding this payment method. Any "
 "change may result in errors\n"
 "                                and should be tested on a test database "
 "first."
@@ -49,7 +49,7 @@ msgstr ""
 "om\n"
 "                                overeen te stemmen met het gedrag van "
 "providers en dat van hun integratie met\n"
-"                                Odoo betreffende deze betaalmethode. Elke "
+"                                my-erp-crm betreffende deze betaalmethode. Elke "
 "wijziging kan leiden tot fouten\n"
 "                                en moet eerst wordt getest op een "
 "testdatabase."
@@ -672,11 +672,11 @@ msgstr "Afvangen transactie"
 #. module: payment
 #: model:ir.model.fields,help:payment.field_payment_provider__capture_manually
 msgid ""
-"Capture the amount from Odoo, when the delivery is completed.\n"
+"Capture the amount from my-erp-crm, when the delivery is completed.\n"
 "Use this if you want to charge your customers cards only when\n"
 "you are sure you can ship the goods to them."
 msgstr ""
-"Verwerk de betaling vanuit Odoo zodra de levering is voltooid. Gebruik dit "
+"Verwerk de betaling vanuit my-erp-crm zodra de levering is voltooid. Gebruik dit "
 "als je de kaart van je klant pas wilt belasten wanneer je zeker weet dat je "
 "de goederen kunt verzenden."
 
@@ -1691,8 +1691,8 @@ msgstr "Octopus"
 
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_provider__module_to_buy
-msgid "Odoo Enterprise Module"
-msgstr "Odoo Enterprise module"
+msgid "my-erp-crm Enterprise Module"
+msgstr "my-erp-crm Enterprise module"
 
 #. module: payment
 #: model:ir.model.fields.selection,name:payment.selection__payment_transaction__operation__offline
@@ -2249,10 +2249,10 @@ msgstr "Terugbetaling"
 #: model:ir.model.fields,help:payment.field_payment_provider__support_refund
 msgid ""
 "Refund is a feature allowing to refund customers directly from the payment "
-"in Odoo."
+"in my-erp-crm."
 msgstr ""
 "Terugbetaling is een functie waarmee klanten direct vanuit de betaling in "
-"Odoo kunnen worden terugbetaald."
+"my-erp-crm kunnen worden terugbetaald."
 
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.payment_transaction_form

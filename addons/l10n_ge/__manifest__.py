@@ -4,7 +4,7 @@
     'summary': "Georgian accounting localization package",
     'countries': ['GE'],
     'description': """
-This module provides the basic accounting configuration required to use Odoo Accounting in Georgia, including:
+This module provides the basic accounting configuration required to use my-erp-crm Accounting in Georgia, including:
 ==================================================================================================================
 * Georgian chart of accounts
 * Tax groups and taxes

@@ -14,7 +14,7 @@
 # Nedžad Beus <nedzad.beus@implex.si>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.5alpha1\n"
+"Project-Id-Version: my-erp-crm Server 15.5alpha1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-10 18:40+0000\n"
 "PO-Revision-Date: 2026-09-16 07:33+0000\n"
@@ -232,13 +232,13 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:mass_mailing_themes.theme_event_template
 msgid ""
 "<font style=\"color: rgb(255, 255, 255);\">The next edition of <span "
-"style=\"font-weight: bolder;\">Odoo Experience Online</span> is coming "
+"style=\"font-weight: bolder;\">my-erp-crm Experience Online</span> is coming "
 "soon!\n"
 "                    <br/>To stir up your curiosity, have a look at all the "
 "great talks scheduled and highlighted in our agenda!</font>"
 msgstr ""
 "<font style=\"color: rgb(255, 255, 255);\">Naslednja izdaja <span "
-"style=\"font-weight: bolder;\">Odoo Experience Online</span> prihaja kmalu!\n"
+"style=\"font-weight: bolder;\">my-erp-crm Experience Online</span> prihaja kmalu!\n"
 "                    <br/>Da bi vzbudili vašo radovednost, si oglejte vsa "
 "odlična predavanja, ki so na sporedu in izpostavljena v našem programu!</"
 "font>"
@@ -246,10 +246,10 @@ msgstr ""
 #. module: mass_mailing_themes
 #: model_terms:ir.ui.view,arch_db:mass_mailing_themes.theme_event_template
 msgid ""
-"<font style=\"color: rgb(255, 255, 255);\">Zero, zilch, nada! Odoo "
+"<font style=\"color: rgb(255, 255, 255);\">Zero, zilch, nada! my-erp-crm "
 "Experience is free for everyone!</font>"
 msgstr ""
-"<font style=\"color: rgb(255, 255, 255);\">Nič, prav nič! Odoo Experience je "
+"<font style=\"color: rgb(255, 255, 255);\">Nič, prav nič! my-erp-crm Experience je "
 "brezplačen za vse!</font>"
 
 #. module: mass_mailing_themes
@@ -811,12 +811,12 @@ msgstr ""
 #. module: mass_mailing_themes
 #: model_terms:ir.ui.view,arch_db:mass_mailing_themes.theme_roadshow1_template
 msgid ""
-"Discover Odoo, the all-in-one management platform, and its apps designed to "
+"Discover my-erp-crm, the all-in-one management platform, and its apps designed to "
 "improve employees' daily tasks. From sales and deliveries, to logistics, "
 "marketing and accounting ; learn what are the best available options to "
 "digitize your company."
 msgstr ""
-"Spoznajte Odoo, celovito platformo za upravljanje, in njegove aplikacije, "
+"Spoznajte my-erp-crm, celovito platformo za upravljanje, in njegove aplikacije, "
 "zasnovane za izboljšanje vsakodnevnih opravil zaposlenih. Od prodaje in "
 "dostav do logistike, trženja in računovodstva ; spoznajte, katere so "
 "najboljše razpoložljive možnosti za digitalizacijo vašega podjetja."
@@ -828,8 +828,8 @@ msgstr "Ali želite postati partner?"
 
 #. module: mass_mailing_themes
 #: model_terms:ir.ui.view,arch_db:mass_mailing_themes.theme_roadshow2_template
-msgid "Do you wish to use Odoo?"
-msgstr "Ali želite uporabljati Odoo?"
+msgid "Do you wish to use my-erp-crm?"
+msgstr "Ali želite uporabljati my-erp-crm?"
 
 #. module: mass_mailing_themes
 #: model_terms:ir.ui.view,arch_db:mass_mailing_themes.theme_roadshow2_template
@@ -1016,10 +1016,10 @@ msgstr ""
 #. module: mass_mailing_themes
 #: model_terms:ir.ui.view,arch_db:mass_mailing_themes.theme_roadshow2_template
 msgid ""
-"If you wish to evaluate Odoo while taking into account your company's "
+"If you wish to evaluate my-erp-crm while taking into account your company's "
 "specific needs, you can book a free appointment with one of our"
 msgstr ""
-"Če želite oceniti Odoo ob upoštevanju posebnih potreb svojega podjetja, "
+"Če želite oceniti my-erp-crm ob upoštevanju posebnih potreb svojega podjetja, "
 "lahko rezervirate brezplačen sestanek z enim od naših"
 
 #. module: mass_mailing_themes
@@ -1051,8 +1051,8 @@ msgstr "Leta 2013 smo imeli 2.000.000 uporabnikov po vsem svetu"
 
 #. module: mass_mailing_themes
 #: model_terms:ir.ui.view,arch_db:mass_mailing_themes.theme_newsletter_template
-msgid "In May 2014, we renamed the company and product to Odoo."
-msgstr "Maja 2014 smo podjetje in izdelek preimenovali v Odoo."
+msgid "In May 2014, we renamed the company and product to my-erp-crm."
+msgstr "Maja 2014 smo podjetje in izdelek preimenovali v my-erp-crm."
 
 #. module: mass_mailing_themes
 #: model_terms:ir.ui.view,arch_db:mass_mailing_themes.theme_coffeebreak_template
@@ -1069,8 +1069,8 @@ msgstr "Instagram"
 
 #. module: mass_mailing_themes
 #: model_terms:ir.ui.view,arch_db:mass_mailing_themes.theme_roadshow1_template
-msgid "Interactive Odoo demo"
-msgstr "Interaktivna predstavitev Odoo"
+msgid "Interactive my-erp-crm demo"
+msgstr "Interaktivna predstavitev my-erp-crm"
 
 #. module: mass_mailing_themes
 #: model_terms:ir.ui.view,arch_db:mass_mailing_themes.theme_magazine_template
@@ -1105,11 +1105,11 @@ msgstr "Izvedite več o naših cenah"
 #. module: mass_mailing_themes
 #: model_terms:ir.ui.view,arch_db:mass_mailing_themes.theme_event_template
 msgid ""
-"Learn through workshops, product demos, and inspiring talks from Odoo "
+"Learn through workshops, product demos, and inspiring talks from my-erp-crm "
 "Experts and Partners."
 msgstr ""
 "Učite se na delavnicah, predstavitvah izdelkov in navdihujočih predavanjih "
-"strokovnjakov in partnerjev Odoo."
+"strokovnjakov in partnerjev my-erp-crm."
 
 #. module: mass_mailing_themes
 #: model_terms:ir.ui.view,arch_db:mass_mailing_themes.theme_roadshow2_template
@@ -1199,18 +1199,18 @@ msgstr "Novice"
 
 #. module: mass_mailing_themes
 #: model_terms:ir.ui.view,arch_db:mass_mailing_themes.theme_roadshow2_template
-msgid "Odoo Experts"
-msgstr "Strokovnjaki za Odoo"
+msgid "my-erp-crm Experts"
+msgstr "Strokovnjaki za my-erp-crm"
 
 #. module: mass_mailing_themes
 #: model_terms:ir.ui.view,arch_db:mass_mailing_themes.theme_roadshow1_template
 msgid ""
-"Odoo invites you on <span class=\"font-weight: bolder\">[date]</span> at "
+"my-erp-crm invites you on <span class=\"font-weight: bolder\">[date]</span> at "
 "<span class=\"font-weight: bolder\">[time]</span> for their infamous "
 "roadshow in <span class=\"font-weight: bolder\">[city]</span>: an event that "
 "combines learning and networking in a casual afterwork-like atmosphere."
 msgstr ""
-"Odoo vas vabi <span class=\"font-weight: bolder\">[date]</span> ob <span "
+"my-erp-crm vas vabi <span class=\"font-weight: bolder\">[date]</span> ob <span "
 "class=\"font-weight: bolder\">[time]</span> na svoj sloviti roadshow v <span "
 "class=\"font-weight: bolder\">[city]</span>: dogodek, ki združuje učenje in "
 "mreženje v sproščenem vzdušju po službi."
@@ -1392,7 +1392,7 @@ msgstr "Vrtilna tabela"
 
 #. module: mass_mailing_themes
 #: model_terms:ir.ui.view,arch_db:mass_mailing_themes.theme_newsletter_template
-msgid "The Rise of Odoo"
+msgid "The Rise of my-erp-crm"
 msgstr "Vzpon Odooja"
 
 #. module: mass_mailing_themes
@@ -1435,7 +1435,7 @@ msgstr ""
 
 #. module: mass_mailing_themes
 #: model_terms:ir.ui.view,arch_db:mass_mailing_themes.theme_newsletter_template
-msgid "The story of Odoo"
+msgid "The story of my-erp-crm"
 msgstr "Zgodba Odooja"
 
 #. module: mass_mailing_themes
@@ -1727,21 +1727,21 @@ msgstr ""
 #. module: mass_mailing_themes
 #: model_terms:ir.ui.view,arch_db:mass_mailing_themes.theme_roadshow2_template
 msgid ""
-"You had the chance to discover Odoo during a full 3 hours, how great is "
+"You had the chance to discover my-erp-crm during a full 3 hours, how great is "
 "that?\n"
-"                    <br/>Now that you've seen Odoo in action and asked some "
+"                    <br/>Now that you've seen my-erp-crm in action and asked some "
 "questions, you likely need more information to move forward in your project "
 "and to work with us. You'll find additional points just below."
 msgstr ""
-"Imeli ste priložnost spoznati Odoo v celih 3 urah – kako čudovito je to?\n"
-"                    <br/>Zdaj, ko ste videli Odoo v akciji in zastavili "
+"Imeli ste priložnost spoznati my-erp-crm v celih 3 urah – kako čudovito je to?\n"
+"                    <br/>Zdaj, ko ste videli my-erp-crm v akciji in zastavili "
 "nekaj vprašanj, verjetno potrebujete več informacij za nadaljevanje svojega "
 "projekta in sodelovanje z nami. Dodatne informacije boste našli spodaj."
 
 #. module: mass_mailing_themes
 #: model_terms:ir.ui.view,arch_db:mass_mailing_themes.theme_roadshow2_template
-msgid "You may test Odoo for free by clicking"
-msgstr "Odoo lahko brezplačno preizkusite s klikom"
+msgid "You may test my-erp-crm for free by clicking"
+msgstr "my-erp-crm lahko brezplačno preizkusite s klikom"
 
 #. module: mass_mailing_themes
 #: model_terms:ir.ui.view,arch_db:mass_mailing_themes.theme_roadshow1_template

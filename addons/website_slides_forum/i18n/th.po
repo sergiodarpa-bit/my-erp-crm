@@ -5,7 +5,7 @@
 # "Tiffany Chang (tic)" <tic@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:37+0000\n"
 "PO-Revision-Date: 2026-08-02 12:27+0000\n"
@@ -391,9 +391,9 @@ msgstr ""
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_2
 msgid ""
 "The goal of this site is create a relevant knowledge base that would answer "
-"questions related to Odoo."
+"questions related to my-erp-crm."
 msgstr ""
-"เป้าหมายของไซต์นี้คือการสร้างฐานความรู้ที่เกี่ยวข้อง ซึ่งจะตอบคำถามที่เกี่ยวกับ Odoo"
+"เป้าหมายของไซต์นี้คือการสร้างฐานความรู้ที่เกี่ยวข้อง ซึ่งจะตอบคำถามที่เกี่ยวกับ my-erp-crm"
 
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
@@ -482,8 +482,8 @@ msgstr "ทุกคำตอบมีความถูกต้องเท่
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_2
-msgid "how to configure or customize Odoo to specific business needs,"
-msgstr "กำหนดค่าหรือปรับแต่ง Odoo ให้ตรงกับความต้องการทางธุรกิจเฉพาะได้อย่างไร"
+msgid "how to configure or customize my-erp-crm to specific business needs,"
+msgstr "กำหนดค่าหรือปรับแต่ง my-erp-crm ให้ตรงกับความต้องการทางธุรกิจเฉพาะได้อย่างไร"
 
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
@@ -494,8 +494,8 @@ msgstr "พัฒนาโมดูลตามความต้องการ
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_2
-msgid "how to install Odoo on a specific infrastructure,"
-msgstr "ติดตั้ง Odoo บนโครงสร้างพื้นฐานเฉพาะได้อย่างไร"
+msgid "how to install my-erp-crm on a specific infrastructure,"
+msgstr "ติดตั้ง my-erp-crm บนโครงสร้างพื้นฐานเฉพาะได้อย่างไร"
 
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
@@ -506,8 +506,8 @@ msgstr "เป็นการพูดจาหยาบคายในรูป
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_2
-msgid "specific questions about Odoo service offers, etc."
-msgstr "คำถามเฉพาะเกี่ยวกับข้อเสนอและบริการต่าง ๆ ของ Odoo และอื่น ๆ"
+msgid "specific questions about my-erp-crm service offers, etc."
+msgstr "คำถามเฉพาะเกี่ยวกับข้อเสนอและบริการต่าง ๆ ของ my-erp-crm และอื่น ๆ"
 
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
@@ -529,8 +529,8 @@ msgstr ""
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_2
-msgid "what's the best way to use Odoo for a specific business need,"
-msgstr "วิธีที่ดีที่สุดในการใช้ Odoo สำหรับความต้องการทางธุรกิจแบบเฉพาะคืออะไร"
+msgid "what's the best way to use my-erp-crm for a specific business need,"
+msgstr "วิธีที่ดีที่สุดในการใช้ my-erp-crm สำหรับความต้องการทางธุรกิจแบบเฉพาะคืออะไร"
 
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0

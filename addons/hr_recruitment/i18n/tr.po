@@ -29,7 +29,7 @@
 # "Malaz Siddig Elsayed Abuidris (msea)" <msea@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0+e\n"
+"Project-Id-Version: my-erp-crm Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-03 17:35+0000\n"
 "PO-Revision-Date: 2026-08-06 17:21+0000\n"
@@ -2799,11 +2799,11 @@ msgstr "Teslimat hatası olan mesaj adedi"
 #: model_terms:ir.actions.act_window,help:hr_recruitment.action_hr_job_applications
 #: model_terms:ir.actions.act_window,help:hr_recruitment.crm_case_categ0_act_job
 msgid ""
-"Odoo helps you track applicants in the recruitment\n"
+"my-erp-crm helps you track applicants in the recruitment\n"
 "                process and follow up all operations: meetings, interviews, "
 "etc."
 msgstr ""
-"Odoo, işe alım sürecindeki başvuru sahiplerini takip etmenize\n"
+"my-erp-crm, işe alım sürecindeki başvuru sahiplerini takip etmenize\n"
 "                ve tüm işlemleri izlemenize yardımcı olur: toplantılar, "
 "mülakatlar vb."
 
@@ -3666,11 +3666,11 @@ msgstr "Aşağıdaki başvuru sahiplerinin bir e-posta adresi eksik: %s."
 #. module: hr_recruitment
 #: model:ir.model.fields,help:hr_recruitment.field_hr_job__alias_model_id
 msgid ""
-"The model (Odoo Document Kind) to which this alias corresponds. Any incoming "
+"The model (my-erp-crm Document Kind) to which this alias corresponds. Any incoming "
 "email that does not reply to an existing record will cause the creation of a "
 "new record of this model (e.g. a Project Task)"
 msgstr ""
-"Bu takma adın karşılık geldiği model (Odoo Belge Türü). Mevcut bir kayda "
+"Bu takma adın karşılık geldiği model (my-erp-crm Belge Türü). Mevcut bir kayda "
 "yanıt vermeyen gelen e-postalar, bu modelin (ör. Proje Görevi) yeni bir "
 "kaydının oluşturulmasına neden olur."
 

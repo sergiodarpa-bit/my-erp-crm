@@ -8,7 +8,7 @@
     "author": "Odoo S.A.",
     "license": "LGPL-3",
     "description": """
-This is the basic Zambian localization necessary to run Odoo in ZM:
+This is the basic Zambian localization necessary to run my-erp-crm in ZM:
 ================================================================================
     - Chart of Accounts
     - Taxes

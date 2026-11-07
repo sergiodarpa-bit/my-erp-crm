@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates xml:space="preserve">
     <t t-name="web.UpgradeDialog">
-        <Dialog title.translate="Odoo Enterprise">
+        <Dialog title.translate="my-erp-crm Enterprise">
             <div role="status"
                 class="d-flex flex-row align-items-center flex-wrap  flex-md-nowrap gap-1">
                 <div class="w-100 w-md-50">
-                    Get this feature and much more with Odoo Enterprise!
+                    Get this feature and much more with my-erp-crm Enterprise!
                     <ul class="list-unstyled">
                         <li><i class="fa fa-check"></i> Access to all Enterprise Apps</li>
                         <li><i class="fa fa-check"></i> New design</li>

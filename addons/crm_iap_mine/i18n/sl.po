@@ -10,7 +10,7 @@
 # Nedžad Beus <nedzad.beus@implex.si>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0\n"
+"Project-Id-Version: my-erp-crm Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-09-10 11:12+0000\n"
@@ -58,7 +58,7 @@ msgstr ""
 "    Svoj račun za generiranje potencialnih strank v aplikaciji IAP lahko "
 "bremenite v nastavitvah aplikacije CRM.<br/></p>\n"
 "    <p>Lep pozdrav,</p>\n"
-"    <p>Ekipa Odoo</p>\n"
+"    <p>Ekipa my-erp-crm</p>\n"
 "</div>"
 
 #. module: crm_iap_mine
@@ -607,8 +607,8 @@ msgstr "Priložnosti"
 #. module: crm_iap_mine
 #. odoo-python
 #: code:addons/crm_iap_mine/models/crm_iap_lead_mining_request.py:0
-msgid "Opportunity created by Odoo Lead Generation"
-msgstr "Priložnost, ustvarjena z Odoo Lead Generation"
+msgid "Opportunity created by my-erp-crm Lead Generation"
+msgstr "Priložnost, ustvarjena z my-erp-crm Lead Generation"
 
 #. module: crm_iap_mine
 #: model:ir.model.fields,field_description:crm_iap_mine.field_crm_iap_lead_mining_request__role_ids

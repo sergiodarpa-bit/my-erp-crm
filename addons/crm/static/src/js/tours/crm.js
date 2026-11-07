@@ -95,7 +95,7 @@ registry.category("web_tour.tours").add('crm_tour', {
     run: "click",
 }, {
     trigger: ".breadcrumb-item:not(.active):first",
-    content: _t("Click on the breadcrumb to go back to your Pipeline. Odoo will save all modifications as you navigate."),
+    content: _t("Click on the breadcrumb to go back to your Pipeline. my-erp-crm will save all modifications as you navigate."),
     tooltipPosition: "bottom",
     run: "click .breadcrumb-item:not(.active):last",
 }]});

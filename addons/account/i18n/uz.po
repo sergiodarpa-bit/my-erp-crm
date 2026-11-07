@@ -12,7 +12,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0+e\n"
+"Project-Id-Version: my-erp-crm Server 19.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:37+0000\n"
 "PO-Revision-Date: 2026-08-06 19:11+0000\n"
@@ -429,10 +429,10 @@ msgstr ". <br/> -- <br/>"
 #: model_terms:ir.ui.view,arch_db:account.view_move_form
 #, fuzzy
 msgid ""
-". The journal entries need to be computed by Odoo before being posted in "
+". The journal entries need to be computed by my-erp-crm before being posted in "
 "your company's currency."
 msgstr ""
-". Jurnal yozuvlari kompaniyangiz valyutasida joylashtirishdan oldin Odoo "
+". Jurnal yozuvlari kompaniyangiz valyutasida joylashtirishdan oldin my-erp-crm "
 "tomonidan hisoblanishi kerak."
 
 #. module: account
@@ -1787,7 +1787,7 @@ msgid ""
 "                                    </td>\n"
 "                                    <td align=\"right\" style=\"padding-"
 "right: 16px;\">\n"
-"                                        <img alt=\"Odoo\" src=\"/web/static/"
+"                                        <img alt=\"my-erp-crm\" src=\"/web/static/"
 "img/logo_inverse_white_206px.png\" style=\"height: 2em; object-fit: contain;"
 "\" class=\"align-baseline w-auto\"/>\n"
 "                                    </td>\n"
@@ -1924,7 +1924,7 @@ msgstr ""
 "                                    </td>\n"
 "                                    <td align=\"right\" style=\"padding-"
 "right: 16px;\">\n"
-"                                        <img alt=\"Odoo\" src=\"/web/static/"
+"                                        <img alt=\"my-erp-crm\" src=\"/web/static/"
 "img/logo_inverse_white_206px.png\" style=\"height: 2em; object-fit: contain;"
 "\" class=\"align-baseline w-auto\"/>\n"
 "                                    </td>\n"
@@ -2062,7 +2062,7 @@ msgid ""
 "                                        <t t-else=\"\">Incoming Bill</t>\n"
 "                                    </td>\n"
 "                                    <td align=\"right\">\n"
-"                                        <img alt=\"Odoo\" src=\"/web/static/"
+"                                        <img alt=\"my-erp-crm\" src=\"/web/static/"
 "img/logo_inverse_white_206px.png\" style=\"height:30px; width:92px; object-"
 "fit:contain;\"/>\n"
 "                                    </td>\n"
@@ -5020,7 +5020,7 @@ msgstr "Bank va naqd pul"
 #: model_terms:ir.ui.view,arch_db:account.report_statement
 #, fuzzy
 msgid "Bank of odoo"
-msgstr "Odoo banki"
+msgstr "my-erp-crm banki"
 
 #. module: account
 #. odoo-python
@@ -7675,10 +7675,10 @@ msgstr "Sana namunasi"
 #: model:ir.model.fields,help:account.field_account_financial_year_op__opening_date
 #, fuzzy
 msgid ""
-"Date from which the accounting is managed in Odoo. It is the date of the "
+"Date from which the accounting is managed in my-erp-crm. It is the date of the "
 "opening entry."
 msgstr ""
-"Odoo‘da buxgalteriya hisobi boshqariladigan sana. Bu ochilish yozuvi sanasi "
+"my-erp-crm‘da buxgalteriya hisobi boshqariladigan sana. Bu ochilish yozuvi sanasi "
 "hisoblanadi."
 
 #. module: account
@@ -13544,7 +13544,7 @@ msgstr "Qo‘lda kiritish"
 #: model:ir.model.fields,help:account.field_account_journal__inbound_payment_method_line_ids
 #, fuzzy
 msgid ""
-"Manual: Get paid by any method outside of Odoo.\n"
+"Manual: Get paid by any method outside of my-erp-crm.\n"
 "Payment Providers: Each payment provider has its own Payment Method. Request "
 "a transaction on/to a card thanks to a payment token saved by the partner "
 "when buying or subscribing online.\n"
@@ -13567,8 +13567,8 @@ msgstr ""
 #: model:ir.model.fields,help:account.field_account_journal__outbound_payment_method_line_ids
 #, fuzzy
 msgid ""
-"Manual: Pay by any method outside of Odoo.\n"
-"Check: Pay bills by check and print it from Odoo.\n"
+"Manual: Pay by any method outside of my-erp-crm.\n"
+"Check: Pay bills by check and print it from my-erp-crm.\n"
 "SEPA Credit Transfer: Pay in the SEPA zone by submitting a SEPA Credit "
 "Transfer file to your bank. Module account_sepa is necessary.\n"
 msgstr ""
@@ -13581,11 +13581,11 @@ msgstr ""
 #: model:ir.model.fields,help:account.field_account_payment__payment_method_line_id
 #, fuzzy
 msgid ""
-"Manual: Pay or Get paid by any method outside of Odoo.\n"
+"Manual: Pay or Get paid by any method outside of my-erp-crm.\n"
 "Payment Providers: Each payment provider has its own Payment Method. Request "
 "a transaction on/to a card thanks to a payment token saved by the partner "
 "when buying or subscribing online.\n"
-"Check: Pay bills by check and print it from Odoo.\n"
+"Check: Pay bills by check and print it from my-erp-crm.\n"
 "Batch Deposit: Collect several customer checks at once generating and "
 "submitting a batch deposit to your bank. Module account_batch_payment is "
 "necessary.\n"
@@ -13613,11 +13613,11 @@ msgstr ""
 #: model:ir.model.fields,help:account.field_account_payment_register__payment_method_line_id
 #, fuzzy
 msgid ""
-"Manual: Pay or Get paid by any method outside of Odoo.\n"
+"Manual: Pay or Get paid by any method outside of my-erp-crm.\n"
 "Payment Providers: Each payment provider has its own Payment Method. Request "
 "a transaction on/to a card thanks to a payment token saved by the partner "
 "when buying or subscribing online.\n"
-"Check: Pay bills by check and print it from Odoo.\n"
+"Check: Pay bills by check and print it from my-erp-crm.\n"
 "Batch Deposit: Collect several customer checks at once generating and "
 "submitting a batch deposit to your bank. Module account_batch_payment is "
 "necessary.\n"
@@ -14786,34 +14786,34 @@ msgstr "Oktyabr"
 #. module: account
 #: model:ir.model.fields.selection,name:account.selection__account_report_expression__engine__domain
 #, fuzzy
-msgid "Odoo Domain"
-msgstr "Odoo domeni"
+msgid "my-erp-crm Domain"
+msgstr "my-erp-crm domeni"
 
 #. module: account
 #: model_terms:ir.actions.act_window,help:account.action_bank_statement_tree
 #: model_terms:ir.actions.act_window,help:account.action_credit_statement_tree
 #, fuzzy
 msgid ""
-"Odoo allows you to reconcile a statement line directly with\n"
+"my-erp-crm allows you to reconcile a statement line directly with\n"
 "                the related sale or purchase invoices."
 msgstr ""
-"Odoo sizga bayonot qatorini tegishli sotish yoki xarid hisob-fakturalari "
+"my-erp-crm sizga bayonot qatorini tegishli sotish yoki xarid hisob-fakturalari "
 "bilan bevosita solishtirish imkonini beradi."
 
 #. module: account
 #: model_terms:ir.actions.act_window,help:account.res_partner_action_customer
 #, fuzzy
-msgid "Odoo helps you easily track all activities related to a customer."
+msgid "my-erp-crm helps you easily track all activities related to a customer."
 msgstr ""
-"Odoo mijoz bilan bog‘liq barcha faoliyatlarni oson kuzatishingizga yordam "
+"my-erp-crm mijoz bilan bog‘liq barcha faoliyatlarni oson kuzatishingizga yordam "
 "beradi."
 
 #. module: account
 #: model_terms:ir.actions.act_window,help:account.res_partner_action_supplier
 #, fuzzy
-msgid "Odoo helps you easily track all activities related to a supplier."
+msgid "my-erp-crm helps you easily track all activities related to a supplier."
 msgstr ""
-"Odoo yetkazib beruvchi bilan bog‘liq barcha faoliyatlarni oson "
+"my-erp-crm yetkazib beruvchi bilan bog‘liq barcha faoliyatlarni oson "
 "kuzatishingizga yordam beradi."
 
 #. module: account
@@ -18280,10 +18280,10 @@ msgstr ""
 msgid ""
 "Send one separate email for each invoice.\n"
 "Any file extension will be accepted.\n"
-"Only PDF and XML files will be interpreted by Odoo"
+"Only PDF and XML files will be interpreted by my-erp-crm"
 msgstr ""
 "Har bir hisob-faktura uchun alohida elektron xat yuboring. Har qanday fayl "
-"kengaytmasi qabul qilinadi. Faqat PDF va XML fayllar Odoo tomonidan qayta "
+"kengaytmasi qabul qilinadi. Faqat PDF va XML fayllar my-erp-crm tomonidan qayta "
 "ishlanadi"
 
 #. module: account
@@ -22724,11 +22724,11 @@ msgstr ""
 #, fuzzy
 msgid ""
 "Use this field to encode the total amount of the invoice.\n"
-"Odoo will automatically create one invoice line with default values to match "
+"my-erp-crm will automatically create one invoice line with default values to match "
 "it."
 msgstr ""
 "Hisob-fakturaning umumiy summasini kiritish uchun ushbu maydondan "
-"foydalaning. Odoo unga mos keladigan standart qiymatlarga ega bitta hisob-"
+"foydalaning. my-erp-crm unga mos keladigan standart qiymatlarga ega bitta hisob-"
 "faktura qatorini avtomatik yaratadi."
 
 #. module: account
@@ -23096,7 +23096,7 @@ msgid ""
 "Vendors bills can be pre-generated based on purchase\n"
 "                orders or receipts. This allows you to control bills\n"
 "                you receive from your vendor according to the draft\n"
-"                document in Odoo."
+"                document in my-erp-crm."
 msgstr ""
 "Yetkazib beruvchilarning hisob-fakturaları xarid buyurtmalari yoki "
 "kvitansiyalar asosida oldindan yaratilishi mumkin. Bu sizga Odoodagi "
@@ -23403,10 +23403,10 @@ msgstr ""
 #, fuzzy
 msgid ""
 "You can choose different models for each type of reference. The default one "
-"is the Odoo reference."
+"is the my-erp-crm reference."
 msgstr ""
 "Har bir havola turi uchun turli modellarni tanlashingiz mumkin. Standart "
-"model Odoo havolasi hisoblanadi."
+"model my-erp-crm havolasi hisoblanadi."
 
 #. module: account
 #. odoo-python

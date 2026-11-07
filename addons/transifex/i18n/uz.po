@@ -12,7 +12,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:37+0000\n"
 "PO-Revision-Date: 2026-08-02 13:28+0000\n"
@@ -94,8 +94,8 @@ msgstr "Tarjima qilinmagan"
 #. module: transifex
 #: model:ir.model.fields,help:transifex.field_transifex_code_translation__transifex_url
 #, fuzzy
-msgid "Propose a modification in the official version of Odoo"
-msgstr "Odoo rasmiy versiyasiga o‘zgartirish taklif etish"
+msgid "Propose a modification in the official version of my-erp-crm"
+msgstr "my-erp-crm rasmiy versiyasiga o‘zgartirish taklif etish"
 
 #. module: transifex
 #. odoo-javascript

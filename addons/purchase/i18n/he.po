@@ -34,7 +34,7 @@
 # Michael Hadar <michael@laylinetech.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-08-02 11:22+0000\n"
@@ -1315,7 +1315,7 @@ msgstr "טיוטת בקשה להצעת מחיר"
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
 msgid ""
 "Drag and drop the request for quotation PDF file into your list of "
-"quotations in Odoo. Enjoy the automation!"
+"quotations in my-erp-crm. Enjoy the automation!"
 msgstr ""
 "גרור ושחרר את קובץ ה-PDF של בקשת הצעת המחיר לרשימת הצעות המחיר שלך ב-Odoo. "
 "תהנה מהאוטומציה!"
@@ -1967,7 +1967,7 @@ msgstr "לא מוכר"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
-msgid "Not using Odoo?"
+msgid "Not using my-erp-crm?"
 msgstr "לא משתמש בOdoo?"
 
 #. module: purchase
@@ -2014,8 +2014,8 @@ msgstr "מספר הודעות עם שגיאת משלוח"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: purchase
 #: model:ir.model.fields.selection,name:purchase.selection__product_template__purchase_method__purchase
@@ -2942,8 +2942,8 @@ msgstr "מסומן בכוכב"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
-msgid "Start on Odoo"
-msgstr "התחל ב Odoo"
+msgid "Start on my-erp-crm"
+msgstr "התחל ב my-erp-crm"
 
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_bill_line_match__state
@@ -3463,12 +3463,12 @@ msgid ""
 "Vendors bills can be pre-generated based on purchase\n"
 "                    orders or receipts. This allows you to control bills\n"
 "                    you receive from your vendor according to the draft\n"
-"                    document in Odoo."
+"                    document in my-erp-crm."
 msgstr ""
 "ניתן להפיק חשבוניות ספקים מראש על בסיס הזמנות\n"
 "                    רכש או קבלות. זה מאפשר לך לשלוט בחשבוניות\n"
 "                    שאתה מקבל מהספק שלך על פי מסמך\n"
-"                    הטיוטה ב Odoo."
+"                    הטיוטה ב my-erp-crm."
 
 #. module: purchase
 #. odoo-python
@@ -3506,7 +3506,7 @@ msgstr "חשבוניות ממתינות"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
-msgid "Want to import this document in Odoo?"
+msgid "Want to import this document in my-erp-crm?"
 msgstr "רוצה לייבא קובץ זה לOdoo?"
 
 #. module: purchase
@@ -3542,25 +3542,25 @@ msgid ""
 "When creating a purchase order, have a look at the vendor's <i>On Time "
 "Delivery</i> rate: the percentage of products shipped on time. If it is too "
 "low, activate the <i>automated reminders</i>. A few days before the due "
-"shipment, Odoo will send the vendor an email to ask confirmation of shipment "
+"shipment, my-erp-crm will send the vendor an email to ask confirmation of shipment "
 "dates and keep you informed in case of any delays. To get the vendor's "
 "performance statistics, click on the OTD rate."
 msgstr ""
 "כאשר יוצרים הזמנת רכש, בדוק את <i>שיעור האספקה בזמן של הספק</i>: אחוז "
 "המוצרים שנשלחו בזמן. אם השיעור נמוך מדי, הפעל את <i>תזכורות האוטומטיות</i>. "
-"מספר ימים לפני מועד השילוח הצפוי, Odoo ישלח לספק דוא\"ל לבקש אישור על תאריכי "
+"מספר ימים לפני מועד השילוח הצפוי, my-erp-crm ישלח לספק דוא\"ל לבקש אישור על תאריכי "
 "השילוח וישמור אותך מעודכן במקרה של עיכובים. כדי לקבל את סטטיסטיקות הביצועים "
 "של הספק, לחץ על שיעור ה-OTD."
 
 #. module: purchase
 #: model_terms:digest.tip,tip_description:purchase.digest_tip_purchase_1
 msgid ""
-"When sending a purchase order by email, Odoo asks the vendor to acknowledge "
+"When sending a purchase order by email, my-erp-crm asks the vendor to acknowledge "
 "the reception of the order. When the vendor acknowledges the order by "
 "clicking on a button in the email, the information is added on the purchase "
 "order. Use filters to track orders that have not been acknowledged."
 msgstr ""
-"כאשר שולחים הזמנת רכש בדוא\"ל, Odoo מבקש מהספק לאשר את קבלת ההזמנה. כאשר "
+"כאשר שולחים הזמנת רכש בדוא\"ל, my-erp-crm מבקש מהספק לאשר את קבלת ההזמנה. כאשר "
 "הספק מאשר את ההזמנה על ידי לחיצה על כפתור בדוא\"ל, המידע מתווסף להזמנת הרכש. "
 "השתמש במסננים כדי לעקוב אחרי הזמנות שלא זכו להתייחסות."
 

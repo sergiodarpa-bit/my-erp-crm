@@ -6,7 +6,7 @@
 # "Maitê Dietze (madi)" <madi@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0+e\n"
+"Project-Id-Version: my-erp-crm Server 17.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:37+0000\n"
 "PO-Revision-Date: 2026-08-02 17:37+0000\n"
@@ -846,8 +846,8 @@ msgstr "Nota"
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_record_sidebar
-msgid "Odoo Logo"
-msgstr "Logo da Odoo"
+msgid "my-erp-crm Logo"
+msgstr "Logo da my-erp-crm"
 
 #. module: portal
 #. odoo-python

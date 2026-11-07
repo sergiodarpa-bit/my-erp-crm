@@ -17,7 +17,7 @@
 # Hanna Kharraziha <hakha@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-09-29 13:33+0000\n"
@@ -583,12 +583,12 @@ msgstr "Om rutan är markerad, så har vissa meddelanden leveransfel."
 #: model_terms:ir.actions.act_window,help:analytic.account_analytic_line_action
 #: model_terms:ir.actions.act_window,help:analytic.account_analytic_line_action_entries
 msgid ""
-"In Odoo, sales orders and projects are implemented using\n"
+"In my-erp-crm, sales orders and projects are implemented using\n"
 "                analytic accounts. You can track costs and revenues to "
 "analyse\n"
 "                your margins easily."
 msgstr ""
-"I Odoo implementeras försäljningsorder och projekt med hjälp av\n"
+"I my-erp-crm implementeras försäljningsorder och projekt med hjälp av\n"
 "                objektkonton. Man kan spåra kostnader och intäkter för att \n"
 "                enkelt analysera sina marginaler."
 

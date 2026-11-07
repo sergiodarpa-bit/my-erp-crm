@@ -5,7 +5,7 @@
 # Rosen Vladimirov <vladimirov.rosen@gmail.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: my-erp-crm Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-03 12:26+0000\n"
@@ -155,10 +155,10 @@ msgstr ""
 #. odoo-python
 #: code:addons/mail_bot/models/res_users.py:0
 msgid ""
-"Odoo's chat helps employees collaborate efficiently. I'm here to help you "
+"my-erp-crm's chat helps employees collaborate efficiently. I'm here to help you "
 "discover its features."
 msgstr ""
-"Чатът на Odoo помага на служителите да си сътрудничат ефективно. Тук съм, за "
+"Чатът на my-erp-crm помага на служителите да си сътрудничат ефективно. Тук съм, за "
 "да ви помогна да откриете неговите функции."
 
 #. module: mail_bot
@@ -244,11 +244,11 @@ msgstr "Това не е любезно! Аз съм бот, но имам чу�
 msgid ""
 "That’s the end of this overview. You can %(bold_start)sclose this "
 "conversation%(bold_end)s or type %(command_start)sstart the tour%"
-"(command_end)s to see it again. Enjoy exploring Odoo!"
+"(command_end)s to see it again. Enjoy exploring my-erp-crm!"
 msgstr ""
 "Това е краят на този преглед. Можете да %(bold_start)sзатворите този "
 "разговор%(bold_end)s или да напишете %(command_start)sстарт на обиколката%"
-"(command_end)s, за да я видите отново. Приятно разглеждане на Odoo!"
+"(command_end)s, за да я видите отново. Приятно разглеждане на my-erp-crm!"
 
 #. module: mail_bot
 #. odoo-python

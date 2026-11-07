@@ -2259,7 +2259,7 @@ class TestMailGatewayLoops(MailGatewayCommon):
 
     @mute_logger('odoo.addons.mail.models.mail_mail', 'odoo.addons.mail.models.mail_thread')
     def test_routing_loop_auto_notif(self):
-        """ Test Odoo servers talking to each other """
+        """ Test my-erp-crm servers talking to each other """
         with self.mock_mail_gateway():
             record = self.format_and_process(
                 MAIL_TEMPLATE,
@@ -2448,7 +2448,7 @@ class TestMailGatewayReplies(MailGatewayCommon):
         gateway_record._message_log(body='Some log')
         with self.mock_mail_gateway():
             gateway_record.with_user(self.user_employee).message_post(
-                body='Odoo Reply',
+                body='my-erp-crm Reply',
                 message_type='comment',
                 partner_ids=self.partner_1.ids,
                 subtype_id=self.env.ref('mail.mt_comment').id,
@@ -2457,7 +2457,7 @@ class TestMailGatewayReplies(MailGatewayCommon):
         self.assertMailNotifications(
             reply,
             [{
-                'content': 'Odoo Reply',
+                'content': 'my-erp-crm Reply',
                 'email_values': {
                     'message_id': reply.message_id,
                     'references': f'{email.message_id} {log.message_id} {reply.message_id}',  # should contain reference to OdooExternal message, logs to fill up history
@@ -2510,7 +2510,7 @@ class TestMailGatewayReplies(MailGatewayCommon):
         # Odoo2 reply
         with self.mock_mail_gateway():
             gateway_record.with_user(self.user_employee).message_post(
-                body='Odoo Reply',
+                body='my-erp-crm Reply',
                 message_type='comment',
                 partner_ids=self.partner_1.ids,
                 subtype_id=self.env.ref('mail.mt_comment').id,
@@ -2520,7 +2520,7 @@ class TestMailGatewayReplies(MailGatewayCommon):
         self.assertMailNotifications(
             reply,
             [{
-                'content': 'Odoo Reply',
+                'content': 'my-erp-crm Reply',
                 'email_values': {
                     'message_id': reply.message_id,
                     'references': f'{log.message_id} {odooext_msg.message_id} {reply.message_id}',  # should contain reference to OdooExternal message
@@ -2580,7 +2580,7 @@ class TestMailGatewayReplies(MailGatewayCommon):
 
         with self.mock_mail_gateway():
             gateway_record.with_user(self.user_employee).message_post(
-                body='Odoo Reply 2',
+                body='my-erp-crm Reply 2',
                 message_type='comment',
                 partner_ids=self.partner_1.ids,
                 subtype_id=self.env.ref('mail.mt_comment').id,
@@ -2590,7 +2590,7 @@ class TestMailGatewayReplies(MailGatewayCommon):
         self.assertMailNotifications(
             reply_3,
             [{
-                'content': 'Odoo Reply 2',
+                'content': 'my-erp-crm Reply 2',
                 'email_values': {
                     'message_id': reply_3.message_id,
                     'references': f'{odooext_msg.message_id} {reply.message_id} {reply_2.message_id} {reply_3.message_id}',  # should contain reference to OdooExternal message

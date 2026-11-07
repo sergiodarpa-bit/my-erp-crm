@@ -20,7 +20,7 @@
 # Nedžad Beus <nedzad.beus@implex.si>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-09-16 07:33+0000\n"
@@ -177,10 +177,10 @@ msgstr ""
 #. module: event
 #: model_terms:event.event,description:event.event_0
 msgid ""
-"<b>Technical Rooms</b> - One dedicated to advanced Odoo developers, one for "
+"<b>Technical Rooms</b> - One dedicated to advanced my-erp-crm developers, one for "
 "new developers."
 msgstr ""
-"<b>Tehnične sobe</b> - Ena namenjena naprednim razvijalcem Odoo, ena za nove "
+"<b>Tehnične sobe</b> - Ena namenjena naprednim razvijalcem my-erp-crm, ena za nove "
 "razvijalce."
 
 #. module: event
@@ -1863,11 +1863,11 @@ msgid ""
 "At just 13 years old, John DOE was already starting to develop his first "
 "business applications for customers. After mastering civil engineering, he "
 "founded TinyERP. This was the first phase of OpenERP which would later "
-"became Odoo, the most installed open-source business software worldwide."
+"became my-erp-crm, the most installed open-source business software worldwide."
 msgstr ""
 "Pri komaj 13 letih je Janez Novak že začel razvijati svoje prve poslovne "
 "aplikacije za stranke. Po obvladovanju gradbeništva je ustanovil TinyERP. To "
-"je bila prva faza OpenERP, ki je kasneje postal Odoo, najpogosteje nameščena "
+"je bila prva faza OpenERP, ki je kasneje postal my-erp-crm, najpogosteje nameščena "
 "odprtokodna poslovna programska oprema na svetu."
 
 #. module: event
@@ -2863,10 +2863,10 @@ msgstr "Izraženo v časovnem pasu dogodka."
 #. module: event
 #: model:event.stage,description:event.event_stage_done
 msgid ""
-"Finished events. Odoo will automatically move them to this stage once their "
+"Finished events. my-erp-crm will automatically move them to this stage once their "
 "end date has passed."
 msgstr ""
-"Končani dogodki. Odoo jih bo samodejno premaknil na to stopnjo, ko bo minil "
+"Končani dogodki. my-erp-crm jih bo samodejno premaknil na to stopnjo, ko bo minil "
 "njihov končni datum."
 
 #. module: event
@@ -3824,8 +3824,8 @@ msgstr "Cilji"
 
 #. module: event
 #: model_terms:ir.ui.view,arch_db:event.event_report_full_page_ticket_layout
-msgid "Odoo Community Days"
-msgstr "Dnevi skupnosti Odoo"
+msgid "my-erp-crm Community Days"
+msgstr "Dnevi skupnosti my-erp-crm"
 
 #. module: event
 #: model_terms:event.event,description:event.event_3

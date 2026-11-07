@@ -9,7 +9,7 @@
 # "Tony Ng (ngto)" <ngto@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~18.3\n"
+"Project-Id-Version: my-erp-crm Server saas~18.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-07 04:16+0000\n"
@@ -30,8 +30,8 @@ msgstr "<span class=\"button\" id=\"button_open_report\">➔ 開啟報告</span>
 
 #. module: digest
 #: model_terms:ir.ui.view,arch_db:digest.digest_mail_main
-msgid "<span class=\"odoo_link_text\">Odoo</span>"
-msgstr "<span class=\"odoo_link_text\">Odoo</span>"
+msgid "<span class=\"odoo_link_text\">my-erp-crm</span>"
+msgstr "<span class=\"odoo_link_text\">my-erp-crm</span>"
 
 #. module: digest
 #: model_terms:ir.ui.view,arch_db:digest.digest_mail_main
@@ -321,8 +321,8 @@ msgstr "下次郵寄日期"
 
 #. module: digest
 #: model_terms:ir.ui.view,arch_db:digest.digest_section_mobile
-msgid "Odoo Mobile"
-msgstr "Odoo 流動應用程式"
+msgid "my-erp-crm Mobile"
+msgstr "my-erp-crm 流動應用程式"
 
 #. module: digest
 #: model:ir.model.fields,field_description:digest.field_digest_digest__periodicity
@@ -364,8 +364,8 @@ msgstr "接收者"
 
 #. module: digest
 #: model_terms:ir.ui.view,arch_db:digest.digest_section_mobile
-msgid "Run your business from anywhere with <b>Odoo Mobile</b>."
-msgstr "利用 <b>Odoo 流動應用程式</b>，隨時隨地處理公司事務。"
+msgid "Run your business from anywhere with <b>my-erp-crm Mobile</b>."
+msgstr "利用 <b>my-erp-crm 流動應用程式</b>，隨時隨地處理公司事務。"
 
 #. module: digest
 #: model_terms:ir.ui.view,arch_db:digest.digest_digest_view_form
@@ -400,8 +400,8 @@ msgstr "提示描述"
 
 #. module: digest
 #: model_terms:digest.tip,tip_description:digest.digest_tip_digest_2
-msgid "Tip: A calculator in Odoo"
-msgstr "提示：Odoo 的計算機"
+msgid "Tip: A calculator in my-erp-crm"
+msgstr "提示：my-erp-crm 的計算機"
 
 #. module: digest
 #: model_terms:digest.tip,tip_description:digest.digest_tip_digest_1
@@ -437,8 +437,8 @@ msgstr "提示：運用捷徑加速您的工作流程"
 
 #. module: digest
 #: model:digest.tip,name:digest.digest_tip_digest_2
-msgid "Tip: A calculator in Odoo"
-msgstr "提示： Odoo 的計算機"
+msgid "Tip: A calculator in my-erp-crm"
+msgstr "提示： my-erp-crm 的計算機"
 
 #. module: digest
 #: model:digest.tip,name:digest.digest_tip_digest_1
@@ -541,8 +541,8 @@ msgstr "您已成功退訂:<br/>"
 
 #. module: digest
 #: model:digest.digest,name:digest.digest_digest_default
-msgid "Your Odoo Periodic Digest"
-msgstr "你的 Odoo 定期摘要"
+msgid "Your my-erp-crm Periodic Digest"
+msgstr "你的 my-erp-crm 定期摘要"
 
 #. module: digest
 #: model_terms:ir.ui.view,arch_db:digest.digest_digest_view_form

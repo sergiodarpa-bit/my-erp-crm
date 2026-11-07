@@ -12,7 +12,7 @@
 # Aliraza Habibitanha <alireza.habibitanha@gmail.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~12.5\n"
+"Project-Id-Version: my-erp-crm Server saas~12.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-09 10:27+0000\n"
@@ -299,9 +299,9 @@ msgstr "وضعیت"
 #. module: base_import_module
 #. odoo-python
 #: code:addons/base_import_module/models/ir_module.py:0
-msgid "Studio customizations require the Odoo Studio app."
+msgid "Studio customizations require the my-erp-crm Studio app."
 msgstr ""
-"<پشتیبانی>سفارشی‌سازی‌های استودیو به برنامه Odoo Studio نیاز دارند.</پشتیبانی>"
+"<پشتیبانی>سفارشی‌سازی‌های استودیو به برنامه my-erp-crm Studio نیاز دارند.</پشتیبانی>"
 
 #. module: base_import_module
 #. odoo-python

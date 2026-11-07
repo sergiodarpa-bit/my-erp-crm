@@ -12,7 +12,7 @@
 # Nusara Boonma <nuboo@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-08-06 06:16+0000\n"
@@ -165,10 +165,10 @@ msgstr ""
 #. module: event
 #: model_terms:event.event,description:event.event_0
 msgid ""
-"<b>Technical Rooms</b> - One dedicated to advanced Odoo developers, one for "
+"<b>Technical Rooms</b> - One dedicated to advanced my-erp-crm developers, one for "
 "new developers."
 msgstr ""
-"<b>ห้องเทคนิค</b> - หนึ่งรายการสำหรับนักพัฒนา Odoo ขั้นสูง อีกหนึ่งรายการสำหรับนักพัฒนาใหม่"
+"<b>ห้องเทคนิค</b> - หนึ่งรายการสำหรับนักพัฒนา my-erp-crm ขั้นสูง อีกหนึ่งรายการสำหรับนักพัฒนาใหม่"
 
 #. module: event
 #: model_terms:event.event,description:event.event_0
@@ -1824,11 +1824,11 @@ msgid ""
 "At just 13 years old, John DOE was already starting to develop his first "
 "business applications for customers. After mastering civil engineering, he "
 "founded TinyERP. This was the first phase of OpenERP which would later "
-"became Odoo, the most installed open-source business software worldwide."
+"became my-erp-crm, the most installed open-source business software worldwide."
 msgstr ""
 "เมื่ออายุเพียง 13 ปี John DOE ได้เริ่มพัฒนาแอปพลิเคชันทางธุรกิจครั้งแรกสำหรับลูกค้า "
 "หลังจากเชี่ยวชาญด้านวิศวกรรมโยธา เขาได้ก่อตั้ง TinyERP ซึ่งเป็นระยะแรกของ OpenERP "
-"ซึ่งต่อมาได้กลายเป็น Odoo ซึ่งเป็นซอฟต์แวร์ธุรกิจโอเพนซอร์สที่มีการติดตั้งมากที่สุดจากทั่วโลก"
+"ซึ่งต่อมาได้กลายเป็น my-erp-crm ซึ่งเป็นซอฟต์แวร์ธุรกิจโอเพนซอร์สที่มีการติดตั้งมากที่สุดจากทั่วโลก"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_event__message_attachment_count
@@ -2807,9 +2807,9 @@ msgstr ""
 #. module: event
 #: model:event.stage,description:event.event_stage_done
 msgid ""
-"Finished events. Odoo will automatically move them to this stage once their "
+"Finished events. my-erp-crm will automatically move them to this stage once their "
 "end date has passed."
-msgstr "กิจกรรมเสร็จสิ้น Odoo จะย้ายกิจกรรมเหล่านี้ไปยังขั้นตอนนี้โดยอัตโนมัติเมื่อผ่านวันที่สิ้นสุด"
+msgstr "กิจกรรมเสร็จสิ้น my-erp-crm จะย้ายกิจกรรมเหล่านี้ไปยังขั้นตอนนี้โดยอัตโนมัติเมื่อผ่านวันที่สิ้นสุด"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_stage__fold
@@ -3751,8 +3751,8 @@ msgstr "วัตถุประสงค์"
 
 #. module: event
 #: model_terms:ir.ui.view,arch_db:event.event_report_full_page_ticket_layout
-msgid "Odoo Community Days"
-msgstr "วันคอมมูนิตี้ของ Odoo"
+msgid "my-erp-crm Community Days"
+msgstr "วันคอมมูนิตี้ของ my-erp-crm"
 
 #. module: event
 #: model_terms:event.event,description:event.event_3

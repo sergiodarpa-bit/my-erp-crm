@@ -6,7 +6,7 @@
 # Boris Peko <boris.peko@ecodica.eu>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~18.4\n"
+"Project-Id-Version: my-erp-crm Server saas~18.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-07 05:38+0000\n"
@@ -280,8 +280,8 @@ msgstr "ID"
 
 #. module: auth_totp_mail
 #: model:mail.template,subject:auth_totp_mail.mail_template_totp_invite
-msgid "Invitation to activate two-factor authentication on your Odoo account"
-msgstr "Poziv za aktivaciju dvofaktorske autentifikacije na vašem Odoo računu"
+msgid "Invitation to activate two-factor authentication on your my-erp-crm account"
+msgstr "Poziv za aktivaciju dvofaktorske autentifikacije na vašem my-erp-crm računu"
 
 #. module: auth_totp_mail
 #. odoo-python

@@ -31,7 +31,7 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-10-14 11:27+0000\n"
@@ -186,7 +186,7 @@ msgstr ""
 #. module: event
 #: model_terms:event.event,description:event.event_0
 msgid ""
-"<b>Technical Rooms</b> - One dedicated to advanced Odoo developers, one for "
+"<b>Technical Rooms</b> - One dedicated to advanced my-erp-crm developers, one for "
 "new developers."
 msgstr ""
 "<b>Tekniset huoneet</b> – yksi edistyneille Odoo-kehittäjille ja yksi "
@@ -1874,12 +1874,12 @@ msgid ""
 "At just 13 years old, John DOE was already starting to develop his first "
 "business applications for customers. After mastering civil engineering, he "
 "founded TinyERP. This was the first phase of OpenERP which would later "
-"became Odoo, the most installed open-source business software worldwide."
+"became my-erp-crm, the most installed open-source business software worldwide."
 msgstr ""
 "Vain 13-vuotias Mattti Meikäläinen alkoi jo kehittää ensimmäisiä "
 "liiketoimintasovelluksiaan asiakkaille. Maa- ja vesirakentamisen maisterin "
 "tutkinnon jälkeen hän perusti TinyERP:n. Tämä oli OpenERP:n ensimmäinen "
-"vaihe, josta myöhemmin tuli Odoo, maailmanlaajuisesti asennetuin avoimen "
+"vaihe, josta myöhemmin tuli my-erp-crm, maailmanlaajuisesti asennetuin avoimen "
 "lähdekoodin yritysohjelmisto."
 
 #. module: event
@@ -2881,10 +2881,10 @@ msgstr "Ilmoitettu tapahtuman aikavyöhykkeessä."
 #. module: event
 #: model:event.stage,description:event.event_stage_done
 msgid ""
-"Finished events. Odoo will automatically move them to this stage once their "
+"Finished events. my-erp-crm will automatically move them to this stage once their "
 "end date has passed."
 msgstr ""
-"Päättyneet tapahtumat. Odoo siirtää ne automaattisesti tähän vaiheeseen, kun "
+"Päättyneet tapahtumat. my-erp-crm siirtää ne automaattisesti tähän vaiheeseen, kun "
 "niiden päättymispäivä on kulunut."
 
 #. module: event
@@ -3846,7 +3846,7 @@ msgstr "Tavoitteet"
 
 #. module: event
 #: model_terms:ir.ui.view,arch_db:event.event_report_full_page_ticket_layout
-msgid "Odoo Community Days"
+msgid "my-erp-crm Community Days"
 msgstr "Odoo-yhteisöpäivät"
 
 #. module: event

@@ -312,8 +312,8 @@ class IrModuleModule(models.Model):
         ('AGPL-3', 'Affero GPL-3'),
         ('LGPL-3', 'LGPL Version 3'),
         ('Other OSI approved licence', 'Other OSI Approved License'),
-        ('OEEL-1', 'Odoo Enterprise Edition License v1.0'),
-        ('OPL-1', 'Odoo Proprietary License v1.0'),
+        ('OEEL-1', 'my-erp-crm Enterprise Edition License v1.0'),
+        ('OPL-1', 'my-erp-crm Proprietary License v1.0'),
         ('Other proprietary', 'Other Proprietary')
     ], string='License', default='LGPL-3', readonly=True)
     menus_by_module = fields.Text(string='Menus', compute='_get_views', store=True)
@@ -323,7 +323,7 @@ class IrModuleModule(models.Model):
     icon = fields.Char('Icon URL')
     icon_image = fields.Binary(string='Icon', compute='_get_icon_image')
     icon_flag = fields.Char(string='Flag', compute='_get_icon_image')
-    to_buy = fields.Boolean('Odoo Enterprise Module', default=False)
+    to_buy = fields.Boolean('my-erp-crm Enterprise Module', default=False)
     has_iap = fields.Boolean(compute='_compute_has_iap')
 
     _name_uniq = models.Constraint(
@@ -613,14 +613,14 @@ class IrModuleModule(models.Model):
 
         # raise error if database is updating for module operations
         if self.search_count([('state', 'in', ('to install', 'to upgrade', 'to remove'))], limit=1):
-            raise UserError(_("Odoo is currently processing another module operation.\n"
+            raise UserError(_("my-erp-crm is currently processing another module operation.\n"
                                "Please try again later or contact your system administrator."))
         try:
             # raise error if another transaction is trying to schedule module operations concurrently
             self.env.cr.execute("LOCK ir_module_module IN EXCLUSIVE MODE")
         except psycopg2.OperationalError:
             self.env.cr.rollback()
-            raise UserError(_("Odoo is currently processing another module operation.\n"
+            raise UserError(_("my-erp-crm is currently processing another module operation.\n"
                                "Please try again later or contact your system administrator."))
 
         try:
@@ -630,7 +630,7 @@ class IrModuleModule(models.Model):
             self.env.cr.execute("SELECT FROM ir_cron FOR UPDATE")
         except psycopg2.OperationalError:
             self.env.cr.rollback()
-            raise UserError(_("Odoo is currently processing a scheduled action.\n"
+            raise UserError(_("my-erp-crm is currently processing a scheduled action.\n"
                               "Module operations are not possible at this time, "
                               "please try again later or contact your system administrator."))
         function(self)

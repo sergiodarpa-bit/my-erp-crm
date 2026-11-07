@@ -112,7 +112,7 @@ class MailBot(models.AbstractModel):
                     ),
                     self.env._(
                         "That’s the end of this overview. You can %(bold_start)sclose this conversation%(bold_end)s or type "
-                        "%(command_start)sstart the tour%(command_end)s to see it again. Enjoy exploring Odoo!",
+                        "%(command_start)sstart the tour%(command_end)s to see it again. Enjoy exploring my-erp-crm!",
                         **self._get_style_dict(),
                     ),
                 ]

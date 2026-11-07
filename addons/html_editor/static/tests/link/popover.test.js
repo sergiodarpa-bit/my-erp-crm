@@ -1231,11 +1231,11 @@ describe("link preview", () => {
     test("test external link preview", async () => {
         onRpc("/html_editor/link_preview_external", () => ({
             og_description:
-                "From ERP to CRM, eCommerce and CMS. Download Odoo or use it in the cloud. Grow Your Business.",
+                "From ERP to CRM, eCommerce and CMS. Download my-erp-crm or use it in the cloud. Grow Your Business.",
             og_image: "https://www.odoo.com/web/image/41207129-1abe7a15/homepage-seo.png",
-            og_title: "Open Source ERP and CRM | Odoo",
+            og_title: "Open Source ERP and CRM | my-erp-crm",
             og_type: "website",
-            og_site_name: "Odoo",
+            og_site_name: "my-erp-crm",
             source_url: "http://odoo.com/",
         }));
         const { editor } = await setupEditor(`<p>[]<br></p>`);
@@ -1246,9 +1246,9 @@ describe("link preview", () => {
         await animationFrame();
         expect(".o_we_replace_title_btn").toHaveCount(1);
         expect(".o_extra_info_card").toHaveCount(1);
-        expect(".o_we_url_link").toHaveText("Open Source ERP and CRM | Odoo");
+        expect(".o_we_url_link").toHaveText("Open Source ERP and CRM | my-erp-crm");
         expect(".o_we_description_link_preview").toHaveText(
-            "From ERP to CRM, eCommerce and CMS. Download Odoo or use it in the cloud. Grow Your Business."
+            "From ERP to CRM, eCommerce and CMS. Download my-erp-crm or use it in the cloud. Grow Your Business."
         );
     });
     test("test internal metadata cached correctly", async () => {
@@ -1343,9 +1343,9 @@ describe("link preview", () => {
         expect.verifySteps([]);
     });
     test("test external metadata cached correctly", async () => {
-        const title = "Open Source ERP and CRM | Odoo";
+        const title = "Open Source ERP and CRM | my-erp-crm";
         const description =
-            "From ERP to CRM, eCommerce and CMS. Download Odoo or use it in the cloud. Grow Your Business.";
+            "From ERP to CRM, eCommerce and CMS. Download my-erp-crm or use it in the cloud. Grow Your Business.";
         onRpc("/html_editor/link_preview_external", () => {
             expect.step("/html_editor/link_preview_external");
             return {
@@ -1353,7 +1353,7 @@ describe("link preview", () => {
                 og_image: "https://www.odoo.com/web/image/41207129-1abe7a15/homepage-seo.png",
                 og_title: title,
                 og_type: "website",
-                og_site_name: "Odoo",
+                og_site_name: "my-erp-crm",
                 source_url: "http://odoo.com/",
             };
         });
@@ -1386,11 +1386,11 @@ describe("link preview", () => {
     test("should change replace URL button to magic wand icon after selection change", async () => {
         onRpc("/html_editor/link_preview_external", () => ({
             og_description:
-                "From ERP to CRM, eCommerce and CMS. Download Odoo or use it in the cloud. Grow Your Business.",
+                "From ERP to CRM, eCommerce and CMS. Download my-erp-crm or use it in the cloud. Grow Your Business.",
             og_image: "https://www.odoo.com/web/image/41207129-1abe7a15/homepage-seo.png",
-            og_title: "Open Source ERP and CRM | Odoo",
+            og_title: "Open Source ERP and CRM | my-erp-crm",
             og_type: "website",
-            og_site_name: "Odoo",
+            og_site_name: "my-erp-crm",
             source_url: "http://odoo.com/",
         }));
         const { editor } = await setupEditor(`<p>abc</p><p>[]<br></p>`);

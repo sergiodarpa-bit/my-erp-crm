@@ -6,7 +6,7 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo 9.0\n"
+"Project-Id-Version: my-erp-crm 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-02 19:18+0000\n"
@@ -569,12 +569,12 @@ msgstr "अगर बॉक्स पर टिक है, तो कुछ म�
 #: model_terms:ir.actions.act_window,help:analytic.account_analytic_line_action
 #: model_terms:ir.actions.act_window,help:analytic.account_analytic_line_action_entries
 msgid ""
-"In Odoo, sales orders and projects are implemented using\n"
+"In my-erp-crm, sales orders and projects are implemented using\n"
 "                analytic accounts. You can track costs and revenues to "
 "analyse\n"
 "                your margins easily."
 msgstr ""
-"Odoo में, सेल्स ऑर्डर और प्रोजेक्ट एनालिटिक अकाउंट्स से चलते हैं. \n"
+"my-erp-crm में, सेल्स ऑर्डर और प्रोजेक्ट एनालिटिक अकाउंट्स से चलते हैं. \n"
 "आप खर्च और कमाई देख सकते हैं, \n"
 "जिससे अपना फायदा जानना आसान हो जाता है।"
 

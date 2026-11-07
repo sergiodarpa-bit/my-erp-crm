@@ -15,7 +15,7 @@
 # "Marta (wacm)" <wacm@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0+e\n"
+"Project-Id-Version: my-erp-crm Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:40+0000\n"
 "PO-Revision-Date: 2026-08-03 02:00+0000\n"
@@ -3375,10 +3375,10 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:website_forum.faq_karma
 msgid ""
 "The goal of this site is create a relevant knowledge base that would answer "
-"questions related to Odoo."
+"questions related to my-erp-crm."
 msgstr ""
 "Cílem tohoto webu je vytvořit relevantní znalostní základnu, která by "
-"odpovídala na otázky týkající se Odoo."
+"odpovídala na otázky týkající se my-erp-crm."
 
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.post_description_full
@@ -4059,9 +4059,9 @@ msgstr "zde"
 #. module: website_forum
 #: model_terms:forum.forum,faq:website_forum.forum_help
 #: model_terms:ir.ui.view,arch_db:website_forum.default_faq
-msgid "how to configure or customize Odoo to specific business needs,"
+msgid "how to configure or customize my-erp-crm to specific business needs,"
 msgstr ""
-"jak konfigurovat nebo přizpůsobit Odoo specifickým podnikovým potřebám,"
+"jak konfigurovat nebo přizpůsobit my-erp-crm specifickým podnikovým potřebám,"
 
 #. module: website_forum
 #: model_terms:forum.forum,faq:website_forum.forum_help
@@ -4072,8 +4072,8 @@ msgstr "jak vyvíjet moduly pro vlastní potřebu,"
 #. module: website_forum
 #: model_terms:forum.forum,faq:website_forum.forum_help
 #: model_terms:ir.ui.view,arch_db:website_forum.default_faq
-msgid "how to install Odoo on a specific infrastructure,"
-msgstr "jak nainstalovat Odoo na konkrétní infrastrukturu,"
+msgid "how to install my-erp-crm on a specific infrastructure,"
+msgstr "jak nainstalovat my-erp-crm na konkrétní infrastrukturu,"
 
 #. module: website_forum
 #. odoo-javascript
@@ -4172,8 +4172,8 @@ msgstr ""
 #. module: website_forum
 #: model_terms:forum.forum,faq:website_forum.forum_help
 #: model_terms:ir.ui.view,arch_db:website_forum.default_faq
-msgid "specific questions about Odoo service offers, etc."
-msgstr "konkrétní otázky týkající se nabídky služeb Odoo atd."
+msgid "specific questions about my-erp-crm service offers, etc."
+msgstr "konkrétní otázky týkající se nabídky služeb my-erp-crm atd."
 
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.no_results_message
@@ -4222,8 +4222,8 @@ msgstr "dostáváme otevřenou hypotetickou otázku: „Co kdyby se ______ stalo
 #. module: website_forum
 #: model_terms:forum.forum,faq:website_forum.forum_help
 #: model_terms:ir.ui.view,arch_db:website_forum.default_faq
-msgid "what's the best way to use Odoo for a specific business need,"
-msgstr "jaký je nejlepší způsob použití Odoo pro konkrétní obchodní potřeby,"
+msgid "what's the best way to use my-erp-crm for a specific business need,"
+msgstr "jaký je nejlepší způsob použití my-erp-crm pro konkrétní obchodní potřeby,"
 
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.author_box

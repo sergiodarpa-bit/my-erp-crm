@@ -16,7 +16,7 @@
 # Comaniciu Ioana <ioana@dakai.ro>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-08-06 21:50+0000\n"
@@ -1419,10 +1419,10 @@ msgstr "Ciornă CdO"
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
 msgid ""
 "Drag and drop the request for quotation PDF file into your list of "
-"quotations in Odoo. Enjoy the automation!"
+"quotations in my-erp-crm. Enjoy the automation!"
 msgstr ""
 "Trageți și plasați fișierul PDF al cererii de ofertă în lista dvs. de oferte "
-"din Odoo. Bucurați-vă de automatizare!"
+"din my-erp-crm. Bucurați-vă de automatizare!"
 
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_order__dest_address_id
@@ -2081,8 +2081,8 @@ msgstr "Necunoscut"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
-msgid "Not using Odoo?"
-msgstr "Nu folosiți Odoo?"
+msgid "Not using my-erp-crm?"
+msgstr "Nu folosiți my-erp-crm?"
 
 #. module: purchase
 #: model:ir.model.fields.selection,name:purchase.selection__purchase_order_line__display_type__line_note
@@ -2130,8 +2130,8 @@ msgstr "Numărul de mesaje cu eroare de livrare"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: purchase
 #: model:ir.model.fields.selection,name:purchase.selection__product_template__purchase_method__purchase
@@ -3077,8 +3077,8 @@ msgstr "Cu steluță"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
-msgid "Start on Odoo"
-msgstr "Începeți pe Odoo"
+msgid "Start on my-erp-crm"
+msgstr "Începeți pe my-erp-crm"
 
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_bill_line_match__state
@@ -3612,12 +3612,12 @@ msgid ""
 "Vendors bills can be pre-generated based on purchase\n"
 "                    orders or receipts. This allows you to control bills\n"
 "                    you receive from your vendor according to the draft\n"
-"                    document in Odoo."
+"                    document in my-erp-crm."
 msgstr ""
 "Facturile furnizorilor pot fi generate în prealabil pe baza comenzilor de "
 "achiziție sau a chitanțelor. Acest lucru vă permite să controlați facturile "
 "pe care le primiți de la furnizor în conformitate cu documentul ciornă în "
-"Odoo."
+"my-erp-crm."
 
 #. module: purchase
 #. odoo-python
@@ -3655,8 +3655,8 @@ msgstr "Așteaptă facturi"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
-msgid "Want to import this document in Odoo?"
-msgstr "Doriți să importați acest document în Odoo?"
+msgid "Want to import this document in my-erp-crm?"
+msgstr "Doriți să importați acest document în my-erp-crm?"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.view_product_supplier_inherit
@@ -3691,14 +3691,14 @@ msgid ""
 "When creating a purchase order, have a look at the vendor's <i>On Time "
 "Delivery</i> rate: the percentage of products shipped on time. If it is too "
 "low, activate the <i>automated reminders</i>. A few days before the due "
-"shipment, Odoo will send the vendor an email to ask confirmation of shipment "
+"shipment, my-erp-crm will send the vendor an email to ask confirmation of shipment "
 "dates and keep you informed in case of any delays. To get the vendor's "
 "performance statistics, click on the OTD rate."
 msgstr ""
 "Când creați o comandă de achiziție, aruncați o privire asupra ratei de "
 "<i>livrare la timp</i> a furnizorului: procentul de produse livrate la timp. "
 "Dacă este prea scăzut, activați <i>mementourile automate</i>. Cu câteva zile "
-"înainte de expediere, Odoo va trimite vânzătorului un e-mail pentru a cere "
+"înainte de expediere, my-erp-crm va trimite vânzătorului un e-mail pentru a cere "
 "confirmarea datelor de expediere și pentru a vă informa în caz de "
 "întârziere. Pentru a obține statistici de performanță ale vânzătorului, "
 "faceți clic pe rata de livrare la timp."
@@ -3706,12 +3706,12 @@ msgstr ""
 #. module: purchase
 #: model_terms:digest.tip,tip_description:purchase.digest_tip_purchase_1
 msgid ""
-"When sending a purchase order by email, Odoo asks the vendor to acknowledge "
+"When sending a purchase order by email, my-erp-crm asks the vendor to acknowledge "
 "the reception of the order. When the vendor acknowledges the order by "
 "clicking on a button in the email, the information is added on the purchase "
 "order. Use filters to track orders that have not been acknowledged."
 msgstr ""
-"Când trimiteți o comandă de achiziție prin e-mail, Odoo solicită "
+"Când trimiteți o comandă de achiziție prin e-mail, my-erp-crm solicită "
 "furnizorului să confirme primirea comenzii. Când furnizorul confirmă comanda "
 "făcând clic pe un buton din e-mail, informațiile sunt adăugate pe comanda de "
 "cumpărare. Utilizați filtre pentru a urmări comenzile care nu au fost "

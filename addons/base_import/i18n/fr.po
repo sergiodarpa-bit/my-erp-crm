@@ -10,7 +10,7 @@
 # "Manon Rondou (ronm)" <ronm@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.5alpha1\n"
+"Project-Id-Version: my-erp-crm Server 15.5alpha1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-08-02 11:25+0000\n"
@@ -456,12 +456,12 @@ msgstr "ID"
 #: code:addons/base_import/static/src/import_data_content/import_data_content.xml:0
 msgid ""
 "If the file contains\n"
-"                    the column names, Odoo can try auto-detecting the\n"
+"                    the column names, my-erp-crm can try auto-detecting the\n"
 "                    field corresponding to the column. This makes imports\n"
 "                    simpler especially when the file has many columns."
 msgstr ""
 "Si le fichier contient\n"
-"                    les noms des colonnes, Odoo peut tenter de détecter "
+"                    les noms des colonnes, my-erp-crm peut tenter de détecter "
 "automatiquement le\n"
 "                    champ correspondant à la colonne. Ceci rend "
 "l'importation\n"
@@ -625,8 +625,8 @@ msgstr "Aucun enregistrement correspondant trouvé pour le nom suivant"
 #. module: base_import
 #. odoo-javascript
 #: code:addons/base_import/static/src/import_data_content/import_data_content.xml:0
-msgid "Odoo Field"
-msgstr "Champ Odoo"
+msgid "my-erp-crm Field"
+msgstr "Champ my-erp-crm"
 
 #. module: base_import
 #. odoo-javascript
@@ -906,12 +906,12 @@ msgstr "Télécharger vos fichiers"
 msgid ""
 "Use HH for hours in a 24h system, use II in conjonction with 'p' for a 12h "
 "system. You can use a custom format in addition to the suggestions provided. "
-"Leave empty to let Odoo guess the format (recommended)"
+"Leave empty to let my-erp-crm guess the format (recommended)"
 msgstr ""
 "Utilisez HH pour les heures dans un système de 24 heures, utilisez II dans "
 "un conjonction avec 'p' pour un système de 12 heures. Vous pouvez utiliser "
 "un format personnalisé en plus des suggestions fournies. Laissez vide pour "
-"laisser Odoo deviner le format (recommandé)"
+"laisser my-erp-crm deviner le format (recommandé)"
 
 #. module: base_import
 #. odoo-javascript
@@ -919,13 +919,13 @@ msgstr ""
 msgid ""
 "Use YYYY to represent the year, MM for the month and DD for the day. Include "
 "separators such as a dot, forward slash or dash. You can use a custom format "
-"in addition to the suggestions provided. Leave empty to let Odoo guess the "
+"in addition to the suggestions provided. Leave empty to let my-erp-crm guess the "
 "format (recommended)"
 msgstr ""
 "Utilisez AAAA pour représenter l'année, MM pour le mois et JJ pour le jour. "
 "Incluez des séparateurs tels qu'un point, une barre oblique ou un tiret. "
 "Vous pouvez utiliser un format personnalisé en plus des suggestions "
-"fournies. Laissez vide pour laisser Odoo deviner le format (recommandé)."
+"fournies. Laissez vide pour laisser my-erp-crm deviner le format (recommandé)."
 
 #. module: base_import
 #. odoo-javascript

@@ -19,7 +19,7 @@
 # Nusara Boonma <nuboo@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:37+0000\n"
 "PO-Revision-Date: 2026-08-31 04:08+0000\n"
@@ -398,10 +398,10 @@ msgstr ""
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_move_form
 msgid ""
-". The journal entries need to be computed by Odoo before being posted in "
+". The journal entries need to be computed by my-erp-crm before being posted in "
 "your company's currency."
 msgstr ""
-"รายการสมุดรายวันจะต้องได้รับการคำนวณโดย Odoo ก่อนที่จะถูกลงรายการในสกุลเงินของบริษัทของคุณ"
+"รายการสมุดรายวันจะต้องได้รับการคำนวณโดย my-erp-crm ก่อนที่จะถูกลงรายการในสกุลเงินของบริษัทของคุณ"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_move_form
@@ -1571,7 +1571,7 @@ msgid ""
 "                                    </td>\n"
 "                                    <td align=\"right\" style=\"padding-"
 "right: 16px;\">\n"
-"                                        <img alt=\"Odoo\" src=\"/web/static/"
+"                                        <img alt=\"my-erp-crm\" src=\"/web/static/"
 "img/logo_inverse_white_206px.png\" style=\"height: 2em; object-fit: contain;"
 "\" class=\"align-baseline w-auto\"/>\n"
 "                                    </td>\n"
@@ -1708,7 +1708,7 @@ msgstr ""
 "                                    </td>\n"
 "                                    <td align=\"right\" style=\"padding-"
 "right: 16px;\">\n"
-"                                        <img alt=\"Odoo\" src=\"/web/static/"
+"                                        <img alt=\"my-erp-crm\" src=\"/web/static/"
 "img/logo_inverse_white_206px.png\" style=\"height: 2em; object-fit: contain;"
 "\" class=\"align-baseline w-auto\"/>\n"
 "                                    </td>\n"
@@ -1846,7 +1846,7 @@ msgid ""
 "                                        <t t-else=\"\">Incoming Bill</t>\n"
 "                                    </td>\n"
 "                                    <td align=\"right\">\n"
-"                                        <img alt=\"Odoo\" src=\"/web/static/"
+"                                        <img alt=\"my-erp-crm\" src=\"/web/static/"
 "img/logo_inverse_white_206px.png\" style=\"height:30px; width:92px; object-"
 "fit:contain;\"/>\n"
 "                                    </td>\n"
@@ -2079,7 +2079,7 @@ msgstr ""
 "t>\n"
 "                                    </td>\n"
 "                                    <td align=\"right\">\n"
-"                                        <img alt=\"Odoo\" src=\"/web/static/"
+"                                        <img alt=\"my-erp-crm\" src=\"/web/static/"
 "img/logo_inverse_white_206px.png\" style=\"height:30px; width:92px; object-"
 "fit:contain;\"/>\n"
 "                                    </td>\n"
@@ -4578,7 +4578,7 @@ msgstr "ธนาคารและเงินสด"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.report_statement
 msgid "Bank of odoo"
-msgstr "ธนาคารของ Odoo"
+msgstr "ธนาคารของ my-erp-crm"
 
 #. module: account
 #. odoo-python
@@ -6841,9 +6841,9 @@ msgstr "ตัวอย่างวันที่"
 #. module: account
 #: model:ir.model.fields,help:account.field_account_financial_year_op__opening_date
 msgid ""
-"Date from which the accounting is managed in Odoo. It is the date of the "
+"Date from which the accounting is managed in my-erp-crm. It is the date of the "
 "opening entry."
-msgstr "วันที่จัดการบัญชีใน Odoo เป็นวันเปิดรายการ"
+msgstr "วันที่จัดการบัญชีใน my-erp-crm เป็นวันเปิดรายการ"
 
 #. module: account
 #. odoo-javascript
@@ -11807,7 +11807,7 @@ msgstr "ป้อนข้อมูลด้วยตนเอง"
 #. module: account
 #: model:ir.model.fields,help:account.field_account_journal__inbound_payment_method_line_ids
 msgid ""
-"Manual: Get paid by any method outside of Odoo.\n"
+"Manual: Get paid by any method outside of my-erp-crm.\n"
 "Payment Providers: Each payment provider has its own Payment Method. Request "
 "a transaction on/to a card thanks to a payment token saved by the partner "
 "when buying or subscribing online.\n"
@@ -11817,10 +11817,10 @@ msgid ""
 "SEPA Direct Debit: Get paid in the SEPA zone thanks to a mandate your "
 "partner will have granted to you. Module account_sepa is necessary.\n"
 msgstr ""
-"จ่ายด้วยตนเอง: ชำระเงินหรือรับเงินด้วยวิธีการนอก Odoo\n"
+"จ่ายด้วยตนเอง: ชำระเงินหรือรับเงินด้วยวิธีการนอก my-erp-crm\n"
 "ผู้รับการชำระเงิน: ผู้รับการชำระเงินแต่ละรายมีวิธีการชำระเงินของตนเอง ร้องขอการทำธุรกรรมบน/"
 "ไปยังบัตรด้วยโทเคนการชำระเงินที่บันทึกโดยพาร์ทเนอร์เมื่อซื้อหรือสมัครสมาชิกออนไลน์\n"
-"เช็ค: ชำระค่าใช้จ่ายด้วยเช็คและพิมพ์จาก Odoo\n"
+"เช็ค: ชำระค่าใช้จ่ายด้วยเช็คและพิมพ์จาก my-erp-crm\n"
 "การฝากแบบกลุ่ม: "
 "รวบรวมเช็คของลูกค้าหลายรายการพร้อมกันเพื่อสร้างและส่งการฝากแบบกลุ่มไปยังธนาคารของคุณ "
 "จำเป็นต้องมีโมดูล account_batch_payment\n"
@@ -11832,24 +11832,24 @@ msgstr ""
 #. module: account
 #: model:ir.model.fields,help:account.field_account_journal__outbound_payment_method_line_ids
 msgid ""
-"Manual: Pay by any method outside of Odoo.\n"
-"Check: Pay bills by check and print it from Odoo.\n"
+"Manual: Pay by any method outside of my-erp-crm.\n"
+"Check: Pay bills by check and print it from my-erp-crm.\n"
 "SEPA Credit Transfer: Pay in the SEPA zone by submitting a SEPA Credit "
 "Transfer file to your bank. Module account_sepa is necessary.\n"
 msgstr ""
-"จ่ายด้วยตนเอง: ชำระเงินด้วยวิธีใดก็ได้ที่นอกเหนือจาก Odoo\n"
-"เช็ค: ชำระใบเรียกเก็บเงินด้วยเช็คและพิมพ์จาก Odoo\n"
+"จ่ายด้วยตนเอง: ชำระเงินด้วยวิธีใดก็ได้ที่นอกเหนือจาก my-erp-crm\n"
+"เช็ค: ชำระใบเรียกเก็บเงินด้วยเช็คและพิมพ์จาก my-erp-crm\n"
 "การโอนเครดิต SEPA: ชำระเงินในโซน SEPA โดยส่งไฟล์การโอนเครดิต SEPA ไปยังธนาคารของคุณ "
 "จำเป็นต้องมีโมดูล account_sepa\n"
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_payment__payment_method_line_id
 msgid ""
-"Manual: Pay or Get paid by any method outside of Odoo.\n"
+"Manual: Pay or Get paid by any method outside of my-erp-crm.\n"
 "Payment Providers: Each payment provider has its own Payment Method. Request "
 "a transaction on/to a card thanks to a payment token saved by the partner "
 "when buying or subscribing online.\n"
-"Check: Pay bills by check and print it from Odoo.\n"
+"Check: Pay bills by check and print it from my-erp-crm.\n"
 "Batch Deposit: Collect several customer checks at once generating and "
 "submitting a batch deposit to your bank. Module account_batch_payment is "
 "necessary.\n"
@@ -11864,11 +11864,11 @@ msgstr ""
 #. module: account
 #: model:ir.model.fields,help:account.field_account_payment_register__payment_method_line_id
 msgid ""
-"Manual: Pay or Get paid by any method outside of Odoo.\n"
+"Manual: Pay or Get paid by any method outside of my-erp-crm.\n"
 "Payment Providers: Each payment provider has its own Payment Method. Request "
 "a transaction on/to a card thanks to a payment token saved by the partner "
 "when buying or subscribing online.\n"
-"Check: Pay bills by check and print it from Odoo.\n"
+"Check: Pay bills by check and print it from my-erp-crm.\n"
 "Batch Deposit: Collect several customer checks at once generating and "
 "submitting a batch deposit to your bank. Module account_batch_payment is "
 "necessary.\n"
@@ -11877,10 +11877,10 @@ msgid ""
 "SEPA Direct Debit: Get paid in the SEPA zone thanks to a mandate your "
 "partner will have granted to you. Module account_sepa is necessary.\n"
 msgstr ""
-"จ่ายด้วยตนเอง: ชำระเงินหรือรับเงินด้วยวิธีใดก็ได้ที่นอกเหนือจาก Odoo\n"
+"จ่ายด้วยตนเอง: ชำระเงินหรือรับเงินด้วยวิธีใดก็ได้ที่นอกเหนือจาก my-erp-crm\n"
 "ผู้รับการชำระเงิน: ผู้รับการชำระเงินแต่ละรายมีวิธีการชำระเงินของตนเอง ร้องขอการทำธุรกรรมบน/"
 "ไปยังบัตรด้วยโทเค็นการชำระเงินที่บันทึกโดยพาร์ทเนอร์เมื่อซื้อหรือสมัครสมาชิกออนไลน์\n"
-"เช็ค: ชำระค่าใช้จ่ายด้วยเช็คและพิมพ์จาก Odoo\n"
+"เช็ค: ชำระค่าใช้จ่ายด้วยเช็คและพิมพ์จาก my-erp-crm\n"
 "การฝากแบบกลุ่ม: "
 "รวบรวมเช็คของลูกค้าหลายรายการพร้อมกันเพื่อสร้างและส่งการฝากแบบกลุ่มไปยังธนาคารของคุณ "
 "จำเป็นต้องมีโมดูล account_batch_payment\n"
@@ -12876,28 +12876,28 @@ msgstr "ตุลาคม"
 
 #. module: account
 #: model:ir.model.fields.selection,name:account.selection__account_report_expression__engine__domain
-msgid "Odoo Domain"
-msgstr "โดเมน Odoo"
+msgid "my-erp-crm Domain"
+msgstr "โดเมน my-erp-crm"
 
 #. module: account
 #: model_terms:ir.actions.act_window,help:account.action_bank_statement_tree
 #: model_terms:ir.actions.act_window,help:account.action_credit_statement_tree
 msgid ""
-"Odoo allows you to reconcile a statement line directly with\n"
+"my-erp-crm allows you to reconcile a statement line directly with\n"
 "                the related sale or purchase invoices."
 msgstr ""
-"Odoo ช่วยให้คุณสามารถกระทบยอดบรรทัดรายการเดินบัญชีได้โดยตรง\n"
+"my-erp-crm ช่วยให้คุณสามารถกระทบยอดบรรทัดรายการเดินบัญชีได้โดยตรง\n"
 "                พร้อมกับใบแจ้งหนี้การขายหรือการซื้อที่เกี่ยวข้อง"
 
 #. module: account
 #: model_terms:ir.actions.act_window,help:account.res_partner_action_customer
-msgid "Odoo helps you easily track all activities related to a customer."
+msgid "my-erp-crm helps you easily track all activities related to a customer."
 msgstr "Smart DMS ช่วยให้คุณติดตามกิจกรรมทั้งหมดที่เกี่ยวข้องกับลูกค้าได้อย่างง่ายดาย"
 
 #. module: account
 #: model_terms:ir.actions.act_window,help:account.res_partner_action_supplier
-msgid "Odoo helps you easily track all activities related to a supplier."
-msgstr "Odoo ช่วยให้คุณติดตามกิจกรรมทั้งหมดที่เกี่ยวข้องกับซัพพลายเออร์ได้อย่างง่ายดาย"
+msgid "my-erp-crm helps you easily track all activities related to a supplier."
+msgstr "my-erp-crm ช่วยให้คุณติดตามกิจกรรมทั้งหมดที่เกี่ยวข้องกับซัพพลายเออร์ได้อย่างง่ายดาย"
 
 #. module: account
 #: model:ir.model.fields.selection,name:account.selection__account_account__internal_group__off
@@ -15817,11 +15817,11 @@ msgstr "ส่งใบแจ้งหนี้ให้กับลูกค้
 msgid ""
 "Send one separate email for each invoice.\n"
 "Any file extension will be accepted.\n"
-"Only PDF and XML files will be interpreted by Odoo"
+"Only PDF and XML files will be interpreted by my-erp-crm"
 msgstr ""
 "ส่งอีเมลแยกต่างหากสำหรับใบแจ้งหนี้แต่ละฉบับ\n"
 "รับไฟล์นามสกุลใดก็ได้\n"
-"Odoo จะแปลเฉพาะไฟล์ PDF และ XML เท่านั้น"
+"my-erp-crm จะแปลเฉพาะไฟล์ PDF และ XML เท่านั้น"
 
 #. module: account
 #: model:ir.actions.act_window,name:account.account_send_payment_receipt_by_email_action
@@ -19562,11 +19562,11 @@ msgstr ""
 #: model:ir.model.fields,help:account.field_account_move__quick_edit_total_amount
 msgid ""
 "Use this field to encode the total amount of the invoice.\n"
-"Odoo will automatically create one invoice line with default values to match "
+"my-erp-crm will automatically create one invoice line with default values to match "
 "it."
 msgstr ""
 "ใช้ช่องนี้เพื่อเข้ารหัสยอดรวมของใบแจ้งหนี้\n"
-"Odoo จะสร้างบรรทัดใบแจ้งหนี้หนึ่งรายการโดยอัตโนมัติพร้อมค่าเริ่มต้นเพื่อให้ตรงกัน"
+"my-erp-crm จะสร้างบรรทัดใบแจ้งหนี้หนึ่งรายการโดยอัตโนมัติพร้อมค่าเริ่มต้นเพื่อให้ตรงกัน"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_account__used
@@ -19878,12 +19878,12 @@ msgid ""
 "Vendors bills can be pre-generated based on purchase\n"
 "                orders or receipts. This allows you to control bills\n"
 "                you receive from your vendor according to the draft\n"
-"                document in Odoo."
+"                document in my-erp-crm."
 msgstr ""
 "สามารถสร้างใบเรียกเก็บเงินของผู้ขายล่วงหน้าตามใบสั่งซื้อหรือ\n"
 "                    ใบเสร็จรับเงินได้ สิ่งนี้ช่วยให้คุณควบคุมใบเรียกเก็บเงิน\n"
 "                    ที่คุณได้รับจากผู้ขายของคุณตามเอกสารร่าง\n"
-"                    ใน Odoo ได้"
+"                    ใน my-erp-crm ได้"
 
 #. module: account
 #. odoo-javascript
@@ -20128,9 +20128,9 @@ msgstr "คุณกำลังพยายามกระทบยอดบา
 #: model:ir.model.fields,help:account.field_account_journal__invoice_reference_model
 msgid ""
 "You can choose different models for each type of reference. The default one "
-"is the Odoo reference."
+"is the my-erp-crm reference."
 msgstr ""
-"คุณสามารถเลือกรุ่นที่แตกต่างกันสำหรับการอ้างอิงแต่ละประเภทได้ ค่าเริ่มต้นคือการอ้างอิง Odoo"
+"คุณสามารถเลือกรุ่นที่แตกต่างกันสำหรับการอ้างอิงแต่ละประเภทได้ ค่าเริ่มต้นคือการอ้างอิง my-erp-crm"
 
 #. module: account
 #. odoo-python

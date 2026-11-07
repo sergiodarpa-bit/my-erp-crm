@@ -12,7 +12,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:38+0000\n"
 "PO-Revision-Date: 2026-08-02 14:20+0000\n"
@@ -32,14 +32,14 @@ msgstr ""
 #, fuzzy
 msgid ""
 "\n"
-"            If your customer runs on Odoo 18 or higher, customer data and "
+"            If your customer runs on my-erp-crm 18 or higher, customer data and "
 "sales order lines\n"
 "            will be automatically created. Any other pdf containing an "
 "attached\n"
 "            UBL-RequestForQuotation file will work as well.\n"
 "        "
 msgstr ""
-"Agar mijozingiz Odoo 18 yoki undan yuqori versiyasida ishlatsa, mijoz "
+"Agar mijozingiz my-erp-crm 18 yoki undan yuqori versiyasida ishlatsa, mijoz "
 "ma'lumotlari va sotish buyurtma satrlari avtomatik ravishda yaratiladi. UBL-"
 "RequestForQuotation fayli biriktirilgan har qanday boshqa PDF ham ishlaydi."
 
@@ -1379,10 +1379,10 @@ msgstr ""
 #: model_terms:ir.actions.act_window,help:sale.action_orders_upselling
 #, fuzzy
 msgid ""
-"As an example, if you sell pre-paid hours of services, Odoo recommends you\n"
+"As an example, if you sell pre-paid hours of services, my-erp-crm recommends you\n"
 "            to sell extra hours when all ordered hours have been consumed."
 msgstr ""
-"Misol uchun, agar siz oldindan to‘langan xizmat soatlarini sotsangiz, Odoo "
+"Misol uchun, agar siz oldindan to‘langan xizmat soatlarini sotsangiz, my-erp-crm "
 "barcha buyurtma qilingan soatlar sarflangandan so‘ng qo‘shimcha soatlarni "
 "sotishni tavsiya etadi."
 
@@ -2583,9 +2583,9 @@ msgstr "Hisob-faktura loyihalari"
 #, fuzzy
 msgid ""
 "Drag and drop the request for quotation PDF file into your list of "
-"quotations in Odoo. Enjoy the automation!"
+"quotations in my-erp-crm. Enjoy the automation!"
 msgstr ""
-"Narx so‘rovi PDF faylini Odoo‘dagi narxlar ro‘yxatingizga torting va "
+"Narx so‘rovi PDF faylini my-erp-crm‘dagi narxlar ro‘yxatingizga torting va "
 "tashlang. Avtomatlashtirish qulayligidan bahramand bo‘ling!"
 
 #. module: sale
@@ -3716,8 +3716,8 @@ msgstr "Qo‘shimcha sotish uchun buyurtmalar topilmadi"
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
 #, fuzzy
-msgid "Not using Odoo?"
-msgstr "Odoo ishlatmayapsizmi?"
+msgid "Not using my-erp-crm?"
+msgstr "my-erp-crm ishlatmayapsizmi?"
 
 #. module: sale
 #: model:ir.model.fields.selection,name:sale.selection__sale_order_line__display_type__line_note
@@ -3778,8 +3778,8 @@ msgstr "Yetkazib berishda xato bo‘lgan xabarlar soni"
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
 #, fuzzy
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: sale
 #: model:product.template,description_sale:sale.product_product_1_product_template
@@ -5452,8 +5452,8 @@ msgstr "Starshipit ulagichi"
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
 #, fuzzy
-msgid "Start on Odoo"
-msgstr "Odoo‘da boshlash"
+msgid "Start on my-erp-crm"
+msgstr "my-erp-crm‘da boshlash"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order__state
@@ -6460,8 +6460,8 @@ msgstr "Hajm"
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
 #, fuzzy
-msgid "Want to import this document in Odoo?"
-msgstr "Ushbu hujjatni Odoo dasturiga import qilmoqchimisiz?"
+msgid "Want to import this document in my-erp-crm?"
+msgstr "Ushbu hujjatni my-erp-crm dasturiga import qilmoqchimisiz?"
 
 #. module: sale
 #. odoo-python

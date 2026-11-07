@@ -11,7 +11,7 @@
 # "Marianna Ciofani (cima)" <cima@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-10-30 09:33+0000\n"
@@ -168,10 +168,10 @@ msgstr ""
 #. module: event
 #: model_terms:event.event,description:event.event_0
 msgid ""
-"<b>Technical Rooms</b> - One dedicated to advanced Odoo developers, one for "
+"<b>Technical Rooms</b> - One dedicated to advanced my-erp-crm developers, one for "
 "new developers."
 msgstr ""
-"<b>Sale tecniche</b> - Una dedicata allo sviluppo avanzato di Odoo, l'altra "
+"<b>Sale tecniche</b> - Una dedicata allo sviluppo avanzato di my-erp-crm, l'altra "
 "ai nuovi sviluppatori."
 
 #. module: event
@@ -3039,12 +3039,12 @@ msgid ""
 "At just 13 years old, John DOE was already starting to develop his first "
 "business applications for customers. After mastering civil engineering, he "
 "founded TinyERP. This was the first phase of OpenERP which would later "
-"became Odoo, the most installed open-source business software worldwide."
+"became my-erp-crm, the most installed open-source business software worldwide."
 msgstr ""
 "A soli 13 anni Mario ROSSI aveva già iniziato a sviluppare la sua prima "
 "applicazione aziendale per i clienti. Dopo la laurea magistrale in "
 "ingegneria civile ha fondato TinyERP, la prima tappa di OpenERP che più "
-"tardi sarebbe diventato Odoo, il software aziendale open source più "
+"tardi sarebbe diventato my-erp-crm, il software aziendale open source più "
 "installato al mondo."
 
 #. module: event
@@ -4041,10 +4041,10 @@ msgstr "Espressa nel fuso orario dell'evento."
 #. module: event
 #: model:event.stage,description:event.event_stage_done
 msgid ""
-"Finished events. Odoo will automatically move them to this stage once their "
+"Finished events. my-erp-crm will automatically move them to this stage once their "
 "end date has passed."
 msgstr ""
-"Eventi terminati. Odoo li sposterà automaticamente da questa fase una volta "
+"Eventi terminati. my-erp-crm li sposterà automaticamente da questa fase una volta "
 "che la data di fine viene superata."
 
 #. module: event
@@ -5009,8 +5009,8 @@ msgstr "Obiettivi"
 
 #. module: event
 #: model_terms:ir.ui.view,arch_db:event.event_report_full_page_ticket_layout
-msgid "Odoo Community Days"
-msgstr "Odoo Community Days"
+msgid "my-erp-crm Community Days"
+msgstr "my-erp-crm Community Days"
 
 #. module: event
 #: model_terms:event.event,description:event.event_3

@@ -148,11 +148,11 @@ test("transform text url into link and undo it", async () => {
 test("should show replace URL button if link is created by transformation", async () => {
     onRpc("/html_editor/link_preview_external", () => ({
         og_description:
-            "From ERP to CRM, eCommerce and CMS. Download Odoo or use it in the cloud. Grow Your Business.",
+            "From ERP to CRM, eCommerce and CMS. Download my-erp-crm or use it in the cloud. Grow Your Business.",
         og_image: "https://www.odoo.com/web/image/41207129-1abe7a15/homepage-seo.png",
-        og_title: "Open Source ERP and CRM | Odoo",
+        og_title: "Open Source ERP and CRM | my-erp-crm",
         og_type: "website",
-        og_site_name: "Odoo",
+        og_site_name: "my-erp-crm",
         source_url: "https://odoo.com",
     }));
     const { editor } = await setupEditor(`<p>[]</p>`);

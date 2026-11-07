@@ -7,7 +7,7 @@
 # Hanna Kharraziha <hakha@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0\n"
+"Project-Id-Version: my-erp-crm Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:38+0000\n"
 "PO-Revision-Date: 2026-10-21 12:29+0000\n"
@@ -2021,10 +2021,10 @@ msgstr ""
 #: code:addons/html_editor/static/src/main/media/image_crop.js:0
 msgid ""
 "This type of image is not supported for cropping.<br/>If you want to crop "
-"it, please first download it from the original source and upload it in Odoo."
+"it, please first download it from the original source and upload it in my-erp-crm."
 msgstr ""
 "Denna typ av bild stöds inte för beskärning.<br/>Om du vill beskära den, "
-"ladda först ner den från originalkällan och ladda upp den i Odoo."
+"ladda först ner den från originalkällan och ladda upp den i my-erp-crm."
 
 #. module: html_editor
 #. odoo-javascript

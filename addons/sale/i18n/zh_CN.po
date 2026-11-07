@@ -16,7 +16,7 @@
 # 张飞虎 <feihu.zhang@live.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:38+0000\n"
 "PO-Revision-Date: 2026-08-04 00:47+0000\n"
@@ -36,7 +36,7 @@ msgstr ""
 #: code:addons/sale/static/src/views/sale_file_upload_list/sale_file_upload_list_renderer.js:0
 msgid ""
 "\n"
-"            If your customer runs on Odoo 18 or higher, customer data and "
+"            If your customer runs on my-erp-crm 18 or higher, customer data and "
 "sales order lines\n"
 "            will be automatically created. Any other pdf containing an "
 "attached\n"
@@ -44,7 +44,7 @@ msgid ""
 "        "
 msgstr ""
 "\n"
-"            如果您的客户使用的是 Odoo 18 或更高版本，则客户数据和销售订单行\n"
+"            如果您的客户使用的是 my-erp-crm 18 或更高版本，则客户数据和销售订单行\n"
 "将自动创建。任何其他包含附件的 PDF 文件\n"
 "UBL-RequestForQuotation 文件也同样适用。\n"
 "        "
@@ -1599,7 +1599,7 @@ msgstr "确定取消授权交易？该动作不可撤销。"
 #. module: sale
 #: model_terms:ir.actions.act_window,help:sale.action_orders_upselling
 msgid ""
-"As an example, if you sell pre-paid hours of services, Odoo recommends you\n"
+"As an example, if you sell pre-paid hours of services, my-erp-crm recommends you\n"
 "            to sell extra hours when all ordered hours have been consumed."
 msgstr ""
 "例如，如果销售预付费服务时间，Odoo建议您\n"
@@ -2604,8 +2604,8 @@ msgstr "发票草稿"
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
 msgid ""
 "Drag and drop the request for quotation PDF file into your list of "
-"quotations in Odoo. Enjoy the automation!"
-msgstr "将报价请求 PDF 文件拖放到 Odoo 中的报价列表中。享受自动化！"
+"quotations in my-erp-crm. Enjoy the automation!"
+msgstr "将报价请求 PDF 文件拖放到 my-erp-crm 中的报价列表中。享受自动化！"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.view_order_form
@@ -3546,8 +3546,8 @@ msgstr "没有待加售订单。"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Not using Odoo?"
-msgstr "没有使用 Odoo？"
+msgid "Not using my-erp-crm?"
+msgstr "没有使用 my-erp-crm？"
 
 #. module: sale
 #: model:ir.model.fields.selection,name:sale.selection__sale_order_line__display_type__line_note
@@ -3597,8 +3597,8 @@ msgstr "出现发送错误的消息的数量"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: sale
 #: model:product.template,description_sale:sale.product_product_1_product_template
@@ -5004,8 +5004,8 @@ msgstr "Starshipit 连接器"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Start on Odoo"
-msgstr "开始使用 Odoo"
+msgid "Start on my-erp-crm"
+msgstr "开始使用 my-erp-crm"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order__state
@@ -5827,8 +5827,8 @@ msgstr "体积"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Want to import this document in Odoo?"
-msgstr "想在 Odoo 中导入此文档？"
+msgid "Want to import this document in my-erp-crm?"
+msgstr "想在 my-erp-crm 中导入此文档？"
 
 #. module: sale
 #. odoo-python

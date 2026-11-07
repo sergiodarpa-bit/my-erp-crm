@@ -6,7 +6,7 @@
 # Aliraza Habibitanha <alireza.habibitanha@gmail.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0\n"
+"Project-Id-Version: my-erp-crm Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:38+0000\n"
 "PO-Revision-Date: 2026-08-09 10:26+0000\n"
@@ -28,7 +28,7 @@ msgstr "«کدهای QR»"
 #. module: pos_self_order
 #. odoo-python
 #: code:addons/pos_self_order/models/pos_config.py:0
-msgid "(require Odoo Enterprise)"
+msgid "(require my-erp-crm Enterprise)"
 msgstr "(نیازمند اودوو اینترپرایز)"
 
 #. module: pos_self_order

@@ -17,7 +17,7 @@
 # Odoo Translation Bot <c3p@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:37+0000\n"
 "PO-Revision-Date: 2026-08-02 13:25+0000\n"
@@ -58,13 +58,13 @@ msgid ""
 "            <p class=\"o_view_nocontent_smiling_face\">\n"
 "                Add addresses to the Allowed List\n"
 "            </p><p>\n"
-"                To protect you from spam and reply loops, Odoo automatically "
+"                To protect you from spam and reply loops, my-erp-crm automatically "
 "blocks emails\n"
 "                coming to your gateway past a threshold of <b>%(threshold)i</"
 "b> emails every <b>%(minutes)i</b>\n"
 "                minutes. If there are some addresses from which you need to "
 "receive very frequent\n"
-"                updates, you can however add them below and Odoo will let "
+"                updates, you can however add them below and my-erp-crm will let "
 "them go through.\n"
 "            </p>"
 msgstr ""
@@ -73,13 +73,13 @@ msgstr ""
 "                Adăugați adrese în lista permisă\n"
 "            </p><p>\n"
 "                Pentru a vă proteja de spam și de loop-urile de răspuns, "
-"Odoo blochează automat e-mailurile\n"
+"my-erp-crm blochează automat e-mailurile\n"
 "                venind la portalul dvs. după un prag de <b>%(threshold)i</b> "
 "emailuri în fiecare <b>%(minutes)i</b>\n"
 "                minute. Dacă există unele adrese de la care trebuie să "
 "primiți actualizări foarte frecvente\n"
 "                ctualizări foarte frecvente, le puteți adăuga mai jos, iar "
-"Odoo le va lăsa să treacă.\n"
+"my-erp-crm le va lăsa să treacă.\n"
 "            </p>"
 
 #. module: mail
@@ -5686,11 +5686,11 @@ msgstr ""
 #. module: mail
 #: model:ir.model.fields,help:mail.field_res_config_settings__alias_domain_id
 msgid ""
-"If you have setup a catch-all email domain redirected to the Odoo server, "
+"If you have setup a catch-all email domain redirected to the my-erp-crm server, "
 "enter the domain name here."
 msgstr ""
 "Dacă ați configurat un domeniu de e-mail captivant redirecționat către "
-"serverul Odoo, introduceți numele de domeniu aici."
+"serverul my-erp-crm, introduceți numele de domeniu aici."
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_res_config_settings__use_sfu_server
@@ -5755,8 +5755,8 @@ msgstr "%(country)s"
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__res_users__notification_type__inbox
-msgid "In Odoo"
-msgstr "În Odoo"
+msgid "In my-erp-crm"
+msgstr "În my-erp-crm"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_compose_message__scheduled_date
@@ -5866,8 +5866,8 @@ msgstr "Instalare"
 #. module: mail
 #. odoo-javascript
 #: code:addons/mail/static/src/core/web/messaging_menu_patch.js:0
-msgid "Install Odoo"
-msgstr "Instalează Odoo"
+msgid "Install my-erp-crm"
+msgstr "Instalează my-erp-crm"
 
 #. module: mail
 #: model:ir.ui.menu,name:mail.discuss_channel_integrations_menu
@@ -6260,7 +6260,7 @@ msgid ""
 "browser will \n"
 "          keep the private key secret and use it for decrypting the payload\n"
 "- auth: The auth value should be treated as a secret and not shared outside "
-"of Odoo"
+"of my-erp-crm"
 msgstr ""
 "Se referă la cheile browserului utilizate de notificare: \n"
 "- p256dh: este cheia publică de abonament generată de browser. Browserul "
@@ -6268,7 +6268,7 @@ msgstr ""
 "          va păstra secretă cheia privată și o va utiliza pentru decriptarea "
 "încărcăturii\n"
 "- auth: Valoarea auth trebuie tratată ca un secret și nu trebuie partajată "
-"în afara Odoo"
+"în afara my-erp-crm"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_tracking_duration_mixin__duration_tracking
@@ -8246,20 +8246,20 @@ msgstr "OS"
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_notification_layout
 #: model_terms:ir.ui.view,arch_db:mail.mail_notification_light
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: mail
 #. odoo-javascript
 #: code:addons/mail/static/src/core/common/notification_permission_service.js:0
-msgid "Odoo will not send notifications on this device."
-msgstr "Odoo nu va trimite notificări pe acest dispozitiv."
+msgid "my-erp-crm will not send notifications on this device."
+msgstr "my-erp-crm nu va trimite notificări pe acest dispozitiv."
 
 #. module: mail
 #. odoo-javascript
 #: code:addons/mail/static/src/core/common/notification_permission_service.js:0
-msgid "Odoo will send notifications on this device!"
-msgstr "Odoo va trimite notificări pe acest dispozitiv!"
+msgid "my-erp-crm will send notifications on this device!"
+msgstr "my-erp-crm va trimite notificări pe acest dispozitiv!"
 
 #. module: mail
 #. odoo-javascript
@@ -8385,8 +8385,8 @@ msgstr "Doar modele personalizate pot fi modificate."
 
 #. module: mail
 #: model:ir.model.constraint,message:mail.constraint_res_users_notification_type
-msgid "Only internal user can receive notifications in Odoo"
-msgstr "Numai utilizatorii interni pot primi notificări în Odoo"
+msgid "Only internal user can receive notifications in my-erp-crm"
+msgstr "Numai utilizatorii interni pot primi notificări în my-erp-crm"
 
 #. module: mail
 #. odoo-python
@@ -9117,11 +9117,11 @@ msgstr "Vă rugăm să așteptați în timp ce fișierul se încarcă."
 msgid ""
 "Policy on how to handle Chatter notifications:\n"
 "- By Emails: notifications are sent to your email address\n"
-"- In Odoo: notifications appear in your Odoo Inbox"
+"- In my-erp-crm: notifications appear in your my-erp-crm Inbox"
 msgstr ""
 "Politica privind modul de gestionare a notificărilor Chatter:\n"
 "- Prin e-mailuri: notificările sunt trimise la adresa dvs. de e-mail\n"
-"- În Odoo: notificările apar în Inboxul dvs. Odoo"
+"- În my-erp-crm: notificările apar în Inboxul dvs. my-erp-crm"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_alias__alias_contact
@@ -9490,8 +9490,8 @@ msgstr "Motiv"
 
 #. module: mail
 #: model:res.groups,name:mail.group_mail_notification_type_inbox
-msgid "Receive notifications in Odoo"
-msgstr "Primește notificări în Odoo"
+msgid "Receive notifications in my-erp-crm"
+msgstr "Primește notificări în my-erp-crm"
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__mail_mail__state__received
@@ -11495,11 +11495,11 @@ msgstr "Mesajul din care a fost creat canalul."
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_alias__alias_model_id
 msgid ""
-"The model (Odoo Document Kind) to which this alias corresponds. Any incoming "
+"The model (my-erp-crm Document Kind) to which this alias corresponds. Any incoming "
 "email that does not reply to an existing record will cause the creation of a "
 "new record of this model (e.g. a Project Task)"
 msgstr ""
-"Modelul (tipul de document Odoo) căruia îi corespunde acest alias. Orice e-"
+"Modelul (tipul de document my-erp-crm) căruia îi corespunde acest alias. Orice e-"
 "mail care nu răspunde la o înregistrare existentă va determina crearea unei "
 "noi înregistrări a acestui model (de exemplu, o sarcină de proiect)"
 
@@ -11787,11 +11787,11 @@ msgstr ""
 msgid ""
 "This option permanently removes any track of email after it's been sent, "
 "including from the Technical menu in the Settings, in order to preserve "
-"storage space of your Odoo database."
+"storage space of your my-erp-crm database."
 msgstr ""
 "Această opțiune elimină definitiv orice urmă de e-mail după ce a fost "
 "trimisă, inclusiv din meniul Tehnic din Setări, pentru a păstra spațiul de "
-"stocare al bazei de date Odoo"
+"stocare al bazei de date my-erp-crm"
 
 #. module: mail
 #. odoo-javascript

@@ -17,7 +17,7 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.5alpha1\n"
+"Project-Id-Version: my-erp-crm Server 15.5alpha1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-07 22:04+0000\n"
@@ -39,8 +39,8 @@ msgstr "<span class=\"button\" id=\"button_open_report\">➔ פתח את הדו�
 
 #. module: digest
 #: model_terms:ir.ui.view,arch_db:digest.digest_mail_main
-msgid "<span class=\"odoo_link_text\">Odoo</span>"
-msgstr "<span class=\"odoo_link_text\">Odoo</span>"
+msgid "<span class=\"odoo_link_text\">my-erp-crm</span>"
+msgstr "<span class=\"odoo_link_text\">my-erp-crm</span>"
 
 #. module: digest
 #: model_terms:ir.ui.view,arch_db:digest.digest_mail_main
@@ -330,8 +330,8 @@ msgstr "תאריך שליחה הבא"
 
 #. module: digest
 #: model_terms:ir.ui.view,arch_db:digest.digest_section_mobile
-msgid "Odoo Mobile"
-msgstr "Odoo נייד"
+msgid "my-erp-crm Mobile"
+msgstr "my-erp-crm נייד"
 
 #. module: digest
 #: model:ir.model.fields,field_description:digest.field_digest_digest__periodicity
@@ -373,7 +373,7 @@ msgstr "נמענים"
 
 #. module: digest
 #: model_terms:ir.ui.view,arch_db:digest.digest_section_mobile
-msgid "Run your business from anywhere with <b>Odoo Mobile</b>."
+msgid "Run your business from anywhere with <b>my-erp-crm Mobile</b>."
 msgstr "הפעל את העסק שלך מכל מקום עם <b>אודו מובייל</b>."
 
 #. module: digest
@@ -409,7 +409,7 @@ msgstr "תיאור הטיפ"
 
 #. module: digest
 #: model_terms:digest.tip,tip_description:digest.digest_tip_digest_2
-msgid "Tip: A calculator in Odoo"
+msgid "Tip: A calculator in my-erp-crm"
 msgstr "טיפ: מחשבון ב-Odoo"
 
 #. module: digest
@@ -446,7 +446,7 @@ msgstr "טיפ: עבו מהר ויעיל יותר עם קיצורי מקלדת"
 
 #. module: digest
 #: model:digest.tip,name:digest.digest_tip_digest_2
-msgid "Tip: A calculator in Odoo"
+msgid "Tip: A calculator in my-erp-crm"
 msgstr "טיפ: מחשבון ב-Odoo"
 
 #. module: digest
@@ -550,7 +550,7 @@ msgstr "הוסרת בהצלחה מהרשימה של:"
 
 #. module: digest
 #: model:digest.digest,name:digest.digest_digest_default
-msgid "Your Odoo Periodic Digest"
+msgid "Your my-erp-crm Periodic Digest"
 msgstr "תקציר תקופתי עבורך מ-Odoo"
 
 #. module: digest

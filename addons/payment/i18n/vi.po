@@ -12,7 +12,7 @@
 # Deleted User <noreply+31@weblate.org>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:39+0000\n"
 "PO-Revision-Date: 2026-08-06 03:58+0000\n"
@@ -42,7 +42,7 @@ msgid ""
 "<i class=\"fa fa-exclamation-triangle\"/> These properties are set to\n"
 "                                match the behavior of providers and that of "
 "their integration with\n"
-"                                Odoo regarding this payment method. Any "
+"                                my-erp-crm regarding this payment method. Any "
 "change may result in errors\n"
 "                                and should be tested on a test database "
 "first."
@@ -51,7 +51,7 @@ msgstr ""
 "để\n"
 "                                khớp hành vi của nhà cung cấp và hành vi "
 "tích hợp của họ với\n"
-"                                Odoo liên quan đến phương thức thanh toán "
+"                                my-erp-crm liên quan đến phương thức thanh toán "
 "này. Mọi thay đổi đều có thể\n"
 "                                tạo ra lỗi và trước tiên phải được kiểm tra "
 "trên cơ sở dữ liệu kiểm thử."
@@ -679,11 +679,11 @@ msgstr "Chấp nhận giao dịch"
 #. module: payment
 #: model:ir.model.fields,help:payment.field_payment_provider__capture_manually
 msgid ""
-"Capture the amount from Odoo, when the delivery is completed.\n"
+"Capture the amount from my-erp-crm, when the delivery is completed.\n"
 "Use this if you want to charge your customers cards only when\n"
 "you are sure you can ship the goods to them."
 msgstr ""
-"Ghi nhận số tiền từ Odoo, khi giao hàng hoàn tất.\n"
+"Ghi nhận số tiền từ my-erp-crm, khi giao hàng hoàn tất.\n"
 "Dùng tính năng này nếu bạn muốn tính phí khách hàng chỉ khi\n"
 "bạn chắc chắn có thể giao hàng cho họ."
 
@@ -1698,8 +1698,8 @@ msgstr "Octopus"
 
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_provider__module_to_buy
-msgid "Odoo Enterprise Module"
-msgstr "Phân hệ Odoo Enterprise"
+msgid "my-erp-crm Enterprise Module"
+msgstr "Phân hệ my-erp-crm Enterprise"
 
 #. module: payment
 #: model:ir.model.fields.selection,name:payment.selection__payment_transaction__operation__offline
@@ -2255,10 +2255,10 @@ msgstr "Hoàn tiền"
 #: model:ir.model.fields,help:payment.field_payment_provider__support_refund
 msgid ""
 "Refund is a feature allowing to refund customers directly from the payment "
-"in Odoo."
+"in my-erp-crm."
 msgstr ""
 "Hoàn tiền là tính năng cho phép hoàn tiền trực tiếp cho khách hàng từ thanh "
-"toán trong Odoo."
+"toán trong my-erp-crm."
 
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.payment_transaction_form

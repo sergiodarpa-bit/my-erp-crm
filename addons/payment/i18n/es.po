@@ -14,7 +14,7 @@
 # "Malaz Siddig Elsayed Abuidris (msea)" <msea@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:39+0000\n"
 "PO-Revision-Date: 2026-09-07 12:34+0000\n"
@@ -45,7 +45,7 @@ msgid ""
 "<i class=\"fa fa-exclamation-triangle\"/> These properties are set to\n"
 "                                match the behavior of providers and that of "
 "their integration with\n"
-"                                Odoo regarding this payment method. Any "
+"                                my-erp-crm regarding this payment method. Any "
 "change may result in errors\n"
 "                                and should be tested on a test database "
 "first."
@@ -54,7 +54,7 @@ msgstr ""
 "establecidas para\n"
 "                                que el comportamiento de los proveedores "
 "corresponda con su integración con\n"
-"                                Odoo en relación a este método de pago. "
+"                                my-erp-crm en relación a este método de pago. "
 "Cualquier cambio puede provocar errores\n"
 "                                y debe probarse primero en una base de datos "
 "de prueba."
@@ -675,11 +675,11 @@ msgstr "Capturar transacción"
 #. module: payment
 #: model:ir.model.fields,help:payment.field_payment_provider__capture_manually
 msgid ""
-"Capture the amount from Odoo, when the delivery is completed.\n"
+"Capture the amount from my-erp-crm, when the delivery is completed.\n"
 "Use this if you want to charge your customers cards only when\n"
 "you are sure you can ship the goods to them."
 msgstr ""
-"Captura el importe desde Odoo cuando se haya completado la entrega.\n"
+"Captura el importe desde my-erp-crm cuando se haya completado la entrega.\n"
 "Utiliza esta opción si quieres cargar el importe en la tarjeta de tus "
 "clientes solo cuando\n"
 "estés seguro de que puedes enviarles los artículos/productos."
@@ -1692,8 +1692,8 @@ msgstr "Octopus"
 
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_provider__module_to_buy
-msgid "Odoo Enterprise Module"
-msgstr "Módulo de Odoo Enterprise"
+msgid "my-erp-crm Enterprise Module"
+msgstr "Módulo de my-erp-crm Enterprise"
 
 #. module: payment
 #: model:ir.model.fields.selection,name:payment.selection__payment_transaction__operation__offline
@@ -2249,10 +2249,10 @@ msgstr "Reembolso"
 #: model:ir.model.fields,help:payment.field_payment_provider__support_refund
 msgid ""
 "Refund is a feature allowing to refund customers directly from the payment "
-"in Odoo."
+"in my-erp-crm."
 msgstr ""
 "El reembolso es una función que le permite hacerle un reembolso al cliente "
-"directamente desde el pago en Odoo."
+"directamente desde el pago en my-erp-crm."
 
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.payment_transaction_form

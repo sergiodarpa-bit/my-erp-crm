@@ -27,7 +27,7 @@
 # symbiotech <symbiotech3@gmail.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0+e\n"
+"Project-Id-Version: my-erp-crm Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-10-22 09:54+0000\n"
@@ -451,7 +451,7 @@ msgstr ""
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_call_to_action
 msgid ""
-"<font style=\"color: white;\"><strong>50,000+ companies</strong> run Odoo.</"
+"<font style=\"color: white;\"><strong>50,000+ companies</strong> run my-erp-crm.</"
 "font>"
 msgstr ""
 
@@ -3569,7 +3569,7 @@ msgstr ""
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_schedule
-msgid "Interactive Odoo demo"
+msgid "Interactive my-erp-crm demo"
 msgstr "Interaktiv Odoo-demonstration"
 
 #. module: mass_mailing
@@ -4556,7 +4556,7 @@ msgstr ""
 #: model_terms:ir.actions.act_window,help:mass_mailing.action_view_mass_mailing_lists
 msgid ""
 "No need to import mailing lists, you can send mailings to contacts saved in "
-"other Odoo apps."
+"other my-erp-crm apps."
 msgstr ""
 "Du behöver inte importera e-postlistor, utan kan skicka utskick till "
 "kontakter som sparats i andra Odoo-appar."
@@ -4676,7 +4676,7 @@ msgstr "ÖPPEN (%i)"
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_section_mobile
-msgid "Odoo Mobile"
+msgid "my-erp-crm Mobile"
 msgstr ""
 
 #. module: mass_mailing
@@ -6394,11 +6394,11 @@ msgstr ""
 #: model:ir.model.fields,help:mass_mailing.field_res_config_settings__mass_mailing_outgoing_mail_server
 #: model_terms:ir.ui.view,arch_db:mass_mailing.res_config_settings_view_form
 msgid ""
-"Use a specific mail server in priority. Otherwise Odoo relies on the first "
+"Use a specific mail server in priority. Otherwise my-erp-crm relies on the first "
 "outgoing mail server available (based on their sequencing) as it does for "
 "normal mails."
 msgstr ""
-"Använd en specifik e-postserver i prioritet. Annars förlitar sig Odoo på den "
+"Använd en specifik e-postserver i prioritet. Annars förlitar sig my-erp-crm på den "
 "första tillgängliga utgående e-postservern (baserat på deras sekvensering) "
 "som den gör för vanliga e-postmeddelanden."
 
@@ -6734,7 +6734,7 @@ msgstr ""
 #: model_terms:ir.actions.act_window,help:mass_mailing.action_view_mass_mailings_from_campaign
 msgid ""
 "You don't need to import your mailing lists, you can easily\n"
-"                send emails<br> to any contact saved in other Odoo apps."
+"                send emails<br> to any contact saved in other my-erp-crm apps."
 msgstr ""
 "Du behöver inte importera dina e-postlistor, du kan enkelt\n"
 "                skicka e-post<br> till alla kontakter som sparats i andra "

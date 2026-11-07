@@ -19,7 +19,7 @@ class TestPortalAddresses(BaseCommon, HttpCase):
         cls.portal_user = cls._create_new_portal_user()
         cls.internal_user = cls._create_new_internal_user()
         cls.default_address_values = {
-            'name': 'Odoo Farm 3',
+            'name': 'my-erp-crm Farm 3',
             'email': 'o@d.oo',
             'street': 'Rue de Ramillies 1',
             'city': 'Ramillies',

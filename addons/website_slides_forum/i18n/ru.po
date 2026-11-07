@@ -7,7 +7,7 @@
 # "Anastasiia Koroleva (koan)" <koan@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: my-erp-crm Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:37+0000\n"
 "PO-Revision-Date: 2026-08-10 11:14+0000\n"
@@ -406,10 +406,10 @@ msgstr "Параметры сниппета форума презентаций"
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_2
 msgid ""
 "The goal of this site is create a relevant knowledge base that would answer "
-"questions related to Odoo."
+"questions related to my-erp-crm."
 msgstr ""
 "Цель этого сайта - создать актуальную базу знаний, которая будет отвечать на "
-"вопросы, связанные с Odoo."
+"вопросы, связанные с my-erp-crm."
 
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
@@ -504,9 +504,9 @@ msgstr "каждый ответ одинаково верен: \"Какой ва
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_2
-msgid "how to configure or customize Odoo to specific business needs,"
+msgid "how to configure or customize my-erp-crm to specific business needs,"
 msgstr ""
-"как сконфигурировать или настроить Odoo для конкретных деловых потребностей,"
+"как сконфигурировать или настроить my-erp-crm для конкретных деловых потребностей,"
 
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
@@ -517,8 +517,8 @@ msgstr "как разрабатывать модули для собственн
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_2
-msgid "how to install Odoo on a specific infrastructure,"
-msgstr "как установить Odoo на конкретную инфраструктуру,"
+msgid "how to install my-erp-crm on a specific infrastructure,"
+msgstr "как установить my-erp-crm на конкретную инфраструктуру,"
 
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
@@ -530,8 +530,8 @@ msgstr ""
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_2
-msgid "specific questions about Odoo service offers, etc."
-msgstr "конкретные вопросы о предложениях услуг Odoo и т.д."
+msgid "specific questions about my-erp-crm service offers, etc."
+msgstr "конкретные вопросы о предложениях услуг my-erp-crm и т.д."
 
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
@@ -556,9 +556,9 @@ msgstr ""
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_2
-msgid "what's the best way to use Odoo for a specific business need,"
+msgid "what's the best way to use my-erp-crm for a specific business need,"
 msgstr ""
-"какой самый лучший способ использовать Odoo для определенной потребности "
+"какой самый лучший способ использовать my-erp-crm для определенной потребности "
 "бизнеса,"
 
 #. module: website_slides_forum

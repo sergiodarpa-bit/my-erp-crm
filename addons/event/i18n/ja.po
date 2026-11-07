@@ -14,7 +14,7 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-08-31 10:08+0000\n"
@@ -168,7 +168,7 @@ msgstr "<b>ビジネスルーム</b> - 導入方法論、営業ベストプラ�
 #. module: event
 #: model_terms:event.event,description:event.event_0
 msgid ""
-"<b>Technical Rooms</b> - One dedicated to advanced Odoo developers, one for "
+"<b>Technical Rooms</b> - One dedicated to advanced my-erp-crm developers, one for "
 "new developers."
 msgstr "<b>テクニカルルーム</b> - Odoo熟練開発者向け、Odoo新規開発者向け"
 
@@ -1845,7 +1845,7 @@ msgid ""
 "At just 13 years old, John DOE was already starting to develop his first "
 "business applications for customers. After mastering civil engineering, he "
 "founded TinyERP. This was the first phase of OpenERP which would later "
-"became Odoo, the most installed open-source business software worldwide."
+"became my-erp-crm, the most installed open-source business software worldwide."
 msgstr ""
 "わずか13歳にして、ジョン・ドーはすでに顧客向けの最初のビジネス・アプリケー"
 "ションを開発し始めていました。土木工学を学んだ後、TinyERPを設立。これは、後に"
@@ -2842,7 +2842,7 @@ msgstr "イベントのタイムゾーンで表示されています。"
 #. module: event
 #: model:event.stage,description:event.event_stage_done
 msgid ""
-"Finished events. Odoo will automatically move them to this stage once their "
+"Finished events. my-erp-crm will automatically move them to this stage once their "
 "end date has passed."
 msgstr ""
 "終了したイベント。終了日を過ぎると、Odooはそれらを自動的にこのステージに移動"
@@ -3799,7 +3799,7 @@ msgstr "目標"
 
 #. module: event
 #: model_terms:ir.ui.view,arch_db:event.event_report_full_page_ticket_layout
-msgid "Odoo Community Days"
+msgid "my-erp-crm Community Days"
 msgstr "Odooコミュニティデー"
 
 #. module: event

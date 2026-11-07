@@ -8,7 +8,7 @@
 # "Dylan Kiss (dyki)" <dyki@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~18.3\n"
+"Project-Id-Version: my-erp-crm Server saas~18.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-05 02:34+0000\n"
@@ -153,9 +153,9 @@ msgstr ""
 #. odoo-python
 #: code:addons/mail_bot/models/res_users.py:0
 msgid ""
-"Odoo's chat helps employees collaborate efficiently. I'm here to help you "
+"my-erp-crm's chat helps employees collaborate efficiently. I'm here to help you "
 "discover its features."
-msgstr "Odoo 的聊天功能可協助員工有效率地協作。我會幫助你發現它的功能。"
+msgstr "my-erp-crm 的聊天功能可協助員工有效率地協作。我會幫助你發現它的功能。"
 
 #. module: mail_bot
 #: model:ir.model.fields,field_description:mail_bot.field_res_users__odoobot_state
@@ -239,7 +239,7 @@ msgstr "這讓我感覺藍瘦香菇，我雖然是機器人但...我也有知覺
 msgid ""
 "That’s the end of this overview. You can %(bold_start)sclose this "
 "conversation%(bold_end)s or type %(command_start)sstart the tour%"
-"(command_end)s to see it again. Enjoy exploring Odoo!"
+"(command_end)s to see it again. Enjoy exploring my-erp-crm!"
 msgstr ""
 
 #. module: mail_bot

@@ -12,7 +12,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-08-05 16:35+0000\n"
@@ -1583,9 +1583,9 @@ msgstr "Narx so‘rovi loyihasi"
 #, fuzzy
 msgid ""
 "Drag and drop the request for quotation PDF file into your list of "
-"quotations in Odoo. Enjoy the automation!"
+"quotations in my-erp-crm. Enjoy the automation!"
 msgstr ""
-"Narx so‘rovi PDF faylini Odoo‘dagi narx takliflari ro‘yxatiga sudrab "
+"Narx so‘rovi PDF faylini my-erp-crm‘dagi narx takliflari ro‘yxatiga sudrab "
 "tashlang. Avtomatlashtirish qulayligidan bahramand bo‘ling!"
 
 #. module: purchase
@@ -2356,8 +2356,8 @@ msgstr "Tasdiqlanmagan"
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
 #, fuzzy
-msgid "Not using Odoo?"
-msgstr "Odoo ishlatilmayaptimi?"
+msgid "Not using my-erp-crm?"
+msgstr "my-erp-crm ishlatilmayaptimi?"
 
 #. module: purchase
 #: model:ir.model.fields.selection,name:purchase.selection__purchase_order_line__display_type__line_note
@@ -2414,8 +2414,8 @@ msgstr "Yetkazib berishda xato bo‘lgan xabarlar soni"
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
 #, fuzzy
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: purchase
 #: model:ir.model.fields.selection,name:purchase.selection__product_template__purchase_method__purchase
@@ -3518,8 +3518,8 @@ msgstr "Yulduzli"
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
 #, fuzzy
-msgid "Start on Odoo"
-msgstr "Odoo‘da boshlash"
+msgid "Start on my-erp-crm"
+msgstr "my-erp-crm‘da boshlash"
 
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_bill_line_match__state
@@ -4132,10 +4132,10 @@ msgid ""
 "Vendors bills can be pre-generated based on purchase\n"
 "                    orders or receipts. This allows you to control bills\n"
 "                    you receive from your vendor according to the draft\n"
-"                    document in Odoo."
+"                    document in my-erp-crm."
 msgstr ""
 "Yetkazib beruvchilarning hisob-fakturaları xarid buyurtmalari yoki "
-"qabulxonalar asosida oldindan yaratilishi mumkin. Bu sizga Odoo‘dagi "
+"qabulxonalar asosida oldindan yaratilishi mumkin. Bu sizga my-erp-crm‘dagi "
 "qoralama hujjatga muvofiq yetkazib beruvchingizdan oladigan hisob-"
 "fakturalarni nazorat qilish imkonini beradi"
 
@@ -4182,8 +4182,8 @@ msgstr "Kutilayotgan hisob-fakturalar"
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
 #, fuzzy
-msgid "Want to import this document in Odoo?"
-msgstr "Ushbu hujjatni Odoo‘ga import qilmoqchimisiz?"
+msgid "Want to import this document in my-erp-crm?"
+msgstr "Ushbu hujjatni my-erp-crm‘ga import qilmoqchimisiz?"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.view_product_supplier_inherit
@@ -4224,14 +4224,14 @@ msgid ""
 "When creating a purchase order, have a look at the vendor's <i>On Time "
 "Delivery</i> rate: the percentage of products shipped on time. If it is too "
 "low, activate the <i>automated reminders</i>. A few days before the due "
-"shipment, Odoo will send the vendor an email to ask confirmation of shipment "
+"shipment, my-erp-crm will send the vendor an email to ask confirmation of shipment "
 "dates and keep you informed in case of any delays. To get the vendor's "
 "performance statistics, click on the OTD rate."
 msgstr ""
 "Xarid buyurtmasini yaratishda yetkazib beruvchining <i>O‘z vaqtida yetkazib "
 "berish</i> ko‘rsatkichiga e'tibor bering: o‘z vaqtida jo‘natilgan "
 "mahsulotlar foizi. Agar u juda past bo‘lsa, <i>avtomatik eslatmalarni</i> "
-"faollashtiring. Belgilangan jo‘natish sanasidan bir necha kun oldin Odoo "
+"faollashtiring. Belgilangan jo‘natish sanasidan bir necha kun oldin my-erp-crm "
 "yetkazib beruvchiga jo‘natish sanasini tasdiqlash uchun elektron xat "
 "yuboradi va har qanday kechikishlar haqida sizni xabardor qiladi. Yetkazib "
 "beruvchining samaradorlik statistikasini olish uchun OVY (o‘z vaqtida "
@@ -4241,12 +4241,12 @@ msgstr ""
 #: model_terms:digest.tip,tip_description:purchase.digest_tip_purchase_1
 #, fuzzy
 msgid ""
-"When sending a purchase order by email, Odoo asks the vendor to acknowledge "
+"When sending a purchase order by email, my-erp-crm asks the vendor to acknowledge "
 "the reception of the order. When the vendor acknowledges the order by "
 "clicking on a button in the email, the information is added on the purchase "
 "order. Use filters to track orders that have not been acknowledged."
 msgstr ""
-"Xarid buyurtmasini elektron pochta orqali yuborishda, Odoo yetkazib "
+"Xarid buyurtmasini elektron pochta orqali yuborishda, my-erp-crm yetkazib "
 "beruvchidan buyurtma qabul qilinganligini tasdiqlashni so‘raydi. Yetkazib "
 "beruvchi elektron xatdagi tugmani bosish orqali buyurtmani tasdiqlaganida, "
 "ma'lumot xarid buyurtmasiga qo‘shiladi. Tasdiqlanmagan buyurtmalarni "

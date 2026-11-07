@@ -15,7 +15,7 @@
 # Aliraza Habibitanha <alireza.habibitanha@gmail.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-09 10:34+0000\n"
@@ -580,12 +580,12 @@ msgstr "اگر علامت زده شود، برخی از پیام ها دارای
 #: model_terms:ir.actions.act_window,help:analytic.account_analytic_line_action
 #: model_terms:ir.actions.act_window,help:analytic.account_analytic_line_action_entries
 msgid ""
-"In Odoo, sales orders and projects are implemented using\n"
+"In my-erp-crm, sales orders and projects are implemented using\n"
 "                analytic accounts. You can track costs and revenues to "
 "analyse\n"
 "                your margins easily."
 msgstr ""
-"در Odoo سفارشات و پروژه های فروش با استفاده از حساب های تحلیلی\n"
+"در my-erp-crm سفارشات و پروژه های فروش با استفاده از حساب های تحلیلی\n"
 "           اجرا می شوند. شما می توانید هزینه ها و درآمدها را پیگیری\n"
 "           کنید تا به راحتی حاشیه های خود را تجزیه و تحلیل کنید."
 

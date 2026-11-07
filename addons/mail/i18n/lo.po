@@ -7,7 +7,7 @@
 # Bone NI <bounkirdni@gmail.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: my-erp-crm Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:37+0000\n"
 "PO-Revision-Date: 2026-08-14 05:09+0000\n"
@@ -46,13 +46,13 @@ msgid ""
 "            <p class=\"o_view_nocontent_smiling_face\">\n"
 "                Add addresses to the Allowed List\n"
 "            </p><p>\n"
-"                To protect you from spam and reply loops, Odoo automatically "
+"                To protect you from spam and reply loops, my-erp-crm automatically "
 "blocks emails\n"
 "                coming to your gateway past a threshold of <b>%(threshold)i</"
 "b> emails every <b>%(minutes)i</b>\n"
 "                minutes. If there are some addresses from which you need to "
 "receive very frequent\n"
-"                updates, you can however add them below and Odoo will let "
+"                updates, you can however add them below and my-erp-crm will let "
 "them go through.\n"
 "            </p>"
 msgstr ""
@@ -60,12 +60,12 @@ msgstr ""
 "            <p class=\"o_view_nocontent_smiling_face\">\n"
 "                ເພີ່ມທີ່ຢູ່ເຂົ້າໃນລາຍການທີ່ອະນຸຍາດ\n"
 "            </p><p>\n"
-"                ເພື່ອປ້ອງກັນທ່ານຈາກ ສະແປມ (spam) ແລະ ການຕອບກັບແບບວົນຊ້ຳ, Odoo "
+"                ເພື່ອປ້ອງກັນທ່ານຈາກ ສະແປມ (spam) ແລະ ການຕອບກັບແບບວົນຊ້ຳ, my-erp-crm "
 "ຈະບລັອກອີເມວ\n"
 "                ທີ່ສົ່ງເຂົ້າມາຫາເກດເວ (gateway) ຂອງທ່ານໂດຍອັດຕະໂນມັດ ຖ້າຫາກເກີນກຳນົດ <b>%"
 "(threshold)i</b> ອີເມວ ທຸກໆ <b>%(minutes)i</b>\n"
 "                ນາທີ. ຫາກມີບາງທີ່ຢູ່ທີ່ທ່ານຈຳເປັນຕ້ອງໄດ້ຮັບການອັບເດດເລື້ອຍໆ,\n"
-"                ທ່ານສາມາດເພີ່ມພວກເຂົາໄວ້ທາງລຸ່ມນີ້ ແລະ Odoo ຈະອະນຸຍາດໃຫ້ພວກເຂົາຜ່ານໄປໄດ້.\n"
+"                ທ່ານສາມາດເພີ່ມພວກເຂົາໄວ້ທາງລຸ່ມນີ້ ແລະ my-erp-crm ຈະອະນຸຍາດໃຫ້ພວກເຂົາຜ່ານໄປໄດ້.\n"
 "            </p>"
 
 #. module: mail
@@ -5587,9 +5587,9 @@ msgstr "ຖ້າທ່ານບໍ່ຮູ້ຈັກມັນ, ທ່ານ�
 #. module: mail
 #: model:ir.model.fields,help:mail.field_res_config_settings__alias_domain_id
 msgid ""
-"If you have setup a catch-all email domain redirected to the Odoo server, "
+"If you have setup a catch-all email domain redirected to the my-erp-crm server, "
 "enter the domain name here."
-msgstr "ຫາກທ່ານໄດ້ຕັ້ງຄ່າໂດເມນອີເມວ catch-all ໃຫ້ສົ່ງຕໍ່ມາຍັງເຊີບເວີ Odoo, ໃຫ້ປ້ອນຊື່ໂດເມນຢູ່ບ່ອນນີ້."
+msgstr "ຫາກທ່ານໄດ້ຕັ້ງຄ່າໂດເມນອີເມວ catch-all ໃຫ້ສົ່ງຕໍ່ມາຍັງເຊີບເວີ my-erp-crm, ໃຫ້ປ້ອນຊື່ໂດເມນຢູ່ບ່ອນນີ້."
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_res_config_settings__use_sfu_server
@@ -5655,8 +5655,8 @@ msgstr "ໃນ %(country)s"
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__res_users__notification_type__inbox
-msgid "In Odoo"
-msgstr "ໃນ Odoo"
+msgid "In my-erp-crm"
+msgstr "ໃນ my-erp-crm"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_compose_message__scheduled_date
@@ -5763,8 +5763,8 @@ msgstr "ຕິດຕັ້ງ"
 #. module: mail
 #. odoo-javascript
 #: code:addons/mail/static/src/core/web/messaging_menu_patch.js:0
-msgid "Install Odoo"
-msgstr "ຕິດຕັ້ງ Odoo"
+msgid "Install my-erp-crm"
+msgstr "ຕິດຕັ້ງ my-erp-crm"
 
 #. module: mail
 #: model:ir.ui.menu,name:mail.discuss_channel_integrations_menu
@@ -6146,12 +6146,12 @@ msgid ""
 "browser will \n"
 "          keep the private key secret and use it for decrypting the payload\n"
 "- auth: The auth value should be treated as a secret and not shared outside "
-"of Odoo"
+"of my-erp-crm"
 msgstr ""
 "ມັນອ້າງອີງເຖິງຄີຂອງບຣາວເຊີທີ່ໃຊ້ໃນການແຈ້ງເຕືອນ: \n"
 "- p256dh: ມັນແມ່ນຄີສາທາລະນະ (public key) ຂອງການສະໝັກທີ່ສ້າງໂດຍບຣາວເຊີ. ບຣາວເຊີຈະ \n"
 " ເກັບຄີສ່ວນຕົວ (private key) ໄວ້ເປັນຄວາມລັບ ແລະ ໃຊ້ໃນການຖອດລະຫັດຂໍ້ມູນ \n"
-"- auth: ຄ່າ auth ຄວນຖືກເກັບໄວ້ເປັນຄວາມລັບ ແລະ ບໍ່ໃຫ້ແບ່ງປັນນອກ Odoo"
+"- auth: ຄ່າ auth ຄວນຖືກເກັບໄວ້ເປັນຄວາມລັບ ແລະ ບໍ່ໃຫ້ແບ່ງປັນນອກ my-erp-crm"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_tracking_duration_mixin__duration_tracking
@@ -8086,20 +8086,20 @@ msgstr "ລະບົບປະຕິບັດການ (OS)"
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_notification_layout
 #: model_terms:ir.ui.view,arch_db:mail.mail_notification_light
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: mail
 #. odoo-javascript
 #: code:addons/mail/static/src/core/common/notification_permission_service.js:0
-msgid "Odoo will not send notifications on this device."
-msgstr "Odoo ຈະບໍ່ສົ່ງການແຈ້ງເຕືອນໃນອຸປະກອນນີ້."
+msgid "my-erp-crm will not send notifications on this device."
+msgstr "my-erp-crm ຈະບໍ່ສົ່ງການແຈ້ງເຕືອນໃນອຸປະກອນນີ້."
 
 #. module: mail
 #. odoo-javascript
 #: code:addons/mail/static/src/core/common/notification_permission_service.js:0
-msgid "Odoo will send notifications on this device!"
-msgstr "Odoo ຈະສົ່ງການແຈ້ງເຕືອນໃນອຸປະກອນນີ້!"
+msgid "my-erp-crm will send notifications on this device!"
+msgstr "my-erp-crm ຈະສົ່ງການແຈ້ງເຕືອນໃນອຸປະກອນນີ້!"
 
 #. module: mail
 #. odoo-javascript
@@ -8223,8 +8223,8 @@ msgstr "ສະເພາະໂມເດວທີ່ປັບແຕ່ງເອງ
 
 #. module: mail
 #: model:ir.model.constraint,message:mail.constraint_res_users_notification_type
-msgid "Only internal user can receive notifications in Odoo"
-msgstr "ສະເພາະຜູ້ໃຊ້ພາຍໃນເທົ່ານັ້ນທີ່ຈະໄດ້ຮັບການແຈ້ງເຕືອນໃນ Odoo"
+msgid "Only internal user can receive notifications in my-erp-crm"
+msgstr "ສະເພາະຜູ້ໃຊ້ພາຍໃນເທົ່ານັ້ນທີ່ຈະໄດ້ຮັບການແຈ້ງເຕືອນໃນ my-erp-crm"
 
 #. module: mail
 #. odoo-python
@@ -8950,11 +8950,11 @@ msgstr "ກະລຸນາລໍຖ້າໃນຂະນະທີ່ກຳລັ
 msgid ""
 "Policy on how to handle Chatter notifications:\n"
 "- By Emails: notifications are sent to your email address\n"
-"- In Odoo: notifications appear in your Odoo Inbox"
+"- In my-erp-crm: notifications appear in your my-erp-crm Inbox"
 msgstr ""
 "ນະໂຍບາຍວິທີການຈັດການການແຈ້ງເຕືອນການສົນທະນາ (Chatter):\n"
 "- ຜ່ານອີເມວ: ການແຈ້ງເຕືອນຈະຖືກສົ່ງໄປຫາທີ່ຢູ່ອີເມວຂອງທ່ານ\n"
-"- ໃນ Odoo: ການແຈ້ງເຕືອນຈະປະກົດຂຶ້ນໃນ Inbox ຂອງ Odoo"
+"- ໃນ my-erp-crm: ການແຈ້ງເຕືອນຈະປະກົດຂຶ້ນໃນ Inbox ຂອງ my-erp-crm"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_alias__alias_contact
@@ -9309,8 +9309,8 @@ msgstr "ເຫດຜົນ"
 
 #. module: mail
 #: model:res.groups,name:mail.group_mail_notification_type_inbox
-msgid "Receive notifications in Odoo"
-msgstr "ຮັບການແຈ້ງເຕືອນໃນ Odoo"
+msgid "Receive notifications in my-erp-crm"
+msgstr "ຮັບການແຈ້ງເຕືອນໃນ my-erp-crm"
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__mail_mail__state__received
@@ -11281,11 +11281,11 @@ msgstr "ຂໍ້ຄວາມທີ່ໃຊ້ສ້າງຊ່ອງທາງ
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_alias__alias_model_id
 msgid ""
-"The model (Odoo Document Kind) to which this alias corresponds. Any incoming "
+"The model (my-erp-crm Document Kind) to which this alias corresponds. Any incoming "
 "email that does not reply to an existing record will cause the creation of a "
 "new record of this model (e.g. a Project Task)"
 msgstr ""
-"ໂມເດວ (ປະເພດເອກະສານ Odoo) ທີ່ນາມແຝງນີ້ກົງກັນ. ທຸກໆອີເມວຂາເຂົ້າທີ່ບໍ່ໄດ້ຕອບກັບບັນທຶກທີ່ມີຢູ່ແລ້ວ "
+"ໂມເດວ (ປະເພດເອກະສານ my-erp-crm) ທີ່ນາມແຝງນີ້ກົງກັນ. ທຸກໆອີເມວຂາເຂົ້າທີ່ບໍ່ໄດ້ຕອບກັບບັນທຶກທີ່ມີຢູ່ແລ້ວ "
 "ຈະເຮັດໃຫ້ເກີດການສ້າງບັນທຶກໃໝ່ຂອງໂມເດວນີ້ (ຕົວຢ່າງ: ໜ້າວຽກຂອງໂໂຄງການ)"
 
 #. module: mail
@@ -11558,10 +11558,10 @@ msgstr "ຂໍ້ຄວາມນີ້ຖືກລຶບອອກແລ້ວ"
 msgid ""
 "This option permanently removes any track of email after it's been sent, "
 "including from the Technical menu in the Settings, in order to preserve "
-"storage space of your Odoo database."
+"storage space of your my-erp-crm database."
 msgstr ""
 "ຕົວເລືອກນີ້ຈະລຶບຮ່ອງຮອຍຂອງອີເມວຢ່າງຖາວອນຫຼັງຈາກທີ່ສົ່ງແລ້ວ, ລວມທັງຈາກເມນູເຕັກນິກໃນການຕັ້ງຄ່າ, "
-"ເພື່ອຮັກສາພື້ນທີ່ຈັດເກັບຂໍ້ມູນຂອງຖານຂໍ້ມູນ Odoo ຂອງທ່ານ."
+"ເພື່ອຮັກສາພື້ນທີ່ຈັດເກັບຂໍ້ມູນຂອງຖານຂໍ້ມູນ my-erp-crm ຂອງທ່ານ."
 
 #. module: mail
 #. odoo-javascript

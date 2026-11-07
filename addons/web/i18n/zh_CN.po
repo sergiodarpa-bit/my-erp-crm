@@ -19,7 +19,7 @@
 # "Chloe Wang (chwa)" <chwa@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:38+0000\n"
 "PO-Revision-Date: 2026-08-07 18:11+0000\n"
@@ -1388,9 +1388,9 @@ msgstr "检查您的浏览器权限"
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.webclient_offline
 msgid ""
-"Check your network connection and come back here. Odoo will load as soon as "
+"Check your network connection and come back here. my-erp-crm will load as soon as "
 "you're back online."
-msgstr "检查您的网络连接，然后返回此处。一旦恢复网络连接，Odoo 将立即加载。"
+msgstr "检查您的网络连接，然后返回此处。一旦恢复网络连接，my-erp-crm 将立即加载。"
 
 #. module: web
 #. odoo-javascript
@@ -3048,7 +3048,7 @@ msgstr "双子座"
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/webclient/settings_form_view/fields/upgrade_dialog.xml:0
-msgid "Get this feature and much more with Odoo Enterprise!"
+msgid "Get this feature and much more with my-erp-crm Enterprise!"
 msgstr "通过Odoo企业版获得该功能及其他更多！"
 
 #. module: web
@@ -4875,38 +4875,38 @@ msgstr "物体"
 #: code:addons/web/static/src/core/install_scoped_app/install_scoped_app.xml:0
 #: code:addons/web/static/src/webclient/settings_form_view/widgets/res_config_edition.xml:0
 #: model_terms:ir.ui.view,arch_db:web.brand_promotion_message
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Client Error"
+msgid "my-erp-crm Client Error"
 msgstr "Odoo客户端错误"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/webclient/settings_form_view/fields/upgrade_dialog.xml:0
-msgid "Odoo Enterprise"
-msgstr "Odoo 企业版"
+msgid "my-erp-crm Enterprise"
+msgstr "my-erp-crm 企业版"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Error"
+msgid "my-erp-crm Error"
 msgstr "Odoo错误"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Network Error"
+msgid "my-erp-crm Network Error"
 msgstr "Odoo网络错误"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/views/widgets/notification_alert/notification_alert.xml:0
 msgid ""
-"Odoo Push notifications have been blocked. Go to your browser settings to "
+"my-erp-crm Push notifications have been blocked. Go to your browser settings to "
 "allow them."
 msgstr "Odoo推送通知已被阻止。请转到您的浏览器设置以允许它们。"
 
@@ -4920,31 +4920,31 @@ msgstr "Odoo S.A."
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Server Error"
+msgid "my-erp-crm Server Error"
 msgstr "Odoo服务器错误"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/public/error_notifications.js:0
-msgid "Odoo Session Expired"
+msgid "my-erp-crm Session Expired"
 msgstr "Odoo会话过期"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Warning"
+msgid "my-erp-crm Warning"
 msgstr "Odoo警告"
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.webclient_offline
-msgid "Odoo logo"
-msgstr "Odoo 徽标"
+msgid "my-erp-crm logo"
+msgstr "my-erp-crm 徽标"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/barcode/barcode_video_scanner.js:0
-msgid "Odoo needs your authorization first."
+msgid "my-erp-crm needs your authorization first."
 msgstr "Odoo首先需要您的授权。"
 
 #. module: web
@@ -5330,8 +5330,8 @@ msgstr "由%s%s提供支持"
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.login_layout
-msgid "Powered by <span>Odoo</span>"
-msgstr "由<span>Odoo</span>提供支持"
+msgid "Powered by <span>my-erp-crm</span>"
+msgstr "由<span>my-erp-crm</span>提供支持"
 
 #. module: web
 #. odoo-javascript
@@ -7825,7 +7825,7 @@ msgstr "在打开动态占位符选择器之前，您需要选择一个模型。
 #. odoo-javascript
 #: code:addons/web/static/src/webclient/actions/reports/utils.js:0
 msgid ""
-"You need to start Odoo with at least two workers to print a pdf version of "
+"You need to start my-erp-crm with at least two workers to print a pdf version of "
 "the reports."
 msgstr "您需要至少使用两个工人来启动Odoo以打印报告的pdf版本。"
 
@@ -7844,7 +7844,7 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/public/error_notifications.js:0
-msgid "Your Odoo session expired. The current page is about to be refreshed."
+msgid "Your my-erp-crm session expired. The current page is about to be refreshed."
 msgstr "您的Odoo会话已过期。当前页面即将被刷新。"
 
 #. module: web

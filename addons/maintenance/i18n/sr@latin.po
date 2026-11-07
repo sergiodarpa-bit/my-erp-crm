@@ -9,7 +9,7 @@
 # Dragan Vukosavljevic <dragan.vukosavljevic@gmail.com>, 2023, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0beta\n"
+"Project-Id-Version: my-erp-crm Server 16.0beta\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:35+0000\n"
 "PO-Revision-Date: 2026-08-05 22:17+0000\n"
@@ -1493,11 +1493,11 @@ msgstr ""
 #. module: maintenance
 #: model:ir.model.fields,help:maintenance.field_maintenance_team__alias_model_id
 msgid ""
-"The model (Odoo Document Kind) to which this alias corresponds. Any incoming "
+"The model (my-erp-crm Document Kind) to which this alias corresponds. Any incoming "
 "email that does not reply to an existing record will cause the creation of a "
 "new record of this model (e.g. a Project Task)"
 msgstr ""
-"Model (poput Odoo dokumenta) kome odgovara ovaj alias. Bilo koja dolazna "
+"Model (poput my-erp-crm dokumenta) kome odgovara ovaj alias. Bilo koja dolazna "
 "email adresa koja ne odgovori na postojeći zapis prouzrokovaće stvaranje "
 "novog zapisa ovog modela (npr. Projektni zadatak)"
 

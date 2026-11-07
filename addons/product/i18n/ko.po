@@ -12,7 +12,7 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0+e\n"
+"Project-Id-Version: my-erp-crm Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:38+0000\n"
 "PO-Revision-Date: 2026-08-04 21:06+0000\n"
@@ -4740,8 +4740,8 @@ msgstr "예: 전등"
 
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_variant_easy_edit_view
-msgid "e.g. Odoo Enterprise Subscription"
-msgstr "예: Odoo 유료버전 구독"
+msgid "e.g. my-erp-crm Enterprise Subscription"
+msgstr "예: my-erp-crm 유료버전 구독"
 
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_template_form_view

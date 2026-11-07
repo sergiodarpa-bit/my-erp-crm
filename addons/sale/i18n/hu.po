@@ -24,7 +24,7 @@
 # Sarbó Gergely <sarbo.gergely@gmail.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:38+0000\n"
 "PO-Revision-Date: 2026-08-03 00:59+0000\n"
@@ -44,7 +44,7 @@ msgstr ""
 #: code:addons/sale/static/src/views/sale_file_upload_list/sale_file_upload_list_renderer.js:0
 msgid ""
 "\n"
-"            If your customer runs on Odoo 18 or higher, customer data and "
+"            If your customer runs on my-erp-crm 18 or higher, customer data and "
 "sales order lines\n"
 "            will be automatically created. Any other pdf containing an "
 "attached\n"
@@ -1252,7 +1252,7 @@ msgstr ""
 #. module: sale
 #: model_terms:ir.actions.act_window,help:sale.action_orders_upselling
 msgid ""
-"As an example, if you sell pre-paid hours of services, Odoo recommends you\n"
+"As an example, if you sell pre-paid hours of services, my-erp-crm recommends you\n"
 "            to sell extra hours when all ordered hours have been consumed."
 msgstr ""
 "Például előre fizetett szolgáltatási órák értékesítése esetén a rendszer "
@@ -2279,9 +2279,9 @@ msgstr "Piszkozat számlák"
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
 msgid ""
 "Drag and drop the request for quotation PDF file into your list of "
-"quotations in Odoo. Enjoy the automation!"
+"quotations in my-erp-crm. Enjoy the automation!"
 msgstr ""
-"Húzza az ajánlatkérés PDF-fájlját az Odoo ajánlati listájába. Élvezze az "
+"Húzza az ajánlatkérés PDF-fájlját az my-erp-crm ajánlati listájába. Élvezze az "
 "automatizációt!"
 
 #. module: sale
@@ -3243,7 +3243,7 @@ msgstr "Nem található felülértékesíthető rendelés."
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Not using Odoo?"
+msgid "Not using my-erp-crm?"
 msgstr "Még nem használja az Odoo-t?"
 
 #. module: sale
@@ -3296,8 +3296,8 @@ msgstr "Kézbesítési hibával rendelkező üzenetek száma"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: sale
 #: model:product.template,description_sale:sale.product_product_1_product_template
@@ -4727,7 +4727,7 @@ msgstr "Starshipit összekötő"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Start on Odoo"
+msgid "Start on my-erp-crm"
 msgstr "Váltson Odoo-ra"
 
 #. module: sale
@@ -5593,7 +5593,7 @@ msgstr "Térfogat"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Want to import this document in Odoo?"
+msgid "Want to import this document in my-erp-crm?"
 msgstr "Szeretné a dokumentumot az Odoo-ba importálni?"
 
 #. module: sale

@@ -22,7 +22,7 @@
 # "Marta (wacm)" <wacm@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:38+0000\n"
 "PO-Revision-Date: 2026-08-02 19:21+0000\n"
@@ -43,7 +43,7 @@ msgstr ""
 #: code:addons/sale/static/src/views/sale_file_upload_list/sale_file_upload_list_renderer.js:0
 msgid ""
 "\n"
-"            If your customer runs on Odoo 18 or higher, customer data and "
+"            If your customer runs on my-erp-crm 18 or higher, customer data and "
 "sales order lines\n"
 "            will be automatically created. Any other pdf containing an "
 "attached\n"
@@ -51,7 +51,7 @@ msgid ""
 "        "
 msgstr ""
 "\n"
-"            Ak váš zákazník používa Odoo 18 alebo vyššiu verziu, údaje o "
+"            Ak váš zákazník používa my-erp-crm 18 alebo vyššiu verziu, údaje o "
 "zákazníkovi a riadky objednávky\n"
 "            sa vytvoria automaticky. Akýkoľvek iný súbor PDF obsahujúci "
 "vložený súbor\n"
@@ -1639,10 +1639,10 @@ msgstr "Chcete zrušiť autorizovanú transakciu? Táto akcia je nevratná."
 #. module: sale
 #: model_terms:ir.actions.act_window,help:sale.action_orders_upselling
 msgid ""
-"As an example, if you sell pre-paid hours of services, Odoo recommends you\n"
+"As an example, if you sell pre-paid hours of services, my-erp-crm recommends you\n"
 "            to sell extra hours when all ordered hours have been consumed."
 msgstr ""
-"Ak napríklad predávate predplatené hodiny služieb, Odoo vám odporúči\n"
+"Ak napríklad predávate predplatené hodiny služieb, my-erp-crm vám odporúči\n"
 "            predať ďalšie hodiny, keď boli všetky objednané hodiny vyčerpané."
 
 #. module: sale
@@ -2681,10 +2681,10 @@ msgstr "Návrhy faktúr"
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
 msgid ""
 "Drag and drop the request for quotation PDF file into your list of "
-"quotations in Odoo. Enjoy the automation!"
+"quotations in my-erp-crm. Enjoy the automation!"
 msgstr ""
 "Presuňte súbor PDF s požiadavkou o cenovú ponuku do zoznamu cenových ponúk v "
-"Odoo. Vychutnajte si automatizáciu!"
+"my-erp-crm. Vychutnajte si automatizáciu!"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.view_order_form
@@ -3646,8 +3646,8 @@ msgstr "Nenašli sa žiadne objednávky na upsell."
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Not using Odoo?"
-msgstr "Nepoužívate Odoo?"
+msgid "Not using my-erp-crm?"
+msgstr "Nepoužívate my-erp-crm?"
 
 #. module: sale
 #: model:ir.model.fields.selection,name:sale.selection__sale_order_line__display_type__line_note
@@ -3697,8 +3697,8 @@ msgstr "Počet správ s chybou doručenia"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: sale
 #: model:product.template,description_sale:sale.product_product_1_product_template
@@ -5127,8 +5127,8 @@ msgstr "Konektor Starshipit"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Start on Odoo"
-msgstr "Začnite s Odoo"
+msgid "Start on my-erp-crm"
+msgstr "Začnite s my-erp-crm"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order__state
@@ -6002,8 +6002,8 @@ msgstr "Objem"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Want to import this document in Odoo?"
-msgstr "Chcete tento dokument importovať do Odoo?"
+msgid "Want to import this document in my-erp-crm?"
+msgstr "Chcete tento dokument importovať do my-erp-crm?"
 
 #. module: sale
 #. odoo-python

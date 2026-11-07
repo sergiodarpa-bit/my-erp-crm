@@ -19,7 +19,7 @@
 # Kristina Pešehodko <kristina@avalah.ee>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.5alpha1\n"
+"Project-Id-Version: my-erp-crm Server 15.5alpha1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-08-02 13:57+0000\n"
@@ -452,12 +452,12 @@ msgstr "ID"
 #: code:addons/base_import/static/src/import_data_content/import_data_content.xml:0
 msgid ""
 "If the file contains\n"
-"                    the column names, Odoo can try auto-detecting the\n"
+"                    the column names, my-erp-crm can try auto-detecting the\n"
 "                    field corresponding to the column. This makes imports\n"
 "                    simpler especially when the file has many columns."
 msgstr ""
 "Kui fail sisaldab\n"
-"                     veergude nimesid, võib Odoo proovida automaatset "
+"                     veergude nimesid, võib my-erp-crm proovida automaatset "
 "tuvastamist\n"
 "                     veerule vastava väljaga. See muudab impordi\n"
 "                     lihtsamaks, eriti kui failis on palju veerge."
@@ -616,8 +616,8 @@ msgstr "Sellele nimele ei leitud ühtegi vastet"
 #. module: base_import
 #. odoo-javascript
 #: code:addons/base_import/static/src/import_data_content/import_data_content.xml:0
-msgid "Odoo Field"
-msgstr "Odoo väli"
+msgid "my-erp-crm Field"
+msgstr "my-erp-crm väli"
 
 #. module: base_import
 #. odoo-javascript
@@ -892,11 +892,11 @@ msgstr "Lae üles enda faile"
 msgid ""
 "Use HH for hours in a 24h system, use II in conjonction with 'p' for a 12h "
 "system. You can use a custom format in addition to the suggestions provided. "
-"Leave empty to let Odoo guess the format (recommended)"
+"Leave empty to let my-erp-crm guess the format (recommended)"
 msgstr ""
 "Kasutage HH tundide jaoks 24-tunnises süsteemi, kasuta II koos ‘p’-ga 12-"
 "tunnises süsteemi. Lisaks antud soovitustele võite kasutada ka kohandatud "
-"vormingut. Jätake tühjaks, et Odoo saaks vormingu ise määrata (soovitatav)"
+"vormingut. Jätake tühjaks, et my-erp-crm saaks vormingu ise määrata (soovitatav)"
 
 #. module: base_import
 #. odoo-javascript
@@ -904,12 +904,12 @@ msgstr ""
 msgid ""
 "Use YYYY to represent the year, MM for the month and DD for the day. Include "
 "separators such as a dot, forward slash or dash. You can use a custom format "
-"in addition to the suggestions provided. Leave empty to let Odoo guess the "
+"in addition to the suggestions provided. Leave empty to let my-erp-crm guess the "
 "format (recommended)"
 msgstr ""
 "Kasutage YYYY aasta esitamiseks, MM kuu ja DD päeva jaoks. Lisage eraldajad, "
 "näiteks punkt, kaldkriips või sidekriips. Lisaks antud soovitustele võite "
-"kasutada ka kohandatud vormingut. Jätke tühjaks, et Odoo saaks vormingu ise "
+"kasutada ka kohandatud vormingut. Jätke tühjaks, et my-erp-crm saaks vormingu ise "
 "määrata (soovitatav)"
 
 #. module: base_import

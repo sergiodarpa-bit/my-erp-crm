@@ -1,6 +1,6 @@
 {
     'name': 'Romania - CPV Code',
-    'author': 'Odoo',
+    'author': 'my-erp-crm',
     'category': 'Hidden',
     'version': '1.0',
     'depends': ['l10n_ro_edi'],

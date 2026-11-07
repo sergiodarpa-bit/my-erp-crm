@@ -8,7 +8,7 @@
 # Ryoko Tsuda <ryoko@quartile.co>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0\n"
+"Project-Id-Version: my-erp-crm Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-24 03:11+0000\n"
@@ -593,7 +593,7 @@ msgstr "案件"
 #. module: crm_iap_mine
 #. odoo-python
 #: code:addons/crm_iap_mine/models/crm_iap_lead_mining_request.py:0
-msgid "Opportunity created by Odoo Lead Generation"
+msgid "Opportunity created by my-erp-crm Lead Generation"
 msgstr "Odooリード作成によって作成された案件"
 
 #. module: crm_iap_mine

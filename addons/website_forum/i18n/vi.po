@@ -9,7 +9,7 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0+e\n"
+"Project-Id-Version: my-erp-crm Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:40+0000\n"
 "PO-Revision-Date: 2026-08-07 05:22+0000\n"
@@ -3427,10 +3427,10 @@ msgstr "Câu trả lời được chấp nhận đã bị xoá"
 #: model_terms:ir.ui.view,arch_db:website_forum.faq_karma
 msgid ""
 "The goal of this site is create a relevant knowledge base that would answer "
-"questions related to Odoo."
+"questions related to my-erp-crm."
 msgstr ""
 "Mục tiêu của trang này là tạo cơ sở kiến thức phù hợp có thể trả lời các câu "
-"hỏi liên quan tới Odoo."
+"hỏi liên quan tới my-erp-crm."
 
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.post_description_full
@@ -4115,9 +4115,9 @@ msgstr "ở đây"
 #. module: website_forum
 #: model_terms:forum.forum,faq:website_forum.forum_help
 #: model_terms:ir.ui.view,arch_db:website_forum.default_faq
-msgid "how to configure or customize Odoo to specific business needs,"
+msgid "how to configure or customize my-erp-crm to specific business needs,"
 msgstr ""
-"Làm sao để cấu hình hoặc tùy chỉnh Odoo để phù hợp với nhu cầu của doanh "
+"Làm sao để cấu hình hoặc tùy chỉnh my-erp-crm để phù hợp với nhu cầu của doanh "
 "nghiệp,"
 
 #. module: website_forum
@@ -4129,8 +4129,8 @@ msgstr "Làm sao để phát triển tính năng theo nhu cầu của bạn,"
 #. module: website_forum
 #: model_terms:forum.forum,faq:website_forum.forum_help
 #: model_terms:ir.ui.view,arch_db:website_forum.default_faq
-msgid "how to install Odoo on a specific infrastructure,"
-msgstr "Làm sao để cài đặt Odoo trên một cơ sở hạ tầng cụ thể,"
+msgid "how to install my-erp-crm on a specific infrastructure,"
+msgstr "Làm sao để cài đặt my-erp-crm trên một cơ sở hạ tầng cụ thể,"
 
 #. module: website_forum
 #. odoo-javascript
@@ -4231,8 +4231,8 @@ msgstr "bài viết"
 #. module: website_forum
 #: model_terms:forum.forum,faq:website_forum.forum_help
 #: model_terms:ir.ui.view,arch_db:website_forum.default_faq
-msgid "specific questions about Odoo service offers, etc."
-msgstr "câu hỏi liên quan đến dịch vụ của Odoo."
+msgid "specific questions about my-erp-crm service offers, etc."
+msgstr "câu hỏi liên quan đến dịch vụ của my-erp-crm."
 
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.no_results_message
@@ -4283,8 +4283,8 @@ msgstr ""
 #. module: website_forum
 #: model_terms:forum.forum,faq:website_forum.forum_help
 #: model_terms:ir.ui.view,arch_db:website_forum.default_faq
-msgid "what's the best way to use Odoo for a specific business need,"
-msgstr "cách tốt nhất để sử dụng Odoo để phù hợp với nhu cầu của doanh nghiệp,"
+msgid "what's the best way to use my-erp-crm for a specific business need,"
+msgstr "cách tốt nhất để sử dụng my-erp-crm để phù hợp với nhu cầu của doanh nghiệp,"
 
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.author_box

@@ -17,7 +17,7 @@
 # Deleted User <noreply+31@weblate.org>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:38+0000\n"
 "PO-Revision-Date: 2026-08-07 05:14+0000\n"
@@ -1407,10 +1407,10 @@ msgstr "Kiểm tra quyền của trình duyệt của bạn"
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.webclient_offline
 msgid ""
-"Check your network connection and come back here. Odoo will load as soon as "
+"Check your network connection and come back here. my-erp-crm will load as soon as "
 "you're back online."
 msgstr ""
-"Hãy kiểm tra kết nối mạng của bạn và quay lại. Odoo sẽ tải ngay khi bạn "
+"Hãy kiểm tra kết nối mạng của bạn và quay lại. my-erp-crm sẽ tải ngay khi bạn "
 "online trở lại."
 
 #. module: web
@@ -3092,7 +3092,7 @@ msgstr "Song Tử"
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/webclient/settings_form_view/fields/upgrade_dialog.xml:0
-msgid "Get this feature and much more with Odoo Enterprise!"
+msgid "Get this feature and much more with my-erp-crm Enterprise!"
 msgstr "Nhận được tính năng này và nhiều hơn nữa với phiên bản Doanh nghiệp!"
 
 #. module: web
@@ -4933,40 +4933,40 @@ msgstr "Vật thể"
 #: code:addons/web/static/src/core/install_scoped_app/install_scoped_app.xml:0
 #: code:addons/web/static/src/webclient/settings_form_view/widgets/res_config_edition.xml:0
 #: model_terms:ir.ui.view,arch_db:web.brand_promotion_message
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Client Error"
+msgid "my-erp-crm Client Error"
 msgstr "Lỗi phía máy khách"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/webclient/settings_form_view/fields/upgrade_dialog.xml:0
-msgid "Odoo Enterprise"
+msgid "my-erp-crm Enterprise"
 msgstr "Hệ thống cho Doanh nghiệp"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Error"
+msgid "my-erp-crm Error"
 msgstr "Lỗi hệ thống"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Network Error"
-msgstr "Lỗi mạng Odoo"
+msgid "my-erp-crm Network Error"
+msgstr "Lỗi mạng my-erp-crm"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/views/widgets/notification_alert/notification_alert.xml:0
 msgid ""
-"Odoo Push notifications have been blocked. Go to your browser settings to "
+"my-erp-crm Push notifications have been blocked. Go to your browser settings to "
 "allow them."
-msgstr "Thông báo đẩy Odoo đã bị chặn. Đi tới cài đặt trình duyệt để cho phép."
+msgstr "Thông báo đẩy my-erp-crm đã bị chặn. Đi tới cài đặt trình duyệt để cho phép."
 
 #. module: web
 #. odoo-javascript
@@ -4978,32 +4978,32 @@ msgstr "Odoo S.A."
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Server Error"
-msgstr "Lỗi máy chủ Odoo"
+msgid "my-erp-crm Server Error"
+msgstr "Lỗi máy chủ my-erp-crm"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/public/error_notifications.js:0
-msgid "Odoo Session Expired"
+msgid "my-erp-crm Session Expired"
 msgstr "Phiên làm việc đã hết hạn"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Warning"
+msgid "my-erp-crm Warning"
 msgstr "Cảnh báo hệ thống"
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.webclient_offline
-msgid "Odoo logo"
-msgstr "Logo Odoo"
+msgid "my-erp-crm logo"
+msgstr "Logo my-erp-crm"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/barcode/barcode_video_scanner.js:0
-msgid "Odoo needs your authorization first."
-msgstr "Odoo cần sự cho phép của bạn trước."
+msgid "my-erp-crm needs your authorization first."
+msgstr "my-erp-crm cần sự cho phép của bạn trước."
 
 #. module: web
 #. odoo-javascript
@@ -5399,8 +5399,8 @@ msgstr "Được hỗ trợ bởi %s%s"
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.login_layout
-msgid "Powered by <span>Odoo</span>"
-msgstr "Được hỗ trợ bởi <span>Odoo</span>"
+msgid "Powered by <span>my-erp-crm</span>"
+msgstr "Được hỗ trợ bởi <span>my-erp-crm</span>"
 
 #. module: web
 #. odoo-javascript
@@ -7925,9 +7925,9 @@ msgstr "Bạn cần chọn một mô hình trước khi mở bộ chọn phần 
 #. odoo-javascript
 #: code:addons/web/static/src/webclient/actions/reports/utils.js:0
 msgid ""
-"You need to start Odoo with at least two workers to print a pdf version of "
+"You need to start my-erp-crm with at least two workers to print a pdf version of "
 "the reports."
-msgstr "Bạn cần chạy Odoo với ít nhất 2 worker để in báo cáo định dạng pdf."
+msgstr "Bạn cần chạy my-erp-crm với ít nhất 2 worker để in báo cáo định dạng pdf."
 
 #. module: web
 #. odoo-javascript
@@ -7945,7 +7945,7 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/public/error_notifications.js:0
-msgid "Your Odoo session expired. The current page is about to be refreshed."
+msgid "Your my-erp-crm session expired. The current page is about to be refreshed."
 msgstr "Phiên làm việc của bạn đã hết hạn. Xin hãy tải lại trang hiện tại."
 
 #. module: web

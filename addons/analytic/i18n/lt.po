@@ -21,7 +21,7 @@
 # Ulevičienė <vilma.uleviciene@mededu.lt>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-10-23 22:03+0000\n"
@@ -586,12 +586,12 @@ msgstr "Jei pažymėta, yra žinučių, turinčių pristatymo klaidų."
 #: model_terms:ir.actions.act_window,help:analytic.account_analytic_line_action
 #: model_terms:ir.actions.act_window,help:analytic.account_analytic_line_action_entries
 msgid ""
-"In Odoo, sales orders and projects are implemented using\n"
+"In my-erp-crm, sales orders and projects are implemented using\n"
 "                analytic accounts. You can track costs and revenues to "
 "analyse\n"
 "                your margins easily."
 msgstr ""
-"\"Odoo\" sistemoje pardavimo užsakymai ir projektai yra implementuoti "
+"\"my-erp-crm\" sistemoje pardavimo užsakymai ir projektai yra implementuoti "
 "naudojant \n"
 "                analitines sąskaitas. Galite sekti sąnaudas bei pajamas \n"
 "                ir paprastai analizuodami maržas."

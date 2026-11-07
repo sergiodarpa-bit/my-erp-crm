@@ -5,7 +5,7 @@
 # "Tiffany Chang (tic)" <tic@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: my-erp-crm Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:37+0000\n"
 "PO-Revision-Date: 2026-08-04 04:50+0000\n"
@@ -77,8 +77,8 @@ msgstr "Nie przetłumaczone"
 
 #. module: transifex
 #: model:ir.model.fields,help:transifex.field_transifex_code_translation__transifex_url
-msgid "Propose a modification in the official version of Odoo"
-msgstr "Zaproponuj modyfikację w oficjalnej wersji Odoo"
+msgid "Propose a modification in the official version of my-erp-crm"
+msgstr "Zaproponuj modyfikację w oficjalnej wersji my-erp-crm"
 
 #. module: transifex
 #. odoo-javascript

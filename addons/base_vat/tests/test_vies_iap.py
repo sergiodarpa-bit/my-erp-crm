@@ -94,7 +94,7 @@ class TestViesIAP(HttpCase):
     def test_vies_iap_controller(self):
         """
         If IAP doesn't have the lookup status yet, it returns pending and will retry later.
-        Upon having a new lookup status, it will call the Odoo client db with the updated status
+        Upon having a new lookup status, it will call the my-erp-crm client db with the updated status
         """
         self.mock_return_status = "pending"
         self.partner.vat = self.RANDOM_VAT
@@ -156,7 +156,7 @@ class TestViesIAP(HttpCase):
 
     def test_vies_iap_cron(self):
         """
-        Same as previous test, but for cases where the Odoo client db is unreachable (invalid
+        Same as previous test, but for cases where the my-erp-crm client db is unreachable (invalid
         webhook URL, firewall, localhost, ...). In those cases, a cron runs and calls IAP itself
         (pull updates from IAP instead of letting IAP push the updates).
         """

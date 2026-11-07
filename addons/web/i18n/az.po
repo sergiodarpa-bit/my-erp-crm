@@ -11,11 +11,11 @@
 # ERPGo Odoo <erpgo.odoo@gmail.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:38+0000\n"
 "PO-Revision-Date: 2026-08-07 00:01+0000\n"
-"Last-Translator: ERPGo Odoo <erpgo.odoo@gmail.com>\n"
+"Last-Translator: ERPGo my-erp-crm <erpgo.odoo@gmail.com>\n"
 "Language-Team: Azerbaijani <https://translate.odoo.com/projects/odoo-19/web/"
 "az/>\n"
 "Language: az\n"
@@ -1388,11 +1388,11 @@ msgstr "Brauzer icazələrinizi yoxlayın"
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.webclient_offline
 msgid ""
-"Check your network connection and come back here. Odoo will load as soon as "
+"Check your network connection and come back here. my-erp-crm will load as soon as "
 "you're back online."
 msgstr ""
 "Şəbəkə bağlantınızı yoxlayın və bura qayıdın. Siz yenidən onlayn olan kimi "
-"Odoo yüklənəcək."
+"my-erp-crm yüklənəcək."
 
 #. module: web
 #. odoo-javascript
@@ -3068,8 +3068,8 @@ msgstr "Əkizlər"
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/webclient/settings_form_view/fields/upgrade_dialog.xml:0
-msgid "Get this feature and much more with Odoo Enterprise!"
-msgstr "Odoo Enterprise ilə bu funksiyanı və daha çoxunu əldə edin!"
+msgid "Get this feature and much more with my-erp-crm Enterprise!"
+msgstr "my-erp-crm Enterprise ilə bu funksiyanı və daha çoxunu əldə edin!"
 
 #. module: web
 #. odoo-javascript
@@ -4914,41 +4914,41 @@ msgstr "Obyektlər"
 #: code:addons/web/static/src/core/install_scoped_app/install_scoped_app.xml:0
 #: code:addons/web/static/src/webclient/settings_form_view/widgets/res_config_edition.xml:0
 #: model_terms:ir.ui.view,arch_db:web.brand_promotion_message
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Client Error"
-msgstr "Odoo Klient Xətası"
+msgid "my-erp-crm Client Error"
+msgstr "my-erp-crm Klient Xətası"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/webclient/settings_form_view/fields/upgrade_dialog.xml:0
-msgid "Odoo Enterprise"
-msgstr "Odoo Enterprise"
+msgid "my-erp-crm Enterprise"
+msgstr "my-erp-crm Enterprise"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Error"
-msgstr "Odoo xətası"
+msgid "my-erp-crm Error"
+msgstr "my-erp-crm xətası"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Network Error"
-msgstr "Odoo Şəbəkə Xətası"
+msgid "my-erp-crm Network Error"
+msgstr "my-erp-crm Şəbəkə Xətası"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/views/widgets/notification_alert/notification_alert.xml:0
 msgid ""
-"Odoo Push notifications have been blocked. Go to your browser settings to "
+"my-erp-crm Push notifications have been blocked. Go to your browser settings to "
 "allow them."
 msgstr ""
-"Odoo Push bildirişləri bloklanıb. Onlara icazə vermək üçün brauzerinizin "
+"my-erp-crm Push bildirişləri bloklanıb. Onlara icazə vermək üçün brauzerinizin "
 "parametrlərinə keçin."
 
 #. module: web
@@ -4961,32 +4961,32 @@ msgstr "Odoo S.A."
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Server Error"
-msgstr "Odoo Server Xətası"
+msgid "my-erp-crm Server Error"
+msgstr "my-erp-crm Server Xətası"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/public/error_notifications.js:0
-msgid "Odoo Session Expired"
-msgstr "Odoo Sessiyası Bitdi"
+msgid "my-erp-crm Session Expired"
+msgstr "my-erp-crm Sessiyası Bitdi"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Warning"
-msgstr "Odoo Xəbərdarlığı"
+msgid "my-erp-crm Warning"
+msgstr "my-erp-crm Xəbərdarlığı"
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.webclient_offline
-msgid "Odoo logo"
-msgstr "Odoo loqosu"
+msgid "my-erp-crm logo"
+msgstr "my-erp-crm loqosu"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/barcode/barcode_video_scanner.js:0
-msgid "Odoo needs your authorization first."
-msgstr "Odoo ilk olaraq icazənizi tələb edir."
+msgid "my-erp-crm needs your authorization first."
+msgstr "my-erp-crm ilk olaraq icazənizi tələb edir."
 
 #. module: web
 #. odoo-javascript
@@ -5376,8 +5376,8 @@ msgstr "%s%s tərəfindən dəstəklənən"
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.login_layout
-msgid "Powered by <span>Odoo</span>"
-msgstr "<span>Odoo</span> tərəfindən dəstəklənən"
+msgid "Powered by <span>my-erp-crm</span>"
+msgstr "<span>my-erp-crm</span> tərəfindən dəstəklənən"
 
 #. module: web
 #. odoo-javascript
@@ -7898,7 +7898,7 @@ msgstr "Dinamik yer tutucu seçicisini açmazdan əvvəl bir model seçməlisini
 #. odoo-javascript
 #: code:addons/web/static/src/webclient/actions/reports/utils.js:0
 msgid ""
-"You need to start Odoo with at least two workers to print a pdf version of "
+"You need to start my-erp-crm with at least two workers to print a pdf version of "
 "the reports."
 msgstr ""
 "Hesabatların pdf versiyasını çap etmək üçün Odoo-nu ən azı iki işçi ilə işə "
@@ -7920,9 +7920,9 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/public/error_notifications.js:0
-msgid "Your Odoo session expired. The current page is about to be refreshed."
+msgid "Your my-erp-crm session expired. The current page is about to be refreshed."
 msgstr ""
-"Sizin Odoo sessiyanızın müddəti başa çatmışdır. Hazırki səhifə az sonra "
+"Sizin my-erp-crm sessiyanızın müddəti başa çatmışdır. Hazırki səhifə az sonra "
 "yenilənəcək."
 
 #. module: web

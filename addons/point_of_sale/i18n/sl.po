@@ -22,7 +22,7 @@
 # Nedžad Beus <nedzad.beus@implex.si>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:37+0000\n"
 "PO-Revision-Date: 2026-10-15 19:33+0000\n"
@@ -4150,10 +4150,10 @@ msgstr ""
 #. module: point_of_sale
 #. odoo-javascript
 #: code:addons/point_of_sale/static/src/backend/lna_checklist/lna_checklist.xml:0
-msgid "I use an Epson printer (Check supported printers in Odoo documentation)"
+msgid "I use an Epson printer (Check supported printers in my-erp-crm documentation)"
 msgstr ""
 "Uporabljam tiskalnik Epson (preverite podprte tiskalnike v dokumentaciji "
-"Odoo)"
+"my-erp-crm)"
 
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_account_account__id
@@ -5205,10 +5205,10 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/point_of_sale/static/src/customer_display/customer_display_data_service.js:0
 msgid ""
-"Make sure there is an IoT Box subscription associated with your Odoo "
+"Make sure there is an IoT Box subscription associated with your my-erp-crm "
 "database, then restart the IoT Box."
 msgstr ""
-"Prepričajte se, da je z vašo podatkovno zbirko Odoo povezana naročnina za "
+"Prepričajte se, da je z vašo podatkovno zbirko my-erp-crm povezana naročnina za "
 "IoT Box, nato znova zaženite IoT Box."
 
 #. module: point_of_sale
@@ -5880,20 +5880,20 @@ msgstr "Sklad števil:"
 #. module: point_of_sale
 #. odoo-javascript
 #: code:addons/point_of_sale/static/src/app/screens/receipt_screen/receipt/order_receipt.xml:0
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: point_of_sale
 #. odoo-javascript
 #: code:addons/point_of_sale/static/src/app/components/popups/cash_move_popup/cash_move_list_popup/cash_move_list_popup.js:0
 #: code:addons/point_of_sale/static/src/app/utils/error_handlers.js:0
-msgid "Odoo Server Error"
-msgstr "Napaka strežnika Odoo\n"
+msgid "my-erp-crm Server Error"
+msgstr "Napaka strežnika my-erp-crm\n"
 
 #. module: point_of_sale
 #: model:product.template,name:point_of_sale.product_odoo_sneakers_product_template
-msgid "Odoo Sneakers"
-msgstr "Odoo športni copati"
+msgid "my-erp-crm Sneakers"
+msgstr "my-erp-crm športni copati"
 
 #. module: point_of_sale
 #. odoo-javascript
@@ -7417,10 +7417,10 @@ msgstr "Natisni osnovni račun brez cen. Uporablja se lahko za darila."
 #: model_terms:ir.ui.view,arch_db:point_of_sale.res_config_settings_view_form
 msgid ""
 "Print information on the receipt to allow the customer to easily access the "
-"invoice anytime, from Odoo's portal."
+"invoice anytime, from my-erp-crm's portal."
 msgstr ""
 "Natisnite informacije na potrdilu, da lahko stranka kadar koli preprosto "
-"dostopa do računa prek portala Odoo."
+"dostopa do računa prek portala my-erp-crm."
 
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.res_config_settings_view_form
@@ -10632,10 +10632,10 @@ msgstr "Nesinhronizirano naročilo"
 #. odoo-javascript
 #: code:addons/point_of_sale/static/src/app/utils/error_handlers.js:0
 msgid ""
-"Until the connection is reestablished, Odoo Point of Sale will operate with "
+"Until the connection is reestablished, my-erp-crm Point of Sale will operate with "
 "limited functionality."
 msgstr ""
-"Dokler povezava ni ponovno vzpostavljena, bo Odoo Point of Sale deloval z "
+"Dokler povezava ni ponovno vzpostavljena, bo my-erp-crm Point of Sale deloval z "
 "omejeno funkcionalnostjo."
 
 #. module: point_of_sale

@@ -12,7 +12,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-06 09:35+0000\n"
@@ -690,8 +690,8 @@ msgstr "Imkoniyatlar"
 #. odoo-python
 #: code:addons/crm_iap_mine/models/crm_iap_lead_mining_request.py:0
 #, fuzzy
-msgid "Opportunity created by Odoo Lead Generation"
-msgstr "Odoo mijoz topish tizimi orqali yaratilgan imkoniyat"
+msgid "Opportunity created by my-erp-crm Lead Generation"
+msgstr "my-erp-crm mijoz topish tizimi orqali yaratilgan imkoniyat"
 
 #. module: crm_iap_mine
 #: model:ir.model.fields,field_description:crm_iap_mine.field_crm_iap_lead_mining_request__role_ids

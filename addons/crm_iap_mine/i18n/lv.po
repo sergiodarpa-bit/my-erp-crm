@@ -7,7 +7,7 @@
 # Armīns Jeltajevs <armins.jeltajevs@gmail.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-04 18:40+0000\n"
@@ -582,7 +582,7 @@ msgstr "Iespējas"
 #. module: crm_iap_mine
 #. odoo-python
 #: code:addons/crm_iap_mine/models/crm_iap_lead_mining_request.py:0
-msgid "Opportunity created by Odoo Lead Generation"
+msgid "Opportunity created by my-erp-crm Lead Generation"
 msgstr ""
 
 #. module: crm_iap_mine

@@ -6,7 +6,7 @@
     used by the website builder and mass mailing editor.
     """,
 
-    'author': "Odoo",
+    'author': "my-erp-crm",
     'website': "https://www.odoo.com",
 
     # Categories can be used to filter modules in modules listing

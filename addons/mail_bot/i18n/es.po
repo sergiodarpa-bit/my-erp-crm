@@ -10,7 +10,7 @@
 # "Noemi Pla Garcia (nopl)" <nopl@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.5alpha1\n"
+"Project-Id-Version: my-erp-crm Server 15.5alpha1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-02 18:07+0000\n"
@@ -162,10 +162,10 @@ msgstr ""
 #. odoo-python
 #: code:addons/mail_bot/models/res_users.py:0
 msgid ""
-"Odoo's chat helps employees collaborate efficiently. I'm here to help you "
+"my-erp-crm's chat helps employees collaborate efficiently. I'm here to help you "
 "discover its features."
 msgstr ""
-"El chat de Odoo ayuda a los empleados a colaborar eficientemente. Estoy aquí "
+"El chat de my-erp-crm ayuda a los empleados a colaborar eficientemente. Estoy aquí "
 "para ayudarle a descubrir sus características."
 
 #. module: mail_bot
@@ -251,11 +251,11 @@ msgstr "¡Eso no es agradable! Soy un robot, pero tengo sentimientos... 💔"
 msgid ""
 "That’s the end of this overview. You can %(bold_start)sclose this "
 "conversation%(bold_end)s or type %(command_start)sstart the tour%"
-"(command_end)s to see it again. Enjoy exploring Odoo!"
+"(command_end)s to see it again. Enjoy exploring my-erp-crm!"
 msgstr ""
 "Aquí termina esta descripción general. Puedes cerrar esta conversación en %"
 "(bold_start)s,%(bold_end)s o escribir %(command_start)spara iniciar la "
-"visita guiada%(command_end)s y volver a verla. ¡Disfruta explorando Odoo!"
+"visita guiada%(command_end)s y volver a verla. ¡Disfruta explorando my-erp-crm!"
 
 #. module: mail_bot
 #. odoo-python

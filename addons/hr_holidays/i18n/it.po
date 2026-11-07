@@ -12,7 +12,7 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-10-30 11:33+0000\n"
@@ -3859,12 +3859,12 @@ msgstr "Cassa integrazione parziale"
 #: code:addons/hr_holidays/wizard/hr_leave_generate_multi_wizard.py:0
 msgid ""
 "Some employees already have time off requests in hours that overlap with the "
-"selected period, Odoo cannot automatically adjust or split hourly leaves "
+"selected period, my-erp-crm cannot automatically adjust or split hourly leaves "
 "during batch generation. Conflicting time off:\n"
 "%s"
 msgstr ""
 "Alcuni dipendenti hanno già richieste di ferie in ore che si sovrappongono "
-"al periodo selezionato, Odoo non può regolare o dividere automaticamente i "
+"al periodo selezionato, my-erp-crm non può regolare o dividere automaticamente i "
 "permessi orari durante la generazione del batch. Ferie in conflitto:\n"
 "%s"
 

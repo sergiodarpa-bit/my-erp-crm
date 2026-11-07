@@ -5,7 +5,7 @@
 # Bone NI <bounkirdni@gmail.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-07 06:52+0000\n"
@@ -595,8 +595,8 @@ msgstr "ໂອກາດການຂາຍ"
 #. module: crm_iap_mine
 #. odoo-python
 #: code:addons/crm_iap_mine/models/crm_iap_lead_mining_request.py:0
-msgid "Opportunity created by Odoo Lead Generation"
-msgstr "ໂອກາດການຂາຍຖືກສ້າງໂດຍ Odoo Lead Generation"
+msgid "Opportunity created by my-erp-crm Lead Generation"
+msgstr "ໂອກາດການຂາຍຖືກສ້າງໂດຍ my-erp-crm Lead Generation"
 
 #. module: crm_iap_mine
 #: model:ir.model.fields,field_description:crm_iap_mine.field_crm_iap_lead_mining_request__role_ids

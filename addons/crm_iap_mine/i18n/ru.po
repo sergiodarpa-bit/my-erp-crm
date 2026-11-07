@@ -7,7 +7,7 @@
 # "Anastasiia Koroleva (koan)" <koan@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: my-erp-crm Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-06 22:55+0000\n"
@@ -54,7 +54,7 @@ msgstr ""
 "    <p>У вас закончились кредиты для встроенных покупок в аккаунте для "
 "Лидогенерации.<br/>\n"
 "    Вы можете пополнить счет данного аккаунта в настройках модуля CRM "
-"Odoo.<br/></p>\n"
+"my-erp-crm.<br/></p>\n"
 "    <p>С наилучшими пожеланиями,</p>\n"
 "    <p>Odoo S.A.</p>\n"
 "</div>"
@@ -606,8 +606,8 @@ msgstr "Возможности"
 #. module: crm_iap_mine
 #. odoo-python
 #: code:addons/crm_iap_mine/models/crm_iap_lead_mining_request.py:0
-msgid "Opportunity created by Odoo Lead Generation"
-msgstr "Возможности, созданные Odoo Lead Generation"
+msgid "Opportunity created by my-erp-crm Lead Generation"
+msgstr "Возможности, созданные my-erp-crm Lead Generation"
 
 #. module: crm_iap_mine
 #: model:ir.model.fields,field_description:crm_iap_mine.field_crm_iap_lead_mining_request__role_ids

@@ -8,7 +8,7 @@
 # Deleted User <noreply+31@weblate.org>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0\n"
+"Project-Id-Version: my-erp-crm Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:38+0000\n"
 "PO-Revision-Date: 2026-08-02 16:50+0000\n"
@@ -2030,10 +2030,10 @@ msgstr ""
 #: code:addons/html_editor/static/src/main/media/image_crop.js:0
 msgid ""
 "This type of image is not supported for cropping.<br/>If you want to crop "
-"it, please first download it from the original source and upload it in Odoo."
+"it, please first download it from the original source and upload it in my-erp-crm."
 msgstr ""
 "Tính năng cắt không khả dụng với loại hình ảnh này.<br/>  Nếu bạn muốn cắt "
-"hình ảnh, trước tiên hãy tải ảnh xuống từ nguồn ban đầu rồi tải lên Odoo."
+"hình ảnh, trước tiên hãy tải ảnh xuống từ nguồn ban đầu rồi tải lên my-erp-crm."
 
 #. module: html_editor
 #. odoo-javascript

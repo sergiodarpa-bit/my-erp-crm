@@ -29,7 +29,7 @@ registry.category("web_tour.tours").add('survey_tour', {
 },
 {
     trigger: 'button[type=submit]',
-    content: _t("Whenever you pick an answer, Odoo saves it for you."),
+    content: _t("Whenever you pick an answer, my-erp-crm saves it for you."),
     tooltipPosition: 'bottom',
     run: "click",
 },

@@ -20,7 +20,7 @@
 # Nedžad Beus <nedzad.beus@implex.si>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-10 18:37+0000\n"
 "PO-Revision-Date: 2026-09-16 07:33+0000\n"
@@ -3101,14 +3101,14 @@ msgstr "Pojavitev"
 
 #. module: survey
 #: model_terms:ir.ui.view,arch_db:survey.certification_report_view_general
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: survey
 #. odoo-python
 #: code:addons/survey/models/templates/survey_survey.py:0
-msgid "Odoo Certification"
-msgstr "Odoo Certificiranje"
+msgid "my-erp-crm Certification"
+msgstr "my-erp-crm Certificiranje"
 
 #. module: survey
 #: model:survey.question.answer,value:survey.vendor_certification_page_2_question_2_choice_5
@@ -5048,10 +5048,10 @@ msgstr "Kronologija komunikacij spletne strani"
 #. odoo-python
 #: code:addons/survey/models/templates/survey_survey.py:0
 msgid ""
-"Welcome to this Odoo certification. You will receive 2 random questions out "
+"Welcome to this my-erp-crm certification. You will receive 2 random questions out "
 "of a pool of 3."
 msgstr ""
-"Dobrodošli pri tem certificiranju Odoo. Prejeli boste 2 naključni vprašanji "
+"Dobrodošli pri tem certificiranju my-erp-crm. Prejeli boste 2 naključni vprašanji "
 "iz nabora 3 vprašanj."
 
 #. module: survey
@@ -5091,8 +5091,8 @@ msgstr "Kaj pomeni \"ODOO\"?"
 #. module: survey
 #. odoo-python
 #: code:addons/survey/models/templates/survey_survey.py:0
-msgid "What does one need to get to pass an Odoo Survey?"
-msgstr "Kaj potrebujete, da opravite anketo Odoo?"
+msgid "What does one need to get to pass an my-erp-crm Survey?"
+msgstr "Kaj potrebujete, da opravite anketo my-erp-crm?"
 
 #. module: survey
 #. odoo-python
@@ -5129,8 +5129,8 @@ msgstr "Kdaj je vaš datum rojstva?"
 #. module: survey
 #. odoo-javascript
 #: code:addons/survey/static/src/js/tours/survey_tour.js:0
-msgid "Whenever you pick an answer, Odoo saves it for you."
-msgstr "Kadar koli izberete odgovor, ga Odoo shrani za vas."
+msgid "Whenever you pick an answer, my-erp-crm saves it for you."
+msgstr "Kadar koli izberete odgovor, ga my-erp-crm shrani za vas."
 
 #. module: survey
 #: model:survey.question,title:survey.survey_feedback_p1_q1

@@ -5,7 +5,7 @@
     'icon': '/account/static/description/l10n.png',
     'countries': ['pt'],
     'version': '1.0',
-    'author': 'Odoo',
+    'author': 'my-erp-crm',
     'category': 'Accounting/Localizations/Account Charts',
     'description': 'Portugal - Accounting',
     'depends': [

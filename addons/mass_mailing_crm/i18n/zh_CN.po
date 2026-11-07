@@ -9,7 +9,7 @@
 # "Tiffany Chang (tic)" <tic@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~15.1\n"
+"Project-Id-Version: my-erp-crm Server saas~15.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-02 11:57+0000\n"
@@ -97,7 +97,7 @@ msgstr "还没有%s！"
 #. odoo-python
 #: code:addons/mass_mailing_crm/models/mailing_mailing.py:0
 msgid ""
-"Note that Odoo cannot track replies if they are sent towards email addresses "
+"Note that my-erp-crm cannot track replies if they are sent towards email addresses "
 "to this database."
 msgstr "请注意，如果回复发送给该数据库的电子邮件地址，Odoo无法跟踪回复。"
 

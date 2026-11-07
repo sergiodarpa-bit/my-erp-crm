@@ -133,7 +133,7 @@ test("respond to notification prompt (denied)", async () => {
     await click(".o_menu_systray i[aria-label='Messages']");
     await click(".o-mail-NotificationItem");
     await contains(".o_notification:has(.o_notification_bar.bg-warning)", {
-        text: "Notifications blocked. Odoo will not send notifications on this device.",
+        text: "Notifications blocked. my-erp-crm will not send notifications on this device.",
     });
     await contains(".o-mail-MessagingMenu-counter", { count: 0 });
     await click(".o_menu_systray i[aria-label='Messages']");
@@ -146,14 +146,14 @@ test("respond to notification prompt (granted)", async () => {
     await click(".o_menu_systray i[aria-label='Messages']");
     await click(".o-mail-NotificationItem");
     await contains(".o_notification:has(.o_notification_bar.bg-success)", {
-        text: "Notifications allowed. Odoo will send notifications on this device!",
+        text: "Notifications allowed. my-erp-crm will send notifications on this device!",
     });
 });
 
 test("no suggestion to enable chat push notifications in mobile app", async () => {
     mockPermission("notifications", "default");
     // simulate Android Odoo App
-    mockUserAgent("Chrome/0.0.0 Android (OdooMobile; Linux; Android 13; Odoo TestSuite)");
+    mockUserAgent("Chrome/0.0.0 Android (OdooMobile; Linux; Android 13; my-erp-crm TestSuite)");
     await start();
     await click(".o_menu_systray i[aria-label='Messages']");
     await contains(".o-mail-MessagingMenu-counter", { count: 0 });
@@ -195,7 +195,7 @@ test("rendering with PWA installation request", async () => {
             serverState.odoobotId
         }/avatar_128?unique=${deserializeDateTime(odoobot.write_date).ts}']`
     );
-    await contains(".o-mail-NotificationItem-name", { text: "Install Odoo" });
+    await contains(".o-mail-NotificationItem-name", { text: "Install my-erp-crm" });
     await contains(".o-mail-NotificationItem-text", {
         text: "Come here often? Install the app for quick and easy access!",
     });

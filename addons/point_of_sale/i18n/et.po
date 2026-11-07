@@ -30,7 +30,7 @@
 # Erik Köster <erik@officeplus.ee>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:37+0000\n"
 "PO-Revision-Date: 2026-08-02 17:17+0000\n"
@@ -4051,7 +4051,7 @@ msgstr ""
 #. module: point_of_sale
 #. odoo-javascript
 #: code:addons/point_of_sale/static/src/backend/lna_checklist/lna_checklist.xml:0
-msgid "I use an Epson printer (Check supported printers in Odoo documentation)"
+msgid "I use an Epson printer (Check supported printers in my-erp-crm documentation)"
 msgstr ""
 
 #. module: point_of_sale
@@ -5066,10 +5066,10 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/point_of_sale/static/src/customer_display/customer_display_data_service.js:0
 msgid ""
-"Make sure there is an IoT Box subscription associated with your Odoo "
+"Make sure there is an IoT Box subscription associated with your my-erp-crm "
 "database, then restart the IoT Box."
 msgstr ""
-"Veenduga, et teil on IoT süsteem tellimusega mis on seotud teie Odoo "
+"Veenduga, et teil on IoT süsteem tellimusega mis on seotud teie my-erp-crm "
 "andmebaasiga. Taaskäivitage oma IoT süsteem."
 
 #. module: point_of_sale
@@ -5735,20 +5735,20 @@ msgstr ""
 #. module: point_of_sale
 #. odoo-javascript
 #: code:addons/point_of_sale/static/src/app/screens/receipt_screen/receipt/order_receipt.xml:0
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: point_of_sale
 #. odoo-javascript
 #: code:addons/point_of_sale/static/src/app/components/popups/cash_move_popup/cash_move_list_popup/cash_move_list_popup.js:0
 #: code:addons/point_of_sale/static/src/app/utils/error_handlers.js:0
-msgid "Odoo Server Error"
-msgstr "Odoo serveri viga"
+msgid "my-erp-crm Server Error"
+msgstr "my-erp-crm serveri viga"
 
 #. module: point_of_sale
 #: model:product.template,name:point_of_sale.product_odoo_sneakers_product_template
-msgid "Odoo Sneakers"
-msgstr "Odoo tossud"
+msgid "my-erp-crm Sneakers"
+msgstr "my-erp-crm tossud"
 
 #. module: point_of_sale
 #. odoo-javascript
@@ -7253,9 +7253,9 @@ msgstr "Prindi pilet ilma hinnata. Sobilik kingitusteks."
 #: model_terms:ir.ui.view,arch_db:point_of_sale.res_config_settings_view_form
 msgid ""
 "Print information on the receipt to allow the customer to easily access the "
-"invoice anytime, from Odoo's portal."
+"invoice anytime, from my-erp-crm's portal."
 msgstr ""
-"Prindi informatsioon kviitungile, et klient saaks näha arvet hiljem Odoo "
+"Prindi informatsioon kviitungile, et klient saaks näha arvet hiljem my-erp-crm "
 "portaalist."
 
 #. module: point_of_sale
@@ -9961,7 +9961,7 @@ msgstr "See maksemeetod ei ole seadistatud looma QR koode."
 #: model_terms:ir.ui.view,arch_db:point_of_sale.res_config_settings_view_form
 msgid "This product is used as reference on customer receipts."
 msgstr ""
-"Selle korralduse loobumine Odoo asendus, kuid saate seda muuta, et kohandada "
+"Selle korralduse loobumine my-erp-crm asendus, kuid saate seda muuta, et kohandada "
 "oma tellimuste ridade viitenumbreid."
 
 #. module: point_of_sale
@@ -10382,10 +10382,10 @@ msgstr "Sünkroniseerimata tellimus"
 #. odoo-javascript
 #: code:addons/point_of_sale/static/src/app/utils/error_handlers.js:0
 msgid ""
-"Until the connection is reestablished, Odoo Point of Sale will operate with "
+"Until the connection is reestablished, my-erp-crm Point of Sale will operate with "
 "limited functionality."
 msgstr ""
-"Odoo kassa režiim toimib piiratud võimalustega kuni võrguühendus taastatakse."
+"my-erp-crm kassa režiim toimib piiratud võimalustega kuni võrguühendus taastatakse."
 
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_res_company__point_of_sale_update_stock_quantities

@@ -4019,7 +4019,7 @@ describe("youtube video with embedded components", () => {
     });
 });
 
-describe("Odoo editor own html", () => {
+describe("my-erp-crm editor own html", () => {
     test("should paste html as is", async () => {
         await testEditor({
             contentBefore: "<p>a[]b</p>",

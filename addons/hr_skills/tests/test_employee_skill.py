@@ -39,7 +39,7 @@ class TestEmployeeSkills(TransactionCase):
                 'name': "Certificate",
                 'certificate': True,
                 'skills': [
-                    {'name': 'Odoo'},
+                    {'name': 'my-erp-crm'},
                     {'name': 'Scrum'},
                 ],
                 'levels': [

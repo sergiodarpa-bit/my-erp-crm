@@ -9,7 +9,7 @@
 # "Malaz Siddig Elsayed Abuidris (msea)" <msea@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:39+0000\n"
 "PO-Revision-Date: 2026-09-21 07:33+0000\n"
@@ -40,14 +40,14 @@ msgid ""
 "<i class=\"fa fa-exclamation-triangle\"/> These properties are set to\n"
 "                                match the behavior of providers and that of "
 "their integration with\n"
-"                                Odoo regarding this payment method. Any "
+"                                my-erp-crm regarding this payment method. Any "
 "change may result in errors\n"
 "                                and should be tested on a test database "
 "first."
 msgstr ""
 "<i class=\"fa fa-exclamation-triangle\"/> تم ضبط هذه الخصائص على\n"
 "                                مطابقة سلوك مقدمي الخدمة وتكاملهم معهم\n"
-"                                Odoo فيما يتعلق بطريقة الدفع هذه. أي تغيير "
+"                                my-erp-crm فيما يتعلق بطريقة الدفع هذه. أي تغيير "
 "قد يؤدي إلى أخطاء\n"
 "                                ويجب اختباره على قاعدة بيانات اختبارية أولاً."
 
@@ -662,7 +662,7 @@ msgstr "تسجيل المعاملة"
 #. module: payment
 #: model:ir.model.fields,help:payment.field_payment_provider__capture_manually
 msgid ""
-"Capture the amount from Odoo, when the delivery is completed.\n"
+"Capture the amount from my-erp-crm, when the delivery is completed.\n"
 "Use this if you want to charge your customers cards only when\n"
 "you are sure you can ship the goods to them."
 msgstr ""
@@ -1675,7 +1675,7 @@ msgstr "Octopus"
 
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_provider__module_to_buy
-msgid "Odoo Enterprise Module"
+msgid "my-erp-crm Enterprise Module"
 msgstr "تطبيق أودو للمؤسسات"
 
 #. module: payment
@@ -2233,10 +2233,10 @@ msgstr "استرداد الأموال"
 #: model:ir.model.fields,help:payment.field_payment_provider__support_refund
 msgid ""
 "Refund is a feature allowing to refund customers directly from the payment "
-"in Odoo."
+"in my-erp-crm."
 msgstr ""
 "استرداد الأموال هي ميزة تتيح استرداد الأموال للعملاء مباشرةً من خلال الدفع في "
-"Odoo."
+"my-erp-crm."
 
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.payment_transaction_form

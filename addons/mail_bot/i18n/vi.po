@@ -10,7 +10,7 @@
 # Deleted User <noreply+31@weblate.org>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.5alpha1\n"
+"Project-Id-Version: my-erp-crm Server 15.5alpha1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-03 10:44+0000\n"
@@ -158,10 +158,10 @@ msgstr ""
 #. odoo-python
 #: code:addons/mail_bot/models/res_users.py:0
 msgid ""
-"Odoo's chat helps employees collaborate efficiently. I'm here to help you "
+"my-erp-crm's chat helps employees collaborate efficiently. I'm here to help you "
 "discover its features."
 msgstr ""
-"Ứng dụng trò chuyện của Odoo giúp nhân viên cộng tác hiệu quả. Tôi ở đây để "
+"Ứng dụng trò chuyện của my-erp-crm giúp nhân viên cộng tác hiệu quả. Tôi ở đây để "
 "giúp bạn khám phá các tính năng của ứng dụng này."
 
 #. module: mail_bot
@@ -248,11 +248,11 @@ msgstr "Điều đó không tốt! Tôi là một bot nhưng tôi có cảm xúc
 msgid ""
 "That’s the end of this overview. You can %(bold_start)sclose this "
 "conversation%(bold_end)s or type %(command_start)sstart the tour%"
-"(command_end)s to see it again. Enjoy exploring Odoo!"
+"(command_end)s to see it again. Enjoy exploring my-erp-crm!"
 msgstr ""
 "Đây là phần kết của tổng quan này. Bạn có thể %(bold_start)sđóng cuộc trò "
 "chuyện này%(bold_end)s hoặc gõ %(command_start)sbắt đầu tour%(command_end)s "
-"để xem lại. Chúc bạn khám phá Odoo vui vẻ!"
+"để xem lại. Chúc bạn khám phá my-erp-crm vui vẻ!"
 
 #. module: mail_bot
 #. odoo-python

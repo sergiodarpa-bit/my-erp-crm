@@ -16,7 +16,7 @@
 # "Kira Petersen François (peti)" <peti@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-08-07 00:39+0000\n"
@@ -1651,11 +1651,11 @@ msgstr "Status for kundebedømmelser"
 #. odoo-javascript
 #: code:addons/project/static/src/xml/project_task_kanban_examples.xml:0
 msgid ""
-"Customers propose feedbacks by email; Odoo creates tasks automatically, and "
+"Customers propose feedbacks by email; my-erp-crm creates tasks automatically, and "
 "you can\n"
 "      communicate on the task directly."
 msgstr ""
-"Kunderne sender feedback via e-mail. Odoo opretter automatisk opgaver, og du "
+"Kunderne sender feedback via e-mail. my-erp-crm opretter automatisk opgaver, og du "
 "kan\n"
 "      kommunikere direkte via opgaven."
 
@@ -4966,7 +4966,7 @@ msgstr "Intervallet skal være større end 0"
 #. module: project
 #: model:ir.model.fields,help:project.field_project_project__alias_model_id
 msgid ""
-"The model (Odoo Document Kind) to which this alias corresponds. Any incoming "
+"The model (my-erp-crm Document Kind) to which this alias corresponds. Any incoming "
 "email that does not reply to an existing record will cause the creation of a "
 "new record of this model (e.g. a Project Task)"
 msgstr ""
@@ -5866,11 +5866,11 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/project/static/src/js/tours/project.js:0
 msgid ""
-"You have unsaved changes - no worries! Odoo will automatically save it as "
+"You have unsaved changes - no worries! my-erp-crm will automatically save it as "
 "you navigate.<br/> You can discard these changes from here or manually save "
 "your task.<br/>Let's save it manually."
 msgstr ""
-"Du har ikke-gemte ændringer – bare rolig! Odoo gemmer dem automatisk, mens "
+"Du har ikke-gemte ændringer – bare rolig! my-erp-crm gemmer dem automatisk, mens "
 "du navigerer.<br/> Du kan vælge at annullere ændringerne eller gemme opgaven "
 "manuelt herfra.<br/> Lad os gemme manuelt."
 

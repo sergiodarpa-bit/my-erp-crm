@@ -12,7 +12,7 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0+e\n"
+"Project-Id-Version: my-erp-crm Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:40+0000\n"
 "PO-Revision-Date: 2026-08-02 13:06+0000\n"
@@ -3443,10 +3443,10 @@ msgstr "Het aanvaard antwoord is verwijderd"
 #: model_terms:ir.ui.view,arch_db:website_forum.faq_karma
 msgid ""
 "The goal of this site is create a relevant knowledge base that would answer "
-"questions related to Odoo."
+"questions related to my-erp-crm."
 msgstr ""
 "Het doel van deze website is om een relevante kennisbasis te maken die "
-"vragen gerelateerd aan Odoo beantwoord."
+"vragen gerelateerd aan my-erp-crm beantwoord."
 
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.post_description_full
@@ -4133,9 +4133,9 @@ msgstr "hier"
 #. module: website_forum
 #: model_terms:forum.forum,faq:website_forum.forum_help
 #: model_terms:ir.ui.view,arch_db:website_forum.default_faq
-msgid "how to configure or customize Odoo to specific business needs,"
+msgid "how to configure or customize my-erp-crm to specific business needs,"
 msgstr ""
-"Hoe Odoo te configureren of personaliseren naar specifieke zakelijke "
+"Hoe my-erp-crm te configureren of personaliseren naar specifieke zakelijke "
 "behoeftes,"
 
 #. module: website_forum
@@ -4147,8 +4147,8 @@ msgstr "hoe modules te ontwikkelen voor eigen gebruik,"
 #. module: website_forum
 #: model_terms:forum.forum,faq:website_forum.forum_help
 #: model_terms:ir.ui.view,arch_db:website_forum.default_faq
-msgid "how to install Odoo on a specific infrastructure,"
-msgstr "hoe Odoo te installeren op een specifieke infrastructuur,"
+msgid "how to install my-erp-crm on a specific infrastructure,"
+msgstr "hoe my-erp-crm te installeren op een specifieke infrastructuur,"
 
 #. module: website_forum
 #. odoo-javascript
@@ -4248,8 +4248,8 @@ msgstr "posts"
 #. module: website_forum
 #: model_terms:forum.forum,faq:website_forum.forum_help
 #: model_terms:ir.ui.view,arch_db:website_forum.default_faq
-msgid "specific questions about Odoo service offers, etc."
-msgstr "specifieke vragen over Odoo dienstaanbiedingen, enz."
+msgid "specific questions about my-erp-crm service offers, etc."
+msgstr "specifieke vragen over my-erp-crm dienstaanbiedingen, enz."
 
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.no_results_message
@@ -4300,9 +4300,9 @@ msgstr ""
 #. module: website_forum
 #: model_terms:forum.forum,faq:website_forum.forum_help
 #: model_terms:ir.ui.view,arch_db:website_forum.default_faq
-msgid "what's the best way to use Odoo for a specific business need,"
+msgid "what's the best way to use my-erp-crm for a specific business need,"
 msgstr ""
-"wat is de beste manier om Odoo te gebruiken voor een specifieke "
+"wat is de beste manier om my-erp-crm te gebruiken voor een specifieke "
 "bedrjifsbehoefte,"
 
 #. module: website_forum

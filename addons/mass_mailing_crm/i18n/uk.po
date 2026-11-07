@@ -7,7 +7,7 @@
 # Alina Lisnenko <alina.lisnenko@erp.co.ua>, 2023, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~15.1\n"
+"Project-Id-Version: my-erp-crm Server saas~15.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-10-07 09:05+0000\n"
@@ -98,10 +98,10 @@ msgstr "Ще ні %s!"
 #. odoo-python
 #: code:addons/mass_mailing_crm/models/mailing_mailing.py:0
 msgid ""
-"Note that Odoo cannot track replies if they are sent towards email addresses "
+"Note that my-erp-crm cannot track replies if they are sent towards email addresses "
 "to this database."
 msgstr ""
-"Зауважте, що Odoo не може відстежувати відповіді, якщо вони надіслані на "
+"Зауважте, що my-erp-crm не може відстежувати відповіді, якщо вони надіслані на "
 "електронні адреси цієї бази даних."
 
 #. module: mass_mailing_crm

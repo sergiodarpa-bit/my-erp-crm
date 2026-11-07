@@ -13,7 +13,7 @@
 # Greta Šeštokė <greta@vialaurea.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.5alpha1\n"
+"Project-Id-Version: my-erp-crm Server 15.5alpha1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-05 19:30+0000\n"
 "PO-Revision-Date: 2026-08-05 04:36+0000\n"
@@ -279,10 +279,10 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:website_links.create_shorten_url
 msgid ""
 "Those trackers can be used in Google Analytics to track clicks and visitors, "
-"or in Odoo reports to track opportunities and related revenues."
+"or in my-erp-crm reports to track opportunities and related revenues."
 msgstr ""
 "Šis sekimas gali būti panaudojamas \"Google Analytics\", taip sekant "
-"paspaudimus ir lankytojus, arba \"Odoo\" ataskaitose, taip sekant galimybes "
+"paspaudimus ir lankytojus, arba \"my-erp-crm\" ataskaitose, taip sekant galimybes "
 "ir susijusias pajamas."
 
 #. module: website_links

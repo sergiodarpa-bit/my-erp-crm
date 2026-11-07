@@ -24,7 +24,7 @@
 # Nedžad Beus <nedzad.beus@implex.si>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:38+0000\n"
 "PO-Revision-Date: 2026-10-16 16:37+0000\n"
@@ -1417,10 +1417,10 @@ msgstr "Preverite dovoljenja brskalnika"
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.webclient_offline
 msgid ""
-"Check your network connection and come back here. Odoo will load as soon as "
+"Check your network connection and come back here. my-erp-crm will load as soon as "
 "you're back online."
 msgstr ""
-"Preverite svojo omrežno povezavo in se vrnite sem. Odoo se bo naložil, ko "
+"Preverite svojo omrežno povezavo in se vrnite sem. my-erp-crm se bo naložil, ko "
 "boste znova povezani."
 
 #. module: web
@@ -3102,8 +3102,8 @@ msgstr "Dvojčka"
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/webclient/settings_form_view/fields/upgrade_dialog.xml:0
-msgid "Get this feature and much more with Odoo Enterprise!"
-msgstr "Pridobite to funkcionalnost in še veliko več z Odoo Enterprise!"
+msgid "Get this feature and much more with my-erp-crm Enterprise!"
+msgstr "Pridobite to funkcionalnost in še veliko več z my-erp-crm Enterprise!"
 
 #. module: web
 #. odoo-javascript
@@ -4949,41 +4949,41 @@ msgstr "Predmeti"
 #: code:addons/web/static/src/core/install_scoped_app/install_scoped_app.xml:0
 #: code:addons/web/static/src/webclient/settings_form_view/widgets/res_config_edition.xml:0
 #: model_terms:ir.ui.view,arch_db:web.brand_promotion_message
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Client Error"
-msgstr "Napaka odjemalca Odoo"
+msgid "my-erp-crm Client Error"
+msgstr "Napaka odjemalca my-erp-crm"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/webclient/settings_form_view/fields/upgrade_dialog.xml:0
-msgid "Odoo Enterprise"
-msgstr "Odoo Podjetje"
+msgid "my-erp-crm Enterprise"
+msgstr "my-erp-crm Podjetje"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Error"
-msgstr "Napaka Odoo"
+msgid "my-erp-crm Error"
+msgstr "Napaka my-erp-crm"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Network Error"
-msgstr "Odoo Omrežna napaka"
+msgid "my-erp-crm Network Error"
+msgstr "my-erp-crm Omrežna napaka"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/views/widgets/notification_alert/notification_alert.xml:0
 msgid ""
-"Odoo Push notifications have been blocked. Go to your browser settings to "
+"my-erp-crm Push notifications have been blocked. Go to your browser settings to "
 "allow them."
 msgstr ""
-"Potisna obvestila Odoo so bila blokirana. Pojdite v nastavitve brskalnika, "
+"Potisna obvestila my-erp-crm so bila blokirana. Pojdite v nastavitve brskalnika, "
 "da jih dovolite."
 
 #. module: web
@@ -4996,32 +4996,32 @@ msgstr "Odoo S.A."
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Server Error"
-msgstr "Napaka strežnika Odoo\n"
+msgid "my-erp-crm Server Error"
+msgstr "Napaka strežnika my-erp-crm\n"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/public/error_notifications.js:0
-msgid "Odoo Session Expired"
+msgid "my-erp-crm Session Expired"
 msgstr "Seja je potekla"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
-msgid "Odoo Warning"
-msgstr "Odoo opozorilo"
+msgid "my-erp-crm Warning"
+msgstr "my-erp-crm opozorilo"
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.webclient_offline
-msgid "Odoo logo"
-msgstr "Odoo logotip"
+msgid "my-erp-crm logo"
+msgstr "my-erp-crm logotip"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/barcode/barcode_video_scanner.js:0
-msgid "Odoo needs your authorization first."
-msgstr "Odoo najprej potrebuje vaše pooblastilo."
+msgid "my-erp-crm needs your authorization first."
+msgstr "my-erp-crm najprej potrebuje vaše pooblastilo."
 
 #. module: web
 #. odoo-javascript
@@ -5419,8 +5419,8 @@ msgstr "Uporablja tehnologijo %s%s"
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.login_layout
-msgid "Powered by <span>Odoo</span>"
-msgstr "Uporablja tehnologijo <span>Odoo</span>"
+msgid "Powered by <span>my-erp-crm</span>"
+msgstr "Uporablja tehnologijo <span>my-erp-crm</span>"
 
 #. module: web
 #. odoo-javascript
@@ -7952,10 +7952,10 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/web/static/src/webclient/actions/reports/utils.js:0
 msgid ""
-"You need to start Odoo with at least two workers to print a pdf version of "
+"You need to start my-erp-crm with at least two workers to print a pdf version of "
 "the reports."
 msgstr ""
-"Za tiskanje različice poročil v PDF-ju morate Odoo zagnati z vsaj dvema "
+"Za tiskanje različice poročil v PDF-ju morate my-erp-crm zagnati z vsaj dvema "
 "delovnima procesoma."
 
 #. module: web
@@ -7973,7 +7973,7 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/public/error_notifications.js:0
-msgid "Your Odoo session expired. The current page is about to be refreshed."
+msgid "Your my-erp-crm session expired. The current page is about to be refreshed."
 msgstr "Vaša seja na Odoo-ju je potekla. Trenutna stran se bo osvežila."
 
 #. module: web

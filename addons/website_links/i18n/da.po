@@ -10,7 +10,7 @@
 # "Kira Petersen François (peti)" <peti@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.5alpha1\n"
+"Project-Id-Version: my-erp-crm Server 15.5alpha1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-05 19:30+0000\n"
 "PO-Revision-Date: 2026-08-06 05:30+0000\n"
@@ -298,10 +298,10 @@ msgstr "Denne kode er allerede i brug"
 #: model_terms:ir.ui.view,arch_db:website_links.create_shorten_url
 msgid ""
 "Those trackers can be used in Google Analytics to track clicks and visitors, "
-"or in Odoo reports to track opportunities and related revenues."
+"or in my-erp-crm reports to track opportunities and related revenues."
 msgstr ""
 "Disse sporinger kan bruges i Google Analytics til at spore klik og besøgende "
-"eller i Odoo rapporter til at spore muligheder og relaterede indtægter."
+"eller i my-erp-crm rapporter til at spore muligheder og relaterede indtægter."
 
 #. module: website_links
 #: model_terms:ir.ui.view,arch_db:website_links.create_shorten_url

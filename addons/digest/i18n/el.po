@@ -11,7 +11,7 @@
 # "Dylan Kiss (dyki)" <dyki@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~11.5\n"
+"Project-Id-Version: my-erp-crm Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-06 00:15+0000\n"
@@ -32,7 +32,7 @@ msgstr ""
 
 #. module: digest
 #: model_terms:ir.ui.view,arch_db:digest.digest_mail_main
-msgid "<span class=\"odoo_link_text\">Odoo</span>"
+msgid "<span class=\"odoo_link_text\">my-erp-crm</span>"
 msgstr ""
 
 #. module: digest
@@ -321,7 +321,7 @@ msgstr ""
 
 #. module: digest
 #: model_terms:ir.ui.view,arch_db:digest.digest_section_mobile
-msgid "Odoo Mobile"
+msgid "my-erp-crm Mobile"
 msgstr ""
 
 #. module: digest
@@ -362,7 +362,7 @@ msgstr "Αποδέκτες"
 
 #. module: digest
 #: model_terms:ir.ui.view,arch_db:digest.digest_section_mobile
-msgid "Run your business from anywhere with <b>Odoo Mobile</b>."
+msgid "Run your business from anywhere with <b>my-erp-crm Mobile</b>."
 msgstr ""
 
 #. module: digest
@@ -398,7 +398,7 @@ msgstr ""
 
 #. module: digest
 #: model_terms:digest.tip,tip_description:digest.digest_tip_digest_2
-msgid "Tip: A calculator in Odoo"
+msgid "Tip: A calculator in my-erp-crm"
 msgstr ""
 
 #. module: digest
@@ -435,7 +435,7 @@ msgstr ""
 
 #. module: digest
 #: model:digest.tip,name:digest.digest_tip_digest_2
-msgid "Tip: A calculator in Odoo"
+msgid "Tip: A calculator in my-erp-crm"
 msgstr ""
 
 #. module: digest
@@ -533,7 +533,7 @@ msgstr ""
 
 #. module: digest
 #: model:digest.digest,name:digest.digest_digest_default
-msgid "Your Odoo Periodic Digest"
+msgid "Your my-erp-crm Periodic Digest"
 msgstr ""
 
 #. module: digest

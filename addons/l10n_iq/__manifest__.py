@@ -3,7 +3,7 @@
     "name": "Iraq - Accounting",
     "countries": ["iq"],
     "description": """
-This is the base module to manage the accounting chart for Iraq in Odoo.
+This is the base module to manage the accounting chart for Iraq in my-erp-crm.
 ==============================================================================
 Iraq accounting basic charts and localization.
 Activates:

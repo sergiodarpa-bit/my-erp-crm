@@ -2,7 +2,7 @@
 
 {
     'name': 'Greece - myDATA E-invoicing through e-invoo',
-    'author': 'Odoo',
+    'author': 'my-erp-crm',
     'countries': ['gr'],
     'category': 'Accounting/Localizations/EDI',
     'depends': [

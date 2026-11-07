@@ -5,7 +5,7 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: my-erp-crm Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:37+0000\n"
 "PO-Revision-Date: 2026-08-06 05:04+0000\n"
@@ -77,8 +77,8 @@ msgstr "Не перекладається"
 
 #. module: transifex
 #: model:ir.model.fields,help:transifex.field_transifex_code_translation__transifex_url
-msgid "Propose a modification in the official version of Odoo"
-msgstr "Запропонувати зміни в офіційній версії Odoo"
+msgid "Propose a modification in the official version of my-erp-crm"
+msgstr "Запропонувати зміни в офіційній версії my-erp-crm"
 
 #. module: transifex
 #. odoo-javascript

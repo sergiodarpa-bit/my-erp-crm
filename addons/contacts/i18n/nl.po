@@ -9,7 +9,7 @@
 # Bren Driesen <brdri@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.5alpha1\n"
+"Project-Id-Version: my-erp-crm Server 15.5alpha1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-05 10:24+0000\n"
@@ -105,9 +105,9 @@ msgstr "Lokalisatie"
 
 #. module: contacts
 #: model_terms:ir.actions.act_window,help:contacts.action_contacts
-msgid "Odoo helps you track all activities related to your contacts."
+msgid "my-erp-crm helps you track all activities related to your contacts."
 msgstr ""
-"Odoo helpt je bij het volgen van alle activiteiten met betrekking tot je "
+"my-erp-crm helpt je bij het volgen van alle activiteiten met betrekking tot je "
 "contacten."
 
 #. module: contacts

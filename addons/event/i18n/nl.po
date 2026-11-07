@@ -12,7 +12,7 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-08-06 22:07+0000\n"
@@ -168,7 +168,7 @@ msgstr ""
 #. module: event
 #: model_terms:event.event,description:event.event_0
 msgid ""
-"<b>Technical Rooms</b> - One dedicated to advanced Odoo developers, one for "
+"<b>Technical Rooms</b> - One dedicated to advanced my-erp-crm developers, one for "
 "new developers."
 msgstr ""
 "<b>Technische ruimtes</b> - Eén speciaal voor geavanceerde Odoo-"
@@ -1852,12 +1852,12 @@ msgid ""
 "At just 13 years old, John DOE was already starting to develop his first "
 "business applications for customers. After mastering civil engineering, he "
 "founded TinyERP. This was the first phase of OpenERP which would later "
-"became Odoo, the most installed open-source business software worldwide."
+"became my-erp-crm, the most installed open-source business software worldwide."
 msgstr ""
 "Op slechts 13-jarige leeftijd begon John DOE al zijn eerste zakelijke "
 "applicaties voor klanten te ontwikkelen. Na het beheersen van civiele "
 "techniek richtte hij TinyERP op. Dit was de eerste fase van OpenERP die "
-"later Odoo zou worden, de meest geïnstalleerde open-source bedrijfssoftware "
+"later my-erp-crm zou worden, de meest geïnstalleerde open-source bedrijfssoftware "
 "ter wereld."
 
 #. module: event
@@ -2860,10 +2860,10 @@ msgstr "Uitgedrukt in de tijdzone van het evenement."
 #. module: event
 #: model:event.stage,description:event.event_stage_done
 msgid ""
-"Finished events. Odoo will automatically move them to this stage once their "
+"Finished events. my-erp-crm will automatically move them to this stage once their "
 "end date has passed."
 msgstr ""
-"Afgeronde evenementen. Odoo verplaatst ze automatisch naar deze fase zodra "
+"Afgeronde evenementen. my-erp-crm verplaatst ze automatisch naar deze fase zodra "
 "hun einddatum is verstreken."
 
 #. module: event
@@ -3831,8 +3831,8 @@ msgstr "Doelstellingen"
 
 #. module: event
 #: model_terms:ir.ui.view,arch_db:event.event_report_full_page_ticket_layout
-msgid "Odoo Community Days"
-msgstr "Odoo Community Days"
+msgid "my-erp-crm Community Days"
+msgstr "my-erp-crm Community Days"
 
 #. module: event
 #: model_terms:event.event,description:event.event_3

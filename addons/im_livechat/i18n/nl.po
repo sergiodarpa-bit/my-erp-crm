@@ -12,7 +12,7 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0+e\n"
+"Project-Id-Version: my-erp-crm Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-08-26 12:00+0000\n"
@@ -268,10 +268,10 @@ msgstr "Agenten (geschiedenis)"
 #. module: im_livechat
 #: model_terms:ir.ui.view,arch_db:im_livechat.im_livechat_channel_view_form
 msgid ""
-"Agents who are inactive in Odoo for more than 30 minutes will be considered "
+"Agents who are inactive in my-erp-crm for more than 30 minutes will be considered "
 "disconnected."
 msgstr ""
-"Agents die langer dan 30 minuten inactief zijn in Odoo worden beschouwd als "
+"Agents die langer dan 30 minuten inactief zijn in my-erp-crm worden beschouwd als "
 "offline."
 
 #. module: im_livechat
@@ -2049,8 +2049,8 @@ msgstr "Aantal berichten met leveringsfout"
 #. module: im_livechat
 #: model:chatbot.script,title:im_livechat.chatbot_script_welcome_bot_demo
 #: model_terms:ir.ui.view,arch_db:im_livechat.livechat_email_template
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: im_livechat
 #: model:ir.model.constraint,message:im_livechat.constraint_im_livechat_channel_member_history_channel_id_guest_id_unique

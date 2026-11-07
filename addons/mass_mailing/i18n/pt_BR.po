@@ -16,7 +16,7 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0+e\n"
+"Project-Id-Version: my-erp-crm Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-08-04 16:33+0000\n"
@@ -461,11 +461,11 @@ msgstr ""
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_call_to_action
 msgid ""
-"<font style=\"color: white;\"><strong>50,000+ companies</strong> run Odoo.</"
+"<font style=\"color: white;\"><strong>50,000+ companies</strong> run my-erp-crm.</"
 "font>"
 msgstr ""
 "<font style=\"color: white;\"><strong>Mais de 50.000 empresas</strong> "
-"utilizam o Odoo.</font>"
+"utilizam o my-erp-crm.</font>"
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_numbers
@@ -3630,8 +3630,8 @@ msgstr ""
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_schedule
-msgid "Interactive Odoo demo"
-msgstr "Demonstração interativa do Odoo"
+msgid "Interactive my-erp-crm demo"
+msgstr "Demonstração interativa do my-erp-crm"
 
 #. module: mass_mailing
 #: model:ir.model.fields.selection,name:mass_mailing.selection__mailing_trace__failure_type__mail_email_invalid
@@ -4618,10 +4618,10 @@ msgstr ""
 #: model_terms:ir.actions.act_window,help:mass_mailing.action_view_mass_mailing_lists
 msgid ""
 "No need to import mailing lists, you can send mailings to contacts saved in "
-"other Odoo apps."
+"other my-erp-crm apps."
 msgstr ""
 "Não é necessário importar listas de distribuição, você pode enviar e-mails "
-"para contatos salvos em outros aplicativos Odoo."
+"para contatos salvos em outros aplicativos my-erp-crm."
 
 #. module: mass_mailing
 #: model_terms:ir.actions.act_window,help:mass_mailing.mailing_filter_action
@@ -4738,7 +4738,7 @@ msgstr "ABERTOS (%i)"
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_section_mobile
-msgid "Odoo Mobile"
+msgid "my-erp-crm Mobile"
 msgstr ""
 
 #. module: mass_mailing
@@ -6453,11 +6453,11 @@ msgstr ""
 #: model:ir.model.fields,help:mass_mailing.field_res_config_settings__mass_mailing_outgoing_mail_server
 #: model_terms:ir.ui.view,arch_db:mass_mailing.res_config_settings_view_form
 msgid ""
-"Use a specific mail server in priority. Otherwise Odoo relies on the first "
+"Use a specific mail server in priority. Otherwise my-erp-crm relies on the first "
 "outgoing mail server available (based on their sequencing) as it does for "
 "normal mails."
 msgstr ""
-"Use um servidor de e-mail específico prioritariamente. Ou então, o Odoo "
+"Use um servidor de e-mail específico prioritariamente. Ou então, o my-erp-crm "
 "utilizará o primeiro servidor de envio de e-mail disponível (baseado na "
 "sequência deles) como ocorre para e-mails normais."
 
@@ -6793,10 +6793,10 @@ msgstr ""
 #: model_terms:ir.actions.act_window,help:mass_mailing.action_view_mass_mailings_from_campaign
 msgid ""
 "You don't need to import your mailing lists, you can easily\n"
-"                send emails<br> to any contact saved in other Odoo apps."
+"                send emails<br> to any contact saved in other my-erp-crm apps."
 msgstr ""
 "Não é necessário importar sua lista de distribuição, você pode facilmente\n"
-"enviar e-mails<br> para qualquer contato salvo em outro app do Odoo."
+"enviar e-mails<br> para qualquer contato salvo em outro app do my-erp-crm."
 
 #. module: mass_mailing
 #. odoo-python

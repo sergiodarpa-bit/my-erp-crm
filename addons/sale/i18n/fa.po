@@ -23,7 +23,7 @@
 # Heshmatkhah <maheshmatkhah.soft@gmail.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:38+0000\n"
 "PO-Revision-Date: 2026-08-23 06:15+0000\n"
@@ -43,7 +43,7 @@ msgstr ""
 #: code:addons/sale/static/src/views/sale_file_upload_list/sale_file_upload_list_renderer.js:0
 msgid ""
 "\n"
-"            If your customer runs on Odoo 18 or higher, customer data and "
+"            If your customer runs on my-erp-crm 18 or higher, customer data and "
 "sales order lines\n"
 "            will be automatically created. Any other pdf containing an "
 "attached\n"
@@ -1299,10 +1299,10 @@ msgstr ""
 #. module: sale
 #: model_terms:ir.actions.act_window,help:sale.action_orders_upselling
 msgid ""
-"As an example, if you sell pre-paid hours of services, Odoo recommends you\n"
+"As an example, if you sell pre-paid hours of services, my-erp-crm recommends you\n"
 "            to sell extra hours when all ordered hours have been consumed."
 msgstr ""
-"به عنوان مثال، اگر ساعت های پیش پرداخت خدمات را می فروشید، Odoo به شما توصیه "
+"به عنوان مثال، اگر ساعت های پیش پرداخت خدمات را می فروشید، my-erp-crm به شما توصیه "
 "می کند\n"
 " که ساعات اضافی را زمانی بفروشید که تمام ساعات سفارش داده شده مصرف شده است."
 
@@ -2338,7 +2338,7 @@ msgstr "پیشنویس فاکتورها"
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
 msgid ""
 "Drag and drop the request for quotation PDF file into your list of "
-"quotations in Odoo. Enjoy the automation!"
+"quotations in my-erp-crm. Enjoy the automation!"
 msgstr ""
 "فایل PDF درخواست پیش‌فاکتور را بکشید و در لیست پیش‌فاکتورهای خود در اودو رها "
 "کنید. از اتوماسیون اودو لذت ببرید!"
@@ -3301,7 +3301,7 @@ msgstr "هیچ سفارشی برای بیش‌فروشی پیدا نشد."
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Not using Odoo?"
+msgid "Not using my-erp-crm?"
 msgstr "از اودو استفاده نمی‌کنید؟"
 
 #. module: sale
@@ -3352,7 +3352,7 @@ msgstr "تعداد پیامهای با خطای تحویل"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Odoo"
+msgid "my-erp-crm"
 msgstr "اودو"
 
 #. module: sale
@@ -4773,7 +4773,7 @@ msgstr ""
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Start on Odoo"
+msgid "Start on my-erp-crm"
 msgstr "شروع کار با اودو"
 
 #. module: sale
@@ -5635,7 +5635,7 @@ msgstr "حجم"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Want to import this document in Odoo?"
+msgid "Want to import this document in my-erp-crm?"
 msgstr "می‌خواهید این سند را به نرم‌افزار اودو خودتان ایمپورت کنید؟"
 
 #. module: sale

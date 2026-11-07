@@ -12,7 +12,7 @@
 # "Kira Petersen François (peti)" <peti@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0beta\n"
+"Project-Id-Version: my-erp-crm Server 16.0beta\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-20 18:35+0000\n"
 "PO-Revision-Date: 2026-08-05 05:09+0000\n"
@@ -336,7 +336,7 @@ msgid ""
 "board, you'll discover what <t t-out=\"object.company_id.name or ''\">My "
 "Company (San Francisco)</t> has to offer. My name is <t t-"
 "out=\"object.user_id.name or ''\">Marc Demo</t> and I'll help you get the "
-"most out of Odoo. Could we plan a quick demo soon?<br/>\n"
+"most out of my-erp-crm. Could we plan a quick demo soon?<br/>\n"
 "                            Feel free to reach out at any time!<br/><br/>\n"
 "                            Best,<br/>\n"
 "                            <t t-if=\"object.user_id\">\n"
@@ -389,7 +389,7 @@ msgid ""
 "<tr><td align=\"center\" style=\"min-width: 590px;\">\n"
 "    Powered by <a target=\"_blank\" href=\"https://www.odoo.com?"
 "utm_source=db&amp;utm_medium=email\" t-attf-style=\"color: "
-"{{object.company_id.email_secondary_color or '#875A7B'}};;\">Odoo</a>\n"
+"{{object.company_id.email_secondary_color or '#875A7B'}};;\">my-erp-crm</a>\n"
 "</td></tr>\n"
 "</table>\n"
 "        "
@@ -443,7 +443,7 @@ msgstr ""
 "se nærmere på, hvad <t t-out=\"object.company_id.name or ''\">Min Virksomhed "
 "(San Francisco)</t> kan gøre for dig. Jeg hedder <t t-"
 "out=\"object.user_id.name or ''\">Marc Demo</t>, og jeg står klar til at "
-"hjælpe dig med at få fuldt udbytte af Odoo. Har du lyst til, at vi aftaler "
+"hjælpe dig med at få fuldt udbytte af my-erp-crm. Har du lyst til, at vi aftaler "
 "en kort demo snart?<br/>\n"
 "                            Du er altid velkommen til at kontakte os!<br/>"
 "<br/>\n"
@@ -498,7 +498,7 @@ msgstr ""
 "<tr><td align=\"center\" style=\"min-width: 590px;\">\n"
 "    Drevet af <a target=\"_blank\" href=\"https://"
 "www.odoo.com?utm_source=db&amp;utm_medium=email\" t-attf-style=\"color: {"
-"{object.company_id.email_secondary_color or '#875A7B'}};;\">Odoo</a>\n"
+"{object.company_id.email_secondary_color or '#875A7B'}};;\">my-erp-crm</a>\n"
 "</td></tr>\n"
 "</table>\n"
 "        "
@@ -1063,10 +1063,10 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/crm/static/src/js/tours/crm.js:0
 msgid ""
-"Click on the breadcrumb to go back to your Pipeline. Odoo will save all "
+"Click on the breadcrumb to go back to your Pipeline. my-erp-crm will save all "
 "modifications as you navigate."
 msgstr ""
-"Klik på brødkrummen for at vende tilbage til din pipeline. Odoo gemmer "
+"Klik på brødkrummen for at vende tilbage til din pipeline. my-erp-crm gemmer "
 "automatisk alle ændringer, mens du navigerer."
 
 #. module: crm
@@ -1152,7 +1152,7 @@ msgstr "Afslutningsdato"
 #. module: crm
 #. odoo-javascript
 #: code:addons/crm/static/src/views/crm_form/crm_pls_tooltip_button.xml:0
-msgid "Computed by Odoo AI using your data."
+msgid "Computed by my-erp-crm AI using your data."
 msgstr "Beregnet af Odoos AI på baggrund af dine data."
 
 #. module: crm
@@ -1543,11 +1543,11 @@ msgstr ""
 #: model_terms:digest.tip,tip_description:crm.digest_tip_crm_4
 msgid ""
 "Did you know you can search a company by name or VAT number to instantly "
-"fill in all its data? Odoo autocompletes everything for you: logo, address, "
+"fill in all its data? my-erp-crm autocompletes everything for you: logo, address, "
 "company size, business information, social media accounts, etc."
 msgstr ""
 "Vidste du, at du kan søge efter en virksomhed ud fra navn eller CVR-nummer "
-"og få alle oplysninger udfyldt automatisk? Odoo henter alt for dig – logo, "
+"og få alle oplysninger udfyldt automatisk? my-erp-crm henter alt for dig – logo, "
 "adresse, virksomhedsstørrelse, forretningsoplysninger, profiler på sociale "
 "medier m.m."
 
@@ -1555,11 +1555,11 @@ msgstr ""
 #: model_terms:digest.tip,tip_description:crm.digest_tip_crm_5
 msgid ""
 "Did you know you can turn a list of opportunities into a map view, using the "
-"top-right map icon? A lot of screens in Odoo can be turned into a map: "
+"top-right map icon? A lot of screens in my-erp-crm can be turned into a map: "
 "tasks, contacts, delivery orders, etc."
 msgstr ""
 "Vidste du, at du kan omdanne en liste over salgsmuligheder til kortvisning "
-"via kortikonet øverst til højre? Mange visninger i Odoo kan skiftes til "
+"via kortikonet øverst til højre? Mange visninger i my-erp-crm kan skiftes til "
 "kort: opgaver, kontakter, leveringer m.m."
 
 #. module: crm
@@ -2587,10 +2587,10 @@ msgstr "MRR"
 #. module: crm
 #: model_terms:ir.ui.view,arch_db:crm.res_config_settings_view_form
 msgid ""
-"Make and receive calls from Odoo with Ringover's dialer. Track calls, SMS "
+"Make and receive calls from my-erp-crm with Ringover's dialer. Track calls, SMS "
 "messages, and get AI-powered transcripts of your conversations."
 msgstr ""
-"Foretag og modtag opkald i Odoo med Ringovers opkaldsprogram. Spor opkald og "
+"Foretag og modtag opkald i my-erp-crm med Ringovers opkaldsprogram. Spor opkald og "
 "SMS’er, og få AI-drevne udskrifter af dine samtaler."
 
 #. module: crm
@@ -3037,24 +3037,24 @@ msgstr "Antal beskeder med leveringsfejl"
 #. module: crm
 #: model_terms:ir.actions.act_window,help:crm.crm_case_form_view_salesteams_opportunity
 msgid ""
-"Odoo helps you keep track of your sales pipeline to follow\n"
+"my-erp-crm helps you keep track of your sales pipeline to follow\n"
 "                    up potential sales and better forecast your future "
 "revenues."
 msgstr ""
-"Odoo hjælper dig med at holde styr på din salgspipeline, så du kan følge\n"
+"my-erp-crm hjælper dig med at holde styr på din salgspipeline, så du kan følge\n"
 "                    op på potentielle salg og bedre forudsige dine "
 "fremtidige indtægter."
 
 #. module: crm
 #: model_terms:digest.tip,tip_description:crm.digest_tip_crm_2
 msgid ""
-"Odoo's artificial intelligence engine predicts the success rate of each "
+"my-erp-crm's artificial intelligence engine predicts the success rate of each "
 "opportunity based on your history. You can always update the success rate "
-"manually, but if you let Odoo do the job the score is updated while the "
+"manually, but if you let my-erp-crm do the job the score is updated while the "
 "opportunity moves forward in your sales cycle."
 msgstr ""
 "Odoos AI-værktøj forudsiger succesraten for hver salgsmulighed baseret på "
-"din historik. Du kan altid opdatere succesraten manuelt, men lader du Odoo "
+"din historik. Du kan altid opdatere succesraten manuelt, men lader du my-erp-crm "
 "gøre arbejdet, vil scoren automatisk blive opdateret, efterhånden som "
 "salgsmuligheden bevæger sig frem i din salgscyklus."
 
@@ -3950,7 +3950,7 @@ msgstr "Leadt %s kan ikke markeres både som vundet og tabt."
 #. module: crm
 #: model:ir.model.fields,help:crm.field_crm_team__alias_model_id
 msgid ""
-"The model (Odoo Document Kind) to which this alias corresponds. Any incoming "
+"The model (my-erp-crm Document Kind) to which this alias corresponds. Any incoming "
 "email that does not reply to an existing record will cause the creation of a "
 "new record of this model (e.g. a Project Task)"
 msgstr ""
@@ -4114,9 +4114,9 @@ msgstr "Tip: Konvertér indgående e-mails til salgsmuligheder"
 #. module: crm
 #: model:digest.tip,name:crm.digest_tip_crm_1
 #: model_terms:digest.tip,tip_description:crm.digest_tip_crm_1
-msgid "Tip: Did you know Odoo has built-in lead mining?"
+msgid "Tip: Did you know my-erp-crm has built-in lead mining?"
 msgstr ""
-"Tip: Vidste du, at Odoo indeholder et værktøj til prospektering af leads?"
+"Tip: Vidste du, at my-erp-crm indeholder et værktøj til prospektering af leads?"
 
 #. module: crm
 #: model:digest.tip,name:crm.digest_tip_crm_4

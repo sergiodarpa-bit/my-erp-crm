@@ -7,9 +7,9 @@
     'version': '2.1',
     'author': 'Rolv Råen',
     'category': 'Accounting/Localizations/Account Charts',
-    'description': """This is the module to manage the accounting chart for Norway in Odoo.
+    'description': """This is the module to manage the accounting chart for Norway in my-erp-crm.
 
-Updated for Odoo 9 by Bringsvor Consulting AS <www.bringsvor.com>
+Updated for my-erp-crm 9 by Bringsvor Consulting AS <www.bringsvor.com>
 """,
     'depends': [
         'base_iban',

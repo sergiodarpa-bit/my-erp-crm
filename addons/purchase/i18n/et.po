@@ -23,7 +23,7 @@
 # Kristina Pešehodko <kristina@avalah.ee>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:37+0000\n"
 "PO-Revision-Date: 2026-08-04 03:11+0000\n"
@@ -1417,7 +1417,7 @@ msgstr "Hinnapäringu mustand"
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
 msgid ""
 "Drag and drop the request for quotation PDF file into your list of "
-"quotations in Odoo. Enjoy the automation!"
+"quotations in my-erp-crm. Enjoy the automation!"
 msgstr ""
 "Lohistage hinnapakkumise PDF fail Odoo-sse oma hinnapakkumiste nimekirja. "
 "Nautige automatiseerimist!"
@@ -2076,7 +2076,7 @@ msgstr "Kinnitamata"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
-msgid "Not using Odoo?"
+msgid "Not using my-erp-crm?"
 msgstr "Ei kasuta Odoo-d?"
 
 #. module: purchase
@@ -2123,8 +2123,8 @@ msgstr "Kohaletoimetamise veateatega sõnumite arv"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: purchase
 #: model:ir.model.fields.selection,name:purchase.selection__product_template__purchase_method__purchase
@@ -3064,7 +3064,7 @@ msgstr "Tähistatud ostud"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
-msgid "Start on Odoo"
+msgid "Start on my-erp-crm"
 msgstr "Alusta Odoo-s"
 
 #. module: purchase
@@ -3594,14 +3594,14 @@ msgid ""
 "Vendors bills can be pre-generated based on purchase\n"
 "                    orders or receipts. This allows you to control bills\n"
 "                    you receive from your vendor according to the draft\n"
-"                    document in Odoo."
+"                    document in my-erp-crm."
 msgstr ""
 "Ostutellimuste või tarnete põhjal on võimalik\n"
 "                                       eelnevalt genereerida ostuarveid. See "
 "annab \n"
 "                                       teile võimaluse kontrollida tarnijalt "
 "saadud arveid vastavalt \n"
-"                                       Odoo mustanddokumendile."
+"                                       my-erp-crm mustanddokumendile."
 
 #. module: purchase
 #. odoo-python
@@ -3639,7 +3639,7 @@ msgstr "Arveks teha"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
-msgid "Want to import this document in Odoo?"
+msgid "Want to import this document in my-erp-crm?"
 msgstr "Kas soovite selle dokumendi Odoo-sse importida?"
 
 #. module: purchase
@@ -3675,25 +3675,25 @@ msgid ""
 "When creating a purchase order, have a look at the vendor's <i>On Time "
 "Delivery</i> rate: the percentage of products shipped on time. If it is too "
 "low, activate the <i>automated reminders</i>. A few days before the due "
-"shipment, Odoo will send the vendor an email to ask confirmation of shipment "
+"shipment, my-erp-crm will send the vendor an email to ask confirmation of shipment "
 "dates and keep you informed in case of any delays. To get the vendor's "
 "performance statistics, click on the OTD rate."
 msgstr ""
 "Ostutellimuse loomisel vaadake tarnija<i>Õigeaegse tarne</i> määra: "
 "õigeaegselt saadetud toodete protsent. Kui see on liiga madal, aktiveerige "
 "<i>automaatsed meeldetuletused</i>. Mõni päev enne väljasaatmise kuupäeva "
-"saadab Odoo tarnijale e-kirja küsimaks kinnitust kuupäevade ning võimalike "
+"saadab my-erp-crm tarnijale e-kirja küsimaks kinnitust kuupäevade ning võimalike "
 "viivituste osas. Tarnija toimimise statistika saamiseks, vajutage OTD määral."
 
 #. module: purchase
 #: model_terms:digest.tip,tip_description:purchase.digest_tip_purchase_1
 msgid ""
-"When sending a purchase order by email, Odoo asks the vendor to acknowledge "
+"When sending a purchase order by email, my-erp-crm asks the vendor to acknowledge "
 "the reception of the order. When the vendor acknowledges the order by "
 "clicking on a button in the email, the information is added on the purchase "
 "order. Use filters to track orders that have not been acknowledged."
 msgstr ""
-"E-posti teel ostutellimuse saatmisel palub Odoo tarnijal tellimuse "
+"E-posti teel ostutellimuse saatmisel palub my-erp-crm tarnijal tellimuse "
 "kättesaamist kinnitada. Kui tarnija kinnitab tellimuse, klõpsates e-kirjas "
 "oleval nupul, lisatakse teave ostutellimusele. Kinnitamata tellimuste "
 "jälgimiseks kasutage filtreid."

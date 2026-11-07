@@ -12,7 +12,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:37+0000\n"
 "PO-Revision-Date: 2026-08-02 17:56+0000\n"
@@ -5277,16 +5277,16 @@ msgstr "Savollar soni"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.mail_notification_channel_invite
 #, fuzzy
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: website_slides
 #: model_terms:slide.slide,html_content:website_slides.slide_slide_demo_1_4
 #: model_terms:slide.slide,html_content:website_slides.slide_slide_demo_2_1
 #: model_terms:slide.slide,html_content:website_slides.slide_slide_demo_4_0
 #, fuzzy
-msgid "Odoo • Image and Text"
-msgstr "Odoo • Rasm va matn"
+msgid "my-erp-crm • Image and Text"
+msgstr "my-erp-crm • Rasm va matn"
 
 #. module: website_slides
 #: model:res.groups,name:website_slides.group_website_slides_officer
@@ -8194,10 +8194,10 @@ msgstr "masalan, Bolalar uchun kompyuter fanlari"
 #: model_terms:ir.ui.view,arch_db:website_slides.view_slide_slide_form
 #, fuzzy
 msgid ""
-"e.g. In this video, we'll give you the keys on how Odoo can help you to grow "
+"e.g. In this video, we'll give you the keys on how my-erp-crm can help you to grow "
 "your business. At the end, we'll propose you a quiz to test your knowledge."
 msgstr ""
-"masalan, Ushbu videoda biz sizga Odoo biznesingizni rivojlantirishga qanday "
+"masalan, Ushbu videoda biz sizga my-erp-crm biznesingizni rivojlantirishga qanday "
 "yordam berishi haqida ma'lumot beramiz. Oxirida bilimingizni sinash uchun "
 "viktorina taklif qilamiz."
 

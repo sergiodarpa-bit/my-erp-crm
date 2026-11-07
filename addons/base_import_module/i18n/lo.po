@@ -7,7 +7,7 @@
 # Bone NI <bounkirdni@gmail.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: my-erp-crm Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-26 08:16+0000\n"
 "PO-Revision-Date: 2026-08-06 05:02+0000\n"
@@ -168,8 +168,8 @@ msgstr "ການປັບແຕ່ງ Studio ຕ້ອງມີ Studio"
 
 #. module: base_import_module
 #: code:addons/base_import_module/models/ir_module.py:0
-msgid "Studio customizations require the Odoo Studio app."
-msgstr "ການປັບແຕ່ງ Studio ຕ້ອງມີແອັບ Odoo Studio."
+msgid "Studio customizations require the my-erp-crm Studio app."
+msgstr "ການປັບແຕ່ງ Studio ຕ້ອງມີແອັບ my-erp-crm Studio."
 
 #. module: base_import_module
 #: code:addons/base_import_module/models/ir_module.py:0

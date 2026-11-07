@@ -12,7 +12,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:37+0000\n"
 "PO-Revision-Date: 2026-08-02 12:59+0000\n"
@@ -51,22 +51,22 @@ msgid ""
 "            <p class=\"o_view_nocontent_smiling_face\">\n"
 "                Add addresses to the Allowed List\n"
 "            </p><p>\n"
-"                To protect you from spam and reply loops, Odoo automatically "
+"                To protect you from spam and reply loops, my-erp-crm automatically "
 "blocks emails\n"
 "                coming to your gateway past a threshold of <b>%(threshold)i</"
 "b> emails every <b>%(minutes)i</b>\n"
 "                minutes. If there are some addresses from which you need to "
 "receive very frequent\n"
-"                updates, you can however add them below and Odoo will let "
+"                updates, you can however add them below and my-erp-crm will let "
 "them go through.\n"
 "            </p>"
 msgstr ""
 "<p class=\"o_view_nocontent_smiling_face\">Ruxsat etilganlar ro‘yxatiga "
 "manzillar qo‘shing</p><p>Sizni spam va javob qaytarish takrorlanishidan "
-"himoya qilish uchun, Odoo har <b>%(minutes)i</b> daqiqada <b>%(threshold)i</"
+"himoya qilish uchun, my-erp-crm har <b>%(minutes)i</b> daqiqada <b>%(threshold)i</"
 "b> tadan ortiq xat kelganda, shlyuzingizga keladigan xatlarni avtomatik "
 "ravishda bloklaydi. Agar siz juda tez-tez yangilanishlar olishingiz kerak "
-"bo‘lgan manzillar mavjud bo‘lsa, ularni quyida qo‘shishingiz mumkin va Odoo "
+"bo‘lgan manzillar mavjud bo‘lsa, ularni quyida qo‘shishingiz mumkin va my-erp-crm "
 "ularning o‘tishiga ruxsat beradi.</p>"
 
 #. module: mail
@@ -6449,10 +6449,10 @@ msgstr ""
 #: model:ir.model.fields,help:mail.field_res_config_settings__alias_domain_id
 #, fuzzy
 msgid ""
-"If you have setup a catch-all email domain redirected to the Odoo server, "
+"If you have setup a catch-all email domain redirected to the my-erp-crm server, "
 "enter the domain name here."
 msgstr ""
-"Agar Odoo serveriga yo‘naltirilgan universal elektron pochta domenini "
+"Agar my-erp-crm serveriga yo‘naltirilgan universal elektron pochta domenini "
 "sozlagan bo‘lsangiz, domen nomini shu yerga kiriting"
 
 #. module: mail
@@ -6532,8 +6532,8 @@ msgstr "%(country)s da"
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__res_users__notification_type__inbox
 #, fuzzy
-msgid "In Odoo"
-msgstr "Odoo‘da"
+msgid "In my-erp-crm"
+msgstr "my-erp-crm‘da"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_compose_message__scheduled_date
@@ -6660,8 +6660,8 @@ msgstr "O‘rnatish"
 #. odoo-javascript
 #: code:addons/mail/static/src/core/web/messaging_menu_patch.js:0
 #, fuzzy
-msgid "Install Odoo"
-msgstr "Odoo‘ni o‘rnatish"
+msgid "Install my-erp-crm"
+msgstr "my-erp-crm‘ni o‘rnatish"
 
 #. module: mail
 #: model:ir.ui.menu,name:mail.discuss_channel_integrations_menu
@@ -7112,12 +7112,12 @@ msgid ""
 "browser will \n"
 "          keep the private key secret and use it for decrypting the payload\n"
 "- auth: The auth value should be treated as a secret and not shared outside "
-"of Odoo"
+"of my-erp-crm"
 msgstr ""
 "Bu brauzer tomonidan bildirishnoma uchun ishlatiladigan kalitlarga tegishli: "
 "- p256dh: Bu brauzer tomonidan yaratilgan obuna ochiq kaliti. Brauzer maxfiy "
 "kalitni sir saqlaydi va undan foydali ma'lumotlarni shifrdan chiqarish uchun "
-"foydalanadi - auth: Auth qiymati maxfiy deb hisoblanishi va Odoo "
+"foydalanadi - auth: Auth qiymati maxfiy deb hisoblanishi va my-erp-crm "
 "tashqarisida ulashilmasligi kerak"
 
 #. module: mail
@@ -9382,22 +9382,22 @@ msgstr "Operatsion tizim"
 #: model_terms:ir.ui.view,arch_db:mail.mail_notification_layout
 #: model_terms:ir.ui.view,arch_db:mail.mail_notification_light
 #, fuzzy
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: mail
 #. odoo-javascript
 #: code:addons/mail/static/src/core/common/notification_permission_service.js:0
 #, fuzzy
-msgid "Odoo will not send notifications on this device."
-msgstr "Odoo bu qurilmada bildirishnomalar yubormaydi."
+msgid "my-erp-crm will not send notifications on this device."
+msgstr "my-erp-crm bu qurilmada bildirishnomalar yubormaydi."
 
 #. module: mail
 #. odoo-javascript
 #: code:addons/mail/static/src/core/common/notification_permission_service.js:0
 #, fuzzy
-msgid "Odoo will send notifications on this device!"
-msgstr "Odoo bu qurilmada bildirishnomalar yuboradi!"
+msgid "my-erp-crm will send notifications on this device!"
+msgstr "my-erp-crm bu qurilmada bildirishnomalar yuboradi!"
 
 #. module: mail
 #. odoo-javascript
@@ -9546,8 +9546,8 @@ msgstr "Faqat maxsus modellarni o‘zgartirish mumkin."
 #. module: mail
 #: model:ir.model.constraint,message:mail.constraint_res_users_notification_type
 #, fuzzy
-msgid "Only internal user can receive notifications in Odoo"
-msgstr "Odoo‘da faqat ichki foydalanuvchilar bildirishnomalar ola oladi"
+msgid "Only internal user can receive notifications in my-erp-crm"
+msgstr "my-erp-crm‘da faqat ichki foydalanuvchilar bildirishnomalar ola oladi"
 
 #. module: mail
 #. odoo-python
@@ -10377,11 +10377,11 @@ msgstr "Iltimos, fayl yuklanayotganda kuting."
 msgid ""
 "Policy on how to handle Chatter notifications:\n"
 "- By Emails: notifications are sent to your email address\n"
-"- In Odoo: notifications appear in your Odoo Inbox"
+"- In my-erp-crm: notifications appear in your my-erp-crm Inbox"
 msgstr ""
 "Chatter bildirishnomalarini boshqarish siyosati: - Elektron pochta orqali: "
-"bildirishnomalar elektron pochta manzilingizga yuboriladi - Odoo orqali: "
-"bildirishnomalar Odoo kirish qutingizda paydo bo‘ladi"
+"bildirishnomalar elektron pochta manzilingizga yuboriladi - my-erp-crm orqali: "
+"bildirishnomalar my-erp-crm kirish qutingizda paydo bo‘ladi"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_alias__alias_contact
@@ -10804,8 +10804,8 @@ msgstr "Sabab"
 #. module: mail
 #: model:res.groups,name:mail.group_mail_notification_type_inbox
 #, fuzzy
-msgid "Receive notifications in Odoo"
-msgstr "Odoo‘da bildirishnomalar qabul qilish"
+msgid "Receive notifications in my-erp-crm"
+msgstr "my-erp-crm‘da bildirishnomalar qabul qilish"
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__mail_mail__state__received
@@ -13125,11 +13125,11 @@ msgstr "Kanal yaratilgan xabar."
 #: model:ir.model.fields,help:mail.field_mail_alias__alias_model_id
 #, fuzzy
 msgid ""
-"The model (Odoo Document Kind) to which this alias corresponds. Any incoming "
+"The model (my-erp-crm Document Kind) to which this alias corresponds. Any incoming "
 "email that does not reply to an existing record will cause the creation of a "
 "new record of this model (e.g. a Project Task)"
 msgstr ""
-"Ushbu taxallus mos keladigan model (Odoo hujjat turi). Mavjud yozuvga javob "
+"Ushbu taxallus mos keladigan model (my-erp-crm hujjat turi). Mavjud yozuvga javob "
 "bermaydigan har qanday kiruvchi xat ushbu modelning yangi yozuvini "
 "yaratishga olib keladi (masalan, loyiha vazifasi)"
 
@@ -13459,9 +13459,9 @@ msgstr "Bu xabar o‘chirilgan."
 msgid ""
 "This option permanently removes any track of email after it's been sent, "
 "including from the Technical menu in the Settings, in order to preserve "
-"storage space of your Odoo database."
+"storage space of your my-erp-crm database."
 msgstr ""
-"Bu parametr Odoo ma'lumotlar bazasining xotira joyini saqlash uchun "
+"Bu parametr my-erp-crm ma'lumotlar bazasining xotira joyini saqlash uchun "
 "yuborilgandan so‘ng elektron pochtaning har qanday izini, jumladan "
 "Sozlamalardagi Texnik menyudan butunlay olib tashlaydi."
 

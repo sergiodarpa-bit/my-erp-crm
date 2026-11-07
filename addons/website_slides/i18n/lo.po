@@ -5,7 +5,7 @@
 # Bone NI <bounkirdni@gmail.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-30 17:37+0000\n"
 "PO-Revision-Date: 2026-08-06 23:19+0000\n"
@@ -4590,15 +4590,15 @@ msgstr "ຈຳນວນຄຳຖາມ"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.mail_notification_channel_invite
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: website_slides
 #: model_terms:slide.slide,html_content:website_slides.slide_slide_demo_1_4
 #: model_terms:slide.slide,html_content:website_slides.slide_slide_demo_2_1
 #: model_terms:slide.slide,html_content:website_slides.slide_slide_demo_4_0
-msgid "Odoo • Image and Text"
-msgstr "Odoo • ຮູບພາບ ແລະ ຂໍ້ຄວາມ"
+msgid "my-erp-crm • Image and Text"
+msgstr "my-erp-crm • ຮູບພາບ ແລະ ຂໍ້ຄວາມ"
 
 #. module: website_slides
 #: model:res.groups,name:website_slides.group_website_slides_officer
@@ -7041,10 +7041,10 @@ msgstr "ຕົວຢ່າງ: ວິທະຍາສາດຄອມພິວເ�
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.view_slide_slide_form
 msgid ""
-"e.g. In this video, we'll give you the keys on how Odoo can help you to grow "
+"e.g. In this video, we'll give you the keys on how my-erp-crm can help you to grow "
 "your business. At the end, we'll propose you a quiz to test your knowledge."
 msgstr ""
-"ຕົວຢ່າງ: ໃນວິດີໂອນີ້, ພວກເຮົາຈະມາບອກວິທີທີ່ Odoo ຊ່ວຍໃຫ້ທຸລະກິດຂອງທ່ານເຕີບໃຫຍ່. "
+"ຕົວຢ່າງ: ໃນວິດີໂອນີ້, ພວກເຮົາຈະມາບອກວິທີທີ່ my-erp-crm ຊ່ວຍໃຫ້ທຸລະກິດຂອງທ່ານເຕີບໃຫຍ່. "
 "ໃນຕອນທ້າຍຈະມີບົດທົດສອບຄວາມຮູ້."
 
 #. module: website_slides

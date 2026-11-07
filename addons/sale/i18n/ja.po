@@ -15,7 +15,7 @@
 # Yoshi Tashiro <tashiro@quartile.co>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:38+0000\n"
 "PO-Revision-Date: 2026-09-07 10:11+0000\n"
@@ -35,7 +35,7 @@ msgstr ""
 #: code:addons/sale/static/src/views/sale_file_upload_list/sale_file_upload_list_renderer.js:0
 msgid ""
 "\n"
-"            If your customer runs on Odoo 18 or higher, customer data and "
+"            If your customer runs on my-erp-crm 18 or higher, customer data and "
 "sales order lines\n"
 "            will be automatically created. Any other pdf containing an "
 "attached\n"
@@ -1615,7 +1615,7 @@ msgstr "承認された取引を無効にしますか?このアクションは�
 #. module: sale
 #: model_terms:ir.actions.act_window,help:sale.action_orders_upselling
 msgid ""
-"As an example, if you sell pre-paid hours of services, Odoo recommends you\n"
+"As an example, if you sell pre-paid hours of services, my-erp-crm recommends you\n"
 "            to sell extra hours when all ordered hours have been consumed."
 msgstr ""
 "例えば、サービス時間を前払いで販売する場合、オーダされた時間がすべて消費され"
@@ -2648,7 +2648,7 @@ msgstr "請求書(下書き)"
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
 msgid ""
 "Drag and drop the request for quotation PDF file into your list of "
-"quotations in Odoo. Enjoy the automation!"
+"quotations in my-erp-crm. Enjoy the automation!"
 msgstr ""
 "見積依頼のPDFファイルをOdooの見積一覧にドラッグ&ドロップします。自動処理をご"
 "活用下さい!"
@@ -3605,7 +3605,7 @@ msgstr "アップセルするオーダは見つかりませんでした"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Not using Odoo?"
+msgid "Not using my-erp-crm?"
 msgstr "Odooを使用していませんか？"
 
 #. module: sale
@@ -3656,8 +3656,8 @@ msgstr "配信エラーが発生されたメッセージ数"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Odoo"
-msgstr "Odoo"
+msgid "my-erp-crm"
+msgstr "my-erp-crm"
 
 #. module: sale
 #: model:product.template,description_sale:sale.product_product_1_product_template
@@ -5075,7 +5075,7 @@ msgstr "Starshipitコネクタ"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Start on Odoo"
+msgid "Start on my-erp-crm"
 msgstr "Odooで始めましょう"
 
 #. module: sale
@@ -5931,7 +5931,7 @@ msgstr "容積"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
-msgid "Want to import this document in Odoo?"
+msgid "Want to import this document in my-erp-crm?"
 msgstr "このドキュメントをOdooでインポートしますか？"
 
 #. module: sale

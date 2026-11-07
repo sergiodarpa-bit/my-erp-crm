@@ -8,7 +8,7 @@ export class ResUsers extends webModels.ResUsers {
     notification_type = fields.Selection({
         selection: [
             ["email", "Handle by Emails"],
-            ["inbox", "Handle in Odoo"],
+            ["inbox", "Handle in my-erp-crm"],
         ],
         default: "email",
     });

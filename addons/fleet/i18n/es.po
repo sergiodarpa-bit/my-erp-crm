@@ -10,7 +10,7 @@
 # "Noemi Pla Garcia (nopl)" <nopl@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0beta\n"
+"Project-Id-Version: my-erp-crm Server 16.0beta\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-10-28 09:33+0000\n"
@@ -1513,25 +1513,25 @@ msgstr "Hacer que el vehículo esté disponible"
 #: model_terms:ir.actions.act_window,help:fleet.fleet_vehicle_log_contract_action
 msgid ""
 "Manage all your contracts (leasing, insurances, etc.) with\n"
-"            their related services, costs. Odoo will automatically warn\n"
+"            their related services, costs. my-erp-crm will automatically warn\n"
 "            you when some contracts have to be renewed."
 msgstr ""
 "Gestione todos sus contratos (leasing, seguros, etc) con\n"
-"            sus servicios y costes relacionados. Odoo le advertirá "
+"            sus servicios y costes relacionados. my-erp-crm le advertirá "
 "automáticamente\n"
 "            cuando se tengan que renovar algunos contratos."
 
 #. module: fleet
 #: model_terms:ir.actions.act_window,help:fleet.fleet_costs_reporting_action
-msgid "Manage efficiently your different effective vehicles Costs with Odoo."
+msgid "Manage efficiently your different effective vehicles Costs with my-erp-crm."
 msgstr ""
 "Gestione de forma eficiente los diferentes costes efectivos de sus vehículos "
-"con Odoo."
+"con my-erp-crm."
 
 #. module: fleet
 #: model_terms:ir.actions.act_window,help:fleet.fleet_vehicle_odometer_reporting_action
-msgid "Manage efficiently your vehicle Odometers with Odoo."
-msgstr "Gestione de forma eficiente los odómetros de sus vehículos con Odoo."
+msgid "Manage efficiently your vehicle Odometers with my-erp-crm."
+msgstr "Gestione de forma eficiente los odómetros de sus vehículos con my-erp-crm."
 
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_service_10

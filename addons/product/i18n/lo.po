@@ -5,7 +5,7 @@
 # Bone NI <bounkirdni@gmail.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-24 17:38+0000\n"
 "PO-Revision-Date: 2026-08-08 00:22+0000\n"
@@ -4689,8 +4689,8 @@ msgstr "ຕົວຢ່າງ: ໂຄມໄຟ"
 
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_variant_easy_edit_view
-msgid "e.g. Odoo Enterprise Subscription"
-msgstr "ຕົວຢ່າງ: ການສະໝັກໃຊ້ Odoo Enterprise"
+msgid "e.g. my-erp-crm Enterprise Subscription"
+msgstr "ຕົວຢ່າງ: ການສະໝັກໃຊ້ my-erp-crm Enterprise"
 
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_template_form_view

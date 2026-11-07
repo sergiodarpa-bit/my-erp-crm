@@ -14,7 +14,7 @@
 # "Nurul Aini Akrima Sabila (nuaas)" <nuaas@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0beta\n"
+"Project-Id-Version: my-erp-crm Server 16.0beta\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-20 18:35+0000\n"
 "PO-Revision-Date: 2026-10-06 09:37+0000\n"
@@ -341,7 +341,7 @@ msgid ""
 "board, you'll discover what <t t-out=\"object.company_id.name or ''\">My "
 "Company (San Francisco)</t> has to offer. My name is <t t-"
 "out=\"object.user_id.name or ''\">Marc Demo</t> and I'll help you get the "
-"most out of Odoo. Could we plan a quick demo soon?<br/>\n"
+"most out of my-erp-crm. Could we plan a quick demo soon?<br/>\n"
 "                            Feel free to reach out at any time!<br/><br/>\n"
 "                            Best,<br/>\n"
 "                            <t t-if=\"object.user_id\">\n"
@@ -394,7 +394,7 @@ msgid ""
 "<tr><td align=\"center\" style=\"min-width: 590px;\">\n"
 "    Powered by <a target=\"_blank\" href=\"https://www.odoo.com?"
 "utm_source=db&amp;utm_medium=email\" t-attf-style=\"color: "
-"{{object.company_id.email_secondary_color or '#875A7B'}};;\">Odoo</a>\n"
+"{{object.company_id.email_secondary_color or '#875A7B'}};;\">my-erp-crm</a>\n"
 "</td></tr>\n"
 "</table>\n"
 "        "
@@ -960,10 +960,10 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/crm/static/src/js/tours/crm.js:0
 msgid ""
-"Click on the breadcrumb to go back to your Pipeline. Odoo will save all "
+"Click on the breadcrumb to go back to your Pipeline. my-erp-crm will save all "
 "modifications as you navigate."
 msgstr ""
-"Klik pada breadcrumb untuk kembali ke Pipeline Anda. Odoo akan menyimpan "
+"Klik pada breadcrumb untuk kembali ke Pipeline Anda. my-erp-crm akan menyimpan "
 "semua modifikasi selagi Anda bergerak."
 
 #. module: crm
@@ -1049,8 +1049,8 @@ msgstr "Tanggal Selesai"
 #. module: crm
 #. odoo-javascript
 #: code:addons/crm/static/src/views/crm_form/crm_pls_tooltip_button.xml:0
-msgid "Computed by Odoo AI using your data."
-msgstr "Dihitung oleh Odoo AI menggunakan data Anda."
+msgid "Computed by my-erp-crm AI using your data."
+msgstr "Dihitung oleh my-erp-crm AI menggunakan data Anda."
 
 #. module: crm
 #: model:ir.model,name:crm.model_res_config_settings
@@ -1440,11 +1440,11 @@ msgstr ""
 #: model_terms:digest.tip,tip_description:crm.digest_tip_crm_4
 msgid ""
 "Did you know you can search a company by name or VAT number to instantly "
-"fill in all its data? Odoo autocompletes everything for you: logo, address, "
+"fill in all its data? my-erp-crm autocompletes everything for you: logo, address, "
 "company size, business information, social media accounts, etc."
 msgstr ""
 "Apakah Anda tahu Anda dapat mencari perusahaan menggunakan nama atau nomor "
-"PPN untuk secara instan mengisi seluruh data mereka? Odoo menyelesaikan "
+"PPN untuk secara instan mengisi seluruh data mereka? my-erp-crm menyelesaikan "
 "secara otomatis semuanya untuk Anda: logo, alamat, ukuran perusahaan, "
 "informasi bisnis, akun sosmed, dsb."
 
@@ -1452,11 +1452,11 @@ msgstr ""
 #: model_terms:digest.tip,tip_description:crm.digest_tip_crm_5
 msgid ""
 "Did you know you can turn a list of opportunities into a map view, using the "
-"top-right map icon? A lot of screens in Odoo can be turned into a map: "
+"top-right map icon? A lot of screens in my-erp-crm can be turned into a map: "
 "tasks, contacts, delivery orders, etc."
 msgstr ""
 "Apakah Anda tahu Anda dapat merubah daftar opportunities menjadi tampilan "
-"peta, menggunakan ikon peta di kanan-atas? Banyak layar di Odoo dapat "
+"peta, menggunakan ikon peta di kanan-atas? Banyak layar di my-erp-crm dapat "
 "dirubah menjadi peta: task, kontak, pesanan pengiriman, dsb."
 
 #. module: crm
@@ -2482,10 +2482,10 @@ msgstr "MRR"
 #. module: crm
 #: model_terms:ir.ui.view,arch_db:crm.res_config_settings_view_form
 msgid ""
-"Make and receive calls from Odoo with Ringover's dialer. Track calls, SMS "
+"Make and receive calls from my-erp-crm with Ringover's dialer. Track calls, SMS "
 "messages, and get AI-powered transcripts of your conversations."
 msgstr ""
-"Buat dan terima panggilan dari Odoo dengan Ringover. Lacak panggilan, pesan "
+"Buat dan terima panggilan dari my-erp-crm dengan Ringover. Lacak panggilan, pesan "
 "SMS, dan dapatkan transkrip bertenaga AI untuk percakapan Anda."
 
 #. module: crm
@@ -2939,25 +2939,25 @@ msgstr "Jumlah pesan dengan kesalahan pengiriman"
 #. module: crm
 #: model_terms:ir.actions.act_window,help:crm.crm_case_form_view_salesteams_opportunity
 msgid ""
-"Odoo helps you keep track of your sales pipeline to follow\n"
+"my-erp-crm helps you keep track of your sales pipeline to follow\n"
 "                    up potential sales and better forecast your future "
 "revenues."
 msgstr ""
-"Odoo membantu Anda untuk memonitor saluran penjualan Anda untuk\n"
+"my-erp-crm membantu Anda untuk memonitor saluran penjualan Anda untuk\n"
 "                    mengikuti potensi penjualan dan meramalkan omzet dengan "
 "lebih baik."
 
 #. module: crm
 #: model_terms:digest.tip,tip_description:crm.digest_tip_crm_2
 msgid ""
-"Odoo's artificial intelligence engine predicts the success rate of each "
+"my-erp-crm's artificial intelligence engine predicts the success rate of each "
 "opportunity based on your history. You can always update the success rate "
-"manually, but if you let Odoo do the job the score is updated while the "
+"manually, but if you let my-erp-crm do the job the score is updated while the "
 "opportunity moves forward in your sales cycle."
 msgstr ""
-"Mesin AI Odoo memprediksi tingkat kesuksesan setiap opportunity berdasarkan "
+"Mesin AI my-erp-crm memprediksi tingkat kesuksesan setiap opportunity berdasarkan "
 "riwayat Anda. Anda dapat selalu mengupdate tingkat kesuksesan secara manual, "
-"tapi bila Anda membiarkan Odoo melakukannya nilai akan diupdate saat "
+"tapi bila Anda membiarkan my-erp-crm melakukannya nilai akan diupdate saat "
 "opportunity bergerak kedepan di siklus sales Anda."
 
 #. module: crm
@@ -3855,11 +3855,11 @@ msgstr "Lead %s tidak dapat won dan lost di saat yang sama."
 #. module: crm
 #: model:ir.model.fields,help:crm.field_crm_team__alias_model_id
 msgid ""
-"The model (Odoo Document Kind) to which this alias corresponds. Any incoming "
+"The model (my-erp-crm Document Kind) to which this alias corresponds. Any incoming "
 "email that does not reply to an existing record will cause the creation of a "
 "new record of this model (e.g. a Project Task)"
 msgstr ""
-"Model (Jenis Dokumen Odoo) di mana alias ini dikaitkan. Email masuk yang "
+"Model (Jenis Dokumen my-erp-crm) di mana alias ini dikaitkan. Email masuk yang "
 "tidak menjawab catatan yang sudah ada akan menyebabkan pembuatan rekor baru "
 "model ini (misalnya tugas project)"
 
@@ -4023,8 +4023,8 @@ msgstr "Tip: Konversikan email masuk menjadi opportunities"
 #. module: crm
 #: model:digest.tip,name:crm.digest_tip_crm_1
 #: model_terms:digest.tip,tip_description:crm.digest_tip_crm_1
-msgid "Tip: Did you know Odoo has built-in lead mining?"
-msgstr "Tip: Apakah Anda tahu Odoo memiliki lead mining bawaan?"
+msgid "Tip: Did you know my-erp-crm has built-in lead mining?"
+msgstr "Tip: Apakah Anda tahu my-erp-crm memiliki lead mining bawaan?"
 
 #. module: crm
 #: model:digest.tip,name:crm.digest_tip_crm_4

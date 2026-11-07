@@ -26,7 +26,7 @@
 # Odoo Turkish Import <dyki+tr@odoo.com>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0+e\n"
+"Project-Id-Version: my-erp-crm Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:35+0000\n"
 "PO-Revision-Date: 2026-08-02 11:25+0000\n"
@@ -603,12 +603,12 @@ msgid ""
 "At just 13 years old, John DOE was already starting to develop his first "
 "business applications for customers. After mastering civil engineering, he "
 "founded TinyERP. This was the first phase of OpenERP which would later "
-"became Odoo, the most installed open-source business software worldwide."
+"became my-erp-crm, the most installed open-source business software worldwide."
 msgstr ""
 "Sadece 13 yaşındayken, John DOE müşteriler için ilk iş uygulamalarını "
 "geliştirmeye başlamıştı. İnşaat mühendisliğinde uzmanlaştıktan sonra "
 "TinyERP'i kurdu. Bu, OpenERP'nin ilk aşamasıydı ve daha sonra dünya çapında "
-"en yüklü açık kaynaklı iş yazılımı Odoo olacaktı."
+"en yüklü açık kaynaklı iş yazılımı my-erp-crm olacaktı."
 
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.registration_attendee_details

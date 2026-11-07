@@ -28,12 +28,12 @@ class ResUsers(models.Model):
     can_edit_role = fields.Boolean(compute="_compute_can_edit_role")
     notification_type = fields.Selection([
         ('email', 'By Emails'),
-        ('inbox', 'In Odoo')],
+        ('inbox', 'In my-erp-crm')],
         'Notification', required=True, default='email',
         compute='_compute_notification_type', inverse='_inverse_notification_type', store=True,
         help="Policy on how to handle Chatter notifications:\n"
              "- By Emails: notifications are sent to your email address\n"
-             "- In Odoo: notifications appear in your Odoo Inbox")
+             "- In my-erp-crm: notifications appear in your my-erp-crm Inbox")
     presence_ids = fields.One2many("mail.presence", "user_id", groups="base.group_system")
     # OOO management
     out_of_office_from = fields.Datetime()
@@ -69,7 +69,7 @@ class ResUsers(models.Model):
 
     _notification_type = models.Constraint(
         "CHECK (notification_type = 'email' OR NOT share)",
-        'Only internal user can receive notifications in Odoo',
+        'Only internal user can receive notifications in my-erp-crm',
     )
 
     @api.depends('share', 'all_group_ids')

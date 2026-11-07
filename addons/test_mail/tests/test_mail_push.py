@@ -70,7 +70,7 @@ class TestWebPushNotification(SMSCommon):
     @patch.object(odoo.addons.mail.models.mail_thread, 'push_to_end_point')
     @mute_logger('odoo.tests')
     def test_notify_by_push(self, push_to_end_point):
-        """ When posting a comment, notify both inbox and people outside of Odoo
+        """ When posting a comment, notify both inbox and people outside of my-erp-crm
         aka email """
         self.record_simple.with_user(self.user_admin).message_post(
             body=Markup('<p>Hello</p>'),

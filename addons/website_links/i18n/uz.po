@@ -12,7 +12,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-05 19:30+0000\n"
 "PO-Revision-Date: 2026-08-07 16:23+0000\n"
@@ -322,10 +322,10 @@ msgstr "Bu kod allaqachon band"
 #, fuzzy
 msgid ""
 "Those trackers can be used in Google Analytics to track clicks and visitors, "
-"or in Odoo reports to track opportunities and related revenues."
+"or in my-erp-crm reports to track opportunities and related revenues."
 msgstr ""
 "Bu kuzatuvchilar Google Analytics'da kliklar va tashrif buyuruvchilarni "
-"kuzatish uchun yoki Odoo hisobotlarida imkoniyatlar va tegishli daromadlarni "
+"kuzatish uchun yoki my-erp-crm hisobotlarida imkoniyatlar va tegishli daromadlarni "
 "kuzatish uchun qo‘llanilishi mumkin."
 
 #. module: website_links

@@ -36,7 +36,7 @@
 # Saara Hakanen <sahak@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0+e\n"
+"Project-Id-Version: my-erp-crm Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-03 17:35+0000\n"
 "PO-Revision-Date: 2026-10-13 06:49+0000\n"
@@ -2782,11 +2782,11 @@ msgstr "Toimitusvirheellisten viestien määrä"
 #: model_terms:ir.actions.act_window,help:hr_recruitment.action_hr_job_applications
 #: model_terms:ir.actions.act_window,help:hr_recruitment.crm_case_categ0_act_job
 msgid ""
-"Odoo helps you track applicants in the recruitment\n"
+"my-erp-crm helps you track applicants in the recruitment\n"
 "                process and follow up all operations: meetings, interviews, "
 "etc."
 msgstr ""
-"Odoo auttaa sinua seuraamaan hakijoita rekrytoinnissa\n"
+"my-erp-crm auttaa sinua seuraamaan hakijoita rekrytoinnissa\n"
 "                ja organisoimaan kaikki tähän liittyvät toiminnat: "
 "tapaamisia, haastatteluja jne."
 
@@ -3652,11 +3652,11 @@ msgstr "Seuraavilta hakijoilta puuttuu sähköpostiosoite: %s."
 #. module: hr_recruitment
 #: model:ir.model.fields,help:hr_recruitment.field_hr_job__alias_model_id
 msgid ""
-"The model (Odoo Document Kind) to which this alias corresponds. Any incoming "
+"The model (my-erp-crm Document Kind) to which this alias corresponds. Any incoming "
 "email that does not reply to an existing record will cause the creation of a "
 "new record of this model (e.g. a Project Task)"
 msgstr ""
-"Malli (Odoo Asiakirja tyyppiä), jota tämä alias vastaa. Kaikki saapuvat "
+"Malli (my-erp-crm Asiakirja tyyppiä), jota tämä alias vastaa. Kaikki saapuvat "
 "sähköpostit, jotka eivät vastaa olemassa olevaan kirjaukseen, luovat uuden "
 "kirjauksen tähän malliin (esim. projektitehtävä)"
 

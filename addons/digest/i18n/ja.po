@@ -9,7 +9,7 @@
 # "Junko Augias (juau)" <juau@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.5alpha1\n"
+"Project-Id-Version: my-erp-crm Server 15.5alpha1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-08-31 08:23+0000\n"
@@ -30,8 +30,8 @@ msgstr "<span class=\"button\" id=\"button_open_report\">➔ レポートを開�
 
 #. module: digest
 #: model_terms:ir.ui.view,arch_db:digest.digest_mail_main
-msgid "<span class=\"odoo_link_text\">Odoo</span>"
-msgstr "<span class=\"odoo_link_text\">Odoo</span>"
+msgid "<span class=\"odoo_link_text\">my-erp-crm</span>"
+msgstr "<span class=\"odoo_link_text\">my-erp-crm</span>"
 
 #. module: digest
 #: model_terms:ir.ui.view,arch_db:digest.digest_mail_main
@@ -323,7 +323,7 @@ msgstr "次回メール送信日"
 
 #. module: digest
 #: model_terms:ir.ui.view,arch_db:digest.digest_section_mobile
-msgid "Odoo Mobile"
+msgid "my-erp-crm Mobile"
 msgstr "Odooモバイル"
 
 #. module: digest
@@ -366,7 +366,7 @@ msgstr "宛先"
 
 #. module: digest
 #: model_terms:ir.ui.view,arch_db:digest.digest_section_mobile
-msgid "Run your business from anywhere with <b>Odoo Mobile</b>."
+msgid "Run your business from anywhere with <b>my-erp-crm Mobile</b>."
 msgstr "<b>Odooモバイル</b>でどこからでもビジネスを運営しましょう。"
 
 #. module: digest
@@ -402,7 +402,7 @@ msgstr "ヒント説明"
 
 #. module: digest
 #: model_terms:digest.tip,tip_description:digest.digest_tip_digest_2
-msgid "Tip: A calculator in Odoo"
+msgid "Tip: A calculator in my-erp-crm"
 msgstr "ヒント: Odooの計算機能を活用しましょう"
 
 #. module: digest
@@ -439,7 +439,7 @@ msgstr "ヒント: ショートカットを使ってワークフローを高速�
 
 #. module: digest
 #: model:digest.tip,name:digest.digest_tip_digest_2
-msgid "Tip: A calculator in Odoo"
+msgid "Tip: A calculator in my-erp-crm"
 msgstr "ヒント: Odooの計算機能を活用しましょう"
 
 #. module: digest
@@ -547,7 +547,7 @@ msgstr "以下の登録解除を完了しました:<br/>"
 
 #. module: digest
 #: model:digest.digest,name:digest.digest_digest_default
-msgid "Your Odoo Periodic Digest"
+msgid "Your my-erp-crm Periodic Digest"
 msgstr "Odoo定期レポート"
 
 #. module: digest

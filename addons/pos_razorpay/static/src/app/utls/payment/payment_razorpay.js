@@ -46,7 +46,7 @@ export class PaymentRazorpay extends PaymentInterface {
         }
         this._showError(
             _t(
-                "Could not connect to the Odoo server, please check your internet connection and try again."
+                "Could not connect to the my-erp-crm server, please check your internet connection and try again."
             )
         );
 

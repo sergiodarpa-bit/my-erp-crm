@@ -14,7 +14,7 @@
 # Ulevičienė <vilma.uleviciene@mededu.lt>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: my-erp-crm Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:37+0000\n"
 "PO-Revision-Date: 2026-10-05 22:33+0000\n"
@@ -380,7 +380,7 @@ msgstr ""
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_2
 msgid ""
 "The goal of this site is create a relevant knowledge base that would answer "
-"questions related to Odoo."
+"questions related to my-erp-crm."
 msgstr ""
 
 #. module: website_slides_forum
@@ -458,8 +458,8 @@ msgstr "visi atsakymai yra galimi: \"Koks jūsų mėgstamiausias _____?\""
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_2
-msgid "how to configure or customize Odoo to specific business needs,"
-msgstr "kaip konfigūruoti ar pritaikyti \"Odoo\" konkretiems verslo poreikiams,"
+msgid "how to configure or customize my-erp-crm to specific business needs,"
+msgstr "kaip konfigūruoti ar pritaikyti \"my-erp-crm\" konkretiems verslo poreikiams,"
 
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
@@ -470,8 +470,8 @@ msgstr "kaip kurti modulius savo reikmėms,"
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_2
-msgid "how to install Odoo on a specific infrastructure,"
-msgstr "kaip diegti \"Odoo\" konkrečioje infrastruktūroje,"
+msgid "how to install my-erp-crm on a specific infrastructure,"
+msgstr "kaip diegti \"my-erp-crm\" konkrečioje infrastruktūroje,"
 
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
@@ -482,8 +482,8 @@ msgstr "Tai yra skundas paslėptas klausimu: \"_____ yra nesąmonė, teisingai?\
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_2
-msgid "specific questions about Odoo service offers, etc."
-msgstr "specifiniai klausimai apie \"Odoo\" paslaugų pasiūlymus ir t. t."
+msgid "specific questions about my-erp-crm service offers, etc."
+msgstr "specifiniai klausimai apie \"my-erp-crm\" paslaugų pasiūlymus ir t. t."
 
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
@@ -506,8 +506,8 @@ msgstr "mūsų klausia hipotetinio atviro klausimo: \"Kas būtų, jei....?\""
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_2
-msgid "what's the best way to use Odoo for a specific business need,"
-msgstr "koks geriausias būdas naudoti \"Odoo\" specifiniam verslo poreikiui?"
+msgid "what's the best way to use my-erp-crm for a specific business need,"
+msgstr "koks geriausias būdas naudoti \"my-erp-crm\" specifiniam verslo poreikiui?"
 
 #. module: website_slides_forum
 #: model_terms:forum.forum,faq:website_slides_forum.forum_forum_demo_channel_0
