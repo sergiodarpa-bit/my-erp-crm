@@ -160,8 +160,14 @@ class AccountMergeWizard(models.TransientModel):
 
         # Step 3: Update records in DB.
         # 3.1: Update foreign keys in DB
+        # The parent path must be rebuilt
+        children_to_move = self.env['account.account'].sudo().with_context(active_test=False).search([
+            ('parent_id', 'in', accounts_to_remove.ids),
+        ])
         wiz = self.env['base.partner.merge.automatic.wizard'].new()
         wiz._update_foreign_keys_generic('account.account', accounts_to_remove, account_to_merge_into)
+        children_to_move.invalidate_recordset(['parent_id'])
+        children_to_move._parent_store_update()
 
         # 3.2: Update Reference and Many2OneReference fields that reference account.account
         wiz._update_reference_fields_generic('account.account', accounts_to_remove, account_to_merge_into)
@@ -203,7 +209,7 @@ class AccountMergeWizard(models.TransientModel):
         ))
 
         # Clear ir.model.data ormcache
-        self.env.registry.clear_cache()
+        self.env.transaction.invalidate_ormcache()
 
         # Step 5: Write company_ids and codes on the account
         self.env.cr.execute(SQL(
@@ -212,7 +218,7 @@ class AccountMergeWizard(models.TransientModel):
                SET code_store = %(code_by_company_json)s
              WHERE id = %(account_to_merge_into_id)s
             """,
-            code_by_company_json=json.dumps(code_by_company),
+            code_by_company_json=code_by_company and json.dumps(code_by_company),
             account_to_merge_into_id=account_to_merge_into.id,
         ))
 

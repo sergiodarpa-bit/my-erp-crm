@@ -7,6 +7,8 @@ from odoo.addons.point_of_sale.tests.test_frontend import TestPointOfSaleHttpCom
 
 @odoo.tests.tagged('post_install', '-at_install')
 class TestPoSController(TestPointOfSaleHttpCommon):
+    _test_user_groups = None  # FIXME list needed groups
+
     def _pay_order(self, order):
         payment = self.env['pos.make.payment'].with_context(
             active_ids=[order.id], active_id=order.id,
@@ -61,7 +63,6 @@ class TestPoSController(TestPointOfSaleHttpCommon):
             'access_token': self.pos_order.access_token,
             'name': self.new_partner.name,
             'email': "test@test.com",
-            'company_name': self.new_partner.company_name,
             'vat': self.new_partner.vat,
             'street': "Test street",
             'city': "Test City",
@@ -69,11 +70,11 @@ class TestPoSController(TestPointOfSaleHttpCommon):
             'country_id': self.new_partner.country_id.id,
             'state_id': self.new_partner.state_id.id,
             'phone': "123456789",
-            'csrf_token': odoo.http.Request.csrf_token(self)
+            'csrf_token': self.csrf_token()
         }
         self.url_open(f'/pos/ticket/validate?access_token={self.pos_order.access_token}', data=get_invoice_data)
         self.assertEqual(self.env['res.partner'].sudo().search_count([('name', '=', 'AAA Partner')]), 1)
-        self.assertTrue(self.pos_order.is_invoiced, "The pos order should have an invoice")
+        self.assertTrue(self.pos_order.is_singly_invoiced, "The pos order should have an invoice")
         self.assertTrue(len(self.pos_order.pos_reference) >= 12, "The pos reference should not be less than 12 characters")
 
     def test_qr_code_receipt_user_connected(self):
@@ -128,7 +129,7 @@ class TestPoSController(TestPointOfSaleHttpCommon):
         res = self.url_open(f'/pos/ticket/validate?access_token={self.pos_order_1.access_token}', timeout=30000)
         # Invoice is not created because user does not contains required field phone
         self.assertIn('The Phone must be filled in your details.', res.content.decode('utf-8'))
-        self.assertFalse(self.pos_order_1.is_invoiced, "The pos order should not have an invoice")
+        self.assertFalse(self.pos_order_1.is_singly_invoiced, "The pos order should not have an invoice")
         self.assertFalse("my/invoices" in res.url)
 
         self.partner_1.phone = '+1 (555) 555-5555'
@@ -157,7 +158,7 @@ class TestPoSController(TestPointOfSaleHttpCommon):
         res = self.url_open(f'/pos/ticket/validate?access_token={self.pos_order_2.access_token}', timeout=30000)
         # Invoice will be created because user contains all required fields
         self.assertNotIn('The Phone must be filled in your details.', res.content.decode('utf-8'))
-        self.assertTrue(self.pos_order_2.is_invoiced, "The pos order should have an invoice")
+        self.assertTrue(self.pos_order_2.is_singly_invoiced, "The pos order should have an invoice")
         self.assertTrue("my/invoices" in res.url)
 
     def test_qr_code_receipt_user_not_connected(self):
@@ -200,6 +201,7 @@ class TestPoSController(TestPointOfSaleHttpCommon):
         self.main_pos_config.current_session_id.close_session_from_ui()
         self.start_tour('/pos/ticket', 'invoicePoSOrderWithSelfInvocing', login=None)
         self.assertTrue(self.pos_order.account_move, "The pos order should have an invoice after self invoicing")
+        self.assertNotEqual(self.pos_order.account_move, self.pos_order.session_id.move_ids)
 
     def test_qr_code_receipt_with_customer_no_user_connected(self):
         """This test make sure that when the user is not connected (public user) but
@@ -313,7 +315,7 @@ class TestPoSController(TestPointOfSaleHttpCommon):
             'country_id': self.env.ref('base.us').id,
             'state_id': self.env.ref('base.state_us_1').id,
             'phone': '999999999',
-            'csrf_token': odoo.http.Request.csrf_token(self),
+            'csrf_token': self.csrf_token(),
         }
         res = self.url_open(f'/pos/ticket/validate?access_token={self.pos_order.access_token}', data=form_data)
         self.assertEqual(self.new_partner.name, 'My Partner')
@@ -322,7 +324,7 @@ class TestPoSController(TestPointOfSaleHttpCommon):
         self.assertEqual(self.new_partner.city, 'Original City')
         self.assertEqual(self.new_partner.zip, '12345')
         self.assertEqual(self.new_partner.phone, '000000000')
-        self.assertTrue(self.pos_order.is_invoiced, "The pos order should have an invoice")
+        self.assertTrue(self.pos_order.account_move, "The pos order should have an invoice")
         self.assertTrue("my/invoices" in res.url)
 
     def test_qr_code_receipt_user_updated(self):
@@ -365,7 +367,7 @@ class TestPoSController(TestPointOfSaleHttpCommon):
         self._pay_order(self.pos_order_1)
         self.main_pos_config.current_session_id.close_session_from_ui()
         res = self.url_open(f'/pos/ticket/validate?access_token={self.pos_order_1.access_token}', timeout=30000)
-        self.assertTrue(self.pos_order_1.is_invoiced, "The pos order should have an invoice")
+        self.assertTrue(self.pos_order_1.is_singly_invoiced, "The pos order should have an invoice")
         self.assertTrue("my/invoices" in res.url)
 
         # Order without a customer should create a new partner using the submitted form data by public user.
@@ -402,7 +404,7 @@ class TestPoSController(TestPointOfSaleHttpCommon):
             'country_id': self.company.country_id.id,
             'phone': '123456789',
             'state_id': self.env['res.country.state'].search([], limit=1).id,
-            'csrf_token': odoo.http.Request.csrf_token(self)
+            'csrf_token': self.csrf_token()
         }
         self.url_open(f'/pos/ticket/validate?access_token={self.pos_order_2.access_token}', data=get_invoice_data, timeout=30000)
         partner_2 = self.pos_order_2.partner_id
@@ -456,7 +458,7 @@ class TestPoSController(TestPointOfSaleHttpCommon):
             'pos_reference': self.pos_order.pos_reference,
             'date_order': self.pos_order.date_order.strftime('%Y-%m-%d'),
             'ticket_code': self.pos_order.ticket_code,
-            'csrf_token': odoo.http.Request.csrf_token(self),
+            'csrf_token': self.csrf_token(),
         })
         self.assertEqual(res.status_code, 200)
         self.assertIn('No sale order found.', res.text)
@@ -471,39 +473,9 @@ class TestPoSController(TestPointOfSaleHttpCommon):
             'country_id': self.env.ref('base.us').id,
             'state_id': self.env.ref('base.state_us_1').id,
             'phone': "123456789",
-            'csrf_token': odoo.http.Request.csrf_token(self),
+            'csrf_token': self.csrf_token(),
         })
         self.assertEqual(res.status_code, 404)
 
         self.assertFalse(self.pos_order.account_move, "No invoice should have been created for an unpaid order")
         self.assertEqual(self.pos_order.state, 'draft', "The order should still be waiting for its payment")
-
-    def test_pos_ticket_whitespace_pos_reference(self):
-        """Test that a whitespace-only pos_reference is rejected, while an unstripped real reference is successfully found."""
-        self.authenticate(None, None)
-        self.main_pos_config.open_ui()
-        order = self.env['pos.order'].create({
-            'company_id': self.env.company.id,
-            'session_id': self.main_pos_config.current_session_id.id,
-            'pos_reference': '261-1-000001',
-            'ticket_code': '12345',
-            'access_token': '1234567890',
-            'amount_tax': 0.0,
-            'amount_total': 10.0,
-            'amount_paid': 10.0,
-            'amount_return': 0.0,
-            'state': 'paid',
-        })
-
-        form_data = {
-            'date_order': order.date_order.strftime('%Y-%m-%d'),
-            'ticket_code': order.ticket_code,
-            'csrf_token': odoo.http.Request.csrf_token(self),
-        }
-
-        res = self.url_open('/pos/ticket', data={**form_data, 'pos_reference': ' ' * 12})
-        self.assertIn("Please fill all the required fields.", res.content.decode('utf-8'))
-
-        res = self.url_open('/pos/ticket', data={**form_data, 'pos_reference': f'  {order.pos_reference}  '}, allow_redirects=False)
-        self.assertEqual(res.status_code, 303)
-        self.assertIn(f'/pos/ticket/validate?access_token={order.access_token}', res.headers['Location'])

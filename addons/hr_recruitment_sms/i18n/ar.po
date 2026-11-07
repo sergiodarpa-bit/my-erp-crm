@@ -3,14 +3,15 @@
 # * hr_recruitment_sms
 #
 # "Malaz Siddig Elsayed Abuidris (msea)" <msea@odoo.com>, 2025, 2026.
+# Weblate <noreply-mt-weblate@weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: my-erp-crm Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:36+0000\n"
-"PO-Revision-Date: 2026-08-26 07:26+0000\n"
+"POT-Creation-Date: 2026-08-28 17:42+0000\n"
+"PO-Revision-Date: 2026-10-12 10:36+0000\n"
 "Last-Translator: \"Malaz Siddig Elsayed Abuidris (msea)\" <msea@odoo.com>\n"
-"Language-Team: Arabic <https://translate.odoo.com/projects/odoo-19/"
+"Language-Team: Arabic <https://translate.odoo.com/projects/odoo-20/"
 "hr_recruitment_sms/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -39,6 +40,17 @@ msgstr "اسم العرض"
 #: model:ir.model.fields,field_description:hr_recruitment_sms.field_hr_applicant__id
 msgid "ID"
 msgstr "ID"
+
+#. module: hr_recruitment_sms
+#: model:ir.module.module,description:base.module_hr_recruitment_sms
+#: model:ir.module.module,summary:base.module_hr_recruitment_sms
+msgid "Mass mailing sms to job applicants"
+msgstr ""
+
+#. module: hr_recruitment_sms
+#: model:ir.module.module,shortdesc:base.module_hr_recruitment_sms
+msgid "Recruitment - SMS"
+msgstr ""
 
 #. module: hr_recruitment_sms
 #: model:ir.actions.server,name:hr_recruitment_sms.action_applicant_send_sms

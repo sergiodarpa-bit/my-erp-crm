@@ -7,28 +7,38 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:37+0000\n"
-"PO-Revision-Date: 2026-08-02 13:29+0000\n"
+"POT-Creation-Date: 2026-08-28 17:44+0000\n"
+"PO-Revision-Date: 2026-10-26 10:33+0000\n"
 "Last-Translator: Bone NI <bounkirdni@gmail.com>\n"
-"Language-Team: Lao <https://translate.odoo.com/projects/odoo-19/"
+"Language-Team: Lao <https://translate.odoo.com/projects/odoo-20/"
 "payment_asiapay/lo/>\n"
 "Language: lo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.6.1\n"
+"X-Generator: Weblate 2026.8.1\n"
 
 #. module: payment_asiapay
-#. odoo-python
-#: code:addons/payment_asiapay/models/payment_transaction.py:0
-msgid ""
-"An error occurred during the processing of your payment (success code "
-"%(success_code)s; primary response code %(response_code)s). Please try "
-"again."
+#: model:payment.method,name:payment_asiapay.payment_method_alipay
+msgid "Alipay"
+msgstr "Alipay"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_alipay_hk
+msgid "AlipayHK"
+msgstr "AlipayHK"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_amex
+msgid "American Express"
+msgstr "American Express"
+
+#. module: payment_asiapay
+#: model:ir.module.module,summary:base.module_payment_asiapay
+msgid "An payment provider based in Hong Kong covering most Asian countries."
 msgstr ""
-"ເກີດຂໍ້ຜິດພາດໃນລະຫວ່າງການປະມວນຜົນການຊຳລະເງິນຂອງທ່ານ (ລະຫັດຄວາມສຳເລັດ %(success_code)s; "
-"ລະຫັດການຕອບກັບຫຼັກ %(response_code)s). ກະລຸນາລອງໃໝ່ອີກຄັ້ງ."
+"ຜູ້ໃຫ້ບໍລິການຊຳລະເງິນທີ່ມີສຳນັກງານຕັ້ງຢູ່ຮ່ອງກົງ ເຊິ່ງຄອບຄຸມປະເທດສ່ວນໃຫຍ່ໃນອາຊີ."
 
 #. module: payment_asiapay
 #: model:ir.model.fields.selection,name:payment_asiapay.selection__payment_provider__code__asiapay
@@ -38,17 +48,17 @@ msgstr "AsiaPay"
 #. module: payment_asiapay
 #: model:ir.model.fields,field_description:payment_asiapay.field_payment_provider__asiapay_merchant_id
 msgid "AsiaPay Merchant ID"
-msgstr "ລະຫັດຜູ້ຄ້າ AsiaPay"
+msgstr "ລະຫັດຮ້ານຄ້າ AsiaPay"
 
 #. module: payment_asiapay
 #: model:ir.model.fields,field_description:payment_asiapay.field_payment_provider__asiapay_secure_hash_function
 msgid "AsiaPay Secure Hash Function"
-msgstr "ຟັງຊັນແຮຊທີ່ປອດໄພ AsiaPay"
+msgstr "ຟັງຊັນ Secure Hash ຂອງ AsiaPay"
 
 #. module: payment_asiapay
 #: model:ir.model.fields,field_description:payment_asiapay.field_payment_provider__asiapay_secure_hash_secret
 msgid "AsiaPay Secure Hash Secret"
-msgstr "ລະຫັດລັບແຮຊທີ່ປອດໄພ AsiaPay"
+msgstr "ລະຫັດລັບ Secure Hash ຂອງ AsiaPay"
 
 #. module: payment_asiapay
 #. odoo-python
@@ -59,7 +69,22 @@ msgstr "AsiaPay ບໍ່ຮອງຮັບສະກຸນເງິນດັ່�
 #. module: payment_asiapay
 #: model:ir.model.fields,field_description:payment_asiapay.field_payment_provider__asiapay_brand
 msgid "Asiapay Brand"
-msgstr "ຍີ່ຫໍ້ Asiapay"
+msgstr "ຍີ່ຫໍ້ AsiaPay"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_atome
+msgid "Atome"
+msgstr "Atome"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_bangkok_bank
+msgid "Bangkok Bank CWF"
+msgstr "Bangkok Bank CWF"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_bank_of_ayudhya
+msgid "Bank of Ayudhya"
+msgstr "Bank of Ayudhya"
 
 #. module: payment_asiapay
 #: model:ir.model.fields.selection,name:payment_asiapay.selection__payment_provider__asiapay_brand__bimopay
@@ -72,15 +97,50 @@ msgid "Brand"
 msgstr "ຍີ່ຫໍ້"
 
 #. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_card
+msgid "Card"
+msgstr "ບັດ"
+
+#. module: payment_asiapay
 #: model:ir.model.fields,field_description:payment_asiapay.field_payment_provider__code
 msgid "Code"
 msgstr "ລະຫັດ"
 
 #. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_diners
+msgid "Diners Club International"
+msgstr "Diners Club International"
+
+#. module: payment_asiapay
 #: model:ir.model.fields,field_description:payment_asiapay.field_payment_provider__display_name
 #: model:ir.model.fields,field_description:payment_asiapay.field_payment_transaction__display_name
 msgid "Display Name"
-msgstr "ຊື່ທີ່ສະແດງ"
+msgstr "ຊື່ສະແດງ"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_duitnow
+msgid "DuitNow"
+msgstr "DuitNow"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_fps
+msgid "FPS"
+msgstr "FPS"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_gcash
+msgid "GCash"
+msgstr "GCash"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_hoolah
+msgid "Hoolah"
+msgstr "Hoolah"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_humm
+msgid "Humm"
+msgstr "Humm"
 
 #. module: payment_asiapay
 #: model:ir.model.fields,field_description:payment_asiapay.field_payment_provider__id
@@ -89,15 +149,70 @@ msgid "ID"
 msgstr "ID"
 
 #. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_jcb
+msgid "JCB"
+msgstr "JCB"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_jkopay
+msgid "JKO Pay"
+msgstr "JKO Pay"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_krungthai_bank
+msgid "Krung Thai Bank CWF"
+msgstr "Krung Thai Bank CWF"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_linepay
+msgid "LINE Pay"
+msgstr "LINE Pay"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_mastercard
+msgid "MasterCard"
+msgstr "MasterCard"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_maya
+msgid "Maya"
+msgstr "Maya"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_maybank
+msgid "Maybank2u"
+msgstr "Maybank2u"
+
+#. module: payment_asiapay
 #: model_terms:ir.ui.view,arch_db:payment_asiapay.payment_provider_form
 msgid "Merchant ID"
-msgstr "ລະຫັດຜູ້ຄ້າ"
+msgstr "ລະຫັດຮ້ານຄ້າ"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_momo
+msgid "MoMo"
+msgstr "MoMo"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_octopus
+msgid "Octopus"
+msgstr "Octopus"
 
 #. module: payment_asiapay
 #. odoo-python
 #: code:addons/payment_asiapay/models/payment_provider.py:0
 msgid "Only one currency can be selected by AsiaPay account."
-msgstr "ສາມາດເລືອກໄດ້ພຽງສະກຸນເງິນດຽວເທົ່ານັ້ນໂດຍບັນຊີ AsiaPay."
+msgstr "ສາມາດເລືອກໄດ້ພຽງສະກຸນເງິນດຽວຕໍ່ບັນຊີ AsiaPay."
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_poli
+msgid "POLi"
+msgstr "POLi"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_pace
+msgid "Pace"
+msgstr "Pace"
 
 #. module: payment_asiapay
 #: model:ir.model.fields.selection,name:payment_asiapay.selection__payment_provider__asiapay_brand__paydollar
@@ -105,9 +220,29 @@ msgid "PayDollar"
 msgstr "PayDollar"
 
 #. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_pay_id
+msgid "PayID"
+msgstr "PayID"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_payme
+msgid "PayMe"
+msgstr "PayMe"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_paypal
+msgid "PayPal"
+msgstr "PayPal"
+
+#. module: payment_asiapay
 #: model:ir.model,name:payment_asiapay.model_payment_provider
 msgid "Payment Provider"
 msgstr "ຜູ້ໃຫ້ບໍລິການຊຳລະເງິນ"
+
+#. module: payment_asiapay
+#: model:ir.module.module,shortdesc:base.module_payment_asiapay
+msgid "Payment Provider: AsiaPay"
+msgstr "ຜູ້ໃຫ້ບໍລິການຊຳລະເງິນ: AsiaPay"
 
 #. module: payment_asiapay
 #: model:ir.model,name:payment_asiapay.model_payment_transaction
@@ -123,7 +258,12 @@ msgstr "PesoPay"
 #. odoo-python
 #: code:addons/payment_asiapay/models/payment_transaction.py:0
 msgid "Received data with missing success code."
-msgstr "ໄດ້ຮັບຂໍ້ມູນທີ່ມີລະຫັດຄວາມສຳເລັດຫາຍໄປ."
+msgstr "ໄດ້ຮັບຂໍ້ມູນແຕ່ຂາດລະຫັດຜົນສຳເລັດ."
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_scb
+msgid "SCB Easy"
+msgstr "SCB Easy"
 
 #. module: payment_asiapay
 #: model:ir.model.fields.selection,name:payment_asiapay.selection__payment_provider__asiapay_secure_hash_function__sha1
@@ -141,14 +281,19 @@ msgid "SHA512"
 msgstr "SHA512"
 
 #. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_samsung_pay
+msgid "Samsung Pay"
+msgstr "Samsung Pay"
+
+#. module: payment_asiapay
 #: model_terms:ir.ui.view,arch_db:payment_asiapay.payment_provider_form
 msgid "Secure Hash Function"
-msgstr "ຟັງຊັນແຮຊທີ່ປອດໄພ"
+msgstr "ຟັງຊັນ Secure Hash"
 
 #. module: payment_asiapay
 #: model_terms:ir.ui.view,arch_db:payment_asiapay.payment_provider_form
 msgid "Secure Hash Secret"
-msgstr "ລະຫັດລັບແຮຊທີ່ປອດໄພ"
+msgstr "ລະຫັດລັບ Secure Hash"
 
 #. module: payment_asiapay
 #: model:ir.model.fields.selection,name:payment_asiapay.selection__payment_provider__asiapay_brand__siampay
@@ -156,19 +301,46 @@ msgid "SiamPay"
 msgstr "SiamPay"
 
 #. module: payment_asiapay
+#. odoo-python
+#: code:addons/payment_asiapay/models/payment_transaction.py:0
+msgid ""
+"Success code: %(success_code)s. Primary response code: %(response_code)s."
+msgstr "ລະຫັດຜົນສຳເລັດ: %(success_code)s. ລະຫັດຕອບກັບຫຼັກ: %(response_code)s."
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_tmb
+msgid "TMB Bank"
+msgstr "TMB Bank"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_ttb
+msgid "TTB - TMBThanachart Bank"
+msgstr "TTB - TMBThanachart Bank"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_tendopay
+msgid "TendoPay"
+msgstr "TendoPay"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_tenpay
+msgid "Tenpay"
+msgstr "Tenpay"
+
+#. module: payment_asiapay
 #: model:ir.model.fields,help:payment_asiapay.field_payment_provider__asiapay_merchant_id
 msgid "The Merchant ID solely used to identify your AsiaPay account."
-msgstr "ລະຫັດຜູ້ຄ້າທີ່ໃຊ້ເພື່ອລະບຸບັນຊີ AsiaPay ຂອງທ່ານເທົ່ານັ້ນ."
+msgstr "ລະຫັດຮ້ານຄ້າທີ່ໃຊ້ເພື່ອລະບຸບັນຊີ AsiaPay ຂອງທ່ານເທົ່ານັ້ນ."
 
 #. module: payment_asiapay
 #: model:ir.model.fields,help:payment_asiapay.field_payment_provider__asiapay_brand
 msgid "The brand associated to your AsiaPay account."
-msgstr "ຍີ່ຫໍ້ທີ່ກ່ຽວຂ້ອງກັບບັນຊີ AsiaPay ຂອງທ່ານ."
+msgstr "ຍີ່ຫໍ້ທີ່ເຊື່ອມໂຍງກັບບັນຊີ AsiaPay ຂອງທ່ານ."
 
 #. module: payment_asiapay
 #: model:ir.model.fields,help:payment_asiapay.field_payment_provider__asiapay_secure_hash_function
 msgid "The secure hash function associated to your AsiaPay account."
-msgstr "ຟັງຊັນແຮຊທີ່ປອດໄພທີ່ກ່ຽວຂ້ອງກັບບັນຊີ AsiaPay ຂອງທ່ານ."
+msgstr "ຟັງຊັນ secure hash ທີ່ເຊື່ອມໂຍງກັບບັນຊີ AsiaPay ຂອງທ່ານ."
 
 #. module: payment_asiapay
 #: model:ir.model.fields,help:payment_asiapay.field_payment_provider__code
@@ -176,7 +348,47 @@ msgid "The technical code of this payment provider."
 msgstr "ລະຫັດທາງເຕັກນິກຂອງຜູ້ໃຫ້ບໍລິການຊຳລະເງິນນີ້."
 
 #. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_touch_n_go
+msgid "Touch'n Go"
+msgstr "Touch'n Go"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_truemoney
+msgid "TrueMoney"
+msgstr "TrueMoney"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_unionpay
+msgid "UnionPay"
+msgstr "UnionPay"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_uob
+msgid "United Overseas Bank"
+msgstr "United Overseas Bank"
+
+#. module: payment_asiapay
 #. odoo-python
 #: code:addons/payment_asiapay/models/payment_transaction.py:0
 msgid "Unknown success code: %s"
-msgstr "ບໍ່ຮູ້ຈັກລະຫັດຄວາມສຳເລັດ: %s"
+msgstr "ບໍ່ຮູ້ຈັກລະຫັດຜົນສຳເລັດ: %s"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_visa
+msgid "VISA"
+msgstr "VISA"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_wechat_pay
+msgid "WeChat Pay"
+msgstr "WeChat Pay"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_zip
+msgid "Zip"
+msgstr "Zip"
+
+#. module: payment_asiapay
+#: model:payment.method,name:payment_asiapay.payment_method_enets
+msgid "eNETS"
+msgstr "eNETS"

@@ -68,7 +68,7 @@ class IrActionsReport(models.Model):
             # Render in the company of the invoices (e.g. for the paper format and the layout)
             if len(invoices.company_id) == 1:
                 self = self.with_company(invoices.company_id)  # noqa: PLW0642
-            if self.env['ir.config_parameter'].sudo().get_param('account.display_name_in_footer'):
+            if self.env['ir.config_parameter'].sudo().get_str('account.display_name_in_footer'):
                 data = data and dict(data) or {}
                 data.update({'display_name_in_footer': True})
             if any(x.move_type == 'entry' for x in invoices):

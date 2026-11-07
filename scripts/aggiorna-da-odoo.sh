@@ -5,7 +5,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 UPSTREAM_URL="https://github.com/odoo/odoo.git"
-BRANCH="${1:-19.0}"
+BRANCH="${1:-20.0}"
 BASE="$(tr -d '[:space:]' < UPSTREAM_COMMIT)"
 
 if ! git diff --quiet || ! git diff --cached --quiet; then

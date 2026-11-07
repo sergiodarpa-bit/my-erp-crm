@@ -4,6 +4,7 @@
 import odoo
 
 from odoo import Command
+from odoo.tests import Form
 from odoo.addons.point_of_sale.tests.common import TestPoSCommon
 
 
@@ -14,15 +15,7 @@ class TestConfigureShops(TestPoSCommon):
         should reflect to the pos.config record pointed by the
         pos_config_id field.
     """
-
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        # If not enabled (like in demo data), landing on res.config will try
-        # to disable module_sale_quotation_builder and raise an issue
-        group_order_template = cls.env.ref('sale_management.group_sale_order_template', raise_if_not_found=False)
-        if group_order_template:
-            cls.env.ref('base.group_user').write({"implied_ids": [(4, group_order_template.id)]})
+    _test_user_groups = None  # FIXME list needed groups
 
     def _remove_on_payment_taxes(self):
         """ Call this when testing the res.config.settings with Form.
@@ -43,21 +36,19 @@ class TestConfigureShops(TestPoSCommon):
                 Command.create({
                     'name': 'Bank 1',
                     'receivable_account_id': self.env.company.account_default_pos_receivable_account_id.id,
-                    'is_cash_count': False,
-                    'split_transactions': False,
+                    'type': 'bank',
                     'company_id': self.env.company.id,
                 }),
                 Command.create({
                     'name': 'Bank 2',
                     'receivable_account_id': self.env.company.account_default_pos_receivable_account_id.id,
-                    'is_cash_count': False,
-                    'split_transactions': False,
+                    'type': 'bank',
                     'company_id': self.env.company.id,
                 }),
                 Command.create({
                     'name': 'Cash',
                     'receivable_account_id': self.env.company.account_default_pos_receivable_account_id.id,
-                    'is_cash_count': True,
+                    'type': 'cash',
                     'company_id': self.env.company.id,
                 })
             ]
@@ -91,26 +82,84 @@ class TestConfigureShops(TestPoSCommon):
             'default_preset_id': preset.id,
         })
 
-    def test_warehouse_synced_with_picking_type(self):
-        """Changing the operation type should update the warehouse on the POS config."""
-        warehouse_1 = self.env['stock.warehouse'].search(
-            self.env['stock.warehouse']._check_company_domain(self.env.company), limit=1
-        )
-        warehouse_2 = self.env['stock.warehouse'].create({
-            'name': 'Second Warehouse',
-            'code': 'WH2',
-            'company_id': self.env.company.id,
+    def test_fallback_nomenclature_swapped_when_company_nomenclature_changes(self):
+        default_nomenclature = self.env.ref('barcodes.default_barcode_nomenclature')
+        gs1_nomenclature = self.env.ref('barcodes_gs1_nomenclature.default_gs1_nomenclature')
+        self.env.company.nomenclature_id = default_nomenclature
+        pos_config = self.env['pos.config'].create({
+            'name': 'Shop 1',
+            'module_pos_restaurant': False,
+            'fallback_nomenclature_id': gs1_nomenclature.id,
         })
 
+        # e.g. from the Inventory settings
+        self.env.company.nomenclature_id = gs1_nomenclature
+        self.assertEqual(pos_config.fallback_nomenclature_id, default_nomenclature)
+
+        self.env.company.nomenclature_id = default_nomenclature
+        self.assertEqual(pos_config.fallback_nomenclature_id, gs1_nomenclature)
+
+    def test_fallback_nomenclature_swapped_from_pos_settings(self):
+        self._remove_on_payment_taxes()
+        default_nomenclature = self.env.ref('barcodes.default_barcode_nomenclature')
+        gs1_nomenclature = self.env.ref('barcodes_gs1_nomenclature.default_gs1_nomenclature')
+        self.env.company.nomenclature_id = default_nomenclature
         pos_config = self.env['pos.config'].create({
-            'name': 'Shop WH Test',
+            'name': 'Shop 1',
+            'module_pos_restaurant': False,
+            'fallback_nomenclature_id': gs1_nomenclature.id,
+        })
+
+        with Form(self.env['res.config.settings']) as form:
+            form.pos_config_id = pos_config
+            form.barcode_nomenclature_id = gs1_nomenclature
+            self.assertEqual(form.pos_fallback_nomenclature_id, default_nomenclature)
+
+        self.assertEqual(self.env.company.nomenclature_id, gs1_nomenclature)
+        self.assertEqual(pos_config.fallback_nomenclature_id, default_nomenclature)
+
+    def test_fallback_nomenclature_kept_empty_when_company_nomenclature_cleared(self):
+        default_nomenclature = self.env.ref('barcodes.default_barcode_nomenclature')
+        self.env.company.nomenclature_id = default_nomenclature
+        pos_config = self.env['pos.config'].create({
+            'name': 'Shop 1',
             'module_pos_restaurant': False,
         })
-        self.assertEqual(pos_config.warehouse_id, warehouse_1)
-        self.assertEqual(pos_config.picking_type_id.warehouse_id, warehouse_1)
 
-        pos_config.picking_type_id = warehouse_2.pos_type_id
-        self.assertEqual(
-            pos_config.warehouse_id, warehouse_2,
-            "warehouse_id should follow picking_type_id.warehouse_id after changing operation type"
-        )
+        self.env.company.nomenclature_id = False
+        self.assertFalse(pos_config.fallback_nomenclature_id)
+
+    def test_fallback_nomenclature_kept_empty_when_nomenclature_cleared_from_pos_settings(self):
+        self._remove_on_payment_taxes()
+        self.env.company.nomenclature_id = self.env.ref('barcodes.default_barcode_nomenclature')
+        pos_config = self.env['pos.config'].create({
+            'name': 'Shop 1',
+            'module_pos_restaurant': False,
+        })
+
+        with Form(self.env['res.config.settings']) as form:
+            form.pos_config_id = pos_config
+            form.barcode_nomenclature_id = self.env['barcode.nomenclature']
+            self.assertFalse(form.pos_fallback_nomenclature_id)
+
+        self.assertFalse(pos_config.fallback_nomenclature_id)
+
+    def test_fallback_nomenclature_restored_when_nomenclature_switched_back_in_pos_settings(self):
+        self._remove_on_payment_taxes()
+        default_nomenclature = self.env.ref('barcodes.default_barcode_nomenclature')
+        gs1_nomenclature = self.env.ref('barcodes_gs1_nomenclature.default_gs1_nomenclature')
+        self.env.company.nomenclature_id = default_nomenclature
+        pos_config = self.env['pos.config'].create({
+            'name': 'Shop 1',
+            'module_pos_restaurant': False,
+            'fallback_nomenclature_id': gs1_nomenclature.id,
+        })
+
+        with Form(self.env['res.config.settings']) as form:
+            form.pos_config_id = pos_config
+            form.barcode_nomenclature_id = gs1_nomenclature
+            form.barcode_nomenclature_id = default_nomenclature
+            self.assertEqual(form.pos_fallback_nomenclature_id, gs1_nomenclature)
+
+        self.assertEqual(self.env.company.nomenclature_id, default_nomenclature)
+        self.assertEqual(pos_config.fallback_nomenclature_id, gs1_nomenclature)

@@ -31,8 +31,7 @@ export class Razorpay {
             return false;
         }
         localStorage.setItem("p2pRequestId", response?.p2pRequestId);
-        response.razorpay_signature &&
-            localStorage.setItem("razorpaySignature", response.razorpay_signature);
+        localStorage.setItem("razorpaySignature", response.razorpay_signature);
         return true;
     }
 

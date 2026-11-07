@@ -9,6 +9,8 @@ import {
 import { execCommand } from "../_helpers/userCommands";
 import { unformat } from "../_helpers/format";
 import { nodeSize } from "@html_editor/utils/position";
+import { ContrastPlugin } from "@html_editor/main/font/contrast_plugin";
+import { defineStyle } from "@web/../tests/web_test_helpers";
 
 test("should apply color to completely selected list item", async () => {
     await testEditor({
@@ -102,7 +104,7 @@ test("should apply color on fully selected list items with empty text nodes at l
             setColor("rgb(255, 0, 0)", "color")(editor);
         },
         contentAfterEdit:
-            '<ul><li style="color: rgb(255, 0, 0);">[\ufeff<a href="#">\ufeffabc\ufeff</a>\ufeff</li><li style="color: rgb(255, 0, 0);">\ufeff<a href="#">\ufeffabc\ufeff</a>\ufeff]</li></ul>',
+            '<ul><li style="color: rgb(255, 0, 0);">\ufeff[<a href="#">\ufeffabc\ufeff</a>\ufeff</li><li style="color: rgb(255, 0, 0);">\ufeff<a href="#">\ufeffabc\ufeff</a>\ufeff]</li></ul>',
         contentAfter:
             '<ul><li style="color: rgb(255, 0, 0);">[<a href="#">abc</a></li><li style="color: rgb(255, 0, 0);"><a href="#">abc</a>]</li></ul>',
     });
@@ -153,11 +155,22 @@ test("should carry list item color to new list item (2)", async () => {
     });
 });
 
-test("should carry color of paragraph to list item", async () => {
+test("should carry color of paragraph to list item while preserving background color", async () => {
     await testEditor({
-        contentBefore: '<p><font style="color: rgb(255, 0, 0);">[]abc</font></p>',
+        contentBefore:
+            '<p><font style="color: rgb(255, 0, 0); background-color: rgb(0, 255, 0);">[]abc</font></p>',
         stepFunction: toggleUnorderedList,
-        contentAfter: '<ul><li style="color: rgb(255, 0, 0);">[]abc</li></ul>',
+        contentAfter:
+            '<ul><li style="color: rgb(255, 0, 0);"><font style="background-color: rgb(0, 255, 0);">[]abc</font></li></ul>',
+    });
+});
+
+test("should carry text color class of paragraph to list item while preserving background color class", async () => {
+    await testEditor({
+        contentBefore: '<p><span class="text-o-color-1 bg-o-color-2">[]abc</span></p>',
+        stepFunction: toggleUnorderedList,
+        contentAfter:
+            '<ul><li class="text-o-color-1"><span class="bg-o-color-2">[]abc</span></li></ul>',
     });
 });
 
@@ -178,6 +191,16 @@ test("should carry color of paragraph to list item (3)", async () => {
         stepFunction: toggleUnorderedList,
         contentAfter:
             '<ul><li style="color: rgb(255, 0, 0);">abc</li><li>[]def</li><li style="color: rgb(255, 0, 0);">ghi</li></ul>',
+    });
+});
+
+test("should not carry gradient text color of paragraph to list item", async () => {
+    await testEditor({
+        contentBefore:
+            '<p><font class="text-gradient" style="background-image: linear-gradient(135deg, rgb(214, 255, 127) 0%, rgb(0, 179, 204) 100%);">a[]</font></p>',
+        stepFunction: toggleUnorderedList,
+        contentAfter:
+            '<ul><li><font class="text-gradient" style="background-image: linear-gradient(135deg, rgb(214, 255, 127) 0%, rgb(0, 179, 204) 100%);">a[]</font></li></ul>',
     });
 });
 
@@ -312,6 +335,48 @@ test("should remove color from partially selected text inside list item", async 
                 </li>
             </ol>
         `),
+    });
+});
+
+test("should remove data-original-color attribute with color on removeFormat", async () => {
+    defineStyle(`
+        :root {
+            --o-html-editor-background-contrast: rgb(255, 255, 255);
+        }
+    `);
+    await testEditor({
+        contentBefore: unformat(`
+            <ol>
+                <li style="color: rgb(255, 255, 255);">
+                    <p>[abc]</p>
+                    <ol class="o_default_color">
+                        <li style="color: rgb(255, 0, 0);">def</li>
+                    </ol>
+                </li>
+            </ol>
+        `),
+        contentBeforeEdit: unformat(`
+            <ol>
+                <li style="color: rgb(183, 183, 183);" data-original-color="rgb(255, 255, 255)">
+                    <p>[abc]</p>
+                    <ol class="o_default_color">
+                        <li style="color: rgb(255, 0, 0);">def</li>
+                    </ol>
+                </li>
+            </ol>
+        `),
+        stepFunction: (editor) => execCommand(editor, "removeFormat"),
+        contentAfterEdit: unformat(`
+            <ol>
+                <li>
+                    <p>[abc]</p>
+                    <ol>
+                        <li style="color: rgb(255, 0, 0);">def</li>
+                    </ol>
+                </li>
+            </ol>
+        `),
+        config: { includePlugins: [ContrastPlugin] },
     });
 });
 

@@ -5,15 +5,16 @@
 # Translators:
 # Martin Trigaux, 2022
 # Malaz Abuidris <msea@odoo.com>, 2022
-# "Tiffany Chang (tic)" <tic@odoo.com>, 2025, 2026.
+# "Tiffany Chang (tic)" <tic@odoo.com>, 2025.
+# "Malaz Siddig Elsayed Abuidris (msea)" <msea@odoo.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: my-erp-crm Server 16.0beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-30 17:39+0000\n"
-"PO-Revision-Date: 2026-08-02 20:26+0000\n"
-"Last-Translator: \"Tiffany Chang (tic)\" <tic@odoo.com>\n"
-"Language-Team: Arabic <https://translate.odoo.com/projects/odoo-19/"
+"POT-Creation-Date: 2026-08-28 17:42+0000\n"
+"PO-Revision-Date: 2026-10-12 10:34+0000\n"
+"Last-Translator: \"Malaz Siddig Elsayed Abuidris (msea)\" <msea@odoo.com>\n"
+"Language-Team: Arabic <https://translate.odoo.com/projects/odoo-20/"
 "product_matrix/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -21,15 +22,13 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 2026.6.1\n"
+"X-Generator: Weblate 2026.8.1\n"
 
 #. module: product_matrix
-#. odoo-python
-#: code:addons/product_matrix/models/product_template.py:0
+#: model:ir.module.module,description:base.module_product_matrix
 msgid ""
-"%(products)s have more than %(limit)s attribute combinations and cannot be "
-"selected through the grid entry. Consider splitting them into several "
-"products."
+"\n"
+"Please refer to Sale Matrix or Purchase Matrix for the use of this module.\n"
 msgstr ""
 
 #. module: product_matrix
@@ -50,12 +49,6 @@ msgstr "<strong>الطتلة البنائمة لمصفوفة المنتج</stron
 #: model_terms:ir.ui.view,arch_db:product_matrix.matrix
 msgid "Cell name"
 msgstr "اسم الخلية"
-
-#. module: product_matrix
-#. odoo-javascript
-#: code:addons/product_matrix/static/src/xml/product_matrix_dialog.xml:0
-msgid "Choose Product Variants"
-msgstr "اختر متغيرات المنتج"
 
 #. module: product_matrix
 #: model_terms:ir.ui.view,arch_db:product_matrix.matrix
@@ -103,6 +96,11 @@ msgid "Product"
 msgstr "المنتج"
 
 #. module: product_matrix
+#: model:ir.module.module,shortdesc:base.module_product_matrix
+msgid "Product Matrix"
+msgstr ""
+
+#. module: product_matrix
 #: model:ir.model,name:product_matrix.model_product_template_attribute_value
 msgid "Product Template Attribute Value"
 msgstr "قيمة خاصية قالب المنتج"
@@ -113,6 +111,11 @@ msgid "Show your company love around you =)."
 msgstr "أظهر المحبة التي تُكنّها لك شركتك =)."
 
 #. module: product_matrix
+#: model:ir.module.module,summary:base.module_product_matrix
+msgid "Technical module: Matrix Implementation"
+msgstr ""
+
+#. module: product_matrix
 #: model_terms:ir.ui.view,arch_db:product_matrix.matrix
 msgid ""
 "The matrix of product variants of this order will be displayed here, if "
@@ -120,42 +123,6 @@ msgid ""
 msgstr "سيتم عرض مصفوفة متغيرات المنتجات لهذا الطلب هنا، إذا كان هناك أي منها."
 
 #. module: product_matrix
-#. odoo-python
-#: code:addons/product_matrix/models/product_template.py:0
-msgid "Too many combinations"
-msgstr ""
-
-#. module: product_matrix
 #: model_terms:ir.ui.view,arch_db:product_matrix.extra_price
 msgid "Variant price"
 msgstr "سعر المتغير"
-
-#~ msgid "Blue"
-#~ msgstr "أزرق"
-
-#~ msgid "Gender"
-#~ msgstr "الجنس"
-
-#~ msgid "Men"
-#~ msgstr "الرجال "
-
-#~ msgid "Pink"
-#~ msgstr "وردي "
-
-#~ msgid "Rainbow"
-#~ msgstr "قوس قزح "
-
-#~ msgid "Size"
-#~ msgstr "الحجم"
-
-#~ msgid "Women"
-#~ msgstr "النساء "
-
-#~ msgid "XL"
-#~ msgstr "كبير جداً "
-
-#~ msgid "XS"
-#~ msgstr "صغير جداً "
-
-#~ msgid "Yellow"
-#~ msgstr "أصفر"

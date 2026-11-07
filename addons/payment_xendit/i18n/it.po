@@ -2,16 +2,16 @@
 # This file contains the translation of the following modules:
 # * payment_xendit
 #
-# "Tiffany Chang (tic)" <tic@odoo.com>, 2025, 2026.
+# "Tiffany Chang (tic)" <tic@odoo.com>, 2025.
 # "Marianna Ciofani (cima)" <cima@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-24 17:39+0000\n"
-"PO-Revision-Date: 2026-10-30 11:33+0000\n"
+"POT-Creation-Date: 2026-09-25 17:39+0000\n"
+"PO-Revision-Date: 2026-08-31 13:42+0000\n"
 "Last-Translator: \"Marianna Ciofani (cima)\" <cima@odoo.com>\n"
-"Language-Team: Italian <https://translate.odoo.com/projects/odoo-19/"
+"Language-Team: Italian <https://translate.odoo.com/projects/odoo-s19-4/"
 "payment_xendit/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -21,19 +21,94 @@ msgstr ""
 "X-Generator: Weblate 2026.8.1\n"
 
 #. module: payment_xendit
-#. odoo-python
-#: code:addons/payment_xendit/models/payment_transaction.py:0
-msgid ""
-"An error occurred during the processing of your payment (%s). Please try "
-"again."
+#: model:payment.method,name:payment_xendit.payment_method_7eleven
+msgid "7Eleven"
+msgstr "7Eleven"
+
+#. module: payment_xendit
+#: model:ir.module.module,summary:base.module_payment_xendit
+msgid "A payment provider for Indonesian and the Philippines."
 msgstr ""
-"Si è verificato un errore durante l'elaborazione del pagamento (%s). Riprova "
-"più tardi."
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_akulaku
+msgid "Akulaku PayLater"
+msgstr "Akulaku PayLater"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_amex
+msgid "American Express"
+msgstr "American Express"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_appota
+msgid "Appota"
+msgstr "Appota"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_bank_bca
+msgid "BCA"
+msgstr "BCA"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_bri
+msgid "BRI"
+msgstr "BRI"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_bangkok_bank
+msgid "Bangkok Bank"
+msgstr "Banca di Bangkok"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_bni
+msgid "Bank Negara Indonesia"
+msgstr "Banca Negara Indonesia"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_bank_permata
+msgid "Bank Permata"
+msgstr "Banca Permata"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_bsi
+msgid "Bank Syariah Indonesia"
+msgstr "Banca Syariah Indonesia"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_billease
+msgid "BillEase"
+msgstr "BillEase"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_cimb_niaga
+msgid "CIMB Niaga"
+msgstr "CIMB Niaga"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_card
+msgid "Card"
+msgstr "Carta di credito"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_cashalo
+msgid "Cashalo"
+msgstr "Cashalo"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_cebuana
+msgid "Cebuana"
+msgstr "Cebuana"
 
 #. module: payment_xendit
 #: model:ir.model.fields,field_description:payment_xendit.field_payment_provider__code
 msgid "Code"
 msgstr "Codice"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_dana
+msgid "Dana"
+msgstr "Dana"
 
 #. module: payment_xendit
 #: model:ir.model.fields,field_description:payment_xendit.field_payment_provider__display_name
@@ -42,10 +117,85 @@ msgid "Display Name"
 msgstr "Nome visualizzato"
 
 #. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_fpx
+msgid "FPX"
+msgstr "FPX"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_gcash
+msgid "GCash"
+msgstr "GCash"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_grabpay
+msgid "GrabPay"
+msgstr "GrabPay"
+
+#. module: payment_xendit
 #: model:ir.model.fields,field_description:payment_xendit.field_payment_provider__id
 #: model:ir.model.fields,field_description:payment_xendit.field_payment_transaction__id
 msgid "ID"
 msgstr "ID"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_jcb
+msgid "JCB"
+msgstr "JCB"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_jeniuspay
+msgid "JeniusPay"
+msgstr "JeniusPay"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_kredivo
+msgid "Kredivo"
+msgstr "Kredivo"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_krungthai_bank
+msgid "KrungThai Bank"
+msgstr "Banca KrungThai"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_kfh
+msgid "Kuwait Finance House"
+msgstr "Kuwait Finance House"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_linepay
+msgid "LINE Pay"
+msgstr "LINE Pay"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_linkaja
+msgid "LinkAja"
+msgstr "LinkAja"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_mandiri
+msgid "Mandiri"
+msgstr "Mandiri"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_mastercard
+msgid "MasterCard"
+msgstr "MasterCard"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_maya
+msgid "Maya"
+msgstr "Maya"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_ovo
+msgid "OVO"
+msgstr "OVO"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_paynow
+msgid "PayNow"
+msgstr "PayNow"
 
 #. module: payment_xendit
 #: model:ir.model,name:payment_xendit.model_payment_provider
@@ -53,14 +203,45 @@ msgid "Payment Provider"
 msgstr "Fornitore di pagamenti"
 
 #. module: payment_xendit
+#: model:ir.module.module,shortdesc:base.module_payment_xendit
+msgid "Payment Provider: Xendit"
+msgstr ""
+
+#. module: payment_xendit
 #: model:ir.model,name:payment_xendit.model_payment_transaction
 msgid "Payment Transaction"
 msgstr "Transazione di pagamento"
 
 #. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_promptpay
+msgid "Prompt Pay"
+msgstr "Prompt Pay"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_qris
+msgid "QRIS"
+msgstr "QRIS"
+
+#. module: payment_xendit
+#. odoo-python
+#: code:addons/payment_xendit/models/payment_transaction.py:0
+msgid "Reason: %s"
+msgstr ""
+
+#. module: payment_xendit
 #: model_terms:ir.ui.view,arch_db:payment_xendit.payment_provider_form_xendit
 msgid "Secret Key"
 msgstr "Chiave segreta"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_shopeepay
+msgid "ShopeePay"
+msgstr "ShopeePay"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_scb
+msgid "Siam Commerical Bank"
+msgstr "Banca commerciale Siam"
 
 #. module: payment_xendit
 #. odoo-python
@@ -69,9 +250,6 @@ msgid ""
 "The payment requires authentication from the customer, which isn't possible "
 "for this unattended transaction. Please ask the customer to pay manually."
 msgstr ""
-"Il pagamento richiede l'autenticazione da parte del cliente, il che non è "
-"possibile per questa transazione automatica. Chiedi al cliente di effettuare "
-"il pagamento manualmente."
 
 #. module: payment_xendit
 #: model:ir.model.fields,help:payment_xendit.field_payment_provider__code
@@ -82,13 +260,57 @@ msgstr "Codice tecnico del fornitore di pagamenti."
 #. odoo-python
 #: code:addons/payment_xendit/models/payment_transaction.py:0
 msgid "The transaction is not linked to a token."
-msgstr "La transazione non è legata a un token."
+msgstr ""
 
 #. module: payment_xendit
-#. odoo-python
-#: code:addons/payment_xendit/models/payment_provider.py:0
-msgid "Update the Xendit webhook configuration"
-msgstr "Aggiorna la configurazione del webhook Xendit"
+#: model:payment.method,name:payment_xendit.payment_method_touch_n_go
+msgid "Touch'n Go"
+msgstr "Touch'n Go"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_truemoney
+msgid "TrueMoney"
+msgstr "TrueMoney"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_unionpay
+msgid "UnionPay"
+msgstr "UnionPay"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_uob
+msgid "United Overseas Bank"
+msgstr "United Overseas Bank"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_visa
+msgid "VISA"
+msgstr "VISA"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_vnptwallet
+msgid "VNPT Money"
+msgstr "VNPT Money"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_vpbank
+msgid "VP Bank"
+msgstr "VP Bank"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_vietcapital
+msgid "Viet Capital"
+msgstr "Viet Capital"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_viettelpay
+msgid "Viettel Pay"
+msgstr "Viettel Pay"
+
+#. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_wechat_pay
+msgid "WeChat Pay"
+msgstr "WeChat Pay"
 
 #. module: payment_xendit
 #: model_terms:ir.ui.view,arch_db:payment_xendit.payment_provider_form_xendit
@@ -96,15 +318,14 @@ msgid "Webhook Token"
 msgstr "Token Webhook"
 
 #. module: payment_xendit
+#: model:payment.method,name:payment_xendit.payment_method_woori
+msgid "Woori Bank"
+msgstr "Woori Bank"
+
+#. module: payment_xendit
 #: model:ir.model.fields.selection,name:payment_xendit.selection__payment_provider__code__xendit
 msgid "Xendit"
 msgstr "Xendit"
-
-#. module: payment_xendit
-#. odoo-python
-#: code:addons/payment_xendit/models/payment_provider.py:0
-msgid "Xendit Dashboard"
-msgstr "Dashboard Xendit"
 
 #. module: payment_xendit
 #: model:ir.model.fields,field_description:payment_xendit.field_payment_provider__xendit_public_key
@@ -122,25 +343,9 @@ msgid "Xendit Webhook Token"
 msgstr "Token Webhook Xendit"
 
 #. module: payment_xendit
-#. odoo-python
-#: code:addons/payment_xendit/models/payment_provider.py:0
-msgid ""
-"Xendit replaced the single webhook field used by the %(provider)s payment "
-"provider with separate v3 event groups. Update the %(webhook_link)s on the %"
-"(dashboard_link)s before %(deadline)s to keep receiving payment and card "
-"token status updates."
-msgstr ""
-"Xendit ha sostituito il singolo campo webhook utilizzato dal fornitore di "
-"pagamento %(provider)s con gruppi di eventi v3 separati. Aggiorna %"
-"(webhook_link)s su %(dashboard_link)s prima del %(deadline)s per continuare "
-"a ricevere gli aggiornamenti sullo stato dei pagamenti e dei token delle "
-"carte."
-
-#. module: payment_xendit
-#. odoo-python
-#: code:addons/payment_xendit/models/payment_provider.py:0
-msgid "webhook configuration"
-msgstr "configurazione webhook"
+#: model:payment.method,name:payment_xendit.payment_method_zalopay
+msgid "Zalopay"
+msgstr "Zalopay"
 
 #~ msgid "Card Code"
 #~ msgstr "Codice Carta"
@@ -196,19 +401,3 @@ msgstr "configurazione webhook"
 
 #~ msgid "john.smith@example.com"
 #~ msgstr "mario.rossi@example.com"
-
-#~ msgid "Could not establish the connection to the API."
-#~ msgstr "Impossibile stabilire la connessione all'API."
-
-#~ msgid "No transaction found matching reference %s."
-#~ msgstr "Nessuna transazione trovata che corrisponde al riferimento %s."
-
-#~ msgid "Received data with missing reference."
-#~ msgstr "Dati ricevuti privi di riferimento,"
-
-#~ msgid ""
-#~ "The communication with the API failed. Xendit gave us the following "
-#~ "information: '%s'"
-#~ msgstr ""
-#~ "La comunicazione con l'API non è riuscita. Xendit ha fornito le seguenti "
-#~ "informazioni: '%s'"

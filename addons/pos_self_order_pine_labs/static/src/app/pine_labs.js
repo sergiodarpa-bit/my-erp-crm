@@ -69,13 +69,15 @@ export class PineLabs {
             if (cancelResponse) {
                 // Successfully cancelled the transaction
                 if (cancelResponse.notification) {
-                    this.paymentStopped
-                        ? this.errorCallback(
-                              new PineLabsError("Transaction canceled due to inactivity", "warning")
-                          )
-                        : this.errorCallback(
-                              new PineLabsError(cancelResponse.notification, "warning")
-                          );
+                    if (this.paymentStopped) {
+                        this.errorCallback(
+                            new PineLabsError("Transaction canceled due to inactivity", "warning")
+                        );
+                    } else {
+                        this.errorCallback(
+                            new PineLabsError(cancelResponse.notification, "warning")
+                        );
+                    }
                     return true;
                 }
                 return this.handlePineLabsResponse(cancelResponse);
@@ -152,8 +154,7 @@ export class PineLabs {
                 response.plutusTransactionReferenceID
             );
         response.payment_ref_no && localStorage.setItem("paymentRefNo", response.payment_ref_no);
-        response.pine_labs_signature &&
-            localStorage.setItem("pineLabsSignature", response.pine_labs_signature);
+        localStorage.setItem("pineLabsSignature", response.pine_labs_signature);
         return true;
     }
 

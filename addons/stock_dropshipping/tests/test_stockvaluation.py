@@ -2,6 +2,7 @@
 
 from odoo.fields import Command
 from odoo.tests import Form, tagged
+from odoo.tools import mute_logger
 
 from odoo.addons.stock_account.tests.test_anglo_saxon_valuation_reconciliation_common import (
     ValuationReconciliationTestCommon,
@@ -10,6 +11,8 @@ from odoo.addons.stock_account.tests.test_anglo_saxon_valuation_reconciliation_c
 
 @tagged('post_install', '-at_install')
 class TestStockValuation(ValuationReconciliationTestCommon):
+
+    _test_user_groups = None  # FIXME list needed groups
 
     @classmethod
     def setUpClass(cls):
@@ -71,7 +74,8 @@ class TestStockValuation(ValuationReconciliationTestCommon):
         # create the vendor bill
         move_form = Form(self.env['account.move'].with_context(default_move_type='in_invoice'))
         move_form.partner_id = vendor1
-        move_form.purchase_vendor_bill_id = self.env['purchase.bill.union'].browse(-self.purchase_order1.id)
+        with mute_logger('odoo.tests.form.onchange'):  # Mute "x PO lines added to the bill" notification
+            move_form.purchase_vendor_bill_id = self.env['purchase.bill.union'].browse(-self.purchase_order1.id)
         move_form.invoice_date = move_form.date
         for i in range(len(self.purchase_order1.order_line)):
             with move_form.invoice_line_ids.edit(i) as line_form:
@@ -264,6 +268,7 @@ class TestStockValuation(ValuationReconciliationTestCommon):
         """
         self.product1.product_tmpl_id.categ_id.property_cost_method = 'average'
         self.product1.product_tmpl_id.categ_id.property_valuation = 'real_time'
+
         # in move @ 10
         in_move = self.env['stock.move'].create({
             'product_id': self.product1.id,
@@ -305,17 +310,11 @@ class TestStockValuation(ValuationReconciliationTestCommon):
         self.assertRecordValues(self.product1, [{'total_value': 0.0, 'qty_available': 0.0}])
 
         # return the delivery into an internal stock location, not to the vendor
-        return_picking = Form(self.env['stock.return.picking'].with_context(
-            active_ids=self.sale_order1.picking_ids.ids,
-            active_id=self.sale_order1.picking_ids.ids[0],
-            active_model='stock.picking')).save()
-        return_picking.product_return_moves.quantity = 1.0
-        return_action = return_picking.action_create_returns()
-        return_picking = self.env['stock.picking'].browse(return_action['res_id'])
+        return_picking = self.sale_order1.picking_ids._create_return()
+        return_picking.move_ids.product_uom_qty = 1.0
+        return_picking.action_assign()
         return_picking.location_dest_id = self.stock_location
-        return_picking.move_ids.move_line_ids.quantity = 1.0
-        return_picking.move_ids.picked = True
-        return_picking._action_done()
+        return_picking.button_validate()
 
         # landing in a stock location, the return is a valued incoming move
         return_move = return_picking.move_ids

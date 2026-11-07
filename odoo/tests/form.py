@@ -325,7 +325,7 @@ class Form:
 
         [record_values] = self._record.web_read(self._view['fields_spec'])
         self._env.flush_all()
-        self._env.clear()  # discard cache and pending recomputations
+        self._env.transaction.clear()
 
         values = convert_read_to_form(record_values, self._view['fields'])
         self._values.update(values)
@@ -454,7 +454,7 @@ class Form:
             # save and reload
             [record_values] = self._record.web_save(values, self._view['fields_spec'])
             self._env.flush_all()
-            self._env.clear()  # discard cache and pending recomputations
+            self._env.transaction.clear()  # discard cache and pending recomputations
 
             if not self._record:
                 record = self._record.browse(record_values['id'])
@@ -550,6 +550,11 @@ class Form:
                 else:
                     value = value.to_commands()
 
+            elif field_info['type'] == 'binary':
+                if isinstance(value, dict) and 'content' not in value:
+                    # field is just read and not modified
+                    continue
+
             result[field_name] = value
 
         return result
@@ -579,7 +584,7 @@ class Form:
         values = self._get_onchange_values()
         result = record.onchange(values, field_names, self._view['fields_spec'])
         self._env.flush_all()
-        self._env.clear()  # discard cache and pending recomputations
+        self._env.transaction.clear()  # discard cache and pending recomputations
 
         if w := result.get('warning'):
             if isinstance(w, collections.abc.Mapping) and w.keys() >= {'title', 'message'}:

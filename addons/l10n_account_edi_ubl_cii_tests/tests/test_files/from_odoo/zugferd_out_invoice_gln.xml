@@ -93,7 +93,7 @@
 		</ram:ApplicableHeaderTradeAgreement>
 		<ram:ApplicableHeaderTradeDelivery>
 			<ram:ShipToTradeParty>
-				<ram:GlobalID schemeID="0088">4098765000006</ram:GlobalID>
+				<ram:GlobalID schemeID="0088">9780471117094</ram:GlobalID>
 				<ram:Name>Buyer Delivery</ram:Name>
 				<ram:DefinedTradeContact>
 					<ram:PersonName>Buyer Delivery</ram:PersonName>

@@ -1,4 +1,4 @@
-import { test, expect } from "@odoo/hoot";
+import { test, expect, animationFrame } from "@odoo/hoot";
 import { contains, mountWithCleanup, patchWithCleanup } from "@web/../tests/web_test_helpers";
 import { setupPosEnv } from "../utils";
 import { ProductConfiguratorPopup } from "@point_of_sale/app/components/popups/product_configurator_popup/product_configurator_popup";
@@ -49,7 +49,6 @@ const mountConfigurator = async (rule = false) => {
             ...rule,
         });
         pricelist.update({ item_ids: [item] });
-        pricelist.computeRuleIndexes();
     }
     store.addNewOrder().setPricelist(pricelist);
 
@@ -67,10 +66,29 @@ test("Extra price is shown when no pricelist rule applies", async () => {
     expect(".price_extra").toHaveCount(1);
 });
 
-test("Extra price is hidden when a fixed pricelist rule prices the product", async () => {
-    // A fixed rule replaces the whole price of the product, extra prices included,
-    // so the 1.00 of "Sprinkles" is never charged and must not be advertised.
-    await mountConfigurator({ compute_price: "fixed", fixed_price: 10 });
+test("Extra price is hidden when a fixed pricelist rule targets that specific variant", async () => {
+    const store = await setupPosEnv();
+    const productTemplate = store.models["product.template"].get(60);
+    store.models["product.template.attribute.value"].get(8).price_extra = 10;
+
+    const pricelist = store.models["product.pricelist"].create({ name: "Fixed Variant Pricelist" });
+    const rule = store.models["product.pricelist.item"].create({
+        pricelist_id: pricelist,
+        product_id: store.models["product.product"].get(60),
+        compute_price: "fixed",
+        fixed_price: 15,
+    });
+    pricelist.update({ item_ids: [rule] });
+    store.addNewOrder().setPricelist(pricelist);
+
+    await mountWithCleanup(ProductConfiguratorPopup, {
+        props: {
+            productTemplate: productTemplate,
+            getPayload: () => {},
+            close: () => {},
+        },
+    });
+
     expect(".price_extra").toHaveCount(0);
 });
 
@@ -127,18 +145,27 @@ test("Same attribute on two lines keeps one selection per line", async () => {
     expect(Object.keys(line.selectedAttributes).length).toBe(2);
 });
 
-test("Deleted variant combination cannot be added", async () => {
+const setupAndAssertExcludedValuesConfigurator = async (displayType, selector) => {
     const store = await setupPosEnv();
-    // "Leather Belt" with a "size" line (S/M) creating variants and a `no_variant`
-    // "Customization" line, whose "M" variant has been deleted.
-    const productTemplate = store.models["product.template"].get(60);
-    productTemplate.update({
-        attribute_line_ids: store.models["product.template.attribute.line"].readMany([5, 4]),
-    });
-    store.models["product.product"].get(61).delete();
-    const order = store.addNewOrder();
+    const productTemplate = store.models["product.template"].get(51);
+    const ptal = store.models["product.template.attribute.line"].get(5);
 
-    const popup = await mountWithCleanup(ProductConfiguratorPopup, {
+    store.models["product.attribute"].get(10).display_type = displayType;
+    store.models["product.attribute"].get(7).display_type = displayType;
+
+    productTemplate.update({
+        attribute_line_ids: [productTemplate.attribute_line_ids[0], ptal],
+    });
+
+    const [choco, vanilla, s, m] = store.models["product.template.attribute.value"]
+        .getAll()
+        .filter((c) => [5, 6, 8, 9].includes(c.id));
+
+    choco.update({ excluded_value_ids: [m] });
+    vanilla.update({ excluded_value_ids: [s] });
+    store.processProductAttributes();
+
+    await mountWithCleanup(ProductConfiguratorPopup, {
         props: {
             productTemplate: productTemplate,
             getPayload: () => {},
@@ -146,25 +173,63 @@ test("Deleted variant combination cannot be added", async () => {
         },
     });
 
-    expect(".modal .alert-warning").toHaveCount(0);
-    expect(".modal-footer .btn-primary").not.toHaveClass("disabled");
+    expect(`label[${selector}='Chocolate']`).toHaveClass("active");
+    expect(`label[${selector}='S']`).toHaveClass("active");
+    expect(".btn:contains('Add')").not.toHaveClass("disabled");
 
-    await contains("input[id='7_9']").click(); // size "M"
-    expect(".modal .alert-warning").toHaveText(
-        "This option or combination of options is not available"
-    );
-    expect(".modal-footer .btn-primary").toHaveClass("disabled");
+    await contains(`label[${selector}='Vanilla']`).click();
+    expect(`label[${selector}='Vanilla']`).toHaveClass("active");
+    expect(".btn:contains('Add')").toHaveClass("disabled");
+    await contains(`label[${selector}='M']`).click();
+    expect(`label[${selector}='M']`).toHaveClass("active");
+    expect(".btn:contains('Add')").not.toHaveClass("disabled");
 
-    let alertProps;
-    patchWithCleanup(store.dialog, {
-        add: (component, props) => (alertProps = props),
+    await contains(`label[${selector}='Chocolate']`).click();
+    expect(`label[${selector}='Chocolate']`).toHaveClass("active");
+    expect(".btn:contains('Add')").toHaveClass("disabled");
+};
+
+test("pills: excluded value remains selectable and resolves to a valid combination", async () => {
+    await setupAndAssertExcludedValuesConfigurator("pills", "name");
+});
+
+test("color: excluded value remains selectable and resolves to a valid combination", async () => {
+    await setupAndAssertExcludedValuesConfigurator("color", "title");
+});
+
+test("pills and range attributes render as selectable pills", async () => {
+    const store = await setupPosEnv();
+    const productTemplate = store.models["product.template"].get(ICE_CREAM_TMPL_ID);
+    const attributeLine = store.models["product.template.attribute.line"].get(3);
+    productTemplate.update({ attribute_line_ids: [attributeLine] });
+    store.addNewOrder().setPricelist(false);
+
+    let payload;
+    await mountWithCleanup(ProductConfiguratorPopup, {
+        props: {
+            productTemplate,
+            getPayload: (value) => (payload = value),
+            close: () => expect.step("close"),
+        },
     });
-    await store.addLineToCurrentOrder({
-        product_tmpl_id: productTemplate,
-        payload: popup.computePayload(),
-    });
-    expect(alertProps.title).toBe("Variant does not exist");
-    expect(order.lines).toHaveLength(0);
+    for (const displayType of ["pills", "range"]) {
+        attributeLine.attribute_id.update({
+            display_type: displayType,
+            create_variant: "no_variant",
+        });
+        await animationFrame();
+        expect(".attribute-name-cell label.btn").toHaveCount(2);
+        expect(".attribute-name-cell label.active").toHaveText("Chocolate");
+
+        await contains('label[name="Vanilla"]').click();
+        expect(".attribute-name-cell label.active > span").toHaveText("Vanilla");
+        expect('input[type="radio"]:checked').toHaveCount(1);
+
+        await contains('label[name="Chocolate"]').click();
+        await contains(".modal-footer .btn-primary").click();
+        expect(payload.attribute_value_ids).toEqual([5]);
+        expect.verifySteps(["close"]);
+    }
 });
 
 const setupArchivedAttributeLine = async () => {

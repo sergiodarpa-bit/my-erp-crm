@@ -1,11 +1,9 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
-
-from datetime import datetime, timedelta
-import psycopg2.errors
-from dateutil.parser import parse
 import logging
-import pytz
+from datetime import datetime, timedelta, UTC
 from unittest.mock import patch, ANY
+
+from dateutil.parser import parse
 from freezegun import freeze_time
 
 from odoo import Command
@@ -15,13 +13,15 @@ from odoo.addons.microsoft_calendar.utils.microsoft_calendar import MicrosoftCal
 from odoo.addons.microsoft_calendar.utils.microsoft_event import MicrosoftEvent
 from odoo.addons.microsoft_calendar.models.res_users import ResUsers
 from odoo.addons.microsoft_calendar.tests.common import TestCommon, mock_get_token, _modified_date_in_the_future, patch_api
-from odoo.tests.test_cursor import TestCursor
+from odoo.tests import tagged
+
 from odoo.exceptions import UserError, ValidationError
 
 _logger = logging.getLogger(__name__)
 
 
 @patch.object(ResUsers, '_get_microsoft_calendar_token', mock_get_token)
+@tagged('at_install', '-post_install')  # LEGACY at_install
 class TestUpdateEvents(TestCommon):
 
     @patch_api
@@ -77,35 +77,6 @@ class TestUpdateEvents(TestCommon):
             timeout=ANY,
         )
         self.assertEqual(self.simple_event.name, "my new simple event")
-
-    @patch.object(MicrosoftCalendarService, 'patch')
-    def test_update_simple_event_from_odoo_commit_error(self, mock_patch):
-        """
-        Update an Odoo event with Outlook sync enabled, when the commit of the
-        post-commit sync cursor fails (e.g. concurrent update of the same event).
-        The error must be logged instead of being raised to the user.
-        """
-
-        # arrange
-        mock_patch.return_value = True
-        serialization_error = psycopg2.errors.SerializationFailure(
-            "could not serialize access due to concurrent update"
-        )
-
-        # act
-        # discard the post-commit hooks registered before this test (e.g. by
-        # google_calendar when it is installed), only the ones of the write
-        # below must be run with the failing commit
-        self.env.cr.postcommit.clear()
-        self.simple_event.with_user(self.organizer_user).write({"name": "my new simple event"})
-        with patch.object(TestCursor, 'commit', side_effect=serialization_error):
-            with self.assertLogs('odoo.addons.microsoft_calendar.models.microsoft_sync', level='ERROR') as capture:
-                self.call_post_commit_hooks()
-
-        # assert
-        mock_patch.assert_called_once()
-        self.assertEqual(len(capture.records), 1)
-        self.assertIn("Could not commit sync of record", capture.records[0].getMessage())
 
     @patch.object(MicrosoftCalendarService, 'patch')
     def test_update_simple_event_from_odoo_attendee_calendar(self, mock_patch):
@@ -194,11 +165,11 @@ class TestUpdateEvents(TestCommon):
                 'seriesMasterId': 'REC123',
                 'type': 'exception',
                 'start': {
-                    'dateTime': pytz.utc.localize(new_date).isoformat(),
+                    'dateTime': new_date.replace(tzinfo=UTC).isoformat(),
                     'timeZone': 'UTC'
                 },
                 'end': {
-                    'dateTime': pytz.utc.localize(new_date + timedelta(hours=1)).isoformat(),
+                    'dateTime': (new_date + timedelta(hours=1)).replace(tzinfo=UTC).isoformat(),
                     'timeZone': 'UTC'
                 },
                 'isAllDay': False
@@ -274,7 +245,7 @@ class TestUpdateEvents(TestCommon):
     @patch.object(MicrosoftCalendarService, 'insert')
     @patch.object(MicrosoftCalendarService, 'patch')
     def test_update_name_of_one_and_future_events_of_recurrence_from_odoo(
-        self, mock_patch, mock_insert, mock_delete
+        self, mock_patch, _mock_insert, _mock_delete
     ):
         """
         Update a Odoo event name and future events from a recurrence from the organizer calendar.
@@ -314,7 +285,7 @@ class TestUpdateEvents(TestCommon):
     @patch.object(MicrosoftCalendarService, 'insert')
     @patch.object(MicrosoftCalendarService, 'patch')
     def test_update_start_of_one_and_future_events_of_recurrence_from_odoo(
-        self, mock_patch, mock_insert, mock_delete
+        self, mock_patch, _mock_insert, mock_delete
     ):
         """
         Update a Odoo event start date and future events from a recurrence from the organizer calendar.
@@ -374,11 +345,11 @@ class TestUpdateEvents(TestCommon):
                 'seriesMasterId': 'REC123',
                 'type': 'exception',
                 'start': {
-                    'dateTime': pytz.utc.localize(new_date).isoformat(),
+                    'dateTime': new_date.replace(tzinfo=UTC).isoformat(),
                     'timeZone': 'UTC'
                 },
                 'end': {
-                    'dateTime': pytz.utc.localize(new_date + timedelta(hours=1)).isoformat(),
+                    'dateTime': (new_date + timedelta(hours=1)).replace(tzinfo=UTC).isoformat(),
                     'timeZone': 'UTC'
                 },
                 'isAllDay': False
@@ -391,7 +362,7 @@ class TestUpdateEvents(TestCommon):
     @patch.object(MicrosoftCalendarService, 'insert')
     @patch.object(MicrosoftCalendarService, 'patch')
     def test_update_start_of_one_and_future_events_of_recurrence_from_odoo_with_overlap(
-        self, mock_patch, mock_insert, mock_delete
+        self, mock_patch, _mock_insert, mock_delete
     ):
         """
         Update a Odoo event start date and future events from a recurrence from the organizer calendar,
@@ -447,11 +418,11 @@ class TestUpdateEvents(TestCommon):
                 'seriesMasterId': 'REC123',
                 'type': 'exception',
                 'start': {
-                    'dateTime': pytz.utc.localize(new_date).isoformat(),
+                    'dateTime': new_date.replace(tzinfo=UTC).isoformat(),
                     'timeZone': 'UTC'
                 },
                 'end': {
-                    'dateTime': pytz.utc.localize(new_date + timedelta(hours=1)).isoformat(),
+                    'dateTime': (new_date + timedelta(hours=1)).replace(tzinfo=UTC).isoformat(),
                     'timeZone': 'UTC'
                 },
                 'isAllDay': False
@@ -464,7 +435,7 @@ class TestUpdateEvents(TestCommon):
     @patch.object(MicrosoftCalendarService, 'insert')
     @patch.object(MicrosoftCalendarService, 'patch')
     def test_update_one_and_future_events_of_recurrence_from_odoo_attendee_calendar(
-        self, mock_patch, mock_insert, mock_delete
+        self, mock_patch, _mock_insert, mock_delete
     ):
         """
         Update a Odoo event name and future events from a recurrence from the attendee calendar.
@@ -515,11 +486,11 @@ class TestUpdateEvents(TestCommon):
                 'seriesMasterId': 'REC123',
                 'type': 'exception',
                 'start': {
-                    'dateTime': pytz.utc.localize(new_date).isoformat(),
+                    'dateTime': new_date.replace(tzinfo=UTC).isoformat(),
                     'timeZone': 'UTC'
                 },
                 'end': {
-                    'dateTime': pytz.utc.localize(new_date + timedelta(hours=1)).isoformat(),
+                    'dateTime': (new_date + timedelta(hours=1)).replace(tzinfo=UTC).isoformat(),
                     'timeZone': 'UTC'
                 },
                 'isAllDay': False
@@ -534,7 +505,7 @@ class TestUpdateEvents(TestCommon):
     @patch.object(MicrosoftCalendarService, 'insert')
     @patch.object(MicrosoftCalendarService, 'patch')
     def test_update_name_of_all_events_of_recurrence_from_odoo(
-        self, mock_patch, mock_insert, mock_delete
+        self, mock_patch, _mock_insert, _mock_delete
     ):
         """
         Update all events name from a recurrence from the organizer calendar.
@@ -569,7 +540,7 @@ class TestUpdateEvents(TestCommon):
     @patch.object(MicrosoftCalendarService, 'insert')
     @patch.object(MicrosoftCalendarService, 'patch')
     def test_update_start_of_all_events_of_recurrence_from_odoo(
-        self, mock_patch, mock_insert, mock_delete
+        self, mock_patch, _mock_insert, mock_delete
     ):
         """
         Update all events start date from a recurrence from the organizer calendar.
@@ -608,11 +579,11 @@ class TestUpdateEvents(TestCommon):
                 'seriesMasterId': 'REC123',
                 'type': 'exception',
                 'start': {
-                    'dateTime': pytz.utc.localize(new_date).isoformat(),
+                    'dateTime': new_date.replace(tzinfo=UTC).isoformat(),
                     'timeZone': 'UTC'
                 },
                 'end': {
-                    'dateTime': pytz.utc.localize(new_date + timedelta(hours=1)).isoformat(),
+                    'dateTime': (new_date + timedelta(hours=1)).replace(tzinfo=UTC).isoformat(),
                     'timeZone': 'UTC'
                 },
                 'isAllDay': False
@@ -633,7 +604,7 @@ class TestUpdateEvents(TestCommon):
     @patch.object(MicrosoftCalendarService, 'insert')
     @patch.object(MicrosoftCalendarService, 'patch')
     def test_update_all_events_of_recurrence_from_odoo_attendee_calendar(
-        self, mock_patch, mock_insert, mock_delete
+        self, mock_patch, _mock_insert, mock_delete
     ):
         """
         Update all events start date from a recurrence from the attendee calendar.
@@ -672,11 +643,11 @@ class TestUpdateEvents(TestCommon):
                 'seriesMasterId': 'REC123',
                 'type': 'exception',
                 'start': {
-                    'dateTime': pytz.utc.localize(new_date).isoformat(),
+                    'dateTime': new_date.replace(tzinfo=UTC).isoformat(),
                     'timeZone': 'UTC'
                 },
                 'end': {
-                    'dateTime': pytz.utc.localize(new_date + timedelta(hours=1)).isoformat(),
+                    'dateTime': (new_date + timedelta(hours=1)).replace(tzinfo=UTC).isoformat(),
                     'timeZone': 'UTC'
                 },
                 'isAllDay': False
@@ -1531,7 +1502,7 @@ class TestUpdateEvents(TestCommon):
 
         # Ensure that the event was deleted and recreated with the new organizer and the organizer listed as attendee.
         mock_delete.assert_any_call(
-            event.microsoft_id,
+            "test_id_for_organizer",
             token=mock_get_token(self.attendee_user),
             timeout=ANY,
         )
@@ -1541,12 +1512,78 @@ class TestUpdateEvents(TestCommon):
         self.assertTrue(self.attendee_user.partner_id.id in new_event.partner_ids.ids,
                         "User B (self.attendee_user) should be listed as attendee after the event organizer update.")
 
+    @patch_api
+    def test_recurrence_sync_values(self):
+        """
+        Yearly recurrence patterns (absoluteYearly / relativeYearly) must include
+        the correct fields in the Microsoft Graph recurrencePattern
+        """
+        base_event_vals = {
+            'recurrency': True,
+            'follow_recurrence': True,
+            'rrule_type': 'yearly',
+            'interval': 1,
+            'end_type': 'count',
+            'count': 3,
+            'event_tz': 'Europe/London',
+        }
+        cases = [
+            {
+                'name': 'absoluteYearly',
+                'event_vals': {
+                    'name': 'Yearly absolute event',
+                    'start': datetime(2024, 3, 15, 10, 0, 0),
+                    'stop': datetime(2024, 3, 15, 11, 0, 0),
+                    'month_by': 'date',
+                    'day': 15,
+                },
+                'expected_pattern': {
+                    'type': 'absoluteYearly',
+                    'dayOfMonth': 15,
+                    'month': 3,
+                },
+            },
+            {
+                'name': 'relativeYearly',
+                'event_vals': {
+                    'name': 'Yearly relative event',
+                    'start': datetime(2024, 3, 14, 10, 0, 0),
+                    'stop': datetime(2024, 3, 14, 11, 0, 0),
+                    'month_by': 'day',
+                    'byday': '2',
+                    'weekday': 'THU',
+                    'thu': True,
+                },
+                'expected_pattern': {
+                    'type': 'relativeYearly',
+                    'index': 'second',
+                    'month': 3,
+                },
+            },
+        ]
+
+        for case in cases:
+            with self.subTest(case['name']):
+                record = self.env['calendar.event'].with_context(dont_notify=True).with_user(self.organizer_user).create(
+                    dict(base_event_vals, **case['event_vals']),
+                )
+                recurrence = self.env['calendar.recurrence'].search([('base_event_id', '=', record.id)])
+                fields_to_sync = recurrence._get_microsoft_synced_fields()
+                values = recurrence._microsoft_values(fields_to_sync)
+                pattern = values['recurrence']['pattern']
+
+                for key, expected_val in case['expected_pattern'].items():
+                    self.assertEqual(
+                        pattern.get(key), expected_val,
+                        f"{case['name']}: pattern['{key}'] should be {expected_val!r}",
+                    )
+
     @freeze_time('2021-09-22')
     @patch.object(MicrosoftCalendarService, 'patch')
-    def test_restart_sync_with_synced_recurrence(self, mock_patch):
+    def test_restart_sync_with_synced_recurrence(self, _mock_patch):
         """ Ensure that sync restart is not blocked when there are recurrence outliers in Odoo database. """
         # Stop synchronization, set recurrent events as outliers and restart sync with Outlook.
-        self.organizer_user.stop_microsoft_synchronization()
+        self.organizer_user.with_user(self.organizer_user).stop_microsoft_synchronization()
         self.recurrent_events.with_user(self.organizer_user).write({
             'microsoft_id': False,
             'ms_universal_event_id': False,
@@ -1643,7 +1680,7 @@ class TestUpdateEvents(TestCommon):
         """
         # Set sync lower bound days range (with 'lower_bound_range' = 7 days).
         # Set event end time in two weeks past the current day for simulating an old event.
-        self.env['ir.config_parameter'].sudo().set_param('microsoft_calendar.sync.lower_bound_range', 7)
+        self.env['ir.config_parameter'].sudo().set_int('microsoft_calendar.sync.lower_bound_range', 7)
         self.simple_event.write({
             'start': datetime.now() - timedelta(days=14),
             'stop': datetime.now() - timedelta(days=14) + timedelta(hours=2),

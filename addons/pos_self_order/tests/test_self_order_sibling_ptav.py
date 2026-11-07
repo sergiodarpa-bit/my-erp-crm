@@ -4,9 +4,9 @@ import json
 from uuid import uuid4
 
 import odoo.tests
+from odoo.tools import mute_logger
 
 from odoo.addons.pos_self_order.tests.self_order_common_test import SelfOrderCommonTest
-from odoo.tools import mute_logger
 
 
 @odoo.tests.tagged("post_install", "-at_install")
@@ -18,11 +18,9 @@ class TestSelfOrderSiblingPtav(SelfOrderCommonTest):
             "self_ordering_mode": "mobile",
             "self_ordering_service_mode": "counter",
         })
-        self.env.company.point_of_sale_update_stock_quantities = "real"
         self.tiered = self.env["product.template"].create({
             "name": "Tiered Product",
             "type": "consu",
-            "is_storable": True,
             "available_in_pos": True,
             "self_order_available": True,
             "list_price": 1000.0,
@@ -55,7 +53,7 @@ class TestSelfOrderSiblingPtav(SelfOrderCommonTest):
         self.free_ptav.price_extra = -1000.0
 
         self.premium_variant = self.tiered.product_variant_ids.filtered(
-            lambda v: v.product_template_attribute_value_ids == self.premium_ptav
+            lambda v: v.product_template_attribute_value_ids == self.premium_ptav,
         )
 
         self.pos_config.open_ui()
@@ -112,7 +110,7 @@ class TestSelfOrderSiblingPtav(SelfOrderCommonTest):
         order_id = self._post_order_json(ptav_ids, product)["result"]["pos.order"][0]["id"]
         return self.env["pos.order"].browse(order_id)
 
-    def test_honest_order_is_charged_and_not_fulfilled(self):
+    def test_honest_order_is_charged_and_not_paid(self):
         order = self._post_order([self.premium_ptav.id])
 
         self.assertEqual(len(order.lines), 1)
@@ -121,8 +119,6 @@ class TestSelfOrderSiblingPtav(SelfOrderCommonTest):
                          "server must recompute the honest line to the 1000 base price")
         self.assertEqual(order.state, "draft",
                          "a non-zero self-order must stay draft until paid")
-        self.assertFalse(order.picking_ids,
-                         "an unpaid order must not be fulfilled")
 
     def test_sibling_ptav_is_rejected(self):
         with mute_logger("odoo.http"):
@@ -242,10 +238,7 @@ class TestSelfOrderSiblingPtav(SelfOrderCommonTest):
         discount_ptav = option_ptavs.filtered(lambda p: p.product_attribute_value_id == discount_val)
         discount_ptav.write({
             "price_extra": -50.0,
-            "exclude_for": [(0, 0, {
-                "product_tmpl_id": self.tiered.id,
-                "value_ids": [(6, 0, self.premium_ptav.ids)],
-            })],
+            "excluded_value_ids": [(6, 0, self.premium_ptav.ids)],
         })
 
         with mute_logger("odoo.http"):
@@ -283,10 +276,7 @@ class TestSelfOrderSiblingPtav(SelfOrderCommonTest):
         ).product_template_value_ids
         discount_ptav.write({
             "price_extra": -1100.0,
-            "exclude_for": [(0, 0, {
-                "product_tmpl_id": self.tiered.id,
-                "value_ids": [(6, 0, self.premium_ptav.ids)],
-            })],
+            "excluded_value_ids": [(6, 0, self.premium_ptav.ids)],
         })
         budget_variant = self.tiered.product_variant_ids.filtered(
             lambda v: v.product_template_attribute_value_ids == self.budget_ptav,

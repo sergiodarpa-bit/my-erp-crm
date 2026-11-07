@@ -5,19 +5,32 @@
 # Bone NI <bounkirdni@gmail.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: Odoo Server 19.4a1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-10 18:39+0000\n"
-"PO-Revision-Date: 2026-08-08 02:27+0000\n"
+"POT-Creation-Date: 2026-08-28 17:43+0000\n"
+"PO-Revision-Date: 2026-10-25 05:33+0000\n"
 "Last-Translator: Bone NI <bounkirdni@gmail.com>\n"
-"Language-Team: Lao <https://translate.odoo.com/projects/odoo-19/sms_twilio/"
+"Language-Team: Lao <https://translate.odoo.com/projects/odoo-20/sms_twilio/"
 "lo/>\n"
 "Language: lo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.6.1\n"
+"X-Generator: Weblate 2026.8.1\n"
+
+#. module: sms_twilio
+#: model:ir.module.module,description:base.module_sms_twilio
+msgid ""
+"\n"
+"This module allows using Twilio as a provider for SMS messaging.\n"
+"The user has to create an account on twilio.com and top\n"
+"up their account to start sending SMS messages.\n"
+msgstr ""
+"\n"
+"ໂມດູນນີ້ຊ່ວຍໃຫ້ສາມາດນຳໃຊ້ Twilio ເປັນຜູ້ໃຫ້ບໍລິການສົ່ງຂໍ້ຄວາມ SMS.\n"
+"ຜູ້ໃຊ້ຕ້ອງສ້າງບັນຊີຢູ່ twilio.com ແລະ ຕື່ມເງິນ\n"
+"ເຂົ້າບັນຊີເພື່ອເລີ່ມການສົ່ງຂໍ້ຄວາມ SMS.\n"
 
 #. module: sms_twilio
 #. odoo-python
@@ -29,19 +42,19 @@ msgstr "%(failure_type)s: %(failure_reason)s"
 #. odoo-python
 #: code:addons/sms_twilio/tools/sms_api.py:0
 msgid "'To' and 'From' numbers cannot be the same"
-msgstr "ເບີ 'ຜູ້ຮັບ' ແລະ 'ຜູ້ສົ່ງ' ບໍ່ສາມາດເປັນເບີດຽວກັນໄດ້"
+msgstr "ເບີ 'ເຖິງ' ແລະ 'ຈາກ' ບໍ່ສາມາດເປັນເບີດຽວກັນໄດ້"
 
 #. module: sms_twilio
 #. odoo-python
 #: code:addons/sms_twilio/tools/sms_api.py:0
 msgid "A 'From' number is required to send a message"
-msgstr "ຕ້ອງມີເບີ 'ຜູ້ສົ່ງ' ເພື່ອສົ່ງຂໍ້ຄວາມ"
+msgstr "ຈຳເປັນຕ້ອງມີເບີ 'ຈາກ' ເພື່ອສົ່ງຂໍ້ຄວາມ"
 
 #. module: sms_twilio
 #. odoo-python
 #: code:addons/sms_twilio/tools/sms_api.py:0
 msgid "A 'To' phone number is required"
-msgstr "ຕ້ອງມີເບີໂທລະສັບ 'ຜູ້ຮັບ'"
+msgstr "ຈຳເປັນຕ້ອງມີເບີໂທລະສັບ 'ເຖິງ'"
 
 #. module: sms_twilio
 #: model_terms:ir.ui.view,arch_db:sms_twilio.sms_twilio_account_manage_view_form
@@ -52,32 +65,34 @@ msgstr "ACabcde12345abcde12345abcde12345ab"
 #: model:ir.model.fields,field_description:sms_twilio.field_res_company__sms_twilio_account_sid
 #: model:ir.model.fields,field_description:sms_twilio.field_sms_twilio_account_manage__sms_twilio_account_sid
 msgid "Account SID"
-msgstr "ລະຫັດບັນຊີ SID"
+msgstr "Account SID"
 
 #. module: sms_twilio
 #. odoo-python
 #: code:addons/sms_twilio/wizard/sms_twilio_account_manage.py:0
 msgid "An error occurred while fetching the numbers."
-msgstr "ເກີດຂໍ້ຜິດພາດໃນຂະນະທີ່ດຶງຂໍ້ມູນເບີໂທລະສັບ."
+msgstr "ເກີດຂໍ້ຜິດພາດຂຶ້ນໃນຂະນະທີ່ກຳລັງດຶງຂໍ້ມູນເບີໂທລະສັບ."
 
 #. module: sms_twilio
 #: model:ir.model.fields,field_description:sms_twilio.field_res_company__sms_twilio_auth_token
 #: model:ir.model.fields,field_description:sms_twilio.field_sms_twilio_account_manage__sms_twilio_auth_token
 msgid "Auth Token"
-msgstr "ໂທເຄັນຢືນຢັນຕົວຕົນ"
+msgstr "Auth Token"
+
+#. module: sms_twilio
+#. odoo-javascript
+#: code:addons/sms_twilio/static/src/core/notification_model.js:0
+msgid "Authentication Error"
+msgstr "ຂໍ້ຜິດພາດໃນການຢັ້ງຢືນຕົວຕົນ"
 
 #. module: sms_twilio
 #: model:ir.model.fields.selection,name:sms_twilio.selection__mail_notification__failure_type__twilio_authentication
 #: model:ir.model.fields.selection,name:sms_twilio.selection__sms_sms__failure_type__twilio_authentication
 msgid "Authentication Error\""
-msgstr "ຂໍ້ຜິດພາດໃນການຢືນຢັນຕົວຕົນ\""
+msgstr "ຂໍ້ຜິດພາດໃນການຢັ້ງຢືນຕົວຕົນ\""
 
 #. module: sms_twilio
 #: model:ir.model,name:sms_twilio.model_res_company
-msgid "Companies"
-msgstr "ບໍລິສັດ"
-
-#. module: sms_twilio
 #: model:ir.model.fields,field_description:sms_twilio.field_sms_sms__record_company_id
 #: model:ir.model.fields,field_description:sms_twilio.field_sms_twilio_account_manage__company_id
 #: model:ir.model.fields,field_description:sms_twilio.field_sms_twilio_number__company_id
@@ -92,7 +107,7 @@ msgstr "ການຕັ້ງຄ່າລະບົບ"
 #. module: sms_twilio
 #: model_terms:ir.ui.view,arch_db:sms_twilio.res_config_settings_view_form
 msgid "Configure Twilio Account"
-msgstr "ຕັ້ງຄ່າບັນຊີ Twilio"
+msgstr "ກຳນົດຄ່າບັນຊີ Twilio"
 
 #. module: sms_twilio
 #: model:ir.model.fields,field_description:sms_twilio.field_sms_twilio_number__country_id
@@ -119,17 +134,7 @@ msgstr "ສ້າງເມື່ອ"
 #. module: sms_twilio
 #: model_terms:ir.ui.view,arch_db:sms_twilio.sms_twilio_account_manage_view_form
 msgid "Credentials"
-msgstr "ຂໍ້ມູນການເຂົ້າລະບົບ"
-
-#. module: sms_twilio
-#: model_terms:ir.ui.view,arch_db:sms_twilio.sms_twilio_account_manage_view_form
-msgid "Delete"
-msgstr "ລຶບ"
-
-#. module: sms_twilio
-#: model_terms:ir.ui.view,arch_db:sms_twilio.sms_twilio_account_manage_view_form
-msgid "Discard"
-msgstr "ຍົກເລີກ"
+msgstr "ຂໍ້ມູນຢັ້ງຢືນຕົວຕົນ"
 
 #. module: sms_twilio
 #: model:ir.model.fields,field_description:sms_twilio.field_mail_notification__display_name
@@ -141,7 +146,7 @@ msgstr "ຍົກເລີກ"
 #: model:ir.model.fields,field_description:sms_twilio.field_sms_twilio_account_manage__display_name
 #: model:ir.model.fields,field_description:sms_twilio.field_sms_twilio_number__display_name
 msgid "Display Name"
-msgstr "ຊື່ທີ່ສະແດງ"
+msgstr "ຊື່ສະແດງ"
 
 #. module: sms_twilio
 #. odoo-python
@@ -152,18 +157,20 @@ msgstr "ຂໍ້ຜິດພາດ: %s"
 #. module: sms_twilio
 #: model:ir.model.fields,field_description:sms_twilio.field_sms_sms__failure_type
 msgid "Failure Type"
-msgstr "ປະເພດຂອງການລົ້ມເຫຼວ"
+msgstr "ປະເພດຄວາມລົ້ມເຫຼວ"
 
 #. module: sms_twilio
 #: model:ir.model.fields,field_description:sms_twilio.field_mail_notification__failure_type
 msgid "Failure type"
-msgstr "ປະເພດຂອງການລົ້ມເຫຼວ"
+msgstr "ປະເພດຄວາມລົ້ມເຫຼວ"
 
 #. module: sms_twilio
+#. odoo-javascript
+#: code:addons/sms_twilio/static/src/core/notification_model.js:0
 #: model:ir.model.fields.selection,name:sms_twilio.selection__mail_notification__failure_type__twilio_from_to
 #: model:ir.model.fields.selection,name:sms_twilio.selection__sms_sms__failure_type__twilio_from_to
 msgid "From / To identic"
-msgstr "ເບີຜູ້ສົ່ງ ແລະ ຜູ້ຮັບ ຄືກັນ"
+msgstr "ເບີ ຈາກ / ເຖິງ ຄືກັນ"
 
 #. module: sms_twilio
 #: model:ir.model.fields,field_description:sms_twilio.field_mail_notification__id
@@ -178,10 +185,12 @@ msgid "ID"
 msgstr "ID"
 
 #. module: sms_twilio
+#. odoo-javascript
+#: code:addons/sms_twilio/static/src/core/notification_model.js:0
 #: model:ir.model.fields.selection,name:sms_twilio.selection__mail_notification__failure_type__twilio_callback
 #: model:ir.model.fields.selection,name:sms_twilio.selection__sms_sms__failure_type__twilio_callback
 msgid "Incorrect callback URL"
-msgstr "URL ສຳລັບການເອີ້ນກັບ (callback) ບໍ່ຖືກຕ້ອງ"
+msgstr "URL Callback ບໍ່ຖືກຕ້ອງ"
 
 #. module: sms_twilio
 #. odoo-python
@@ -190,7 +199,7 @@ msgid ""
 "Invalid Twilio Account SID: must only contain alphanumeric characters after "
 "'AC'."
 msgstr ""
-"ລະຫັດ Twilio Account SID ບໍ່ຖືກຕ້ອງ: ຕ້ອງມີພຽງຕົວອັກສອນ ແລະ ຕົວເລກ ຕໍ່ຈາກ 'AC' ເທົັ້ນັ້ນ."
+"Account SID ຂອງ Twilio ບໍ່ຖືກຕ້ອງ: ຕ້ອງມີສະເພາະຕົວອັກສອນ ແລະ ຕົວເລກຫຼັງຈາກ 'AC'."
 
 #. module: sms_twilio
 #. odoo-python
@@ -198,24 +207,29 @@ msgstr ""
 msgid ""
 "Invalid Twilio Account SID: must start with 'AC' and be 34 characters long."
 msgstr ""
-"ລະຫັດ Twilio Account SID ບໍ່ຖືກຕ້ອງ: ຕ້ອງເລີ່ມຕົ້ນດ້ວຍ 'AC' ແລະ ມີຄວາມຍາວ 34 ຕົວອັກສອນ."
+"Account SID ຂອງ Twilio ບໍ່ຖືກຕ້ອງ: ຕ້ອງເລີ່ມຕົ້ນດ້ວຍ 'AC' ແລະ ມີຄວາມຍາວ 34 ຕົວອັກສອນ."
 
 #. module: sms_twilio
 #: model:ir.model.fields,field_description:sms_twilio.field_sms_twilio_account_manage__write_uid
 #: model:ir.model.fields,field_description:sms_twilio.field_sms_twilio_number__write_uid
 msgid "Last Updated by"
-msgstr "ແກ້ໄຂຫຼ້າສຸດໂດຍ"
+msgstr "ປັບປຸງຫຼ້າສຸດໂດຍ"
 
 #. module: sms_twilio
 #: model:ir.model.fields,field_description:sms_twilio.field_sms_twilio_account_manage__write_date
 #: model:ir.model.fields,field_description:sms_twilio.field_sms_twilio_number__write_date
 msgid "Last Updated on"
-msgstr "ແກ້ໄຂຫຼ້າສຸດເມື່ອ"
+msgstr "ປັບປຸງຫຼ້າສຸດເມື່ອ"
 
 #. module: sms_twilio
 #: model:ir.model,name:sms_twilio.model_sms_tracker
 msgid "Link SMS to mailing/sms tracking models"
-msgstr "ເຊື່ອມຕໍ່ SMS ຫາ ຮູບແບບການຕິດຕາມການສົ່ງເມລ/SMS"
+msgstr "ເຊື່ອມໂຍງ SMS ກັບແບບຈຳລອງການຕິດຕາມ mailing/sms"
+
+#. module: sms_twilio
+#: model_terms:ir.ui.view,arch_db:sms_twilio.sms_twilio_account_manage_view_form
+msgid "Load from Twilio"
+msgstr "ໂຫຼດຈາກ Twilio"
 
 #. module: sms_twilio
 #. odoo-python
@@ -226,22 +240,27 @@ msgstr "ຈັດການ Twilio SMS"
 
 #. module: sms_twilio
 #: model:ir.model,name:sms_twilio.model_mail_notification
-msgid "Message Notifications"
+msgid "Message Notification"
 msgstr "ການແຈ້ງເຕືອນຂໍ້ຄວາມ"
 
 #. module: sms_twilio
+#. odoo-javascript
+#: code:addons/sms_twilio/static/src/core/notification_model.js:0
 #: model:ir.model.fields.selection,name:sms_twilio.selection__mail_notification__failure_type__twilio_from_missing
 #: model:ir.model.fields.selection,name:sms_twilio.selection__sms_sms__failure_type__twilio_from_missing
 msgid "Missing From Number"
-msgstr "ບໍ່ມີເບີຜູ້ສົ່ງ"
+msgstr "ຂາດເບີໂທຜູ້ສົ່ງ (From)"
 
 #. module: sms_twilio
 #: model_terms:ir.ui.view,arch_db:sms_twilio.sms_twilio_account_manage_view_form
 msgid ""
 "Need help ?\n"
-"                            <i class=\"fa fa-external-link\" aria-hidden=\"true\"/>"
+"                            <i class=\"oi\" data-icon=\"open_in_new\" aria-"
+"hidden=\"true\"/>"
 msgstr ""
-"ຕ້ອງການຄວາມຊ່ວຍເຫຼືອບໍ ? <i class=\"fa fa-external-link\" aria-hidden=\"true\"/>"
+"ຕ້ອງການຄວາມຊ່ວຍເຫຼືອບໍ່ ?\n"
+"                            <i class=\"oi\" data-icon=\"open_in_new\" aria-"
+"hidden=\"true\"/>"
 
 #. module: sms_twilio
 #: model:ir.model.fields,field_description:sms_twilio.field_res_company__sms_twilio_number_ids
@@ -263,12 +282,13 @@ msgstr "ເບີໂທລະສັບ"
 #. odoo-python
 #: code:addons/sms_twilio/wizard/sms_twilio_account_manage.py:0
 msgid "Please set the number to which you want to send a test SMS."
-msgstr "ກະລຸນາລະບຸເບີໂທລະສັບທີ່ທ່ານຕ້ອງການສົ່ງ SMS ທົດລອງ."
+msgstr "ກະລຸນາກຳນົດເບີໂທລະສັບທີ່ທ່ານຕ້ອງການສົ່ງ SMS ທົດສອບ."
 
 #. module: sms_twilio
-#: model_terms:ir.ui.view,arch_db:sms_twilio.sms_twilio_account_manage_view_form
-msgid "Reload Numbers from Twilio"
-msgstr "ໂຫຼດເບີໂທລະສັບຄືນໃໝ່ຈາກ Twilio"
+#. odoo-python
+#: code:addons/sms_twilio/tools/sms_api.py:0
+msgid "Recheck your credentials"
+msgstr "ກວດສອບຂໍ້ມູນຢັ້ງຢືນຕົວຕົນຂອງທ່ານຄືນໃໝ່"
 
 #. module: sms_twilio
 #: model:ir.model.fields,field_description:sms_twilio.field_res_company__sms_provider
@@ -280,7 +300,7 @@ msgstr "ຜູ້ໃຫ້ບໍລິການ SMS"
 #. module: sms_twilio
 #: model:ir.model,name:sms_twilio.model_sms_twilio_account_manage
 msgid "SMS Twilio Connection Wizard"
-msgstr "ຕົວຊ່ວຍເຊື່ອມຕໍ່ Twilio SMS"
+msgstr "ຕົວຊ່ວຍເຊື່ອມຕໍ່ SMS Twilio"
 
 #. module: sms_twilio
 #: model:ir.model,name:sms_twilio.model_sms_composer
@@ -288,9 +308,14 @@ msgid "Send SMS Wizard"
 msgstr "ຕົວຊ່ວຍສົ່ງ SMS"
 
 #. module: sms_twilio
+#: model:ir.module.module,summary:base.module_sms_twilio
+msgid "Send SMS messages using Twilio"
+msgstr "ສົ່ງຂໍ້ຄວາມ SMS ໂດຍນຳໃຊ້ Twilio"
+
+#. module: sms_twilio
 #: model_terms:ir.ui.view,arch_db:sms_twilio.sms_twilio_account_manage_view_form
 msgid "Send test SMS"
-msgstr "ສົ່ງ SMS ທົດລອງ"
+msgstr "ສົ່ງ SMS ທົດສອບ"
 
 #. module: sms_twilio
 #: model:ir.model.fields.selection,name:sms_twilio.selection__res_company__sms_provider__iap
@@ -305,12 +330,12 @@ msgstr "ສົ່ງຜ່ານ Twilio"
 #. module: sms_twilio
 #: model:ir.model.fields,field_description:sms_twilio.field_sms_twilio_number__sequence
 msgid "Sequence"
-msgstr "ລໍາດັບ"
+msgstr "ລຳດັບ"
 
 #. module: sms_twilio
 #: model:ir.model.fields,field_description:sms_twilio.field_sms_twilio_account_manage__test_number
 msgid "Test Number"
-msgstr "ເບີທົດລອງ"
+msgstr "ເບີທົດສອບ"
 
 #. module: sms_twilio
 #: model:ir.model.fields,help:sms_twilio.field_sms_twilio_number__country_code
@@ -318,7 +343,8 @@ msgid ""
 "The ISO country code in two chars. \n"
 "You can use this field for quick search."
 msgstr ""
-"ລະຫັດປະເທດ ISO ໃນຮູບແບບສອງຕົວອັກສອນ. ທ່ານສາມາດໃຊ້ຫ້ອງນີ້ເພື່ອການຄົ້ນຫາແບບໄວ."
+"ລະຫັດປະເທດ ISO ປະກອບດ້ວຍສອງຕົວອັກສອນ. \n"
+"ທ່ານສາມາດນຳໃຊ້ຊ່ອງຂໍ້ມູນນີ້ສຳລັບການຄົ້ນຫາແບບວ່ອງໄວ."
 
 #. module: sms_twilio
 #. odoo-python
@@ -330,25 +356,25 @@ msgstr "SMS ຖືກສົ່ງອອກຈາກ %s ແລ້ວ"
 #. odoo-python
 #: code:addons/sms_twilio/tools/sms_api.py:0
 msgid "The number you're trying to reach is not correctly formatted"
-msgstr "ເບີໂທລະສັບທີ່ທ່ານກຳລັງຕິດຕໍ່ຢູ່ ບໍ່ຢູ່ໃນຮູບແບບທີ່ຖືກຕ້ອງ"
+msgstr "ເບີໂທລະສັບທີ່ທ່ານພະຍາຍາມຕິດຕໍ່ມີຮູບແບບບໍ່ຖືກຕ້ອງ"
 
 #. module: sms_twilio
 #. odoo-python
 #: code:addons/sms_twilio/wizard/sms_twilio_account_manage.py:0
 msgid "This is a test SMS from Odoo"
-msgstr "ນີ້ແມ່ນ SMS ທົດລອງຈາກ Odoo"
+msgstr "ນີ້ແມ່ນ SMS ທົດສອບຈາກ Odoo"
 
 #. module: sms_twilio
 #. odoo-python
 #: code:addons/sms_twilio/tools/sms_api.py:0
 msgid "Trial Account Limitation"
-msgstr "ຂໍ້ຈຳກັດຂອງບັນຊີທົດລອງ"
+msgstr "ຂໍ້ຈຳກັດຂອງບັນຊີທົດລອງໃຊ້"
 
 #. module: sms_twilio
 #. odoo-python
 #: code:addons/sms_twilio/tools/sms_api.py:0
 msgid "Twilio Authentication Error"
-msgstr "ຂໍ້ຜິດພາດໃນການຢືນຢັນຕົວຕົນຂອງ Twilio"
+msgstr "ຂໍ້ຜິດພາດໃນການຢັ້ງຢືນຕົວຕົນຂອງ Twilio"
 
 #. module: sms_twilio
 #: model:ir.model,name:sms_twilio.model_sms_twilio_number
@@ -359,6 +385,7 @@ msgstr "ເບີ Twilio"
 #. module: sms_twilio
 #. odoo-python
 #: code:addons/sms_twilio/wizard/sms_twilio_account_manage.py:0
+#: model:ir.module.module,shortdesc:base.module_sms_twilio
 msgid "Twilio SMS"
 msgstr "Twilio SMS"
 
@@ -380,23 +407,31 @@ msgid "Twilio StatusCallback URL is incorrect"
 msgstr "URL StatusCallback ຂອງ Twilio ບໍ່ຖືກຕ້ອງ"
 
 #. module: sms_twilio
+#. odoo-javascript
+#: code:addons/sms_twilio/static/src/core/notification_model.js:0
+#: model:ir.model.fields.selection,name:sms_twilio.selection__mail_notification__failure_type__twilio_wrong_credentials
+#: model:ir.model.fields.selection,name:sms_twilio.selection__sms_sms__failure_type__twilio_wrong_credentials
+msgid "Twilio Wrong Credentials"
+msgstr "ຂໍ້ມູນຢັ້ງຢືນຕົວຕົນຂອງ Twilio ບໍ່ຖືກຕ້ອງ"
+
+#. module: sms_twilio
 #. odoo-python
 #: code:addons/sms_twilio/tools/sms_api.py:0
 msgid "Unknown error, please contact Odoo support"
-msgstr "ເກີດຂໍ້ຜິດພາດທີ່ບໍ່ຮູ້ຈັກ, ກະລຸນາຕິດຕໍ່ຝ່າຍຊ່ວຍເຫຼືອຂອງ Odoo"
+msgstr "ເກີດຂໍ້ຜິດພາດທີ່ບໍ່ຮູ້ສາເຫດ, ກະລຸນາຕິດຕໍ່ຝ່າຍຊ່ວຍເຫຼືອຂອງ Odoo"
 
 #. module: sms_twilio
 #. odoo-python
 #: code:addons/sms_twilio/tools/sms_api.py:0
 msgid "Unknown failure at sending, please contact Odoo support"
 msgstr ""
-"ເກີດການລົ້ມເຫຼວທີ່ບໍ່ຮູ້ສາເຫດໃນການສົ່ງ, ກະລຸນາຕິດຕໍ່ຝ່າຍຊ່ວຍເຫຼືອຂອງ Odoo"
+"ເກີດຄວາມລົ້ມເຫຼວທີ່ບໍ່ຮູ້ສາເຫດໃນການສົ່ງ, ກະລຸນາຕິດຕໍ່ຝ່າຍຊ່ວຍເຫຼືອຂອງ Odoo"
 
 #. module: sms_twilio
 #. odoo-python
 #: code:addons/sms_twilio/tools/sms_api.py:0
 msgid "Unverified recipient on Trial Account"
-msgstr "ຜູ້ຮັບຍັງບໍ່ທັນໄດ້ຮັບການຢືນຢັນໃນບັນຊີທົດລອງ"
+msgstr "ຜູ້ຮັບຍັງບໍ່ໄດ້ຮັບການຢັ້ງຢືນເທິງບັນຊີທົດລອງໃຊ້"
 
 #. module: sms_twilio
 #: model_terms:ir.ui.view,arch_db:sms_twilio.sms_twilio_account_manage_view_form

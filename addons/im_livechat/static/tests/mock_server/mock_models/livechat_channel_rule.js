@@ -1,11 +1,11 @@
-import { mailDataHelpers } from "@mail/../tests/mock_server/mail_mock_server";
 import { models } from "@web/../tests/web_test_helpers";
 
 export class LivechatChannelRule extends models.ServerModel {
     _name = "im_livechat.channel.rule";
 
-    get _to_store_defaults() {
-        return ["action", "auto_popup_timer", mailDataHelpers.Store.one("chatbot_script_id")];
+    _store_channel_rule_fields(res) {
+        res.extend(["action", "auto_popup_timer"]);
+        res.one("chatbot_script_id", "_store_script_fields");
     }
 
     match_rule(channel_id) {

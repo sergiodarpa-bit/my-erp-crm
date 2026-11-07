@@ -5,12 +5,12 @@
 # "Noemi Pla Garcia (nopl)" <nopl@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: my-erp-crm Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server saas~19.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-05 19:29+0000\n"
+"POT-Creation-Date: 2026-08-28 17:42+0000\n"
 "PO-Revision-Date: 2026-10-30 09:33+0000\n"
 "Last-Translator: \"Noemi Pla Garcia (nopl)\" <nopl@odoo.com>\n"
-"Language-Team: Spanish <https://translate.odoo.com/projects/odoo-19/"
+"Language-Team: Spanish <https://translate.odoo.com/projects/odoo-20/"
 "pos_cashdro/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -30,12 +30,6 @@ msgstr "Error al cancelar"
 #: code:addons/pos_cashdro/static/src/app/payment_cashdro.js:0
 msgid "Cash Machine Error"
 msgstr "Error del cajón de cobro"
-
-#. module: pos_cashdro
-#. odoo-javascript
-#: code:addons/pos_cashdro/static/src/app/screens/payment_screen/payment_lines/payment_lines.xml:0
-msgid "Cash inserted:"
-msgstr "Efectivo introducido:"
 
 #. module: pos_cashdro
 #: model:ir.model.fields,field_description:pos_cashdro.field_pos_payment_method__cashdro_ip
@@ -113,6 +107,13 @@ msgid "ID"
 msgstr "ID"
 
 #. module: pos_cashdro
+#: model:ir.module.module,summary:base.module_pos_cashdro
+msgid "Integrate your POS with a Cashdro automatic cash payment device"
+msgstr ""
+"Integra tu punto de venta con un dispositivo de pago en efectivo automático "
+"Cashdro"
+
+#. module: pos_cashdro
 #. odoo-javascript
 #: code:addons/pos_cashdro/static/src/app/payment_cashdro.js:0
 msgid "No"
@@ -125,6 +126,11 @@ msgid "Open Diagnostics Page"
 msgstr "Abrir página de diagnóstico"
 
 #. module: pos_cashdro
+#: model:ir.module.module,shortdesc:base.module_pos_cashdro
+msgid "POS Cashdro Cash Machines"
+msgstr "PdV - Máquinas de cobro automático Cashdro"
+
+#. module: pos_cashdro
 #. odoo-javascript
 #: code:addons/pos_cashdro/static/src/backend/cashdro_admin_buttons/cashdro_admin_buttons.js:0
 msgid "Please configure the IP address before opening the diagnostics page"
@@ -132,8 +138,8 @@ msgstr "Configura la dirección IP antes de abrir la página de diagnóstico"
 
 #. module: pos_cashdro
 #: model:ir.model,name:pos_cashdro.model_pos_payment_method
-msgid "Point of Sale Payment Methods"
-msgstr "Métodos de pago en el punto de venta"
+msgid "Point of Sale Payment Method"
+msgstr "Método de pago del punto de venta"
 
 #. module: pos_cashdro
 #. odoo-javascript
@@ -150,6 +156,3 @@ msgstr ""
 #: code:addons/pos_cashdro/static/src/app/payment_cashdro.js:0
 msgid "Yes"
 msgstr "Sí"
-
-#~ msgid "Request sent"
-#~ msgstr "Solicitud enviada"

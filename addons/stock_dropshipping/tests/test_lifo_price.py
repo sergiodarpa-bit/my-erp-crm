@@ -8,10 +8,9 @@ from odoo.tests import tagged, common, Form
 @tagged('-at_install', 'post_install')
 class TestLifoPrice(ValuationReconciliationTestCommon):
 
-    def test_lifoprice(self):
-        # Required for `uom_id` to be visible in the view
-        self.env.user.group_ids += self.env.ref('uom.group_uom')
+    _test_user_groups = None  # FIXME list needed groups
 
+    def test_lifoprice(self):
         # Set product category removal strategy as LIFO
         product_category_001 = self.env['product.category'].create({
             'name': 'Lifo Category',
@@ -22,30 +21,14 @@ class TestLifoPrice(ValuationReconciliationTestCommon):
         res_partner_3 = self.env['res.partner'].create({'name': 'My Test Partner'})
 
         # Set a product as using lifo price
-        product_form = Form(self.env['product.product'])
-        product_form.default_code = 'LIFO'
-        product_form.name = 'LIFO Ice Cream'
-        product_form.is_storable = True
-        product_form.categ_id = product_category_001
-        # <field name="list_price" position="attributes">
-        #     <attribute name="readonly">product_variant_count &gt; 1</attribute>
-        #     <attribute name="invisible">1</attribute>
-        # </field>
-        # <field name="list_price" position="after">
-        #     <field name="lst_price" class="oe_inline" widget='monetary' options="{'currency_field': 'currency_id', 'field_digits': True}"/>
-        # </field>
-        # @api.onchange('lst_price')
-        # def _set_product_lst_price(self):
-        #     ...
-        #         product.write({'list_price': value})
-        product_form.lst_price = 100.0
-        product_form.uom_id = self.env.ref('uom.product_uom_kgm')
-        # these are not available (visible) in either product or variant
-        # for views, apparently from the UI you can only set the product
-        # category (or hand-assign the property_* version which seems...)
-        # product_form.categ_id.valuation = 'real_time'
-        # product_form.categ_id.property_cost_method = 'fifo'
-        product_lifo_icecream = product_form.save()
+        product_lifo_icecream = self.env['product.product'].create({
+            'name': 'LIFO Ice Cream',
+            'default_code': 'LIFO',
+            'is_storable': True,
+            'categ_id': product_category_001.id,
+            'list_price': 100.0,
+            'uom_id': self.env.ref('uom.product_uom_kgm').id,
+        })
 
         product_lifo_icecream.standard_price = 70.0
 
@@ -103,4 +86,4 @@ class TestLifoPrice(ValuationReconciliationTestCommon):
         outgoing_lifo_shipment.button_validate()
 
         # Check if the move value correctly reflects the fifo costing method
-        self.assertEqual(outgoing_lifo_shipment.move_ids.value, 1400.0, 'Stock move value should have been 1400 euro')
+        self.assertEqual(outgoing_lifo_shipment.move_ids.value, -1400.0, 'Stock move value should have been -1400 euro')

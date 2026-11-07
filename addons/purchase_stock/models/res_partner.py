@@ -39,7 +39,7 @@ class ResPartner(models.Model):
 
     @api.depends('purchase_line_ids')
     def _compute_on_time_rate(self):
-        date_order_days_delta = int(self.env['ir.config_parameter'].sudo().get_param('purchase_stock.on_time_delivery_days', default='365'))
+        date_order_days_delta = self.env['ir.config_parameter'].sudo().get_int('purchase_stock.on_time_delivery_days') or 365
         # prefetching for future filtering and calculation logic
         order_lines = self.env['purchase.order.line'].search_fetch(
             domain=[
@@ -47,9 +47,10 @@ class ResPartner(models.Model):
                 ('date_order', '>', fields.Date.today() - timedelta(date_order_days_delta)),
                 ('qty_received', '!=', 0),
                 ('order_id.state', '=', 'purchase'),
+                ('date_promised', '!=', False),
                 ('product_id', 'in', self.env['product.product'].sudo()._search([('type', '!=', 'service')])),
             ],
-            field_names=['date_planned', 'partner_id', 'product_uom_qty'],
+            field_names=['date_promised', 'partner_id', 'product_uom_qty'],
         )
         lines_quantity = defaultdict(lambda: 0)
         moves = self.env['stock.move'].search_fetch(
@@ -59,7 +60,7 @@ class ResPartner(models.Model):
             ],
             field_names=['purchase_line_id', 'date', 'quantity'],
         )
-        moves = moves.filtered(lambda m: m.date.date() <= m.purchase_line_id.date_planned.date())
+        moves = moves.filtered(lambda m: m.date.date() <= m.purchase_line_id.date_promised.date())
         for move in moves:
             lines_quantity[move.purchase_line_id.id] += move.quantity
         partner_dict = {}
@@ -74,3 +75,35 @@ class ResPartner(models.Model):
             on_time, ordered = numbers
             partner.on_time_rate = on_time / ordered * 100 if ordered else -1   # use negative number to indicate no data
         (self - seen_partner).on_time_rate = -1
+
+    @api.model
+    def name_search(self, name='', domain=None, operator='ilike', limit=100):
+        """ Returns product vendors first if highlight_supplier flag in context"""
+        res = super().name_search(name, domain, operator, limit)
+        if not self.env.context.get('highlight_supplier') or not self.env.context.get('product_id'):  # Flag for replenish wizard
+            return res
+
+        product = self.env['product.product'].browse(self.env.context['product_id'])
+        listed_vendors_ids = {partner_id for partner_id, _ in res}
+
+        missing_vendors_ids = list(set(product.seller_ids.partner_id.ids) - listed_vendors_ids)
+        if missing_vendors_ids:  # Vendors not in res due to limit (eg. res: Abigail...Wood and Zut is a vendor)
+            vendor_domain = [('id', 'in', missing_vendors_ids)]
+            res.extend(super().name_search(name, vendor_domain, operator, limit))
+
+        res.sort(key=lambda partner: 0 if partner[0] in product.seller_ids.partner_id.ids else 1)
+        return res[:limit] if limit else res
+
+    @api.depends('name')
+    @api.depends_context('highlight_supplier')
+    def _compute_display_name(self):
+        """ Displays partner in bold if highlight_supplier flag in context"""
+        super()._compute_display_name()
+        ctx = self.env.context
+        if not ctx.get("highlight_supplier") or not ctx.get("formatted_display_name") or not ctx.get("product_id"):
+            return  # If highlight flag OFF or dropdown not expanded return without styling
+
+        product = self.env['product.product'].browse(ctx['product_id'])
+        for rec in self:
+            if rec.id in product.seller_ids.partner_id.ids:
+                rec.display_name = f"**{rec.display_name}**"  # Bold

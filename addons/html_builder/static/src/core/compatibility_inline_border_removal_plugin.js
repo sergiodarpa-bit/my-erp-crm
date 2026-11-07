@@ -2,6 +2,7 @@ import { Plugin } from "@html_editor/plugin";
 import { registry } from "@web/core/registry";
 import { withSequence } from "@html_editor/utils/resource";
 import { CSS_SHORTHANDS } from "@html_builder/utils/utils_css";
+import { setStyle } from "@html_builder/core/core_builder_action_plugin";
 
 /**
  * Compatibility plugin to handle border-width and border-radius inline style
@@ -16,38 +17,33 @@ const EXTRA_CLASSES = { "border-width": "border", "border-radius": "rounded" };
 
 export class CompatibilityInlineBorderRemovalPlugin extends Plugin {
     static id = "compatibilityInlineBorderRemoval";
-    static dependencies = ["builderActions"];
     /** @type {import("plugins").BuilderResources} */
     resources = {
-        apply_custom_css_style: withSequence(20, this.removeInlineBorderIfNecessary.bind(this)),
+        apply_custom_css_style_overrides: withSequence(
+            20,
+            this.removeInlineBorderIfNecessary.bind(this)
+        ),
     };
 
     // The border-width/radius calculation using --box-border-width/radius
     // variables is done at class level using "border" and "rounded" classes, so
     // eventual border-width/radius styles must be removed because they would
     // otherwise take precedence.
-    removeInlineBorderIfNecessary({ editingElement, params }) {
+    removeInlineBorderIfNecessary({ editingElement, styleName }) {
         const newStyleBeingEdited = NEW_STYLES.find(
-            (style) =>
-                params.mainParam === style || CSS_SHORTHANDS[style].includes(params.mainParam)
+            (style) => styleName === style || CSS_SHORTHANDS[style].includes(styleName)
         );
         const relatedOldStyle = newStyleBeingEdited?.replace("--box-", "");
         if (newStyleBeingEdited && OLD_STYLES.some((style) => editingElement.style[style])) {
             // Replace all old inline styles related to border-width/radius as
             // the new CSS rules + variables rely on both being right, i.e. not
             // messed up by any inline style...
-            const styleAction = this.dependencies.builderActions.getAction("styleAction");
             for (const oldStyle of OLD_STYLES) {
                 // Convert non-edited legacy style to new CSS variable.
                 const inlineValue = editingElement.style.getPropertyValue(oldStyle);
                 if (inlineValue && oldStyle !== relatedOldStyle) {
-                    styleAction.applyCssStyle({
-                        editingElement,
-                        params: {
-                            mainParam: `--box-${oldStyle}`,
-                            extraClass: EXTRA_CLASSES[oldStyle],
-                        },
-                        value: inlineValue,
+                    setStyle(editingElement, `--box-${oldStyle}`, inlineValue, {
+                        extraClass: EXTRA_CLASSES[oldStyle],
                     });
                 }
                 // TODO even though the part about inner layers below is pure

@@ -35,16 +35,12 @@ class TestRecruitmentMail(MailCase):
         with self.mock_mail_gateway():
             applicant_get_refuse_reason.with_context(active_test=False).action_refuse_reason_apply()
 
-        self.assertSentEmail(
-            'from@test.test',
-            [applicant.partner_id.email_formatted],
-            subject='Application refused: Laurie Poiret',
-        )
         partner_cc = self.env['res.partner'].search([('email', '=', 'cc@test.test')])
         self.assertTrue(partner_cc)
         self.assertSentEmail(
             'from@test.test',
-            [partner_cc.email_formatted],
+            [applicant.partner_id.email_formatted],
+            recipients_cc=[partner_cc],
             subject='Application refused: Laurie Poiret',
         )
 
@@ -58,5 +54,6 @@ class TestRecruitmentMail(MailCase):
         self.assertSentEmail(
             self.env.user.email_formatted,
             [applicant.partner_id.email_formatted],
+            recipients_cc=[],
             subject='Application refused: Laurie Poiret',
         )

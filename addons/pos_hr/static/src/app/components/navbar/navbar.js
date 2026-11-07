@@ -1,17 +1,17 @@
 import { Navbar } from "@point_of_sale/app/components/navbar/navbar";
+import { useBarcodeReader } from "@point_of_sale/app/hooks/barcode_reader_hook";
 import { patch } from "@web/core/utils/patch";
 
 patch(Navbar.prototype, {
-    get showCloseSession() {
-        const user = this.pos.getCashierUserId();
-        return (
-            !this.pos.config.module_pos_hr ||
-            this.pos.employeeIsAdmin ||
-            Boolean(user && user.id === this.pos.session.user_id?.id)
-        );
-    },
-    get showBackend() {
-        const cashier = this.pos.getCashierUserId();
-        return !this.pos.config.module_pos_hr || (cashier && cashier.id === this.pos.user?.id);
+    setup() {
+        super.setup(...arguments);
+        if (this.pos.config.module_pos_hr) {
+            useBarcodeReader({
+                cashier: (code) =>
+                    this.pos.setCashierFromBadge(
+                        this.pos.accessRight.getEmployeeByBarcode(code.code)
+                    ),
+            });
+        }
     },
 });

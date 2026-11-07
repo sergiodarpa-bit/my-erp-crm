@@ -19,7 +19,7 @@ class TestPineLabsPaymentStatus(TestPointOfSaleHttpCommon):
         cls.pine_labs_payment_method = cls.env["pos.payment.method"].create({
             "name": "Pine Labs",
             "payment_method_type": "terminal",
-            "use_payment_terminal": "pine_labs",
+            "payment_provider": "pine_labs",
             "pine_labs_merchant": "my_merchant",
             "pine_labs_store": "my_store",
             "pine_labs_client": "my_client",
@@ -27,6 +27,7 @@ class TestPineLabsPaymentStatus(TestPointOfSaleHttpCommon):
             "pine_labs_allowed_payment_mode": "all",
             "pine_labs_test_mode": True,
             "journal_id": cls.bank_journal.id,
+            "type": "bank",
         })
         cls.main_pos_config.write({
             "use_pricelist": False,

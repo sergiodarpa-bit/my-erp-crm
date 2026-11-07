@@ -2,8 +2,6 @@
 
 """ Implementation of "INVENTORY VALUATION TESTS (With valuation layers)" spreadsheet. """
 
-import time
-
 from odoo import fields
 from odoo.fields import Command
 from odoo.tests import Form, tagged
@@ -12,6 +10,8 @@ from freezegun import freeze_time
 
 
 class TestStockValuationLCCommon(TestStockLandedCostsCommon):
+
+    _test_user_groups = None  # FIXME list needed groups
 
     @classmethod
     def setUpClass(cls):
@@ -78,7 +78,7 @@ class TestStockValuationLCCommon(TestStockLandedCostsCommon):
             'order_line': [Command.create({
                 'product_id': product.id,
                 'product_qty': quantity,
-                'product_uom_id': product_uom.id if product_uom else product.uom_id.id,
+                'uom_id': product_uom.id if product_uom else product.uom_id.id,
                 'price_unit': price_unit,
                 'tax_ids': [Command.clear()],
             })],
@@ -98,7 +98,7 @@ class TestStockValuationLCCommon(TestStockLandedCostsCommon):
             'product_id': product.id,
             'location_id': self.company_data['default_warehouse'].lot_stock_id.id,
             'location_dest_id': self.env.ref('stock.stock_location_customers').id,
-            'product_uom': self.env.ref('uom.product_uom_unit').id,
+            'uom_id': self.env.ref('uom.product_uom_unit').id,
             'product_uom_qty': quantity,
             'picking_type_id': self.company_data['default_warehouse'].out_type_id.id,
         })
@@ -117,7 +117,7 @@ class TestStockValuationLCCommon(TestStockLandedCostsCommon):
             self.env['stock.move.line'].create({
                 'move_id': out_move.id,
                 'product_id': out_move.product_id.id,
-                'product_uom_id': out_move.product_uom.id,
+                'uom_id': out_move.uom_id.id,
                 'location_id': out_move.location_id.id,
                 'location_dest_id': out_move.location_dest_id.id,
             })
@@ -158,6 +158,8 @@ class TestStockValuationLCCommon(TestStockLandedCostsCommon):
 
 @tagged('-at_install', 'post_install')
 class TestStockValuationLCFIFO(TestStockValuationLCCommon):
+    _test_user_groups = None  # FIXME list needed groups
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -231,7 +233,7 @@ class TestStockValuationLCFIFO(TestStockValuationLCCommon):
 
         self.assertEqual(move1.value, 100.0)
         for move in (move2, move3, move4):
-            self.assertAlmostEqual(move.value, 33.33, delta=0.01)
+            self.assertAlmostEqual(move.value, -33.33, delta=0.01)
         self.assertEqual(self.product1.total_value, 0)
         self.assertEqual(self.product1.qty_available, 0)
 
@@ -245,7 +247,7 @@ class TestStockValuationLCFIFO(TestStockValuationLCCommon):
 
         self.assertEqual(move1.value, 98.0)
         for move in (move2, move3, move4):
-            self.assertAlmostEqual(move.value, 32.67, delta=0.01)
+            self.assertAlmostEqual(move.value, -32.67, delta=0.01)
         self.assertEqual(self.product1.total_value, 0)
         self.assertEqual(self.product1.qty_available, 0)
 
@@ -259,7 +261,7 @@ class TestStockValuationLCFIFO(TestStockValuationLCCommon):
 
         self.assertEqual(move1.value, 4.85)
         for move in (move2, move3, move4):
-            self.assertAlmostEqual(move.value, 1.62, delta=0.01)
+            self.assertAlmostEqual(move.value, -1.62, delta=0.01)
         self.assertEqual(self.product1.total_value, 0)
         self.assertEqual(self.product1.qty_available, 0)
 
@@ -273,7 +275,7 @@ class TestStockValuationLCFIFO(TestStockValuationLCCommon):
         self.assertEqual(self.product1.total_value, 1150)
         self.assertEqual(self.product1.qty_available, 10)
         move2 = self._make_out_move(self.product1, 1)
-        self.assertEqual(move2.value, 115)
+        self.assertEqual(move2.value, -115)
 
     def test_landed_cost_different_uom(self):
         """
@@ -317,6 +319,8 @@ class TestStockValuationLCFIFO(TestStockValuationLCCommon):
 
 @tagged('-at_install', 'post_install')
 class TestStockValuationLCAVCO(TestStockValuationLCCommon):
+    _test_user_groups = None  # FIXME list needed groups
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -434,6 +438,8 @@ class TestStockValuationLCAVCO(TestStockValuationLCCommon):
 
 @tagged('-at_install', 'post_install')
 class TestStockValuationLCFIFOVB(TestStockValuationLCCommon):
+    _test_user_groups = None  # FIXME list needed groups
+
     @classmethod
     def setUpClass(cls):
         super(TestStockValuationLCFIFOVB, cls).setUpClass()
@@ -640,6 +646,8 @@ class TestStockValuationLCFIFOVB(TestStockValuationLCCommon):
 
 @tagged('-at_install', 'post_install')
 class TestAccountInvoicingWithCOA(TestStockValuationLCCommon):
+    _test_user_groups = None  # FIXME list needed groups
+
     def setUp(self):
         super().setUp()
         self.usd = self.env.ref('base.USD')
@@ -649,7 +657,7 @@ class TestAccountInvoicingWithCOA(TestStockValuationLCCommon):
 
     def create_rate(self, inv_rate):
         return self.env['res.currency.rate'].create({
-            'name': time.strftime('%Y-%m-%d'),
+            'name': fields.Date.subtract(fields.Date.today(), days=1),
             'inverse_company_rate': inv_rate,
             'currency_id': self.eur.id,
             'company_id': self.env.company.id,
@@ -667,11 +675,9 @@ class TestAccountInvoicingWithCOA(TestStockValuationLCCommon):
         return bill
 
     def _return(self, picking, qty):
-        wizard_form = Form(self.env['stock.return.picking'].with_context(active_ids=picking.ids, active_id=picking.id, active_model='stock.picking'))
-        wizard = wizard_form.save()
-        wizard.product_return_moves.quantity = qty
-        return_picking = wizard._create_return()
-        return_picking.move_ids.quantity = qty
+        return_picking = picking._create_return()
+        return_picking.move_ids.product_uom_qty = qty
+        return_picking.action_assign()
         return_picking.button_validate()
         return return_picking
 

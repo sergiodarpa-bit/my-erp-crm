@@ -17,21 +17,50 @@ export function selectTable(table) {
     return [
         {
             content: `Select table ${table}`,
-            trigger: `.self_order_popup_table select`,
-            run: (helpers) => {
-                // The default select (run: select 3) doesn't work here
-                const options = document.querySelectorAll(".self_order_popup_table option");
-                const targetOption = Array.from(options).find((option) =>
-                    option.textContent.includes(table)
-                );
-                const optionValue = targetOption.value;
-                helpers.anchor.value = optionValue;
-                helpers.anchor.dispatchEvent(new Event("change"));
-            },
+            trigger: `.self_order_pills_selection_popup .option-item:contains("${table}")`,
+            run: "click",
         },
         {
             content: `Click on 'Confirm' button`,
-            trigger: `.self_order_popup_table .btn:contains('Continue with table ${table}')`,
+            trigger: `.self_order_pills_selection_popup .btn-primary:contains('Confirm')`,
+            run: "click",
+        },
+    ];
+}
+
+export function selectTimeSlot() {
+    return [
+        {
+            content: `Wait for time slot popup to appear`,
+            trigger: `.self_order_pills_selection_popup`,
+        },
+        {
+            content: `Select first available time slot`,
+            trigger: `.self_order_pills_selection_popup .option-item:first`,
+            run: "click",
+        },
+        {
+            content: `Click on 'Confirm' button`,
+            trigger: `.self_order_pills_selection_popup .btn-primary:contains('Confirm')`,
+            run: "click",
+        },
+    ];
+}
+
+export function selectSpecificSlot(slotValue) {
+    return [
+        {
+            content: `Wait for time slot popup to appear`,
+            trigger: `.self_order_pills_selection_popup`,
+        },
+        {
+            content: `Select time slot ${slotValue}`,
+            trigger: `.self_order_pills_selection_popup .option-item:contains('${slotValue}')`,
+            run: "click",
+        },
+        {
+            content: `Click on 'Confirm' button`,
+            trigger: `.self_order_pills_selection_popup .btn-primary:contains('Confirm')`,
             run: "click",
         },
     ];
@@ -78,7 +107,7 @@ export function checkProduct(name, price, quantity = "1") {
 export function removeProduct(name) {
     return {
         content: `Remove product ${name} from the cart`,
-        trigger: `.product-cart-item:has(div:contains("${name}")) button:has(.fa-trash-o)`,
+        trigger: `.product-cart-item:has(div:contains("${name}")) button:has([data-icon="delete"])`,
         run: "click",
     };
 }
@@ -151,23 +180,6 @@ export function cancelOrder() {
             run: "click",
         },
     ];
-}
-
-export function checkSlotUnavailable(slotValue) {
-    return {
-        content: `Check that ${slotValue} is not available`,
-        trigger: ".slot-select",
-        run: () => {
-            const select = document.querySelector(".slot-select");
-            const options = select.querySelectorAll("option");
-            const targetOption = Array.from(options).find((option) =>
-                option.textContent.includes(slotValue)
-            );
-            if (targetOption) {
-                throw new Error(`${slotValue} is still available`);
-            }
-        },
-    };
 }
 
 export function isShown() {

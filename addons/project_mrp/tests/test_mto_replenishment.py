@@ -22,7 +22,7 @@ class TestMtoReplenishment(TransactionCase):
                 }, {
                     'name': 'Component',
                     'is_storable': True,
-                    'route_ids': [Command.set((mto_route | self.env.ref('mrp.route_warehouse0_manufacture')).ids)],
+                    'route_ids': [Command.link(mto_route.id)],
                 }, {
                     'name': 'Finished',
                     'is_storable': True,

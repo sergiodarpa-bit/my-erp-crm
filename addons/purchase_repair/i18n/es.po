@@ -2,17 +2,17 @@
 # This file contains the translation of the following modules:
 # * purchase_repair
 #
-# "Tiffany Chang (tic)" <tic@odoo.com>, 2025, 2026.
-# "Dylan Kiss (dyki)" <dyki@odoo.com>, 2025, 2026.
+# "Tiffany Chang (tic)" <tic@odoo.com>, 2025.
+# "Dylan Kiss (dyki)" <dyki@odoo.com>, 2025.
 # "Noemi Pla Garcia (nopl)" <nopl@odoo.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: my-erp-crm Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:36+0000\n"
+"POT-Creation-Date: 2026-08-28 17:43+0000\n"
 "PO-Revision-Date: 2026-10-14 15:33+0000\n"
 "Last-Translator: \"Noemi Pla Garcia (nopl)\" <nopl@odoo.com>\n"
-"Language-Team: Spanish <https://translate.odoo.com/projects/odoo-19/"
+"Language-Team: Spanish <https://translate.odoo.com/projects/odoo-20/"
 "purchase_repair/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -44,6 +44,12 @@ msgid "ID"
 msgstr "ID"
 
 #. module: purchase_repair
+#: model:ir.module.module,summary:base.module_purchase_repair
+msgid "Keep track of linked purchase and repair orders"
+msgstr ""
+"Realiza un seguimiento de las compras y las órdenes de reparación vinculadas"
+
+#. module: purchase_repair
 #: model:ir.model,name:purchase_repair.model_purchase_order
 msgid "Purchase Order"
 msgstr "Pedido de compra"
@@ -54,6 +60,11 @@ msgstr "Pedido de compra"
 #: model_terms:ir.ui.view,arch_db:purchase_repair.view_repair_order_form_inherit
 msgid "Purchase Orders"
 msgstr "Pedidos de compra"
+
+#. module: purchase_repair
+#: model:ir.module.module,shortdesc:base.module_purchase_repair
+msgid "Purchase Repair"
+msgstr "Compra y reparaciones"
 
 #. module: purchase_repair
 #: model:ir.model,name:purchase_repair.model_repair_order

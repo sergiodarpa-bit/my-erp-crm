@@ -1,18 +1,27 @@
 from datetime import timedelta
 
-from odoo import http
 from odoo.fields import Datetime
 from odoo.tools import mute_logger
 from odoo.addons.base.tests.common import HttpCaseWithUserPortal
+from odoo.tests import tagged
+
 from odoo.addons.website_event_sale.tests.common import TestWebsiteEventSaleCommon
 
 
 class TestWebsiteEventSale(HttpCaseWithUserPortal, TestWebsiteEventSaleCommon):
 
+    _test_user_groups = (
+        'base.group_user',
+        'product.group_product_manager',
+        'sales_team.group_sale_manager',  # FIXME: use sales_team.group_sale_salesman
+    )
+
+    _test_user_name = 'Test Sales & Product Manager'
+
     def test_website_event_sale_free_tickets(self):
         """ Test saleorder is not created for tickets free tickets """
         self.authenticate(None, None)
-        free_ticket = self.env['event.event.ticket'].create({
+        free_ticket = self.env['event.event.ticket'].sudo().create({
             'event_id': self.event.id,
             'name': 'Free',
             'product_id': self.product_event.id,
@@ -29,7 +38,7 @@ class TestWebsiteEventSale(HttpCaseWithUserPortal, TestWebsiteEventSaleCommon):
             f'1-email-{email_question.id}': 'bob@test.lan',
             f'1-phone-{phone_question.id}': '8989898989',
             '1-event_ticket_id': free_ticket.id,
-            'csrf_token': http.Request.csrf_token(self),
+            'csrf_token': self.csrf_token(),
         })
         self.assertEqual(self.env['sale.order'].search([]), existing_so, "Sale order should not be created for the free tickets")
         self.assertEqual(len(self.event.registration_ids), event_registration_count + 1)
@@ -37,7 +46,7 @@ class TestWebsiteEventSale(HttpCaseWithUserPortal, TestWebsiteEventSaleCommon):
     def test_website_event_sale_free_paid_mix(self):
         """ Test saleorder is created if paid ticket selected """
         self.authenticate(None, None)
-        free_ticket = self.env['event.event.ticket'].create({
+        free_ticket = self.env['event.event.ticket'].sudo().create({
             'event_id': self.event.id,
             'name': 'Free',
             'product_id': self.product_event.id,
@@ -57,7 +66,7 @@ class TestWebsiteEventSale(HttpCaseWithUserPortal, TestWebsiteEventSaleCommon):
             f'2-email-{email_question.id}': 'joe@test.lan',
             f'2-phone-{phone_question.id}': '8989898988',
             '2-event_ticket_id': free_ticket.id,
-            'csrf_token': http.Request.csrf_token(self),
+            'csrf_token': self.csrf_token(),
         })
 
         self.assertEqual(len(self.event.registration_ids), event_registration_count + 2)
@@ -73,7 +82,7 @@ class TestWebsiteEventSale(HttpCaseWithUserPortal, TestWebsiteEventSaleCommon):
         (closed free tier, no order and no payment) nor to underpay (closed
         cheaper tier). """
         self.authenticate(None, None)
-        free_ticket, early_bird_ticket = self.env['event.event.ticket'].create([{
+        free_ticket, early_bird_ticket = self.env['event.event.ticket'].sudo().create([{
             'event_id': self.event.id,
             'name': 'Free Pass',
             'product_id': self.product_event.id,
@@ -98,7 +107,7 @@ class TestWebsiteEventSale(HttpCaseWithUserPortal, TestWebsiteEventSaleCommon):
                     f'1-name-{name_question.id}': 'Bob',
                     f'1-email-{email_question.id}': 'bob@test.lan',
                     '1-event_ticket_id': ticket.id,
-                    'csrf_token': http.Request.csrf_token(self),
+                    'csrf_token': self.csrf_token(),
                 })
                 self.assertFalse(
                     ticket.registration_ids,
@@ -117,25 +126,25 @@ class TestWebsiteEventSale(HttpCaseWithUserPortal, TestWebsiteEventSaleCommon):
         email_question = event_questions.filtered(lambda q: q.question_type == 'email')
         phone_question = event_questions.filtered(lambda q: q.question_type == 'phone')
 
-        paid_ticket_1 = self.env['event.event.ticket'].create({
+        paid_ticket_1 = self.env['event.event.ticket'].sudo().create({
             'event_id': self.event.id,
             'name': 'Paid_1',
             'product_id': self.product_event.id,
             'price': 50,
         })
 
-        paid_ticket_2 = self.env['event.event.ticket'].create({
+        paid_ticket_2 = self.env['event.event.ticket'].sudo().create({
             'event_id': self.event.id,
             'name': 'Paid_2',
             'product_id': self.product_event.id,
             'price': 200,
         })
 
-        self.pricelist.write({
+        self.pricelist.sudo().write({
                     'item_ids': [(5, 0, 0), (0, 0, {
                         'applied_on': '3_global',
-                        'compute_price': 'percentage',
-                        'percent_price': 100,
+                        'compute_price': 'discount',
+                        'price_discount': 100,
                     })],
                     'name': 'Full discount',
         })
@@ -145,12 +154,12 @@ class TestWebsiteEventSale(HttpCaseWithUserPortal, TestWebsiteEventSaleCommon):
             f'1-email-{email_question.id}': 'bob@test.lan',
             f'1-phone-{phone_question.id}': '8989898989',
             '1-event_ticket_id': paid_ticket_1.id,
-            'csrf_token': http.Request.csrf_token(self),
+            'csrf_token': self.csrf_token(),
         })
 
         self.url_open('/shop/change_pricelist', data={
             'pricelist_id': self.pricelist.id,
-            'csrf_token': http.Request.csrf_token(self),
+            'csrf_token': self.csrf_token(),
         })
 
         last_so = self.env['sale.order'].search([], order='id desc', limit=1)
@@ -161,7 +170,7 @@ class TestWebsiteEventSale(HttpCaseWithUserPortal, TestWebsiteEventSaleCommon):
             f'2-email-{email_question.id}': 'bob@test.lan',
             f'2-phone-{phone_question.id}': '8989898989',
             '2-event_ticket_id': paid_ticket_2.id,
-            'csrf_token': http.Request.csrf_token(self),
+            'csrf_token': self.csrf_token(),
         })
 
         last_so = self.env['sale.order'].search([], order='id desc', limit=1)
@@ -170,7 +179,7 @@ class TestWebsiteEventSale(HttpCaseWithUserPortal, TestWebsiteEventSaleCommon):
 
     def test_website_event_sale_mandatory_signup_single_partner(self):
         """ Event registration must not pre-create a partner when signup is mandatory. """
-        self.env['website'].get_current_website().account_on_checkout = 'mandatory'
+        self.website.sudo().account_on_checkout = 'mandatory'
         self.authenticate(None, None)
         event_questions = self.event.question_ids
         name_question = event_questions.filtered(lambda q: q.question_type == 'name')
@@ -185,7 +194,7 @@ class TestWebsiteEventSale(HttpCaseWithUserPortal, TestWebsiteEventSaleCommon):
             f'1-email-{email_question.id}': attendee_email,
             f'1-phone-{phone_question.id}': '8989898989',
             '1-event_ticket_id': self.ticket.id,
-            'csrf_token': http.Request.csrf_token(self),
+            'csrf_token': self.csrf_token(),
         })
         self.assertTrue(
             response.url.endswith('/web/login?redirect=/shop/checkout'),

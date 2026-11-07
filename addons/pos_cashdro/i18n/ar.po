@@ -5,12 +5,12 @@
 # "Malaz Siddig Elsayed Abuidris (msea)" <msea@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: my-erp-crm Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server saas~19.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-05 19:29+0000\n"
-"PO-Revision-Date: 2026-09-19 19:04+0000\n"
+"POT-Creation-Date: 2026-08-28 17:42+0000\n"
+"PO-Revision-Date: 2026-10-12 10:34+0000\n"
 "Last-Translator: \"Malaz Siddig Elsayed Abuidris (msea)\" <msea@odoo.com>\n"
-"Language-Team: Arabic <https://translate.odoo.com/projects/odoo-19/"
+"Language-Team: Arabic <https://translate.odoo.com/projects/odoo-20/"
 "pos_cashdro/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -31,12 +31,6 @@ msgstr "فشل الإلغاء"
 #: code:addons/pos_cashdro/static/src/app/payment_cashdro.js:0
 msgid "Cash Machine Error"
 msgstr "خطأ في جهاز الصراف الآلي"
-
-#. module: pos_cashdro
-#. odoo-javascript
-#: code:addons/pos_cashdro/static/src/app/screens/payment_screen/payment_lines/payment_lines.xml:0
-msgid "Cash inserted:"
-msgstr "المبلغ النقدي الذي تم إدخاله:"
 
 #. module: pos_cashdro
 #: model:ir.model.fields,field_description:pos_cashdro.field_pos_payment_method__cashdro_ip
@@ -112,6 +106,11 @@ msgid "ID"
 msgstr "ID"
 
 #. module: pos_cashdro
+#: model:ir.module.module,summary:base.module_pos_cashdro
+msgid "Integrate your POS with a Cashdro automatic cash payment device"
+msgstr ""
+
+#. module: pos_cashdro
 #. odoo-javascript
 #: code:addons/pos_cashdro/static/src/app/payment_cashdro.js:0
 msgid "No"
@@ -124,6 +123,11 @@ msgid "Open Diagnostics Page"
 msgstr "فتح صفحة التشخيص"
 
 #. module: pos_cashdro
+#: model:ir.module.module,shortdesc:base.module_pos_cashdro
+msgid "POS Cashdro Cash Machines"
+msgstr ""
+
+#. module: pos_cashdro
 #. odoo-javascript
 #: code:addons/pos_cashdro/static/src/backend/cashdro_admin_buttons/cashdro_admin_buttons.js:0
 msgid "Please configure the IP address before opening the diagnostics page"
@@ -131,8 +135,8 @@ msgstr ""
 
 #. module: pos_cashdro
 #: model:ir.model,name:pos_cashdro.model_pos_payment_method
-msgid "Point of Sale Payment Methods"
-msgstr "Point of Sale Payment Methods"
+msgid "Point of Sale Payment Method"
+msgstr ""
 
 #. module: pos_cashdro
 #. odoo-javascript

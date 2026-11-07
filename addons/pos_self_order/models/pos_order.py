@@ -2,38 +2,13 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 import logging
 import math
+from itertools import zip_longest
 
 from odoo import Command, models, fields, api, _
-from odoo.exceptions import UserError
+from odoo.exceptions import UserError, ValidationError, LockError
 from odoo.tools import consteq, hmac
 
 _logger = logging.getLogger(__name__)
-
-
-class PosOrderLine(models.Model):
-    _inherit = "pos.order.line"
-
-    combo_id = fields.Many2one('product.combo', string='Combo reference')
-
-    @api.model_create_multi
-    def create(self, vals_list):
-        for vals in vals_list:
-            if (vals.get('combo_parent_uuid')):
-                vals.update([
-                    ('combo_parent_id', self.search([('uuid', '=', vals.get('combo_parent_uuid'))]).id)
-                ])
-            if 'combo_parent_uuid' in vals:
-                del vals['combo_parent_uuid']
-        return super().create(vals_list)
-
-    def write(self, vals):
-        if (vals.get('combo_parent_uuid')):
-            vals.update([
-                ('combo_parent_id', self.search([('uuid', '=', vals.get('combo_parent_uuid'))]).id)
-            ])
-        if 'combo_parent_uuid' in vals:
-            del vals['combo_parent_uuid']
-        return super().write(vals)
 
 
 class PosOrder(models.Model):
@@ -46,14 +21,8 @@ class PosOrder(models.Model):
         ('kiosk', 'Self-Order Kiosk')
     ])
 
-    def write(self, vals):
-        if 'table_id' in vals and vals['table_id'] and self.self_ordering_table_id:
-            # Clear stale self-order table link when the order is transferred to a new table.
-            vals['self_ordering_table_id'] = vals['table_id']
-        return super().write(vals)
-
     @api.model
-    def _load_pos_self_data_domain(self, data, config):
+    def _load_pos_self_data_domain(self, data):
         return [('id', '=', False)]
 
     @api.model
@@ -70,12 +39,16 @@ class PosOrder(models.Model):
         self._send_notification(order_ids)
         return result
 
-    def action_pos_order_cancel(self):
-        orders = super().action_pos_order_cancel()
+    def cancel_order_from_pos(self):
+        orders = super().cancel_order_from_pos()
         success_orders_ids = [o['id'] for o in orders['pos.order'] if o['state'] == 'cancel']
-        orders_ids = self.browse(success_orders_ids)
+        orders_ids = self.browse(success_orders_ids).exists()
         self._send_notification(orders_ids)
         return orders
+
+    def action_pos_order_cancel(self):
+        super().action_pos_order_cancel()
+        self._send_notification(self)
 
     def _send_notification(self, order_ids):
         config_ids = order_ids.config_id
@@ -83,11 +56,22 @@ class PosOrder(models.Model):
             config.notify_synchronisation(config.current_session_id.id, self.env.context.get('device_identifier', 0))
             config._notify('ORDER_STATE_CHANGED', {})
 
-    # TODO: remove in master
     def _send_self_order_receipt(self):
-        """Hook for receipt processing extensions such as the blackbox module."""
         self.ensure_one()
-        return
+        if (
+            self.state not in ('paid', 'done')
+            or not self.email
+            or not self.preset_id.mail_template_id
+        ):
+            return
+        try:
+            ticket_image = self.order_receipt_generate_image()
+            basic_image = False
+            if self.config_id.basic_receipt:
+                basic_image = self.order_receipt_generate_image(True)
+            self.action_send_self_order_receipt(self.email, self.preset_id.mail_template_id.id, ticket_image, basic_image)
+        except UserError as e:
+            _logger.warning("Error while sending email: %s", e.args[0])
 
     def action_send_self_order_receipt(self, email, mail_template_id, ticket_image, basic_image):
         self.ensure_one()
@@ -100,6 +84,17 @@ class PosOrder(models.Model):
             email_values['attachment_ids'] = self._get_mail_attachments(self.name, ticket_image, basic_image)
         mail_template.send_mail(self.id, force_send=True, email_values=email_values)
 
+    def _should_send_to_preparation(self):
+        """
+        Determine whether the order should be sent to preparation based
+        on its payment status and the config's payment method configuration
+        or the pay-after setting.
+        """
+        if self.config_id.self_ordering_pay_after != 'each' and self.source == 'mobile':
+            return True
+
+        return not self.config_id.has_valid_self_payment_method() or super()._should_send_to_preparation()
+
     def _send_payment_result(self, payment_result):
         self.ensure_one()
         order_fields = [field for field in self._load_pos_self_data_fields(self.config_id) if field != 'partner_id']
@@ -108,21 +103,22 @@ class PosOrder(models.Model):
             'data': {
                 'pos.order': self.read(order_fields, load=False),
                 'pos.order.line': self.lines.read(self.lines._load_pos_self_data_fields(self.config_id), load=False),
-            }
+                'pos.payment': self.payment_ids.read(self.payment_ids._load_pos_self_data_fields(self.config_id), load=False),
+            },
         })
         if payment_result == 'Success':
             self._send_self_order_receipt()
             self._send_order()
 
     def _load_pos_self_data_fields(self, config):
-        return ['id', 'uuid', 'name', 'display_name', 'access_token', 'last_order_preparation_change', 'date_order', 'amount_total', 'amount_paid', 'amount_return', 'user_id', 'amount_tax', 'lines', 'pricelist_id', 'company_id', 'country_code', 'sequence_number', 'session_id',
+        return ['id', 'uuid', 'name', 'display_name', 'access_token', 'date_order', 'amount_total', 'amount_paid', 'amount_return', 'user_id', 'amount_tax', 'lines', 'pricelist_id', 'company_id', 'country_code', 'sequence_number', 'session_id',
                 'config_id', 'currency_id', 'currency_rate', 'is_refund', 'has_refundable_lines', 'state', 'account_move', 'preset_id', 'floating_order_name', 'general_customer_note', 'internal_note', 'nb_print', 'pos_reference', 'fiscal_position_id', 'payment_ids', 'to_invoice',
-                'shipping_date', 'preset_time', 'is_invoiced', 'is_tipped', 'tip_amount', 'ticket_code', 'tracking_number', 'email', 'mobile', 'table_id', 'course_ids',
+                'preset_time', 'is_singly_invoiced', 'is_globally_invoiced', 'is_tipped', 'tip_amount', 'ticket_code', 'tracking_number', 'email', 'mobile', 'table_id', 'course_ids',
                 'table_stand_number', 'self_ordering_table_id', 'create_date', 'write_date', 'source', 'partner_id', 'customer_count']
 
     @api.model
     def _check_pos_order_lines(self, pos_config, order, line, fiscal_position_id):
-        existing_order = pos_config.env['pos.order']._get_open_order(order)
+        existing_order = pos_config.env['pos.order'].browse(order.get('id'))
         existing_lines = existing_order.lines if existing_order.exists() else pos_config.env['pos.order.line']
 
         if line[0] == Command.DELETE and line[1] in existing_lines.ids:
@@ -200,13 +196,49 @@ class PosOrder(models.Model):
                 'full_product_name': line_data.get('full_product_name'),
                 'customer_note': line_data.get('customer_note'),
                 'uuid': line_data.get('uuid'),
-                'id': line_data.get('id'),
                 'order_id': existing_order.id if existing_order.exists() else None,
                 'combo_parent_id': line_data.get('combo_parent_id'),
                 'combo_item_id': line_data.get('combo_item_id'),
                 'combo_line_ids': [id for id in line_data.get('combo_line_ids', []) if isinstance(id, int)],
             }]
         return []
+
+    @api.model
+    def _check_pos_order_payment(self, device_type, order, payment):
+        if device_type != "kiosk" or not payment or len(payment) != 1 or len(payment[0]) != 3:
+            return []
+
+        command, payment_id = payment[0][0:2]
+        if command != Command.CREATE or payment_id != 0:
+            return []
+
+        payment_line = payment[0][2]
+        if "amount" not in payment_line or payment_line["amount"] != order.get("amount_total", 0):
+            return []
+
+        safe_fields = [
+            "payment_method_id", "card_type", "card_brand", "card_no", "cardholder_name",
+            "payment_ref_no", "payment_method_authcode", "payment_method_issuer_bank",
+            "payment_method_payment_mode", "qr_code", "transaction_id", "ticket", "uuid",
+        ] + self.env["pos.payment"]._get_additional_payment_fields()
+
+        return [[Command.CREATE, 0, {
+            'amount': order.get('amount_total'),
+            'payment_status': 'done',
+            **{field: payment_line.get(field) for field in safe_fields}
+        }]]
+
+    @api.model
+    def _get_self_order_floating_name(self, pos_config, order, device_type, table, tracking_number, prefix=""):
+        if device_type == 'kiosk':
+            return f"Table tracker {order['table_stand_number']}" if order.get('table_stand_number') else f"Kiosk Order {tracking_number}"
+        if not table and order.get('floating_order_name'):
+            return order.get('floating_order_name')
+        elif not table:
+            return f"Self-Order {tracking_number}"
+        if pos_config.self_ordering_service_mode == 'dynamic_qr':
+            return f"T {table.table_number} - {tracking_number}"
+        return f"Self-Order T {table.table_number}"
 
     @api.model
     def _check_pos_order(self, pos_config, order, device_type, table=None):
@@ -221,32 +253,26 @@ class PosOrder(models.Model):
         if preset_id and not preset_id.available_in_self and preset_id != pos_config.default_preset_id:
             raise UserError(_("Preset is not available in self-ordering"))
 
-        if preset_id and not preset_id in pos_config.available_preset_ids:
+        if preset_id and preset_id not in pos_config.available_preset_ids:
             raise UserError(_("Preset is not available in this configuration"))
+
+        if not order['session_id'] or order['session_id'] != pos_config.current_session_id.id:
+            try:
+                pos_config.open_session_if_not_opened()  # Create a session after doing the necessary checks.
+            except ValidationError as e:
+                _logger.warning("pos_self_order: Error while opening a session for future orders: %s", e.args[0])
+                raise UserError(_("Impossible to create a new order."))
+            except LockError:
+                _logger.warning("pos_self_order: Lock not available while opening a session for future orders.")
+                raise UserError(_("Error while creating the order. Please try again."))
+            order['session_id'] = pos_config.current_session_id.id
 
         fiscal_position_id = preset_id.fiscal_position_id if preset_id else pos_config.default_fiscal_position_id
         pricelist_id = preset_id.pricelist_id if preset_id else pos_config.pricelist_id
         lines = [self._check_pos_order_lines(pos_config, order, line, fiscal_position_id) for line in order.get('lines', [])]
         lines = [line for line in lines if len(line)]
-
-        # The order sequence is not rolled back with the transaction: only number the
-        # order once its lines are validated, so a rejected payload leaves no gap.
-        existing_order = pos_config.env['pos.order']._get_open_order(order)
-        if not existing_order.exists():
-            pos_reference, tracking_number = pos_config._get_next_order_refs()
-            prefix = f"K{pos_config.id}-" if device_type == "kiosk" else "S"
-
-            if device_type == 'kiosk':
-                floating_order_name = f"Table tracker {order['table_stand_number']}" if order.get('table_stand_number') else tracking_number
-            elif not floating_order_name:
-                floating_order_name = f"Self-Order T {table.table_number}" if table else f"Self-Order {tracking_number}"
-
-            tracking_number = f"{prefix}{tracking_number}"
-        else:
-            pos_reference = existing_order.pos_reference
-            floating_order_name = existing_order.floating_order_name
-            tracking_number = existing_order.tracking_number
-
+        payment_lines = self._check_pos_order_payment(device_type, order, order.get("payment_ids"))
+        payment_lines = [line for line in payment_lines if len(line)]
         partner = self._get_self_partner_from_token(pos_config, order.get('partner_id')) if order.get('partner_id') else False
 
         if order.get('id') and order.get('uuid') and isinstance(order['id'], int):
@@ -257,12 +283,9 @@ class PosOrder(models.Model):
             if not exists:
                 raise UserError(_("The order ID isn't linked to the order UUID. This is a sign of a tampered payload."))
 
-        return {
+        result = {
             'id': order.get('id'),
-            'table_stand_number': order.get('table_stand_number'),
             'customer_count': order.get('customer_count'),
-            'self_ordering_table_id': table.id if table else False,
-            'last_order_preparation_change': order.get('last_order_preparation_change'),
             'date_order': str(fields.Datetime.now()),
             'amount_difference': order.get('amount_difference'),
             'amount_tax': order.get('amount_tax'),
@@ -277,7 +300,6 @@ class PosOrder(models.Model):
             'fiscal_position_id': fiscal_position_id.id if fiscal_position_id else False,
             'preset_id': preset_id.id if preset_id else False,
             'preset_time': order.get('preset_time'),
-            'tracking_number': tracking_number,
             'source': 'kiosk' if device_type == 'kiosk' else 'mobile',
             'email': partner.email if partner else order.get('email'),
             'mobile': partner.phone if partner else order.get('mobile'),
@@ -285,17 +307,27 @@ class PosOrder(models.Model):
             'floating_order_name': floating_order_name,
             'general_customer_note': order.get('general_customer_note'),
             'nb_print': order.get('nb_print'),
-            'pos_reference': pos_reference,
             'to_invoice': order.get('to_invoice'),
-            'shipping_date': order.get('shipping_date'),
             'is_tipped': order.get('is_tipped'),
             'tip_amount': order.get('tip_amount'),
             'ticket_code': order.get('ticket_code'),
             'uuid': order.get('uuid'),
             'has_deleted_line': order.get('has_deleted_line'),
             'lines': lines,
+            'payment_ids': payment_lines,
             'relations_uuid_mapping': order.get('relations_uuid_mapping', {}),
         }
+
+        if pos_config.self_ordering_mode == 'kiosk':
+            result['table_stand_number'] = order.get('table_stand_number')
+
+        if (table and pos_config.self_ordering_service_mode == 'table'):
+            result['table_stand_number'] = order.get('table_stand_number')
+            result['self_ordering_table_id'] = table.id
+            if pos_config.self_ordering_pay_after == 'meal':
+                result['table_id'] = table.id
+
+        return result
 
     def _check_combo_lines(self):
         """
@@ -360,18 +392,36 @@ class PosOrder(models.Model):
         self.ensure_one()
         self._check_combo_lines()
         company = self.company_id
+        tip_product = self.config_id.tip_product_id
 
-        for line in self.lines:
+        service_fee_lines = self.lines.filtered(
+            lambda line: line.product_id == self.preset_id.service_fee_product_id,
+        )
+        other_lines = self.lines - service_fee_lines
+
+        # First process regular lines so service fee can derive taxes from them
+        for line in other_lines:
             if len(line.combo_line_ids):
                 self._compute_combo_price(line)
+            elif line.product_id == self.preset_id.delivery_product_id:
+                self._compute_line_price(line, price=self.preset_id.delivery_product_price)
+            elif line.product_id == tip_product:
+                if line.price_unit <= 0:
+                    line.unlink()
+                else:
+                    line.qty = 1
+                    self._compute_line_price(line, price=line.price_unit)
             elif not line.combo_parent_id:
                 # Lines without a combo parent are priced on their own. A line whose combo
                 # parent doesn't belong to this order is never reached by _compute_combo_price,
                 # so it is priced the same way instead of keeping its frontend price.
                 self._compute_line_price(line)
 
+        # Then process service fee lines using the now-computed applicable lines
+        self._compute_service_fee_price()
+
         order_lines = self.lines
-        base_lines = [line._prepare_base_line_for_taxes_computation() for line in order_lines]
+        base_lines = order_lines._prepare_base_lines_for_taxes_computation()
         self.env['account.tax']._add_tax_details_in_base_lines(base_lines, company)
         self.env['account.tax']._round_base_lines_tax_details(base_lines, company)
         tax_totals = self.env['account.tax']._get_tax_totals_summary(
@@ -382,11 +432,11 @@ class PosOrder(models.Model):
         self.amount_tax = tax_totals['tax_amount_currency']
         self.amount_total = tax_totals['total_amount_currency']
 
-    def _compute_line_price(self, line):
+    def _compute_line_price(self, line, price=False):
         pricelist = self.pricelist_id
         selected_attributes = line.attribute_value_ids
         product = line.product_id.with_context(line.product_id._get_product_price_context(selected_attributes))
-        price = pricelist._get_product_price(product, 1.0, currency=self.currency_id)
+        price = price or pricelist._get_product_price(product, 1.0, currency=self.currency_id)
         line.price_unit = price
         line.tax_ids = line.product_id.taxes_id._filter_taxes_by_company(self.company_id)
         self._compute_line_subtotals(line)
@@ -408,6 +458,73 @@ class PosOrder(models.Model):
         )
         line.price_subtotal = taxes['total_excluded']
         line.price_subtotal_incl = taxes['total_included']
+
+    def _compute_service_fee_price(self):
+        preset = self.preset_id
+        if not preset.service_fee:
+            return
+
+        service_fee_product = preset.service_fee_product_id
+        existing_service_fee_lines = self.lines.filtered(
+            lambda line: line.product_id == service_fee_product,
+        )
+        applicable_lines = self.lines.filtered(
+            lambda line: line.product_id != service_fee_product
+            and line.product_id != self.config_id.tip_product_id
+            and not line.combo_parent_id,
+        )
+
+        if not applicable_lines:
+            existing_service_fee_lines.unlink()
+            return
+
+        # Build base lines from applicable order lines to derive the correct taxes
+        base_lines = applicable_lines._prepare_base_lines_for_taxes_computation()
+
+        # For 'pre_discount', ignore discounts when computing service fee
+        if preset.service_fee_based_on == 'pre_discount':
+            for bl in base_lines:
+                bl['discount'] = 0
+
+        self.env['account.tax']._add_tax_details_in_base_lines(base_lines, self.company_id)
+        self.env['account.tax']._round_base_lines_tax_details(base_lines, self.company_id)
+
+        amount = preset.service_fee_amount
+        if preset.service_fee_type == 'percent':
+            amount *= 100
+
+        # Group base lines by tax so each tax group produces its own
+        # service fee contribution with the correct tax breakdown
+        def grouping_function(base_line):
+            return {'product_id': service_fee_product}
+
+        service_fee_base_lines = self.env['account.tax']._reduce_base_lines_to_target_amount(
+            base_lines=base_lines,
+            company=self.company_id,
+            amount_type=preset.service_fee_type,
+            amount=amount,
+            grouping_function=grouping_function,
+        )
+
+        surplus_lines = self.env['pos.order.line']
+        for bl, service_fee_line in zip_longest(service_fee_base_lines, existing_service_fee_lines):
+            if not bl:
+                surplus_lines |= service_fee_line
+                continue
+            if not service_fee_line:
+                service_fee_line = self.env['pos.order.line'].sudo().create({
+                    'order_id': self.id,
+                    'product_id': service_fee_product.id,
+                    'price_subtotal': 0.0,
+                    'price_subtotal_incl': 0.0,
+                    'full_product_name': service_fee_product.name,
+                })
+            service_fee_line.qty = 1
+            service_fee_line.price_type = 'automatic'
+            service_fee_line.price_unit = bl['price_unit']
+            service_fee_line.tax_ids = bl['tax_ids']
+            self._compute_line_subtotals(service_fee_line)
+        surplus_lines.unlink()
 
     def _compute_combo_price(self, parent_line):
         """

@@ -5,12 +5,12 @@
 # "Noemi Pla Garcia (nopl)" <nopl@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: my-erp-crm Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server saas~19.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-24 17:37+0000\n"
-"PO-Revision-Date: 2026-10-30 14:33+0000\n"
+"POT-Creation-Date: 2026-10-16 17:41+0000\n"
+"PO-Revision-Date: 2026-10-30 13:33+0000\n"
 "Last-Translator: \"Noemi Pla Garcia (nopl)\" <nopl@odoo.com>\n"
-"Language-Team: Spanish <https://translate.odoo.com/projects/odoo-19/"
+"Language-Team: Spanish <https://translate.odoo.com/projects/odoo-20/"
 "pos_dpopay/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -18,6 +18,39 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2026.8.1\n"
+
+#. module: pos_dpopay
+#: model:ir.module.module,description:base.module_pos_dpopay
+msgid ""
+"\n"
+"Allow DPO POS payments\n"
+"==============================\n"
+"\n"
+"It supports all currencies supported by the terminal device — primarily for "
+"use in the **African region**.\n"
+"It enables customers to pay for their orders using debit/credit cards and "
+"Mobile Money through DPO POS terminals.\n"
+"A DPO merchant account is required to process transactions.\n"
+"Features include:\n"
+"\n"
+"* Quick payments by swiping, scanning, or tapping your credit/debit card or "
+"Mobile Money (Airtel Money / M-Pesa) at the payment terminal.\n"
+"* Supported cards: Visa, MasterCard, American Express etc.\n"
+msgstr ""
+"\n"
+"Permite pagos DPO en el punto de venta\n"
+"==============================\n"
+"\n"
+"Admite todas las divisas compatibles con el terminal de pago, principalmente "
+"para su uso en la **región africana**.\n"
+"Permite a los clientes pagar sus pedidos con tarjetas de débito o crédito y "
+"Mobile Money a través de terminales DPO POS.\n"
+"Se necesita una cuenta de comerciante DPO para procesar las transacciones.\n"
+"\n"
+"Incluye las siguientes funcionalidades:\n"
+"* Pagos rápidos al deslizar, escanear o acercar la tarjeta de crédito o "
+"débito o Mobile Money (Airtel Money / M-Pesa) al terminal de pago.\n"
+"* Tarjetas compatibles: Visa, MasterCard, American Express, etc.\n"
 
 #. module: pos_dpopay
 #. odoo-python
@@ -184,6 +217,11 @@ msgid "ID"
 msgstr "ID"
 
 #. module: pos_dpopay
+#: model:ir.module.module,summary:base.module_pos_dpopay
+msgid "Integrate your POS with DPO payment terminal."
+msgstr "Integra tu TPV con el terminal de pago de DPO."
+
+#. module: pos_dpopay
 #. odoo-python
 #: code:addons/pos_dpopay/models/pos_payment_method.py:0
 msgid "Invalid Chain ID. Please verify the configuration. %s"
@@ -218,14 +256,19 @@ msgid "Payment is unsuccessful."
 msgstr "No ha sido posible efectuar el pago."
 
 #. module: pos_dpopay
-#: model:ir.model,name:pos_dpopay.model_pos_payment_method
-msgid "Point of Sale Payment Methods"
-msgstr "Métodos de pago del punto de venta"
+#: model:ir.module.module,shortdesc:base.module_pos_dpopay
+msgid "PoS DPO Pay"
+msgstr "PdV - DPO Pay"
 
 #. module: pos_dpopay
 #: model:ir.model,name:pos_dpopay.model_pos_payment
-msgid "Point of Sale Payments"
-msgstr "Pagos en el punto de venta"
+msgid "Point of Sale Payment"
+msgstr "Pago en el punto de venta"
+
+#. module: pos_dpopay
+#: model:ir.model,name:pos_dpopay.model_pos_payment_method
+msgid "Point of Sale Payment Method"
+msgstr "Método de pago del punto de venta"
 
 #. module: pos_dpopay
 #: model:ir.model.fields,field_description:pos_dpopay.field_pos_payment__dpopay_rrn

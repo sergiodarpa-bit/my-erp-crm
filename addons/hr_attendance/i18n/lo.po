@@ -4,22 +4,40 @@
 #
 # Translators:
 # Martin Trigaux <mat@odoo.com>, 2017
+# Weblate <noreply-mt-weblate@weblate.org>, 2026.
 # Bone NI <bounkirdni@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: my-erp-crm Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-24 17:37+0000\n"
-"PO-Revision-Date: 2026-08-14 05:09+0000\n"
+"POT-Creation-Date: 2026-10-30 17:38+0000\n"
+"PO-Revision-Date: 2026-10-21 12:33+0000\n"
 "Last-Translator: Bone NI <bounkirdni@gmail.com>\n"
-"Language-Team: Lao <https://translate.odoo.com/projects/odoo-19/"
+"Language-Team: Lao <https://translate.odoo.com/projects/odoo-20/"
 "hr_attendance/lo/>\n"
 "Language: lo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.6.1\n"
+"X-Generator: Weblate 2026.8.1\n"
+
+#. module: hr_attendance
+#: model:ir.module.module,description:base.module_hr_attendance
+msgid ""
+"\n"
+"This module aims to manage employee's attendances.\n"
+"==================================================\n"
+"\n"
+"Keeps account of the attendances of the employees on the basis of the\n"
+"actions(Check in/Check out) performed by them.\n"
+msgstr ""
+"\n"
+"ໂມດູນນີ້ມີຈຸດປະສົງເພື່ອຈັດການການລົງເວລາຂອງພະນັກງານ.\n"
+"==================================================\n"
+"\n"
+"ບັນທຶກການລົງເວລາຂອງພະນັກງານໂດຍອີງຕາມ\n"
+"ການກະທຳ (ລົງທະບຽນເຂົ້າ/ລົງທະບຽນອອກ) ທີ່ພວກເຂົາປະຕິບັດ.\n"
 
 #. module: hr_attendance
 #. odoo-python
@@ -29,15 +47,9 @@ msgstr "ເວລາ \"ລົງທະບຽນອອກ\" ບໍ່ສາມາ
 
 #. module: hr_attendance
 #. odoo-python
-#: code:addons/hr_attendance/models/hr_attendance_overtime_rule.py:0
-msgid "%(nb_hours)d h / %(period)s"
-msgstr "%(nb_hours)d ຊມ / %(period)s"
-
-#. module: hr_attendance
-#. odoo-python
-#: code:addons/hr_attendance/models/hr_attendance.py:0
-msgid "%(worked_hours)s (%(check_in)s-%(check_out)s)"
-msgstr "%(worked_hours)s (%(check_in)s-%(check_out)s)"
+#: code:addons/hr_attendance/models/hr_employee.py:0
+msgid "%(hours)g h in %(month)s"
+msgstr "%(hours)g ຊມ ໃນ %(month)s"
 
 #. module: hr_attendance
 #. odoo-javascript
@@ -49,81 +61,120 @@ msgstr "'ຊື້ອຸປະກອນ RFID'"
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "'Read the Documentation'"
-msgstr "'ອ່ານເອກະສານແນະນຳ'"
+msgstr "'ອ່ານເອກະສານຄູ່ມື'"
+
+#. module: hr_attendance
+#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
+msgid ""
+"<br/>\n"
+"                                    <span class=\"text-muted\">When enabled, "
+"only the first check-in within the scheduled working hours (including "
+"tolerance) is recorded. Further check-ins are allowed only after an "
+"automatic check-out.</span>"
+msgstr ""
+"<br/>\n"
+"                                    <span class=\"text-muted\">ເມື່ອເປີດໃຊ້ງານ, "
+"ຈະບັນທຶກສະເພາະການລົງຊື່ເຂົ້າຄັ້ງທຳອິດພາຍໃນຊົ່ວໂມງເຮັດວຽກທີ່ກຳນົດໄວ້ (ລວມທັງໄລຍະຢືດຢຸ່ນ). "
+"ການລົງຊື່ເຂົ້າເພີ່ມເຕີມຈະອະນຸຍາດຫຼັງຈາກການລົງຊື່ອອກອັດຕະໂນມັດເທົ່ານັ້ນ.</span>"
+
+#. module: hr_attendance
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
+msgid ""
+"<i class=\"oi me-1\" data-icon=\"warning\" role=\"img\" aria-"
+"label=\"Warning\" title=\"Warning\"/>\n"
+"                            <strong "
+"invisible=\"source_attendance_id\">Source attendance deleted -</strong>\n"
+"                            <strong invisible=\"not "
+"source_attendance_id\">Source attendance modified -</strong>\n"
+"                            this record may be outdated and should be "
+"reviewed."
+msgstr ""
+"<i class=\"oi me-1\" data-icon=\"warning\" role=\"img\" aria-"
+"label=\"Warning\" title=\"Warning\"/>\n"
+"                            <strong "
+"invisible=\"source_attendance_id\">ການລົງເວລາຕົ້ນສະບັບຖືກລຶບແລ້ວ -</strong>\n"
+"                            <strong invisible=\"not "
+"source_attendance_id\">ການລົງເວລາຕົ້ນສະບັບຖືກແກ້ໄຂແລ້ວ -</strong>\n"
+"                            ບັນທຶກນີ້ອາດຈະຫຼ້າສະໄໝ ແລະ ຄວນໄດ້ຮັບການກວດກາຄືນ."
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_hr_attendance_kanban
 msgid ""
-"<i class=\"fa fa-calendar me-1\" aria-label=\"Period\" role=\"img\" "
-"title=\"Period\"/>"
+"<i class=\"oi me-1\" data-icon=\"warning\" role=\"img\" aria-"
+"label=\"Warning\" title=\"Warning\"/>Source changed"
 msgstr ""
-"<i class=\"fa fa-calendar me-1\" aria-label=\"ໄລຍະເວລາ\" role=\"img\" "
-"title=\"ໄລຍະເວລາ\"/>"
+"<i class=\"oi me-1\" data-icon=\"warning\" role=\"img\" aria-"
+"label=\"Warning\" title=\"Warning\"/>ແຫຼ່ງຂໍ້ມູນມີການປ່ຽນແປງ"
+
+#. module: hr_attendance
+#: model_terms:ir.ui.view,arch_db:hr_attendance.view_hr_attendance_kanban
+msgid ""
+"<i class=\"oi oi-filled me-1\" data-icon=\"calendar_today\" aria-"
+"label=\"Period\" role=\"img\" title=\"Period\"/>"
+msgstr ""
+"<i class=\"oi oi-filled me-1\" data-icon=\"calendar_today\" aria-"
+"label=\"ໄລຍະເວລາ\" role=\"img\" title=\"ໄລຍະເວລາ\"/>"
+
+#. module: hr_attendance
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_my_calendar_view
+msgid ""
+"<i class=\"oi oi-fw me-1\" data-icon=\"warning\" role=\"img\" aria-"
+"label=\"Warning\" title=\"Warning\"/>\n"
+"                                <span "
+"invisible=\"source_attendance_id\">Source deleted</span>\n"
+"                                <span invisible=\"not "
+"source_attendance_id\">Source modified</span>"
+msgstr ""
+"<i class=\"oi oi-fw me-1\" data-icon=\"warning\" role=\"img\" aria-"
+"label=\"Warning\" title=\"Warning\"/>\n"
+"                                <span "
+"invisible=\"source_attendance_id\">ແຫຼ່ງຂໍ້ມູນຖືກລຶບ</span>\n"
+"                                <span invisible=\"not "
+"source_attendance_id\">ແຫຼ່ງຂໍ້ມູນຖືກແກ້ໄຂ</span>"
+
+#. module: hr_attendance
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_employee_calendar_view
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_my_calendar_view
+msgid ""
+"<i class=\"oi oi-fw text-400\" data-icon=\"label\" aria-hidden=\"true\" "
+"title=\"Time Type\"/>"
+msgstr ""
+"<i class=\"oi oi-fw text-400\" data-icon=\"label\" aria-hidden=\"true\" "
+"title=\"ປະເພດເວລາ\"/>"
+
+#. module: hr_attendance
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_my_calendar_view
+msgid ""
+"<i class=\"oi oi-fw text-400\" data-icon=\"pause_circle\" aria-"
+"hidden=\"true\" title=\"Break Duration\"/>"
+msgstr ""
+"<i class=\"oi oi-fw text-400\" data-icon=\"pause_circle\" aria-"
+"hidden=\"true\" title=\"ໄລຍະເວລາພັກ\"/>"
+
+#. module: hr_attendance
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_employee_calendar_view
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_my_calendar_view
+msgid ""
+"<i class=\"oi oi-fw text-400\" data-icon=\"schedule\" aria-hidden=\"true\" "
+"title=\"Worked Hours\"/>"
+msgstr ""
+"<i class=\"oi oi-fw text-400\" data-icon=\"schedule\" aria-hidden=\"true\" "
+"title=\"ຊົ່ວໂມງທີ່ເຮັດວຽກ\"/>"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid "<i class=\"fa fa-fw fa-arrow-right\"/>Installation Manual"
-msgstr "<i class=\"fa fa-fw fa-arrow-right\"/>ຄູ່ມືການຕິດຕັ້ງ"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_employees_view_kanban
-msgid ""
-"<span class=\"fa fa-circle text-success me-1\" role=\"img\" aria-"
-"label=\"Available\" title=\"Available\"/>"
-msgstr ""
-"<span class=\"fa fa-circle text-success me-1\" role=\"img\" aria-"
-"label=\"ວ່າງ\" title=\"ວ່າງ\"/>"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_employees_view_kanban
-msgid ""
-"<span class=\"fa fa-circle text-warning me-1\" role=\"img\" aria-label=\"Not "
-"available\" title=\"Not available\">\n"
-"                                    </span>"
-msgstr ""
-"<span class=\"fa fa-circle text-warning me-1\" role=\"img\" aria-"
-"label=\"ບໍ່ວ່າງ\" title=\"ບໍ່ວ່າງ\">\n"
-"                                    </span>"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
-msgid ""
-"<span class=\"fw-bold\" invisible=\"base_off != 'timing' or timing_type not "
-"in ['work_days', 'non_work_days']\">Between</span>"
-msgstr ""
-"<span class=\"fw-bold\" invisible=\"base_off != 'timing' or timing_type not "
-"in ['work_days', 'non_work_days']\">ລະຫວ່າງ</span>"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid "<span class=\"me-2\">Time Period </span>"
-msgstr "<span class=\"me-2\">ໄລຍະເວລາ </span>"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid "<span class=\"me-2\">Time Period</span>"
-msgstr "<span class=\"me-2\">ໄລຍະເວລາ</span>"
+msgid "<span class=\"me-2\">Based on</span>"
+msgstr "<span class=\"me-2\">ອີງຕາມ</span>"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "<span class=\"me-2\">Tolerance</span>"
-msgstr "<span class=\"me-2\">ໄລຍະຜ່ອນຜັນ</span>"
+msgstr "<span class=\"me-2\">ໄລຍະຢືດຢຸ່ນ</span>"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "<span class=\"ms-2\">Hours</span>"
 msgstr "<span class=\"ms-2\">ຊົ່ວໂມງ</span>"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid ""
-"<span class=\"ms-2\">Minutes</span>\n"
-"                                <br/>\n"
-"                                <br/>"
-msgstr ""
-"<span class=\"ms-2\">ນາທີ</span>\n"
-"                                <br/>\n"
-"                                <br/>"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_employee_public_view_form
@@ -137,29 +188,24 @@ msgstr ""
 "                            </span>"
 
 #. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.view_employee_form_inherit_hr_attendance
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_employees_view_kanban
 msgid ""
-"<span class=\"o_stat_text\">\n"
-"                            Monthly Hours\n"
-"                        </span>"
+"<span class=\"oi oi-filled text-success me-1\" data-icon=\"circle\" "
+"role=\"img\" aria-label=\"Available\" title=\"Available\"/>"
 msgstr ""
-"<span class=\"o_stat_text\">\n"
-"                            ຊົ່ວໂມງລາຍເດືອນ\n"
-"                        </span>"
+"<span class=\"oi oi-filled text-success me-1\" data-icon=\"circle\" "
+"role=\"img\" aria-label=\"ພ້ອມໃຊ້ງານ\" title=\"ພ້ອມໃຊ້ງານ\"/>"
 
 #. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_employees_view_kanban
 msgid ""
-"<span colspan=\"2\" class=\"mb-3 fw-bold\">The hours will be considered "
-"extra and submitted to approval.</span>"
+"<span class=\"oi oi-filled text-warning me-1\" data-icon=\"circle\" "
+"role=\"img\" aria-label=\"Not available\" title=\"Not available\">\n"
+"                                    </span>"
 msgstr ""
-"<span colspan=\"2\" class=\"mb-3 fw-bold\">ຊົ່ວໂມງເຫຼົ່ານີ້ຈະຖືກຖືວ່າເປັນເວລາເພີ່ມເຕີມ ແລະ "
-"ສົ່ງໄປເພື່ອຂໍອະນຸມັດ.</span>"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid "<span> Minutes</span>"
-msgstr "<span> ນາທີ</span>"
+"<span class=\"oi oi-filled text-warning me-1\" data-icon=\"circle\" "
+"role=\"img\" aria-label=\"ບໍ່ພ້ອມໃຊ້ງານ\" title=\"ບໍ່ພ້ອມໃຊ້ງານ\">\n"
+"                                    </span>"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
@@ -177,22 +223,17 @@ msgstr "ການຈັດການການຂາດວຽກ"
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/manual_selection/manual_selection.xml:0
 msgid "Absent"
-msgstr "ຂາດວຽກ"
+msgstr "ບໍ່ມາເຮັດວຽກ"
 
 #. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
-msgid "Action"
-msgstr "ການດຳເນີນການ"
+#: model:ir.model,name:hr_attendance.model_res_groups
+msgid "Access Groups"
+msgstr "ກຸ່ມສິດການເຂົ້າເຖິງ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__message_needaction
 msgid "Action Needed"
-msgstr "ຕ້ອງດຳເນີນການ"
-
-#. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__active
-msgid "Active"
-msgstr "ໃຊ້ງານຢູ່"
+msgstr "ຕ້ອງມີການດຳເນີນການ"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_management_view_filter
@@ -211,9 +252,15 @@ msgstr ""
 "                ເພື່ອສ້າງພະນັກງານ ໃຫ້ໄປທີ່ເມນູ ພະນັກງານ."
 
 #. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/greetings/greetings.xml:0
+msgid "Add my break times"
+msgstr "ເພີ່ມເວລາພັກຂອງຂ້ອຍ"
+
+#. module: hr_attendance
 #: model:res.groups,name:hr_attendance.group_hr_attendance_manager
 msgid "Administrator"
-msgstr "ຜູ້ບໍລິຫານລະບົບ"
+msgstr "ຜູ້ດູແລລະບົບ"
 
 #. module: hr_attendance
 #. odoo-javascript
@@ -230,24 +277,7 @@ msgstr "ທຸກພະແນກ"
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Allow Users to Check in/out from my-erp-crm."
-msgstr "ອະນຸຍາດໃຫ້ຜູ້ໃຊ້ ລົງທະບຽນເຂົ້າ/ອອກ ຈາກ my-erp-crm."
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid ""
-"Allow a period of time (around working hours) where extra time will not be "
-"counted, in benefit of the company"
-msgstr ""
-"ອະນຸຍາດໃຫ້ມີໄລຍະເວລາ (ຊ່ວງເວລາເຮັດວຽກ) ທີ່ເວລາເພີ່ມເຕີມຈະບໍ່ຖືກນັບ, ເພື່ອຜົນປະໂຫຍດຂອງບໍລິສັດ"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid ""
-"Allow a period of time (around working hours) where extra time will not be "
-"deducted, in benefit of the employee"
-msgstr ""
-"ອະນຸຍາດໃຫ້ມີໄລຍະເວລາ (ຊ່ວງເວລາເຮັດວຽກ) ທີ່ເວລາເພີ່ມເຕີມຈະບໍ່ຖືກຫັກອອກ, "
-"ເພື່ອຜົນປະໂຫຍດຂອງພະນັກງານ"
+msgstr "ອະນຸຍາດໃຫ້ຜູ້ໃຊ້ ລົງຊື່ເຂົ້າ/ອອກ ຈາກ my-erp-crm."
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
@@ -255,52 +285,25 @@ msgid ""
 "Allow the collection of GPS location, IP address, and browser/device details "
 "used to track employee access and attendance"
 msgstr ""
-"ອະນຸຍາດໃຫ້ເກັບກຳຕຳແໜ່ງ GPS, ທີ່ຢູ່ IP, ແລະ ລາຍລະອຽດຂອງບຣາວເຊີ/ອຸປະກອນ "
-"ທີ່ໃຊ້ເພື່ອຕິດຕາມການເຂົ້າເຖິງ ແລະ ການລົງເວລາຂອງພະນັກງານ"
+"ອະນຸຍາດໃຫ້ເກັບກຳຕຳແໜ່ງ GPS, ທີ່ຢູ່ IP, ແລະ ລາຍລະອຽດບຣາວເຊີ/ອຸປະກອນ "
+"ທີ່ໃຊ້ໃນການຕິດຕາມການເຂົ້າເຖິງ ແລະ ການລົງເວລາຂອງພະນັກງານ"
 
 #. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__rule_ids
-msgid "Applied Rules"
-msgstr "ກົດລະບຽບທີ່ນຳໃຊ້"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
-#: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree_management
-msgid "Approve"
-msgstr "ອະນຸມັດ"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree
-msgid "Approve Extra Hours"
-msgstr "ອະນຸມັດຊົ່ວໂມງເພີ່ມເຕີມ"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
-msgid "Approve all overtimes for the same employee and date"
-msgstr "ອະນຸມັດການເຮັດວຽກລ່ວງເວລາທັງໝົດສຳລັບພະນັກງານ ແລະ ວັນທີດຽວກັນ"
-
-#. module: hr_attendance
-#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__overtime_status__approved
-#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_line__status__approved
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_management_view_filter
-msgid "Approved"
-msgstr "ອະນຸມັດແລ້ວ"
-
-#. module: hr_attendance
-#: model:ir.model.fields.selection,name:hr_attendance.selection__res_company__attendance_overtime_validation__by_manager
-msgid "Approved by Manager"
-msgstr "ອະນຸມັດໂດຍຜູ້ຈັດການ"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_filter
-msgid "Archived"
-msgstr "ຈັດເກັບແລ້ວ"
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__allowed_work_entry_type_ids
+msgid "Allowed Work Entry Type"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_management_view_filter
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_filter
 msgid "Archived Employees"
-msgstr "ພະນັກງານທີ່ຈັດເກັບແລ້ວ"
+msgstr "ພະນັກງານທີ່ຖືກເກັບຖາວອນ"
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.xml:0
+msgid "Assign Badge"
+msgstr "ມອບໝາຍບັດ"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_filter
@@ -308,21 +311,19 @@ msgid "At Work"
 msgstr "ຢູ່ບ່ອນເຮັດວຽກ"
 
 #. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_filter
-msgid "At least one rule"
-msgstr "ຢ່າງໜ້ອຍໜຶ່ງກົດລະບຽບ"
-
-#. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__message_attachment_count
 msgid "Attachment Count"
-msgstr "ຈຳນວນໄຟລ໌ຄັດຕິດ"
+msgstr "ຈຳນວນສິ່ງທີ່ແນບມາ"
 
 #. module: hr_attendance
 #. odoo-javascript
+#. odoo-python
+#: code:addons/hr_attendance/models/hr_employee.py:0
 #: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
 #: code:addons/hr_attendance/static/src/views/attendance_helper_view.xml:0
 #: model:ir.model,name:hr_attendance.model_hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__attendance_ids
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_my_form_view
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_employee_form_inherit_hr_attendance
 msgid "Attendance"
 msgstr "ການລົງເວລາ"
@@ -330,21 +331,27 @@ msgstr "ການລົງເວລາ"
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__attendance_manager_id
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee_public__attendance_manager_id
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_employee_search_view
 msgid "Attendance Approver"
 msgstr "ຜູ້ອະນຸມັດການລົງເວລາ"
+
+#. module: hr_attendance
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__attendance_based
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_version__attendance_based
+#: model:ir.model.fields,field_description:hr_attendance.field_res_company__attendance_based
+msgid "Attendance Based"
+msgstr "ອີງຕາມການລົງເວລາ"
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.js:0
 msgid "Attendance Error"
-msgstr "ຂໍ້ຜິດພາດຂອງການລົງເວລາ"
+msgstr "ຂໍ້ຜິດພາດໃນການລົງເວລາ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_res_company__attendance_from_systray
 #: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__attendance_from_systray
 msgid "Attendance From Systray"
-msgstr "ການລົງເວລາຈາກແຖບເຄື່ອງມືລະບົບ"
+msgstr "ການລົງເວລາຈາກແຖບລະບົບ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_res_company__attendance_kiosk_delay
@@ -355,13 +362,13 @@ msgstr "ເວລາໜ່ວງຂອງຕູ້ລົງເວລາ"
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_res_company__attendance_kiosk_key
 msgid "Attendance Kiosk Key"
-msgstr "ລະຫັດຕູ້ລົງເວລາ"
+msgstr "ລະຫັດຕູ້ຄີອອດການລົງເວລາ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_res_company__attendance_kiosk_url
 #: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__attendance_kiosk_url
 msgid "Attendance Kiosk Url"
-msgstr "Url ຂອງຕູ້ລົງເວລາ"
+msgstr "URL ຕູ້ຄີອອດການລົງເວລາ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_res_company__attendance_kiosk_mode
@@ -370,9 +377,9 @@ msgid "Attendance Mode"
 msgstr "ໂໝດການລົງເວລາ"
 
 #. module: hr_attendance
-#: model:ir.model,name:hr_attendance.model_hr_attendance_overtime_line
-msgid "Attendance Overtime Line"
-msgstr "ລາຍການການເຮັດວຽກລ່ວງເວລາ"
+#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
+msgid "Attendance Rules & Enforcement"
+msgstr "ກົດລະບຽບການລົງເວລາ ແລະ ການບັງຄັບໃຊ້"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__attendance_state
@@ -381,31 +388,68 @@ msgid "Attendance Status"
 msgstr "ສະຖານະການລົງເວລາ"
 
 #. module: hr_attendance
+#: model:ir.model.fields,field_description:hr_attendance.field_res_company__attendance_work_entry_type_id
+#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__attendance_work_entry_type_id
+msgid "Attendance Time Type"
+msgstr "ປະເພດເວລາການລົງເວລາ"
+
+#. module: hr_attendance
+#: model:ir.model.fields,field_description:hr_attendance.field_res_company__attendance_validation
+#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__attendance_validation
+#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
+msgid "Attendance Validation"
+msgstr "ການກວດສອບຢືນຢັນການລົງເວລາ"
+
+#. module: hr_attendance
+#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
+msgid "Attendance Work Entry Type"
+msgstr "ປະເພດການບັນທຶກການເຮັດວຽກຂອງການລົງເວລາ"
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.js:0
+msgid "Attendance saved, but the display could not be refreshed."
+msgstr "ບັນທຶກການລົງເວລາແລ້ວ, ແຕ່ບໍ່ສາມາດໂຫຼດໜ້າຈໍຄືນໃໝ່ໄດ້."
+
+#. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "Attendance with barcode"
-msgstr "ລົງເວລາດ້ວຍບາໂຄ້ດ"
+msgstr "ການລົງເວລາດ້ວຍບາໂຄດ"
 
 #. module: hr_attendance
 #: model:ir.actions.server,name:hr_attendance.hr_attendance_check_out_cron_ir_actions_server
 msgid "Attendance: Automatically check-out employees"
-msgstr "ການລົງເວລາ: ລົງທະບຽນອອກໃຫ້ພະນັກງານໂດຍອັດຕະໂນມັດ"
+msgstr "ການລົງເວລາ: ລົງຊື່ອອກໃຫ້ພະນັກງານໂດຍອັດຕະໂນມັດ"
 
 #. module: hr_attendance
 #: model:ir.actions.server,name:hr_attendance.hr_attendance_absence_cron_ir_actions_server
 msgid "Attendance: Detect Absences for employees"
-msgstr "ການລົງເວລາ: ກວດສອບການຂາດວຽກຂອງພະນັກງານ"
+msgstr "ການລົງເວລາ: ກວດຫາການຂາດວຽກຂອງພະນັກງານ"
+
+#. module: hr_attendance
+#: model:ir.actions.server,name:hr_attendance.hr_attendance_day_undertime_rules_cron_ir_actions_server
+msgid "Attendance: Process daily time rules"
+msgstr "ການລົງເວລາ: ປະມວນຜົນກົດລະບຽບເວລາປະຈຳວັນ"
+
+#. module: hr_attendance
+#: model:ir.actions.server,name:hr_attendance.hr_attendance_week_time_rules_cron_ir_actions_server
+msgid "Attendance: Process weekly time rules"
+msgstr "ການລົງເວລາ: ປະມວນຜົນກົດລະບຽບເວລາປະຈຳອາທິດ"
 
 #. module: hr_attendance
 #: model:ir.actions.act_window,name:hr_attendance.hr_attendance_action
 #: model:ir.actions.act_window,name:hr_attendance.hr_attendance_reporting
+#: model:ir.module.module,shortdesc:base.module_hr_attendance
 #: model:ir.ui.menu,name:hr_attendance.menu_hr_attendance_attendance_reporting
+#: model:ir.ui.menu,name:hr_attendance.menu_hr_attendance_management_list
 #: model:ir.ui.menu,name:hr_attendance.menu_hr_attendance_root
 #: model:res.groups.privilege,name:hr_attendance.res_groups_privilege_attendances
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_employee_calendar_view
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_department_view_kanban
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Attendances"
-msgstr "ການລົງເວລາທັງໝົດ"
+msgstr "ການລົງເວລາ"
 
 #. module: hr_attendance
 #. odoo-python
@@ -416,44 +460,55 @@ msgstr "ການລົງເວລາໃນເດືອນນີ້"
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Attendances from Backend"
-msgstr "ການລົງເວລາຈາກລະບົບຫຼັງບ້ານ"
+msgstr "ການລົງເວລາຈາກຫຼັງລະບົບ"
+
+#. module: hr_attendance
+#: model:ir.model.fields,field_description:hr_attendance.field_res_company__auto_check_out_mode
+#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__auto_check_out_mode
+msgid "Auto Check Out Mode"
+msgstr "ໂໝດລົງຊື່ອອກອັດຕະໂນມັດ"
+
+#. module: hr_attendance
+#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__auto_check_out_specific_time
+msgid "Auto Check Out Specific Time"
+msgstr "ເວລາສະເພາະສຳລັບການລົງຊື່ອອກອັດຕະໂນມັດ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__auto_check_out_tolerance
 msgid "Auto Check Out Tolerance"
-msgstr "ໄລຍະຜ່ອນຜັນການລົງທະບຽນອອກອັດຕະໂນມັດ"
+msgstr "ຄວາມຢືດຢຸ່ນໃນການລົງຊື່ອອກອັດຕະໂນມັດ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_res_company__auto_check_out
 #: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__auto_check_out
 msgid "Automatic Check Out"
-msgstr "ລົງທະບຽນອອກອັດຕະໂນມັດ"
+msgstr "ລົງຊື່ອອກອັດຕະໂນມັດ"
 
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__out_mode__auto_check_out
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Automatic Check-Out"
-msgstr "ລົງທະບຽນອອກອັດຕະໂນມັດ"
+msgstr "ລົງຊື່ອອກອັດຕະໂນມັດ"
 
 #. module: hr_attendance
-#: model:ir.model.fields.selection,name:hr_attendance.selection__res_company__attendance_overtime_validation__no_validation
-msgid "Automatically Approved"
-msgstr "ອະນຸມັດອັດຕະໂນມັດ"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid ""
-"Automatically Check-Out Employees based on their working schedule with an "
-"additional tolerance. Does not apply to employees with a flexible working "
-"schedule."
-msgstr ""
-"ລົງທະບຽນອອກໃຫ້ພະນັກງານໂດຍອັດຕະໂນມັດ ໂດຍອີງຕາມຕາຕະລາງເວລາເຮັດວຽກ ແລະ "
-"ໄລຍະຜ່ອນຜັນເພີ່ມເຕີມ. ບໍ່ນຳໃຊ້ກັບພະນັກງານທີ່ມີຕາຕະລາງເວລາເຮັດວຽກແບບຢືດຢຸ່ນ."
+#: model:ir.ui.menu,name:hr_attendance.menu_hr_attendance_time_rules
+msgid "Automatic Rules"
+msgstr "ກົດລະບຽບອັດຕະໂນມັດ"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_filter
 msgid "Automatically Checked-Out"
-msgstr "ລົງທະບຽນອອກອັດຕະໂນມັດແລ້ວ"
+msgstr "ລົງຊື່ອອກໂດຍອັດຕະໂນມັດແລ້ວ"
+
+#. module: hr_attendance
+#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
+msgid ""
+"Automatically check out employees based on their working schedule with an "
+"additional tolerance, or at a specific time each day. Does not apply to "
+"employees with a flexible working schedule."
+msgstr ""
+"ລົງຊື່ອອກໃຫ້ພະນັກງານໂດຍອັດຕະໂນມັດຕາມຕາຕະລາງການເຮັດວຽກ ພ້ອມກັບໄລຍະຢືດຢຸ່ນເພີ່ມເຕີມ, ຫຼື "
+"ຕາມເວລາສະເພາະໃນແຕ່ລະວັນ. ບໍ່ນຳໃຊ້ກັບພະນັກງານທີ່ມີຕາຕະລາງການເຮັດວຽກແບບຢືດຢຸ່ນ."
 
 #. module: hr_attendance
 #. odoo-javascript
@@ -465,6 +520,18 @@ msgstr "ກັບຄືນ"
 #: model:ir.model.fields.selection,name:hr_attendance.selection__res_company__attendance_barcode_source__back
 msgid "Back Camera"
 msgstr "ກ້ອງຫຼັງ"
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.xml:0
+msgid "Badge Number"
+msgstr "ເລກບັດ"
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.js:0
+msgid "Badge Set-up"
+msgstr "ການຕັ້ງຄ່າບັດ"
 
 #. module: hr_attendance
 #. odoo-javascript
@@ -482,13 +549,13 @@ msgstr "ອັບເດດບັດແລ້ວ: "
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "Badge with Barcode"
-msgstr "ບັດທີ່ມີບາໂຄ້ດ"
+msgstr "ບັດພະນັກງານທີ່ມີບາໂຄດ"
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "Badge with Barcode on Tablet"
-msgstr "ບັດທີ່ມີບາໂຄ້ດເທິງແທັບເລັດ"
+msgstr "ບັດພະນັກງານທີ່ມີບາໂຄດໃນແທັບເລັດ"
 
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__res_company__attendance_kiosk_mode__barcode
@@ -507,23 +574,6 @@ msgid "Barcode Source"
 msgstr "ແຫຼ່ງທີ່ມາຂອງບາໂຄ້ດ"
 
 #. module: hr_attendance
-#: model:ir.model.fields,help:hr_attendance.field_hr_attendance_overtime_rule__base_off
-msgid ""
-"Base for overtime calculation.\n"
-"Use 'Quantity' when overtime hours are those in excess of a certain amount "
-"per day/week.\n"
-"Use 'Timing' when overtime hours happen on specific days or at specific times"
-msgstr ""
-"ພື້ນຖານການຄິດໄລ່ການເຮັດວຽກລ່ວງເວລາ.\n"
-"ໃຊ້ 'ຈຳນວນ' ເມື່ອຊົ່ວໂມງລ່ວງເວລາເກີນຈຳນວນທີ່ກຳນົດຕໍ່ມື້/ອາທິດ.\n"
-"ໃຊ້ 'ເວລາ' ເມື່ອຊົ່ວໂມງລ່ວງເວລາເກີດຂຶ້ນໃນວັນ ຫຼື ເວລາສະເພາະ"
-
-#. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__base_off
-msgid "Based Off"
-msgstr "ອີງຕາມ"
-
-#. module: hr_attendance
 #: model:ir.model.fields,help:hr_attendance.field_hr_attendance__in_location
 #: model:ir.model.fields,help:hr_attendance.field_hr_attendance__out_location
 msgid "Based on GPS-Coordinates if available or on IP Address"
@@ -531,9 +581,50 @@ msgstr "ອີງຕາມພິກັດ GPS ຖ້າມີ ຫຼື ອີ�
 
 #. module: hr_attendance
 #. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_inline_form/attendance_inline_form.xml:0
 #: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
-msgid "Before"
-msgstr "ກ່ອນ"
+msgid "Break"
+msgstr "ພັກຜ່ອນ"
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/break_duration_dialog/break_duration_dialog.js:0
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__break_duration
+msgid "Break Duration"
+msgstr "ໄລຍະເວລາພັກ"
+
+#. module: hr_attendance
+#: model:ir.model.fields,field_description:hr_attendance.field_res_company__attendance_break_management
+#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__attendance_break_management
+#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
+msgid "Break Management on Checkout"
+msgstr "ການຈັດການເວລາພັກຕອນລົງຊື່ອອກ"
+
+#. module: hr_attendance
+#. odoo-python
+#: code:addons/hr_attendance/models/hr_attendance.py:0
+msgid "Break duration cannot be negative."
+msgstr "ໄລຍະເວລາພັກບໍ່ສາມາດຕິດລົບໄດ້."
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/break_duration_dialog/break_duration_dialog.xml:0
+msgid "Break duration in minutes"
+msgstr "ໄລຍະເວລາພັກເປັນນາທີ"
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
+msgid "Break:"
+msgstr "ເວລາພັກ:"
+
+#. module: hr_attendance
+#. odoo-javascript
+#. odoo-python
+#: code:addons/hr_attendance/models/hr_attendance.py:0
+#: code:addons/hr_attendance/static/src/components/break_duration_dialog/break_duration_dialog.js:0
+msgid "Breaks cannot be longer than the attendance time"
+msgstr "ເວລາພັກບໍ່ສາມາດດົນກວ່າເວລາລົງເຮັດວຽກໄດ້"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__in_browser
@@ -542,9 +633,22 @@ msgid "Browser"
 msgstr "ບຣາວເຊີ"
 
 #. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid "Can be converted as Time Off (cfr Time Off configuration)."
-msgstr "ສາມາດປ່ຽນເປັນການພັກວຽກໄດ້ (ເບິ່ງການກຳນົດຄ່າການພັກວຽກ)."
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/hooks/use_camera.js:0
+msgid "Camera Error"
+msgstr "ຂໍ້ຜິດພາດຂອງກ້ອງ"
+
+#. module: hr_attendance
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__can_edit
+msgid "Can Edit"
+msgstr "ສາມາດແກ້ໄຂໄດ້"
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/break_duration_dialog/break_duration_dialog.xml:0
+#: code:addons/hr_attendance/static/src/views/attendance_helper_view.js:0
+msgid "Cancel"
+msgstr "ຍົກເລີກ"
 
 #. module: hr_attendance
 #. odoo-python
@@ -578,12 +682,19 @@ msgstr ""
 "ຂໍ້ມູນການລົງເວລາຂອງທ່ານອາດຈະຖືກແກ້ໄຂໂດຍຝ່າຍບຸກຄົນ."
 
 #. module: hr_attendance
-#. odoo-javascript
-#: code:addons/hr_attendance/static/src/components/check_in_out/check_in_out.xml:0
-msgid "Check IN"
-msgstr "ລົງທະບຽນເຂົ້າ"
+#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
+msgid ""
+"Capture a photo at the time of check-in using the device camera (if "
+"available). Images are automatically optimized for performance and storage."
+msgstr ""
+"ຖ່າຍຮູບໃນເວລາລົງທະບຽນເຂົ້າໂດຍໃຊ້ກ້ອງຂອງອຸປະກອນ (ຖ້າມີ). "
+"ຮູບພາບຈະຖືກປັບໃຫ້ເໝາະສົມໂດຍອັດຕະໂນມັດເພື່ອປະສິດທິພາບ ແລະ ພື້ນທີ່ຈັດເກັບ."
 
 #. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_inline_form/attendance_inline_form.xml:0
+#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.js:0
+#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__check_in
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__last_check_in
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee_public__last_check_in
@@ -592,12 +703,14 @@ msgid "Check In"
 msgstr "ລົງທະບຽນເຂົ້າ"
 
 #. module: hr_attendance
-#. odoo-javascript
-#: code:addons/hr_attendance/static/src/components/check_in_out/check_in_out.xml:0
-msgid "Check OUT"
-msgstr "ລົງທະບຽນອອກ"
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
+msgid "Check In/Out"
+msgstr "ລົງທະບຽນເຂົ້າ/ອອກ"
 
 #. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_inline_form/attendance_inline_form.xml:0
+#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__check_out
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__last_check_out
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee_public__last_check_out
@@ -609,18 +722,35 @@ msgstr "ລົງທະບຽນອອກ"
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
 msgid "Check in"
-msgstr "ລົງທະບຽນເຂົ້າ"
+msgstr "ລົງຊື່ເຂົ້າ"
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
 msgid "Check out"
-msgstr "ລົງທະບຽນອອກ"
+msgstr "ລົງຊື່ອອກ"
+
+#. module: hr_attendance
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__in_image
+msgid "Check-In Image"
+msgstr "ຮູບພາບຕອນລົງທະບຽນເຂົ້າ"
+
+#. module: hr_attendance
+#. odoo-python
+#: code:addons/hr_attendance/models/hr_employee.py:0
+msgid "Check-in image captured"
+msgstr "ຖ່າຍຮູບຕອນລົງທະບຽນເຂົ້າແລ້ວ"
+
+#. module: hr_attendance
+#. odoo-python
+#: code:addons/hr_attendance/models/hr_employee.py:0
+msgid "Check-in is recorded, but picture could not be captured"
+msgstr "ບັນທຶກການລົງທະບຽນເຂົ້າແລ້ວ, ແຕ່ບໍ່ສາມາດຖ່າຍຮູບໄດ້"
 
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__hr_employee__attendance_state__checked_in
 msgid "Checked in"
-msgstr "ລົງທະບຽນເຂົ້າແລ້ວ"
+msgstr "ເຊັກອິນແລ້ວ"
 
 #. module: hr_attendance
 #. odoo-javascript
@@ -657,19 +787,7 @@ msgid "Close"
 msgstr "ປິດ"
 
 #. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__color
-msgid "Color"
-msgstr "ສີ"
-
-#. module: hr_attendance
 #: model:ir.model,name:hr_attendance.model_res_company
-msgid "Companies"
-msgstr "ບໍລິສັດ"
-
-#. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__company_id
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__company_id
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__company_id
 msgid "Company"
 msgstr "ບໍລິສັດ"
 
@@ -680,23 +798,19 @@ msgid "Company Logo"
 msgstr "ໂລໂກ້ບໍລິສັດ"
 
 #. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
-msgid "Condition"
-msgstr "ເງື່ອນໄຂ"
-
-#. module: hr_attendance
 #: model:ir.model,name:hr_attendance.model_res_config_settings
 msgid "Config Settings"
-msgstr "ຕັ້ງຄ່າການກຳນົດຄ່າ"
+msgstr "ການຕັ້ງຄ່າລະບົບ"
 
 #. module: hr_attendance
 #: model:ir.ui.menu,name:hr_attendance.menu_hr_attendance_configuration
 msgid "Configuration"
-msgstr "ການກຳນົດຄ່າ"
+msgstr "ການກໍານົດຄ່າ"
 
 #. module: hr_attendance
 #. odoo-javascript
-#: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.xml:0
+#: code:addons/hr_attendance/static/src/components/break_duration_dialog/break_duration_dialog.xml:0
+#: code:addons/hr_attendance/static/src/components/confirmation/confirmation.xml:0
 msgid "Confirm"
 msgstr "ຢືນຢັນ"
 
@@ -704,34 +818,31 @@ msgstr "ຢືນຢັນ"
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "Connect an RFID reader, and scan a token."
-msgstr "ເຊື່ອມຕໍ່ກັບເຄື່ອງອ່ານ RFID ແລະ ສະແກນບັດ."
+msgstr "ເຊື່ອມຕໍ່ເຄື່ອງອ່ານ RFID, ແລະ ສະແກນບັດ."
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.js:0
 msgid "Connection lost. Check in/out could not be recorded."
-msgstr "ການເຊື່ອມຕໍ່ຂາດຫາຍ. ບໍ່ສາມາດບັນທຶກການລົງທະບຽນເຂົ້າ/ອອກ ໄດ້."
+msgstr "ການເຊື່ອມຕໍ່ຂາດຫາຍ. ບໍ່ສາມາດບັນທຶກການ ລົງຊື່ເຂົ້າ/ອອກ ໄດ້."
 
 #. module: hr_attendance
-#: model:ir.model.fields,help:hr_attendance.field_hr_attendance_overtime_ruleset__rate_combination_mode
-msgid ""
-"Controls how the rates from the different rules that apply are combined.\n"
-"  Max: use the highest rate. (e.g.: combined for 150% and 120 = 150%)\n"
-"  Sum: sum the *extra* pay (i.e. above 100%).\n"
-"    e.g.: combined rate for 150% & 120% = 100% (baseline) + (150-100)% + "
-"(120-100)% = 170%\n"
-msgstr ""
-"ຄວບຄຸມວິທີການລວມອັດຕາຈາກກົດລະບຽບຕ່າງໆທີ່ນຳໃຊ້.\n"
-"  ສູງສຸດ: ໃຊ້ອັດຕາທີ່ສູງທີ່ສຸດ. (ຕົວຢ່າງ: ລວມ 150% ແລະ 120% = 150%)\n"
-"  ລວມ: ລວມຄ່າຈ້າງ *ເພີ່ມເຕີມ* (ເຊັ່ນ: ສ່ວນທີ່ເກີນ 100%).\n"
-"    ຕົວຢ່າງ: ອັດຕາລວມສຳລັບ 150% & 120% = 100% (ພື້ນຖານ) + (150-100)% + (120-100)% "
-"= 170%\n"
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.js:0
+msgid "Could not save break duration. Please identify again."
+msgstr "ບໍ່ສາມາດບັນທຶກໄລຍະເວລາພັກໄດ້. ກະລຸນາລະບຸຕົວຕົນອີກຄັ້ງ."
 
 #. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__country_id
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_filter
-msgid "Country"
-msgstr "ປະເທດ"
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.js:0
+msgid "Could not update this attendance."
+msgstr "ບໍ່ສາມາດອັບເດດການລົງເວລານີ້ໄດ້."
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/views/calendar/attendance_calendar_controller.js:0
+msgid "Create"
+msgstr "ສ້າງ"
 
 #. module: hr_attendance
 #: model_terms:ir.actions.act_window,help:hr_attendance.hr_employee_attendance_action_kanban
@@ -740,30 +851,19 @@ msgstr "ສ້າງພະນັກງານໃໝ່"
 
 #. module: hr_attendance
 #. odoo-javascript
-#: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.xml:0
-msgid "Create the name of the new employee below"
-msgstr "ສ້າງຊື່ຂອງພະນັກງານໃໝ່ຢູ່ດ້ານລຸ່ມ"
+#: code:addons/hr_attendance/static/src/components/new_employee_dialog/many2one/many2one.js:0
+msgid "Create employee %s"
+msgstr "ສ້າງພະນັກງານ %s"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__create_uid
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__create_uid
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__create_uid
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__create_uid
 msgid "Created by"
 msgstr "ສ້າງໂດຍ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__create_date
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__create_date
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__create_date
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__create_date
 msgid "Created on"
 msgstr "ສ້າງເມື່ອ"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
-msgid "Currently Working"
-msgstr "ກຳລັງເຮັດວຽກຢູ່"
 
 #. module: hr_attendance
 #: model:ir.ui.menu,name:hr_attendance.menu_hr_attendance_view_dashboard
@@ -778,10 +878,23 @@ msgid "Date"
 msgstr "ວັນທີ"
 
 #. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__date
-#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_rule__quantity_period__day
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__day_of_date
 msgid "Day"
 msgstr "ວັນ"
+
+#. module: hr_attendance
+#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__attendance_based
+msgid "Default Tracking"
+msgstr "ການຕິດຕາມເລີ່ມຕົ້ນ"
+
+#. module: hr_attendance
+#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
+msgid ""
+"Default work entry type assigned to attendance records. Used by the time "
+"rule engine."
+msgstr ""
+"ປະເພດການບັນທຶກການເຮັດວຽກເລີ່ມຕົ້ນທີ່ກຳນົດໃຫ້ກັບບັນທຶກການລົງເວລາ. "
+"ໃຊ້ໂດຍລະບົບປະມວນຜົນກົດລະບຽບເວລາ."
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
@@ -794,9 +907,9 @@ msgid "Define the way the user will be identified by the application."
 msgstr "ກຳນົດວິທີການທີ່ແອັບພລິເຄຊັນຈະລະບຸຕົວຕົນຂອງຜູ້ໃຊ້."
 
 #. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
-msgid "Definition"
-msgstr "ຄຳນິຍາມ"
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_create_view_form
+msgid "Delete"
+msgstr "ລຶບ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__department_id
@@ -805,56 +918,36 @@ msgid "Department"
 msgstr "ພະແນກ"
 
 #. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__description
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__description
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
-msgid "Description"
-msgstr "ລາຍລະອຽດ"
-
-#. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__device_tracking_enabled
 #: model:ir.model.fields,field_description:hr_attendance.field_res_company__attendance_device_tracking
 #: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__attendance_device_tracking
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Device & Location Tracking"
-msgstr "ການຕິດຕາມອຸປະກອນ ແລະ ຕຳແໜ່ງ"
+msgstr "ການຕິດຕາມອຸປະກອນ ແລະ ຕຳແໜ່ງທີ່ຢູ່"
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_inline_form/attendance_inline_form.xml:0
+msgid "Discard"
+msgstr "ຍົກເລີກ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__display_attendances
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee_public__display_attendances
 msgid "Display Attendances"
-msgstr ""
-
-#. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__display_extra_hours
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_employee_public__display_extra_hours
-#: model:ir.model.fields,field_description:hr_attendance.field_res_company__hr_attendance_display_overtime
-#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__hr_attendance_display_overtime
-#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid "Display Extra Hours"
-msgstr "ສະແດງຊົ່ວໂມງເພີ່ມເຕີມ"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid "Display Extra Hours in Kiosk mode and on User profile."
-msgstr "ສະແດງຊົ່ວໂມງເພີ່ມເຕີມໃນໂໝດຕູ້ບໍລິການ ແລະ ເທິງໂປຣໄຟລ໌ຜູ້ໃຊ້."
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid "Display Extra Hours."
-msgstr "ສະແດງຊົ່ວໂມງເພີ່ມເຕີມ."
+msgstr "ສະແດງການລົງເວລາ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__display_name
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__display_name
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__display_name
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__display_name
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__display_name
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee_public__display_name
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_time_rule__display_name
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_version__display_name
 #: model:ir.model.fields,field_description:hr_attendance.field_ir_http__display_name
+#: model:ir.model.fields,field_description:hr_attendance.field_ir_websocket__display_name
 #: model:ir.model.fields,field_description:hr_attendance.field_res_company__display_name
 #: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:hr_attendance.field_res_groups__display_name
 #: model:ir.model.fields,field_description:hr_attendance.field_res_users__display_name
 msgid "Display Name"
 msgstr "ຊື່ທີ່ສະແດງ"
@@ -871,18 +964,20 @@ msgid ""
 "Do not have access, user cannot edit the attendances that are not their own "
 "or if they are not the attendance manager of the employee."
 msgstr ""
-"ບໍ່ມີສິດເຂົ້າເຖິງ, ຜູ້ໃຊ້ບໍ່ສາມາດແກ້ໄຂການລົງເວລາທີ່ບໍ່ແມ່ນຂອງຕົນເອງ ຫຼື "
-"ຫາກພວກເຂົາບໍ່ແມ່ນຜູ້ຈັດການການລົງເວລາຂອງພະນັກງານຄົນນັ້ນ."
+"ບໍ່ມີສິດເຂົ້າເຖິງ, ຜູ້ໃຊ້ບໍ່ສາມາດແກ້ໄຂການລົງເວລາທີ່ບໍ່ແມ່ນຂອງຕົນເອງໄດ້ ຫຼື "
+"ຖ້າເຂົາເຈົ້າບໍ່ແມ່ນຜູ້ຈັດການການລົງເວລາຂອງພະນັກງານຜູ້ນັ້ນ."
 
 #. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
-msgid "Duration to exceed:"
-msgstr "ໄລຍະເວລາທີ່ເກີນ:"
+#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__state__draft
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_filter
+msgid "Draft"
+msgstr "ສະບັບຮ່າງ"
 
 #. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.xml:0
 #: model:ir.model,name:hr_attendance.model_hr_employee
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__employee_id
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__employee_id
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_management_view_filter
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_filter
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_employees_view_kanban
@@ -893,23 +988,18 @@ msgstr "ພະນັກງານ"
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/manual_selection/manual_selection.xml:0
 msgid "Employee Avatar"
-msgstr "ຮູບຕົວແທນພະນັກງານ"
+msgstr "ຮູບພະນັກງານ"
 
 #. module: hr_attendance
 #: model:ir.model,name:hr_attendance.model_hr_version
 msgid "Employee Contract"
-msgstr "ສັນຍາຈ້າງງານ"
+msgstr "ສັນຍາຈ້າງງານພະນັກງານ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_res_company__attendance_kiosk_use_pin
 #: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__attendance_kiosk_use_pin
 msgid "Employee PIN Identification"
-msgstr "ການລະບຸຕົວຕົນດ້ວຍລະຫັດ PIN ພະນັກງານ"
-
-#. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__employee_tolerance
-msgid "Employee Tolerance"
-msgstr "ໄລຍະຜ່ອນຜັນຂອງພະນັກງານ"
+msgstr "ການລະບຸຕົວຕົນດ້ວຍ PIN ພະນັກງານ"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
@@ -928,30 +1018,46 @@ msgstr "ສ້າງພະນັກງານສຳເລັດແລ້ວ!"
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.js:0
 msgid "Employee name is required."
-msgstr "ຈຳເປັນຕ້ອງມີຊື່ພະນັກງານ."
+msgstr "ຕ້ອງໃສ່ຊື່ພະນັກງານ."
 
 #. module: hr_attendance
+#. odoo-python
+#: code:addons/hr_attendance/models/hr_attendance.py:0
 #: model:ir.actions.act_window,name:hr_attendance.hr_employee_attendance_action_kanban
+#: model:ir.actions.server,name:hr_attendance.action_attendance_employee_view_access
 #: model:ir.ui.menu,name:hr_attendance.menu_hr_attendance_employee
 msgid "Employees"
-msgstr "ພະນັກງານທັງໝົດ"
-
-#. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__employer_tolerance
-msgid "Employer Tolerance"
-msgstr "ໄລຍະຜ່ອນຜັນຂອງນາຍຈ້າງ"
+msgstr "ພະນັກງານ"
 
 #. module: hr_attendance
 #. odoo-javascript
-#: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.xml:0
-msgid "Enter Badge Number"
-msgstr "ປ້ອນເລກບັດ"
+#: code:addons/hr_attendance/static/src/components/break_duration_dialog/break_duration_dialog.js:0
+msgid "Enter a valid break duration in whole minutes."
+msgstr "ປ້ອນໄລຍະເວລາພັກທີ່ຖືກຕ້ອງເປັນນາທີເຕັມ."
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/break_duration_dialog/break_duration_dialog.js:0
+msgid "Enter the total break duration (in minutes) for %s."
+msgstr "ປ້ອນໄລຍະເວລາພັກທັງໝົດ (ເປັນນາທີ) ສຳລັບ %s."
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/break_duration_dialog/break_duration_dialog.js:0
+msgid "Enter the total break duration in minutes."
+msgstr "ປ້ອນໄລຍະເວລາພັກທັງໝົດເປັນນາທີ."
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/views/calendar/attendance_calendar_controller.js:0
+msgid "Error"
+msgstr "ຂໍ້ຜິດພາດ"
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.js:0
 msgid "Error creating employee: "
-msgstr "ເກີດຂໍ້ຜິດພາດໃນການສ້າງພະນັກງານ: "
+msgstr "ຂໍ້ຜິດພາດໃນການສ້າງພະນັກງານ: "
 
 #. module: hr_attendance
 #. odoo-javascript
@@ -971,34 +1077,15 @@ msgid "Errors"
 msgstr "ຂໍ້ຜິດພາດ"
 
 #. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__duration
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_employee_simple_tree_view
-#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid "Extra Hours"
-msgstr "ຊົ່ວໂມງເພີ່ມເຕີມ"
-
-#. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__manual_duration
-msgid "Extra Hours (encoded)"
-msgstr "ຊົ່ວໂມງເພີ່ມເຕີມ (ທີ່ປ້ອນເຂົ້າ)"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_form
-msgid "Extra Hours Rules"
-msgstr "ກົດລະບຽບຊົ່ວໂມງເພີ່ມເຕີມ"
-
-#. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_res_company__attendance_overtime_validation
-#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__attendance_overtime_validation
-#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid "Extra Hours Validation"
-msgstr "ການກວດສອບຊົ່ວໂມງເພີ່ມເຕີມ"
-
-#. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/greetings/greetings.xml:0
 msgid "Extra hours"
-msgstr "ຊົ່ວໂມງເພີ່ມເຕີມ"
+msgstr "ຊົ່ວໂມງພິເສດ"
+
+#. module: hr_attendance
+#: model:ir.model.fields,help:hr_attendance.field_hr_attendance__break_duration
+msgid "Extra unpaid break duration (hours)"
+msgstr "ໄລຍະເວລາພັກພິເສດທີ່ບໍ່ໄດ້ຮັບຄ່າຈ້າງ (ຊົ່ວໂມງ)"
 
 #. module: hr_attendance
 #. odoo-javascript
@@ -1020,7 +1107,7 @@ msgstr "ຜູ້ຕິດຕາມ"
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__message_partner_ids
 msgid "Followers (Partners)"
-msgstr "ຜູ້ຕິດຕາມ (ຄູ່ຮ່ວມງານ)"
+msgstr "ຜູ້ຕິດຕາມ (ຄູ່ຄ້າ)"
 
 #. module: hr_attendance
 #. odoo-javascript
@@ -1029,21 +1116,9 @@ msgid "For"
 msgstr "ສຳລັບ"
 
 #. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__timing_start
-msgid "From"
-msgstr "ຈາກ"
-
-#. module: hr_attendance
-#. odoo-python
-#: code:addons/hr_attendance/models/hr_attendance.py:0
-msgid "From %s"
-msgstr "ຈາກ %s"
-
-#. module: hr_attendance
-#. odoo-python
-#: code:addons/hr_attendance/models/hr_attendance_overtime_rule.py:0
-msgid "From Employee"
-msgstr "ຈາກພະນັກງານ"
+#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__day_of_date__4
+msgid "Friday"
+msgstr "ວັນສຸກ"
 
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__res_company__attendance_barcode_source__front
@@ -1061,13 +1136,9 @@ msgid "Generate new URL"
 msgstr "ສ້າງ URL ໃໝ່"
 
 #. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_list
-msgid "Get working hours from contract"
-msgstr "ດຶງຊົ່ວໂມງເຮັດວຽກຈາກສັນຍາຈ້າງ"
-
-#. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/card_layout/card_layout.xml:0
+#: code:addons/hr_attendance/static/src/components/confirmation/confirmation.xml:0
 #: code:addons/hr_attendance/static/src/components/greetings/greetings.xml:0
 #: code:addons/hr_attendance/static/src/components/manual_selection/manual_selection.xml:0
 #: code:addons/hr_attendance/static/src/components/pin_code/pin_code.xml:0
@@ -1081,6 +1152,13 @@ msgid "Goodbye"
 msgstr "ລາກ່ອນ"
 
 #. module: hr_attendance
+#: model:res.groups,comment:hr_attendance.group_hr_attendance_own
+msgid ""
+"Grants users permission to modify their own attendance entries that are "
+"pending approval."
+msgstr "ມອບສິດໃຫ້ຜູ້ໃຊ້ແກ້ໄຂລາຍການລົງເວລາຂອງຕົນເອງທີ່ກຳລັງລໍຖ້າການອະນຸມັດ."
+
+#. module: hr_attendance
 #: model:ir.model,name:hr_attendance.model_ir_http
 msgid "HTTP Routing"
 msgstr "ການກຳນົດເສັ້ນທາງ HTTP"
@@ -1089,6 +1167,11 @@ msgstr "ການກຳນົດເສັ້ນທາງ HTTP"
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__has_message
 msgid "Has Message"
 msgstr "ມີຂໍ້ຄວາມ"
+
+#. module: hr_attendance
+#: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree
+msgid "Hours"
+msgstr "ຊົ່ວໂມງ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__hours_last_month
@@ -1108,6 +1191,8 @@ msgid "Hours Last Month Overtime"
 msgstr "ຊົ່ວໂມງລ່ວງເວລາໃນເດືອນແລ້ວ"
 
 #. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/greetings/greetings.xml:0
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__hours_previously_today
 msgid "Hours Previously Today"
 msgstr "ຊົ່ວໂມງກ່ອນໜ້ານີ້ໃນມື້ນີ້"
@@ -1115,10 +1200,6 @@ msgstr "ຊົ່ວໂມງກ່ອນໜ້ານີ້ໃນມື້ນີ
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/greetings/greetings.xml:0
-msgid "Hours Previously Today:"
-msgstr "ຊົ່ວໂມງກ່ອນໜ້ານີ້ໃນມື້ນີ້:"
-
-#. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__hours_today
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee_public__hours_today
 msgid "Hours Today"
@@ -1126,14 +1207,9 @@ msgstr "ຊົ່ວໂມງໃນມື້ນີ້"
 
 #. module: hr_attendance
 #. odoo-javascript
-#: code:addons/hr_attendance/static/src/components/greetings/greetings.xml:0
-msgid "Hours Today:"
+#: code:addons/hr_attendance/static/src/components/confirmation/confirmation.xml:0
+msgid "Hours today:"
 msgstr "ຊົ່ວໂມງໃນມື້ນີ້:"
-
-#. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__expected_hours_from_contract
-msgid "Hours from employee schedule"
-msgstr "ຊົ່ວໂມງຈາກຕາຕະລາງພະນັກງານ"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_filter
@@ -1142,18 +1218,18 @@ msgstr "ຄົ້ນຫາການລົງເວລາ ຝ່າຍບຸກ�
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__id
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__id
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__id
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__id
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__id
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee_public__id
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_time_rule__id
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_version__id
 #: model:ir.model.fields,field_description:hr_attendance.field_ir_http__id
+#: model:ir.model.fields,field_description:hr_attendance.field_ir_websocket__id
 #: model:ir.model.fields,field_description:hr_attendance.field_res_company__id
 #: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__id
+#: model:ir.model.fields,field_description:hr_attendance.field_res_groups__id
 #: model:ir.model.fields,field_description:hr_attendance.field_res_users__id
 msgid "ID"
-msgstr "ID"
+msgstr "ລະຫັດ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__in_ip_address
@@ -1173,39 +1249,44 @@ msgid ""
 "If checked, days not covered by an attendance will be visible in the Report. "
 "Does not apply to employees with a flexible working schedule."
 msgstr ""
-"ຫາກໝາຍເອົາ, ວັນທີ່ບໍ່ມີການລົງເວລາຈະສະແດງຢູ່ໃນລາຍງານ. "
-"ບໍ່ນຳໃຊ້ກັບພະນັກງານທີ່ມີຕາຕະລາງເວລາເຮັດວຽກແບບຢືດຢຸ່ນ."
+"ຖ້າໝາຍໄວ້, ມື້ທີ່ບໍ່ມີການລົງເວລາຈະຖືກສະແດງໃນລາຍງານ. "
+"ບໍ່ນຳໃຊ້ກັບພະນັກງານທີ່ມີຕາຕະລາງການເຮັດວຽກແບບຢືດຢຸ່ນ."
 
 #. module: hr_attendance
 #: model:ir.model.fields,help:hr_attendance.field_hr_attendance__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr "ຫາກໝາຍເອົາ, ຂໍ້ຄວາມໃໝ່ຈະຕ້ອງການຄວາມສົນໃຈຈາກທ່ານ."
+msgstr "ຖ້າໝາຍເອົາ, ຂໍ້ຄວາມໃໝ່ຈະຕ້ອງການຄວາມສົນໃຈຈາກທ່ານ."
 
 #. module: hr_attendance
 #: model:ir.model.fields,help:hr_attendance.field_hr_attendance__message_has_error
 #: model:ir.model.fields,help:hr_attendance.field_hr_attendance__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
-msgstr "ຫາກໝາຍເອົາ, ບາງຂໍ້ຄວາມມີຂໍ້ຜິດພາດໃນການສົ່ງ."
+msgstr "ຖ້າໝາຍເອົາ, ບາງຂໍ້ຄວາມມີຂໍ້ຜິດພາດໃນການສົ່ງ."
 
 #. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
-msgid "If the employee works"
-msgstr "ຫາກພະນັກງານເຮັດວຽກ"
+#: model:ir.model.fields,help:hr_attendance.field_res_company__attendance_break_management
+#: model:ir.model.fields,help:hr_attendance.field_res_config_settings__attendance_break_management
+#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
+msgid ""
+"If enabled, employees can record their total break duration after checking "
+"out."
+msgstr "ຖ້າເປີດໃຊ້ງານ, ພະນັກງານສາມາດບັນທຶກໄລຍະເວລາພັກທັງໝົດຫຼັງຈາກລົງຊື່ອອກ."
 
 #. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
-msgid "If the worked hours on a"
-msgstr "ຫາກຊົ່ວໂມງເຮັດວຽກໃນ"
+#: model:ir.model.fields,help:hr_attendance.field_hr_time_rule__condition_work_entry_type_ids
+msgid "If set, only the selected types will be considered by this rule."
+msgstr "ຖ້າຕັ້ງຄ່າໄວ້, ຈະພິຈາລະນາສະເພາະປະເພດທີ່ເລືອກໄວ້ໂດຍກົດລະບຽບນີ້."
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__in_location
 msgid "In Location"
-msgstr "ໃນສະຖານທີ່"
+msgstr "ສະຖານທີ່ (ເຂົ້າ)"
 
 #. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__information_display
-msgid "Information"
-msgstr "ຂໍ້ມູນ"
+#. odoo-python
+#: code:addons/hr_attendance/models/hr_attendance.py:0
+msgid "In Progress"
+msgstr "ກຳລັງດຳເນີນການ"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree
@@ -1224,17 +1305,23 @@ msgid "Install"
 msgstr "ຕິດຕັ້ງ"
 
 #. module: hr_attendance
+#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
+msgid "Installation Manual"
+msgstr ""
+
+#. module: hr_attendance
 #. odoo-python
 #: code:addons/hr_attendance/controllers/main.py:0
 msgid ""
 "Invalid domain, use 'name' and/or 'department_id' fields with '=' and/or "
 "'ilike' operators."
 msgstr ""
-"ໂດເມນບໍ່ຖືກຕ້ອງ, ໃຫ້ໃຊ້ຟີວ 'name' ແລະ/ຫຼື 'department_id' ຮ່ວມກັບຕົວດຳເນີນການ '=' ແລະ/ຫຼື "
+"Domain ບໍ່ຖືກຕ້ອງ, ໃຫ້ໃຊ້ຟີວ 'name' ແລະ/ຫຼື 'department_id' ຮ່ວມກັບຕົວດຳເນີນການ '=' ແລະ/ຫຼື "
 "'ilike'."
 
 #. module: hr_attendance
 #. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/confirmation/confirmation.xml:0
 #: code:addons/hr_attendance/static/src/components/greetings/greetings.xml:0
 msgid "Invalid request"
 msgstr "ຄຳຮ້ອງຂໍບໍ່ຖືກຕ້ອງ"
@@ -1246,15 +1333,19 @@ msgstr "ແມ່ນຜູ້ຕິດຕາມ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__is_manager
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__is_manager
 msgid "Is Manager"
 msgstr "ແມ່ນຜູ້ຈັດການ"
+
+#. module: hr_attendance
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__is_own
+msgid "Is Own"
+msgstr "ແມ່ນຂອງຕົນເອງ"
 
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__in_mode__kiosk
 #: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__out_mode__kiosk
 msgid "Kiosk"
-msgstr "ຕູ້ບໍລິການ"
+msgstr "ຕູ້ຄີອອດ"
 
 #. module: hr_attendance
 #: model:ir.ui.menu,name:hr_attendance.menu_action_open_form
@@ -1264,13 +1355,13 @@ msgstr "ໂໝດຕູ້ບໍລິການ"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid "Kiosk Mode Adress"
-msgstr "ທີ່ຢູ່ໂໝດຕູ້ບໍລິການ"
+msgid "Kiosk Mode Address"
+msgstr ""
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Kiosk Settings"
-msgstr "ການຕັ້ງຄ່າຕູ້ບໍລິການ"
+msgstr "ການຕັ້ງຄ່າຕູ້ຄີອອດ"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_filter
@@ -1286,48 +1377,43 @@ msgstr "ການລົງເວລາຄັ້ງຫຼ້າສຸດ"
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__last_attendance_worked_hours
 msgid "Last Attendance Worked Hours"
-msgstr "ຊົ່ວໂມງເຮັດວຽກໃນການລົງເວລາຄັ້ງຫຼ້າສຸດ"
+msgstr "ຊົ່ວໂມງເຮັດວຽກຂອງການລົງເວລາຫຼ້າສຸດ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__write_uid
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__write_uid
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__write_uid
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__write_uid
 msgid "Last Updated by"
-msgstr "ອັບເດດຫຼ້າສຸດໂດຍ"
+msgstr "ແກ້ໄຂຫຼ້າສຸດໂດຍ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__write_date
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__write_date
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__write_date
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__write_date
 msgid "Last Updated on"
-msgstr "ອັບເດດຫຼ້າສຸດເມື່ອ"
+msgstr "ແກ້ໄຂຫຼ້າສຸດເມື່ອ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__in_latitude
 msgid "Latitude"
-msgstr "ລະຕິຈູດ"
+msgstr "ເສັ້ນຂະໜານ"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree
 msgid "Latitude (In)"
-msgstr "ລະຕິຈູດ (ເຂົ້າ)"
+msgstr "ເສັ້ນຂະໜານ (ເຂົ້າ)"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree
 msgid "Latitude (Out)"
-msgstr "ລະຕິຈູດ (ອອກ)"
+msgstr "ເສັ້ນຂະໜານ (ອອກ)"
 
 #. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__linked_overtime_ids
-msgid "Linked Overtime"
-msgstr "ການເຮັດວຽກລ່ວງເວລາທີ່ເຊື່ອມໂຍງ"
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/views/attendance_helper_view.js:0
+msgid "Load Sample Data"
+msgstr "ໂຫຼດຂໍ້ມູນຕົວຢ່າງ"
 
 #. module: hr_attendance
 #: model:ir.actions.server,name:hr_attendance.action_load_demo_data
 msgid "Load demo data"
-msgstr "ໂຫຼດຂໍ້ມູນຕົວຢ່າງ"
+msgstr "ໂຫລດຂໍ້ມູນຕົວຢ່າງ"
 
 #. module: hr_attendance
 #. odoo-javascript
@@ -1346,19 +1432,24 @@ msgid "Location (Out)"
 msgstr "ສະຖານທີ່ (ອອກ)"
 
 #. module: hr_attendance
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
+msgid "Logs"
+msgstr "ບັນທຶກປະຫວັດ"
+
+#. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__in_longitude
 msgid "Longitude"
-msgstr "ລອງຈິຈູດ"
+msgstr "ເສັ້ນແວງ"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree
 msgid "Longitude (In)"
-msgstr "ລອງຈິຈູດ (ເຂົ້າ)"
+msgstr "ເສັ້ນແວງ (ເຂົ້າ)"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree
 msgid "Longitude (Out)"
-msgstr "ລອງຈິຈູດ (ອອກ)"
+msgstr "ເສັ້ນແວງ (ອອກ)"
 
 #. module: hr_attendance
 #: model:ir.actions.act_window,name:hr_attendance.hr_attendance_management_action
@@ -1387,7 +1478,7 @@ msgstr "ການລົງເວລາດ້ວຍຕົນເອງ"
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "Manual Attendance or with barcode"
-msgstr "ລົງເວລາດ້ວຍຕົນເອງ ຫຼື ດ້ວຍບາໂຄ້ດ"
+msgstr "ການລົງເວລາດ້ວຍຕົນເອງ ຫຼື ດ້ວຍບາໂຄດ"
 
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__res_company__attendance_kiosk_mode__manual
@@ -1398,12 +1489,12 @@ msgstr "ເລືອກດ້ວຍຕົນເອງ"
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "Manually (optional PIN)"
-msgstr "ດ້ວຍຕົນເອງ (ເລືອກໃສ່ PIN ໄດ້)"
+msgstr "ດ້ວຍຕົນເອງ (PIN ທາງເລືອກ)"
 
 #. module: hr_attendance
-#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_ruleset__rate_combination_mode__max
-msgid "Maximum Rate"
-msgstr "ອັດຕາສູງສຸດ"
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
+msgid "Mark as Reviewed"
+msgstr "ໝາຍວ່າກວດກາແລ້ວ"
 
 #. module: hr_attendance
 #: model:ir.actions.client,name:hr_attendance.hr_attendance_action_greeting_message
@@ -1435,7 +1526,7 @@ msgstr "ຂໍ້ມູນຂາດຫາຍ"
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/views/badge_scanner/badge_scanner.js:0
 msgid "Missing Employee ID"
-msgstr "ລະຫັດພະນັກງານຂາດຫາຍ"
+msgstr "ຂາດລະຫັດພະນັກງານ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__in_mode
@@ -1444,12 +1535,15 @@ msgid "Mode"
 msgstr "ໂໝດ"
 
 #. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid "Modes"
-msgstr "ໂໝດຕ່າງໆ"
+#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__day_of_date__0
+msgid "Monday"
+msgstr "ວັນຈັນ"
 
 #. module: hr_attendance
+#: model:ir.actions.act_window,name:hr_attendance.hr_attendance_my_action
+#: model:ir.ui.menu,name:hr_attendance.menu_hr_attendance_my_attendances
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_management_view_filter
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_my_calendar_view
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_filter
 msgid "My Attendances"
 msgstr "ການລົງເວລາຂອງຂ້ອຍ"
@@ -1461,16 +1555,27 @@ msgid "My Team"
 msgstr "ທີມຂອງຂ້ອຍ"
 
 #. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__name
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__name
-msgid "Name"
-msgstr "ຊື່"
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/views/calendar/attendance_calendar_controller.js:0
+msgid "New Attendance"
+msgstr "ການລົງເວລາໃໝ່"
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "New Set-up (Employee/Badge)"
 msgstr "ການຕັ້ງຄ່າໃໝ່ (ພະນັກງານ/ບັດ)"
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/greetings/greetings.xml:0
+msgid "Next"
+msgstr "ຕໍ່ໄປ"
+
+#. module: hr_attendance
+#: model:res.groups.privilege,placeholder:hr_attendance.res_groups_privilege_attendances
+msgid "No"
+msgstr "ບໍ່"
 
 #. module: hr_attendance
 #. odoo-javascript
@@ -1484,13 +1589,25 @@ msgstr "ບໍ່ພົບຂໍ້ມູນການລົງເວລາ"
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/views/badge_scanner/badge_scanner.js:0
 msgid "No barcode received"
-msgstr "ບໍ່ໄດ້ຮັບບາໂຄ້ດ"
+msgstr "ບໍ່ໄດ້ຮັບບາໂຄດ"
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
+msgid "No break"
+msgstr "ບໍ່ມີເວລາພັກ"
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.js:0
 msgid "No employee corresponding to Badge ID '%(barcode)s.'"
 msgstr "ບໍ່ມີພະນັກງານທີ່ກົງກັບລະຫັດບັດ '%(barcode)s.'"
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
+msgid "Now"
+msgstr "ຕອນນີ້"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__message_needaction_counter
@@ -1505,7 +1622,7 @@ msgstr "ຈຳນວນຂໍ້ຜິດພາດ"
 #. module: hr_attendance
 #: model:ir.model.fields,help:hr_attendance.field_hr_attendance__message_needaction_counter
 msgid "Number of messages requiring action"
-msgstr "ຈຳນວນຂໍ້ຄວາມທີ່ຕ້ອງດຳເນີນການ"
+msgstr "ຈຳນວນຂໍ້ຄວາມທີ່ຕ້ອງການການດຳເນີນການ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,help:hr_attendance.field_hr_attendance__message_has_error_counter
@@ -1514,15 +1631,15 @@ msgstr "ຈຳນວນຂໍ້ຄວາມທີ່ມີຂໍ້ຜິດພ
 
 #. module: hr_attendance
 #. odoo-javascript
-#: code:addons/hr_attendance/static/src/components/greetings/greetings.xml:0
-msgid "OK"
-msgstr "ຕົກລົງ"
-
-#. module: hr_attendance
-#. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "my-erp-crm Logo"
 msgstr "ໂລໂກ້ my-erp-crm"
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/hr_presence_status/hr_attendance_presence_status.js:0
+msgid "Off-Hours"
+msgstr "ນອກເວລາເຮັດວຽກ"
 
 #. module: hr_attendance
 #: model:res.groups,name:hr_attendance.group_hr_attendance_user
@@ -1535,25 +1652,15 @@ msgid "Officer: Manage attendances"
 msgstr "ເຈົ້າໜ້າທີ່: ຈັດການການລົງເວລາ"
 
 #. module: hr_attendance
-#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_rule__timing_type__non_work_days
-msgid "On any non-working day"
-msgstr "ໃນມື້ທີ່ບໍ່ແມ່ນມື້ເຮັດວຽກໃດໜຶ່ງ"
-
-#. module: hr_attendance
-#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_rule__timing_type__work_days
-msgid "On any working day"
-msgstr "ໃນມື້ເຮັດວຽກໃດໜຶ່ງ"
-
-#. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/manual_selection/manual_selection.xml:0
 msgid "On site"
-msgstr "ຢູ່ສະຖານທີ່"
+msgstr "ຢູ່ບ່ອນປະຕິບັດງານ"
 
 #. module: hr_attendance
 #: model:ir.ui.menu,name:hr_attendance.menu_hr_attendance_onboarding
 msgid "Onboarding"
-msgstr "ການແນະນຳວຽກໃໝ່"
+msgstr "ການແນະນຳການນຳໃຊ້"
 
 #. module: hr_attendance
 #. odoo-javascript
@@ -1564,105 +1671,48 @@ msgstr "ອອນລາຍ"
 #. module: hr_attendance
 #: model:ir.actions.server,name:hr_attendance.open_kiosk_url
 msgid "Open Kiosk Url"
-msgstr "ເປີດ URL ຕູ້ບໍລິການ"
+msgstr "ເປີດ URL ຕູ້ຄີອອດ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__out_browser
 msgid "Out Browser"
-msgstr "ເບຣົາເຊີຂາອອກ"
+msgstr "ບຣາວເຊີທີ່ອອກ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__out_ip_address
 msgid "Out Ip Address"
-msgstr "ທີ່ຢູ່ IP ຂາອອກ"
+msgstr "ທີ່ຢູ່ IP ທີ່ອອກ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__out_latitude
 msgid "Out Latitude"
-msgstr "ເສັ້ນຂະໜານຂາອອກ"
+msgstr "ເສັ້ນຂະໜານທີ່ອອກ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__out_location
 msgid "Out Location"
-msgstr "ສະຖານທີ່ຂາອອກ"
+msgstr "ສະຖານທີ່ (ອອກ)"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__out_longitude
 msgid "Out Longitude"
-msgstr "ເສັ້ນແວງຂາອອກ"
+msgstr "ເສັ້ນແວງທີ່ອອກ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__out_mode
 msgid "Out Mode"
-msgstr "ໂໝດຂາອອກ"
+msgstr "ໂໝດທີ່ອອກ"
 
 #. module: hr_attendance
-#. odoo-python
-#: code:addons/hr_attendance/models/hr_attendance_overtime_rule.py:0
-msgid "Outside Schedule: %(schedule_name)s"
-msgstr "ນອກກຳນົດເວລາ: %(schedule_name)s"
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__overtime_attendance_ids
+msgid "Overtime Attendance"
+msgstr "ການລົງເວລາລ່ວງເວລາ"
 
 #. module: hr_attendance
-#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_rule__timing_type__schedule
-msgid "Outside of a specific schedule"
-msgstr "ນອກກຳນົດເວລາທີ່ລະບຸໄວ້"
-
-#. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__overtime_ids
-msgid "Overtime"
-msgstr "ເຮັດວຽກລ່ວງເວລາ"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
-msgid "Overtime Details"
-msgstr "ລາຍລະອຽດການເຮັດວຽກລ່ວງເວລາ"
-
-#. module: hr_attendance
-#: model:ir.model,name:hr_attendance.model_hr_attendance_overtime_rule
-msgid "Overtime Rule"
-msgstr "ກົດລະບຽບການເຮັດວຽກລ່ວງເວລາ"
-
-#. module: hr_attendance
-#: model:ir.actions.act_window,name:hr_attendance.hr_attendance_overtime_rule_action
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_form
-msgid "Overtime Rules"
-msgstr "ກົດລະບຽບການເຮັດວຽກລ່ວງເວລາ"
-
-#. module: hr_attendance
-#: model:ir.model,name:hr_attendance.model_hr_attendance_overtime_ruleset
-#: model_terms:ir.ui.view,arch_db:hr_attendance.view_employee_form_inherit_hr_attendance
-msgid "Overtime Ruleset"
-msgstr "ຊຸດກົດລະບຽບການເຮັດວຽກລ່ວງເວລາ"
-
-#. module: hr_attendance
-#: model:ir.ui.menu,name:hr_attendance.menu_hr_attendance_overtime_rulesets
-msgid "Overtime Rulesets"
-msgstr "ຊຸດກົດລະບຽບການເຮັດວຽກລ່ວງເວລາ"
-
-#. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__overtime_status
-msgid "Overtime Status"
-msgstr "ສະຖານະການເຮັດວຽກລ່ວງເວລາ"
-
-#. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__amount_rate
-msgid "Overtime pay rate"
-msgstr "ອັດຕາການຈ່າຍຄ່າລ່ວງເວລາ"
-
-#. module: hr_attendance
-#: model:ir.ui.menu,name:hr_attendance.menu_hr_attendance_overview
-msgid "Overview"
-msgstr "ພາບລວມ"
-
-#. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__paid
-msgid "Pay Extra Hours"
-msgstr "ຈ່າຍຄ່າຊົ່ວໂມງເພີ່ມເຕີມ"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
-msgid "Pay extra hours"
-msgstr "ຈ່າຍຄ່າຊົ່ວໂມງເພີ່ມເຕີມ"
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
+msgid "Pending"
+msgstr "ລໍຖ້າດຳເນີນການ"
 
 #. module: hr_attendance
 #. odoo-javascript
@@ -1672,16 +1722,17 @@ msgstr "ກະລຸນາປ້ອນລະຫັດ PIN ຂອງທ່ານ�
 
 #. module: hr_attendance
 #. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/confirmation/confirmation.xml:0
 #: code:addons/hr_attendance/static/src/components/greetings/greetings.xml:0
 #: code:addons/hr_attendance/static/src/components/pin_code/pin_code.xml:0
 msgid "Please return to the main menu."
-msgstr "ກະລຸນາກັບຄືນໄປທີ່ເມນູຫຼັກ."
+msgstr "ກະລຸນາກັບຄືນສູ່ເມນູຫຼັກ."
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.js:0
 msgid "Please select an employee and enter a badge number."
-msgstr "ກະລຸນາເລືອກພະນັກງານ ແລະ ປ້ອນໝາຍເລກບັດ."
+msgstr "ກະລຸນາເລືອກພະນັກງານ ແລະ ປ້ອນເລກບັດ."
 
 #. module: hr_attendance
 #. odoo-javascript
@@ -1691,29 +1742,32 @@ msgstr "ຂັບເຄື່ອນໂດຍ"
 
 #. module: hr_attendance
 #. odoo-javascript
-#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.js:0
-msgid "Proceed Anyway"
-msgstr "ດຳເນີນການຕໍ່ໄປ"
+#: code:addons/hr_attendance/static/src/components/hr_presence_status/hr_attendance_presence_status.js:0
+msgid "Present (untracked)"
+msgstr "ມາເຮັດວຽກ (ບໍ່ໄດ້ຕິດຕາມ)"
 
 #. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_form
-msgid "Provide a description or sources for this ruleset."
-msgstr "ໃຫ້ຄຳອະທິບາຍ ຫຼື ແຫຼ່ງຂໍ້ມູນສຳລັບຊຸດກົດລະບຽບນີ້."
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.xml:0
+msgid "Print"
+msgstr "ພິມ"
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.xml:0
+msgid "Print Badge"
+msgstr "ພິມບັດ"
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.js:0
+msgid "Proceed Anyway"
+msgstr "ດຳເນີນການຕໍ່ຕໍ່ໄປ"
 
 #. module: hr_attendance
 #: model:ir.model,name:hr_attendance.model_hr_employee_public
 msgid "Public Employee"
 msgstr "ພະນັກງານສາທາລະນະ"
-
-#. module: hr_attendance
-#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_rule__base_off__quantity
-msgid "Quantity"
-msgstr "ຈຳນວນ"
-
-#. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__quantity_period
-msgid "Quantity Period"
-msgstr "ໄລຍະເວລາຂອງຈຳນວນ"
 
 #. module: hr_attendance
 #. odoo-javascript
@@ -1725,28 +1779,12 @@ msgstr "ບັດ RFID ພ້ອມເຄື່ອງອ່ານ"
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "RFID Token with reader on tablet"
-msgstr "ບັດ RFID ພ້ອມເຄື່ອງອ່ານເທິງແທັບເລັດ"
+msgstr "ບັດ RFID ພ້ອມເຄື່ອງອ່ານໃນແທັບເລັດ"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_employee_form_inherit_hr_attendance
 msgid "RFID/Badge Number"
-msgstr "ໝາຍເລກ RFID/ບັດ"
-
-#. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__amount_rate
-msgid "Rate"
-msgstr "ອັດຕາ"
-
-#. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__rate_combination_mode
-msgid "Rate Combination Mode"
-msgstr "ໂໝດການລວມອັດຕາ"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_filter
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_list
-msgid "Rate Mode"
-msgstr "ໂໝດອັດຕາ"
+msgstr "ເລກບັດ RFID/ເລກບັດ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__rating_ids
@@ -1762,45 +1800,21 @@ msgstr "ອ່ານບັດ"
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/views/attendance_helper_view.xml:0
 msgid "Ready to track attendances ?"
-msgstr "ພ້ອມທີ່ຈະຕິດຕາມການລົງເວລາແລ້ວບໍ?"
+msgstr "ພ້ອມທີ່ຈະຕິດຕາມການລົງເວລາແລ້ວບໍ່?"
 
 #. module: hr_attendance
+#: model:ir.actions.server,name:hr_attendance.action_attendance_refuse
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree_management
 msgid "Refuse"
 msgstr "ປະຕິເສດ"
 
 #. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree
-msgid "Refuse Extra Hours"
-msgstr "ປະຕິເສດຊົ່ວໂມງເພີ່ມເຕີມ"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
-msgid "Refuse all overtimes for the same employee and date"
-msgstr "ປະຕິເສດການເຮັດວຽກລ່ວງເວລາທັງໝົດສຳລັບພະນັກງານ ແລະ ວັນທີດຽວກັນ"
-
-#. module: hr_attendance
-#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__overtime_status__refused
-#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_line__status__refused
+#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__state__refused
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_management_view_filter
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_filter
 msgid "Refused"
 msgstr "ຖືກປະຕິເສດ"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_form
-msgid "Regenerate overtimes"
-msgstr "ສ້າງການເຮັດວຽກລ່ວງເວລາຄືນໃໝ່"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_form
-msgid "Regenerate overtimes for this ruleset"
-msgstr "ສ້າງການເຮັດວຽກລ່ວງເວລາຄືນໃໝ່ສຳລັບຊຸດກົດລະບຽບນີ້"
-
-#. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__expected_hours
-msgid "Regular Hours"
-msgstr "ຊົ່ວໂມງປົກກະຕິ"
 
 #. module: hr_attendance
 #: model:ir.ui.menu,name:hr_attendance.menu_hr_attendance_reporting
@@ -1808,67 +1822,31 @@ msgid "Reporting"
 msgstr "ບົດລາຍງານ"
 
 #. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__rule_ids
-msgid "Rule"
-msgstr "ກົດລະບຽບ"
-
-#. module: hr_attendance
-#. odoo-python
-#: code:addons/hr_attendance/models/hr_attendance_overtime_rule.py:0
-msgid "Rule '%(name)s' is based off quantity, but the period is not specified"
-msgstr "ກົດລະບຽບ '%(name)s' ແມ່ນອີງໃສ່ຈຳນວນ, ແຕ່ບໍ່ໄດ້ລະບຸໄລຍະເວລາ"
-
-#. module: hr_attendance
-#. odoo-python
-#: code:addons/hr_attendance/models/hr_attendance_overtime_rule.py:0
-msgid ""
-"Rule '%(name)s' is based off quantity, but the usual amount of work hours is "
-"not specified"
-msgstr "ກົດລະບຽບ '%(name)s' ແມ່ນອີງໃສ່ຈຳນວນ, ແຕ່ບໍ່ໄດ້ລະບຸຈຳນວນຊົ່ວໂມງເຮັດວຽກປົກກະຕິ"
-
-#. module: hr_attendance
-#. odoo-python
-#: code:addons/hr_attendance/models/hr_attendance_overtime_rule.py:0
-msgid ""
-"Rule '%(name)s' is based off timing, but the work schedule is not specified"
-msgstr "ກົດລະບຽບ '%(name)s' ແມ່ນອີງໃສ່ເວລາ, ແຕ່ບໍ່ໄດ້ລະບຸກຳນົດເວລາເຮັດວຽກ"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
-msgid "Rule Name"
-msgstr "ຊື່ກົດລະບຽບ"
-
-#. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_ruleset__rules_count
-msgid "Rules Count"
-msgstr "ຈຳນວນກົດລະບຽບ"
-
-#. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__ruleset_id
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__ruleset_id
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_version__ruleset_id
-msgid "Ruleset"
-msgstr "ຊຸດກົດລະບຽບ"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_form
-msgid "Ruleset Name"
-msgstr "ຊື່ຊຸດກົດລະບຽບ"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_filter
-msgid "Ruleset Search"
-msgstr "ຄົ້ນຫາຊຸດກົດລະບຽບ"
-
-#. module: hr_attendance
-#: model:ir.actions.act_window,name:hr_attendance.hr_attendance_overtime_ruleset_action
-msgid "Rulesets"
-msgstr "ຊຸດກົດລະບຽບ"
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
+#: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree_management
+msgid "Reset to Draft"
+msgstr "ຣີເຊັດເປັນສະບັບຮ່າງ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__message_has_sms_error
 msgid "SMS Delivery error"
 msgstr "ຂໍ້ຜິດພາດໃນການສົ່ງ SMS"
+
+#. module: hr_attendance
+#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__day_of_date__5
+msgid "Saturday"
+msgstr "ວັນເສົາ"
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_inline_form/attendance_inline_form.xml:0
+msgid "Save"
+msgstr "ບັນທຶກ"
+
+#. module: hr_attendance
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_create_view_form
+msgid "Save & Close"
+msgstr "ບັນທຶກ & ປິດ"
 
 #. module: hr_attendance
 #. odoo-javascript
@@ -1884,6 +1862,12 @@ msgstr "ສະແກນ ຫຼື ແຕະບັດຂອງທ່ານ"
 
 #. module: hr_attendance
 #. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.xml:0
+msgid "Scan or enter badge number"
+msgstr "ສະແກນ ຫຼື ປ້ອນເລກບັດ"
+
+#. module: hr_attendance
+#. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "Scan your badge"
 msgstr "ສະແກນບັດຂອງທ່ານ"
@@ -1894,27 +1878,10 @@ msgid "Scanner"
 msgstr "ເຄື່ອງສະແກນ"
 
 #. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__resource_calendar_id
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
-msgid "Schedule"
-msgstr "ກຳນົດເວລາ"
-
-#. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/manual_selection/manual_selection.xml:0
 msgid "Search..."
 msgstr "ຄົ້ນຫາ..."
-
-#. module: hr_attendance
-#. odoo-javascript
-#: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.xml:0
-msgid "Select Employee Without Badge"
-msgstr "ເລືອກພະນັກງານທີ່ບໍ່ມີບັດ"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.view_employee_form_inherit_hr_attendance
-msgid "Select a ruleset to manage overtime."
-msgstr "ເລືອກຊຸດກົດລະບຽບເພື່ອຈັດການການເຮັດວຽກລ່ວງເວລາ."
 
 #. module: hr_attendance
 #. odoo-javascript
@@ -1923,26 +1890,14 @@ msgid "Select on Tablet"
 msgstr "ເລືອກໃນແທັບເລັດ"
 
 #. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__sequence
-msgid "Sequence"
-msgstr "ລຳດັບ"
+#: model:res.groups,name:hr_attendance.group_hr_attendance_own
+msgid "Self Attendance Edit"
+msgstr "ແກ້ໄຂການລົງເວລາດ້ວຍຕົນເອງ"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Set PIN codes in the employee detail form (in HR Settings tab)."
 msgstr "ຕັ້ງລະຫັດ PIN ໃນແບບຟອມລາຍລະອຽດພະນັກງານ (ໃນແຖບ ການຕັ້ງຄ່າ HR)."
-
-#. module: hr_attendance
-#. odoo-javascript
-#: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.xml:0
-msgid "Set the Badge"
-msgstr "ຕັ້ງບັດ"
-
-#. module: hr_attendance
-#. odoo-javascript
-#: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.js:0
-msgid "Set-up"
-msgstr "ຕັ້ງຄ່າ"
 
 #. module: hr_attendance
 #: model:ir.actions.act_window,name:hr_attendance.action_hr_attendance_settings
@@ -1954,78 +1909,81 @@ msgstr "ການຕັ້ງຄ່າ"
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/pin_code/pin_code.xml:0
 msgid "Sign out"
-msgstr "ລົງຊື່ອອກ"
+msgstr "ອອກຈາກລະບົບ"
 
 #. module: hr_attendance
-#. odoo-javascript
-#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
-msgid "Since"
-msgstr "ຕັ້ງແຕ່"
+#: model:ir.model.fields,field_description:hr_attendance.field_res_company__single_check_in
+#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__single_check_in
+#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
+msgid "Single Check-In Attendance System"
+msgstr "ລະບົບການລົງເວລາແບບລົງຊື່ເຂົ້າຄັ້ງດຽວ"
 
 #. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__time_start
-msgid "Start"
-msgstr "ເລີ່ມ"
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__source_attendance_id
+msgid "Source Attendance"
+msgstr "ການລົງເວລາຕົ້ນສະບັບ"
 
 #. module: hr_attendance
-#: model:ir.model.constraint,message:hr_attendance.constraint_hr_attendance_overtime_line_overtime_start_before_end
-msgid "Starting time should be before end time."
-msgstr "ເວລາເລີ່ມຕົ້ນຄວນມາກ່ອນເວລາສິ້ນສຸດ."
+#: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree
+msgid "Source changed — click to mark as reviewed"
+msgstr "ແຫຼ່ງຂໍ້ມູນປ່ຽນແປງ — ຄລິກເພື່ອໝາຍວ່າກວດກາແລ້ວ"
 
 #. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__status
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_employee_simple_tree_view
+#: model:ir.model.fields.selection,name:hr_attendance.selection__res_company__auto_check_out_mode__specific_time
+msgid "Specific Time"
+msgstr "ເວລາສະເພາະ"
+
+#. module: hr_attendance
+#: model:ir.model.constraint,message:hr_attendance.constraint_res_company_check_auto_check_out_specific_time_range
+msgid "Specific Time must be within a 24-hour range (0h 0m 0s to 23h 59m 59s)."
+msgstr "ເວລາສະເພາະຕ້ອງຢູ່ໃນຊ່ວງ 24 ຊົ່ວໂມງ (0h 0m 0s ຫາ 23h 59m 59s)."
+
+#. module: hr_attendance
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__state
 msgid "Status"
-msgstr "ສະຖານະ"
+msgstr "ສະພາບ"
 
 #. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_line__time_stop
-msgid "Stop"
-msgstr "ຢຸດ"
-
-#. module: hr_attendance
-#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_ruleset__rate_combination_mode__sum
-msgid "Sum of all rates"
-msgstr "ຜົນລວມຂອງອັດຕາທັງໝົດ"
+#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__day_of_date__6
+msgid "Sunday"
+msgstr "ວັນອາທິດ"
 
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__in_mode__systray
 #: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__out_mode__systray
 msgid "Systray"
-msgstr "ຊິສເທຣ (Systray)"
+msgstr "ແຖບລະບົບ"
+
+#. module: hr_attendance
+#: model:ir.model.fields,field_description:hr_attendance.field_res_company__attendance_capture_check_in
+#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__attendance_capture_check_in
+#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
+msgid "Take Pictures on Check-In"
+msgstr "ຖ່າຍຮູບຕອນລົງທະບຽນເຂົ້າ"
 
 #. module: hr_attendance
 #: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__in_mode__technical
 #: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__out_mode__technical
 msgid "Technical"
-msgstr "ດ້ານເຕັກນິກ"
-
-#. module: hr_attendance
-#: model:ir.model.fields,help:hr_attendance.field_hr_attendance_overtime_rule__expected_hours_from_contract
-msgid ""
-"The attendance can go into negative extra hours to represent the missing "
-"hours compared to what is expected if the Absence Management setting is "
-"enabled."
-msgstr ""
-"ການລົງເວລາສາມາດຕິດລົບຊົ່ວໂມງເພີ່ມເຕີມເພື່ອສະແດງເຖິງຊົ່ວໂມງທີ່ຂາດໄປ ເມື່ອທຽບກັບສິ່ງທີ່ຄາດໄວ້ "
-"ຫາກມີການເປີດໃຊ້ການຕັ້ງຄ່າການຈັດການການຂາດວຽກ."
+msgstr "ທາງເຕັກນິກ"
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/views/attendance_helper_view.xml:0
 msgid "The attendance records of your employees will be displayed here."
-msgstr "ບັນທຶກການລົງເວລາຂອງພະນັກງານຂອງທ່ານຈະຖືກສະແດງຢູ່ທີ່ນີ້."
+msgstr "ບັນທຶກການລົງເວລາຂອງພະນັກງານຂອງທ່ານຈະຖືກສະແດງຢູ່ນີ້."
 
 #. module: hr_attendance
 #: model_terms:ir.actions.act_window,help:hr_attendance.hr_attendance_management_action
 #: model_terms:ir.actions.act_window,help:hr_attendance.hr_attendance_reporting
 msgid "The attendance reporting of your employees will be displayed here."
-msgstr "ບົດລາຍງານການລົງເວລາຂອງພະນັກງານຂອງທ່ານຈະຖືກສະແດງຢູ່ທີ່ນີ້."
+msgstr "ການລາຍງານການລົງເວລາຂອງພະນັກງານຂອງທ່ານຈະຖືກສະແດງຢູ່ທີ່ນີ້."
 
 #. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
-msgid "The rule is based on"
-msgstr "ກົດລະບຽບແມ່ນອີງໃສ່"
+#: model:ir.model.fields,help:hr_attendance.field_hr_attendance__wet_color
+msgid ""
+"The color selected here will be used in every screen with the time type."
+msgstr "ສີທີ່ເລືອກຢູ່ນີ້ຈະຖືກນຳໃຊ້ໃນທຸກໜ້າຈໍທີ່ມີປະເພດເວລານີ້."
 
 #. module: hr_attendance
 #: model:ir.model.fields,help:hr_attendance.field_hr_attendance__attendance_manager_id
@@ -2035,7 +1993,7 @@ msgid ""
 "The user set in Attendance will access the attendance of the employee "
 "through the dedicated app and will be able to edit them."
 msgstr ""
-"ຜູ້ໃຊ້ທີ່ຖືກຕັ້ງໃນການລົງເວລາ ຈະສາມາດເຂົ້າເຖິງການລົງເວລາຂອງພະນັກງານຜ່ານແອັບສະເພາະ ແລະ "
+"ຜູ້ໃຊ້ທີ່ຖືກຕັ້ງຄ່າໃນການລົງເວລາ ຈະສາມາດເຂົ້າເຖິງການລົງເວລາຂອງພະນັກງານຜ່ານແອັບສະເພາະ ແລະ "
 "ຈະສາມາດແກ້ໄຂພວກມັນໄດ້."
 
 #. module: hr_attendance
@@ -2050,7 +2008,7 @@ msgstr "ຜູ້ໃຊ້ຈະມີສິດເຂົ້າເຖິງບັ
 msgid ""
 "The user will have access to his own attendances on his user / employee "
 "profile"
-msgstr "ຜູ້ໃຊ້ຈະມີສິດເຂົ້າເຖິງການລົງເວລາຂອງຕົນເອງໃນໂປຣໄຟລ໌ຜູ້ໃຊ້ / ພະນັກງານ"
+msgstr "ຜູ້ໃຊ້ຈະມີສິດເຂົ້າເຖິງການລົງເວລາຂອງຕົນເອງໃນໂປຣໄຟລ໌ຜູ້ໃຊ້ / ພະນັກງານຂອງເຂົາເຈົ້າ"
 
 #. module: hr_attendance
 #: model:res.groups,comment:hr_attendance.group_hr_attendance_officer
@@ -2059,7 +2017,23 @@ msgid ""
 "employees where he's set as an attendance manager"
 msgstr ""
 "ຜູ້ໃຊ້ຈະມີສິດເຂົ້າເຖິງບັນທຶກການລົງເວລາ ແລະ ການລາຍງານຂອງພະນັກງານ "
-"ບ່ອນທີ່ລາວຖືກຕັ້ງເປັນຜູ້ຈັດການການລົງເວລາ"
+"ບ່ອນທີ່ເຂົາເຈົ້າຖືກຕັ້ງເປັນຜູ້ຈັດການການລົງເວລາ"
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/views/attendance_helper_view.js:0
+msgid ""
+"This action will generate several fake records across multiple apps. Are you "
+"sure you want to proceed?"
+msgstr "ການດຳເນີນການນີ້ຈະສ້າງຂໍ້ມູນຈຳລອງຂຶ້ນມາໃນຫຼາຍແອັບ. ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການດຳເນີນການຕໍ່?"
+
+#. module: hr_attendance
+#. odoo-python
+#: code:addons/hr_attendance/models/hr_attendance.py:0
+msgid ""
+"This attendance was automatically checked out based on company specific time "
+"configuration."
+msgstr "ການລົງເວລານີ້ຖືກລົງຊື່ອອກໂດຍອັດຕະໂນມັດ ໂດຍອີງຕາມການກຳນົດຄ່າເວລາສະເພາະຂອງບໍລິສັດ."
 
 #. module: hr_attendance
 #. odoo-python
@@ -2068,8 +2042,8 @@ msgid ""
 "This attendance was automatically checked out because the employee exceeded "
 "the allowed time for their scheduled work hours."
 msgstr ""
-"ການລົງເວລານີ້ຖືກລົງທະບຽນອອກໂດຍອັດຕະໂນມັດ "
-"ເພາະວ່າພະນັກງານໃຊ້ເວລາເກີນທີ່ອະນຸຍາດສຳລັບຊົ່ວໂມງເຮັດວຽກທີ່ກຳນົດໄວ້."
+"ການລົງເວລານີ້ຖືກລົງຊື່ອອກໂດຍອັດຕະໂນມັດ "
+"ເນື່ອງຈາກພະນັກງານເຮັດວຽກເກີນເວລາທີ່ອະນຸຍາດສໍາລັບຊົ່ວໂມງເຮັດວຽກທີ່ກໍານົດໄວ້."
 
 #. module: hr_attendance
 #. odoo-python
@@ -2077,39 +2051,48 @@ msgstr ""
 msgid ""
 "This attendance was automatically created to cover an unjustified absence on "
 "that day."
-msgstr "ການລົງເວລານີ້ຖືກສ້າງຂຶ້ນໂດຍອັດຕະໂນມັດ ເພື່ອໃຫ້ກວມເອົາການຂາດວຽກທີ່ບໍ່ມີເຫດຜົນໃນມື້ນັ້ນ."
+msgstr "ການລົງເວລານີ້ຖືກສ້າງຂຶ້ນໂດຍອັດຕະໂນມັດເພື່ອປົກຄຸມການຂາດວຽກທີ່ບໍ່ມີເຫດຜົນໃນມື້ນັ້ນ."
 
 #. module: hr_attendance
-#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_rule__base_off__timing
-msgid "Timing"
-msgstr "ການກຳນົດເວລາ"
+#: model:ir.model.fields,help:hr_attendance.field_hr_attendance__wet_display_code
+msgid ""
+"This code can be changed, it is only for a display purpose (3 letters max)"
+msgstr "ລະຫັດນີ້ສາມາດປ່ຽນໄດ້, ມັນມີໄວ້ສຳລັບສະແດງຜົນເທົ່ານັ້ນ (ສູງສຸດບໍ່ເກີນ 3 ຕົວອັກສອນ)"
 
 #. module: hr_attendance
-#: model:ir.model.constraint,message:hr_attendance.constraint_hr_attendance_overtime_rule_timing_start_is_hour
-msgid "Timing Start is an hour of the day"
-msgstr "ເວລາເລີ່ມຕົ້ນແມ່ນຊົ່ວໂມງຂອງມື້"
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/views/calendar/attendance_calendar_controller.js:0
+msgid ""
+"This operation is not allowed as you are not linked to an employee in the "
+"current company."
+msgstr "ການດຳເນີນການນີ້ບໍ່ໄດ້ຮັບອະນຸຍາດ ເນື່ອງຈາກທ່ານບໍ່ໄດ້ເຊື່ອມໂຍງກັບພະນັກງານໃນບໍລິສັດປັດຈຸບັນ."
 
 #. module: hr_attendance
-#: model:ir.model.constraint,message:hr_attendance.constraint_hr_attendance_overtime_rule_timing_stop_is_hour
-msgid "Timing Stop is an hour of the day"
-msgstr "ເວລາຢຸດແມ່ນຊົ່ວໂມງຂອງມື້"
+#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__day_of_date__3
+msgid "Thursday"
+msgstr "ວັນພະຫັດ"
 
 #. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__timing_type
-msgid "Timing Type"
-msgstr "ປະເພດການກຳນົດເວລາ"
+#: model:ir.model,name:hr_attendance.model_hr_time_rule
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__time_rule_id
+msgid "Time Rule"
+msgstr "ກົດລະບຽບເວລາ"
 
 #. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__timing_stop
-msgid "To"
-msgstr "ຫາ"
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__work_entry_type_id
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_time_rule__condition_work_entry_type_ids
+msgid "Time Type"
+msgstr "ປະເພດເວລາ"
 
 #. module: hr_attendance
-#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__overtime_status__to_approve
-#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_line__status__to_approve
+#: model:ir.ui.menu,name:hr_attendance.menu_hr_attendance_work_entry_type
+msgid "Time Types"
+msgstr "ປະເພດເວລາ"
+
+#. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_management_view_filter
-msgid "To Approve"
-msgstr "ເພື່ອອະນຸມັດ"
+msgid "To Validate"
+msgstr "ລໍຖ້າການກວດສອບຢືນຢັນ"
 
 #. module: hr_attendance
 #. odoo-javascript
@@ -2118,24 +2101,20 @@ msgid "Today"
 msgstr "ມື້ນີ້"
 
 #. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_res_company__overtime_company_threshold
-#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__overtime_company_threshold
-#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid "Tolerance Time In Favor Of Company"
-msgstr "ໄລຍະເວລາຜ່ອນຜັນເພື່ອຜົນປະໂຫຍດຂອງບໍລິສັດ"
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__today_attendance_ids
+msgid "Today Attendance"
+msgstr "ການລົງເວລາໃນມື້ນີ້"
 
 #. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_res_company__overtime_employee_threshold
-#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__overtime_employee_threshold
-#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
-msgid "Tolerance Time In Favor Of Employee"
-msgstr "ໄລຍະເວລາຜ່ອນຜັນເພື່ອຜົນປະໂຫຍດຂອງພະນັກງານ"
+#: model:ir.model.fields.selection,name:hr_attendance.selection__res_company__auto_check_out_mode__tolerance
+msgid "Tolerance"
+msgstr "ໄລຍະຢືດຢຸ່ນ"
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/greetings/greetings.xml:0
 msgid "Total"
-msgstr "ທັງໝົດ"
+msgstr "ລວມທັງໝົດ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_employee__total_overtime
@@ -2144,33 +2123,43 @@ msgid "Total Overtime"
 msgstr "ລວມຊົ່ວໂມງລ່ວງເວລາ"
 
 #. module: hr_attendance
-#. odoo-javascript
-#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
-msgid "Total today"
-msgstr "ລວມມື້ນີ້"
+#: model:ir.module.module,summary:base.module_hr_attendance
+msgid "Track employee attendance"
+msgstr "ຕິດຕາມການລົງເວລາຂອງພະນັກງານ"
 
 #. module: hr_attendance
 #: model:ir.actions.server,name:hr_attendance.action_try_kiosk
 msgid "Try kiosk"
-msgstr "ລອງໃຊ້ຕູ້ບໍລິການ"
+msgstr "ທົດລອງໃຊ້ຕູ້ຄີອອດ"
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/views/attendance_helper_view.xml:0
 msgid "Try the backend and reporting:"
-msgstr "ລອງໃຊ້ລະບົບຫຼັງບ້ານ ແລະ ການລາຍງານ:"
+msgstr "ທົດລອງໃຊ້ຫຼັງລະບົບ ແລະ ບົດລາຍງານ:"
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/views/attendance_helper_view.xml:0
 msgid "Try the kiosk"
-msgstr "ລອງໃຊ້ຕູ້ບໍລິການ"
+msgstr "ທົດລອງໃຊ້ຕູ້ຄີອອດ"
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/views/attendance_helper_view.xml:0
 msgid "Try the top"
-msgstr "ລອງໃຊ້ສ່ວນເທິງ"
+msgstr "ທົດລອງໃຊ້ດ້ານເທິງ"
+
+#. module: hr_attendance
+#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__day_of_date__1
+msgid "Tuesday"
+msgstr "ວັນອັງຄານ"
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/hooks/use_camera.js:0
+msgid "Unable to access camera"
+msgstr "ບໍ່ສາມາດເຂົ້າເຖິງກ້ອງໄດ້"
 
 #. module: hr_attendance
 #. odoo-javascript
@@ -2178,7 +2167,7 @@ msgstr "ລອງໃຊ້ສ່ວນເທິງ"
 msgid ""
 "Unable to get a valid location. Do you want to proceed with your check-in/"
 "out anyway?"
-msgstr "ບໍ່ສາມາດລະບຸສະຖານທີ່ທີ່ຖືກຕ້ອງໄດ້. ທ່ານຕ້ອງການດຳເນີນການລົງທະບຽນເຂົ້າ/ອອກ ຕໍ່ໄປຫຼືບໍ່?"
+msgstr "ບໍ່ສາມາດດຶງຂໍ້ມູນຕຳແໜ່ງທີ່ຖືກຕ້ອງໄດ້. ທ່ານຍັງຕ້ອງການດຳເນີນການລົງຊື່ເຂົ້າ/ອອກ ຕໍ່ໄປບໍ່?"
 
 #. module: hr_attendance
 #. odoo-python
@@ -2194,7 +2183,7 @@ msgstr "ໃຊ້ລະຫັດ PIN (ທີ່ກຳນົດໄວ້ໃນໂ
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Use this url to access your kiosk mode from any device."
-msgstr "ໃຊ້ URL ນີ້ເພື່ອເຂົ້າເຖິງໂໝດຕູ້ບໍລິການຂອງທ່ານຈາກອຸປະກອນໃດກໍໄດ້."
+msgstr "ໃຊ້ URL ນີ້ເພື່ອເຂົ້າເຖິງໂໝດຕູ້ຄີອອດຂອງທ່ານຈາກອຸປະກອນໃດກໍໄດ້."
 
 #. module: hr_attendance
 #: model:ir.model,name:hr_attendance.model_res_users
@@ -2207,14 +2196,18 @@ msgid "User: Read his own attendances"
 msgstr "ຜູ້ໃຊ້: ອ່ານການລົງເວລາຂອງຕົນເອງ"
 
 #. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance_overtime_rule__expected_hours
-msgid "Usual work hours"
-msgstr "ຊົ່ວໂມງເຮັດວຽກປົກກະຕິ"
+#: model:ir.actions.server,name:hr_attendance.action_attendance_validate
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
+#: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree_management
+msgid "Validate"
+msgstr "ກວດສອບຢືນຢັນ"
 
 #. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__validated_overtime_hours
-msgid "Validated Extra Hours"
-msgstr "ຊົ່ວໂມງເພີ່ມທີ່ຢືນຢັນແລ້ວ"
+#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__state__validated
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_management_view_filter
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_filter
+msgid "Validated"
+msgstr "ກວດສອບຢືນຢັນແລ້ວ"
 
 #. module: hr_attendance
 #. odoo-javascript
@@ -2223,24 +2216,20 @@ msgid "Validation Error"
 msgstr "ຂໍ້ຜິດພາດໃນການກວດສອບ"
 
 #. module: hr_attendance
+#: model:ir.model.fields,field_description:hr_attendance.field_res_company__attendance_validation_tolerance
+#: model:ir.model.fields,field_description:hr_attendance.field_res_config_settings__attendance_validation_tolerance
+msgid "Validation Tolerance (Hours)"
+msgstr "ໄລຍະຢືດຢຸ່ນໃນການກວດສອບຢືນຢັນ (ຊົ່ວໂມງ)"
+
+#. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
 msgid "View on Maps"
 msgstr "ເບິ່ງໃນແຜນທີ່"
 
 #. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__website_message_ids
-msgid "Website Messages"
-msgstr "ຂໍ້ຄວາມຈາກເວັບໄຊ"
-
-#. module: hr_attendance
-#: model:ir.model.fields,help:hr_attendance.field_hr_attendance__website_message_ids
-msgid "Website communication history"
-msgstr "ປະຫວັດການສື່ສານທາງເວັບໄຊ"
-
-#. module: hr_attendance
-#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_rule__quantity_period__week
-msgid "Week"
-msgstr "ອາທິດ"
+#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance__day_of_date__2
+msgid "Wednesday"
+msgstr "ວັນພຸດ"
 
 #. module: hr_attendance
 #. odoo-javascript
@@ -2249,55 +2238,114 @@ msgid "Welcome"
 msgstr "ຍິນດີຕ້ອນຮັບ"
 
 #. module: hr_attendance
-#: model:ir.model.fields.selection,name:hr_attendance.selection__hr_attendance_overtime_rule__timing_type__leave
-msgid "When employee is off"
-msgstr "ເມື່ອພະນັກງານພັກຜ່ອນ"
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
+msgid "Welcome back"
+msgstr "ຍິນດີຕ້ອນຮັບກັບຄືນ"
 
 #. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
-msgid "With a tolerance in favor of the employee of"
-msgstr "ດ້ວຍໄລຍະຜ່ອນຜັນເພື່ອຜົນປະໂຫຍດຂອງພະນັກງານຈຳນວນ"
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
+msgid "Welcome,"
+msgstr "ຍິນດີຕ້ອນຮັບ,"
 
 #. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
-msgid "With a tolerance in favor of the employer of"
-msgstr "ດ້ວຍໄລຍະຜ່ອນຜັນເພື່ອຜົນປະໂຫຍດຂອງນາຍຈ້າງຈຳນວນ"
+#: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
+msgid ""
+"When enabled, attendance records must be validated by an officer before they "
+"count toward work entries and time rules."
+msgstr ""
+"ເມື່ອເປີດໃຊ້ງານ, ບັນທຶກການລົງເວລາຕ້ອງໄດ້ຮັບການກວດສອບຢືນຢັນຈາກເຈົ້າໜ້າທີ່ກ່ອນ "
+"ຈຶ່ງຈະຖືກນັບເຂົ້າໃນລາຍການເຮັດວຽກ ແລະ ກົດລະບຽບເວລາ."
 
 #. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_employee_simple_tree_view
-msgid "Work Hours"
-msgstr "ຊົ່ວໂມງເຮັດວຽກ"
+#: model:ir.model.fields,help:hr_attendance.field_hr_employee__attendance_based
+#: model:ir.model.fields,help:hr_attendance.field_hr_version__attendance_based
+msgid ""
+"When enabled, payslips are computed from badge records rather than the "
+"employee's work schedule. Time off is always accounted for."
+msgstr ""
+"ເມື່ອເປີດໃຊ້ງານ, ໃບຈ່າຍເງິນເດືອນຈະຖືກຄິດໄລ່ຈາກບັນທຶກການສະແກນບັດ "
+"ແທນທີ່ຈະເປັນຕາຕະລາງການເຮັດວຽກຂອງພະນັກງານ. ເວລາລາພັກແມ່ນຈະຖືກຄິດໄລ່ນຳສະເໝີ."
 
 #. module: hr_attendance
-#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__overtime_hours
-msgid "Worked Extra Hours"
-msgstr "ເຮັດວຽກຊົ່ວໂມງເພີ່ມເຕີມແລ້ວ"
+#: model:ir.model.fields,help:hr_attendance.field_res_company__attendance_work_entry_type_id
+#: model:ir.model.fields,help:hr_attendance.field_res_config_settings__attendance_work_entry_type_id
+msgid ""
+"Work entry type assigned to attendances and read by the time rule engine."
+msgstr ""
+"ປະເພດການບັນທຶກການເຮັດວຽກທີ່ກຳນົດໃຫ້ກັບການລົງເວລາ ແລະ ອ່ານໂດຍລະບົບປະມວນຜົນກົດລະບຽບເວລາ."
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/attendance_menu/attendance_menu.xml:0
+msgid "Worked"
+msgstr "ເຮັດວຽກແລ້ວ"
 
 #. module: hr_attendance
 #: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__worked_hours
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_graph
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_pivot
-#: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree
 msgid "Worked Hours"
-msgstr "ຊົ່ວໂມງທີ່ເຮັດວຽກແລ້ວ"
+msgstr "ຊົ່ວໂມງທີ່ເຮັດວຽກ"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_view_form
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_attendance_tree_management
 msgid "Worked Time"
-msgstr "ເວລາທີ່ເຮັດວຽກແລ້ວ"
+msgstr "ເວລາທີ່ເຮັດວຽກ"
+
+#. module: hr_attendance
+#: model:ir.model.fields.selection,name:hr_attendance.selection__res_company__attendance_validation__no_validation
+msgid "Worked days are automatically approved"
+msgstr "ມື້ທີ່ເຮັດວຽກຈະຖືກອະນຸມັດໂດຍອັດຕະໂນມັດ"
+
+#. module: hr_attendance
+#: model:ir.model.fields.selection,name:hr_attendance.selection__res_company__attendance_validation__tolerance_validation
+msgid "Worked days require approval if outside tolerance"
+msgstr "ມື້ທີ່ເຮັດວຽກຕ້ອງໄດ້ຮັບການອະນຸມັດ ຖ້າຢູ່ນອກໄລຍະຢືດຢຸ່ນ"
+
+#. module: hr_attendance
+#: model:ir.model.fields.selection,name:hr_attendance.selection__res_company__attendance_validation__manual_validation
+msgid "Worked days require manual approval"
+msgstr "ມື້ທີ່ເຮັດວຽກຕ້ອງໄດ້ຮັບການອະນຸມັດດ້ວຍຕົນເອງ"
 
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.hr_employee_public_view_form
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_employee_form_inherit_hr_attendance
 msgid "Worked hours this month"
-msgstr "ຊົ່ວໂມງທີ່ເຮັດວຽກແລ້ວໃນເດືອນນີ້"
+msgstr "ຊົ່ວໂມງທີ່ເຮັດວຽກໃນເດືອນນີ້"
+
+#. module: hr_attendance
+#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_version_search_view_enhanced_hr_attendance
+msgid "Working Hours"
+msgstr "ຊົ່ວໂມງເຮັດວຽກ"
+
+#. module: hr_attendance
+#: model:ir.model.fields,field_description:hr_attendance.field_hr_attendance__resource_calendar_id
+msgid "Working Schedule"
+msgstr "ຕາຕະລາງການເຮັດວຽກ"
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.js:0
 msgid "Wrong Pin"
-msgstr "ລະຫັດ PIN ບໍ່ຖືກຕ້ອງ"
+msgstr "PIN ບໍ່ຖືກຕ້ອງ"
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/views/calendar/attendance_calendar_controller.js:0
+msgid ""
+"You are not linked to an employee in the current company, so you cannot view "
+"your own attendances."
+msgstr ""
+"ທ່ານບໍ່ໄດ້ເຊື່ອມໂຍງກັບພະນັກງານໃນບໍລິສັດປັດຈຸບັນ, ດັ່ງນັ້ນທ່ານຈຶ່ງບໍ່ສາມາດເບິ່ງການລົງເວລາຂອງຕົນເອງໄດ້."
+
+#. module: hr_attendance
+#. odoo-python
+#: code:addons/hr_attendance/models/hr_attendance.py:0
+msgid "You can only set a break duration once the employee has checked out."
+msgstr "ທ່ານສາມາດກຳນົດໄລຍະເວລາພັກໄດ້ ກໍຕໍ່ເມື່ອພະນັກງານໄດ້ລົງຊື່ອອກແລ້ວເທົ່ານັ້ນ."
 
 #. module: hr_attendance
 #. odoo-python
@@ -2309,72 +2357,57 @@ msgstr "ທ່ານບໍ່ສາມາດເຮັດສຳເນົາກາ
 #. odoo-python
 #: code:addons/hr_attendance/models/hr_attendance.py:0
 msgid "You don't have the rights to execute that action."
-msgstr "ທ່ານບໍ່ມີສິດໃນການດຳເນີນການນີ້."
+msgstr "ທ່ານບໍ່ມີສິດໃນການດໍາເນີນການນີ້."
 
 #. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
-msgid "and"
-msgstr "ແລະ"
+#. odoo-javascript
+#. odoo-python
+#: code:addons/hr_attendance/models/hr_employee.py:0
+#: code:addons/hr_attendance/static/src/components/greetings/greetings.xml:0
+msgid "You've already checked in."
+msgstr "ທ່ານໄດ້ລົງທະບຽນເຂົ້າແລ້ວ."
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/pin_code/pin_code.xml:0
 msgid "check in"
-msgstr "ລົງທະບຽນເຂົ້າ"
+msgstr "ລົງຊື່ເຂົ້າ"
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/components/pin_code/pin_code.xml:0
 msgid "check out"
-msgstr "ລົງທະບຽນອອກ"
-
-#. module: hr_attendance
-#. odoo-python
-#: code:addons/hr_attendance/models/hr_attendance_overtime_rule.py:0
-msgid "day"
-msgstr "ມື້"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
-msgid "differs"
-msgstr "ແຕກຕ່າງ"
+msgstr "ລົງຊື່ອອກ"
 
 #. module: hr_attendance
 #. odoo-javascript
-#: code:addons/hr_attendance/static/src/components/new_employee_dialog/new_employee_dialog.xml:0
-msgid "e.g. John Doe"
-msgstr "ຕົວຢ່າງ: ສົມໄຊ"
+#: code:addons/hr_attendance/static/src/components/confirmation/confirmation.xml:0
+msgid "check-in"
+msgstr "ລົງຊື່ເຂົ້າ"
 
 #. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_ruleset_view_form
-msgid "e.g. Legal Rules"
-msgstr "ຕົວຢ່າງ: ກົດລະບຽບທາງກົດໝາຍ"
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/confirmation/confirmation.xml:0
+msgid "check-out"
+msgstr "ລົງຊື່ອອກ"
 
 #. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
-msgid "e.g. Over 8 hours daily"
-msgstr "ຕົວຢ່າງ: ເກີນ 8 ຊົ່ວໂມງຕໍ່ມື້"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
-msgid "from a specific duration"
-msgstr "ຈາກໄລຍະເວລາທີ່ລະບຸ"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
-msgid "from the amount defined on the contract"
-msgstr "ຈາກຈຳນວນທີ່ລະບຸໄວ້ໃນສັນຍາ"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
-msgid "hours"
-msgstr "ຊົ່ວໂມງ"
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/confirmation/confirmation.xml:0
+msgid "for"
+msgstr "ສຳລັບ"
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/views/attendance_helper_view.xml:0
 msgid "icon (e.g for work from home)"
-msgstr "ໄອຄອນ (ຕົວຢ່າງ: ສຳລັບການເຮັດວຽກຈາກບ້ານ)"
+msgstr "ໄອຄອນ (ຕົວຢ່າງ: ສຳລັບການເຮັດວຽກຢູ່ເຮືອນ)"
+
+#. module: hr_attendance
+#. odoo-javascript
+#: code:addons/hr_attendance/static/src/components/break_duration_dialog/break_duration_dialog.xml:0
+msgid "minutes"
+msgstr "ນາທີ"
 
 #. module: hr_attendance
 #. odoo-javascript
@@ -2383,272 +2416,256 @@ msgid "or"
 msgstr "ຫຼື"
 
 #. module: hr_attendance
-#. odoo-python
-#: code:addons/hr_attendance/models/hr_attendance_overtime_rule.py:0
-msgid "week"
-msgstr "ອາທິດ"
-
-#. module: hr_attendance
-#: model_terms:ir.ui.view,arch_db:hr_attendance.hr_attendance_overtime_rule_view_form
-msgid "with a rate of"
-msgstr "ດ້ວຍອັດຕາຂອງ"
+#: model:ir.model,name:hr_attendance.model_ir_websocket
+msgid "websocket message handling"
+msgstr "ການຈັດການຂໍ້ຄວາມ websocket"
 
 #. module: hr_attendance
 #. odoo-javascript
 #: code:addons/hr_attendance/static/src/public_kiosk/public_kiosk_app.xml:0
 msgid "with optional PIN code"
-msgstr "ພ້ອມກັບລະຫັດ PIN ທາງເລືອກ"
-
-#~ msgid "Balance"
-#~ msgstr "ຍອດເຫຼືອ"
-
-#~ msgid "Difference"
-#~ msgstr "ສ່ວນຕ່າງ"
-
-#~ msgid "Over Time"
-#~ msgstr "ເຮັດວຽກລ່ວງເວລາ"
-
-#~ msgid "%(empl_name)s from %(check_in)s"
-#~ msgstr "%(empl_name)s ຈາກ %(check_in)s"
-
-#~ msgid "%(empl_name)s from %(check_in)s to %(check_out)s"
-#~ msgstr "%(empl_name)s ຈາກ %(check_in)s ຫາ %(check_out)s"
-
-#~ msgid "%(hours)s hours, %(minutes)s minutes"
-#~ msgstr "%(hours)s ຊົ່ວໂມງ, %(minutes)s ນາທີ"
-
-#~ msgid ": Your user should be linked to an employee to use attendance."
-#~ msgstr ": ບັນຊີຜູ້ໃຊ້ຂອງທ່ານຕ້ອງເຊື່ອມໂຍງກັບພະນັກງານ ເພື່ອໃຊ້ການລົງເວລາ."
+msgstr "ດ້ວຍລະຫັດ PIN ທາງເລືອກ"
 
 #~ msgid ""
-#~ "<i class=\"fa fa-calendar\" aria-label=\"Period\" role=\"img\" "
-#~ "title=\"Period\"/>"
-#~ msgstr ""
-#~ "<i class=\"fa fa-calendar\" aria-label=\"ໄລຍະເວລາ\" role=\"img\" "
-#~ "title=\"ໄລຍະເວລາ\"/>"
+#~ "<i class=\"oi oi-fw\" data-icon=\"arrow_forward\"/>Installation Manual"
+#~ msgstr "<i class=\"oi oi-fw\" data-icon=\"arrow_forward\"/>ຄູ່ມືການຕິດຕັ້ງ"
 
+#~ msgid "Kiosk Mode Adress"
+#~ msgstr "ທີ່ຢູ່ໂໝດຕູ້ຄີອອດ"
+
+#, fuzzy
+#~ msgid "Week"
+#~ msgstr "ອາທິດ"
+
+#, fuzzy
+#~ msgid "%(worked_hours)s (%(check_in)s-%(check_out)s)"
+#~ msgstr "%(worked_hours)s (%(check_in)s-%(check_out)s)"
+
+#, fuzzy
+#~ msgid "<span class=\"me-2\">Time Period </span>"
+#~ msgstr "<span class=\"me-2\">ຊ່ວງເວລາ </span>"
+
+#, fuzzy
+#~ msgid "<span class=\"me-2\">Time Period</span>"
+#~ msgstr "<span class=\"me-2\">ຊ່ວງເວລາ</span>"
+
+#, fuzzy
 #~ msgid ""
-#~ "<span class=\"o_stat_text\">\n"
-#~ "                            Last Month\n"
-#~ "                        </span>"
-#~ msgstr ""
-#~ "<span class=\"o_stat_text\">\n"
-#~ "                            ເດືອນແລ້ວ\n"
-#~ "                        </span>"
-
-#~ msgid "<span class=\"o_stat_text\">Extra Hours</span>"
-#~ msgstr "<span class=\"o_stat_text\">ຊົ່ວໂມງເພີ່ມເຕີມ</span>"
-
-#~ msgid ""
-#~ "<span id=\"oe_hr_attendance_status\" class=\"fa fa-circle text-success "
-#~ "me-1\" role=\"img\" aria-label=\"Available\" title=\"Available\"/>"
-#~ msgstr ""
-#~ "<span id=\"oe_hr_attendance_status\" class=\"fa fa-circle text-success "
-#~ "me-1\" role=\"img\" aria-label=\"ຫວ່າງ\" title=\"ຫວ່າງ\"/>"
-
-#~ msgid ""
-#~ "<span id=\"oe_hr_attendance_status\" class=\"fa fa-circle text-warning "
-#~ "me-1\" role=\"img\" aria-label=\"Not available\" title=\"Not "
-#~ "available\">\n"
-#~ "                                    </span>"
-#~ msgstr ""
-#~ "<span id=\"oe_hr_attendance_status\" class=\"fa fa-circle text-warning "
-#~ "me-1\" role=\"img\" aria-label=\"ບໍ່ຫວ່າງ\" title=\"ບໍ່ຫວ່າງ\">\n"
-#~ "                                    </span>"
-
-#~ msgid ""
-#~ "<span> Minutes</span>\n"
+#~ "<span class=\"ms-2\">Minutes</span>\n"
 #~ "                                <br/>\n"
 #~ "                                <br/>"
 #~ msgstr ""
-#~ "<span> ນາທີ</span>\n"
+#~ "<span class=\"ms-2\">ນາທີ</span>\n"
 #~ "                                <br/>\n"
 #~ "                                <br/>"
 
-#~ msgid "<span>Time Period </span>"
-#~ msgstr "<span>ໄລຍະເວລາ </span>"
+#, fuzzy
+#~ msgid "<span> Minutes</span>"
+#~ msgstr "<span> ນາທີ</span>"
 
-#~ msgid "Activate the count of employees' extra hours."
-#~ msgstr "ເປີດການນຳໃຊ້ການນັບຊົ່ວໂມງເພີ່ມເຕີມຂອງພະນັກງານ."
+#, fuzzy
+#~ msgid "Action"
+#~ msgstr "ດຳເນີນການ"
 
-#~ msgid "Adjustment"
-#~ msgstr "ການປັບປຸງ"
+#, fuzzy
+#~ msgid "Active"
+#~ msgstr "ເປີດໃຊ້ງານ"
 
-#~ msgid "Amount of extra hours"
-#~ msgstr "ຈຳນວນຊົ່ວໂມງເພີ່ມເຕີມ"
+#, fuzzy
+#~ msgid "Add"
+#~ msgstr "ເພີ່ມ"
 
-#~ msgid "An apple a day keeps the doctor away"
-#~ msgstr "ກິນໝາກແອັບເປິ້ນມື້ລະໜ່ວຍ ຊ່ວຍໃຫ້ສຸຂະພາບແຂງແຮງ"
-
-#~ msgid "Another good day's work! See you soon!"
-#~ msgstr "ເປັນມື້ທີ່ດີອີກມື້ໜຶ່ງໃນການເຮັດວຽກ! ແລ້ວພົບກັນໃໝ່!"
-
-#~ msgid "Attendance Analysis"
-#~ msgstr "ການວິເຄາະການລົງເວລາ"
-
-#~ msgid "Attendance Overtime"
-#~ msgstr "ການເຮັດວຽກລ່ວງເວລາ"
-
-#~ msgid "Attendance Statistics"
-#~ msgstr "ສະຖິຕິການລົງເວລາ"
-
-#~ msgid "Barcode"
-#~ msgstr "ບາໂຄ້ດ"
-
-#~ msgid "Check In / Check Out"
-#~ msgstr "ລົງທະບຽນເຂົ້າ / ລົງທະບຽນອອກ"
-
-#~ msgid "Check-In/Out in Kiosk Mode"
-#~ msgstr "ລົງທະບຽນເຂົ້າ/ອອກ ໃນໂໝດຕູ້ບໍລິການ"
-
-#~ msgid "Compare attendance with working hours set on employee."
-#~ msgstr "ປຽບທຽບການລົງເວລາກັບຊົ່ວໂມງເຮັດວຽກທີ່ຕັ້ງໄວ້ໃຫ້ພະນັກງານ."
-
-#~ msgid "Count Extra Hours"
-#~ msgstr "ນັບຊົ່ວໂມງເພີ່ມເຕີມ"
-
-#~ msgid "Count of Extra Hours"
-#~ msgstr "ການນັບຊົ່ວໂມງເພີ່ມເຕີມ"
-
+#, fuzzy
 #~ msgid ""
-#~ "Count of extra hours is considered from this date. Potential extra hours "
-#~ "prior to this date are not considered."
-#~ msgstr "ການນັບຊົ່ວໂມງເພີ່ມເຕີມຈະເລີ່ມນັບຈາກວັນທີນີ້. ຊົ່ວໂມງເພີ່ມເຕີມກ່ອນວັນທີນີ້ຈະບໍ່ຖືກນັບ."
+#~ "Allow a period of time (around working hours) where extra time will not "
+#~ "be counted, in benefit of the company"
+#~ msgstr ""
+#~ "ອະນຸຍາດໃຫ້ມີໄລຍະເວລາ (ຊ່ວງເວລາເຮັດວຽກ) ທີ່ເວລາເພີ່ມເຕີມຈະບໍ່ຖືກນັບ, ເພື່ອຜົນປະໂຫຍດຂອງບໍລິສັດ"
 
+#, fuzzy
 #~ msgid ""
-#~ "Do not have access, user cannot edit the attendances that are not his own."
-#~ msgstr "ບໍ່ມີສິດເຂົ້າເຖິງ, ຜູ້ໃຊ້ບໍ່ສາມາດແກ້ໄຂການລົງເວລາທີ່ບໍ່ແມ່ນຂອງຕົນເອງໄດ້."
+#~ "Allow a period of time (around working hours) where extra time will not "
+#~ "be deducted, in benefit of the employee"
+#~ msgstr ""
+#~ "ອະນຸຍາດໃຫ້ມີໄລຍະເວລາ (ຊ່ວງເວລາເຮັດວຽກ) ທີ່ເວລາເພີ່ມເຕີມຈະບໍ່ຖືກຫັກອອກ, "
+#~ "ເພື່ອຜົນປະໂຫຍດຂອງພະນັກງານ"
 
-#~ msgid ""
-#~ "Early to bed and early to rise, makes a man healthy, wealthy and wise"
-#~ msgstr "ເຂົ້ານອນໄວ ແລະ ຕື່ນເຊົ້າ ເຮັດໃຫ້ສຸຂະພາບດີ, ຮັ່ງມີ ແລະ ສະຫຼາດ"
+#, fuzzy
+#~ msgid "Approve"
+#~ msgstr "ອະນຸມັດ"
 
-#~ msgid "Eat breakfast as a king, lunch as a merchant and supper as a beggar"
-#~ msgstr "ກິນອາຫານເຊົ້າຄືພະຣາຊາ, ອາຫານສວຍຄືພໍ່ຄ້າ ແລະ ອາຫານແລງຄືຄົນຂໍທານ"
+#, fuzzy
+#~ msgid "Approve Extra Hours"
+#~ msgstr "ອະນຸມັດຊົ່ວໂມງເພີ່ມເຕີມ"
 
-#~ msgid "Employee PIN"
-#~ msgstr "ລະຫັດ PIN ພະນັກງານ"
+#, fuzzy
+#~ msgid "Approved"
+#~ msgstr "ອະນຸມັດແລ້ວ"
 
-#~ msgid "Enable PIN use"
-#~ msgstr "ເປີດການໃຊ້ລະຫັດ PIN"
+#, fuzzy
+#~ msgid "Approved by Manager"
+#~ msgstr "ອະນຸມັດໂດຍຜູ້ຈັດການ"
 
-#~ msgid "Extra Hours (Real)"
-#~ msgstr "ຊົ່ວໂມງເພີ່ມເຕີມ (ຕົວຈິງ)"
+#, fuzzy
+#~ msgid "Archived"
+#~ msgstr "ຈັດເກັບແລ້ວ"
 
-#~ msgid "Extra Hours Starting Date"
-#~ msgstr "ວັນທີເລີ່ມນັບຊົ່ວໂມງເພີ່ມເຕີມ"
+#, fuzzy
+#~ msgid "Attendance Overtime Line"
+#~ msgstr "ລາຍການເວລາເຮັດວຽກລ່ວງເວລາ"
 
-#~ msgid "Extra-hours including the threshold duration"
-#~ msgstr "ຊົ່ວໂມງເພີ່ມເຕີມ ລວມທັງໄລຍະເວລາຂອບເຂດ (threshold)"
+#, fuzzy
+#~ msgid "Automatically Approved"
+#~ msgstr "ອະນຸມັດໂດຍອັດຕະໂນມັດ"
 
-#~ msgid "First come, first served"
-#~ msgstr "ມາກ່ອນ ໄດ້ກ່ອນ"
+#, fuzzy
+#~ msgid "Can be converted as Time Off (cfr Time Off configuration)."
+#~ msgstr "ສາມາດປ່ຽນເປັນການພັກວຽກໄດ້ (ເບິ່ງການຕັ້ງຄ່າການພັກວຽກ)."
 
-#~ msgid "Glad to have you back, it's been a while!"
-#~ msgstr "ດີໃຈທີ່ທ່ານກັບມາ, ຫາຍໄປດົນເລີຍ!"
+#, fuzzy
+#~ msgid "Color"
+#~ msgstr "ສີ"
 
-#~ msgid "Good afternoon"
-#~ msgstr "ສະບາຍດີຕອນສວຍ"
+#, fuzzy
+#~ msgid "Condition"
+#~ msgstr "ສະພາບ"
 
-#~ msgid "Good evening"
-#~ msgstr "ສະບາຍດີຕອນແລງ"
+#, fuzzy
+#~ msgid "Country"
+#~ msgstr "ປະເທດ"
 
-#~ msgid "Good morning"
-#~ msgstr "ສະບາຍດີຕອນເຊົ້າ"
+#, fuzzy
+#~ msgid "Currently Working"
+#~ msgstr "ກຳລັງເຮັດວຽກຢູ່"
 
-#~ msgid "Good night"
-#~ msgstr "ຝັນດີ"
+#, fuzzy
+#~ msgid "Definition"
+#~ msgstr "ຄຳນິຍາມ"
 
-#~ msgid "Group By"
-#~ msgstr "ຈັດກຸ່ມໂດຍ"
+#, fuzzy
+#~ msgid "Description"
+#~ msgstr "ຄຳອະທິບາຍ"
 
-#~ msgid "HR Attendance Search"
-#~ msgstr "ຄົ້ນຫາການລົງເວລາ"
+#, fuzzy
+#~ msgid "Display Extra Hours"
+#~ msgstr "ສະແດງຊົ່ວໂມງເພີ່ມເຕີມ"
 
-#~ msgid "Have a good afternoon"
-#~ msgstr "ຂໍໃຫ້ມີຕອນສວຍທີ່ດີ"
+#, fuzzy
+#~ msgid "Extra Hours"
+#~ msgstr "ຊົ່ວໂມງເຮັດວຽກເພີ່ມເຕີມ"
 
-#~ msgid "Have a good day!"
-#~ msgstr "ຂໍໃຫ້ເປັນມື້ທີ່ດີ!"
+#, fuzzy
+#~ msgid "Extra Hours Validation"
+#~ msgstr "ການກວດສອບຊົ່ວໂມງເພີ່ມເຕີມ"
 
-#~ msgid "Have a good evening"
-#~ msgstr "ຂໍໃຫ້ມີຕອນແລງທີ່ດີ"
+#, fuzzy
+#~ msgid "From"
+#~ msgstr "ຈາກ"
 
-#~ msgid "Have a nice lunch!"
-#~ msgstr "ຂໍໃຫ້ກິນເຂົ້າສວຍໃຫ້ແຊບ!"
+#, fuzzy
+#~ msgid "From %s"
+#~ msgstr "ຈາກ %s"
 
-#~ msgid "Hours"
+#, fuzzy
+#~ msgid "Information"
+#~ msgstr "ຂໍ້ມູນ"
+
+#, fuzzy
+#~ msgid "Name"
+#~ msgstr "ຊື່"
+
+#, fuzzy
+#~ msgid "Overtime"
+#~ msgstr "ເວລານອກໂມງການ (OT)"
+
+#, fuzzy
+#~ msgid "Overtime Rule"
+#~ msgstr "ກົດລະບຽບເວລາລ່ວງເວລາ"
+
+#, fuzzy
+#~ msgid "Overtime Status"
+#~ msgstr "ສະຖານະການເຮັດວຽກລ່ວງເວລາ"
+
+#, fuzzy
+#~ msgid "Overview"
+#~ msgstr "ພາບລວມ"
+
+#, fuzzy
+#~ msgid "Quantity"
+#~ msgstr "ຈຳນວນ"
+
+#, fuzzy
+#~ msgid "Rate"
+#~ msgstr "ອັດຕາ"
+
+#, fuzzy
+#~ msgid "Refuse Extra Hours"
+#~ msgstr "ປະຕິເສດຊົ່ວໂມງເພີ່ມເຕີມ"
+
+#, fuzzy
+#~ msgid "Remove"
+#~ msgstr "ລຶບອອກ"
+
+#, fuzzy
+#~ msgid "Rule"
+#~ msgstr "ກົດ"
+
+#, fuzzy
+#~ msgid "Rule Name"
+#~ msgstr "ຊື່ກົດເກນ"
+
+#, fuzzy
+#~ msgid "Schedule"
+#~ msgstr "ກຳນົດເວລາ"
+
+#, fuzzy
+#~ msgid "Sequence"
+#~ msgstr "ລຳດັບ"
+
+#, fuzzy
+#~ msgid "Timing"
+#~ msgstr "ກຳນົດເວລາ"
+
+#, fuzzy
+#~ msgid "To"
+#~ msgstr "ເຖິງ"
+
+#, fuzzy
+#~ msgid "To Approve"
+#~ msgstr "ລໍຖ້າອະນຸມັດ"
+
+#, fuzzy
+#~ msgid "Tolerance Time In Favor Of Company"
+#~ msgstr "ໄລຍະເວລາຜ່ອນຜັນເພື່ອຜົນປະໂຫຍດຂອງບໍລິສັດ"
+
+#, fuzzy
+#~ msgid "Tolerance Time In Favor Of Employee"
+#~ msgstr "ໄລຍະເວລາຜ່ອນຜັນເພື່ອຜົນປະໂຫຍດຂອງພະນັກງານ"
+
+#, fuzzy
+#~ msgid "Version"
+#~ msgstr "ເວີຊັນ"
+
+#, fuzzy
+#~ msgid "Versions Count"
+#~ msgstr "ຈຳນວນເວີຊັນ"
+
+#, fuzzy
+#~ msgid "Worked Extra Hours"
+#~ msgstr "ຊົ່ວໂມງເພີ່ມເຕີມທີ່ເຮັດວຽກແລ້ວ"
+
+#, fuzzy
+#~ msgid "and"
+#~ msgstr "ແລະ"
+
+#, fuzzy
+#~ msgid "day"
+#~ msgstr "ມື້"
+
+#, fuzzy
+#~ msgid "hours"
 #~ msgstr "ຊົ່ວໂມງ"
 
-#~ msgid "Hours Worked"
-#~ msgstr "ຊົ່ວໂມງເຮັດວຽກ"
-
-#~ msgid "If a job is worth doing, it is worth doing well!"
-#~ msgstr "ຖ້າວຽກນັ້ນຄຸ້ມຄ່າທີ່ຈະເຮັດ, ມັນກໍຄຸ້ມຄ່າທີ່ຈະເຮັດໃຫ້ດີທີ່ສຸດ!"
-
-#~ msgid "Menu"
-#~ msgstr "ເມນູ"
-
-#~ msgid "No Check Out"
-#~ msgstr "ບໍ່ມີການລົງທະບຽນອອກ"
-
-#~ msgid "No attendance records to display"
-#~ msgstr "ບໍ່ມີຂໍ້ມູນການລົງເວລາທີ່ຈະສະແດງ"
-
-#~ msgid "Please contact your administrator."
-#~ msgstr "ກະລຸນາຕິດຕໍ່ຜູ້ບໍລິຫານລະບົບຂອງທ່ານ."
-
-#~ msgid "Start from"
-#~ msgstr "ເລີ່ມຈາກ"
-
-#~ msgid "The early bird catches the worm"
-#~ msgstr "ນົກທີ່ຕື່ນເຊົ້າຍ່ອມຫາອາຫານໄດ້ກ່ອນ (ຜູ້ທີ່ເລີ່ມກ່ອນຍ່ອມມີໂອກາດຫຼາຍກວ່າ)"
-
-#~ msgid ""
-#~ "The user will be able to open the kiosk mode and validate the employee "
-#~ "PIN."
-#~ msgstr "ຜູ້ໃຊ້ຈະສາມາດເປີດໂໝດຕູ້ບໍລິການ ແລະ ກວດສອບລະຫັດ PIN ຂອງພະນັກງານໄດ້."
-
-#~ msgid ""
-#~ "The user will gain access to the human resources attendance menu, "
-#~ "enabling him to manage his own attendance."
-#~ msgstr "ຜູ້ໃຊ້ຈະໄດ້ຮັບສິດເຂົ້າເຖິງເມນູການລົງເວລາ, ເຮັດໃຫ້ສາມາດຈັດການການລົງເວລາຂອງຕົນເອງໄດ້."
-
-#~ msgid ""
-#~ "The user will have to enter his PIN to check in and out manually at the "
-#~ "company screen."
-#~ msgstr "ຜູ້ໃຊ້ຈະຕ້ອງປ້ອນລະຫັດ PIN ເພື່ອລົງທະບຽນເຂົ້າ ແລະ ອອກດ້ວຍຕົນເອງຢູ່ໜ້າຈໍຂອງບໍລິສັດ."
-
-#~ msgid ""
-#~ "To activate Kiosk mode without pin code, you must have access right as an "
-#~ "Officer or above in the Attendance app. Please contact your administrator."
-#~ msgstr ""
-#~ "ເພື່ອເປີດໃຊ້ໂໝດຕູ້ບໍລິການໂດຍບໍ່ມີລະຫັດ PIN, ທ່ານຕ້ອງມີສິດເຂົ້າເຖິງໃນລະດັບ ເຈົ້າໜ້າທີ່ ຂຶ້ນໄປໃນແອັບ "
-#~ "ການລົງເວລາ. ກະລຸນາຕິດຕໍ່ຜູ້ບໍລິຫານລະບົບ."
-
-#~ msgid "Today's work hours:"
-#~ msgstr "ຊົ່ວໂມງເຮັດວຽກມື້ນີ້:"
-
-#~ msgid "User: Only kiosk mode"
-#~ msgstr "ຜູ້ໃຊ້: ສະເພາະໂໝດຕູ້ບໍລິການ"
-
-#~ msgid "Want to check out?"
-#~ msgstr "ຕ້ອງການລົງທະບຽນອອກບໍ?"
-
-#~ msgid "Warning"
-#~ msgstr "ຄຳເຕືອນ"
-
-#~ msgid "Welcome to"
-#~ msgstr "ຍິນດີຕ້ອນຮັບສູ່"
-
-#~ msgid "Welcome!"
-#~ msgstr "ຍິນດີຕ້ອນຮັບ!"
-
-#~ msgid "Worked hours last month"
-#~ msgstr "ຊົ່ວໂມງເຮັດວຽກໃນເດືອນແລ້ວ"
-
-#~ msgid "Wrong PIN"
-#~ msgstr "ລະຫັດ PIN ບໍ່ຖືກຕ້ອງ"
-
-#~ msgid "Your attendance records will be displayed here."
-#~ msgstr "ບັນທຶກການລົງເວລາຂອງທ່ານຈະຖືກສະແດງຢູ່ທີ່ນີ້."
+#, fuzzy
+#~ msgid "week"
+#~ msgstr "ອາທິດ"

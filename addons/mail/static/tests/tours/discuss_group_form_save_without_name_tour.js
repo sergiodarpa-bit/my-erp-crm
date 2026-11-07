@@ -11,6 +11,6 @@ registry.category("web_tour.tours").add("discuss_group_form_save_without_name.js
             trigger: ".o_form_dirty",
         },
         { trigger: ".o_form_button_save", run: "click" },
-        { trigger: ".o_form_saved" },
+        { trigger: ".o_form_button_save:not(:visible)" },
     ],
 });

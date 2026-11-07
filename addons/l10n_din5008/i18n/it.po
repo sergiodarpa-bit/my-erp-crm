@@ -8,10 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-24 18:08+0000\n"
-"PO-Revision-Date: 2026-10-30 11:33+0000\n"
+"POT-Creation-Date: 2026-09-11 18:11+0000\n"
+"PO-Revision-Date: 2026-10-23 16:22+0000\n"
 "Last-Translator: \"Marianna Ciofani (cima)\" <cima@odoo.com>\n"
-"Language-Team: Italian <https://translate.odoo.com/projects/odoo-19/"
+"Language-Team: Italian <https://translate.odoo.com/projects/odoo-20/"
 "l10n_din5008/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -131,8 +131,8 @@ msgstr "Città"
 
 #. module: l10n_din5008
 #: model:ir.model,name:l10n_din5008.model_res_company
-msgid "Companies"
-msgstr "Aziende"
+msgid "Company"
+msgstr "Azienda"
 
 #. module: l10n_din5008
 #: model:ir.model.fields,field_description:l10n_din5008.field_base_document_layout__company_details
@@ -145,11 +145,6 @@ msgid "Company Document Layout"
 msgstr "Struttura documenti azienda"
 
 #. module: l10n_din5008
-#: model:ir.model.fields,field_description:l10n_din5008.field_base_document_layout__company_registry
-msgid "Company ID"
-msgstr "ID Azienda"
-
-#. module: l10n_din5008
 #: model:ir.model,name:l10n_din5008.model_res_config_settings
 msgid "Config Settings"
 msgstr "Impostazioni di configurazione"
@@ -158,6 +153,11 @@ msgstr "Impostazioni di configurazione"
 #: model_terms:ir.ui.view,arch_db:l10n_din5008.report_invoice_document
 msgid "Credit Note"
 msgstr "Nota di credito"
+
+#. module: l10n_din5008
+#: model:ir.module.module,shortdesc:base.module_l10n_din5008
+msgid "DIN 5008"
+msgstr "DIN 5008"
 
 #. module: l10n_din5008
 #: model_terms:ir.ui.view,arch_db:l10n_din5008.report_invoice_document
@@ -203,6 +203,11 @@ msgstr "Paese fiscale"
 #: model:ir.model.fields,help:l10n_din5008.field_base_document_layout__report_footer
 msgid "Footer text displayed at the bottom of all reports."
 msgstr "Piè di pagina visualizzato nella parte inferiore di tutti i report."
+
+#. module: l10n_din5008
+#: model_terms:ir.ui.view,arch_db:l10n_din5008.external_layout_din5008
+msgid "HRB Nr:"
+msgstr "No HRB:"
 
 #. module: l10n_din5008
 #: model:ir.model.fields,help:l10n_din5008.field_base_document_layout__company_details
@@ -253,14 +258,14 @@ msgid "Invoice Date"
 msgstr "Data della fattura"
 
 #. module: l10n_din5008
-#: model_terms:ir.ui.view,arch_db:l10n_din5008.report_invoice_document
-msgid "Invoice Date Due"
-msgstr "Data di scadenza della fattura"
-
-#. module: l10n_din5008
 #: model_terms:ir.ui.view,arch_db:l10n_din5008.report_invoice_wizard_preview
 msgid "Invoice Date:"
 msgstr "Data della fattura:"
+
+#. module: l10n_din5008
+#: model_terms:ir.ui.view,arch_db:l10n_din5008.report_invoice_document
+msgid "Invoice Due Date"
+msgstr "Data di scadenza fattura"
 
 #. module: l10n_din5008
 #: model_terms:ir.ui.view,arch_db:l10n_din5008.report_invoice_document
@@ -325,12 +330,12 @@ msgstr "SO/2021/45678"
 #. module: l10n_din5008
 #: model_terms:ir.ui.view,arch_db:l10n_din5008.report_invoice_document
 msgid "Self Billing"
-msgstr "Autofatturazione"
+msgstr ""
 
 #. module: l10n_din5008
 #: model_terms:ir.ui.view,arch_db:l10n_din5008.report_invoice_document
 msgid "Self Billing Credit Note"
-msgstr "Nota di credito autofatturazione"
+msgstr ""
 
 #. module: l10n_din5008
 #: model:ir.model.fields,field_description:l10n_din5008.field_res_company__has_position_column
@@ -355,7 +360,6 @@ msgstr "Strada 2"
 
 #. module: l10n_din5008
 #: model_terms:ir.ui.view,arch_db:l10n_din5008.external_layout_din5008
-#: model_terms:ir.ui.view,arch_db:l10n_din5008.report_invoice_document
 msgid "Tax ID"
 msgstr "Partita IVA"
 
@@ -365,18 +369,9 @@ msgid "The country to use the tax reports from for this company"
 msgstr "Il paese da cui utilizzare i report fiscali per questa società"
 
 #. module: l10n_din5008
-#: model:ir.model.fields,help:l10n_din5008.field_base_document_layout__company_registry
-msgid ""
-"The registry number of the company. Use it if it is different from the Tax "
-"ID. It must be unique across all partners of a same country"
-msgstr ""
-"Il numero di registro dell'azienda. Inseriscilo se è diverso dalla partita "
-"IVA. Deve essere unico per tutti i partner di una stessa nazione"
-
-#. module: l10n_din5008
-#: model_terms:ir.ui.view,arch_db:l10n_din5008.report_invoice_document
-msgid "VAT"
-msgstr "Partita IVA"
+#: model:ir.module.module,description:base.module_l10n_din5008
+msgid "This is the base module that defines the DIN 5008 standard in Odoo."
+msgstr "Questo è il modulo che definisce il DIN 5008 predefinito in Odoo."
 
 #. module: l10n_din5008
 #: model_terms:ir.ui.view,arch_db:l10n_din5008.report_invoice_document
@@ -393,8 +388,15 @@ msgstr "Nota di credito del fornitore"
 msgid "Zip"
 msgstr "CAP"
 
-#~ msgid "HRB Nr:"
-#~ msgstr "No HRB:"
+#~ msgid "VAT"
+#~ msgstr "Partita IVA"
 
-#~ msgid "/12345"
-#~ msgstr "/12345"
+#~ msgid "Company ID"
+#~ msgstr "ID Azienda"
+
+#~ msgid ""
+#~ "The registry number of the company. Use it if it is different from the "
+#~ "Tax ID. It must be unique across all partners of a same country"
+#~ msgstr ""
+#~ "Il numero di registro dell'azienda. Inseriscilo se è diverso dalla "
+#~ "partita IVA. Deve essere unico per tutti i partner di una stessa nazione"

@@ -5,19 +5,28 @@
 # Bone NI <bounkirdni@gmail.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: my-erp-crm Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server 19.1a1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:36+0000\n"
-"PO-Revision-Date: 2026-08-04 09:41+0000\n"
+"POT-Creation-Date: 2026-08-28 17:42+0000\n"
+"PO-Revision-Date: 2026-10-29 11:17+0000\n"
 "Last-Translator: Bone NI <bounkirdni@gmail.com>\n"
-"Language-Team: Lao <https://translate.odoo.com/projects/odoo-19/event_booth/"
+"Language-Team: Lao <https://translate.odoo.com/projects/odoo-20/event_booth/"
 "lo/>\n"
 "Language: lo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.6.1\n"
+"X-Generator: Weblate 2026.8.1\n"
+
+#. module: event_booth
+#: model:ir.module.module,description:base.module_event_booth
+msgid ""
+"\n"
+"Create booths for your favorite event.\n"
+msgstr ""
+"\n"
+"ສ້າງບູດສຳລັບງານທີ່ທ່ານມັກ.\n"
 
 #. module: event_booth
 #: model_terms:ir.ui.view,arch_db:event_booth.event_booth_booked_template
@@ -43,73 +52,73 @@ msgstr "<span class=\"o_stat_text\">ບູດ</span>"
 #: model_terms:event.booth.category,description:event_booth.event_booth_category_premium
 #: model_terms:event.booth.category,description:event_booth.event_booth_category_standard
 msgid "<span>1 Branded Booth</span>"
-msgstr "<span>1 ບູດຕິດແບຣນ</span>"
+msgstr "<span>ບູດຕິດແບຣນ 1 ບູດ</span>"
 
 #. module: event_booth
 #: model_terms:event.booth.category,description:event_booth.event_booth_category_premium
 #: model_terms:event.booth.category,description:event_booth.event_booth_category_standard
 msgid "<span>1 desk</span>"
-msgstr "<span>1 ໂຕະ</span>"
+msgstr "<span>ໂຕະ 1 ໜ່ວຍ</span>"
 
 #. module: event_booth
 #: model_terms:event.booth.category,description:event_booth.event_booth_category_premium
 #: model_terms:event.booth.category,description:event_booth.event_booth_category_vip
 msgid "<span>10 + 1 passes</span>"
-msgstr "<span>ບັດເຂົ້າຊົມ 10 + 1 ໃບ</span>"
+msgstr "<span>ບັດຜ່ານ 10 + 1 ບັດ</span>"
 
 #. module: event_booth
 #: model_terms:event.booth.category,description:event_booth.event_booth_category_vip
 msgid "<span>100 words description on website</span>"
-msgstr "<span>ຄຳອະທິບາຍ 100 ຄຳ ໃນເວັບໄຊ</span>"
+msgstr "<span>ຄຳອະທິບາຍ 100 ຄຳ ເທິງເວັບໄຊ</span>"
 
 #. module: event_booth
 #: model_terms:event.booth.category,description:event_booth.event_booth_category_vip
 msgid "<span>2 Branded Booth</span>"
-msgstr "<span>2 ບູດຕິດແບຣນ</span>"
+msgstr "<span>ບູດຕິດແບຣນ 2 ບູດ</span>"
 
 #. module: event_booth
 #: model_terms:event.booth.category,description:event_booth.event_booth_category_vip
 msgid "<span>2 desks</span>"
-msgstr "<span>2 ໂຕະ</span>"
+msgstr "<span>ໂຕະ 2 ໜ່ວຍ</span>"
 
 #. module: event_booth
 #: model_terms:event.booth.category,description:event_booth.event_booth_category_vip
 msgid "<span>2 x 46\" display screens</span>"
-msgstr "<span>ຈໍສະແດງຜົນ 46 ນິ້ວ 2 ຈໍ</span>"
+msgstr "<span>ຈໍສະແດງຜົນ 46\" 2 ຈໍ</span>"
 
 #. module: event_booth
 #: model_terms:event.booth.category,description:event_booth.event_booth_category_premium
 #: model_terms:event.booth.category,description:event_booth.event_booth_category_standard
 msgid "<span>46\" display screen</span>"
-msgstr "<span>ຈໍສະແດງຜົນ 46 ນິ້ວ</span>"
+msgstr "<span>ຈໍສະແດງຜົນ 46\"</span>"
 
 #. module: event_booth
 #: model_terms:event.booth.category,description:event_booth.event_booth_category_premium
 #: model_terms:event.booth.category,description:event_booth.event_booth_category_standard
 msgid "<span>4m²</span>"
-msgstr "<span>4 ຕາແມັດ</span>"
+msgstr "<span>4m²</span>"
 
 #. module: event_booth
 #: model_terms:event.booth.category,description:event_booth.event_booth_category_premium
 msgid "<span>50 words description on website</span>"
-msgstr "<span>ຄຳອະທິບາຍ 50 ຄຳ ໃນເວັບໄຊ</span>"
+msgstr "<span>ຄຳອະທິບາຍ 50 ຄຳ ເທິງເວັບໄຊ</span>"
 
 #. module: event_booth
 #: model_terms:event.booth.category,description:event_booth.event_booth_category_vip
 msgid "<span>8m²</span>"
-msgstr "<span>8 ຕາແມັດ</span>"
+msgstr "<span>8m²</span>"
 
 #. module: event_booth
 #: model_terms:event.booth.category,description:event_booth.event_booth_category_premium
 #: model_terms:event.booth.category,description:event_booth.event_booth_category_standard
 #: model_terms:event.booth.category,description:event_booth.event_booth_category_vip
 msgid "<span>Logo &amp; link on website</span>"
-msgstr "<span>ໂລໂກ້ ແລະ ລິ້ງ ໃນເວັບໄຊ</span>"
+msgstr "<span>ໂລໂກ້ &amp; ລິ້ງຄ໌ເທິງເວັບໄຊ</span>"
 
 #. module: event_booth
 #: model:ir.model.fields,field_description:event_booth.field_event_booth__message_needaction
 msgid "Action Needed"
-msgstr "ຕ້ອງດຳເນີນການ"
+msgstr "ຈຳເປັນຕ້ອງດຳເນີນການ"
 
 #. module: event_booth
 #: model:ir.model.fields,field_description:event_booth.field_event_booth_category__active
@@ -124,7 +133,12 @@ msgstr "ກິດຈະກຳ"
 #. module: event_booth
 #: model:ir.model.fields,field_description:event_booth.field_event_booth__activity_exception_decoration
 msgid "Activity Exception Decoration"
-msgstr "ການຕົບແຕ່ງກິດຈະກຳທີ່ຍົກເວັ້ນ"
+msgstr "ການຕົກແຕ່ງຂໍ້ຍົກເວັ້ນກິດຈະກຳ"
+
+#. module: event_booth
+#: model:ir.model.fields,field_description:event_booth.field_event_booth__activity_plans_ids
+msgid "Activity Plans"
+msgstr "ແຜນກິດຈະກຳ"
 
 #. module: event_booth
 #: model:ir.model.fields,field_description:event_booth.field_event_booth__activity_state
@@ -151,12 +165,12 @@ msgstr "ຈຳນວນໄຟລ໌ຄັດຕິດ"
 #: model:ir.model.fields.selection,name:event_booth.selection__event_booth__state__available
 #: model_terms:ir.ui.view,arch_db:event_booth.event_booth_view_search
 msgid "Available"
-msgstr "ຫວ່າງ"
+msgstr "ວ່າງ"
 
 #. module: event_booth
 #: model:ir.model.fields,field_description:event_booth.field_event_event__event_booth_count_available
 msgid "Available Booths"
-msgstr "ບູດທີ່ຫວ່າງ"
+msgstr "ບູດທີ່ວ່າງ"
 
 #. module: event_booth
 #: model_terms:ir.ui.view,arch_db:event_booth.event_booth_booked_template
@@ -202,7 +216,7 @@ msgstr "ໝວດໝູ່ບູດ"
 #. module: event_booth
 #: model:ir.model.fields,help:event_booth.field_event_event__event_booth_category_available_ids
 msgid "Booth Category for which booths are still available. Used in frontend"
-msgstr "ໝວດໝູ່ບູດທີ່ຍັງຫວ່າງຢູ່. ໃຊ້ໃນໜ້າເວັບໄຊ"
+msgstr "ໝວດໝູ່ບູດທີ່ຍັງມີບູດວ່າງຢູ່. ໃຊ້ໃນໜ້າເວັບ"
 
 #. module: event_booth
 #: model_terms:ir.ui.view,arch_db:event_booth.event_booth_category_view_form
@@ -216,7 +230,7 @@ msgid ""
 "Booth categories are used to represent the different types of booths you "
 "rent (Premium Booth, Table and Chairs, ...)"
 msgstr ""
-"ໝວດໝູ່ບູດຖືກໃຊ້ເພື່ອສະແດງປະເພດບູດຕ່າງໆທີ່ທ່ານໃຫ້ເຊົ່າ (ບູດພິເສດ, ໂຕະ ແລະ ຕັ່ງ, ...)"
+"ໝວດໝູ່ບູດຖືກນຳໃຊ້ເພື່ອສະແດງປະເພດບູດຕ່າງໆ ທີ່ທ່ານໃຫ້ເຊົ່າ (ບູດພຣີມຽມ, ໂຕະ ແລະ ຕັ່ງ, ...)"
 
 #. module: event_booth
 #: model:ir.actions.act_window,name:event_booth.event_booth_action
@@ -236,7 +250,7 @@ msgstr "ບູດ"
 #: model_terms:ir.actions.act_window,help:event_booth.event_booth_action_from_event
 #: model_terms:ir.actions.act_window,help:event_booth.event_type_booth_action
 msgid "Booths are the physical stands that you rent during your event."
-msgstr "ບູດແມ່ນບ່ອນວາງສະແດງຕົວຈິງທີ່ທ່ານໃຫ້ເຊົ່າໃນລະຫວ່າງງານຂອງທ່ານ."
+msgstr "ບູດແມ່ນຮ້ານວາງສະແດງຕົວຈິງທີ່ທ່ານໃຫ້ເຊົ່າໃນລະຫວ່າງງານຂອງທ່ານ."
 
 #. module: event_booth
 #: model_terms:ir.actions.act_window,help:event_booth.event_booth_action
@@ -281,36 +295,36 @@ msgstr "ຄຳອະທິບາຍ"
 #: model:ir.model.fields,field_description:event_booth.field_event_type__display_name
 #: model:ir.model.fields,field_description:event_booth.field_event_type_booth__display_name
 msgid "Display Name"
-msgstr "ຊື່ທີ່ສະແດງ"
+msgstr "ຊື່ສະແດງ"
 
 #. module: event_booth
 #: model:ir.model,name:event_booth.model_event_event
 #: model:ir.model.fields,field_description:event_booth.field_event_booth__event_id
 #: model_terms:ir.ui.view,arch_db:event_booth.event_booth_view_search
 msgid "Event"
-msgstr "ງານ/ເຫດການ"
+msgstr "ງານ"
 
 #. module: event_booth
 #: model:ir.model,name:event_booth.model_event_booth
 #: model_terms:ir.ui.view,arch_db:event_booth.event_booth_view_search
 msgid "Event Booth"
-msgstr "ບູດຂອງງານ"
+msgstr "ບູດງານ"
 
 #. module: event_booth
 #: model:ir.model,name:event_booth.model_event_booth_category
 #: model:ir.model.fields,field_description:event_booth.field_event_event__event_booth_category_ids
 msgid "Event Booth Category"
-msgstr "ໝວດໝູ່ບູດຂອງງານ"
+msgstr "ໝວດໝູ່ບູດງານ"
 
 #. module: event_booth
 #: model:ir.model.fields,field_description:event_booth.field_event_event__event_booth_category_available_ids
 msgid "Event Booth Category Available"
-msgstr "ໝວດໝູ່ບູດຂອງງານທີ່ຫວ່າງ"
+msgstr "ໝວດໝູ່ບູດງານທີ່ວ່າງ"
 
 #. module: event_booth
 #: model:ir.model,name:event_booth.model_event_type_booth
 msgid "Event Booth Template"
-msgstr "ແບບຢ່າງບູດຂອງງານ"
+msgstr "ແມ່ແບບບູດງານ"
 
 #. module: event_booth
 #: model:ir.model.fields,field_description:event_booth.field_event_booth__event_type_id
@@ -321,25 +335,30 @@ msgstr "ໝວດໝູ່ງານ"
 #. module: event_booth
 #: model:ir.model,name:event_booth.model_event_type
 msgid "Event Template"
-msgstr "ແບບຢ່າງງານ"
+msgstr "ແມ່ແບບງານ"
 
 #. module: event_booth
 #: model_terms:ir.ui.view,arch_db:event_booth.event_type_booth_view_form_from_type
 msgid "Event Type Booth"
-msgstr "ປະເພດບູດຂອງງານ"
+msgstr "ບູດຕາມປະເພດງານ"
 
 #. module: event_booth
 #: model:ir.actions.act_window,name:event_booth.event_type_booth_action
 #: model_terms:ir.ui.view,arch_db:event_booth.event_type_booth_view_search
 #: model_terms:ir.ui.view,arch_db:event_booth.event_type_booth_view_tree_from_type
 msgid "Event Type Booths"
-msgstr "ປະເພດບູດຂອງງານ"
+msgstr "ບູດຕາມປະເພດງານ"
 
 #. module: event_booth
 #: model_terms:ir.ui.view,arch_db:event_booth.event_booth_view_graph
 #: model_terms:ir.ui.view,arch_db:event_booth.event_booth_view_pivot
 msgid "Event booth"
-msgstr "ບູດຂອງງານ"
+msgstr "ບູດງານ"
+
+#. module: event_booth
+#: model:ir.module.module,shortdesc:base.module_event_booth
+msgid "Events Booths"
+msgstr "ບູດງານ"
 
 #. module: event_booth
 #: model:ir.model.fields,field_description:event_booth.field_event_booth__message_follower_ids
@@ -352,24 +371,19 @@ msgid "Followers (Partners)"
 msgstr "ຜູ້ຕິດຕາມ (ຄູ່ຄ້າ)"
 
 #. module: event_booth
-#: model:ir.model.fields,help:event_booth.field_event_booth__activity_type_icon
-msgid "Font awesome icon e.g. fa-tasks"
-msgstr "ໄອຄອນ Font awesome ເຊັ່ນ: fa-tasks"
-
-#. module: event_booth
 #: model:event.booth,name:event_booth.event_booth_20_event_7
 msgid "Gold Booth 1"
-msgstr "ບູດລະດັບຄຳ 1"
+msgstr "ບູດຄຳ 1"
 
 #. module: event_booth
 #: model:event.booth,name:event_booth.event_booth_21_event_7
 msgid "Gold Booth 2"
-msgstr "ບູດລະດັບຄຳ 2"
+msgstr "ບູດຄຳ 2"
 
 #. module: event_booth
 #: model:event.booth,name:event_booth.event_booth_22_event_7
 msgid "Gold Booth 3"
-msgstr "ບູດລະດັບຄຳ 3"
+msgstr "ບູດຄຳ 3"
 
 #. module: event_booth
 #: model:ir.model.fields,field_description:event_booth.field_event_booth__has_message
@@ -383,7 +397,7 @@ msgstr "ມີຂໍ້ຄວາມ"
 #: model:ir.model.fields,field_description:event_booth.field_event_type__id
 #: model:ir.model.fields,field_description:event_booth.field_event_type_booth__id
 msgid "ID"
-msgstr "ໄອດີ"
+msgstr "ID"
 
 #. module: event_booth
 #: model:ir.model.fields,field_description:event_booth.field_event_booth__activity_exception_icon
@@ -393,18 +407,18 @@ msgstr "ໄອຄອນ"
 #. module: event_booth
 #: model:ir.model.fields,help:event_booth.field_event_booth__activity_exception_icon
 msgid "Icon to indicate an exception activity."
-msgstr "ໄອຄອນເພື່ອບົ່ງບອກກິດຈະກຳທີ່ຍົກເວັ້ນ."
+msgstr "ໄອຄອນເພື່ອບົ່ງບອກກິດຈະກຳທີ່ມີຂໍ້ຍົກເວັ້ນ."
 
 #. module: event_booth
 #: model:ir.model.fields,help:event_booth.field_event_booth__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr "ຖ້າໝາຍໄວ້, ຂໍ້ຄວາມໃໝ່ຈະແຈ້ງເຕືອນໃຫ້ທ່ານຊາບ."
+msgstr "ຖ້າໝາຍຕິກ, ຂໍ້ຄວາມໃໝ່ຈະຕ້ອງການຄວາມສົນໃຈຈາກທ່ານ."
 
 #. module: event_booth
 #: model:ir.model.fields,help:event_booth.field_event_booth__message_has_error
 #: model:ir.model.fields,help:event_booth.field_event_booth__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
-msgstr "ຖ້າໝາຍໄວ້, ບາງຂໍ້ຄວາມອາດມີຂໍ້ຜິດພາດໃນການສົ່ງ."
+msgstr "ຖ້າໝາຍຕິກ, ບາງຂໍ້ຄວາມເກີດມີຂໍ້ຜິດພາດໃນການສົ່ງ."
 
 #. module: event_booth
 #: model:ir.model.fields,field_description:event_booth.field_event_booth_category__image_1920
@@ -434,7 +448,7 @@ msgstr "ຮູບພາບ 512"
 #. module: event_booth
 #: model:ir.model.fields,field_description:event_booth.field_event_booth__is_available
 msgid "Is Available"
-msgstr "ຫວ່າງຢູ່"
+msgstr "ວ່າງຢູ່"
 
 #. module: event_booth
 #: model:ir.model.fields,field_description:event_booth.field_event_booth__message_is_follower
@@ -446,19 +460,29 @@ msgstr "ແມ່ນຜູ້ຕິດຕາມ"
 #: model:ir.model.fields,field_description:event_booth.field_event_booth_category__write_uid
 #: model:ir.model.fields,field_description:event_booth.field_event_type_booth__write_uid
 msgid "Last Updated by"
-msgstr "ແກ້ໄຂຫຼ້າສຸດໂດຍ"
+msgstr "ອັບເດດຫຼ້າສຸດໂດຍ"
 
 #. module: event_booth
 #: model:ir.model.fields,field_description:event_booth.field_event_booth__write_date
 #: model:ir.model.fields,field_description:event_booth.field_event_booth_category__write_date
 #: model:ir.model.fields,field_description:event_booth.field_event_type_booth__write_date
 msgid "Last Updated on"
-msgstr "ແກ້ໄຂຫຼ້າສຸດເມື່ອ"
+msgstr "ອັບເດດຫຼ້າສຸດເມື່ອ"
+
+#. module: event_booth
+#: model:ir.module.module,summary:base.module_event_booth
+msgid "Manage event booths"
+msgstr "ຈັດການບູດງານ"
+
+#. module: event_booth
+#: model:ir.model.fields,help:event_booth.field_event_booth__activity_type_icon
+msgid "Material Symbols icon e.g. checklist"
+msgstr "ໄອຄອນ Material Symbols ເຊັ່ນ: checklist"
 
 #. module: event_booth
 #: model:ir.model.fields,field_description:event_booth.field_event_booth__message_has_error
 msgid "Message Delivery error"
-msgstr "ການສົ່ງຂໍ້ຄວາມຜິດພາດ"
+msgstr "ຂໍ້ຜິດພາດໃນການສົ່ງຂໍ້ຄວາມ"
 
 #. module: event_booth
 #: model:ir.model.fields,field_description:event_booth.field_event_booth__message_ids
@@ -483,7 +507,7 @@ msgstr "ຊື່"
 #. module: event_booth
 #: model:ir.model.fields,field_description:event_booth.field_event_booth__activity_calendar_event_id
 msgid "Next Activity Calendar Event"
-msgstr "ກິດຈະກຳໃນປະຕິທິນຖັດໄປ"
+msgstr "ກິດຈະກຳປະຕິທິນຖັດໄປ"
 
 #. module: event_booth
 #: model:ir.model.fields,field_description:event_booth.field_event_booth__activity_date_deadline
@@ -503,7 +527,7 @@ msgstr "ປະເພດກິດຈະກຳຖັດໄປ"
 #. module: event_booth
 #: model:ir.model.fields,field_description:event_booth.field_event_booth__message_needaction_counter
 msgid "Number of Actions"
-msgstr "ຈຳນວນການດຳເນີນການ"
+msgstr "ຈຳນວນການກະທຳ"
 
 #. module: event_booth
 #: model:ir.model.fields,field_description:event_booth.field_event_booth__message_has_error_counter
@@ -513,12 +537,12 @@ msgstr "ຈຳນວນຂໍ້ຜິດພາດ"
 #. module: event_booth
 #: model:ir.model.fields,help:event_booth.field_event_booth__message_needaction_counter
 msgid "Number of messages requiring action"
-msgstr "ຈຳນວນຂໍ້ຄວາມທີ່ຕ້ອງດຳເນີນການ"
+msgstr "ຈຳນວນຂໍ້ຄວາມທີ່ຕ້ອງການການດຳເນີນການ"
 
 #. module: event_booth
 #: model:ir.model.fields,help:event_booth.field_event_booth__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr "ຈຳນວນຂໍ້ຄວາມທີ່ມີການສົ່ງຜິດພາດ"
+msgstr "ຈຳນວນຂໍ້ຄວາມທີ່ມີຂໍ້ຜິດພາດໃນການສົ່ງ"
 
 #. module: event_booth
 #: model:event.booth,name:event_booth.event_booth_10_event_7
@@ -550,26 +574,26 @@ msgstr "ເລືອກຜູ້ເຊົ່າ..."
 #. module: event_booth
 #: model:event.booth.category,name:event_booth.event_booth_category_premium
 msgid "Premium Booth"
-msgstr "ບູດພິເສດ"
+msgstr "ບູດພຣີມຽມ"
 
 #. module: event_booth
 #: model:event.booth,name:event_booth.event_booth_3_event_0
 msgid "Premium Booth A4"
-msgstr "ບູດພິເສດ A4"
+msgstr "ບູດພຣີມຽມ A4"
 
 #. module: event_booth
 #: model:event.booth,name:event_booth.event_booth_2_event_2
 #: model:event.booth,name:event_booth.event_booth_2_event_3
 #: model:event.type.booth,name:event_booth.event_type_booth_demo_exhibition_2
 msgid "Premium Showbooth 1"
-msgstr "ບູດວາງສະແດງພິເສດ 1"
+msgstr "ບູດສະແດງພຣີມຽມ 1"
 
 #. module: event_booth
 #: model:event.booth,name:event_booth.event_booth_3_event_2
 #: model:event.booth,name:event_booth.event_booth_3_event_3
 #: model:event.type.booth,name:event_booth.event_type_booth_demo_exhibition_3
 msgid "Premium Showbooth 2"
-msgstr "ບູດວາງສະແດງພິເສດ 2"
+msgstr "ບູດສະແດງພຣີມຽມ 2"
 
 #. module: event_booth
 #: model:ir.model.fields,field_description:event_booth.field_event_booth__rating_ids
@@ -601,31 +625,31 @@ msgstr "ເບີໂທຜູ້ເຊົ່າ"
 #. module: event_booth
 #: model:ir.model.fields,field_description:event_booth.field_event_booth__activity_user_id
 msgid "Responsible User"
-msgstr "ຜູ້ຮັບຜິດຊອບ"
+msgstr "ຜູ້ໃຊ້ທີ່ຮັບຜິດຊອບ"
 
 #. module: event_booth
 #: model:ir.model.fields,field_description:event_booth.field_event_booth__message_has_sms_error
 msgid "SMS Delivery error"
-msgstr "ການສົ່ງ SMS ຜິດພາດ"
+msgstr "ຂໍ້ຜິດພາດໃນການສົ່ງ SMS"
 
 #. module: event_booth
 #: model:ir.model.fields,field_description:event_booth.field_event_booth_category__sequence
 msgid "Sequence"
-msgstr "ລໍາດັບ"
+msgstr "ລຳດັບ"
 
 #. module: event_booth
 #: model:event.booth,name:event_booth.event_booth_0_event_2
 #: model:event.booth,name:event_booth.event_booth_0_event_3
 #: model:event.type.booth,name:event_booth.event_type_booth_demo_exhibition_0
 msgid "Showbooth 1"
-msgstr "ບູດວາງສະແດງ 1"
+msgstr "ບູດສະແດງ 1"
 
 #. module: event_booth
 #: model:event.booth,name:event_booth.event_booth_1_event_2
 #: model:event.booth,name:event_booth.event_booth_1_event_3
 #: model:event.type.booth,name:event_booth.event_type_booth_demo_exhibition_1
 msgid "Showbooth 2"
-msgstr "ບູດວາງສະແດງ 2"
+msgstr "ບູດສະແດງ 2"
 
 #. module: event_booth
 #: model:event.booth.category,name:event_booth.event_booth_category_standard
@@ -646,9 +670,9 @@ msgid ""
 "Planned: Future activities."
 msgstr ""
 "ສະຖານະອີງຕາມກິດຈະກຳ\n"
-"ເກີນກຳນົດ: ວັນທີກຳນົດໄດ້ຜ່ານໄປແລ້ວ\n"
+"ກາຍກຳນົດ: ວັນຄົບກຳນົດຜ່ານໄປແລ້ວ\n"
 "ມື້ນີ້: ວັນທີກິດຈະກຳແມ່ນມື້ນີ້\n"
-"ວາງແຜນໄວ້: ກິດຈະກຳໃນອະນາຄົດ."
+"ວາງແຜນແລ້ວ: ກິດຈະກຳໃນອະນາຄົດ."
 
 #. module: event_booth
 #: model:ir.model.fields,field_description:event_booth.field_event_event__event_booth_count
@@ -658,13 +682,13 @@ msgstr "ບູດທັງໝົດ"
 #. module: event_booth
 #: model:ir.model.fields,help:event_booth.field_event_booth__activity_exception_decoration
 msgid "Type of the exception activity on record."
-msgstr "ປະເພດຂອງກິດຈະກຳທີ່ຍົກເວັ້ນໃນບັນທຶກ."
+msgstr "ປະເພດຂອງກິດຈະກຳຂໍ້ຍົກເວັ້ນໃນບັນທຶກ."
 
 #. module: event_booth
 #: model:ir.model.fields.selection,name:event_booth.selection__event_booth__state__unavailable
 #: model_terms:ir.ui.view,arch_db:event_booth.event_booth_view_search
 msgid "Unavailable"
-msgstr "ບໍ່ຫວ່າງ"
+msgstr "ບໍ່ວ່າງ"
 
 #. module: event_booth
 #: model:event.booth.category,name:event_booth.event_booth_category_vip
@@ -677,28 +701,18 @@ msgid "VIP Booth A5"
 msgstr "ບູດ VIP A5"
 
 #. module: event_booth
-#: model:ir.model.fields,field_description:event_booth.field_event_booth__website_message_ids
-msgid "Website Messages"
-msgstr "ຂໍ້ຄວາມເວັບໄຊ"
-
-#. module: event_booth
-#: model:ir.model.fields,help:event_booth.field_event_booth__website_message_ids
-msgid "Website communication history"
-msgstr "ປະຫວັດການຕິດຕໍ່ສື່ສານຜ່ານເວັບໄຊ"
-
-#. module: event_booth
 #: model_terms:ir.ui.view,arch_db:event_booth.event_booth_category_view_form
 msgid "e.g. \"Those stands will be place near the entrance and...\""
-msgstr "ຕົວຢ່າງ: \"ບູດເຫຼົ່ານີ້ຈະຖືກຈັດວາງໄວ້ໃກ້ກັບທາງເຂົ້າ ແລະ...\""
+msgstr "ຕົວຢ່າງ: \"ບູດເຫຼົ່ານີ້ຈະຕັ້ງຢູ່ໃກ້ກັບທາງເຂົ້າ ແລະ...\""
 
 #. module: event_booth
 #: model_terms:ir.ui.view,arch_db:event_booth.event_booth_view_form_from_event
 #: model_terms:ir.ui.view,arch_db:event_booth.event_booth_view_form_quick_create
 #: model_terms:ir.ui.view,arch_db:event_booth.event_type_booth_view_form_from_type
 msgid "e.g. First Booth Alley 1"
-msgstr "ຕົວຢ່າງ: ບູດທຳອິດ ແຖວທີ 1"
+msgstr "ຕົວຢ່າງ: ບູດທຳອິດ ຊອຍ 1"
 
 #. module: event_booth
 #: model_terms:ir.ui.view,arch_db:event_booth.event_booth_category_view_form
 msgid "e.g. Premium Booth"
-msgstr "ຕົວຢ່າງ: ບູດພິເສດ"
+msgstr "ຕົວຢ່າງ: ບູດພຣີມຽມ"

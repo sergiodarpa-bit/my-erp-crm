@@ -6,16 +6,17 @@
 # Reinaldo Ramos <reinaldo.ramos@arxi.pt>, 2022
 # Pedro Filipe <pedro2.10@hotmail.com>, 2022
 # Manuela Silva <mmsrs@sky.com>, 2022
-# "Tiffany Chang (tic)" <tic@odoo.com>, 2025, 2026.
-# Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
+# "Tiffany Chang (tic)" <tic@odoo.com>, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2025.
+# Cristina Paniagua Ramiro <crpan@odoo.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: my-erp-crm Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-24 17:37+0000\n"
-"PO-Revision-Date: 2026-08-02 13:16+0000\n"
-"Last-Translator: \"Tiffany Chang (tic)\" <tic@odoo.com>\n"
-"Language-Team: Portuguese <https://translate.odoo.com/projects/odoo-19/"
+"POT-Creation-Date: 2026-10-09 17:39+0000\n"
+"PO-Revision-Date: 2026-10-28 16:43+0000\n"
+"Last-Translator: Cristina Paniagua Ramiro <crpan@odoo.com>\n"
+"Language-Team: Portuguese <https://translate.odoo.com/projects/odoo-20/"
 "calendar_sms/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +24,12 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : ((n != 0 && n % "
 "1000000 == 0) ? 1 : 2);\n"
-"X-Generator: Weblate 2026.6.1\n"
+"X-Generator: Weblate 2026.8.1\n"
+
+#. module: calendar_sms
+#: model:ir.module.module,shortdesc:base.module_calendar_sms
+msgid "Calendar - SMS"
+msgstr ""
 
 #. module: calendar_sms
 #: model:ir.model,name:calendar_sms.model_calendar_event
@@ -76,6 +82,7 @@ msgid "ID"
 msgstr "ID"
 
 #. module: calendar_sms
+#: model:ir.model.fields.selection,name:calendar_sms.selection__calendar_alarm__alarm_type__sms
 #: model_terms:ir.ui.view,arch_db:calendar_sms.view_calendar_event_form_inherited
 msgid "SMS"
 msgstr "SMS"
@@ -84,11 +91,6 @@ msgstr "SMS"
 #: model:ir.model.fields,field_description:calendar_sms.field_calendar_alarm__sms_template_id
 msgid "SMS Template"
 msgstr "Modelo de SMS"
-
-#. module: calendar_sms
-#: model:ir.model.fields.selection,name:calendar_sms.selection__calendar_alarm__alarm_type__sms
-msgid "SMS Text Message"
-msgstr "Mensagem de Texto SMS"
 
 #. module: calendar_sms
 #. odoo-python
@@ -101,6 +103,12 @@ msgstr "Enviar SMS"
 #: model_terms:ir.ui.view,arch_db:calendar_sms.view_calendar_event_form_inherited
 msgid "Send SMS to attendees"
 msgstr "Enviar SMS aos participantes"
+
+#. module: calendar_sms
+#: model:ir.module.module,description:base.module_calendar_sms
+#: model:ir.module.module,summary:base.module_calendar_sms
+msgid "Send text messages as event reminders"
+msgstr ""
 
 #. module: calendar_sms
 #: model:ir.model.fields,help:calendar_sms.field_calendar_alarm__sms_template_id

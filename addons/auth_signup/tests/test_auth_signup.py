@@ -1,17 +1,18 @@
-# -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from contextlib import contextmanager
+from datetime import datetime, timedelta
 from unittest.mock import patch
 from urllib.parse import parse_qs, urlsplit
 
 import odoo
-from odoo import http
-from odoo.addons.base.tests.common import HttpCaseWithUserPortal, HttpCaseWithUserDemo
 from odoo.exceptions import AccessError, UserError
+from odoo.tests import tagged
 
-from datetime import datetime, timedelta
+from odoo.addons.base.tests.common import HttpCaseWithUserDemo, HttpCaseWithUserPortal
 
+
+@tagged('at_install', '-post_install')  # LEGACY at_install
 class TestAuthSignupFlow(HttpCaseWithUserPortal, HttpCaseWithUserDemo):
 
     def setUp(self):
@@ -43,7 +44,7 @@ class TestAuthSignupFlow(HttpCaseWithUserPortal, HttpCaseWithUserDemo):
 
         # Get csrf_token
         self.authenticate(None, None)
-        csrf_token = http.Request.csrf_token(self)
+        csrf_token = self.csrf_token()
 
         # Values from login form
         name = 'toto'
@@ -79,7 +80,7 @@ class TestAuthSignupFlow(HttpCaseWithUserPortal, HttpCaseWithUserDemo):
                 'name': name,
                 'password': 'mypassword',
                 'confirm_password': 'mypassword',
-                'csrf_token': http.Request.csrf_token(self),
+                'csrf_token': self.csrf_token(),
             })
 
         with patch.object(odoo.addons.mail.models.mail_mail.MailMail, 'unlink', lambda self: None), \
@@ -129,3 +130,45 @@ class TestAuthSignupFlow(HttpCaseWithUserPortal, HttpCaseWithUserDemo):
             u.create_date = datetime.now() - timedelta(days=5, minutes=10)
         with self.registry.cursor() as cr:
             users.with_env(users.env(cr=cr)).send_unregistered_user_reminder(after_days=5, batch_size=100)
+
+    def test_email_is_validated_signup(self):
+        """
+        Check that the signup form rejects invalid email addresses
+        """
+
+        # Activate free signup
+        self._activate_free_signup()
+
+        # Get csrf_token
+        self.authenticate(None, None)
+        csrf_token = self.csrf_token()
+
+        # Sign up with invalid email
+        name = 'mario'
+        payload = {
+            'login': 'mario@example',
+            'name': name,
+            'password': 'mypassword',
+            'confirm_password': 'mypassword',
+            'csrf_token': csrf_token,
+        }
+
+        # Signup attempt
+        url_free_signup = self._get_free_signup_url()
+        self.url_open(url_free_signup, data=payload)
+
+        # Expect user not to be registered because of invalid email
+        new_user = self.env['res.users'].search([('name', '=', name)])
+        self.assertFalse(new_user)
+
+    def test_signup_does_not_invalidate_cache(self):
+        from odoo.orm.environments import Transaction  # noqa: PLC0415
+
+        self.env['ir.config_parameter'].sudo().set_str('auth_signup.invitation_scope', 'b2c')
+        with patch.object(Transaction, 'invalidate_ormcache') as invalidate_ormcache:
+            self.env['res.users'].sudo().signup({
+                'login': 'cache_signup@example.com',
+                'name': 'Cache Signup',
+                'password': 'cache_signup_password',
+            })
+        invalidate_ormcache.assert_not_called()

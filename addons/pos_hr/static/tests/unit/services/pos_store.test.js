@@ -1,13 +1,9 @@
 import { test, expect } from "@odoo/hoot";
 import { setupPosEnv } from "@point_of_sale/../tests/unit/utils";
 import { definePosModels } from "@point_of_sale/../tests/unit/data/generate_model_definitions";
-import {
-    makeServerError,
-    mountWithCleanup,
-    onRpc,
-    patchWithCleanup,
-} from "@web/../tests/web_test_helpers";
-import { browser } from "@web/core/browser/browser";
+import { makeServerError, mountWithCleanup, onRpc } from "@web/../tests/web_test_helpers";
+import { patch } from "@web/core/utils/patch";
+import { location } from "@web/core/browser/browser";
 import { OrderSummary } from "@point_of_sale/app/screens/product_screen/order_summary/order_summary";
 
 definePosModels();
@@ -22,27 +18,56 @@ test("employeeIsAdmin", async () => {
     const store = await setupPosEnv();
     const emp = store.models["hr.employee"].get(2);
     store.setCashier(emp);
-    expect(store.employeeIsAdmin).toBe(true);
+    expect(store.accessRight.employeeIsAdmin).toBe(true);
+});
+test("price mode follows the active cashier's price rights", async () => {
+    const store = await setupPosEnv();
+    const manager = store.models["hr.employee"].get(2);
+    const cashier = store.models["hr.employee"].get(3);
+    const restrictive = store.models["hr.employee"].get(4);
+
+    store.config.restrict_price_control = true;
+    store.setCashier(manager);
+    expect(store.accessRight.disablePriceButton).toBe(false);
+    store.numpadMode = "price";
+    store.setCashier(cashier);
+    expect(store.accessRight.disablePriceButton).toBe(true);
+    expect(store.numpadMode).toBe("quantity");
+
+    store.config.restrict_price_control = false;
+    store.setCashier(cashier);
+    expect(store.accessRight.disablePriceButton).toBe(false);
+    store.numpadMode = "price";
+    store.setCashier(restrictive);
+    expect(store.accessRight.disablePriceButton).toBe(true);
+    expect(store.numpadMode).toBe("quantity");
 });
 test("_getConnectedCashier", async () => {
     const store = await setupPosEnv();
-    expect(store._getConnectedCashier().id).toBe(2);
+    expect(store.accessRight._getConnectedCashier().id).toBe(2);
 });
 test("shouldShowOpeningControl", async () => {
     const store = await setupPosEnv();
+    store.models["pos.session"].getFirst().state = "opening_control";
     const emp = store.models["hr.employee"].get(2);
     store.setCashier(emp);
-    store.hasLoggedIn = true;
+    store.accessRight.hasLoggedIn.set(true);
     expect(store.shouldShowOpeningControl()).toBe(true);
 });
 test("hasProductCreationAccess", async () => {
     const store = await setupPosEnv();
     const admin = store.models["hr.employee"].get(2);
     store.setCashier(admin);
-    expect(await store.hasProductCreationAccess).toBe(true);
+    expect(await store.accessRight.hasProductCreationAccess).toBe(true);
     const emp = store.models["hr.employee"].get(3);
     store.setCashier(emp);
-    expect(await store.hasProductCreationAccess).toBe(false);
+    expect(await store.accessRight.hasProductCreationAccess).toBe(false);
+    const restrictive = store.models["hr.employee"].get(4);
+    store.setCashier(restrictive);
+    expect(await store.accessRight.hasProductCreationAccess).toBe(false);
+    const supervised = store.models["hr.employee"].get(5);
+    store.setCashier(supervised);
+    expect(await store.accessRight.hasProductCreationAccess).toBe(false);
 });
 test("addLineToCurrentOrder", async () => {
     const store = await setupPosEnv();
@@ -56,30 +81,19 @@ test("addLineToCurrentOrder", async () => {
     });
     expect(result.order_id.employee_id.id).toBe(2);
 });
-test("canEditPayment", async () => {
-    const store = await setupPosEnv();
-    store.addNewOrder();
-    const order = store.getOrder();
-    const admin = store.models["hr.employee"].get(2);
-    store.setCashier(admin);
-    expect(store.canEditPayment(order)).toBe(true);
-    const emp = store.models["hr.employee"].get(3);
-    store.setCashier(emp);
-    expect(store.canEditPayment(order)).toBe(false);
-});
 test("handleUrlParams prevents unauthorized access when POS is locked with pos_hr", async () => {
     const store = await setupPosEnv();
     store.config.module_pos_hr = true;
     odoo.from_backend = false;
 
-    store.resetCashier();
-    expect(store.cashier).toBe(false);
+    store.accessRight.resetCashier();
+    expect(store.accessRight.cashier).toBe(false);
     expect(store.config.module_pos_hr).toBe(true);
-    store.router.state.current = "ProductScreen";
-    store.router.state.params = {};
+    store.router.currentScreen.set("ProductScreen");
+    store.router.currentScreenParams.set({});
 
     let navigateCalledWithLoginScreen = false;
-    patchWithCleanup(store.router, {
+    patch(store.router, {
         navigate(routeName, routeParams) {
             if (routeName === "LoginScreen") {
                 navigateCalledWithLoginScreen = true;
@@ -91,6 +105,7 @@ test("handleUrlParams prevents unauthorized access when POS is locked with pos_h
     await store.handleUrlParams();
     expect(navigateCalledWithLoginScreen).toBe(true);
 });
+
 test("keybordInputRights", async () => {
     const store = await setupPosEnv();
     const order = store.addNewOrder();
@@ -110,13 +125,44 @@ test("keybordInputRights", async () => {
     const orderSummary = await mountWithCleanup(OrderSummary, { props: {} });
     orderSummary.numberBuffer._handleInput("-");
     expect(line.qty).toBe(3);
+    const cashier = store.models["hr.employee"].get(3);
+    store.setCashier(cashier);
+    orderSummary.numberBuffer._handleInput("-");
+    expect(line.qty).toBe(-3);
 });
+
+test("validateOrder", async () => {
+    const store = await setupPosEnv();
+    store.addNewOrder();
+    store.validateOrder();
+    const order = store.getOrder();
+    expect(order.employee_id.id).toBe(2);
+});
+
+test("hasProductCreationAccessWithAdmin", async () => {
+    const store = await setupPosEnv();
+    const admin = store.models["hr.employee"].get(2);
+    store.setCashier(admin);
+    expect(store.accessRight.hasProductCreationAccess).toBe(true);
+});
+
+test("hasProductCreationAccessWithNonAdmin", async () => {
+    const store = await setupPosEnv();
+    const cashier = store.models["hr.employee"].get(3);
+    store.setCashier(cashier);
+    expect(store.accessRight.hasProductCreationAccess).toBe(false);
+    const restrictive = store.models["hr.employee"].get(4);
+    store.setCashier(restrictive);
+    expect(store.accessRight.hasProductCreationAccess).toBe(false);
+    const supervised = store.models["hr.employee"].get(4);
+    store.setCashier(supervised);
+    expect(store.accessRight.hasProductCreationAccess).toBe(false);
+});
+
 test("setCashier reloads the page when the session has been deleted", async () => {
     const store = await setupPosEnv();
-    patchWithCleanup(browser.location, {
-        reload() {
-            expect.step("reload");
-        },
+    patch(location, {
+        reload: () => expect.step("reload"),
     });
     onRpc("pos.session", "write", () => {
         throw makeServerError({ type: "MissingError" });
@@ -126,17 +172,4 @@ test("setCashier reloads the page when the session has been deleted", async () =
     store.setCashier(store.models["hr.employee"].get(3));
 
     await expect.waitForSteps(["reload"]);
-});
-test("closePos does not leave a cashier-less ProductScreen behind", async () => {
-    const store = await setupPosEnv();
-    store.session.state = "opened";
-    store.setCashier(store.models["hr.employee"].get(2));
-    store.addNewOrder();
-    store.navigate("ProductScreen", { orderUuid: store.getOrder().uuid });
-    // The redirect can be held back, e.g. by the beforeunload guard
-    patchWithCleanup(store, { redirectToBackend() {} });
-
-    await store.closePos();
-    expect(store.getCashier()).toBe(false);
-    expect(store.router.state.current).toBe("LoginScreen");
 });

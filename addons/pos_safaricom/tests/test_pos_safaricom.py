@@ -1,12 +1,8 @@
-from datetime import datetime, timedelta
 from unittest.mock import MagicMock, patch
-
-from freezegun import freeze_time
 
 from odoo.exceptions import UserError
 from odoo.tests import tagged
 from odoo.tests.common import TransactionCase
-from odoo.tools import verify_hash_signed
 
 
 @tagged('post_install', '-at_install')
@@ -24,13 +20,14 @@ class TestPosSafaricom(TransactionCase):
         # Create M-PESA Express payment method
         cls.mpesa_express = cls.env['pos.payment.method'].create({
             'name': 'M-PESA Express',
-            'use_payment_terminal': 'safaricom',
+            'payment_provider': 'safaricom',
             'safaricom_payment_type': 'mpesa_express',
             'safaricom_test_mode': True,
             'consumer_key': 'test_consumer_key',
             'consumer_secret': 'test_consumer_secret',
             'business_short_code': '174379-174379',
             'passkey': 'test_passkey',
+            'type': 'bank',
             'company_id': cls.company.id,
         })
 
@@ -39,8 +36,9 @@ class TestPosSafaricom(TransactionCase):
             # Create Lipa na M-PESA payment method
             cls.lipa_na_mpesa = cls.env['pos.payment.method'].create({
                 'name': 'Lipa na M-PESA',
-                'use_payment_terminal': 'safaricom',
+                'payment_provider': 'safaricom',
                 'safaricom_payment_type': 'lipa_na_mpesa',
+                'type': 'bank',
                 'safaricom_test_mode': True,
                 'consumer_key': 'test_consumer_key',
                 'consumer_secret': 'test_consumer_secret',
@@ -69,7 +67,8 @@ class TestPosSafaricom(TransactionCase):
         """Test OAuth token retrieval with missing credentials"""
         payment_method = self.env['pos.payment.method'].create({
             'name': 'Test Missing Credentials',
-            'use_payment_terminal': 'safaricom',
+            'type': 'bank',
+            'payment_provider': 'safaricom',
             'safaricom_payment_type': 'mpesa_express',
             'company_id': self.company.id,
         })
@@ -142,20 +141,3 @@ class TestPosSafaricom(TransactionCase):
         payload = call_args.kwargs['json']
         self.assertEqual(payload['Amount'], 150)
         self.assertEqual(payload['RefNo'], 'ORDER-001')
-
-    @patch('requests.post')
-    @patch('odoo.addons.pos_safaricom.models.pos_payment_method.PosPaymentMethod._get_bearer_token')
-    def test_lipa_na_mpesa_register_urls_payload_does_not_expire(self, mock_bearer, mock_post):
-        """Test the registered C2B URLs still work long after the registration"""
-        mock_bearer.return_value = 'test_access_token'
-
-        mock_response = MagicMock()
-        mock_response.json.return_value = {'ResponseCode': '00000000'}
-        mock_post.return_value = mock_response
-
-        self.lipa_na_mpesa.lipa_na_mpesa_register_urls()
-
-        payload = mock_post.call_args.kwargs['json']['ConfirmationURL'].split('payload=')[1]
-        with freeze_time(datetime.now() + timedelta(days=30)):
-            decoded_payload = verify_hash_signed(self.env, 'pos_safaricom', payload)
-        self.assertEqual(decoded_payload, {'payment_method_id': self.lipa_na_mpesa.id})

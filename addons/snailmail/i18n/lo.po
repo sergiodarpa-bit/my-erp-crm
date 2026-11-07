@@ -5,19 +5,30 @@
 # Bone NI <bounkirdni@gmail.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: Odoo Server 19.4a1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-10 18:39+0000\n"
-"PO-Revision-Date: 2026-08-08 01:33+0000\n"
+"POT-Creation-Date: 2026-09-11 17:43+0000\n"
+"PO-Revision-Date: 2026-10-25 05:33+0000\n"
 "Last-Translator: Bone NI <bounkirdni@gmail.com>\n"
-"Language-Team: Lao <https://translate.odoo.com/projects/odoo-19/snailmail/"
+"Language-Team: Lao <https://translate.odoo.com/projects/odoo-20/snailmail/"
 "lo/>\n"
 "Language: lo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.6.1\n"
+"X-Generator: Weblate 2026.8.1\n"
+
+#. module: snailmail
+#: model:ir.module.module,description:base.module_snailmail
+msgid ""
+"\n"
+"Allows users to send documents by post\n"
+"=====================================================\n"
+msgstr ""
+"\n"
+"ອະນຸຍາດໃຫ້ຜູ້ໃຊ້ສົ່ງເອກະສານທາງໄປສະນີ\n"
+"=====================================================\n"
 
 #. module: snailmail
 #: model:ir.model.fields.selection,name:snailmail.selection__snailmail_letter__error_code__attachment_error
@@ -35,25 +46,26 @@ msgstr "ເພີ່ມໜ້າປົກ"
 #: code:addons/snailmail/static/src/core/failure_model_patch.js:0
 msgid ""
 "An error occurred when sending a letter with Snailmail on “%(record_name)s”"
-msgstr "ເກີດຂໍ້ຜິດພາດຂຶ້ນໃນເວລາສົ່ງຈົດໝາຍດ້ວຍ Snailmail ໃນ “%(record_name)s”"
+msgstr ""
+"ເກີດມີຂໍ້ຜິດພາດຂຶ້ນໃນເວລານຳສົ່ງຈົດໝາຍດ້ວຍ Snailmail ທີ່ “%(record_name)s”"
 
 #. module: snailmail
 #. odoo-javascript
 #: code:addons/snailmail/static/src/core/failure_model_patch.js:0
 msgid "An error occurred when sending a letter with Snailmail."
-msgstr "ເກີດຂໍ້ຜິດພາດຂຶ້ນໃນເວລາສົ່ງຈົດໝາຍດ້ວຍ Snailmail."
+msgstr "ເກີດມີຂໍ້ຜິດພາດຂຶ້ນໃນເວລານຳສົ່ງຈົດໝາຍດ້ວຍ Snailmail."
 
 #. module: snailmail
 #. odoo-python
 #: code:addons/snailmail/models/snailmail_letter.py:0
 msgid "An error occurred when sending the document by post.<br>Error: %s"
-msgstr "ເກີດຂໍ້ຜິດພາດຂຶ້ນໃນເວລາສົ່ງເອກະສານທາງໄປສະນີ.<br>ຂໍ້ຜິດພາດ: %s"
+msgstr "ເກີດມີຂໍ້ຜິດພາດຂຶ້ນໃນເວລານຳສົ່ງເອກະສານທາງໄປສະນີ.<br>ຂໍ້ຜິດພາດ: %s"
 
 #. module: snailmail
 #. odoo-python
 #: code:addons/snailmail/models/snailmail_letter.py:0
 msgid "An unknown error happened. Please contact the support."
-msgstr "ເກີດຂໍ້ຜິດພາດທີ່ບໍ່ຮູ້ສາເຫດ. ກະລຸນາຕິດຕໍ່ພາກສ່ວນຊ່ວຍເຫຼືອ."
+msgstr "ເກີດມີຂໍ້ຜິດພາດທີ່ບໍ່ຮູ້ສາເຫດ. ກະລຸນາຕິດຕໍ່ຫາຝ່າຍຊ່ວຍເຫຼືອ."
 
 #. module: snailmail
 #: model:ir.model.fields,field_description:snailmail.field_snailmail_letter__attachment_id
@@ -69,7 +81,7 @@ msgstr "ຊື່ໄຟລ໌ເອກະສານຄັດຕິດ"
 #. odoo-javascript
 #: code:addons/snailmail/static/src/core/notification_model_patch.js:0
 msgid "Awaiting Dispatch"
-msgstr "ກຳລັງລໍຖ້າການສົ່ງອອກ"
+msgstr "ກຳລັງລໍຖ້າການຈັດສົ່ງ"
 
 #. module: snailmail
 #: model:ir.model.fields,field_description:snailmail.field_snailmail_letter__duplex
@@ -82,9 +94,15 @@ msgid "Both sides"
 msgstr "ທັງສອງດ້ານ"
 
 #. module: snailmail
+#. odoo-javascript
+#: code:addons/snailmail/static/src/core/notification_model_patch.js:0
+msgid "Bounced"
+msgstr "ຕີກັບ"
+
+#. module: snailmail
 #: model:ir.model.fields.selection,name:snailmail.selection__snailmail_letter__error_code__credit_error
 msgid "CREDIT_ERROR"
-msgstr "ຂໍ້ຜິດພາດຂອງເຄຣດິດ"
+msgstr "ຂໍ້ຜິດພາດກ່ຽວກັບເຄຣດິດ"
 
 #. module: snailmail
 #: model_terms:ir.ui.view,arch_db:snailmail.snailmail_letter_form
@@ -110,10 +128,6 @@ msgstr "ສີ"
 
 #. module: snailmail
 #: model:ir.model,name:snailmail.model_res_company
-msgid "Companies"
-msgstr "ບໍລິສັດ"
-
-#. module: snailmail
 #: model:ir.model.fields,field_description:snailmail.field_snailmail_letter__company_id
 msgid "Company"
 msgstr "ບໍລິສັດ"
@@ -137,7 +151,7 @@ msgstr "ປະເທດ"
 #. odoo-javascript
 #: code:addons/snailmail/static/src/core/notification_model_patch.js:0
 msgid "Country Not Supported"
-msgstr "ປະເທດບໍ່ຮອງຮັບ"
+msgstr "ບໍ່ຮອງຮັບປະເທດນີ້"
 
 #. module: snailmail
 #: model:ir.model.fields,field_description:snailmail.field_snailmail_letter__cover
@@ -157,7 +171,13 @@ msgstr "ສ້າງໂດຍ"
 #. module: snailmail
 #: model:ir.model.fields,field_description:snailmail.field_snailmail_letter__create_date
 msgid "Created on"
-msgstr "ສ້າງເມື່ອ"
+msgstr "ສ້າງວັນທີ"
+
+#. module: snailmail
+#. odoo-javascript
+#: code:addons/snailmail/static/src/core/notification_model_patch.js:0
+msgid "Dispatched"
+msgstr "ຈັດສົ່ງແລ້ວ"
 
 #. module: snailmail
 #: model:ir.model.fields,field_description:snailmail.field_ir_actions_report__display_name
@@ -172,7 +192,7 @@ msgid "Display Name"
 msgstr "ຊື່ທີ່ສະແດງ"
 
 #. module: snailmail
-#: model:ir.model.fields,field_description:snailmail.field_snailmail_letter__attachment_datas
+#: model:ir.model.fields,field_description:snailmail.field_snailmail_letter__attachment_raw
 #: model_terms:ir.ui.view,arch_db:snailmail.snailmail_letter_list
 msgid "Document"
 msgstr "ເອກະສານ"
@@ -185,7 +205,7 @@ msgstr "ລະຫັດເອກະສານ"
 #. module: snailmail
 #: model:ir.model,name:snailmail.model_mail_thread
 msgid "Email Thread"
-msgstr "ລຳດັບການຕອບໂຕ້ອີເມລ"
+msgstr "ກະທູ້ອີເມວ"
 
 #. module: snailmail
 #. odoo-javascript
@@ -203,7 +223,7 @@ msgstr "ຂໍ້ຜິດພາດຂອງຮູບແບບ"
 #. module: snailmail
 #: model:ir.model.fields,field_description:snailmail.field_mail_notification__failure_type
 msgid "Failure type"
-msgstr "ປະເພດຄວາມລົ້ມເຫຼວ"
+msgstr "ປະເພດຂໍ້ຜິດພາດ"
 
 #. module: snailmail
 #. odoo-javascript
@@ -246,14 +266,19 @@ msgid "Invalid recipient name."
 msgstr "ຊື່ຜູ້ຮັບບໍ່ຖືກຕ້ອງ."
 
 #. module: snailmail
+#: model:ir.model.fields.selection,name:snailmail.selection__snailmail_letter__error_code__letter_undeliverable
+msgid "LETTER_UNDELIVERABLE"
+msgstr "ຈົດໝາຍບໍ່ສາມາດຈັດສົ່ງໄດ້"
+
+#. module: snailmail
 #: model:ir.model.fields,field_description:snailmail.field_snailmail_letter__write_uid
 msgid "Last Updated by"
-msgstr "ແກ້ໄຂຫຼ້າສຸດໂດຍ"
+msgstr "ອັບເດດລ່າສຸດໂດຍ"
 
 #. module: snailmail
 #: model:ir.model.fields,field_description:snailmail.field_snailmail_letter__write_date
 msgid "Last Updated on"
-msgstr "ແກ້ໄຂຫຼ້າສຸດເມື່ອ"
+msgstr "ອັບເດດລ່າສຸດເມື່ອ"
 
 #. module: snailmail
 #: model:ir.model.fields,field_description:snailmail.field_mail_mail__letter_ids
@@ -262,10 +287,28 @@ msgid "Letter"
 msgstr "ຈົດໝາຍ"
 
 #. module: snailmail
+#. odoo-javascript
+#: code:addons/snailmail/static/src/core/notification_model_patch.js:0
+msgid "Letter Undeliverable"
+msgstr "ຈົດໝາຍບໍ່ສາມາດຈັດສົ່ງໄດ້"
+
+#. module: snailmail
+#. odoo-python
+#: code:addons/snailmail/controller/snailmail_webhook.py:0
+msgid "Letter is delivered successfully"
+msgstr "ຈົດໝາຍໄດ້ຖືກຈັດສົ່ງສຳເລັດແລ້ວ"
+
+#. module: snailmail
 #. odoo-python
 #: code:addons/snailmail/models/snailmail_letter.py:0
 msgid "Letter sent by post with Snailmail"
-msgstr "ຈົດໝາຍສົ່ງທາງໄປສະນີດ້ວຍ Snailmail"
+msgstr "ຈົດໝາຍຖືກສົ່ງທາງໄປສະນີດ້ວຍ Snailmail"
+
+#. module: snailmail
+#. odoo-python
+#: code:addons/snailmail/controller/snailmail_webhook.py:0
+msgid "Letter was unable to be delivered"
+msgstr "ຈົດໝາຍບໍ່ສາມາດຈັດສົ່ງໄດ້"
 
 #. module: snailmail
 #: model_terms:ir.ui.view,arch_db:snailmail.snailmail_letter_list
@@ -275,7 +318,7 @@ msgstr "ຈົດໝາຍ"
 #. module: snailmail
 #: model:ir.model.fields.selection,name:snailmail.selection__snailmail_letter__error_code__missing_required_fields
 msgid "MISSING_REQUIRED_FIELDS"
-msgstr "ຂໍ້ມູນທີ່ຈຳເປັນບໍ່ຄົບຖ້ວນ"
+msgstr "ຂາດຊ່ອງຂໍ້ມູນທີ່ຈຳເປັນ"
 
 #. module: snailmail
 #: model:ir.model,name:snailmail.model_mail_message
@@ -284,19 +327,19 @@ msgstr "ຂໍ້ຄວາມ"
 
 #. module: snailmail
 #: model:ir.model,name:snailmail.model_mail_notification
-msgid "Message Notifications"
+msgid "Message Notification"
 msgstr "ການແຈ້ງເຕືອນຂໍ້ຄວາມ"
 
 #. module: snailmail
 #. odoo-javascript
 #: code:addons/snailmail/static/src/core/notification_model_patch.js:0
 msgid "Missing Required Fields"
-msgstr "ຂໍ້ມູນທີ່ຈຳເປັນບໍ່ຄົບຖ້ວນ"
+msgstr "ຂາດຊ່ອງຂໍ້ມູນທີ່ຈຳເປັນ"
 
 #. module: snailmail
 #: model:ir.model.fields,field_description:snailmail.field_snailmail_letter__model
 msgid "Model"
-msgstr "ແບບຈຳລອງ"
+msgstr "ໂມເດວ"
 
 #. module: snailmail
 #: model:ir.model.fields.selection,name:snailmail.selection__snailmail_letter__error_code__no_price_available
@@ -329,18 +372,18 @@ msgstr "ການແຈ້ງເຕືອນ"
 #. odoo-python
 #: code:addons/snailmail/models/snailmail_letter.py:0
 msgid "One or more required fields are empty."
-msgstr "ມີຫ້ອງຂໍ້ມູນທີ່ຈຳເປັນໜຶ່ງຫ້ອງ ຫຼື ຫຼາຍກວ່ານັ້ນຫວ່າງຢູ່."
+msgstr "ມີໜຶ່ງ ຫຼື ຫຼາຍຊ່ອງຂໍ້ມູນທີ່ຈຳເປັນຍັງວ່າງຢູ່."
 
 #. module: snailmail
 #: model:ir.model.fields,field_description:snailmail.field_snailmail_letter__report_template
 msgid "Optional report to print and attach"
-msgstr "ລາຍງານເພີ່ມເຕີມທີ່ຈະພິມ ແລະ ຄັດຕິດ"
+msgstr "ລາຍງານເລືອກໄດ້ທີ່ຈະພິມ ແລະ ຄັດຕິດ"
 
 #. module: snailmail
 #. odoo-python
 #: code:addons/snailmail/models/snailmail_letter.py:0
 msgid "Please use an A4 Paper format."
-msgstr "ກະລຸນານຳໃຊ້ຮູບແບບເຈ້ຍ A4."
+msgstr "ກະລຸນານຳໃຊ້ເຈ້ຍຂະໜາດ A4."
 
 #. module: snailmail
 #: model:ir.model.fields,field_description:snailmail.field_res_config_settings__snailmail_duplex
@@ -351,6 +394,11 @@ msgstr "ພິມທັງສອງດ້ານ"
 #: model:ir.model.fields,field_description:snailmail.field_res_config_settings__snailmail_color
 msgid "Print In Color"
 msgstr "ພິມເປັນສີ"
+
+#. module: snailmail
+#: model:ir.model.fields.selection,name:snailmail.selection__snailmail_letter__state__process
+msgid "Processing"
+msgstr "ກຳລັງດຳເນີນການ"
 
 #. module: snailmail
 #: model:ir.model.fields,field_description:snailmail.field_snailmail_letter__partner_id
@@ -365,17 +413,17 @@ msgstr "ບັນທຶກທີ່ກ່ຽວຂ້ອງ"
 #. module: snailmail
 #: model:ir.model,name:snailmail.model_ir_actions_report
 msgid "Report Action"
-msgstr "ການດຳເນີນການລາຍງານ"
+msgstr "ການກະທຳຂອງລາຍງານ"
 
 #. module: snailmail
 #: model_terms:ir.ui.view,arch_db:snailmail.snailmail_letter_form
 msgid "Send Now"
-msgstr "ສົ່ງຕອນນີ້"
+msgstr "ສົ່ງດຽວນີ້"
 
 #. module: snailmail
 #: model:iap.service,description:snailmail.iap_service_snailmail
 msgid "Send your customer invoices and follow-up reports by post, worldwide."
-msgstr "ສົ່ງໃບແຈ້ງໜີ້ ແລະ ລາຍງານການຕິດຕາມໜີ້ໃຫ້ລູກຄ້າຂອງທ່ານທາງໄປສະນີທົ່ວໂລກ."
+msgstr "ສົ່ງໃບເກັບເງິນຂອງລູກຄ້າ ແລະ ລາຍງານຕິດຕາມໜີ້ທາງໄປສະນີ, ໄປທົ່ວໂລກ."
 
 #. module: snailmail
 #. odoo-javascript
@@ -390,10 +438,16 @@ msgid "Sent by"
 msgstr "ສົ່ງໂດຍ"
 
 #. module: snailmail
+#: model:iap.service,name:snailmail.iap_service_snailmail
+#: model:ir.module.module,shortdesc:base.module_snailmail
+msgid "Snail Mail"
+msgstr "Snail Mail"
+
+#. module: snailmail
 #. odoo-python
 #: code:addons/snailmail/models/snailmail_letter.py:0
 msgid "Snail Mails are successfully sent"
-msgstr "ສົ່ງ Snail Mail ສໍາເລັດແລ້ວ"
+msgstr "ສົ່ງ Snail Mail ສຳເລັດແລ້ວ"
 
 #. module: snailmail
 #: model:ir.model.fields.selection,name:snailmail.selection__mail_message__message_type__snailmail
@@ -404,12 +458,7 @@ msgstr "Snailmail"
 #. module: snailmail
 #: model:ir.model.fields,field_description:snailmail.field_res_company__snailmail_color
 msgid "Snailmail Color"
-msgstr "ສີ Snailmail"
-
-#. module: snailmail
-#: model:ir.model.fields,field_description:snailmail.field_res_config_settings__snailmail_cover_readonly
-msgid "Snailmail Cover Readonly"
-msgstr "ໜ້າປົກ Snailmail ອ່ານໄດ້ຢ່າງດຽວ"
+msgstr "ສີຂອງ Snailmail"
 
 #. module: snailmail
 #: model:ir.model.fields.selection,name:snailmail.selection__mail_notification__failure_type__sn_credit
@@ -420,13 +469,13 @@ msgstr "ຂໍ້ຜິດພາດເຄຣດິດ Snailmail"
 #. odoo-javascript
 #: code:addons/snailmail/static/src/messaging_menu/messaging_menu_patch.js:0
 msgid "Snailmail Failure: %(modelName)s"
-msgstr "Snailmail ລົ້ມເຫຼວ: %(modelName)s"
+msgstr "ຄວາມລົ້ມເຫຼວຂອງ Snailmail: %(modelName)s"
 
 #. module: snailmail
 #. odoo-javascript
 #: code:addons/snailmail/static/src/messaging_menu/messaging_menu_patch.js:0
 msgid "Snailmail Failures"
-msgstr "Snailmail ລົ້ມເຫຼວ"
+msgstr "ຂໍ້ຜິດພາດ Snailmail"
 
 #. module: snailmail
 #: model:ir.model.fields.selection,name:snailmail.selection__mail_notification__failure_type__sn_format
@@ -448,7 +497,7 @@ msgstr "ຈົດໝາຍ Snailmail"
 #. module: snailmail
 #: model:ir.model.fields.selection,name:snailmail.selection__mail_notification__failure_type__sn_fields
 msgid "Snailmail Missing Required Fields"
-msgstr "Snailmail ຂໍ້ມູນທີ່ຈຳເປັນບໍ່ຄົບຖ້ວນ"
+msgstr "Snailmail ຂາດຊ່ອງຂໍ້ມູນທີ່ຈຳເປັນ"
 
 #. module: snailmail
 #: model:ir.model.fields.selection,name:snailmail.selection__mail_notification__failure_type__sn_price
@@ -463,7 +512,12 @@ msgstr "ຂໍ້ຄວາມສະຖານະ Snailmail"
 #. module: snailmail
 #: model:ir.model.fields.selection,name:snailmail.selection__mail_notification__failure_type__sn_trial
 msgid "Snailmail Trial Error"
-msgstr "ຂໍ້ຜິດພາດຂອງການທົດລອງ Snailmail"
+msgstr "ຂໍ້ຜິດພາດການທົດລອງໃຊ້ Snailmail"
+
+#. module: snailmail
+#: model:ir.model.fields.selection,name:snailmail.selection__mail_notification__failure_type__sn_undeliverable
+msgid "Snailmail Undeliverable"
+msgstr "Snailmail ບໍ່ສາມາດຈັດສົ່ງໄດ້"
 
 #. module: snailmail
 #: model:ir.model.fields.selection,name:snailmail.selection__mail_notification__failure_type__sn_error
@@ -471,15 +525,20 @@ msgid "Snailmail Unknown Error"
 msgstr "ຂໍ້ຜິດພາດທີ່ບໍ່ຮູ້ສາເຫດຂອງ Snailmail"
 
 #. module: snailmail
+#: model:ir.model.fields,field_description:snailmail.field_snailmail_letter__letter_uid
+msgid "Snailmail letter ID"
+msgstr "ລະຫັດຈົດໝາຍ Snailmail"
+
+#. module: snailmail
 #: model:ir.model.fields,field_description:snailmail.field_mail_mail__snailmail_error
 #: model:ir.model.fields,field_description:snailmail.field_mail_message__snailmail_error
 msgid "Snailmail message in error"
-msgstr "ຂໍ້ຄວາມ Snailmail ຜິດພາດ"
+msgstr "ຂໍ້ຄວາມ Snailmail ທີ່ຜິດພາດ"
 
 #. module: snailmail
 #: model:ir.actions.server,name:snailmail.snailmail_print_ir_actions_server
 msgid "Snailmail: process letters queue"
-msgstr "Snailmail: ປະມວນຜົນຄິວຈົດໝາຍ"
+msgstr "Snailmail: ດຳເນີນການຄິວຈົດໝາຍ"
 
 #. module: snailmail
 #: model:iap.service,unit_name:snailmail.iap_service_snailmail
@@ -489,7 +548,7 @@ msgstr "ສະແຕມ"
 #. module: snailmail
 #: model:ir.model.fields,field_description:snailmail.field_snailmail_letter__state_id
 msgid "State"
-msgstr "ແຂວງ/ລັດ"
+msgstr "ລັດ/ແຂວງ"
 
 #. module: snailmail
 #: model:ir.model.fields,field_description:snailmail.field_snailmail_letter__state
@@ -509,7 +568,7 @@ msgstr "ຖະໜົນ 2"
 #. module: snailmail
 #: model:ir.model.fields.selection,name:snailmail.selection__snailmail_letter__error_code__trial_error
 msgid "TRIAL_ERROR"
-msgstr "ຂໍ້ຜິດພາດຂອງການທົດລອງ"
+msgstr "ຂໍ້ຜິດພາດການທົດລອງໃຊ້"
 
 #. module: snailmail
 #. odoo-python
@@ -521,29 +580,32 @@ msgstr "ທີ່ຢູ່ຂອງຜູ້ຮັບບໍ່ຄົບຖ້ວ
 #. odoo-python
 #: code:addons/snailmail/models/snailmail_letter.py:0
 msgid ""
-"The attachment of the letter could not be sent. Please check its content and"
-" contact the support if the problem persists."
+"The attachment of the letter could not be sent. Please check its content and "
+"contact the support if the problem persists."
 msgstr ""
-"ບໍ່ສາມາດສົ່ງເອກະສານຄັດຕິດຂອງຈົດໝາຍໄດ້. ກະລຸນາກວດສອບເນື້ອໃນ ແລະ ຕິດຕໍ່ພາກສ່ວນຊ່ວຍເຫຼືອ ຫາກບັນຫາຍັງ"
-"ສືບຕໍ່."
+"ບໍ່ສາມາດສົ່ງເອກະສານຄັດຕິດຂອງຈົດໝາຍໄດ້. ກະລຸນາກວດສອບເນື້ອໃນຂອງມັນ ແລະ ຕິດຕໍ່ຫາຝ່າຍຊ່ວຍເຫຼືອຖ້າຫາກບັ"
+"ນຫາຍັງຄົງສືບຕໍ່ເກີດຂຶ້ນ."
 
 #. module: snailmail
 #. odoo-python
 #: code:addons/snailmail/models/snailmail_letter.py:0
 msgid "The country of the partner is not covered by Snailmail."
-msgstr "ປະເທດຂອງຄູ່ຄ້າບໍ່ໄດ້ຢູ່ໃນພື້ນທີ່ບໍລິການຂອງ Snailmail."
+msgstr "ປະເທດຂອງຄູ່ຄ້າບໍ່ໄດ້ຢູ່ໃນຂອບເຂດບໍລິການຂອງ Snailmail."
+
+#. module: snailmail
+#. odoo-python
+#: code:addons/snailmail/models/snailmail_letter.py:0
+msgid ""
+"The document has been accepted by postal service provider and is being "
+"processed.<br>The tracking id is %s"
+msgstr ""
+"ເອກະສານໄດ້ຖືກຮັບໂດຍຜູ້ໃຫ້ບໍລິການໄປສະນີແລ້ວ ແລະ ກຳລັງຖືກດຳເນີນການ.<br>ລະຫັດຕິດຕາມແມ່ນ %s"
 
 #. module: snailmail
 #. odoo-python
 #: code:addons/snailmail/models/snailmail_letter.py:0
 msgid "The document to be sent exceeds the maximum allowed limit of 8 pages."
-msgstr "ເອກະສານທີ່ຈະສົ່ງເກີນກຳນົດສູງສຸດ 8 ໜ້າ."
-
-#. module: snailmail
-#. odoo-python
-#: code:addons/snailmail/models/snailmail_letter.py:0
-msgid "The document was correctly sent by post.<br>The tracking id is %s"
-msgstr "ເອກະສານຖືກສົ່ງທາງໄປສະນີຢ່າງຖືກຕ້ອງແລ້ວ.<br>ລະຫັດຕິດຕາມແມ່ນ %s"
+msgstr "ເອກະສານທີ່ຈະສົ່ງມີຈຳນວນເກີນກຳນົດສູງສຸດ 8 ໜ້າ."
 
 #. module: snailmail
 #: model:ir.model.fields,field_description:snailmail.field_mail_mail__message_type
@@ -571,27 +633,33 @@ msgid ""
 "'comment': generated by user input e.g. through discuss or composer\n"
 "'email_outgoing': generated by a mailing\n"
 "'notification': generated by system e.g. tracking messages\n"
-"'auto_comment': generated by automated notification mechanism e.g. acknowledgment\n"
+"'auto_comment': generated by automated notification mechanism e.g. "
+"acknowledgment\n"
 "'user_notification': generated for a specific recipient"
 msgstr ""
-"ໃຊ້ເພື່ອແບ່ງປະເພດການສ້າງຂໍ້ຄວາມ\n"
-"'email': ສ້າງໂດຍອີເມລຂາເຂົ້າ ເຊັ່ນ: mailgateway\n"
-"'comment': ສ້າງໂດຍການປ້ອນຂໍ້ມູນຂອງຜູ້ໃຊ້ ເຊັ່ນ: ຜ່ານການສົນທະນາ ຫຼື ການຂຽນຂໍ້ຄວາມ\n"
-"'email_outgoing': ສ້າງໂດຍການສົ່ງເມລ\n"
-"'notification': ສ້າງໂດຍລະບົບ ເຊັ່ນ: ຂໍ້ຄວາມຕິດຕາມ\n"
-"'auto_comment': ສ້າງໂດຍກົນໄກການແຈ້ງເຕືອນອັດຕະໂນມັດ ເຊັ່ນ: ການຕອບຮັບ\n"
-"'user_notification': ສ້າງຂຶ້ນສຳລັບຜູ້ຮັບສະເພາະ"
+"ໃຊ້ເພື່ອແບ່ງປະເພດຂອງຕົວສ້າງຂໍ້ຄວາມ\n"
+"'email': ສ້າງຂຶ້ນຈາກອີເມວຂາເຂົ້າ ເຊັ່ນ mailgateway\n"
+"'comment': ສ້າງຂຶ້ນຈາກການປ້ອນຂໍ້ມູນຂອງຜູ້ໃຊ້ ເຊັ່ນ ຜ່ານການສົນທະນາ ຫຼື ຜູ້ຂຽນຂໍ້ຄວາມ\n"
+"'email_outgoing': ສ້າງຂຶ້ນຈາກການສົ່ງຈົດໝາຍ\n"
+"'notification': ສ້າງຂຶ້ນໂດຍລະບົບ ເຊັ່ນ ຂໍ້ຄວາມຕິດຕາມ\n"
+"'auto_comment': ສ້າງຂຶ້ນໂດຍກົນໄກການແຈ້ງເຕືອນອັດຕະໂນມັດ ເຊັ່ນ ການຮັບຊາບ\n"
+"'user_notification': ສ້າງຂຶ້ນສຳລັບຜູ້ຮັບສະເພາະເຈາະຈົງ"
 
 #. module: snailmail
 #: model:ir.model.fields,help:snailmail.field_snailmail_letter__state
 msgid ""
 "When a letter is created, the status is 'Pending'.\n"
-"If the letter is correctly sent, the status goes in 'Sent',\n"
-"If not, it will got in state 'Error' and the error message will be displayed in the field 'Error Message'."
+"If the letter is correctly sent to provider, the status goes in 'process',\n"
+"If the provider confirms the letter is delivered, the status goes in "
+"'Sent'.\n"
+"If not sent or delivered, it will got in state 'Error' and the error message "
+"will be displayed in the field 'Error Message'."
 msgstr ""
-"ເມື່ອຈົດໝາຍຖືກສ້າງຂຶ້ນ, ສະຖານະຈະເປັນ 'ລໍຖ້າ'.\n"
-"ຖ້າຈົດໝາຍຖືກສົ່ງຢ່າງຖືກຕ້ອງ, ສະຖານະຈະປ່ຽນເປັນ 'ສົ່ງແລ້ວ',\n"
-"ຖ້າບໍ່ດັ່ງນັ້ນ, ມັນຈະຢູ່ໃນສະຖານະ 'ຜິດພາດ' ແລະ ຂໍ້ຄວາມຜິດພາດຈະຖືກສະແດງຢູ່ໃນຫ້ອງ 'ຂໍ້ຄວາມຜິດພາດ'."
+"ເມື່ອຈົດໝາຍຖືກສ້າງຂຶ້ນ, ສະຖານະຈະເປັນ 'Pending'.\n"
+"ຖ້າຫາກຈົດໝາຍຖືກສົ່ງໄປຫາຜູ້ໃຫ້ບໍລິການຢ່າງຖືກຕ້ອງ, ສະຖານະຈະປ່ຽນເປັນ 'process',\n"
+"ຖ້າຜູ້ໃຫ້ບໍລິການຢືນຢັນວ່າຈົດໝາຍໄດ້ຖືກຈັດສົ່ງແລ້ວ, ສະຖານະຈະປ່ຽນເປັນ 'Sent'.\n"
+"ຖ້າຫາກບໍ່ໄດ້ສົ່ງ ຫຼື ບໍ່ໄດ້ຈັດສົ່ງ, ມັນຈະປ່ຽນເປັນສະຖານະ 'Error' ແລະ ຂໍ້ຄວາມຜິດພາດຈະຖືກສະແດງຢູ່ໃນຊ່ອງ "
+"'Error Message'."
 
 #. module: snailmail
 #. odoo-python
@@ -600,8 +668,8 @@ msgid ""
 "You don't have an IAP account registered for this service.<br>Please go to "
 "<a href=%s target=\"new\">iap.odoo.com</a> to claim your free credits."
 msgstr ""
-"ທ່ານບໍ່ມີບັນຊີ IAP ທີ່ລົງທະບຽນສຳລັບບໍລິການນີ້.<br>ກະລຸນາໄປທີ່ <a href=%s target=\"new\">"
-"iap.odoo.com</a> ເພື່ອຂໍຮັບເຄຣດິດຟຣີຂອງທ່ານ."
+"ທ່ານບໍ່ມີບັນຊີ IAP ທີ່ລົງທະບຽນສຳລັບບໍລິການນີ້.<br>ກະລຸນາເຂົ້າໄປທີ່ <a href=%s target=\"new\">"
+"iap.odoo.com</a> ເພື່ອຮັບເຄຣດິດຟຣີຂອງທ່ານ."
 
 #. module: snailmail
 #. odoo-python
@@ -610,8 +678,8 @@ msgid ""
 "You don't have enough credits to perform this operation.<br>Please go to "
 "your <a href=%s target=\"new\">iap account</a>."
 msgstr ""
-"ທ່ານມີເຄຣດິດບໍ່ພຽງພໍເພື່ອດຳເນີນການນີ້.<br>ກະລຸນາໄປທີ່ <a href=%s target=\"new\">ບັນຊີ iap ຂອງ"
-"ທ່ານ</a>."
+"ທ່ານບໍ່ມີເຄຣດິດພຽງພໍເພື່ອດຳເນີນການນີ້.<br>ກະລຸນາເຂົ້າໄປທີ່ <a href=%s target=\"new\">ບັນຊີ "
+"iap</a> ຂອງທ່ານ."
 
 #. module: snailmail
 #: model:ir.model.fields,field_description:snailmail.field_snailmail_letter__zip

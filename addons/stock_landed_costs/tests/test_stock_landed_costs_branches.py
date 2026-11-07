@@ -8,6 +8,8 @@ from odoo.tests import tagged, Form
 @tagged('post_install', '-at_install')
 class TestStockLandedCostsBranches(TestStockValuationLCCommon):
 
+    _test_user_groups = None  # FIXME list needed groups
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()

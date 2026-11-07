@@ -3,15 +3,15 @@
 # * pos_glory_cash
 #
 # "Marianna Ciofani (cima)" <cima@odoo.com>, 2025, 2026.
-# Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
+# Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: my-erp-crm Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-24 17:38+0000\n"
-"PO-Revision-Date: 2026-10-30 11:33+0000\n"
+"POT-Creation-Date: 2026-10-30 17:39+0000\n"
+"PO-Revision-Date: 2026-08-31 19:10+0000\n"
 "Last-Translator: \"Marianna Ciofani (cima)\" <cima@odoo.com>\n"
-"Language-Team: Italian <https://translate.odoo.com/projects/odoo-19/"
+"Language-Team: Italian <https://translate.odoo.com/projects/odoo-s19-4/"
 "pos_glory_cash/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -50,6 +50,11 @@ msgid "Cash Machine IP"
 msgstr "IP ATM"
 
 #. module: pos_glory_cash
+#: model:ir.model.fields,field_description:pos_glory_cash.field_pos_payment_method__glory_use_lna
+msgid "Cash Machine Local Network Access"
+msgstr "Accesso alla rete locale dei bancomat"
+
+#. module: pos_glory_cash
 #: model:ir.model.fields,field_description:pos_glory_cash.field_pos_payment_method__glory_password
 msgid "Cash Machine Password"
 msgstr "Password ATM"
@@ -58,18 +63,6 @@ msgstr "Password ATM"
 #: model:ir.model.fields,field_description:pos_glory_cash.field_pos_payment_method__glory_username
 msgid "Cash Machine Username"
 msgstr "Nome utente ATM"
-
-#. module: pos_glory_cash
-#. odoo-javascript
-#: code:addons/pos_glory_cash/static/src/app/payment_glory.js:0
-msgid "Cash deposited: %s"
-msgstr "Contanti versati: %s"
-
-#. module: pos_glory_cash
-#. odoo-javascript
-#: code:addons/pos_glory_cash/static/src/app/screens/payment_screen/payment_lines/payment_lines.xml:0
-msgid "Cash inserted:"
-msgstr "Contanti inseriti:"
 
 #. module: pos_glory_cash
 #. odoo-javascript
@@ -89,12 +82,6 @@ msgstr "Il bancomat è scollegato"
 #: code:addons/pos_glory_cash/static/src/app/screens/payment_screen/payment_lines/payment_lines.xml:0
 msgid "Cash machine status:"
 msgstr "Stato ATM:"
-
-#. module: pos_glory_cash
-#. odoo-javascript
-#: code:addons/pos_glory_cash/static/src/app/payment_glory.js:0
-msgid "Change given: %s"
-msgstr "Resto dato: %s"
 
 #. module: pos_glory_cash
 #. odoo-javascript
@@ -170,7 +157,7 @@ msgstr "Errore"
 #. odoo-javascript
 #: code:addons/pos_glory_cash/static/src/app/components/glory_error_dialog.xml:0
 msgid "Error code:"
-msgstr "Codice di errore:"
+msgstr ""
 
 #. module: pos_glory_cash
 #. odoo-javascript
@@ -182,7 +169,7 @@ msgstr "Impossibile completare l'autenticazione"
 #. odoo-javascript
 #: code:addons/pos_glory_cash/static/src/app/payment_glory.js:0
 msgid "Failed to cancel cash machine transaction."
-msgstr "Impossibile annullare la transazione del terminale di cassa."
+msgstr ""
 
 #. module: pos_glory_cash
 #. odoo-javascript
@@ -203,18 +190,6 @@ msgid ""
 msgstr ""
 "Impossibile accedere al bancomat Glory, controlla il nome utente e la "
 "password configurati."
-
-#. module: pos_glory_cash
-#. odoo-javascript
-#: code:addons/pos_glory_cash/static/src/app/payment_glory.js:0
-msgid "GLORY TRANSACTION CANCELLED"
-msgstr "TRANSAZIONE GLORY ANNULLATA"
-
-#. module: pos_glory_cash
-#. odoo-javascript
-#: code:addons/pos_glory_cash/static/src/app/payment_glory.js:0
-msgid "GLORY TRANSACTION SUCCESSFUL"
-msgstr "TRANSAZIONE GLORY AVVENUTA CON SUCCESSO"
 
 #. module: pos_glory_cash
 #: model_terms:ir.ui.view,arch_db:pos_glory_cash.pos_payment_method_view_form_inherit_pos_glory_cash
@@ -239,6 +214,11 @@ msgid "Initializing"
 msgstr "Avvio in corso"
 
 #. module: pos_glory_cash
+#: model:ir.module.module,summary:base.module_pos_glory_cash
+msgid "Integrate your POS with a Glory automatic cash payment device"
+msgstr ""
+
+#. module: pos_glory_cash
 #. odoo-javascript
 #: code:addons/pos_glory_cash/static/src/app/payment_glory.js:0
 msgid "Only managers can withdraw cash from the cash machine."
@@ -248,7 +228,12 @@ msgstr "Solo i manager possono ritirare denaro dall'ATM."
 #. odoo-javascript
 #: code:addons/pos_glory_cash/static/src/backend/glory_admin_buttons/glory_admin_buttons.xml:0
 msgid "Open Admin Page"
-msgstr "Apri pagina amministrazione"
+msgstr "Apri pagina amministratore"
+
+#. module: pos_glory_cash
+#: model:ir.module.module,shortdesc:base.module_pos_glory_cash
+msgid "POS Glory Cash Machines"
+msgstr ""
 
 #. module: pos_glory_cash
 #. odoo-javascript
@@ -263,19 +248,17 @@ msgid ""
 "Please remove the cash from the exit of the cash machine before starting a "
 "transaction."
 msgstr ""
-"Rimuovi i contanti dall'uscita del terminale di cassa prima di avviare una "
-"transazione."
 
 #. module: pos_glory_cash
 #: model:ir.model,name:pos_glory_cash.model_pos_payment_method
-msgid "Point of Sale Payment Methods"
-msgstr "Metodi di pagamento Punto vendita"
+msgid "Point of Sale Payment Method"
+msgstr "Metodo di pagamento Punto vendita"
 
 #. module: pos_glory_cash
 #. odoo-javascript
 #: code:addons/pos_glory_cash/static/src/app/components/glory_error_dialog.xml:0
 msgid "Reset"
-msgstr "Azzera"
+msgstr ""
 
 #. module: pos_glory_cash
 #. odoo-javascript
@@ -326,8 +309,6 @@ msgid ""
 "The cash machine is busy counting its inventory, please wait a few seconds "
 "and retry."
 msgstr ""
-"Il terminale di cassa è occupato a contare le scorte, attendi qualche "
-"secondo e riprova."
 
 #. module: pos_glory_cash
 #. odoo-javascript
@@ -366,8 +347,6 @@ msgid ""
 "The cash machine is not ready to start a transaction. Check all the covers "
 "are closed and then try again."
 msgstr ""
-"Il terminale di cassa non è pronto per avviare una transazione. Verifica che "
-"tutti i coperchi siano chiusi e riprova."
 
 #. module: pos_glory_cash
 #. odoo-javascript
@@ -382,8 +361,6 @@ msgid ""
 "The cash machine is unable to return the inserted cash, please refund the "
 "client via another method."
 msgstr ""
-"Il terminale di cassa non è in grado di restituire il contante inserito, "
-"rimborsa il cliente tramite un altro metodo."
 
 #. module: pos_glory_cash
 #. odoo-javascript
@@ -414,8 +391,6 @@ msgid ""
 "There is insufficient cash in the machine to give change. You will need to "
 "refund the difference via another method."
 msgstr ""
-"Contanti insufficienti nel terminale per dare il resto. Sarà necessario "
-"rimborsare la differenza tramite un altro metodo."
 
 #. module: pos_glory_cash
 #. odoo-javascript
@@ -426,12 +401,6 @@ msgid ""
 msgstr ""
 "L'ATM non dispone di contanti sufficienti per effettuare il pagamento. È "
 "necessario annullare l'operazione per continuare."
-
-#. module: pos_glory_cash
-#. odoo-javascript
-#: code:addons/pos_glory_cash/static/src/app/payment_glory.js:0
-msgid "Transaction ID: %s"
-msgstr "ID transazione: %s"
 
 #. module: pos_glory_cash
 #. odoo-javascript
@@ -477,33 +446,3 @@ msgstr "In attesa del magazzino"
 
 #~ msgid "There is insufficient cash in the machine to give change."
 #~ msgstr "Non c'è abbastanza contante nella macchina per dare il resto."
-
-#~ msgid "Request sent"
-#~ msgstr "Richiesta inviata"
-
-#~ msgid "Are you sure you want to reset the cash machine?"
-#~ msgstr "Sei sicuro di voler resettare il bancomat?"
-
-#~ msgid "Discard"
-#~ msgstr "Annulla"
-
-#~ msgid "Download logs"
-#~ msgstr "Scarica registri"
-
-#~ msgid "Reset cash machine"
-#~ msgstr "Resetta bancomat"
-
-#~ msgid ""
-#~ "The cash machine contents could not be verified as it is busy with "
-#~ "another operation."
-#~ msgstr ""
-#~ "Non è stato possibile verificare il contenuto del bancomat poiché è "
-#~ "occupato con un'altra operazione."
-
-#~ msgid ""
-#~ "The cash machine requires verification of its contents, a collection "
-#~ "process will now start. Please refer to the cash machine display."
-#~ msgstr ""
-#~ "Il bancomat richiede la verifica del suo contenuto, verrà avviato un "
-#~ "processo di raccolta. Ti chiediamo di fare riferimento al display del "
-#~ "bancomat."

@@ -16,8 +16,6 @@ This is the latest UK my-erp-crm localisation necessary to run my-erp-crm accoun
     'website': 'https://www.odoo.com/documentation/latest/applications/finance/fiscal_localizations/united_kingdom.html',
     'depends': [
         'account',
-        'base_iban',
-        'base_vat',
     ],
     'auto_install': ['account'],
     'data': [

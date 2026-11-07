@@ -8,7 +8,7 @@ from odoo.addons.mail.tests.common_controllers import MailControllerAttachmentCo
 from odoo.tools.misc import file_open
 
 
-@odoo.tests.tagged("-at_install", "post_install", "mail_controller")
+@odoo.tests.tagged("mail_controller")
 class TestDiscussAttachmentController(MailControllerAttachmentCommon):
     def test_attachment_allowed_upload_public_channel(self):
         """Test access to upload an attachment on an allowed upload public channel"""
@@ -72,7 +72,7 @@ class TestDiscussAttachmentController(MailControllerAttachmentCommon):
             bus_channel = json_dump((self.cr.dbname, bus_record._name, bus_record.id))
             for notif in self._new_bus_notifs.filtered(lambda n: n.channel == bus_channel):
                 payload = json.loads(notif.message)["payload"]
-                yield from payload.get("data", payload).get("ir.attachment", [])
+                yield from payload.get("store_data", payload).get("ir.attachment", [])
 
         def get_tokens(bus_record):
             return {
@@ -85,7 +85,7 @@ class TestDiscussAttachmentController(MailControllerAttachmentCommon):
         channel._add_members(guests=self.guest, users=self.user_portal)
         for pseudo_user in (self.guest, self.user_portal):
             user, guest = self._authenticate_pseudo_user(pseudo_user)
-            persona = guest or user.partner_id
+            persona = guest or user
             IrAttachment = self.env["ir.attachment"].with_user(user).sudo()
             posted, added = IrAttachment.create(
                 [
@@ -131,11 +131,10 @@ class TestDiscussAttachmentController(MailControllerAttachmentCommon):
                     {posted.id, added.id},
                 )
                 self.assertFalse(get_tokens(channel))
-                for attachment in posted + added:
-                    self.make_jsonrpc_request(
-                        "/mail/attachment/delete",
-                        {"access_token": tokens[attachment.id], "attachment_id": attachment.id},
-                    )
+                self.make_jsonrpc_request(
+                    "/mail/attachment/delete",
+                    {"access_token_by_attachment_id": tokens},
+                )
                 self.assertFalse((posted + added).exists())
 
     def test_attachment_ownership_sent_to_author(self):
@@ -160,8 +159,8 @@ class TestDiscussAttachmentController(MailControllerAttachmentCommon):
                 body="Posted",
                 message_type="comment",
             )
-        self.assertIn("ownership_token", get_bus_messages(self.user_portal.partner_id))
-        self.assertNotIn("ownership_token", get_bus_messages(self.user_admin.partner_id))
+        self.assertIn("ownership_token", get_bus_messages(self.user_portal))
+        self.assertNotIn("ownership_token", get_bus_messages(self.user_admin))
         partner = self.env["res.partner"].create({"name": "No user"})
         attachment = IrAttachment.create(
             {"name": "Posted", "res_id": 0, "res_model": "mail.compose.message"},

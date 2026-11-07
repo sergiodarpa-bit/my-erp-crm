@@ -1,18 +1,16 @@
-# -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 import re
 from random import randint
 
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
-from odoo.tools import create_index, frozendict, make_index_name, ormcache
-
-from odoo.addons.base.models.ir_model import MODULE_UNINSTALL_FLAG
+from odoo.tools import frozendict
+from odoo.tools.sql import create_index, make_index_name
 
 
 class AccountAnalyticPlan(models.Model):
     _name = 'account.analytic.plan'
-    _description = 'Analytic Plans'
+    _description = 'Analytic Plan'
     _parent_store = True
     _rec_name = 'complete_name'
     _order = 'sequence asc, id'
@@ -101,10 +99,10 @@ class AccountAnalyticPlan(models.Model):
             )
         self.env.cr.precommit.add(precommit)
 
-    @ormcache()
+    @api.ormcache()
     def __get_all_plans(self):
-        project_plan = self.browse(int(self.env['ir.config_parameter'].sudo().get_param('analytic.project_plan', 0)))
-        if not project_plan:
+        project_plan = self.browse(self.env['ir.config_parameter'].sudo().get_int('analytic.project_plan'))
+        if not project_plan and self.env.registry.ready:
             raise UserError(_("A 'Project' plan needs to exist and its id needs to be set as `analytic.project_plan` in the system variables"))
         other_plans = self.sudo().search([('parent_id', '=', False)]) - project_plan
         return project_plan.id, other_plans.ids
@@ -273,7 +271,7 @@ class AccountAnalyticPlan(models.Model):
         related_fields = self._find_related_field()
         res = super().unlink()
         related_fields.filtered(lambda f: not self._is_subplan_field_used(f)).unlink()
-        self.env.registry.clear_cache('stable')
+        self.env.transaction.invalidate_ormcache('stable')
         self.env.cr.cache.pop('get_relevant_plans', None)
         return res
 
@@ -349,7 +347,7 @@ class AccountAnalyticPlan(models.Model):
 
         # Remove the stored fields of the plans that got a parent and the related fields of the plans that lost it
         to_unlink = IrModelFields.browse(existing[fname].id for fname in to_remove if fname in existing)
-        to_unlink.with_context({MODULE_UNINSTALL_FLAG: True}).unlink()
+        to_unlink.with_context(force_delete=True).unlink()
 
         to_create = []
         to_write = {}  # {description: fields}
@@ -446,7 +444,7 @@ class AccountAnalyticPlan(models.Model):
 
 class AccountAnalyticApplicability(models.Model):
     _name = 'account.analytic.applicability'
-    _description = "Analytic Plan's Applicabilities"
+    _description = "Analytic Plan's Applicability"
     _check_company_auto = True
     _check_company_domain = models.check_company_domain_parent_of
 

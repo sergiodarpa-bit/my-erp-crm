@@ -9,7 +9,7 @@ Adds the mandatory late payment penalty information to French invoices.
     ],
     'auto_install': ['l10n_fr_pdp'],
     'data': [
-        'security/ir.model.access.csv',
+        'security/ir.access.csv',
         'views/account_invoice_report_templates.xml',
         'views/res_config_settings_views.xml',
     ],

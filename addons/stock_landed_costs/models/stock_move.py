@@ -4,15 +4,13 @@ from odoo import models
 class StockMove(models.Model):
     _inherit = "stock.move"
 
-    def _get_landed_cost(self, at_date=None):
+    def _get_landed_cost(self):
         domain = [('move_id', 'in', self.ids), ('cost_id.state', '=', 'done')]
-        if at_date:
-            domain.append(('cost_id.date', '<=', at_date))
         landed_cost_group = self.env['stock.valuation.adjustment.lines']._read_group(domain, ['move_id'], ['id:recordset'])
         return dict(landed_cost_group)
 
-    def _get_value_from_std_price(self, quantity, std_price=False, at_date=None):
-        res = super()._get_value_from_std_price(quantity, std_price, at_date)
+    def _get_value_from_std_price(self, quantity, std_price=False):
+        res = super()._get_value_from_std_price(quantity, std_price)
         validating = self.env.context.get('landed_cost_in_progress')
         if validating and not std_price and self.product_id.cost_method in ('fifo', 'average'):
             # Keep the move's base cost: product and lot costs already absorbed its landed costs
@@ -27,11 +25,11 @@ class StockMove(models.Model):
                 res['value'] = (self.value - applied) / valued_qty * quantity
         return res
 
-    def _get_value_from_extra(self, quantity, at_date=None):
+    def _get_value_from_extra(self, quantity):
         self.ensure_one()
-        accounting_data = super()._get_value_from_extra(quantity, at_date=at_date)
+        accounting_data = super()._get_value_from_extra(quantity)
         # Add landed costs value
-        lcs = self._get_landed_cost(at_date=at_date)
+        lcs = self._get_landed_cost()
         lcs = lcs.get(self)
         if not lcs:
             return accounting_data

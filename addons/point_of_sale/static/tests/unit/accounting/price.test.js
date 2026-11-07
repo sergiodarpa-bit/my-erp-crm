@@ -74,9 +74,25 @@ test("Combo prices incl and excl", async () => {
 
     const [comboParentLine, comboChildLine] = order.lines;
 
-    expect(comboParentLine.comboTotalPrice).toBe(3.75);
-    expect(comboParentLine.comboTotalPriceWithoutTax).toBe(3);
+    expect(comboParentLine.comboTotalPrice).toBe(125);
+    expect(comboParentLine.comboTotalPriceWithoutTax).toBe(100);
 
-    expect(comboChildLine.comboTotalPrice).toBe(3.75);
-    expect(comboChildLine.comboTotalPriceWithoutTax).toBe(3);
+    expect(comboChildLine.comboTotalPrice).toBe(125);
+    expect(comboChildLine.comboTotalPriceWithoutTax).toBe(100);
+});
+
+test("Unit price keeps more digits than the Product Price precision", async () => {
+    const store = await setupPosEnv();
+    const order = store.addNewOrder();
+    order.pricelist_id = false;
+    // 25% tax excluded, Product Price precision is 2
+    const template = store.models["product.template"].get(15);
+    template.list_price = 10.004;
+    template.product_variant_ids[0].lst_price = 10.004;
+
+    const line = await store.addLineToOrder({ product_tmpl_id: template, qty: 2 }, order);
+
+    expect(line.price_unit).toBe(10.004);
+    expect(line.prices.total_excluded).toBe(20.01);
+    expect(line.prices.total_included).toBe(25.01);
 });

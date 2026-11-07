@@ -2,7 +2,8 @@ import { isBlock } from "@html_editor/utils/blocks";
 import { getAdjacentPreviousSiblings } from "@html_editor/utils/dom_traversal";
 import { loadImage } from "@html_editor/utils/image_processing";
 import { getImageSrc } from "@html_editor/utils/image";
-import { blendColors } from "@web/core/utils/colors";
+import { blendColors, convertCSSColorToRgba } from "@web/core/utils/colors";
+import { range } from "@web/core/utils/numbers";
 
 function parentsGet(node, root = undefined) {
     const parents = [];
@@ -43,14 +44,6 @@ const RE_PADDING = /([\d.]+)/;
 const RE_WHITESPACE = /[\s\u200b]*/;
 const SELECTORS_IGNORE = /(^\*$|:hover|:before|:after|:active|:link|::|')|@page/; // :not(:has) should be legal
 const RE_THEME_COLOR_CLASS = /^bg-o-color-\d+$/;
-const VERTICAL_ALIGNS = {
-    start: "top",
-    "flex-start": "top",
-    center: "middle",
-    end: "bottom",
-    "flex-end": "bottom",
-    baseline: "bottom",
-};
 const CONVERT_INLINE_BLACKLIST_CLASSES = ["o_mail_redirect"];
 // CSS properties relating to font, which Outlook seem to have trouble inheriting.
 const FONT_PROPERTIES_TO_INHERIT = [
@@ -717,10 +710,9 @@ function enforceTablesResponsivity(element) {
         let index = 0;
         for (const td of tds) {
             const width = td.style.maxWidth;
-            const verticalAlign = _getVerticalAlign(td);
             const div = document.createElement("div");
             div.style.display = "inline-block";
-            div.style.verticalAlign = verticalAlign;
+            div.style.verticalAlign = "top";
             div.classList.add("o_stacking_wrapper");
             commonTd.appendChild(div);
             const newTable = _createTable();
@@ -737,12 +729,10 @@ function enforceTablesResponsivity(element) {
                     createMso(`
                     <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="width: 100%;">
                         <tr>
-                            <td valign="${verticalAlign}" style="width: ${width};">`)
+                            <td valign="top" style="width: ${width};">`)
                 );
             } else {
-                div.before(
-                    createMso(`</td><td valign="${verticalAlign}" style="width: ${width};">`)
-                );
+                div.before(createMso(`</td><td valign="top" style="width: ${width};">`));
             }
             if (index === tds.length - 1) {
                 div.after(createMso(`</td></tr></table>`));
@@ -882,7 +872,7 @@ function enforceImagesResponsivity(element) {
  *                            specificity: number;}>
  */
 export async function toInline(element, cssRules) {
-    await waitUntilImagesLoaded(element);
+    await Promise.all([element.ownerDocument.fonts.ready, waitUntilImagesLoaded(element)]);
     // Fix card-img-top heights (must happen before we transform everything).
     for (const imgTop of element.querySelectorAll(".card-img-top")) {
         imgTop.style.setProperty("height", _getHeight(imgTop) + "px");
@@ -898,6 +888,7 @@ export async function toInline(element, cssRules) {
     attachmentThumbnailToLinkImg(element);
     fontToImg(element);
     await svgToPng(element);
+    await waitUntilImagesLoaded(element);
     await webpToPng(element);
 
     // Fix img-fluid for Outlook.
@@ -926,11 +917,24 @@ export async function toInline(element, cssRules) {
     formatTables(element);
     normalizeColors(element);
     responsiveToStaticForOutlook(element);
+
+    await waitUntilImagesLoaded(element);
     // Fix Outlook image rendering bug.
     for (const attributeName of ["width", "height"]) {
         const images = element.querySelectorAll("img");
         for (const image of images) {
             if (image.style[attributeName] !== "auto") {
+                if (
+                    attributeName === "width" &&
+                    !image.naturalWidth &&
+                    getComputedStyle(image).display === "block"
+                ) {
+                    // The image hasn't loaded yet (naturalWidth is 0). Its
+                    // src is populated server-side later (qweb compiled).
+                    // A block level img with no intrinsic size falls back to its
+                    // container's width which will stretch the image.
+                    continue;
+                }
                 const value =
                     image.getAttribute(attributeName) ||
                     (attributeName === "height" && image.offsetHeight) ||
@@ -1002,6 +1006,40 @@ function flattenBackgroundImages(element) {
         }
     }
 }
+function convertCSSColorToPILRgba(color) {
+    const obj = convertCSSColorToRgba(color);
+    const bind8bitsIntToHex = (value) =>
+        Math.max(0, Math.min(255, Math.round(value)))
+            .toString(16)
+            .padStart(2, "0");
+    if (obj) {
+        obj.red = bind8bitsIntToHex(obj.red);
+        obj.green = bind8bitsIntToHex(obj.green);
+        obj.blue = bind8bitsIntToHex(obj.blue);
+        // convertCSSColorToRgba returns opacity as a float percentage,
+        // but PIL library needs a 8 bits integer.
+        obj.opacity = bind8bitsIntToHex((255 * obj.opacity) / 100);
+        return `${obj.red}${obj.green}${obj.blue}${obj.opacity}`;
+    }
+    return false;
+}
+
+/**
+ * Return whether the icon rendered by the given `::before` style is the filled
+ * variant of its glyph. It can be reached two ways: the `FILL` variation axis
+ * of the icon font, which snaps at 0.5, and a `_f` suffix on the ligature name.
+ *
+ * @param {CSSStyleDeclaration} beforeStyle the `::before` computed style
+ * @param {string} content the `content` value of that style, without quotes
+ * @returns {boolean}
+ */
+function isIconFilled(beforeStyle, content) {
+    if (content.endsWith("_f")) {
+        return true;
+    }
+    const fillAxis = beforeStyle["font-variation-settings"].match(/["']FILL["']\s+([\d.]+)/);
+    return parseFloat(fillAxis?.[1]) >= 0.5;
+}
 /**
  * Convert font icons to images.
  *
@@ -1009,21 +1047,15 @@ function flattenBackgroundImages(element) {
  *                           converted to images
  */
 function fontToImg(element) {
-    const { fonts } = odoo.loader.modules.get("@html_editor/utils/fonts");
+    for (const font of element.querySelectorAll(".oi")) {
+        const beforeStyle = getComputedStyle(font, "::before");
+        const content = beforeStyle["content"].trim().replace(/['"]/g, "");
+        const icon = content.replace(/_f$/, "");
+        const fill = isIconFilled(beforeStyle, content) ? 1 : 0;
 
-    for (const font of element.querySelectorAll(".fa")) {
-        let icon, content;
-        fonts.fontIcons.find((fontIcon) =>
-            fonts.getCssSelectors(fontIcon.parser).find((data) => {
-                if (font.matches(data.selector.replace(/::?before/g, ""))) {
-                    icon = data.names[0].split("-").shift();
-                    content = data.css.match(/content:\s*['"]?(.)['"]?/)[1];
-                    return true;
-                }
-            })
-        );
-        if (content) {
-            const color = _getStylePropertyValue(font, "color").replace(/\s/g, "");
+        if (icon) {
+            const color =
+                convertCSSColorToPILRgba(_getStylePropertyValue(font, "color")) || "000000ff";
             let backgroundColoredElement = font;
             let bg, isTransparent;
             do {
@@ -1039,6 +1071,7 @@ function fontToImg(element) {
                 // is not supported.
                 bg = "rgb(255,255,255)";
             }
+            bg = convertCSSColorToPILRgba(bg) || "00000000";
             const style = font.getAttribute("style");
             const width = _getWidth(font);
             const height = _getHeight(font);
@@ -1050,8 +1083,9 @@ function fontToImg(element) {
             font.style.setProperty("line-height", "normal");
             const intrinsicWidth = _getWidth(font);
             const intrinsicHeight = _getHeight(font);
-            const hPadding = width && intrinsicWidth && (width - intrinsicWidth) / 2;
-            const vPadding = height && intrinsicHeight && (height - intrinsicHeight) / 2;
+            const hPadding = width && intrinsicWidth && Math.max(0, (width - intrinsicWidth) / 2);
+            const vPadding =
+                height && intrinsicHeight && Math.max(0, (height - intrinsicHeight) / 2);
             let padding = "";
             if (hPadding || vPadding) {
                 padding = vPadding ? vPadding + "px " : "0 ";
@@ -1060,14 +1094,11 @@ function fontToImg(element) {
             const image = document.createElement("img");
             image.setAttribute("width", intrinsicWidth);
             image.setAttribute("height", intrinsicHeight);
+            const renderWidth = Math.max(1, Math.round(intrinsicWidth));
+            const renderHeight = Math.max(1, Math.round(intrinsicHeight));
             image.setAttribute(
                 "src",
-                `/mail/font_to_img/${content.charCodeAt(0)}/${encodeURIComponent(
-                    color
-                )}/${encodeURIComponent(bg)}/${Math.max(1, Math.round(intrinsicWidth))}x${Math.max(
-                    1,
-                    Math.round(intrinsicHeight)
-                )}`
+                `/mail/font_to_img/${icon}/oi/${fill}/${color}/${bg}/${renderWidth}x${renderHeight}fs${renderHeight}`
             );
             image.setAttribute("data-class", font.getAttribute("class"));
             image.setAttribute("data-style", style);
@@ -1104,13 +1135,9 @@ function fontToImg(element) {
             wrapper.style.setProperty("height", height + "px");
             wrapper.style.setProperty("vertical-align", "text-bottom");
             wrapper.style.setProperty("background-color", image.style.backgroundColor);
-            wrapper.setAttribute(
-                "class",
-                "oe_unbreakable " + // prevent sanitize from grouping image wrappers
-                    font
-                        .getAttribute("class")
-                        .replace(new RegExp("(^|\\s+)" + icon + "(-[^\\s]+)?", "gi"), "") // remove inline font-awsome style
-            );
+            wrapper.className = font.className;
+            wrapper.classList.remove("oi");
+            wrapper.classList.add("oe_unbreakable"); // prevent sanitize from grouping image wrappers
         } else {
             font.remove();
         }
@@ -1703,12 +1730,12 @@ function _computeStyleAndSpecificityOnRules(cssRules) {
     }
 }
 /**
- * Return an array of twelve table cells as JQuery elements.
+ * Return an array of twelve table cells as HTML elements.
  *
  * @returns {Element[]}
  */
 function _createColumnGrid() {
-    return new Array(12).fill().map(() => document.createElement("td"));
+    return range(12).map(() => document.createElement("td"));
 }
 /**
  * Return a comment element with the given content, wrapped in an mso condition.
@@ -1796,24 +1823,6 @@ function _getColumnOffsetSize(column) {
         (offsetOptions && (offsetOptions.length === 2 ? +offsetOptions[1] : +offsetOptions[0])) ||
         0;
     return offsetSize;
-}
-/**
- * Return the `vertical-align` matching the flex alignment of a cell converted
- * from a Bootstrap column: its own `align-self`, else its row's `align-items`.
- * In a row stacking its columns vertically, those are horizontal alignments.
- * Computed styles are read as `classToStyle` drops the inline flex values.
- *
- * @param {Element} td
- * @returns {string}
- */
-function _getVerticalAlign(td) {
-    const rowStyle = getComputedStyle(td.parentElement);
-    if (rowStyle.flexDirection.startsWith("column")) {
-        return "top";
-    }
-    const alignSelf = getComputedStyle(td).alignSelf;
-    const alignment = alignSelf === "auto" ? rowStyle.alignItems : alignSelf;
-    return VERTICAL_ALIGNS[alignment] || "top";
 }
 /**
  * Return the CSS rules which applies on an element, tweaked so that they are
@@ -2242,6 +2251,9 @@ function correctBorderAttributes(style) {
 function waitUntilImagesLoaded(root) {
     const promises = [];
     for (const img of root.querySelectorAll('img[src]:not([src=""])')) {
+        if (img.complete) {
+            continue;
+        }
         const src = getImageSrc(img);
         if (src) {
             promises.push(loadImage(src));

@@ -26,13 +26,13 @@ class HrLeaveAttendanceReport(models.Model):
     leave_hours = fields.Float("Approved Time Off")
     difference_hours = fields.Float("Difference", help="Worked Hours - Expected Hours + Approved Time Off")
 
-    leave_type_names = fields.Char("Time Off Types", compute="_compute_leave_attendance_fields")
+    work_entry_type_names = fields.Char("Time Types", compute="_compute_leave_attendance_fields")
     leave_ids = fields.Many2many("hr.leave", string="Time Offs", compute="_compute_leave_attendance_fields")
     attendance_ids = fields.Many2many("hr.attendance", string="Attendances", compute="_compute_leave_attendance_fields")
 
     @api.depends('employee_id', 'date')
     def _compute_leave_attendance_fields(self):
-        today = fields.Date.today()
+        today = fields.Date.context_today(self)
         min_date = today - relativedelta(years=1)
         max_date = today - relativedelta(days=1)
 
@@ -49,6 +49,7 @@ class HrLeaveAttendanceReport(models.Model):
         attendances_by_employees = dict(self.env['hr.attendance']._read_group(
             domain=[
                 ('employee_id', 'in', self.employee_id.ids),
+                ('state', '=', 'validated'),
                 ('check_in', '>=', min_date),
                 ('check_in', '<=', max_date),
             ],
@@ -59,19 +60,20 @@ class HrLeaveAttendanceReport(models.Model):
         for rec in self:
             leaves = leaves_by_employees.get(rec.employee_id, self.env['hr.leave'])
             rec_date_leaves = leaves.filtered(
-                lambda lv: self._timestamped(lv.date_from) <= rec.date <= self._timestamped(lv.date_to),
+                lambda lv: self._timestamped(lv.date_from, rec.employee_id) <= rec.date <= self._timestamped(lv.date_to, rec.employee_id),
             )
             rec.leave_ids = rec_date_leaves.ids
-            leave_type_ids = rec_date_leaves.mapped('holiday_status_id')
-            rec.leave_type_names = ', '.join(leave_type_ids.mapped('name'))
+            work_entry_type_ids = rec_date_leaves.mapped('work_entry_type_id')
+            rec.work_entry_type_names = ', '.join(work_entry_type_ids.mapped('name'))
 
             attendances = attendances_by_employees.get(rec.employee_id, self.env['hr.attendance'])
             rec.attendance_ids = attendances.filtered(
-                lambda att: self._timestamped(att.check_in) == rec.date,
+                lambda att: self._timestamped(att.check_in, rec.employee_id) == rec.date,
             ).ids
 
-    def _timestamped(self, date):
-        return fields.Datetime.context_timestamp(self, date).date()
+    def _timestamped(self, date, employee):
+        """Local date of ``date`` for ``employee``, as the days of the report."""
+        return fields.Datetime.context_timestamp(self.with_context(tz=employee._get_tz()), date).date()
 
     def _cte_bounds(self):
         return SQL("""
@@ -80,40 +82,102 @@ class HrLeaveAttendanceReport(models.Model):
         """)
 
     def _cte_cal_workday(self):
-        """Aggregate scheduled hours per calendar/day key, summing split shifts on the same day.
-        The day key (see `_sql_day_key`) gives each day of a two-weeks cycle its own number,
-        so two-weeks calendars keep both weeks apart. Attendances that apply every week
-        (`week_type` NULL) are listed under the keys of both weeks. The joins in `_from`/
-        `_cte_leave_day` can then match on the day key alone, instead of an `OR` on
-        `week_type` whose row count PostgreSQL cannot estimate.
+        """Scheduled hours per weekday, for fixed calendars.
+
+        Split shifts on the same weekday are summed, so a day is worth what it is
+        really scheduled for instead of the calendar-wide average. Fixed calendars
+        are the attendances carrying no `date`; the dated ones belong to variable
+        calendars and are resolved per real date by `_cte_cal_date()`.
         """
         return SQL("""
-            SELECT rca.calendar_id,
-                   rca.dayofweek::integer + 7 * p.parity AS day_key,
-                   SUM(rca.duration_hours) AS hours_per_day
-              FROM resource_calendar_attendance AS rca
-              JOIN (VALUES (0), (1)) AS p(parity)
-                ON rca.week_type IS NULL
-                OR rca.week_type::integer = p.parity
-             WHERE rca.display_type IS NULL
-          GROUP BY rca.calendar_id, day_key
+            SELECT calendar_id,
+                   dayofweek::integer AS dayofweek,
+                   SUM(duration_hours) AS hours_per_day
+              FROM resource_calendar_attendance
+             WHERE date IS NULL
+          GROUP BY calendar_id, dayofweek
         """)
 
-    def _sql_day_key(self, day_column):
-        """Day key of `day_column` (an SQL expression for a date column) matching
-        `cal_workday.day_key`:
+    def _cte_span(self):
+        """Day range `cal_date` has to cover: the report window, widened to the
+        whole span of the leaves the report pro-rates.
 
-            First week:  Monday 0, Tuesday 1, ..., Sunday 6
-            Second week: Monday 7, Tuesday 8, ..., Sunday 13
-
-        The week is computed like resource.calendar.attendance.get_week_type(): the
-        parity of the number of weeks since 0001-01-01, the same for every two-weeks
-        calendar, with no per-calendar reference date needed.
+        A leave that starts before the window is still divided over all of its
+        working days, so those days have to resolve to a schedule even when they
+        fall outside the window. The extra day on each side absorbs the timezone
+        shift applied when leaves are cut into days.
         """
-        return SQL(
-            "EXTRACT(ISODOW FROM %s)::integer - 1 + 7 * MOD((%s::date - DATE '0001-01-01') / 7, 2)",
-            day_column, day_column,
-        )
+        return SQL("""
+            SELECT LEAST(b.date_from, MIN(lv.date_from)::date) - 1 AS date_from,
+                   GREATEST(b.date_to, MAX(lv.date_to)::date) + 1 AS date_to
+              FROM bounds AS b
+         LEFT JOIN leave AS lv
+                ON TRUE
+          GROUP BY b.date_from, b.date_to
+        """)
+
+    def _cte_cal_date(self):
+        """Scheduled hours per real date, for variable calendars.
+
+        Mirrors `resource.calendar.attendance._filter_by_date()`: a one-off
+        attendance counts on its own date, a recurring one every
+        `recurrency_interval` days (or weeks) from its date up to
+        `recurrency_until`, except on the dates listed in
+        `recurrency_excluded_occurences`. Each series starts on its first
+        occurrence inside `span` instead of on the attendance date, so an old
+        recurrence is not expanded from its beginning.
+        """
+        return SQL("""
+            SELECT calendar_id,
+                   day,
+                   SUM(duration_hours) AS hours_per_day
+              FROM (
+                    SELECT rca.calendar_id,
+                           rca.date AS day,
+                           rca.duration_hours
+                      FROM resource_calendar_attendance AS rca
+                CROSS JOIN span AS s
+                     WHERE rca.recurrency IS NOT TRUE
+                       AND rca.date IS NOT NULL
+                       AND rca.date BETWEEN s.date_from AND s.date_to
+
+                    UNION ALL
+
+                    SELECT rca.calendar_id,
+                           gs.day::date AS day,
+                           rca.duration_hours
+                      FROM resource_calendar_attendance AS rca
+                CROSS JOIN span AS s
+                CROSS JOIN LATERAL (
+                               SELECT GREATEST(
+                                          CASE WHEN rca.recurrency_type = 'weeks'
+                                               THEN rca.recurrency_interval * 7
+                                               ELSE rca.recurrency_interval
+                                          END, 1) AS period
+                           ) AS p
+                CROSS JOIN LATERAL generate_series(
+                               rca.date + CEIL(GREATEST(s.date_from - rca.date, 0)::numeric / p.period)::integer * p.period,
+                               LEAST(rca.recurrency_until, s.date_to),
+                               (p.period || ' days')::interval
+                           ) AS gs(day)
+                     WHERE rca.recurrency
+                       AND rca.date IS NOT NULL
+                       AND rca.recurrency_type IN ('days', 'weeks')
+                       AND rca.date <= s.date_to
+                       AND rca.recurrency_until >= s.date_from
+                       AND NOT COALESCE(rca.recurrency_excluded_occurences, '[]'::jsonb)
+                               @> to_jsonb(gs.day::date::text)
+                   ) AS dated
+          GROUP BY calendar_id, day
+        """)
+
+    def _sql_expected_hours(self):
+        """Hours scheduled on the joined day: the weekday value for a fixed
+        calendar, the dated one for a variable calendar. A calendar is either
+        fixed or variable, so at most one side ever matches; when neither does,
+        the day simply is not worked.
+        """
+        return SQL("COALESCE(cw.hours_per_day, cd.hours_per_day)")
 
     def _cte_emp_day(self):
         """Resolve the effective version once for every employee/day."""
@@ -123,7 +187,7 @@ class HrLeaveAttendanceReport(models.Model):
                    emp.company_id,
                    gs.day::date AS day,
                    v.resource_calendar_id,
-                   COALESCE(rc.tz, 'UTC') AS tz
+                   COALESCE(v.tz, 'UTC') AS tz
               FROM hr_version AS v
               JOIN hr_employee AS emp
                 ON emp.id = v.employee_id
@@ -135,7 +199,8 @@ class HrLeaveAttendanceReport(models.Model):
                        LEAST(COALESCE(v.contract_date_end, b.date_to), b.date_to),
                        INTERVAL '1 day'
                    ) AS gs(day)
-             WHERE v.contract_date_start IS NOT NULL
+             WHERE v.active
+               AND v.contract_date_start IS NOT NULL
                AND v.date_version <= b.date_to
           ORDER BY v.employee_id, gs.day, v.date_version DESC
         """)
@@ -203,14 +268,21 @@ class HrLeaveAttendanceReport(models.Model):
     def _cte_attendance(self):
         """Aggregate only rows that can map to a day in the report window."""
         return SQL("""
-            SELECT employee_id,
-                   (check_in AT TIME ZONE 'UTC')::date AS check_date,
-                   SUM(worked_hours) AS worked_hours
-              FROM hr_attendance
+            SELECT att.employee_id,
+                   ec.tz,
+                   (att.check_in AT TIME ZONE 'UTC' AT TIME ZONE ec.tz)::date AS check_date,
+                   SUM(att.worked_hours) AS worked_hours
+              FROM hr_attendance AS att
+              JOIN (
+                    SELECT DISTINCT employee_id, tz
+                      FROM emp_cal
+                   ) AS ec
+                ON ec.employee_id = att.employee_id
         CROSS JOIN bounds AS b
-             WHERE check_in >= b.date_from - INTERVAL '1 day'
-               AND check_in < b.date_to + INTERVAL '2 days'
-          GROUP BY employee_id, check_date
+             WHERE att.state = 'validated'
+               AND att.check_in >= b.date_from - INTERVAL '1 day'
+               AND att.check_in < b.date_to + INTERVAL '2 days'
+          GROUP BY att.employee_id, ec.tz, check_date
         """)
 
     def _cte_leave(self):
@@ -220,10 +292,10 @@ class HrLeaveAttendanceReport(models.Model):
                    lv.number_of_hours,
                    lv.date_from,
                    lv.date_to,
-                   lvt.include_public_holidays_in_duration
+                   wet.include_public_holidays_in_duration
               FROM hr_leave AS lv
-              JOIN hr_leave_type AS lvt
-                ON lvt.id = lv.holiday_status_id
+              JOIN hr_work_entry_type AS wet
+                ON wet.id = lv.work_entry_type_id
         CROSS JOIN bounds AS b
              WHERE lv.state = 'validate'
                AND lv.date_from < b.date_to + INTERVAL '2 days'
@@ -255,9 +327,12 @@ class HrLeaveAttendanceReport(models.Model):
                                (lv.date_to AT TIME ZONE 'UTC' AT TIME ZONE ec.tz)::date,
                                INTERVAL '1 day'
                            ) AS d(day)
-                      JOIN cal_workday AS cw
+                 LEFT JOIN cal_workday AS cw
                         ON cw.calendar_id = ec.calendar_id
-                       AND cw.day_key = %s
+                       AND cw.dayofweek = EXTRACT(ISODOW FROM d.day)::integer - 1
+                 LEFT JOIN cal_date AS cd
+                        ON cd.calendar_id = ec.calendar_id
+                       AND cd.day = d.day::date
                  LEFT JOIN holiday AS h
                         ON NOT lv.include_public_holidays_in_duration
                        AND h.company_id = ec.company_id
@@ -265,45 +340,53 @@ class HrLeaveAttendanceReport(models.Model):
                        AND h.tz = ec.tz
                        AND h.day = d.day::date
                      WHERE h.day IS NULL
+                       AND %(expected_hours)s IS NOT NULL
                    ) AS charge
           GROUP BY charge.employee_id, charge.calendar_id, charge.tz, charge.day
-        """, self._sql_day_key(SQL("d.day")))
+        """, expected_hours=self._sql_expected_hours())
 
     def _select(self):
         return SQL("""
             SELECT row_number() OVER (ORDER BY ed.day DESC, ed.employee_id) AS id,
                    ed.day AS date,
                    ed.employee_id,
-                   ed.resource_calendar_id AS schedule_id,
+                   rc.id AS schedule_id,
                    ROUND(COALESCE(att.worked_hours, 0.0)::numeric, 2) AS worked_hours,
-                   ROUND(COALESCE(cw.hours_per_day, 0.0)::numeric, 2) AS expected_hours,
+                   ROUND(COALESCE(%(expected_hours)s, 0.0)::numeric, 2) AS expected_hours,
                    ROUND(COALESCE(ld.leave_hours, 0.0)::numeric, 2) AS leave_hours,
                    (
                        ROUND(COALESCE(att.worked_hours, 0.0)::numeric, 2)
-                       - ROUND(COALESCE(cw.hours_per_day, 0.0)::numeric, 2)
+                       - ROUND(COALESCE(%(expected_hours)s, 0.0)::numeric, 2)
                        + ROUND(COALESCE(ld.leave_hours, 0.0)::numeric, 2)
                    ) AS difference_hours
-        """)
+        """, expected_hours=self._sql_expected_hours())
 
     def _from(self):
         return SQL("""
               FROM emp_day AS ed
-              JOIN cal_workday AS cw
+              JOIN resource_calendar AS rc
+                ON rc.id = ed.resource_calendar_id
+         LEFT JOIN cal_workday AS cw
                 ON cw.calendar_id = ed.resource_calendar_id
-               AND cw.day_key = %s
+               AND cw.dayofweek = EXTRACT(ISODOW FROM ed.day)::integer - 1
+         LEFT JOIN cal_date AS cd
+                ON cd.calendar_id = ed.resource_calendar_id
+               AND cd.day = ed.day
          LEFT JOIN attendance AS att
                 ON att.employee_id = ed.employee_id
+               AND att.tz = ed.tz
                AND att.check_date = ed.day
          LEFT JOIN leave_day AS ld
                 ON ld.employee_id = ed.employee_id
                AND ld.calendar_id = ed.resource_calendar_id
                AND ld.tz = ed.tz
                AND ld.day = ed.day
-        """, self._sql_day_key(SQL("ed.day")))
+        """)
 
     def _where(self):
         return SQL("""
-             WHERE NOT EXISTS (
+             WHERE %(expected_hours)s IS NOT NULL
+               AND NOT EXISTS (
                        SELECT 1
                          FROM holiday AS h
                         WHERE h.company_id = ed.company_id
@@ -311,7 +394,7 @@ class HrLeaveAttendanceReport(models.Model):
                           AND h.tz = ed.tz
                           AND h.day = ed.day
                    )
-        """)
+        """, expected_hours=self._sql_expected_hours())
 
     def init(self):
         drop_view_if_exists(self.env.cr, self._table)
@@ -325,6 +408,8 @@ class HrLeaveAttendanceReport(models.Model):
                      holiday      AS (%s),
                      attendance   AS (%s),
                      leave        AS (%s),
+                     span         AS (%s),
+                     cal_date     AS (%s),
                      leave_day    AS (%s)
                 %s -- select
                 %s -- from
@@ -338,6 +423,8 @@ class HrLeaveAttendanceReport(models.Model):
             self._cte_holiday(),
             self._cte_attendance(),
             self._cte_leave(),
+            self._cte_span(),
+            self._cte_cal_date(),
             self._cte_leave_day(),
             self._select(),
             self._from(),

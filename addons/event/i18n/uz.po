@@ -14,17 +14,35 @@ msgid ""
 msgstr ""
 "Project-Id-Version: my-erp-crm Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-24 17:37+0000\n"
-"PO-Revision-Date: 2026-08-08 01:13+0000\n"
+"POT-Creation-Date: 2026-10-30 17:39+0000\n"
+"PO-Revision-Date: 2026-08-31 14:40+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Uzbek <https://translate.odoo.com/projects/odoo-19/event/uz/"
-">\n"
+"Language-Team: Uzbek <https://translate.odoo.com/projects/odoo-s19-4/event/"
+"uz/>\n"
 "Language: uz\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.6.1\n"
+"X-Generator: Weblate 2026.8.1\n"
+
+#. module: event
+#: model:ir.module.module,description:base.module_event
+msgid ""
+"\n"
+"Organization and management of Events.\n"
+"======================================\n"
+"\n"
+"The event module allows you to efficiently organize events and all related "
+"tasks: planning, registration tracking,\n"
+"attendances, etc.\n"
+"\n"
+"Key Features\n"
+"------------\n"
+"* Manage your Events and Registrations\n"
+"* Use emails to automatically confirm and send acknowledgments for any event "
+"registration\n"
+msgstr ""
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_question__event_count
@@ -103,13 +121,6 @@ msgstr "%(ticket_name)s (%(count)s ta bo‘sh joy bor)"
 #, fuzzy
 msgid "%(ticket_name)s (Sold out)"
 msgstr "%(ticket_name)s (Sotilgan)"
-
-#. module: event
-#. odoo-python
-#: code:addons/event/models/event_event.py:0
-#, fuzzy
-msgid "%s (copy)"
-msgstr "%s (nusxa)"
 
 #. module: event
 #: model:ir.actions.report,print_report_name:event.action_report_event_event_attendee_list
@@ -298,59 +309,87 @@ msgstr ""
 "o‘z ichiga olishi mumkin. Har bir taqdimot ingliz tilida bo‘lishi shart.</em>"
 
 #. module: event
-#: model_terms:ir.ui.view,arch_db:event.view_event_slot_form
-#, fuzzy
-msgid "<i class=\"fa fa-arrow-right mx-2\" title=\"to\"/>"
-msgstr "<i class=\"fa fa-arrow-right mx-2\" title=\"ga\"/>"
-
-#. module: event
-#: model_terms:ir.ui.view,arch_db:event.event_registration_view_kanban
-#, fuzzy
-msgid "<i class=\"fa fa-building\" title=\"Attendee Company\"/>"
-msgstr "<i class=\"fa fa-building\" title=\"Ishtirokchi tashkiloti\"/>"
-
-#. module: event
-#: model_terms:ir.ui.view,arch_db:event.event_registration_view_kanban
-#, fuzzy
-msgid "<i class=\"fa fa-calendar\" title=\"Slot\"/>"
-msgstr "<i class=\"fa fa-calendar\" title=\"Vaqt oralig‘i\"/>"
-
-#. module: event
 #: model_terms:ir.ui.view,arch_db:event.view_event_kanban
-#, fuzzy
-msgid "<i class=\"fa fa-group mt-1 me-2 text-center\" title=\"Attendees\"/>"
+msgid "<i class=\"oi me-2\" data-icon=\"east\" title=\"End date\"/>"
 msgstr ""
-"<i class=\"fa fa-group mt-1 me-2 text-center\" title=\"Ishtirokchilar\"/>"
 
 #. module: event
 #: model_terms:event.event,description:event.event_0
-#, fuzzy
 msgid ""
-"<i class=\"fa fa-info-circle me-2\"></i>This event and all the conferences "
-"are in <b>English</b>!"
+"<i class=\"oi me-2\" data-icon=\"info\"></i>This event and all the "
+"conferences are in <b>English</b>!"
 msgstr ""
-"<i class=\"fa fa-info-circle me-2\"></i>Ushbu tadbir va barcha "
-"konferensiyalar <b>ingliz</b> tilida o‘tkaziladi!"
+
+#. module: event
+#: model_terms:ir.ui.view,arch_db:event.view_event_slot_form
+msgid "<i class=\"oi mx-2\" data-icon=\"arrow_forward\" title=\"to\"/>"
+msgstr ""
 
 #. module: event
 #: model_terms:ir.ui.view,arch_db:event.view_event_kanban
-#, fuzzy
 msgid ""
-"<i class=\"fa fa-map-marker mt-1 me-2 text-center ps-1\" title=\"Location\"/>"
+"<i class=\"oi oi-filled mt-1 me-2 text-center\" data-icon=\"group\" "
+"title=\"Attendees\"/>"
 msgstr ""
-"<i class=\"fa fa-map-marker mt-1 me-2 text-center ps-1\" title=\"Manzil\"/>"
+
+#. module: event
+#: model_terms:ir.ui.view,arch_db:event.view_event_kanban
+msgid ""
+"<i class=\"oi oi-filled mt-1 me-2 text-center\" data-icon=\"location_on\" "
+"title=\"Location\"/>"
+msgstr ""
 
 #. module: event
 #: model_terms:ir.ui.view,arch_db:event.event_registration_view_kanban
-#, fuzzy
-msgid "<i class=\"fa fa-ticket\" title=\"Ticket type\"/>"
-msgstr "<i class=\"fa fa-ticket\" title=\"Chipta turi\"/>"
+msgid "<i class=\"oi oi-filled\" data-icon=\"calendar_today\" title=\"Slot\"/>"
+msgstr ""
 
 #. module: event
-#: model_terms:ir.ui.view,arch_db:event.view_event_kanban
-#, fuzzy
-msgid "<i class=\"oi oi-arrow-right me-2\" title=\"End date\"/>"
-msgstr "<i class=\"oi oi-arrow-right me-2\" title=\"Tugash sanasi\"/>"
+#: model_terms:ir.ui.view,arch_db:event.portal_my_events
+msgid ""
+"<i class=\"oi oi-fw\" data-icon=\"check\" aria-label=\"Attended\" "
+"title=\"Attended\" role=\"img\"/>\n"
+"                                <span class=\"d-none d-md-inline\"> "
+"Attended</span>"
+msgstr ""
+
+#. module: event
+#: model_terms:ir.ui.view,arch_db:event.portal_my_events
+msgid ""
+"<i class=\"oi oi-fw\" data-icon=\"check\" aria-label=\"Registered\" "
+"title=\"Registered\" role=\"img\"/>\n"
+"                                <span class=\"d-none d-md-inline\"> "
+"Registered</span>"
+msgstr ""
+
+#. module: event
+#: model_terms:ir.ui.view,arch_db:event.portal_my_events
+msgid ""
+"<i class=\"oi oi-fw\" data-icon=\"close\" aria-label=\"Cancelled\" "
+"title=\"Cancelled\" role=\"img\"/>\n"
+"                                <span class=\"d-none d-md-inline\"> "
+"Cancelled</span>"
+msgstr ""
+
+#. module: event
+#: model_terms:ir.ui.view,arch_db:event.portal_my_events
+msgid ""
+"<i class=\"oi oi-fw\" data-icon=\"schedule\" aria-label=\"Unconfirmed\" "
+"title=\"Unconfirmed\" role=\"img\"/>\n"
+"                                <span class=\"d-none d-md-inline\"> "
+"Unconfirmed</span>"
+msgstr ""
+
+#. module: event
+#: model_terms:ir.ui.view,arch_db:event.event_registration_view_kanban
+msgid "<i class=\"oi\" data-icon=\"business\" title=\"Attendee Company\"/>"
+msgstr ""
+
+#. module: event
+#: model_terms:ir.ui.view,arch_db:event.event_registration_view_kanban
+msgid ""
+"<i class=\"oi\" data-icon=\"confirmation_number\" title=\"Ticket type\"/>"
+msgstr ""
 
 #. module: event
 #: model_terms:event.event,description:event.event_2
@@ -1620,15 +1659,13 @@ msgstr "Mijozlaringizga yetkazmoqchi bo‘lgan chipta tavsifi."
 #. module: event
 #. odoo-python
 #: code:addons/event/models/event_slot.py:0
-#, fuzzy
 msgid ""
 "A slot cannot be scheduled outside of its event time range.\n"
 "\n"
-"Event:\t\t%(event_start)s - %(event_end)s\n"
-"Slot:\t\t%(slot_name)s"
+"Event:\t%(event_start_date)s, %(event_start_time)s - %(event_end_date)s, %"
+"(event_end_time)s\n"
+"Slot:\t%(slot_name)s"
 msgstr ""
-"Slotni tadbir vaqt oralig‘idan tashqarida rejalashtirish mumkin emas.  "
-"Tadbir: %(event_start)s - %(event_end)s Slot: %(slot_name)s"
 
 #. module: event
 #. odoo-python
@@ -1658,6 +1695,11 @@ msgstr "A4 buklama"
 #, fuzzy
 msgid "A6"
 msgstr "A6"
+
+#. module: event
+#: model:portal.entry,description:event.portal_events_client
+msgid "Access all your event tickets"
+msgstr ""
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_event__message_needaction
@@ -1699,6 +1741,12 @@ msgstr "Faoliyat"
 #, fuzzy
 msgid "Activity Exception Decoration"
 msgstr "Faoliyat istisnosini bezash"
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event__activity_plans_ids
+#: model:ir.model.fields,field_description:event.field_event_registration__activity_plans_ids
+msgid "Activity Plans"
+msgstr ""
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_event__activity_state
@@ -1751,6 +1799,17 @@ msgstr ""
 "Ba'zi ichki qaydlarni qo‘shing (vazifalar ro‘yxati, aloqa ma'lumotlari, ...)"
 
 #. module: event
+#. odoo-javascript
+#: code:addons/event/static/src/views/event_slot/calendar/event_slot_calendar_controller.js:0
+msgid ""
+"Adding these slots will automatically adjust the event's time range to "
+"include them.\n"
+"\n"
+"From:\t%(start)s - %(end)s\n"
+"To:\t\t%(new_start)s - %(new_end)s\n"
+msgstr ""
+
+#. module: event
 #: model:ir.model.fields,field_description:event.field_event_event__address_search
 #, fuzzy
 msgid "Address"
@@ -1794,6 +1853,12 @@ msgstr "Tadbir boshlagandan so‘ng"
 #, fuzzy
 msgid "Age"
 msgstr "Yosh"
+
+#. module: event
+#. odoo-python
+#: code:addons/event/controllers/portal.py:0
+msgid "All"
+msgstr ""
 
 #. module: event
 #: model_terms:ir.ui.view,arch_db:event.event_event_ticket_form_view
@@ -1867,11 +1932,9 @@ msgstr "Javob"
 
 #. module: event
 #: model:ir.actions.act_window,name:event.action_event_registration_report
-#: model_terms:ir.ui.view,arch_db:event.event_question_view_list
 #: model_terms:ir.ui.view,arch_db:event.event_registration_answer_view_graph
 #: model_terms:ir.ui.view,arch_db:event.event_registration_answer_view_pivot
 #: model_terms:ir.ui.view,arch_db:event.event_registration_answer_view_tree
-#: model_terms:ir.ui.view,arch_db:event.view_event_form
 #, fuzzy
 msgid "Answer Breakdown"
 msgstr "Javoblar tahlili"
@@ -1975,7 +2038,10 @@ msgid "Attended on %(attended_date)s"
 msgstr "%(attended_date)s sanasida qatnashdi"
 
 #. module: event
+#. odoo-python
+#: code:addons/event/controllers/portal.py:0
 #: model:ir.model.fields,field_description:event.field_event_mail_registration__registration_id
+#: model_terms:ir.ui.view,arch_db:event.portal_my_events
 #: model_terms:ir.ui.view,arch_db:event.view_event_registration_form
 #, fuzzy
 msgid "Attendee"
@@ -2255,6 +2321,12 @@ msgstr ""
 "uchun andoza tanlang."
 
 #. module: event
+#. odoo-javascript
+#: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
+msgid "Close"
+msgstr ""
+
+#. module: event
 #: model:ir.model.fields,field_description:event.field_event_event_ticket__color
 #: model:ir.model.fields,field_description:event.field_event_slot__color
 #, fuzzy
@@ -2366,22 +2438,26 @@ msgstr "Konfiguratsiya"
 #. module: event
 #. odoo-javascript
 #: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
-#, fuzzy
 msgid "Confirm attendance?"
-msgstr "Ishtirok etishni tasdiqlaysizmi?"
+msgstr ""
+
+#. module: event
+#. odoo-javascript
+#: code:addons/event/static/src/js/tours/event_tour.js:0
+msgid "Confirm the selected dates."
+msgstr ""
+
+#. module: event
+#. odoo-javascript
+#: code:addons/event/static/src/views/event_slot/calendar/event_slot_calendar_controller.js:0
+msgid "Confirmation"
+msgstr ""
 
 #. module: event
 #: model:ir.model,name:event.model_res_partner
 #, fuzzy
 msgid "Contact"
 msgstr "Aloqa"
-
-#. module: event
-#. odoo-javascript
-#: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
-#, fuzzy
-msgid "Continue"
-msgstr "Davom etish"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_event__country_id
@@ -2474,8 +2550,11 @@ msgid "Culture"
 msgstr "Madaniyat"
 
 #. module: event
+#. odoo-python
+#: code:addons/event/controllers/portal.py:0
 #: model:ir.model.fields,field_description:event.field_event_slot__date
 #: model_terms:ir.ui.view,arch_db:event.event_event_view_form_quick_create
+#: model_terms:ir.ui.view,arch_db:event.portal_my_events
 #: model_terms:ir.ui.view,arch_db:event.view_event_form
 #, fuzzy
 msgid "Date"
@@ -2534,6 +2613,11 @@ msgid "Design Fair Los Angeles"
 msgstr "Los-Anjeles dizayn ko‘rgazmasi"
 
 #. module: event
+#: model:ir.model,name:event.model_digest_digest
+msgid "Digest"
+msgstr ""
+
+#. module: event
 #: model:event.event,subtitle:event.event_4
 #, fuzzy
 msgid "Discover how to grow a sustainable business with our experts."
@@ -2548,6 +2632,7 @@ msgid "Discover more"
 msgstr "Batafsil ma'lumot"
 
 #. module: event
+#: model:ir.model.fields,field_description:event.field_digest_digest__display_name
 #: model:ir.model.fields,field_description:event.field_event_event__display_name
 #: model:ir.model.fields,field_description:event.field_event_event_ticket__display_name
 #: model:ir.model.fields,field_description:event.field_event_mail__display_name
@@ -2599,9 +2684,8 @@ msgstr "Chiptalarni yuklab olish"
 
 #. module: event
 #: model_terms:ir.ui.view,arch_db:event.event_report_template_full_page_ticket
-#, fuzzy
-msgid "Download Tickets <i class=\"ms-1 fa fa-download\"/>"
-msgstr "Chiptalarni yuklab olish <i class=\"ms-1 fa fa-download\"/>"
+msgid "Download Tickets <i class=\"oi ms-1\" data-icon=\"download\"/>"
+msgstr ""
 
 #. module: event
 #: model_terms:event.event,description:event.event_2
@@ -2613,9 +2697,8 @@ msgstr ""
 #. module: event
 #. odoo-javascript
 #: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
-#, fuzzy
-msgid "Edit"
-msgstr "Tahrirlash"
+msgid "Edit Ticket"
+msgstr ""
 
 #. module: event
 #: model:event.question,title:event.event_question_email
@@ -2627,15 +2710,23 @@ msgstr "Elektron pochta"
 
 #. module: event
 #: model:ir.model,name:event.model_mail_template
-#, fuzzy
-msgid "Email Templates"
-msgstr "Elektron pochta shablonlari"
+msgid "Email Template"
+msgstr ""
 
 #. module: event
 #: model_terms:ir.ui.view,arch_db:event.res_config_settings_view_form
 #, fuzzy
 msgid "Enable barcode scanning"
 msgstr "Shtrix-kodni skanerlashni yoqish"
+
+#. module: event
+#: model:ir.model.fields,help:event.field_event_event_ticket__entry_limit
+#: model:ir.model.fields,help:event.field_event_registration__ticket_entry_limit
+msgid ""
+"Enable multi-entry tickets\n"
+"- Set to 0 or 1 to disable.\n"
+"- Enter 2 or more to define the maximum number of allowed entries."
+msgstr ""
 
 #. module: event
 #: model:ir.model.fields,help:event.field_res_config_settings__use_event_barcode
@@ -2682,6 +2773,11 @@ msgstr ""
 "oshiring."
 
 #. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_ticket__entry_limit
+msgid "Entry Limit"
+msgstr ""
+
+#. module: event
 #: model:ir.model.fields.selection,name:event.selection__event_mail__mail_state__error
 #, fuzzy
 msgid "Error"
@@ -2689,6 +2785,8 @@ msgstr "Xato"
 
 #. module: event
 #. odoo-javascript
+#. odoo-python
+#: code:addons/event/controllers/portal.py:0
 #: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
 #: model:ir.model,name:event.model_event_event
 #: model:ir.model.fields,field_description:event.field_event_event__name
@@ -2697,8 +2795,10 @@ msgstr "Xato"
 #: model:ir.model.fields,field_description:event.field_event_registration__event_id
 #: model:ir.model.fields,field_description:event.field_event_registration_answer__event_id
 #: model:ir.model.fields,field_description:event.field_event_slot__event_id
+#: model_terms:ir.ui.view,arch_db:event.digest_digest_view_form
 #: model_terms:ir.ui.view,arch_db:event.event_event_view_activity
 #: model_terms:ir.ui.view,arch_db:event.event_question_view_search
+#: model_terms:ir.ui.view,arch_db:event.portal_my_events
 #: model_terms:ir.ui.view,arch_db:event.view_event_search
 #: model_terms:ir.ui.view,arch_db:event.view_registration_search
 #, fuzzy
@@ -2995,7 +3095,9 @@ msgstr "Tadbir: Eslatma"
 #: model:ir.model.fields,field_description:event.field_event_question__event_ids
 #: model:ir.ui.menu,name:event.event_main_menu
 #: model:ir.ui.menu,name:event.menu_event_event
+#: model:portal.entry,name:event.portal_events_client
 #: model:res.groups.privilege,name:event.res_groups_privilege_events
+#: model_terms:ir.ui.view,arch_db:event.portal_my_events
 #: model_terms:ir.ui.view,arch_db:event.res_config_settings_view_form
 #: model_terms:ir.ui.view,arch_db:event.res_partner_view_tree
 #: model_terms:ir.ui.view,arch_db:event.view_event_form
@@ -3010,6 +3112,11 @@ msgstr "Tadbirlar"
 #, fuzzy
 msgid "Events Mail Schedulers"
 msgstr "Tadbirlar pochta rejalashtiruvchilari"
+
+#. module: event
+#: model:ir.module.module,shortdesc:base.module_event
+msgid "Events Organization"
+msgstr ""
 
 #. module: event
 #: model_terms:ir.ui.view,arch_db:event.event_stage_view_form
@@ -3113,13 +3220,6 @@ msgstr "Kuzatuvchilar"
 #, fuzzy
 msgid "Followers (Partners)"
 msgstr "Kuzatuvchilar (hamkorlar)"
-
-#. module: event
-#: model:ir.model.fields,help:event.field_event_event__activity_type_icon
-#: model:ir.model.fields,help:event.field_event_registration__activity_type_icon
-#, fuzzy
-msgid "Font awesome icon e.g. fa-tasks"
-msgstr "Font Awesome ikonkasi, masalan fa-tasks"
 
 #. module: event
 #: model_terms:event.event,description:event.event_2
@@ -3394,6 +3494,7 @@ msgid "How to Fold (4)"
 msgstr "Buklash usuli (4)"
 
 #. module: event
+#: model:ir.model.fields,field_description:event.field_digest_digest__id
 #: model:ir.model.fields,field_description:event.field_event_event__id
 #: model:ir.model.fields,field_description:event.field_event_event_ticket__id
 #: model:ir.model.fields,field_description:event.field_event_mail__id
@@ -3413,9 +3514,15 @@ msgstr "Buklash usuli (4)"
 #: model:ir.model.fields,field_description:event.field_mail_template__id
 #: model:ir.model.fields,field_description:event.field_res_config_settings__id
 #: model:ir.model.fields,field_description:event.field_res_partner__id
+#: model_terms:ir.ui.view,arch_db:event.res_config_settings_view_form
 #, fuzzy
 msgid "ID"
 msgstr "ID"
+
+#. module: event
+#: model_terms:ir.ui.view,arch_db:event.res_config_settings_view_form
+msgid "ID of your Google app"
+msgstr ""
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_event__activity_exception_icon
@@ -3531,6 +3638,11 @@ msgstr ""
 "Xabar qachon yuborilishini ko‘rsatadi. Agar tadbir bir nechta vaqt "
 "oralig‘iga ega bo‘lsa, interval butun tadbir emas, balki har bir vaqt "
 "oralig‘iga nisbatan belgilanadi."
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_registration__ticket_entry_limit
+msgid "Initial Entry Limit"
+msgstr ""
 
 #. module: event
 #: model_terms:ir.ui.view,arch_db:event.res_config_settings_view_form
@@ -3692,10 +3804,9 @@ msgid "Kanban State"
 msgstr "Kanban holati"
 
 #. module: event
-#: model_terms:ir.ui.view,arch_db:event.res_config_settings_view_form
-#, fuzzy
-msgid "Key"
-msgstr "Kalit"
+#: model:ir.model.fields,field_description:event.field_digest_digest__kpi_nbr_of_registrations_value
+msgid "Kpi Nbr Of Registrations Value"
+msgstr ""
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_event__lang
@@ -3779,7 +3890,6 @@ msgid "Let's create your first <b>event</b>."
 msgstr "Keling, birinchi <b>tadbiringizni</b> yaratamiz."
 
 #. module: event
-#: model:ir.model.fields,field_description:event.field_event_event__seats_limited
 #: model:ir.model.fields,field_description:event.field_event_event_ticket__seats_limited
 #: model:ir.model.fields,field_description:event.field_event_type_ticket__seats_limited
 #, fuzzy
@@ -3787,6 +3897,8 @@ msgid "Limit Attendees"
 msgstr "Ishtirokchilarni cheklash"
 
 #. module: event
+#: model:ir.model.fields,field_description:event.field_event_event__seats_limited
+#: model:ir.model.fields,field_description:event.field_event_type__has_seats_limitation
 #: model_terms:ir.ui.view,arch_db:event.view_event_form
 #: model_terms:ir.ui.view,arch_db:event.view_event_type_form
 #, fuzzy
@@ -3798,12 +3910,6 @@ msgstr "Ro‘yxatdan o‘tishlarni cheklash"
 #, fuzzy
 msgid "Limit per Order"
 msgstr "Buyurtma uchun cheklov"
-
-#. module: event
-#: model:ir.model.fields,field_description:event.field_event_type__has_seats_limitation
-#, fuzzy
-msgid "Limited Seats"
-msgstr "Cheklangan o‘rinlar"
 
 #. module: event
 #: model:ir.model.fields,help:event.field_event_event__event_url
@@ -3883,6 +3989,12 @@ msgid "Mail Slot"
 msgstr "Pochta qutisi"
 
 #. module: event
+#: model:ir.model.fields,field_description:event.field_event_registration__main_registration_id
+#: model_terms:ir.ui.view,arch_db:event.view_registration_search
+msgid "Main Registration"
+msgstr ""
+
+#. module: event
 #: model_terms:ir.ui.view,arch_db:event.res_config_settings_view_form
 #, fuzzy
 msgid "Manage & publish a schedule with tracks"
@@ -3922,13 +4034,18 @@ msgid "Marketing"
 msgstr "Marketing"
 
 #. module: event
+#: model:ir.model.fields,help:event.field_event_event__activity_type_icon
+#: model:ir.model.fields,help:event.field_event_registration__activity_type_icon
+msgid "Material Symbols icon e.g. checklist"
+msgstr ""
+
+#. module: event
 #: model_terms:ir.ui.view,arch_db:event.event_event_ticket_view_tree_from_event
 #, fuzzy
 msgid "Maximum"
 msgstr "Maksimal"
 
 #. module: event
-#: model:ir.model.fields,field_description:event.field_event_event__seats_max
 #: model:ir.model.fields,field_description:event.field_event_event_ticket__seats_max
 #: model:ir.model.fields,field_description:event.field_event_type_ticket__seats_max
 #, fuzzy
@@ -3936,12 +4053,8 @@ msgid "Maximum Attendees"
 msgstr "Maksimal ishtirokchilar soni"
 
 #. module: event
+#: model:ir.model.fields,field_description:event.field_event_event__seats_max
 #: model:ir.model.fields,field_description:event.field_event_type__seats_max
-#, fuzzy
-msgid "Maximum Registrations"
-msgstr "Maksimal ro‘yxatdan o‘tishlar soni"
-
-#. module: event
 #: model_terms:ir.ui.view,arch_db:event.view_event_tree
 #, fuzzy
 msgid "Maximum Seats"
@@ -4036,6 +4149,10 @@ msgid "Name"
 msgstr "Nom"
 
 #. module: event
+#. odoo-javascript
+#. odoo-python
+#: code:addons/event/models/event_registration.py:0
+#: code:addons/event/static/src/views/event_slot/calendar/event_slot_calendar_controller.xml:0
 #: model:event.stage,name:event.event_stage_new
 #, fuzzy
 msgid "New"
@@ -4043,10 +4160,19 @@ msgstr "Yangi"
 
 #. module: event
 #. odoo-javascript
-#: code:addons/event/static/src/views/event_slot_calendar/event_slot_calendar_controller.js:0
+#: code:addons/event/static/src/views/event_slot/calendar/event_slot_calendar_controller.js:0
+#: code:addons/event/static/src/views/event_slot/list/event_slot_list_controller.js:0
 #, fuzzy
 msgid "New Slot"
 msgstr "Yangi slot"
+
+#. module: event
+#. odoo-python
+#: code:addons/event/models/event_registration.py:0
+msgid ""
+"New attendance by this attendee created at %(attendance_datetime)s, see %"
+"(attendance_link)s"
+msgstr ""
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_event__activity_calendar_event_id
@@ -4075,6 +4201,11 @@ msgstr "Keyingi faoliyat qisqacha mazmuni"
 #, fuzzy
 msgid "Next Activity Type"
 msgstr "Keyingi faoliyat turi"
+
+#. module: event
+#: model:res.groups.privilege,placeholder:event.res_groups_privilege_events
+msgid "No"
+msgstr ""
 
 #. module: event
 #: model_terms:ir.actions.act_window,help:event.action_event_registration_report
@@ -4108,6 +4239,12 @@ msgstr "Hali savollar yo‘q! Iltimos, birortasini yarating."
 #, fuzzy
 msgid "Nomenclature"
 msgstr "Nomenklatura"
+
+#. module: event
+#. odoo-python
+#: code:addons/event/controllers/portal.py:0
+msgid "None"
+msgstr ""
 
 #. module: event
 #: model_terms:ir.ui.view,arch_db:event.event_question_view_search
@@ -4291,6 +4428,12 @@ msgstr ""
 "tugash sanasini tanlang."
 
 #. module: event
+#. odoo-javascript
+#: code:addons/event/static/src/js/tours/event_tour.js:0
+msgid "Open the Tickets tab."
+msgstr ""
+
+#. module: event
 #: model_terms:event.event,description:event.event_0
 #, fuzzy
 msgid ""
@@ -4337,6 +4480,12 @@ msgid "Partner"
 msgstr "Hamkor"
 
 #. module: event
+#. odoo-python
+#: code:addons/event/controllers/portal.py:0
+msgid "Past"
+msgstr ""
+
+#. module: event
 #: model:event.question,title:event.event_question_phone
 #: model:ir.model.fields,field_description:event.field_event_registration__phone
 #: model:ir.model.fields.selection,name:event.selection__event_question__question_type__phone
@@ -4349,6 +4498,18 @@ msgstr "Telefon"
 #, fuzzy
 msgid "Phone number"
 msgstr "Telefon raqami"
+
+#. module: event
+#. odoo-javascript
+#: code:addons/event/static/src/js/tours/event_tour.js:0
+msgid "Pick a start date."
+msgstr ""
+
+#. module: event
+#. odoo-javascript
+#: code:addons/event/static/src/js/tours/event_tour.js:0
+msgid "Pick an end date."
+msgstr ""
 
 #. module: event
 #: model_terms:event.event,ticket_instructions:event.event_0
@@ -4582,6 +4743,7 @@ msgid "Registration statistics"
 msgstr "Ro‘yxatga olish statistikasi"
 
 #. module: event
+#: model:ir.model.fields,field_description:event.field_digest_digest__kpi_nbr_of_registrations
 #: model:ir.model.fields,field_description:event.field_event_event_ticket__registration_ids
 #, fuzzy
 msgid "Registrations"
@@ -4605,6 +4767,13 @@ msgstr ""
 #, fuzzy
 msgid "Registrations started"
 msgstr "Ro‘yxatga olish boshlandi"
+
+#. module: event
+#. odoo-javascript
+#: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
+#: model:ir.model.fields,field_description:event.field_event_registration__remaining_entries
+msgid "Remaining Entries"
+msgstr ""
 
 #. module: event
 #. odoo-python
@@ -4670,6 +4839,12 @@ msgstr "Ishlayotgan"
 #, fuzzy
 msgid "SMS Delivery error"
 msgstr "SMS yuborishda xatolik yuz berdi"
+
+#. module: event
+#. odoo-javascript
+#: code:addons/event/static/src/js/tours/event_tour.js:0
+msgid "Save the ticket."
+msgstr ""
 
 #. module: event
 #. odoo-javascript
@@ -4741,11 +4916,22 @@ msgid "Secret"
 msgstr "Maxfiy"
 
 #. module: event
+#: model_terms:ir.ui.view,arch_db:event.res_config_settings_view_form
+msgid "Secret of your Google app"
+msgstr ""
+
+#. module: event
 #. odoo-javascript
 #: code:addons/event/static/src/client_action/event_barcode.xml:0
 #, fuzzy
 msgid "Select Attendee"
 msgstr "Ishtirokchini tanlash"
+
+#. module: event
+#. odoo-javascript
+#: code:addons/event/static/src/views/event_slot/calendar/event_slot_multi_selection_buttons.xml:0
+msgid "Select days to add slots"
+msgstr ""
 
 #. module: event
 #: model_terms:ir.ui.view,arch_db:event.event_registration_answer_view_tree
@@ -4899,6 +5085,7 @@ msgstr "Slotga asoslangan muloqot"
 #: code:addons/event/models/event_event.py:0
 #: model:ir.actions.act_window,name:event.event_slot_action_from_event
 #: model:ir.model.fields,field_description:event.field_event_event__event_slot_ids
+#: model_terms:ir.ui.view,arch_db:event.view_event_form
 #: model_terms:ir.ui.view,arch_db:event.view_event_slot_calendar
 #: model_terms:ir.ui.view,arch_db:event.view_event_slot_tree
 #, fuzzy
@@ -5014,7 +5201,10 @@ msgid "Stats"
 msgstr "Statistika"
 
 #. module: event
+#. odoo-python
+#: code:addons/event/controllers/portal.py:0
 #: model:ir.model.fields,field_description:event.field_event_registration__state
+#: model_terms:ir.ui.view,arch_db:event.portal_my_events
 #: model_terms:ir.ui.view,arch_db:event.view_registration_search
 #, fuzzy
 msgid "Status"
@@ -5101,6 +5291,13 @@ msgid "Text answer"
 msgstr "Matnli javob"
 
 #. module: event
+#. odoo-python
+#: code:addons/event/models/event_ticket.py:0
+msgid ""
+"The Entry Limit of event tickets %(ticket_names)s cannot be lower than 0."
+msgstr ""
+
+#. module: event
 #: model:event.event,subtitle:event.event_1
 #, fuzzy
 msgid ""
@@ -5155,11 +5352,10 @@ msgstr ""
 
 #. module: event
 #: model_terms:event.event,description:event.event_7
-#, fuzzy
 msgid ""
-"The finest OpenWood furnitures are coming to your house in a brand new "
+"The finest OpenWood furniture is coming to your house in a brand new "
 "collection"
-msgstr "Eng sara OpenWood mebellarining yangi kolleksiyasi uyingizga kelmoqda"
+msgstr ""
 
 #. module: event
 #. odoo-python
@@ -5218,6 +5414,14 @@ msgstr ""
 "(ticket_name)s chiptasini tekshiring"
 
 #. module: event
+#. odoo-javascript
+#: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
+msgid ""
+"The offer may have expired or you may have reached the maximum number of "
+"entries allowed."
+msgstr ""
+
+#. module: event
 #: model_terms:event.event,description:event.event_1
 #, fuzzy
 msgid "The safety of our attendees and our aeronauts comes first!"
@@ -5245,6 +5449,11 @@ msgid ""
 msgstr ""
 "Bu chegaradan ortiq ro‘yxatdan o‘tishlar mavjud, tadbir to‘liq sotiladi va "
 "qo‘shimcha ro‘yxatdan o‘tishlar qoladi."
+
+#. module: event
+#: model_terms:ir.ui.view,arch_db:event.portal_my_events
+msgid "There are no event registrations."
+msgstr ""
 
 #. module: event
 #. odoo-python
@@ -5283,6 +5492,12 @@ msgid ""
 msgstr ""
 "Quyidagi tadbirlar uchun belgilangan vaqt oralig‘idan tashqarida joylar "
 "rejalashtirilishi mumkin emas: %(event_names)s"
+
+#. module: event
+#. odoo-javascript
+#: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
+msgid "This Card/Ticket is currently unavailable."
+msgstr ""
 
 #. module: event
 #: model_terms:event.event,description:event.event_0
@@ -5400,17 +5615,11 @@ msgstr "Chipta bo‘yicha yo‘riqnomalar"
 #: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
 #: model:ir.model.fields,field_description:event.field_event_registration__event_ticket_id
 #: model_terms:ir.ui.view,arch_db:event.event_event_ticket_form_view
+#: model_terms:ir.ui.view,arch_db:event.portal_my_events
 #: model_terms:ir.ui.view,arch_db:event.view_registration_search
 #, fuzzy
 msgid "Ticket Type"
 msgstr "Chipta turi"
-
-#. module: event
-#. odoo-javascript
-#: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
-#, fuzzy
-msgid "Ticket already scanned!"
-msgstr "Chipta allaqachon skanerlangan!"
 
 #. module: event
 #: model_terms:ir.ui.view,arch_db:event.attendee_list
@@ -5431,10 +5640,16 @@ msgstr ""
 
 #. module: event
 #. odoo-javascript
+#: code:addons/event/static/src/js/tours/event_tour.js:0
+msgid ""
+"Ticket types allow you to distinguish your attendees. Let's create a new one."
+msgstr ""
+
+#. module: event
+#. odoo-javascript
 #: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
-#, fuzzy
 msgid "Ticket was first scanned on"
-msgstr "Chipta birinchi marta shu sanada skanerlangan"
+msgstr ""
 
 #. module: event
 #. odoo-python
@@ -5532,6 +5747,16 @@ msgid "Training"
 msgstr "Trening"
 
 #. module: event
+#: model:ir.module.module,summary:base.module_event
+msgid "Trainings, Conferences, Meetings, Exhibitions, Registrations"
+msgstr ""
+
+#. module: event
+#: model_terms:ir.ui.view,arch_db:event.view_event_registration_form
+msgid "Transaction"
+msgstr ""
+
+#. module: event
 #: model:res.partner,website_short_description:event.res_partner_event_3
 #, fuzzy
 msgid ""
@@ -5612,9 +5837,8 @@ msgstr "Turli modullarni tushunish;"
 #. module: event
 #. odoo-javascript
 #: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
-#, fuzzy
 msgid "Undo"
-msgstr "Bekor qilish"
+msgstr ""
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_mail__interval_unit
@@ -5630,6 +5854,12 @@ msgid "Until"
 msgstr "...gacha"
 
 #. module: event
+#. odoo-python
+#: code:addons/event/controllers/portal.py:0
+msgid "Upcoming"
+msgstr ""
+
+#. module: event
 #: model_terms:ir.ui.view,arch_db:event.view_event_search
 #, fuzzy
 msgid "Upcoming events from today"
@@ -5640,6 +5870,12 @@ msgstr "Bugundan keyingi tadbirlar"
 #, fuzzy
 msgid "Upcoming/Running"
 msgstr "Kelgusi/Davom etayotgan"
+
+#. module: event
+#. odoo-javascript
+#: code:addons/event/static/src/views/event_slot/calendar/event_slot_calendar_controller.js:0
+msgid "Update Event"
+msgstr ""
 
 #. module: event
 #. odoo-python
@@ -5671,11 +5907,8 @@ msgstr ""
 #. module: event
 #. odoo-javascript
 #: code:addons/event/static/src/js/tours/event_tour.js:0
-#, fuzzy
-msgid "Use the <b>breadcrumbs</b> to go back to your kanban overview."
+msgid "Use the breadcrumbs to go back to your kanban overview."
 msgstr ""
-"Kanban umumiy ko‘rinishiga qaytish uchun <b>yo‘l ko‘rsatkichlaridan</b> "
-"foydalaning."
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_event_ticket__seats_used
@@ -5706,7 +5939,7 @@ msgid "Venue"
 msgstr "Joylashuv"
 
 #. module: event
-#: model:ir.model.fields,field_description:event.field_event_event__address_inline
+#: model:ir.model.fields,field_description:event.field_event_event__contact_address_inline
 #, fuzzy
 msgid "Venue (formatted for one line uses)"
 msgstr "Joylashuv (bir qator uchun moslashtirilgan)"
@@ -5748,20 +5981,6 @@ msgstr ""
 "Ob-havo sharoiti bizga xalaqit bergan taqdirda, tadbirni bekor qilish, qayta "
 "nomlash yoki joyini o‘zgartirish yoxud uni o‘tkazish sanasini o‘zgartirish "
 "huquqini o‘zimizda saqlab qolamiz."
-
-#. module: event
-#: model:ir.model.fields,field_description:event.field_event_event__website_message_ids
-#: model:ir.model.fields,field_description:event.field_event_registration__website_message_ids
-#, fuzzy
-msgid "Website Messages"
-msgstr "Veb-sayt xabarlari"
-
-#. module: event
-#: model:ir.model.fields,help:event.field_event_event__website_message_ids
-#: model:ir.model.fields,help:event.field_event_registration__website_message_ids
-#, fuzzy
-msgid "Website communication history"
-msgstr "Veb-sayt aloqa tarixi"
 
 #. module: event
 #: model:ir.model.fields.selection,name:event.selection__event_mail__interval_unit__weeks
@@ -5815,6 +6034,15 @@ msgstr "Ushbu seans uchun joylar tugaganligi."
 #, fuzzy
 msgid "You are truly among the best."
 msgstr "Siz chindan ham eng yaxshilardansiz."
+
+#. module: event
+#. odoo-python
+#: code:addons/event/models/event_registration.py:0
+msgid ""
+"You cannot cancel the last attendance of the sub-registration with id: %"
+"(registration_id)s. Please try again from the original registration of this "
+"attendee."
+msgstr ""
 
 #. module: event
 #. odoo-python
@@ -5929,6 +6157,12 @@ msgstr "e.g. VIP chipta"
 
 #. module: event
 #. odoo-python
+#: code:addons/event/controllers/portal.py:0
+msgid "event_begin_date"
+msgstr ""
+
+#. module: event
+#. odoo-python
 #: code:addons/event/models/event_event.py:0
 #, fuzzy
 msgid "event_id"
@@ -6022,3 +6256,23 @@ msgstr "ertaga"
 #, fuzzy
 msgid "{{ object.event_id.name }}: {{ object.event_date_range }}"
 msgstr "{{ object.event_id.name }}: {{ object.event_date_range }}"
+
+#, fuzzy
+#~ msgid "Continue"
+#~ msgstr "Davom etish"
+
+#, fuzzy
+#~ msgid "Edit"
+#~ msgstr "Tahrirlash"
+
+#, fuzzy
+#~ msgid "Ticket already scanned!"
+#~ msgstr "Chipta allaqachon skanerlangan!"
+
+#, fuzzy
+#~ msgid "Website Messages"
+#~ msgstr "Veb-sayt xabarlari"
+
+#, fuzzy
+#~ msgid "Website communication history"
+#~ msgstr "Veb-sayt aloqa tarixi"

@@ -46,11 +46,11 @@ class AccountEdiXmlUbl21Fr(models.AbstractModel):
         for partner_type in ('supplier', 'customer'):
             partner = vals[partner_type]
             commercial_partner = partner.commercial_partner_id
-            if commercial_partner.peppol_eas != '0225' or not commercial_partner.peppol_endpoint:
+            if commercial_partner.routing_scheme != '0225' or not commercial_partner.routing_endpoint:
                 constraints[f"ubl_21_fr_{partner_type}_pdp_identifier_required"] = self.env._("The following partner's French e-invoicing identifier is missing: %s", commercial_partner.display_name)
-            id_type, id_value = commercial_partner._l10n_fr_pdp_get_base_identifier()
-            if not id_type or not id_value:
-                constraints[f"ubl_21_fr_{partner_type}_identifier_required"] = self.env._("The following partner's SIREN or SIRET is missing: %s", commercial_partner.display_name)
+            identifier_vals = commercial_partner._get_preferred_routing_identifier_vals()
+            if not identifier_vals.get('scheme') or not identifier_vals.get('value'):
+                constraints[f"ubl_21_fr_{partner_type}_siret_required"] = self.env._("The following partner's SIREN or SIRET is missing: %s", commercial_partner.display_name)
 
         if vals['document_type'] == 'credit_note' and not (invoice.reversed_entry_id.name or invoice.reversed_entry_id.invoice_date):
             constraints[f"ubl_21_fr_{partner_type}_refund_invoice_reference"] = self.env._("You cannot create a Credit Note without an original invoice: %s", vals['invoice'].name)
@@ -116,7 +116,6 @@ class AccountEdiXmlUbl21Fr(models.AbstractModel):
                     'cac:InvoiceDocumentReference': {
                         'cbc:ID': {'_text': downpayment_move.name},
                         'cbc:IssueDate': {'_text': downpayment_move.invoice_date},
-                        'cbc:DocumentTypeCode': {'_text': 386 if downpayment_move.move_type == 'out_invoice' else 503},  # downpayment invoice or downpayment credit note
                     },
                 })
 
@@ -170,15 +169,11 @@ class AccountEdiXmlUbl21Fr(models.AbstractModel):
         partner = vals['party_vals']['partner']
         commercial_partner = partner.commercial_partner_id
 
-        id_type, party_id = commercial_partner._l10n_fr_pdp_get_base_identifier()
-        if id_type == 'siret':
-            party_id_scheme = "0009"
-        else:  # id_type == 'siren'
-            party_id_scheme = "0002"
-        # [UBL-SR-16] Buyer identifier shall occur maximum once
-        vals['party_node']['cac:PartyIdentification'] = {
-            'cbc:ID': {'_text': party_id, 'schemeID': party_id_scheme},
-        }
+        if identifier_vals := commercial_partner._get_preferred_legal_entity_identifier_vals():
+            # [UBL-SR-16] Buyer identifier shall occur maximum once
+            vals['party_node']['cac:PartyIdentification'] = {
+                'cbc:ID': {'_text': identifier_vals['value'], 'schemeID': identifier_vals['scheme']},
+            }
 
     def _ubl_add_party_legal_entity_nodes(self, vals):
         # EXTENDS account.edi.xml.ubl_bis3
@@ -199,7 +194,7 @@ class AccountEdiXmlUbl21Fr(models.AbstractModel):
         super()._ubl_add_accounting_supplier_party_tax_scheme_nodes(vals)
         partner = vals['party_vals']['partner']
         commercial_partner = partner.commercial_partner_id
-        siret = commercial_partner._l10n_fr_get_siret()
+        siret = commercial_partner._get_additional_identifier('FR_SIRET')
 
         if (not commercial_partner.vat or commercial_partner.vat == '/') and siret:
             vals['party_node']['cac:PartyTaxScheme'] = [{

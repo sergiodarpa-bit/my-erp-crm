@@ -12,8 +12,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, interactive-widget=resizes-content"/>
         <link rel="icon" href="/point_of_sale/static/src/img/favicon.ico" type="image/x-icon"/>
 
-        <style> body { background: #222; } </style>
-
         <script type="text/javascript">
             var odoo = <t t-out="json.dumps({
                 'csrf_token': request.csrf_token(None),
@@ -25,7 +23,7 @@
                 'access_token': access_token,
                 'urls_to_cache': urls_to_cache,
                 'use_pos_fake_tours': use_pos_fake_tours,
-                'use_lna': use_lna,
+                'is_restaurant': is_restaurant,
                 'debug': debug,
             })"/>;
             // Prevent the menu_service to load anything. In an ideal world, POS assets would only contain
@@ -33,9 +31,7 @@
             odoo.loadMenusPromise = Promise.resolve();
         </script>
 
-        <t t-call="web.conditional_assets_tests">
-            <t t-set="ignore_missing_deps" t-value="True"/>
-        </t>
+        <t t-call="web.conditional_assets_tests" ignore_missing_deps="True"/>
         <t t-if="request.cookies.get('pos_color_scheme') == 'dark'">
             <t t-call-assets="point_of_sale.assets_prod_dark"/>
         </t>

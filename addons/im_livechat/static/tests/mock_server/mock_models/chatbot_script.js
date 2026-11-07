@@ -1,14 +1,11 @@
-import { mailDataHelpers } from "@mail/../tests/mock_server/mail_mock_server";
-import { makeKwArgs, models } from "@web/../tests/web_test_helpers";
+import { models } from "@web/../tests/web_test_helpers";
 
 export class ChatbotScript extends models.ServerModel {
     _name = "chatbot.script";
 
-    get _to_store_defaults() {
-        return [
-            mailDataHelpers.Store.one("operator_partner_id", makeKwArgs({ fields: ["name"] })),
-            "title",
-        ];
+    _store_script_fields(res) {
+        res.one("operator_partner_id", ["name"]);
+        res.attr("title");
     }
 
     _get_welcome_steps(id) {

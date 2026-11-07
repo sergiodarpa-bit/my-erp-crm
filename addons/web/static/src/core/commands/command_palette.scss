@@ -1,16 +1,29 @@
 .o_command_palette {
     $-app-icon-size: 1.8rem;
-    top: 120px;
-    position: absolute;
-
+    @include media-breakpoint-up(md) {
+        top: 120px;
+        position: absolute;
+    }
     > .modal-body {
         padding: 0;
     }
 
     &_listbox {
-        max-height: 50vh;
+        padding: var(--CommandPalette-inset, 0);
+
+        @include media-breakpoint-up(md) {
+            max-height: 50vh;
+        }
+
+        .o_command > a > *,
+        &_empty,
+        hr {
+            margin-inline: calc(var(--CommandPalette-inset, 0px) * -1);
+        }
 
         .o_command {
+            border-radius: var(--CommandPalette__item-border-radius, 0);
+
             &.focused {
                 background: rgba($o-component-active-bg, .65);
             }

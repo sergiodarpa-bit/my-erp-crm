@@ -5,8 +5,15 @@ from lxml.html import document_fromstring
 import odoo.tests
 from odoo.exceptions import ValidationError
 
+from odoo.addons.website.tests.common import set_url_code
+
 
 class TestUrlCommon(odoo.tests.HttpCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        set_url_code(cls.env.ref('base.lang_fr'))
+
     def setUp(self):
         super(TestUrlCommon, self).setUp()
         self.domain = 'http://' + odoo.tests.HOST
@@ -30,7 +37,7 @@ class TestUrlCommon(odoo.tests.HttpCase):
 class TestBaseUrl(TestUrlCommon):
     def test_01_base_url(self):
         ICP = self.env['ir.config_parameter']
-        icp_base_url = ICP.sudo().get_param('web.base.url')
+        icp_base_url = ICP.sudo().get_str('web.base.url')
 
         # Test URL is correct for the website itself when the domain is set
         self.assertEqual(self.website.get_base_url(), self.domain)
@@ -92,7 +99,7 @@ class TestBaseUrl(TestUrlCommon):
 class TestGetBaseUrl(odoo.tests.TransactionCase):
     def test_01_get_base_url(self):
         # Setup
-        web_base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
+        web_base_url = self.env['ir.config_parameter'].sudo().get_str('web.base.url')
         company_1 = self.env['res.company'].create({
             'name': 'Company 1',
         })
@@ -143,7 +150,7 @@ class TestGetBaseUrl(odoo.tests.TransactionCase):
 
     def test_02_get_base_url_recordsets(self):
         Attachment = self.env['ir.attachment']
-        web_base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
+        web_base_url = self.env['ir.config_parameter'].sudo().get_str('web.base.url')
         self.assertEqual(Attachment.get_base_url(), web_base_url, "Empty recordset should get ICP value.")
 
         with self.assertRaises(ValueError):

@@ -27,6 +27,27 @@ export function checkBtn(buttonName) {
     };
 }
 
+export function clickOrderNoteBtn() {
+    return {
+        trigger: ".order-note",
+        run: "click",
+    };
+}
+
+export function clickTextArea() {
+    return {
+        trigger: ".modal:not(.o_inactive_modal) textarea",
+        run: "click",
+    };
+}
+
+export function textInput(inputValue) {
+    return {
+        trigger: ".modal:not(.o_inactive_modal) textarea",
+        run: `edit ${inputValue}`,
+    };
+}
+
 export function checkIsNoBtn(buttonName) {
     return {
         content: `Check that '${buttonName}' do not exist`,
@@ -54,13 +75,13 @@ export function changeLanguage(language) {
         openLanguageSelector(),
         {
             content: `Check that the language is available`,
-            trigger: `.self_order_language_popup .btn:contains(${language})`,
+            trigger: `.self_order_language_popup .btn:text("${language}")`,
             run: "click",
             expectUnloadPage: true,
         },
         {
             content: `Check that the language changed`,
-            trigger: `.o_self_language_selector:contains(${language})`,
+            trigger: `.o_self_language_selector:text("${language}")`,
         },
     ];
 }
@@ -132,6 +153,29 @@ export function clickMissingRequireds() {
     return {
         content: "Click on missing required details button",
         trigger: "div.missing_required_details button",
+        run: "click",
+    };
+}
+export function checkConfirmationString(timingPreset = false) {
+    return {
+        content: `Check confirmation string`,
+        trigger: timingPreset
+            ? `.confirmation-block h1:contains("Order for")`
+            : `.confirmation-block h1:contains("We're preparing your order!")`,
+    };
+}
+
+export function checkPreset(presetName) {
+    return {
+        content: `Check that the order has the preset "${presetName}".`,
+        trigger: `button.preset-btn:contains("${presetName}")`,
+    };
+}
+
+export function clickPresetBtn() {
+    return {
+        content: "Click on Preset button",
+        trigger: "button.preset-btn",
         run: "click",
     };
 }

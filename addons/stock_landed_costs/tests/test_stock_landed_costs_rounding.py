@@ -10,6 +10,8 @@ from odoo.tests import tagged, Form
 @tagged('post_install', '-at_install')
 class TestStockLandedCostsRounding(TestStockLandedCostsCommon):
 
+    _test_user_groups = None  # FIXME list needed groups
+
     def test_stock_landed_costs_rounding(self):
         # In order to test the rounding in landed costs feature of stock, I create 2 landed cost
 
@@ -44,7 +46,7 @@ class TestStockLandedCostsRounding(TestStockLandedCostsCommon):
             'move_ids': [(0, 0, {
                 'product_id': product_landed_cost_3.id,
                 'product_uom_qty': 13,
-                'product_uom': product_uom_unit_round_1.id,
+                'uom_id': product_uom_unit_round_1.id,
                 'location_id': self.ref('stock.stock_location_suppliers'),
                 'location_dest_id': self.warehouse.lot_stock_id.id,
             })],
@@ -60,7 +62,7 @@ class TestStockLandedCostsRounding(TestStockLandedCostsCommon):
             'move_ids': [(0, 0, {
                 'product_id': product_landed_cost_4.id,
                 'product_uom_qty': 1,
-                'product_uom': self.ref('uom.product_uom_dozen'),
+                'uom_id': self.ref('uom.product_uom_dozen'),
                 'location_id': self.ref('stock.stock_location_suppliers'),
                 'location_dest_id': self.warehouse.lot_stock_id.id,
                 'price_unit': 17.00 / 12.00,
@@ -257,7 +259,7 @@ class TestStockLandedCostsRounding(TestStockLandedCostsCommon):
             'location_dest_id': customer_location_id,
             'move_ids': [(0, 0, {
                 'product_id': self.product_a.id,
-                'product_uom': self.product_a.uom_id.id,
+                'uom_id': self.product_a.uom_id.id,
                 'product_uom_qty': qty,
                 'location_id': stock_location.id,
                 'location_dest_id': customer_location_id,

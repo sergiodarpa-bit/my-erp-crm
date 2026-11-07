@@ -5,21 +5,20 @@ from odoo import Command
 import json
 from datetime import datetime, timedelta
 from freezegun import freeze_time
-from unittest.mock import patch
+from unittest.mock import ANY, patch
 
-from odoo.tests.common import HttpCase, new_test_user, tagged
+from odoo.tests.common import HttpCase, new_test_user
 from odoo.exceptions import UserError, ValidationError
 from odoo.addons.mail.tests.common import mail_new_test_user
 
 
-@tagged("post_install", "-at_install")
 class TestDiscussSubChannels(HttpCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
         cls.user_employee = mail_new_test_user(cls.env, "user_employee", groups="base.group_user")
         cls.general = cls.env["discuss.channel"].create({"name": "General"})
-        cls.general.add_members(partner_ids=cls.user_employee.partner_id.ids)
+        cls.general._add_members(users=cls.user_employee)
         cls.general_message = cls.general.message_post(body="Hello there!")
 
     def test_01_gc_unpin_outdated_sub_channels(self):
@@ -28,8 +27,7 @@ class TestDiscussSubChannels(HttpCase):
         parent._create_sub_channel()
         sub_channel = parent.sub_channel_ids[0]
         sub_channel._add_members(users=self.env.user)
-        sub_channel.channel_pin(pinned=True)
-        self_member = sub_channel.channel_member_ids.filtered(lambda m: m.is_self)
+        self_member = sub_channel.self_member_id
         self.assertTrue(self_member.is_pinned)
         # Last interrest of the member is older than 2 days, no activity on the
         # channel: should be unpinned.
@@ -42,7 +40,6 @@ class TestDiscussSubChannels(HttpCase):
             frozen_time.tick(delta=timedelta(days=1))
             self.env["discuss.channel.member"]._gc_unpin_outdated_sub_channels()
             self.assertEqual(self_member.unpin_dt, unpin_dt)
-        sub_channel.channel_pin(pinned=True)
         with freeze_time(two_days_later_dt) as frozen_time:
             # Last interrest older than 2 days, activity on the channel: should be kept.
             message = sub_channel.with_user(bob).message_post(body="Hey!", message_type="comment")
@@ -59,31 +56,30 @@ class TestDiscussSubChannels(HttpCase):
             self.assertFalse(self_member.is_pinned)
         # Ensure regular channels are not impacted.
         channel = self.env["discuss.channel"].create({"name": "General"})
-        channel.channel_pin(pinned=True)
         with freeze_time(two_days_later_dt):
             self.env["discuss.channel.member"]._gc_unpin_outdated_sub_channels()
-            self.assertTrue(channel.channel_member_ids.filtered("is_self").is_pinned)
+            self.assertTrue(channel.self_member_id.is_pinned)
 
     def test_02_sub_channel_members_sync_with_parent(self):
         parent = self.env["discuss.channel"].create({"name": "General"})
         parent.action_unfollow()
-        self.assertFalse(any(m.is_self for m in parent.channel_member_ids))
+        self.assertFalse(parent.self_member_id)
         parent._create_sub_channel()
         sub_channel = parent.sub_channel_ids[0]
         # Member created for sub channel (_create_sub_channel): should also be
         # created for the parent channel.
-        self.assertTrue(any(m.is_self for m in parent.channel_member_ids))
-        self.assertTrue(any(m.is_self for m in sub_channel.channel_member_ids))
+        self.assertTrue(parent.self_member_id)
+        self.assertTrue(sub_channel.self_member_id)
         # Member removed from parent channel: should also be removed from the sub
         # channel.
         parent.action_unfollow()
-        self.assertFalse(any(m.is_self for m in parent.channel_member_ids))
-        self.assertFalse(any(m.is_self for m in sub_channel.channel_member_ids))
-        # Member created for sub channel (add_members): should also be created
+        self.assertFalse(parent.self_member_id)
+        self.assertFalse(sub_channel.self_member_id)
+        # Member created for sub channel (_add_members): should also be created
         # for parent.
         sub_channel._add_members(users=self.env.user)
-        self.assertTrue(any(m.is_self for m in parent.channel_member_ids))
-        self.assertTrue(any(m.is_self for m in sub_channel.channel_member_ids))
+        self.assertTrue(parent.self_member_id)
+        self.assertTrue(sub_channel.self_member_id)
 
     def test_03_cannot_create_recursive_sub_channel(self):
         parent = self.env["discuss.channel"].create({"name": "General"})
@@ -273,13 +269,13 @@ class TestDiscussSubChannels(HttpCase):
         self.assertNotIn(self.user_employee.partner_id, sub_channel.channel_member_ids.partner_id)
         self.authenticate(self.user_employee.login, self.user_employee.password)
         data = self.make_jsonrpc_request(
-            "/discuss/channel/messages",
-            {"channel_id": self.general.id},
+            "/mail/store",
+            {"fetch_params": [["/discuss/channel/messages", {"channel_id": self.general.id}]]},
         )
-        vals_by_message_id = {vals["id"]: vals for vals in data["data"]["mail.message"]}
+        vals_by_message_id = {vals["id"]: vals for vals in data["mail.message"]}
         self.assertEqual(
             vals_by_message_id[self.general_message.id]["linkedSubChannel"],
-            {"id": sub_channel.id, "model": "discuss.channel"},
+            sub_channel.id,
         )
         self.assertFalse(vals_by_message_id[other_message.id]["linkedSubChannel"])
 
@@ -300,12 +296,10 @@ class TestDiscussSubChannels(HttpCase):
                         "mail.message": [
                             {
                                 "id": self.general_message.id,
-                                "linkedSubChannel": {
-                                    "id": sub_channel.id,
-                                    "model": "discuss.channel",
-                                },
+                                "linkedSubChannel": sub_channel.id,
                             },
                         ],
+                        "__store_version__": ANY,
                     },
                 },
             ),

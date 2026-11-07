@@ -1,9 +1,20 @@
-import { models } from "@web/../tests/web_test_helpers";
+import { fields, models } from "@web/../tests/web_test_helpers";
 
 export class ChatbotScriptStep extends models.ServerModel {
     _name = "chatbot.script.step";
 
-    get _to_store_defaults() {
-        return ["message", "step_type"];
+    step_type = fields.Selection({
+        selection: [
+            ["free_input_multi", "Free Input (Multi-Line)"],
+            ["free_input_single", "Free Input"],
+            ["question_email", "Email"],
+            ["question_phone", "Phone"],
+            ["question_selection", "Question"],
+            ["text", "Text"],
+        ],
+    });
+
+    _store_script_step_fields(res) {
+        res.extend(["message", "step_type"]);
     }
 }

@@ -47,8 +47,7 @@ export class RecordStore {
         this._updateIndex(record, (map, key, record, isArray = false) => {
             if (isArray) {
                 map.get(key)?.delete(record.id);
-            } else if (map.get(key)?.id === record.id) {
-                // the key may already belong to another record (e.g. swapped barcodes)
+            } else {
                 map.delete(key);
             }
         });

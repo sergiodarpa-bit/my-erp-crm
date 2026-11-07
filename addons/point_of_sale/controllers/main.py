@@ -16,6 +16,19 @@ _logger = logging.getLogger(__name__)
 
 class PosController(PortalAccount):
 
+    @http.route('/pos/receipt/<order_id>', type='http', auth='user')
+    def pos_receipt_download(self, order_id=None, company_id=None):
+        pos_order = request.env['pos.order'].with_company(company_id).browse(int(order_id))
+        if not pos_order.exists():
+            return request.not_found()
+
+        image = pos_order.order_receipt_generate_image()
+        return request.make_response(image, [
+            ('Content-Type', 'image/png'),
+            ('Content-Length', len(image)),
+            ('Content-Security-Policy', "default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:"),
+        ])
+
     @http.route('/pos/service-worker.js', type='http', auth='user')
     def pos_web_service_worker(self):
         response = request.make_response(
@@ -59,7 +72,6 @@ class PosController(PortalAccount):
         domain = [
                 ('state', 'in', ['opening_control', 'opened']),
                 ('user_id', '=', request.session.uid),
-                ('rescue', '=', False)
                 ]
         if config_id and request.env['pos.config'].sudo().browse(int(config_id)).exists():
             domain = Domain.AND([domain, [('config_id', '=', int(config_id))]])
@@ -72,28 +84,15 @@ class PosController(PortalAccount):
         if not pos_session and config_id:
             domain = [
                 ('state', 'in', ['opening_control', 'opened']),
-                ('rescue', '=', False),
                 ('config_id', '=', int(config_id)),
             ]
             pos_session = request.env['pos.session'].sudo().search(domain, limit=1)
 
-        if not pos_config or not pos_config.active or pos_config.has_active_session and not pos_session:
+        if not pos_config or not pos_config.active or pos_config.current_session_id and not pos_session:
             return request.redirect('/odoo/action-point_of_sale.action_client_pos_menu')
 
-        if not pos_config.has_active_session:
-            # Acquire an row-level lock on the pos_config record to prevent race conditions
-            # This prevents multiple concurrent processes from creating duplicate POS sessions
-            request.env.cr.execute(
-                "SELECT id FROM pos_config WHERE id = %s FOR UPDATE NOWAIT",
-                (pos_config.id,)
-            )
-            try:
-                pos_config.open_ui()
-            except UserError:
-                # Enable frontend error rendering so this backend route displays an Odoo error page.
-                request.is_frontend = True
-                request.lang = request.env['res.lang']._get_data(code=request.env.lang)
-                raise
+        if not pos_config.current_session_id:
+            pos_config.open_session_if_not_opened()  # Create a session after doing the necessary checks.
             pos_session = request.env['pos.session'].sudo().search(domain, limit=1)
 
         # The POS only works in one company, so we enforce the one of the session in the context
@@ -102,8 +101,8 @@ class PosController(PortalAccount):
         session_info['user_context']['allowed_company_ids'] = company.ids
         session_info['user_companies'] = {'current_company': company.id, 'allowed_companies': {company.id: session_info['user_companies']['allowed_companies'][company.id]}}
         session_info['nomenclature_id'] = pos_session.company_id.nomenclature_id.id
-        session_info['fallback_nomenclature_id'] = pos_session.config_id.fallback_nomenclature_id.id
-        use_lna = bool(pos_session.env["ir.config_parameter"].get_param("point_of_sale.use_lna"))
+        fallback_nomenclature = pos_session.config_id.fallback_nomenclature_id
+        session_info['fallback_nomenclature_id'] = fallback_nomenclature.id if fallback_nomenclature != company.nomenclature_id else False
         context = {
             'from_backend': 1 if from_backend else 0,
             'use_pos_fake_tours': True if k.get('tours', False) else False,
@@ -113,13 +112,13 @@ class PosController(PortalAccount):
             'access_token': pos_session.config_id.access_token,
             'last_data_change': pos_session.config_id.last_data_change.strftime("%Y-%m-%d %H:%M:%S"),
             'urls_to_cache': json.dumps(pos_config._get_url_to_cache(request.session.debug)),
-            'use_lna': use_lna,
+            'is_restaurant': pos_config.module_pos_restaurant,
         }
         response = request.render('point_of_sale.index', context)
         response.headers['Cache-Control'] = 'no-store'
         return response
 
-    @http.route(['/pos/ping'], type='jsonrpc', auth='user')
+    @http.route(['/pos/ping'], type='jsonrpc', auth='user', readonly=True)
     def pos_ping(self):
         return {'response': 'pong'}
 
@@ -136,11 +135,10 @@ class PosController(PortalAccount):
         form_values = {}
         if request.httprequest.method == 'POST':
             for field in ['pos_reference', 'date_order', 'ticket_code']:
-                value = (kwargs.get(field) or '').strip()
-                if not value:
+                if not kwargs.get(field):
                     errors[field] = " "
                 else:
-                    form_values[field] = value
+                    form_values[field] = kwargs.get(field)
 
             if errors:
                 errors['generic'] = _("Please fill all the required fields.")
@@ -149,7 +147,7 @@ class PosController(PortalAccount):
             else:
                 date_order = datetime(*[int(i) for i in form_values['date_order'].split('-')])
                 order = request.env['pos.order'].sudo().search([
-                    ('pos_reference', '=like', '%' + form_values['pos_reference'].replace('%', r'\%').replace('_', r'\_')),
+                    ('pos_reference', '=like', '%' + form_values['pos_reference'].strip().replace('%', r'\%').replace('_', r'\_')),
                     ('date_order', '>=', date_order - timedelta(days=1)),
                     ('date_order', '<', date_order + timedelta(days=2)),
                     ('ticket_code', '=', form_values['ticket_code']),
@@ -193,7 +191,7 @@ class PosController(PortalAccount):
 
         def _validate_connected_user_data(partner):
             missing_fields, error_message = set(), []
-            for field in self._get_mandatory_billing_address_fields(partner.country_id):
+            for field in partner._get_mandatory_billing_address_fields(partner.country_id):
                 if not partner[field]:
                     missing_fields.add(field)
                     error_message.append(_('The %s must be filled in your details.', request.env['ir.model.fields']._get('res.partner', field).field_description))
@@ -215,7 +213,7 @@ class PosController(PortalAccount):
         pos_order = pos_order.with_company(pos_order.company_id).with_context(allowed_company_ids=pos_order.company_id.ids)
 
         # If the order was already invoiced, return the invoice directly by forcing the access token so that the non-connected user can see it.
-        if pos_order.account_move and pos_order.account_move.is_sale_document():
+        if pos_order.is_singly_invoiced:
             return request.redirect('/my/invoices/%s?access_token=%s' % (pos_order.account_move.id, pos_order.account_move._portal_ensure_token()))
 
         if not request.env['res.company']._with_locked_records(pos_order, allow_raising=False):
@@ -287,19 +285,10 @@ class PosController(PortalAccount):
             if not partner.country_id or not partner.street:
                 form_values['partner_address'] = False
             else:
-                form_values['partner_address'] = partner._display_address()
-
-        address_form_vals = self._prepare_address_form_values(partner, **kwargs)
-        # Most of the time, the country of the customer will be the same as the order. We can prefill it by default with the country of the company.
-        if not address_form_vals.get('country'):
-            address_form_vals['country'] = pos_order_country
-
-        # In POS most of the time user isn't logged in & the customer will be the same as the partner
-        if not address_form_vals.get('current_partner'):
-            address_form_vals['current_partner'] = partner
+                form_values['partner_address'] = partner.contact_address
 
         return request.render("point_of_sale.ticket_validation_screen", {
-            **address_form_vals,
+            **self._prepare_address_form_values(partner, pos_order=pos_order, **kwargs),
             'partner': partner,
             'has_order_partner': has_order_partner,
             'address_url': f'/my/account?redirect=/pos/ticket/validate?access_token={access_token}',
@@ -313,6 +302,13 @@ class PosController(PortalAccount):
             'invoice_sending_methods': {'email': _("by Email")},
             **form_values,
         })
+
+    def _get_default_country(self, pos_order=False, **kwargs):
+        if pos_order:
+            # Most of the time, the country of the customer will be the same as the order. We can
+            # prefill it by default with the country of the company.
+            return pos_order.company_id.account_fiscal_country_id
+        return super()._get_default_country(pos_order=pos_order, **kwargs)
 
     def _validate_extra_form_details(self, addtional_form_values, additional_required_fields):
         """ Ensure that all additional required fields have a value in the data. """

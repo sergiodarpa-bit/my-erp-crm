@@ -35,6 +35,9 @@ function columnIsAvailable(numberOfColumns) {
 export class ColumnPlugin extends Plugin {
     static id = "column";
     static dependencies = ["baseContainer", "selection", "history", "dom"];
+    static defaultConfig = {
+        allowTextColumnResize: true,
+    };
     /** @type {import("plugins").EditorResources} */
     resources = {
         user_commands: [
@@ -42,7 +45,7 @@ export class ColumnPlugin extends Plugin {
                 id: "columnize",
                 title: _t("Columnize"),
                 description: _t("Convert into columns"),
-                icon: "fa-columns",
+                icon: "view_column",
                 run: this.columnize.bind(this),
                 isAvailable: isHtmlContentSupported,
             },
@@ -89,9 +92,28 @@ export class ColumnPlugin extends Plugin {
                 text: _t("Empty column"),
             },
         ],
-        unremovable_node_predicates: isUnremovableColumn,
-        power_buttons_visibility_predicates: ({ anchorNode }) =>
-            !closestElement(anchorNode, ".o_text_columns"),
+        /** Resizing Parameters */
+        ...(this.config.allowTextColumnResize && {
+            resizing_parameters: [
+                {
+                    resizableElementsSelector: "div[class^='col-']",
+                    parentContainerSelector: ".o_text_columns .row",
+                    allowedEdges: ["left", "right"],
+                    minSize: 44,
+                    hoverClass: "o_resize_handle",
+                },
+            ],
+        }),
+        is_node_removable_predicates: (node, root) => {
+            if (isUnremovableColumn(node, root)) {
+                return false;
+            }
+        },
+        should_show_power_buttons_predicates: ({ anchorNode }) => {
+            if (closestElement(anchorNode, ".o_text_columns")) {
+                return false;
+            }
+        },
         move_node_whitelist_selectors: ".o_text_columns",
         move_node_blacklist_selectors: ".o_text_columns *",
         hint_targets_providers: (selectionData) => {
@@ -153,7 +175,7 @@ export class ColumnPlugin extends Plugin {
         }
 
         cursors.restore();
-        this.dependencies.history.addStep();
+        this.dependencies.history.commit();
     }
 
     createColumnsFromList(anchor, li, numberOfColumns) {
@@ -185,7 +207,7 @@ export class ColumnPlugin extends Plugin {
             anchorNode: columns[0].firstElementChild,
             anchorOffset: 0,
         });
-        this.dependencies.history.addStep();
+        this.dependencies.history.commit();
     }
 
     /**
@@ -243,7 +265,6 @@ export class ColumnPlugin extends Plugin {
 
     createEmptyParagraph() {
         const baseContainer = this.dependencies.baseContainer.createBaseContainer();
-        baseContainer.append(this.document.createElement("br"));
         return baseContainer;
     }
 

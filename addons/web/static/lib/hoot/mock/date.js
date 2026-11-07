@@ -323,7 +323,7 @@ export class MockDate extends Date {
     getTimezoneOffset() {
         return typeof timeZoneOffset === "function"
             ? timeZoneOffset(this)
-            : (timeZoneOffset ?? DEFAULT_TIMEZONE_OFFSET);
+            : timeZoneOffset ?? DEFAULT_TIMEZONE_OFFSET;
     }
 
     static now() {

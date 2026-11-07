@@ -21,13 +21,14 @@ class TestRazorpayPaymentStatus(TestPointOfSaleHttpCommon):
         cls.razorpay_payment_method = cls.env["pos.payment.method"].create({
             "name": "Razorpay",
             "payment_method_type": "terminal",
-            "use_payment_terminal": "razorpay",
+            "payment_provider": "razorpay",
             "razorpay_tid": "my_tid",
             "razorpay_allowed_payment_modes": "all",
             "razorpay_username": "my_username",
             "razorpay_api_key": "my_token",
             "razorpay_test_mode": True,
             "journal_id": cls.bank_journal.id,
+            "type": "bank",
         })
         cls.main_pos_config.write({
             "use_pricelist": False,

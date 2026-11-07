@@ -4,16 +4,27 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0+e\n"
+"Project-Id-Version: Odoo Server 20.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-24 18:08+0000\n"
-"PO-Revision-Date: 2026-10-24 18:08+0000\n"
+"POT-Creation-Date: 2026-11-06 18:24+0000\n"
+"PO-Revision-Date: 2026-11-06 18:24+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: l10n_de
+#: model:ir.module.module,description:base.module_l10n_de
+msgid ""
+"\n"
+"Dieses  Modul beinhaltet einen deutschen Kontenrahmen basierend auf dem SKR03 oder SKR04.\n"
+"=========================================================================================\n"
+"\n"
+"German accounting chart and localization.\n"
+"By default, the audit trail is enabled for GoBD compliance.\n"
+msgstr ""
 
 #. module: l10n_de
 #: model:ir.model.fields,help:l10n_de.field_account_tax__l10n_de_datev_code
@@ -44,25 +55,8 @@ msgid "Business identification number."
 msgstr ""
 
 #. module: l10n_de
-#. odoo-python
-#: code:addons/l10n_de/models/res_partner.py:0
-#: model_terms:ir.ui.view,arch_db:l10n_de.res_company_form_l10n_de
-msgid "Commercial Register Number"
-msgstr ""
-
-#. module: l10n_de
 #: model:ir.model,name:l10n_de.model_res_company
-msgid "Companies"
-msgstr ""
-
-#. module: l10n_de
-#: model:ir.model,name:l10n_de.model_res_partner
-msgid "Contact"
-msgstr ""
-
-#. module: l10n_de
-#: model:ir.model,website_form_label:l10n_de.model_res_partner
-msgid "Create a Customer"
+msgid "Company"
 msgstr ""
 
 #. module: l10n_de
@@ -71,10 +65,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_de.field_account_journal__display_name
 #: model:ir.model.fields,field_description:l10n_de.field_account_move__display_name
 #: model:ir.model.fields,field_description:l10n_de.field_account_tax__display_name
-#: model:ir.model.fields,field_description:l10n_de.field_ir_actions_report__display_name
 #: model:ir.model.fields,field_description:l10n_de.field_product_template__display_name
 #: model:ir.model.fields,field_description:l10n_de.field_res_company__display_name
-#: model:ir.model.fields,field_description:l10n_de.field_res_partner__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -84,15 +76,18 @@ msgid "ETA tax codes mixin"
 msgstr ""
 
 #. module: l10n_de
+#: model:ir.module.module,shortdesc:base.module_l10n_de
+msgid "Germany - Accounting"
+msgstr ""
+
+#. module: l10n_de
 #: model:ir.model.fields,field_description:l10n_de.field_account_account__id
 #: model:ir.model.fields,field_description:l10n_de.field_account_chart_template__id
 #: model:ir.model.fields,field_description:l10n_de.field_account_journal__id
 #: model:ir.model.fields,field_description:l10n_de.field_account_move__id
 #: model:ir.model.fields,field_description:l10n_de.field_account_tax__id
-#: model:ir.model.fields,field_description:l10n_de.field_ir_actions_report__id
 #: model:ir.model.fields,field_description:l10n_de.field_product_template__id
 #: model:ir.model.fields,field_description:l10n_de.field_res_company__id
-#: model:ir.model.fields,field_description:l10n_de.field_res_partner__id
 msgid "ID"
 msgstr ""
 
@@ -114,11 +109,6 @@ msgstr ""
 #. module: l10n_de
 #: model:ir.model,name:l10n_de.model_product_template
 msgid "Product"
-msgstr ""
-
-#. module: l10n_de
-#: model:ir.model,name:l10n_de.model_ir_actions_report
-msgid "Report Action"
 msgstr ""
 
 #. module: l10n_de

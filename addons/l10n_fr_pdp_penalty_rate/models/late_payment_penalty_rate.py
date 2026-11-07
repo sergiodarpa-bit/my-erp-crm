@@ -1,7 +1,8 @@
 import logging
 
+from requests.exceptions import RequestException
+
 from odoo import api, fields, models
-from odoo.exceptions import AccessError
 
 from odoo.addons.iap.tools import iap_tools
 
@@ -58,7 +59,7 @@ class L10nFrPdpLatePaymentPenaltyRate(models.Model):
                 },
             )
             rates_by_period = self._parse_rates_response(response, period_starts)
-        except (AccessError, KeyError, TypeError, ValueError) as error:
+        except (RequestException, KeyError, TypeError, ValueError) as error:
             _logger.info(
                 "Unable to update the late payment penalty rates from IAP: %s",
                 error,

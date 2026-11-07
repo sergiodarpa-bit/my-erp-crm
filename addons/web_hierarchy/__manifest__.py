@@ -3,7 +3,6 @@
 {
     'name': 'Web Hierarchy',
     'category': 'Hidden',
-    'version': '1.0',
     'description':
         """
 my-erp-crm Web Hierarchy view

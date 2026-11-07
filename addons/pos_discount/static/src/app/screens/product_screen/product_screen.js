@@ -7,7 +7,7 @@ patch(ProductScreen.prototype, {
         if (!this.currentOrder?.getSelectedOrderline()?.isDiscountLine) {
             return buttons;
         }
-        const toDisable = new Set(["quantity", "discount", "price", "-"]);
+        const toDisable = new Set(["quantity", "discount"]);
         return buttons.map((button) => {
             if (toDisable.has(button.value)) {
                 return { ...button, disabled: true };

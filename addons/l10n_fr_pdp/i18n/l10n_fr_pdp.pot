@@ -4,16 +4,24 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0+e\n"
+"Project-Id-Version: Odoo Server 20.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-24 18:08+0000\n"
-"PO-Revision-Date: 2026-10-24 18:08+0000\n"
+"POT-Creation-Date: 2026-11-06 18:25+0000\n"
+"PO-Revision-Date: 2026-11-06 18:25+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: l10n_fr_pdp
+#: model:ir.module.module,description:base.module_l10n_fr_pdp
+msgid ""
+"\n"
+"- Support for the mandatory electronic invoicing in France\n"
+"- Send and receive documents via the Odoo Approved Platform\n"
+msgstr ""
 
 #. module: l10n_fr_pdp
 #. odoo-python
@@ -57,17 +65,17 @@ msgid "%s will be used as SIREN for the KYC"
 msgstr ""
 
 #. module: l10n_fr_pdp
-#: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.pdp_registration_form
 msgid ""
-"<i class=\"fa fa-exclamation-triangle\"/>You can only send and receive <span"
-" class=\"o_form_label\">unregulated</span> messages currently."
+"<i class=\"oi me-2\" data-icon=\"warning\"/>Authentication in progress. "
+"Clicking \"Cancel\" will abort the process."
 msgstr ""
 
 #. module: l10n_fr_pdp
-#: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.pdp_registration_form
+#: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.res_config_settings_view_form
 msgid ""
-"<i class=\"fa fa-warning me-2\"/>Authentication in progress. Clicking "
-"\"Cancel\" will abort the process."
+"<i class=\"oi\" data-icon=\"warning\"/>You can only send and receive <span "
+"class=\"o_form_label\">unregulated</span> messages currently."
 msgstr ""
 
 #. module: l10n_fr_pdp
@@ -109,6 +117,11 @@ msgid "<span><strong>Disconnected from the Approved Platform!</strong></span>"
 msgstr ""
 
 #. module: l10n_fr_pdp
+#: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.res_config_settings_view_form
+msgid "<strong>Contact us</strong>"
+msgstr ""
+
+#. module: l10n_fr_pdp
 #. odoo-python
 #: code:addons/l10n_fr_pdp/models/account_edi_proxy_user.py:0
 msgid ""
@@ -137,21 +150,6 @@ msgid "Account EDI proxy user"
 msgstr ""
 
 #. module: l10n_fr_pdp
-#: model:ir.model,name:l10n_fr_pdp.model_account_move_send
-msgid "Account Move Send"
-msgstr ""
-
-#. module: l10n_fr_pdp
-#: model:ir.model,name:l10n_fr_pdp.model_account_move_send_wizard
-msgid "Account Move Send Wizard"
-msgstr ""
-
-#. module: l10n_fr_pdp
-#: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_config_wizard__account_peppol_edi_user
-msgid "Account Peppol Edi User"
-msgstr ""
-
-#. module: l10n_fr_pdp
 #: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.l10n_fr_pdp_list_view_move_ereporting
 msgid "Accounting Date"
 msgstr ""
@@ -167,6 +165,8 @@ msgid "Action Needed"
 msgstr ""
 
 #. module: l10n_fr_pdp
+#. odoo-python
+#: code:addons/l10n_fr_pdp/models/account_journal.py:0
 #: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.res_config_settings_view_form
 msgid "Activate Electronic Invoicing"
 msgstr ""
@@ -187,6 +187,11 @@ msgstr ""
 #. module: l10n_fr_pdp
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_reports_flow__activity_exception_decoration
 msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: l10n_fr_pdp
+#: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_reports_flow__activity_plans_ids
+msgid "Activity Plans"
 msgstr ""
 
 #. module: l10n_fr_pdp
@@ -226,17 +231,6 @@ msgstr ""
 #. odoo-python
 #: code:addons/l10n_fr_pdp/models/account_edi_proxy_user.py:0
 msgid "Admissible"
-msgstr ""
-
-#. module: l10n_fr_pdp
-#: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.res_config_settings_view_form
-msgid "Advanced Configuration"
-msgstr ""
-
-#. module: l10n_fr_pdp
-#. odoo-python
-#: code:addons/l10n_fr_pdp/wizard/pdp_config_wizard.py:0
-msgid "Advanced E-Invoicing Configuration"
 msgstr ""
 
 #. module: l10n_fr_pdp
@@ -281,6 +275,11 @@ msgstr ""
 msgid ""
 "An error occurred with the Approved Platform while sending a "
 "response.%(br)sStatus: %(status)s - %(error)s"
+msgstr ""
+
+#. module: l10n_fr_pdp
+#: model:ir.model,name:l10n_fr_pdp.model_l10n_fr_pdp_annuaire_line
+msgid "Annuaire Line"
 msgstr ""
 
 #. module: l10n_fr_pdp
@@ -369,6 +368,11 @@ msgstr ""
 #. module: l10n_fr_pdp
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_registration__pdp_kyc_status
 msgid "Authentication status"
+msgstr ""
+
+#. module: l10n_fr_pdp
+#: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_partner_lookup__available_annuaire_line_ids
+msgid "Available Annuaire Lines"
 msgstr ""
 
 #. module: l10n_fr_pdp
@@ -470,6 +474,11 @@ msgid "Click \"Send anyway\" to submit without them."
 msgstr ""
 
 #. module: l10n_fr_pdp
+#: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.view_l10n_fr_pdp_partner_lookup_form
+msgid "Close"
+msgstr ""
+
+#. module: l10n_fr_pdp
 #: model:ir.model.fields.selection,name:l10n_fr_pdp.selection__l10n_fr_pdp_reports_flow__period_status__closed
 msgid "Closed"
 msgstr ""
@@ -482,12 +491,7 @@ msgstr ""
 
 #. module: l10n_fr_pdp
 #: model:ir.model,name:l10n_fr_pdp.model_res_company
-msgid "Companies"
-msgstr ""
-
-#. module: l10n_fr_pdp
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_reports_flow__company_id
-#: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_config_wizard__company_id
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_registration__company_id
 #: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.l10n_fr_pdp_reports_view_flow_list
 msgid "Company"
@@ -496,11 +500,6 @@ msgstr ""
 #. module: l10n_fr_pdp
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_registration__auth_url_hash
 msgid "Company Authentication IAP UUID"
-msgstr ""
-
-#. module: l10n_fr_pdp
-#: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.pdp_config_wizard_form
-msgid "Company information"
 msgstr ""
 
 #. module: l10n_fr_pdp
@@ -564,18 +563,20 @@ msgid "Create, send and receive e-invoices for free."
 msgstr ""
 
 #. module: l10n_fr_pdp
+#: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_annuaire_line__create_uid
+#: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_partner_lookup__create_uid
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_reports_flow__create_uid
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_reports_send_wizard__create_uid
-#: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_config_wizard__create_uid
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_registration__create_uid
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_response_wizard__create_uid
 msgid "Created by"
 msgstr ""
 
 #. module: l10n_fr_pdp
+#: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_annuaire_line__create_date
+#: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_partner_lookup__create_date
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_reports_flow__create_date
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_reports_send_wizard__create_date
-#: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_config_wizard__create_date
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_registration__create_date
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_response_wizard__create_date
 msgid "Created on"
@@ -591,11 +592,6 @@ msgstr ""
 msgid ""
 "Current status of the reporting period: Open (before grace), Grace (can "
 "send), Closed (after deadline)."
-msgstr ""
-
-#. module: l10n_fr_pdp
-#: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.pdp_config_wizard_form
-msgid "Danger zone"
 msgstr ""
 
 #. module: l10n_fr_pdp
@@ -622,7 +618,6 @@ msgstr ""
 
 #. module: l10n_fr_pdp
 #: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.l10n_fr_pdp_view_send_wizard_form
-#: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.pdp_config_wizard_form
 #: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.pdp_response_wizard_form
 msgid "Discard"
 msgstr ""
@@ -633,7 +628,6 @@ msgid "Disconnect"
 msgstr ""
 
 #. module: l10n_fr_pdp
-#: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.pdp_config_wizard_form
 #: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.res_config_settings_view_form
 msgid "Disconnect French electronic invoicing"
 msgstr ""
@@ -663,9 +657,10 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_account_peppol_response__display_name
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_account_tax__display_name
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_ir_attachment__display_name
+#: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_annuaire_line__display_name
+#: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_partner_lookup__display_name
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_reports_flow__display_name
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_reports_send_wizard__display_name
-#: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_config_wizard__display_name
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_flow_10_xml_builder__display_name
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_registration__display_name
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_response_wizard__display_name
@@ -832,8 +827,9 @@ msgid "ETA tax codes mixin"
 msgstr ""
 
 #. module: l10n_fr_pdp
-#: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_config_wizard__account_peppol_edi_identification
-msgid "Edi Identification"
+#. odoo-python
+#: code:addons/l10n_fr_pdp/models/account_journal.py:0
+msgid "Electronic Invoicing Settings"
 msgstr ""
 
 #. module: l10n_fr_pdp
@@ -928,6 +924,12 @@ msgid ""
 msgstr ""
 
 #. module: l10n_fr_pdp
+#. odoo-python
+#: code:addons/l10n_fr_pdp/models/res_partner.py:0
+msgid "Failed to query annuaire lines for identifier %(siren)s: %(error)s"
+msgstr ""
+
+#. module: l10n_fr_pdp
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_reports_send_wizard__flow_id
 msgid "Flow"
 msgstr ""
@@ -988,11 +990,6 @@ msgid "Followers (Partners)"
 msgstr ""
 
 #. module: l10n_fr_pdp
-#: model:ir.model.fields,help:l10n_fr_pdp.field_l10n_fr_pdp_reports_flow__activity_type_icon
-msgid "Font awesome icon e.g. fa-tasks"
-msgstr ""
-
-#. module: l10n_fr_pdp
 #. odoo-python
 #: code:addons/l10n_fr_pdp/models/res_partner.py:0
 msgid "For French regulated invoices, only %(format_name)s is supported."
@@ -1005,6 +1002,11 @@ msgid ""
 " your validation should be done tomorrow. If you requested a migration from "
 "another PA, registration may take up to two weeks, depending on their "
 "response time."
+msgstr ""
+
+#. module: l10n_fr_pdp
+#: model:ir.module.module,shortdesc:base.module_l10n_fr_pdp
+msgid "France - E-Invoicing (Approved Platform)"
 msgstr ""
 
 #. module: l10n_fr_pdp
@@ -1075,12 +1077,6 @@ msgid "Go to company"
 msgstr ""
 
 #. module: l10n_fr_pdp
-#. odoo-python
-#: code:addons/l10n_fr_pdp/wizard/pdp_registration.py:0
-msgid "Go to the Preferences panel"
-msgstr ""
-
-#. module: l10n_fr_pdp
 #: model:ir.model.fields.selection,name:l10n_fr_pdp.selection__l10n_fr_pdp_reports_flow__period_status__grace
 msgid "Grace"
 msgstr ""
@@ -1119,9 +1115,10 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_account_peppol_response__id
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_account_tax__id
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_ir_attachment__id
+#: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_annuaire_line__id
+#: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_partner_lookup__id
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_reports_flow__id
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_reports_send_wizard__id
-#: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_config_wizard__id
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_flow_10_xml_builder__id
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_registration__id
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_response_wizard__id
@@ -1142,6 +1139,7 @@ msgid "Icon to indicate an exception activity."
 msgstr ""
 
 #. module: l10n_fr_pdp
+#: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_annuaire_line__identifier
 #: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.pdp_registration_form
 msgid "Identifier"
 msgstr ""
@@ -1322,6 +1320,12 @@ msgid "Journal Entry"
 msgstr ""
 
 #. module: l10n_fr_pdp
+#: model:ir.model.fields,field_description:l10n_fr_pdp.field_res_partner__l10n_fr_is_pdp
+#: model:ir.model.fields,field_description:l10n_fr_pdp.field_res_users__l10n_fr_is_pdp
+msgid "L10N Fr Is Pdp"
+msgstr ""
+
+#. module: l10n_fr_pdp
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_account_bank_statement_line__l10n_fr_pdp_flow_10_operation_type
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_account_move__l10n_fr_pdp_flow_10_operation_type
 msgid "L10N Fr Pdp Flow 10 Operation Type"
@@ -1357,18 +1361,20 @@ msgid "Last French E-Reporting Flow"
 msgstr ""
 
 #. module: l10n_fr_pdp
+#: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_annuaire_line__write_uid
+#: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_partner_lookup__write_uid
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_reports_flow__write_uid
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_reports_send_wizard__write_uid
-#: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_config_wizard__write_uid
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_registration__write_uid
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_response_wizard__write_uid
 msgid "Last Updated by"
 msgstr ""
 
 #. module: l10n_fr_pdp
+#: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_annuaire_line__write_date
+#: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_partner_lookup__write_date
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_reports_flow__write_date
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_reports_send_wizard__write_date
-#: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_config_wizard__write_date
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_registration__write_date
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_response_wizard__write_date
 msgid "Last Updated on"
@@ -1423,6 +1429,11 @@ msgstr ""
 #. module: l10n_fr_pdp
 #: model:ir.model.fields.selection,name:l10n_fr_pdp.selection__account_peppol_response__pdp_flow_number__6
 msgid "Mandatory Status"
+msgstr ""
+
+#. module: l10n_fr_pdp
+#: model:ir.model.fields,help:l10n_fr_pdp.field_l10n_fr_pdp_reports_flow__activity_type_icon
+msgid "Material Symbols icon e.g. checklist"
 msgstr ""
 
 #. module: l10n_fr_pdp
@@ -1497,6 +1508,11 @@ msgid "Name"
 msgstr ""
 
 #. module: l10n_fr_pdp
+#: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_annuaire_line__nature
+msgid "Nature"
+msgstr ""
+
+#. module: l10n_fr_pdp
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_reports_flow__activity_calendar_event_id
 msgid "Next Activity Calendar Event"
 msgstr ""
@@ -1528,6 +1544,12 @@ msgstr ""
 msgid ""
 "No active Approved Platform connection is configured for company "
 "%(company)s."
+msgstr ""
+
+#. module: l10n_fr_pdp
+#. odoo-python
+#: code:addons/l10n_fr_pdp/models/res_partner.py:0
+msgid "No annuaire lines found for that identifier"
 msgstr ""
 
 #. module: l10n_fr_pdp
@@ -1629,7 +1651,6 @@ msgid "PA Status:"
 msgstr ""
 
 #. module: l10n_fr_pdp
-#: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_config_wizard__account_peppol_proxy_state
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_registration__account_peppol_proxy_state
 msgid "PEPPOL status"
 msgstr ""
@@ -1690,8 +1711,15 @@ msgid ""
 msgstr ""
 
 #. module: l10n_fr_pdp
+#: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_partner_lookup__partner_id
 #: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.l10n_fr_pdp_list_view_move_ereporting
 msgid "Partner"
+msgstr ""
+
+#. module: l10n_fr_pdp
+#: model:ir.model,name:l10n_fr_pdp.model_l10n_fr_pdp_partner_lookup
+#: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.view_l10n_fr_pdp_partner_lookup_form
+msgid "Partner Lookup"
 msgstr ""
 
 #. module: l10n_fr_pdp
@@ -1818,11 +1846,6 @@ msgid "Pending"
 msgstr ""
 
 #. module: l10n_fr_pdp
-#: model:ir.model,name:l10n_fr_pdp.model_pdp_config_wizard
-msgid "Peppol Configuration Wizard"
-msgstr ""
-
-#. module: l10n_fr_pdp
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_reports_flow__period_end
 msgid "Period End"
 msgstr ""
@@ -1853,11 +1876,16 @@ msgid "Pilot Phase"
 msgstr ""
 
 #. module: l10n_fr_pdp
+#: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_annuaire_line__platform_id
+msgid "Platform"
+msgstr ""
+
+#. module: l10n_fr_pdp
 #. odoo-python
 #: code:addons/l10n_fr_pdp/models/account_edi_proxy_user.py:0
 msgid ""
-"Please fill the French e-invoicing identifier with scheme '%s' on the "
-"company partner."
+"Please fill the company routing endpoint with the French e-invoicing scheme "
+"(0225:<identifier>)."
 msgstr ""
 
 #. module: l10n_fr_pdp
@@ -1879,13 +1907,11 @@ msgid "Previously sent"
 msgstr ""
 
 #. module: l10n_fr_pdp
-#: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_config_wizard__account_peppol_contact_email
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_pdp_registration__contact_email
 msgid "Primary contact email"
 msgstr ""
 
 #. module: l10n_fr_pdp
-#: model:ir.model.fields,help:l10n_fr_pdp.field_pdp_config_wizard__account_peppol_contact_email
 #: model:ir.model.fields,help:l10n_fr_pdp.field_pdp_registration__contact_email
 msgid ""
 "Primary contact email for Peppol connection related communications and notifications.\n"
@@ -2060,13 +2086,23 @@ msgid "Sales"
 msgstr ""
 
 #. module: l10n_fr_pdp
-#: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.pdp_config_wizard_form
+#: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.view_l10n_fr_pdp_partner_lookup_form
 msgid "Save"
 msgstr ""
 
 #. module: l10n_fr_pdp
 #: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.l10n_fr_pdp_reports_view_flow_search
 msgid "Search EDI exports"
+msgstr ""
+
+#. module: l10n_fr_pdp
+#: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.res_partner_form_l10n_fr_pdp
+msgid "Search endpoint"
+msgstr ""
+
+#. module: l10n_fr_pdp
+#: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_partner_lookup__selected_line_id
+msgid "Selected Line"
 msgstr ""
 
 #. module: l10n_fr_pdp
@@ -2084,6 +2120,11 @@ msgstr ""
 #. module: l10n_fr_pdp
 #: model:ir.model,name:l10n_fr_pdp.model_l10n_fr_pdp_reports_send_wizard
 msgid "Send French E-Reporting Flow Wizard"
+msgstr ""
+
+#. module: l10n_fr_pdp
+#: model:ir.model,name:l10n_fr_pdp.model_account_move_send_wizard
+msgid "Send Invoice Wizard"
 msgstr ""
 
 #. module: l10n_fr_pdp
@@ -2147,6 +2188,17 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_account_bank_statement_line__l10n_fr_pdp_sent_in_flow_ids
 #: model:ir.model.fields,field_description:l10n_fr_pdp.field_account_move__l10n_fr_pdp_sent_in_flow_ids
 msgid "Sent in French E-Reporting Flows"
+msgstr ""
+
+#. module: l10n_fr_pdp
+#. odoo-python
+#: code:addons/l10n_fr_pdp/models/res_partner.py:0
+msgid "Set up your routing endpoint to enable the lookup"
+msgstr ""
+
+#. module: l10n_fr_pdp
+#: model:ir.model,name:l10n_fr_pdp.model_account_move_send
+msgid "Shared Send Invoice Wizard Functions"
 msgstr ""
 
 #. module: l10n_fr_pdp
@@ -2361,18 +2413,16 @@ msgstr ""
 
 #. module: l10n_fr_pdp
 #. odoo-python
-#: code:addons/l10n_fr_pdp/models/res_partner.py:0
+#: code:addons/l10n_fr_pdp/wizard/pdp_registration.py:0
 msgid ""
-"The French e-invoicing identifier is not valid. The expected format is: "
-"SIREN, SIREN_SIRET, SIREN_SIRET_CodeRoutage or SIREN_SuffixeAdressage"
+"The Identifier is not valid. The expected format is: SIREN, SIREN_SIRET, "
+"SIREN_SIRET_CodeRoutage or SIREN_SuffixeAdressage"
 msgstr ""
 
 #. module: l10n_fr_pdp
 #. odoo-python
 #: code:addons/l10n_fr_pdp/wizard/pdp_registration.py:0
-msgid ""
-"The Identifier is not valid. The expected format is: SIREN, SIREN_SIRET, "
-"SIREN_SIRET_CodeRoutage or SIREN_SuffixeAdressage"
+msgid "The Identifier is required."
 msgstr ""
 
 #. module: l10n_fr_pdp
@@ -2475,11 +2525,6 @@ msgid "The payment's currency."
 msgstr ""
 
 #. module: l10n_fr_pdp
-#: model:ir.model.fields,help:l10n_fr_pdp.field_pdp_config_wizard__account_peppol_edi_identification
-msgid "The unique id that identifies this user, typically the vat"
-msgstr ""
-
-#. module: l10n_fr_pdp
 #. odoo-python
 #: code:addons/l10n_fr_pdp/wizard/pdp_registration.py:0
 msgid "There is already another e-invoicing connection."
@@ -2515,18 +2560,6 @@ msgstr ""
 #. odoo-python
 #: code:addons/l10n_fr_pdp/models/account_edi_xml_ubl_21_fr.py:0
 msgid "This partner is behind Chorus PRO. Please install the module '%s'"
-msgstr ""
-
-#. module: l10n_fr_pdp
-#: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.pdp_config_wizard_form
-msgid "This will delete your French electronic invoicing registration."
-msgstr ""
-
-#. module: l10n_fr_pdp
-#. odoo-python
-#: code:addons/l10n_fr_pdp/wizard/pdp_registration.py:0
-msgid ""
-"To be able to register, you need to enable the two-factor authentication."
 msgstr ""
 
 #. module: l10n_fr_pdp
@@ -2666,16 +2699,6 @@ msgid "Warnings"
 msgstr ""
 
 #. module: l10n_fr_pdp
-#: model:ir.model.fields,field_description:l10n_fr_pdp.field_l10n_fr_pdp_reports_flow__website_message_ids
-msgid "Website Messages"
-msgstr ""
-
-#. module: l10n_fr_pdp
-#: model:ir.model.fields,help:l10n_fr_pdp.field_l10n_fr_pdp_reports_flow__website_message_ids
-msgid "Website communication history"
-msgstr ""
-
-#. module: l10n_fr_pdp
 #. odoo-javascript
 #: code:addons/l10n_fr_pdp/static/src/js/pdp_info.xml:0
 msgid "What is electronic invoicing and why is it great?"
@@ -2714,18 +2737,8 @@ msgid "You are registered on the annuaire starting on"
 msgstr ""
 
 #. module: l10n_fr_pdp
-#: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.pdp_config_wizard_form
-msgid "You are sending and receiving your e-invoices via Odoo with this ID"
-msgstr ""
-
-#. module: l10n_fr_pdp
 #: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.res_config_settings_view_form
 msgid "You are sending from"
-msgstr ""
-
-#. module: l10n_fr_pdp
-#: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.pdp_config_wizard_form
-msgid "You are sending your e-invoices via Odoo with this Peppol ID"
 msgstr ""
 
 #. module: l10n_fr_pdp
@@ -2787,7 +2800,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.res_config_settings_view_form
 msgid ""
 "Your database is not linked to the Approved Platform anymore. This might be due to a database duplication or restoration.\n"
-"                                        Make sure to reconnect the correct database."
+"                                        <br/>"
 msgstr ""
 
 #. module: l10n_fr_pdp
@@ -2829,6 +2842,15 @@ msgstr ""
 
 #. module: l10n_fr_pdp
 #. odoo-python
+#: code:addons/l10n_fr_pdp/models/res_partner.py:0
+msgid ""
+"endpoint must begin with a 9 or 14 digits number to enable the lookup (ie: "
+"siren, siret), followed by an optional suffix starting with an underscore "
+"(ie: 123456789_ABC)"
+msgstr ""
+
+#. module: l10n_fr_pdp
+#. odoo-python
 #: code:addons/l10n_fr_pdp/models/account_edi_proxy_user.py:0
 msgid "error"
 msgstr ""
@@ -2848,6 +2870,11 @@ msgstr ""
 #. odoo-python
 #: code:addons/l10n_fr_pdp/models/res_company.py:0
 msgid "the Approved Platform"
+msgstr ""
+
+#. module: l10n_fr_pdp
+#: model_terms:ir.ui.view,arch_db:l10n_fr_pdp.res_config_settings_view_form
+msgid "to reconnect your database."
 msgstr ""
 
 #. module: l10n_fr_pdp

@@ -2,22 +2,23 @@
 # This file contains the translation of the following modules:
 # * auth_password_policy
 #
-# "Dylan Kiss (dyki)" <dyki@odoo.com>, 2025, 2026.
+# "Dylan Kiss (dyki)" <dyki@odoo.com>, 2025.
+# "Nurul Aini Akrima Sabila (nuaas)" <nuaas@odoo.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: my-erp-crm Server saas~18.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:36+0000\n"
-"PO-Revision-Date: 2026-08-07 04:38+0000\n"
-"Last-Translator: \"Dylan Kiss (dyki)\" <dyki@odoo.com>\n"
-"Language-Team: Indonesian <https://translate.odoo.com/projects/odoo-19/"
+"POT-Creation-Date: 2026-08-28 17:41+0000\n"
+"PO-Revision-Date: 2026-10-29 04:33+0000\n"
+"Last-Translator: \"Nurul Aini Akrima Sabila (nuaas)\" <nuaas@odoo.com>\n"
+"Language-Team: Indonesian <https://translate.odoo.com/projects/odoo-20/"
 "auth_password_policy/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.6.1\n"
+"X-Generator: Weblate 2026.8.1\n"
 
 #. module: auth_password_policy
 #: model:ir.model,name:auth_password_policy.model_res_config_settings
@@ -37,6 +38,11 @@ msgid "ID"
 msgstr "ID"
 
 #. module: auth_password_policy
+#: model:ir.module.module,summary:base.module_auth_password_policy
+msgid "Implement basic password policy configuration & check"
+msgstr ""
+
+#. module: auth_password_policy
 #. odoo-javascript
 #: code:addons/auth_password_policy/static/src/password_meter.js:0
 msgid "Medium"
@@ -51,13 +57,19 @@ msgstr "Panjang Minimal Password"
 #: model:ir.model.fields,help:auth_password_policy.field_res_config_settings__minlength
 msgid ""
 "Minimum number of characters passwords must contain, set to 0 to disable."
-msgstr "Jumlah karakter minimal untuk password, setel ke 0 untuk menonaktifkan."
+msgstr ""
+"Jumlah karakter minimal untuk password, setel ke 0 untuk menonaktifkan."
 
 #. module: auth_password_policy
 #. odoo-javascript
 #: code:addons/auth_password_policy/static/src/password_field.js:0
 msgid "Password"
 msgstr "Kata Sandi"
+
+#. module: auth_password_policy
+#: model:ir.module.module,shortdesc:base.module_auth_password_policy
+msgid "Password Policy"
+msgstr ""
 
 #. module: auth_password_policy
 #. odoo-javascript
@@ -82,7 +94,7 @@ msgstr "Kuat"
 #. module: auth_password_policy
 #: model:ir.model,name:auth_password_policy.model_res_users
 msgid "User"
-msgstr "Pengguna"
+msgstr "User"
 
 #. module: auth_password_policy
 #. odoo-javascript

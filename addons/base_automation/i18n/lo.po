@@ -2,24 +2,48 @@
 # This file contains the translation of the following modules:
 # * base_automation
 #
-# Translators:
-# Martin Trigaux <mat@odoo.com>, 2017
+# Weblate <noreply-mt-weblate@weblate.org>, 2026.
 # Bone NI <bounkirdni@gmail.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: my-erp-crm Server 10.saas~18\n"
+"Project-Id-Version: my-erp-crm Server saas~19.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-26 21:55+0000\n"
-"PO-Revision-Date: 2026-08-07 05:40+0000\n"
+"POT-Creation-Date: 2026-08-28 17:41+0000\n"
+"PO-Revision-Date: 2026-10-30 03:33+0000\n"
 "Last-Translator: Bone NI <bounkirdni@gmail.com>\n"
-"Language-Team: Lao <https://translate.odoo.com/projects/odoo-19/"
+"Language-Team: Lao <https://translate.odoo.com/projects/odoo-20/"
 "base_automation/lo/>\n"
 "Language: lo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.6.1\n"
+"X-Generator: Weblate 2026.8.1\n"
+
+#. module: base_automation
+#: model:ir.module.module,description:base.module_base_automation
+msgid ""
+"\n"
+"This module allows to implement automation rules for any object.\n"
+"================================================================\n"
+"\n"
+"Use automation rules to automatically trigger actions for various screens.\n"
+"\n"
+"**Example:** A lead created by a specific user may be automatically set to a "
+"specific\n"
+"Sales Team, or an opportunity which still has status pending after 14 days "
+"might\n"
+"trigger an automatic reminder email.\n"
+msgstr ""
+"\n"
+"ໂມດູນນີ້ຊ່ວຍໃຫ້ສາມາດນຳໃຊ້ກົດລະບຽບອັດຕະໂນມັດສຳລັບທຸກໆວັດຖຸ.\n"
+"================================================================\n"
+"\n"
+"ນຳໃຊ້ກົດລະບຽບອັດຕະໂນມັດເພື່ອກະຕຸ້ນການດຳເນີນການສຳລັບໜ້າຈໍຕ່າງໆໂດຍອັດຕະໂນມັດ.\n"
+"\n"
+"**ຕົວຢ່າງ:** ລູກຄ້າເປົ້າໝາຍທີ່ສ້າງຂຶ້ນໂດຍຜູ້ໃຊ້ສະເພາະໃດໜຶ່ງ ອາດຖືກກຳນົດໃຫ້ກັບ\n"
+"ທີມຂາຍສະເພາະໂດຍອັດຕະໂນມັດ, ຫຼື ໂອກາດທີ່ຍັງມີສະຖານະຄ້າງຢູ່ຫຼັງຈາກ 14 ວັນ ອາດ\n"
+"ກະຕຸ້ນອີເມວແຈ້ງເຕືອນອັດຕະໂນມັດ.\n"
 
 #. module: base_automation
 #. odoo-javascript
@@ -33,7 +57,7 @@ msgstr ""
 
 #. module: base_automation
 #. odoo-javascript
-#: code:addons/base_automation/static/src/kanban_header_patch.js:0
+#: code:addons/base_automation/static/src/group_config_menu_patch.js:0
 msgid "\"%s\" tag is added"
 msgstr "ເພີ່ມແທັກ \"%s\" ແລ້ວ"
 
@@ -62,7 +86,7 @@ msgstr "1 ການດຳເນີນການ"
 #. module: base_automation
 #: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
 msgid "<code>env</code>: environment on which the action is triggered"
-msgstr "<code>env</code>: ສະພາບແວດລ້ອມທີ່ການດຳເນີນການຖືກກະຕຸ້ນ"
+msgstr "<code>env</code>: ສະພາບແວດລ້ອມ (environment) ທີ່ການດຳເນີນການຖືກກະຕຸ້ນ"
 
 #. module: base_automation
 #: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
@@ -70,7 +94,7 @@ msgid ""
 "<code>model</code>: model of the record on which the action is triggered; is "
 "a void recordset"
 msgstr ""
-"<code>model</code>: ໂມເດວຂອງບັນທຶກທີ່ການດຳເນີນການຖືກກະຕຸ້ນ; ເປັນຊຸດບັນທຶກທີ່ຫວ່າງເປົ່າ"
+"<code>model</code>: ໂມເດວຂອງບັນທຶກທີ່ການດຳເນີນການຖືກກະຕຸ້ນ; ແມ່ນ void recordset"
 
 #. module: base_automation
 #: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
@@ -88,31 +112,41 @@ msgid ""
 "<code>timezone</code>: useful Python libraries"
 msgstr ""
 "<code>time</code>, <code>datetime</code>, <code>dateutil</code>, <code>"
-"timezone</code>: ຫ້ອງສະໝຸດ Python ທີ່ເປັນປະໂຫຍດ"
+"timezone</code>: ໄລບຣາຣີ Python ທີ່ມີປະໂຫຍດ"
 
 #. module: base_automation
 #: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_kanban
-msgid "<i class=\"fa fa-2x fa-arrow-right text-primary\" title=\"Actions\"/>"
-msgstr "<i class=\"fa fa-2x fa-arrow-right text-primary\" title=\"Actions\"/>"
+msgid ""
+"<i class=\"oi oi-2x text-primary\" data-icon=\"arrow_forward\" "
+"title=\"Actions\"/>"
+msgstr ""
+"<i class=\"oi oi-2x text-primary\" data-icon=\"arrow_forward\" "
+"title=\"Actions\"/>"
 
 #. module: base_automation
 #: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
 msgid ""
-"<i class=\"fa fa-info-circle\"/> The default target record getter will work "
-"out-of-the-box for any webhook coming from another my-erp-crm instance."
+"<i class=\"oi\" data-icon=\"info\"/> The default target record getter will "
+"work out-of-the-box for any webhook coming from another my-erp-crm instance."
 msgstr ""
-"<i class=\"fa fa-info-circle\"/> ຕົວດຶງຂໍ້ມູນບັນທຶກເປົ້າໝາຍເລີ່ມຕົ້ນຈະເຮັດວຽກໄດ້ທັນທີສຳລັບ "
-"webhook ໃດໆ ທີ່ມາຈາກ my-erp-crm instance ອື່ນ."
+"<i class=\"oi\" data-icon=\"info\"/> ຕົວດຶງຂໍ້ມູນບັນທຶກເປົ້າໝາຍເລີ່ມຕົ້ນຈະພ້ອມໃຊ້ງານໄດ້ທັນທີສຳລັ"
+"ບ webhook ໃດໜຶ່ງທີ່ມາຈາກລະບົບ my-erp-crm ອື່ນ."
 
 #. module: base_automation
 #: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
 msgid ""
-"<i class=\"fa fa-warning\"/> Automation rules triggered by UI changes will "
-"be executed <em>every time</em> the watched fields change, <em>whether you "
-"save or not</em>."
+"<i class=\"oi\" data-icon=\"warning\"/> Automation rules triggered by UI "
+"changes will be executed <em>every time</em> the watched fields change, "
+"<em>whether you save or not</em>."
 msgstr ""
-"<i class=\"fa fa-warning\"/> ກົດລະບຽບອັດຕະໂນມັດທີ່ຖືກກະຕຸ້ນໂດຍການປ່ຽນແປງ UI ຈະຖືກປະຕິບັດ "
-"<em>ທຸກໆຄັ້ງ</em> ທີ່ຟິວທີ່ຕິດຕາມມີການປ່ຽນແປງ, <em>ບໍ່ວ່າທ່ານຈະບັນທຶກຫຼືບໍ່ກໍຕາມ</em>."
+"<i class=\"oi\" data-icon=\"warning\"/> ກົດລະບຽບອັດຕະໂນມັດທີ່ຖືກກະຕຸ້ນໂດຍການປ່ຽນແປງຂອ"
+"ງ UI ຈະຖືກປະຕິບັດ <em>ທຸກໆຄັ້ງ</em> ທີ່ຟິວທີ່ຖືກຕິດຕາມມີການປ່ຽນແປງ, <em>ບໍ່ວ່າທ່ານຈະບັນທຶກຫຼືບໍ່ກໍຕາມ</"
+"em>."
+
+#. module: base_automation
+#: model_terms:ir.ui.view,arch_db:base_automation.view_server_action_form
+msgid "<span class=\"o_stat_text\">Automation</span>"
+msgstr "<span class=\"o_stat_text\">ລະບົບອັດຕະໂນມັດ</span>"
 
 #. module: base_automation
 #: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
@@ -120,63 +154,9 @@ msgid "<span class=\"text-muted\"> Available variables: </span>"
 msgstr "<span class=\"text-muted\"> ຕົວປ່ຽນທີ່ມີໃຫ້: </span>"
 
 #. module: base_automation
-#: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
-msgid ""
-"<span invisible=\"evaluation_type != 'value'\">to</span>\n"
-"                                                                <span "
-"invisible=\"evaluation_type != 'equation'\">as</span>"
-msgstr ""
-"<span invisible=\"evaluation_type != 'value'\">ໄປຫາ</span>\n"
-"                                                                <span "
-"invisible=\"evaluation_type != 'equation'\">ເປັນ</span>"
-
-#. module: base_automation
-#: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
-msgid ""
-"<span invisible=\"trigger != 'on_time_created'\">after creation</span>\n"
-"                                    <span invisible=\"trigger != "
-"'on_time_updated'\">after last update</span>\n"
-"                                    <span invisible=\"trigger != "
-"'on_time'\">after</span>"
-msgstr ""
-"<span invisible=\"trigger != 'on_time_created'\">ຫຼັງຈາກການສ້າງ</span>\n"
-"                                    <span invisible=\"trigger != "
-"'on_time_updated'\">ຫຼັງຈາກການອັບເດດຫຼ້າສຸດ</span>\n"
-"                                    <span invisible=\"trigger != 'on_time'\">"
-"ຫຼັງຈາກ</span>"
-
-#. module: base_automation
-#: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
-msgid "<span>by adding</span>"
-msgstr "<span>ໂດຍການເພີ່ມ</span>"
-
-#. module: base_automation
-#: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
-msgid "<span>by clearing it</span>"
-msgstr "<span>ໂດຍການລ້າງອອກ</span>"
-
-#. module: base_automation
-#: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
-msgid "<span>by removing</span>"
-msgstr "<span>ໂດຍການເອົາອອກ</span>"
-
-#. module: base_automation
-#: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
-msgid "<span>by setting it to</span>"
-msgstr "<span>ໂດຍການກຳນົດໃຫ້ເປັນ</span>"
-
-#. module: base_automation
-#: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
-msgid ""
-"<strong><i class=\"fa fa-lock\"/> Keep it secret, keep it safe.</strong>"
-msgstr ""
-"<strong><i class=\"fa fa-lock\"/> ຮັກສາໄວ້ເປັນຄວາມລັບ, ຮັກສາໃຫ້ປອດໄພ.</strong>"
-
-#. module: base_automation
-#: model:ir.model.fields,field_description:base_automation.field_ir_actions_server__name
-#: model:ir.model.fields,field_description:base_automation.field_ir_cron__name
-msgid "Action Name"
-msgstr "ຊື່ການດຳເນີນການ"
+#: model:ir.model.fields,field_description:base_automation.field_base_automation__message_needaction
+msgid "Action Needed"
+msgstr "ຕ້ອງມີການດຳເນີນການ"
 
 #. module: base_automation
 #: model:ir.model.fields,field_description:base_automation.field_base_automation__action_server_ids
@@ -194,21 +174,34 @@ msgid "Active"
 msgstr "ເປີດໃຊ້ງານ"
 
 #. module: base_automation
-#: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
-msgid "Add an action"
-msgstr "ເພີ່ມການດຳເນີນການ"
+#: model:ir.model.fields,field_description:base_automation.field_base_automation__activity_ids
+msgid "Activities"
+msgstr "ກິດຈະກຳ"
 
 #. module: base_automation
-#. odoo-javascript
-#: code:addons/base_automation/static/src/base_automation_actions_one2many_field.js:0
-msgid "Add followers"
-msgstr "ເພີ່ມຜູ້ຕິດຕາມ"
+#: model:ir.model.fields,field_description:base_automation.field_base_automation__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "ການຕົບແຕ່ງກິດຈະກຳທີ່ຍົກເວັ້ນ"
 
 #. module: base_automation
-#. odoo-python
-#: code:addons/base_automation/models/ir_actions_server.py:0
-msgid "Add followers: %(partner_names)s"
-msgstr "ເພີ່ມຜູ້ຕິດຕາມ: %(partner_names)s"
+#: model:ir.model.fields,field_description:base_automation.field_base_automation__activity_plans_ids
+msgid "Activity Plans"
+msgstr "ແຜນກິດຈະກຳ"
+
+#. module: base_automation
+#: model:ir.model.fields,field_description:base_automation.field_base_automation__activity_state
+msgid "Activity State"
+msgstr "ສະຖານະກິດຈະກຳ"
+
+#. module: base_automation
+#: model:ir.model.fields,field_description:base_automation.field_base_automation__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "ໄອຄອນປະເພດກິດຈະກຳ"
+
+#. module: base_automation
+#: model:ir.model.fields.selection,name:base_automation.selection__base_automation__trg_date_range_mode__after
+msgid "After"
+msgstr "ຫຼັງຈາກ"
 
 #. module: base_automation
 #: model:ir.model.fields.selection,name:base_automation.selection__base_automation__trigger__on_time_created
@@ -228,9 +221,13 @@ msgstr "ນຳໃຊ້ກັບ"
 #. module: base_automation
 #: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
 #: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_kanban
-#: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_search
 msgid "Archived"
-msgstr "ເກັບໄວ້ໃນຄັງ"
+msgstr "ຈັດເກັບແລ້ວ"
+
+#. module: base_automation
+#: model:ir.model.fields,field_description:base_automation.field_base_automation__message_attachment_count
+msgid "Attachment Count"
+msgstr "ຈຳນວນສິ່ງທີ່ແນບມາ"
 
 #. module: base_automation
 #: model_terms:ir.actions.act_window,help:base_automation.base_automation_act
@@ -253,6 +250,7 @@ msgstr "ຊື່ກົດລະບຽບອັດຕະໂນມັດ"
 
 #. module: base_automation
 #: model:ir.actions.act_window,name:base_automation.base_automation_act
+#: model:ir.module.module,shortdesc:base.module_base_automation
 #: model:ir.ui.menu,name:base_automation.menu_base_automation_form
 #: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_kanban
 #: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_tree
@@ -266,9 +264,9 @@ msgstr "ກົດລະບຽບອັດຕະໂນມັດ: ກວດສອ�
 
 #. module: base_automation
 #. odoo-javascript
-#: code:addons/base_automation/static/src/kanban_header_patch.js:0
+#: code:addons/base_automation/static/src/group_config_menu_patch.js:0
 msgid "Automations"
-msgstr "ລະບົບອັດຕະໂນມັດ"
+msgstr "ການເຮັດວຽກອັດຕະໂນມັດ"
 
 #. module: base_automation
 #: model:ir.model.fields.selection,name:base_automation.selection__base_automation__trigger__on_time
@@ -276,48 +274,14 @@ msgid "Based on date field"
 msgstr "ອີງຕາມຟິວວັນທີ"
 
 #. module: base_automation
+#: model:ir.model.fields.selection,name:base_automation.selection__base_automation__trg_date_range_mode__before
+msgid "Before"
+msgstr "ກ່ອນໜ້າ"
+
+#. module: base_automation
 #: model:ir.model.fields,field_description:base_automation.field_base_automation__filter_pre_domain
 msgid "Before Update Domain"
 msgstr "ໂດເມນກ່ອນການອັບເດດ"
-
-#. module: base_automation
-#: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
-msgid ""
-"Change the URL's secret if you think the URL is no longer secure. You will "
-"have to update any automated system that calls this webhook to the new URL."
-msgstr ""
-"ປ່ຽນຄວາມລັບຂອງ URL ຖ້າທ່ານຄິດວ່າ URL ນັ້ນບໍ່ປອດໄພອີກຕໍ່ໄປ. ທ່ານຈະຕ້ອງອັບເດດທຸກລະບົບອັດຕະໂນມັດທີ່ເອີ້"
-"ນ webhook ນີ້ໃຫ້ເປັນ URL ໃໝ່."
-
-#. module: base_automation
-#. odoo-python
-#: code:addons/base_automation/models/ir_actions_server.py:0
-msgid "Compute"
-msgstr "ຄຳນວນ"
-
-#. module: base_automation
-#. odoo-python
-#: code:addons/base_automation/models/ir_actions_server.py:0
-msgid "Create %(model_name)s with name %(value)s"
-msgstr "ສ້າງ %(model_name)s ດ້ວຍຊື່ %(value)s"
-
-#. module: base_automation
-#. odoo-javascript
-#: code:addons/base_automation/static/src/base_automation_actions_one2many_field.js:0
-msgid "Create a new Record"
-msgstr "ສ້າງບັນທຶກໃໝ່"
-
-#. module: base_automation
-#. odoo-python
-#: code:addons/base_automation/models/ir_actions_server.py:0
-msgid "Create activity: %(activity_name)s"
-msgstr "ສ້າງກິດຈະກຳ: %(activity_name)s"
-
-#. module: base_automation
-#. odoo-javascript
-#: code:addons/base_automation/static/src/base_automation_actions_one2many_field.js:0
-msgid "Create next activity"
-msgstr "ສ້າງກິດຈະກຳຖັດໄປ"
 
 #. module: base_automation
 #: model:ir.model.fields,field_description:base_automation.field_base_automation__create_uid
@@ -336,46 +300,32 @@ msgid "Custom"
 msgstr "ກຳນົດເອງ"
 
 #. module: base_automation
-#: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
-msgid "Date Field"
-msgstr "ຟິວວັນທີ"
-
-#. module: base_automation
-#. odoo-javascript
-#: code:addons/base_automation/static/src/base_automation_actions_one2many_field.js:0
 #: model:ir.model.fields.selection,name:base_automation.selection__base_automation__trg_date_range_type__day
 msgid "Days"
-msgstr "ມື້"
-
-#. module: base_automation
-#: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
-msgid "Delay"
-msgstr "ຊັກຊ້າ"
-
-#. module: base_automation
-#: model:ir.model.fields,help:base_automation.field_base_automation__trg_date_range
-msgid ""
-"Delay after the trigger date. You can put a negative number if you need a "
-"delay before the trigger date, like sending a reminder 15 minutes before a "
-"meeting."
-msgstr ""
-"ໄລຍະເວລາຊັກຊ້າຫຼັງຈາກວັນທີກະຕຸ້ນ. ທ່ານສາມາດໃສ່ຕົວເລກລົບໄດ້ ຖ້າທ່ານຕ້ອງການໄລຍະເວລາກ່ອນວັນທີກະຕຸ້ນ, "
-"ເຊັ່ນ: ການສົ່ງແຈ້ງເຕືອນ 15 ນາທີກ່ອນການປະຊຸມ."
+msgstr "ວັນ"
 
 #. module: base_automation
 #: model:ir.model.fields,field_description:base_automation.field_base_automation__trg_date_range
-msgid "Delay after trigger date"
-msgstr "ໄລຍະເວລາຊັກຊ້າຫຼັງຈາກວັນທີກະຕຸ້ນ"
+msgid "Delay"
+msgstr "ການໜ່ວງເວລາ"
+
+#. module: base_automation
+#: model:ir.model.fields,field_description:base_automation.field_base_automation__trg_date_range_mode
+msgid "Delay mode"
+msgstr "ໂໝດໜ່ວງເວລາ"
+
+#. module: base_automation
+#. odoo-python
+#: code:addons/base_automation/models/base_automation.py:0
+msgid ""
+"Delay must be positive. Set 'Delay mode' to 'Before' to negate the delay."
+msgstr ""
+"ການໜ່ວງເວລາຕ້ອງເປັນຄ່າບວກ. ຕັ້ງ 'ໂໝດໜ່ວງເວລາ' ເປັນ 'ກ່ອນໜ້າ' ເພື່ອເຮັດໃຫ້ການໜ່ວງເວລາເປັນຄ່າລົບ."
 
 #. module: base_automation
 #: model:ir.model.fields,field_description:base_automation.field_base_automation__trg_date_range_type
-msgid "Delay type"
-msgstr "ປະເພດຄວາມຊັກຊ້າ"
-
-#. module: base_automation
-#: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
-msgid "Delete Action"
-msgstr "ລົບການດຳເນີນການ"
+msgid "Delay unit"
+msgstr "ຫົວໜ່ວຍການໜ່ວງເວລາ"
 
 #. module: base_automation
 #. odoo-javascript
@@ -391,41 +341,21 @@ msgstr "ຄຳອະທິບາຍ"
 #. module: base_automation
 #. odoo-javascript
 #: code:addons/base_automation/static/src/base_automation_error_dialog.xml:0
-msgid "Disable Automation Rule"
-msgstr "ປິດໃຊ້ງານກົດລະບຽບອັດຕະໂນມັດ"
-
-#. module: base_automation
-#. odoo-javascript
-#: code:addons/base_automation/static/src/base_automation_error_dialog.xml:0
-msgid ""
-"Disabling this automation rule will enable you to continue your workflow\n"
-"                but any data created after this could potentially be "
-"corrupted,\n"
-"                as you are effectively disabling a customization that may "
-"set\n"
-"                important and/or required fields."
-msgstr ""
-"ການປິດໃຊ້ງານກົດລະບຽບອັດຕະໂນມັດນີ້ຈະຊ່ວຍໃຫ້ທ່ານເຮັດວຽກຕໍ່ໄປໄດ້\n"
-"                ແຕ່ຂໍ້ມູນໃດໆ ທີ່ສ້າງຂຶ້ນຫຼັງຈາກນີ້ອາດຈະເກີດຄວາມເສຍຫາຍໄດ້,\n"
-"                ເນື່ອງຈາກທ່ານກຳລັງປິດການປັບແຕ່ງທີ່ອາດຈະມີການກຳນົດ\n"
-"                ຟິວທີ່ສຳຄັນ ແລະ/ຫຼື ທີ່ຈຳເປັນ."
+msgid "Disable"
+msgstr "ປິດການໃຊ້ງານ"
 
 #. module: base_automation
 #: model:ir.model.fields,field_description:base_automation.field_base_automation__display_name
+#: model:ir.model.fields,field_description:base_automation.field_ir_actions_server__display_name
+#: model:ir.model.fields,field_description:base_automation.field_ir_cron__display_name
 msgid "Display Name"
 msgstr "ຊື່ທີ່ສະແດງ"
 
 #. module: base_automation
 #. odoo-javascript
 #: code:addons/base_automation/static/src/base_automation_error_dialog.xml:0
-msgid "Edit Automation Rule"
-msgstr "ແກ້ໄຂກົດລະບຽບອັດຕະໂນມັດ"
-
-#. module: base_automation
-#. odoo-javascript
-#: code:addons/base_automation/static/src/base_automation_actions_one2many_field.js:0
-msgid "Email"
-msgstr "ອີເມວ"
+msgid "Edit"
+msgstr "ແກ້ໄຂ"
 
 #. module: base_automation
 #. odoo-javascript
@@ -445,26 +375,9 @@ msgstr ""
 
 #. module: base_automation
 #. odoo-javascript
-#: code:addons/base_automation/static/src/base_automation_actions_one2many_field.js:0
-msgid "Execute Python Code"
-msgstr "ປະຕິບັດລະຫັດ Python"
-
-#. module: base_automation
-#. odoo-javascript
-#: code:addons/base_automation/static/src/base_automation_actions_one2many_field.js:0
-msgid "Execute several actions"
-msgstr "ປະຕິບັດຫຼາຍການດຳເນີນການ"
-
-#. module: base_automation
-#. odoo-javascript
 #: code:addons/base_automation/static/src/base_automation_trigger_selection_field.js:0
 msgid "External"
 msgstr "ພາຍນອກ"
-
-#. module: base_automation
-#: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
-msgid "Extra Conditions"
-msgstr "ເງື່ອນໄຂເພີ່ມເຕີມ"
 
 #. module: base_automation
 #: model:ir.model.fields,help:base_automation.field_base_automation__on_change_field_ids
@@ -472,15 +385,30 @@ msgid "Fields that trigger the onchange."
 msgstr "ຟິວທີ່ກະຕຸ້ນການປ່ຽນແປງ (onchange)."
 
 #. module: base_automation
-#. odoo-javascript
-#: code:addons/base_automation/static/src/base_automation_actions_one2many_field.js:0
-msgid "Generic User"
-msgstr "ຜູ້ໃຊ້ທົ່ວໄປ"
+#: model:ir.model.fields,field_description:base_automation.field_base_automation__message_follower_ids
+msgid "Followers"
+msgstr "ຜູ້ຕິດຕາມ"
+
+#. module: base_automation
+#: model:ir.model.fields,field_description:base_automation.field_base_automation__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "ຜູ້ຕິດຕາມ (ຄູ່ຄ້າ)"
+
+#. module: base_automation
+#. odoo-python
+#: code:addons/base_automation/models/base_automation.py:0
+msgid "Following child actions have warnings: %(children)s"
+msgstr "ການດຳເນີນການຍ່ອຍຕໍ່ໄປນີ້ມີຄຳເຕືອນ: %(children)s"
 
 #. module: base_automation
 #: model:ir.model.fields,field_description:base_automation.field_base_automation__model_is_mail_thread
 msgid "Has Mail Thread"
 msgstr "ມີການສົນທະນາທາງເມວ"
+
+#. module: base_automation
+#: model:ir.model.fields,field_description:base_automation.field_base_automation__has_message
+msgid "Has Message"
+msgstr "ມີຂໍ້ຄວາມ"
 
 #. module: base_automation
 #: model:ir.model.fields.selection,name:base_automation.selection__base_automation__trg_date_range_type__hour
@@ -489,8 +417,31 @@ msgstr "ຊົ່ວໂມງ"
 
 #. module: base_automation
 #: model:ir.model.fields,field_description:base_automation.field_base_automation__id
+#: model:ir.model.fields,field_description:base_automation.field_ir_actions_server__id
+#: model:ir.model.fields,field_description:base_automation.field_ir_cron__id
 msgid "ID"
-msgstr "ລະຫັດ (ID)"
+msgstr "ລະຫັດ"
+
+#. module: base_automation
+#: model:ir.model.fields,field_description:base_automation.field_base_automation__activity_exception_icon
+msgid "Icon"
+msgstr "ໄອຄອນ"
+
+#. module: base_automation
+#: model:ir.model.fields,help:base_automation.field_base_automation__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "ໄອຄອນເພື່ອບົ່ງບອກເຖິງກິດຈະກຳທີ່ຍົກເວັ້ນ."
+
+#. module: base_automation
+#: model:ir.model.fields,help:base_automation.field_base_automation__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "ຖ້າໝາຍເອົາ, ຂໍ້ຄວາມໃໝ່ຈະຕ້ອງການຄວາມສົນໃຈຈາກທ່ານ."
+
+#. module: base_automation
+#: model:ir.model.fields,help:base_automation.field_base_automation__message_has_error
+#: model:ir.model.fields,help:base_automation.field_base_automation__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "ຖ້າໝາຍເອົາ, ບາງຂໍ້ຄວາມມີຂໍ້ຜິດພາດໃນການສົ່ງ."
 
 #. module: base_automation
 #: model:ir.model.fields,help:base_automation.field_base_automation__filter_domain
@@ -503,8 +454,28 @@ msgstr ""
 #. module: base_automation
 #: model:ir.model.fields,help:base_automation.field_base_automation__filter_pre_domain
 msgid ""
-"If present, this condition must be satisfied before the update of the record."
-msgstr "ຖ້າມີ, ເງື່ອນໄຂນີ້ຕ້ອງໄດ້ຮັບການຕອບສະໜອງກ່ອນການອັບເດດບັນທຶກ."
+"If present, this condition must be satisfied before the update of the "
+"record. Not checked on record creation."
+msgstr ""
+"ຖ້າມີ, ເງື່ອນໄຂນີ້ຕ້ອງໄດ້ຮັບການຕອບສະໜອງກ່ອນການອັບເດດບັນທຶກ. ຈະບໍ່ຖືກກວດສອບຕອນສ້າງບັນທຶກ."
+
+#. module: base_automation
+#: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
+msgid ""
+"If renewed, update the secret URL in the third-party app that calls this "
+"webhook."
+msgstr ""
+"ຫາກຕໍ່ອາຍຸແລ້ວ, ໃຫ້ອັບເດດ URL ລັບໃນແອັບພາກສ່ວນທີສາມທີ່ເອີ້ນໃຊ້ webhook ນີ້."
+
+#. module: base_automation
+#: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_search
+msgid "Include Archived"
+msgstr "ລວມເອົາອັນທີ່ເກັບຖາວອນແລ້ວ"
+
+#. module: base_automation
+#: model:ir.model.fields,field_description:base_automation.field_base_automation__message_is_follower
+msgid "Is Follower"
+msgstr "ແມ່ນຜູ້ຕິດຕາມ"
 
 #. module: base_automation
 #: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
@@ -519,17 +490,12 @@ msgstr "ການເຮັດວຽກຫຼ້າສຸດ"
 #. module: base_automation
 #: model:ir.model.fields,field_description:base_automation.field_base_automation__write_uid
 msgid "Last Updated by"
-msgstr "ອັບເດດຫຼ້າສຸດໂດຍ"
+msgstr "ແກ້ໄຂຫຼ້າສຸດໂດຍ"
 
 #. module: base_automation
 #: model:ir.model.fields,field_description:base_automation.field_base_automation__write_date
 msgid "Last Updated on"
-msgstr "ອັບເດດຫຼ້າສຸດເມື່ອ"
-
-#. module: base_automation
-#: model:ir.model.fields,field_description:base_automation.field_base_automation__least_delay_msg
-msgid "Least Delay Msg"
-msgstr "ຂໍ້ຄວາມຄວາມຊັກຊ້າໜ້ອຍທີ່ສຸດ"
+msgstr "ແກ້ໄຂຫຼ້າສຸດເມື່ອ"
 
 #. module: base_automation
 #: model:ir.model.fields,field_description:base_automation.field_base_automation__log_webhook_calls
@@ -539,7 +505,7 @@ msgstr "ບັນທຶກການເອີ້ນໃຊ້"
 #. module: base_automation
 #: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
 msgid "Logs"
-msgstr "ບັນທຶກ (Logs)"
+msgstr "ບັນທຶກເຫດການ (Logs)"
 
 #. module: base_automation
 #. odoo-python
@@ -552,6 +518,21 @@ msgstr ""
 "ນ."
 
 #. module: base_automation
+#: model:ir.model.fields,help:base_automation.field_base_automation__activity_type_icon
+msgid "Material Symbols icon e.g. checklist"
+msgstr "ໄອຄອນ Material Symbols ເຊັ່ນ checklist"
+
+#. module: base_automation
+#: model:ir.model.fields,field_description:base_automation.field_base_automation__message_has_error
+msgid "Message Delivery error"
+msgstr "ຂໍ້ຜິດພາດໃນການສົ່ງຂໍ້ຄວາມ"
+
+#. module: base_automation
+#: model:ir.model.fields,field_description:base_automation.field_base_automation__message_ids
+msgid "Messages"
+msgstr "ຂໍ້ຄວາມ"
+
+#. module: base_automation
 #: model:ir.model.fields.selection,name:base_automation.selection__base_automation__trg_date_range_type__minutes
 msgid "Minutes"
 msgstr "ນາທີ"
@@ -559,7 +540,7 @@ msgstr "ນາທີ"
 #. module: base_automation
 #: model:ir.model.fields,field_description:base_automation.field_base_automation__model_id
 msgid "Model"
-msgstr "ໂມເດວ"
+msgstr "ໂມເດວ (Model)"
 
 #. module: base_automation
 #: model:ir.model.fields,field_description:base_automation.field_base_automation__model_name
@@ -570,23 +551,41 @@ msgstr "ຊື່ໂມເດວ"
 #. odoo-python
 #: code:addons/base_automation/models/ir_actions_server.py:0
 msgid ""
-"Model of action %(action_name)s should match the one from automated rule "
-"%(rule_name)s."
+"Model of action %(action_name)s should match the one from automated rule %"
+"(rule_name)s."
 msgstr ""
 "ໂມເດວຂອງການດຳເນີນການ %(action_name)s ຄວນກົງກັບໂມເດວຈາກກົດລະບຽບອັດຕະໂນມັດ %"
 "(rule_name)s."
 
 #. module: base_automation
-#: model:ir.model.fields,help:base_automation.field_base_automation__model_id
-msgid "Model on which the automation rule runs."
-msgstr "ໂມເດວທີ່ກົດລະບຽບອັດຕະໂນມັດເຮັດວຽກ."
-
-#. module: base_automation
-#. odoo-javascript
-#: code:addons/base_automation/static/src/base_automation_actions_one2many_field.js:0
 #: model:ir.model.fields.selection,name:base_automation.selection__base_automation__trg_date_range_type__month
 msgid "Months"
 msgstr "ເດືອນ"
+
+#. module: base_automation
+#: model:ir.model.fields,field_description:base_automation.field_base_automation__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "ກຳນົດເວລາສິ້ນສຸດກິດຈະກຳຂອງຂ້ອຍ"
+
+#. module: base_automation
+#: model:ir.model.fields,field_description:base_automation.field_base_automation__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "ກິດຈະກຳໃນປະຕິທິນຄັ້ງຕໍ່ໄປ"
+
+#. module: base_automation
+#: model:ir.model.fields,field_description:base_automation.field_base_automation__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "ກຳນົດເວລາສິ້ນສຸດກິດຈະກຳຄັ້ງຕໍ່ໄປ"
+
+#. module: base_automation
+#: model:ir.model.fields,field_description:base_automation.field_base_automation__activity_summary
+msgid "Next Activity Summary"
+msgstr "ສະຫຼຸບກິດຈະກຳຄັ້ງຕໍ່ໄປ"
+
+#. module: base_automation
+#: model:ir.model.fields,field_description:base_automation.field_base_automation__activity_type_id
+msgid "Next Activity Type"
+msgstr "ປະເພດກິດຈະກຳຄັ້ງຕໍ່ໄປ"
 
 #. module: base_automation
 #. odoo-python
@@ -595,18 +594,29 @@ msgid "No record to run the automation on was found."
 msgstr "ບໍ່ພົບບັນທຶກທີ່ຈະໃຫ້ລະບົບອັດຕະໂນມັດເຮັດວຽກ."
 
 #. module: base_automation
-#. odoo-python
-#: code:addons/base_automation/models/base_automation.py:0
-msgid ""
-"Note that this automation rule can be triggered up to %d minutes after its "
-"schedule."
-msgstr ""
-"ໝາຍເຫດ: ກົດລະບຽບອັດຕະໂນມັດນີ້ສາມາດຖືກກະຕຸ້ນໄດ້ຊ້າສຸດ %d ນາທີ ຫຼັງຈາກກຳນົດເວລາຂອງມັນ."
-
-#. module: base_automation
 #: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
 msgid "Notes"
-msgstr "ໝາຍເຫດ"
+msgstr "ໝາຍເຫດຕ່າງໆ"
+
+#. module: base_automation
+#: model:ir.model.fields,field_description:base_automation.field_base_automation__message_needaction_counter
+msgid "Number of Actions"
+msgstr "ຈຳນວນການດຳເນີນການ"
+
+#. module: base_automation
+#: model:ir.model.fields,field_description:base_automation.field_base_automation__message_has_error_counter
+msgid "Number of errors"
+msgstr "ຈຳນວນຂໍ້ຜິດພາດ"
+
+#. module: base_automation
+#: model:ir.model.fields,help:base_automation.field_base_automation__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "ຈຳນວນຂໍ້ຄວາມທີ່ຕ້ອງການການດຳເນີນການ"
+
+#. module: base_automation
+#: model:ir.model.fields,help:base_automation.field_base_automation__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "ຈຳນວນຂໍ້ຄວາມທີ່ມີຂໍ້ຜິດພາດໃນການສົ່ງ"
 
 #. module: base_automation
 #: model:ir.model.fields,field_description:base_automation.field_base_automation__on_change_field_ids
@@ -625,8 +635,13 @@ msgstr "ເມື່ອຖືກເກັບເຂົ້າຄັງ"
 
 #. module: base_automation
 #: model:ir.model.fields.selection,name:base_automation.selection__base_automation__trigger__on_create
-msgid "On creation"
+msgid "On create"
 msgstr "ເມື່ອສ້າງ"
+
+#. module: base_automation
+#: model:ir.model.fields.selection,name:base_automation.selection__base_automation__trigger__on_create_or_write
+msgid "On create and edit"
+msgstr "ເມື່ອສ້າງ ແລະ ແກ້ໄຂ"
 
 #. module: base_automation
 #: model:ir.model.fields.selection,name:base_automation.selection__base_automation__trigger__on_unlink
@@ -644,11 +659,6 @@ msgid "On outgoing message"
 msgstr "ເມື່ອມີຂໍ້ຄວາມອອກ"
 
 #. module: base_automation
-#: model:ir.model.fields.selection,name:base_automation.selection__base_automation__trigger__on_create_or_write
-msgid "On save"
-msgstr "ເມື່ອບັນທຶກ"
-
-#. module: base_automation
 #: model:ir.model.fields.selection,name:base_automation.selection__base_automation__trigger__on_unarchive
 msgid "On unarchived"
 msgstr "ເມື່ອຖືກຍົກເລີກການເກັບເຂົ້າຄັງ"
@@ -664,16 +674,9 @@ msgid "On webhook"
 msgstr "ເມື່ອມີ webhook"
 
 #. module: base_automation
-#. odoo-javascript
-#: code:addons/base_automation/static/src/base_automation_actions_one2many_field.js:0
-msgid "Post as Message"
-msgstr "ໂພສເປັນຂໍ້ຄວາມ"
-
-#. module: base_automation
-#. odoo-javascript
-#: code:addons/base_automation/static/src/base_automation_actions_one2many_field.js:0
-msgid "Post as Note"
-msgstr "ໂພສເປັນໝາຍເຫດ"
+#: model:ir.model.fields,field_description:base_automation.field_base_automation__previous_domain
+msgid "Previous Domain"
+msgstr "ໂດເມນກ່ອນໜ້າ"
 
 #. module: base_automation
 #: model:ir.model.fields.selection,name:base_automation.selection__base_automation__trigger__on_priority_set
@@ -681,26 +684,46 @@ msgid "Priority is set to"
 msgstr "ລະດັບຄວາມສຳຄັນຖືກກຳນົດເປັນ"
 
 #. module: base_automation
+#: model:ir.model.fields,field_description:base_automation.field_base_automation__rating_ids
+msgid "Ratings"
+msgstr "ການໃຫ້ຄະແນນ"
+
+#. module: base_automation
 #: model:ir.model.fields,field_description:base_automation.field_base_automation__record_getter
 msgid "Record Getter"
 msgstr "ຕົວດຶງຂໍ້ມູນບັນທຶກ"
 
 #. module: base_automation
-#. odoo-javascript
-#: code:addons/base_automation/static/src/base_automation_actions_one2many_field.js:0
-msgid "Remove followers"
-msgstr "ເອົາຜູ້ຕິດຕາມອອກ"
+#: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
+msgid "Renew"
+msgstr "ຕໍ່ອາຍຸ"
+
+#. module: base_automation
+#: model:ir.model.fields,field_description:base_automation.field_base_automation__activity_user_id
+msgid "Responsible User"
+msgstr "ຜູ້ໃຊ້ທີ່ຮັບຜິດຊອບ"
+
+#. module: base_automation
+#: model:ir.model.fields,field_description:base_automation.field_base_automation__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "ຂໍ້ຜິດພາດໃນການສົ່ງ SMS"
 
 #. module: base_automation
 #. odoo-python
-#: code:addons/base_automation/models/ir_actions_server.py:0
-msgid "Remove followers: %(partner_names)s"
-msgstr "ເອົາຜູ້ຕິດຕາມອອກ: %(partner_names)s"
+#: code:addons/base_automation/models/base_automation.py:0
+#: model:ir.model,name:base_automation.model_ir_cron
+msgid "Scheduled Action"
+msgstr "ການດຳເນີນການທີ່ກຳນົດເວລາໄວ້"
 
 #. module: base_automation
 #: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
-msgid "Rotate Secret"
-msgstr "ປ່ຽນລະຫັດຄວາມລັບໃໝ່"
+msgid "Scheduled action"
+msgstr "ການດຳເນີນການທີ່ກຳນົດເວລາໄວ້"
+
+#. module: base_automation
+#: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
+msgid "Secret URL"
+msgstr "URL ລັບ"
 
 #. module: base_automation
 #: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
@@ -718,24 +741,6 @@ msgid "Select fields..."
 msgstr "ເລືອກຟິວ..."
 
 #. module: base_automation
-#. odoo-javascript
-#: code:addons/base_automation/static/src/base_automation_actions_one2many_field.js:0
-msgid "Send SMS Text Message"
-msgstr "ສົ່ງຂໍ້ຄວາມ SMS"
-
-#. module: base_automation
-#. odoo-python
-#: code:addons/base_automation/models/ir_actions_server.py:0
-msgid "Send SMS: %(template_name)s"
-msgstr "ສົ່ງ SMS: %(template_name)s"
-
-#. module: base_automation
-#. odoo-python
-#: code:addons/base_automation/models/ir_actions_server.py:0
-msgid "Send Webhook Notification"
-msgstr "ສົ່ງການແຈ້ງເຕືອນ Webhook"
-
-#. module: base_automation
 #: model_terms:ir.actions.act_window,help:base_automation.base_automation_act
 msgid ""
 "Send an email when an object changes state, archive records\n"
@@ -748,21 +753,25 @@ msgstr ""
 "                ວຽກເມື່ອມີການເພີ່ມແທັກສະເພາະໃດໜຶ່ງ."
 
 #. module: base_automation
-#. odoo-javascript
-#: code:addons/base_automation/static/src/base_automation_actions_one2many_field.js:0
-msgid "Send email"
-msgstr "ສົ່ງອີເມວ"
-
-#. module: base_automation
-#. odoo-python
-#: code:addons/base_automation/models/ir_actions_server.py:0
-msgid "Send email: %(template_name)s"
-msgstr "ສົ່ງອີເມວ: %(template_name)s"
+#: model_terms:digest.tip,tip_description:base_automation.digest_tip_base_automation_0
+msgid ""
+"Send an email when an object changes state, archive records after a month of "
+"inactivity or remind yourself to follow-up on tasks when a specific tag is "
+"added.<br>With Automation Rules, you can automate any workflow."
+msgstr ""
+"ສົ່ງອີເມວເມື່ອວັດຖຸມີການປ່ຽນແປງສະຖານະ, ເກັບບັນທຶກເຂົ້າຄັງຫຼັງຈາກບໍ່ມີການເຄື່ອນໄຫວເປັນເວລາໜຶ່ງເດືອນ ຫຼື ແຈ້"
+"ງເຕືອນຕົນເອງໃຫ້ຕິດຕາມວຽກເມື່ອມີການເພີ່ມແທັກສະເພາະໃດໜຶ່ງ.<br>ດ້ວຍກົດລະບຽບອັດຕະໂນມັດ, ທ່ານສາມາດເ"
+"ຮັດໃຫ້ທຸກໆຂະບວນການເຮັດວຽກເປັນອັດຕະໂນມັດໄດ້."
 
 #. module: base_automation
 #: model:ir.model,name:base_automation.model_ir_actions_server
 msgid "Server Action"
-msgstr "ການດຳເນີນການຂອງເຊີເວີ"
+msgstr "ການດຳເນີນການຂອງເຊີບເວີ"
+
+#. module: base_automation
+#: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
+msgid "Set an explicit name"
+msgstr "ກຳນົດຊື່ທີ່ຊັດເຈນ"
 
 #. module: base_automation
 #: model:ir.model.fields,help:base_automation.field_base_automation__trg_selection_field_id
@@ -781,19 +790,13 @@ msgstr ""
 "ຕົວກະຕຸ້ນບາງຢ່າງຕ້ອງການການອ້າງອີງເຖິງຟິວອື່ນ. ຟິວນີ້ຖືກນຳໃຊ້ເພື່ອເກັບຂໍ້ມູນນັ້ນ."
 
 #. module: base_automation
-#. odoo-javascript
-#: code:addons/base_automation/static/src/base_automation_actions_one2many_field.js:0
-msgid "Specific User"
-msgstr "ຜູ້ໃຊ້ສະເພາະ"
-
-#. module: base_automation
 #: model:ir.model.fields.selection,name:base_automation.selection__base_automation__trigger__on_stage_set
 msgid "Stage is set to"
 msgstr "ຂັ້ນຕອນຖືກກຳນົດເປັນ"
 
 #. module: base_automation
 #. odoo-javascript
-#: code:addons/base_automation/static/src/kanban_header_patch.js:0
+#: code:addons/base_automation/static/src/group_config_menu_patch.js:0
 msgid "Stage is set to \"%s\""
 msgstr "ຂັ້ນຕອນຖືກກຳນົດເປັນ \"%s\""
 
@@ -801,6 +804,19 @@ msgstr "ຂັ້ນຕອນຖືກກຳນົດເປັນ \"%s\""
 #: model:ir.model.fields.selection,name:base_automation.selection__base_automation__trigger__on_state_set
 msgid "State is set to"
 msgstr "ສະຖານະຖືກກຳນົດເປັນ"
+
+#. module: base_automation
+#: model:ir.model.fields,help:base_automation.field_base_automation__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"ສະຖານະອີງຕາມກິດຈະກຳ\n"
+"ເກີນກຳນົດ: ວັນຄົບກຳນົດໄດ້ຜ່ານໄປແລ້ວ\n"
+"ມື້ນີ້: ວັນທີກິດຈະກຳແມ່ນມື້ນີ້\n"
+"ວາງແຜນໄວ້: ກິດຈະກຳໃນອະນາຄົດ."
 
 #. module: base_automation
 #: model:ir.model.fields.selection,name:base_automation.selection__base_automation__trigger__on_tag_set
@@ -823,8 +839,8 @@ msgstr ""
 #. odoo-python
 #: code:addons/base_automation/models/base_automation.py:0
 msgid ""
-"The \"%(trigger_value)s\" %(trigger_label)s can only be used with the "
-"\"%(state_value)s\" action type"
+"The \"%(trigger_value)s\" %(trigger_label)s can only be used with the \"%"
+"(state_value)s\" action type"
 msgstr ""
 "\"%(trigger_value)s\" %(trigger_label)s ສາມາດໃຊ້ໄດ້ກັບປະເພດການດຳເນີນການ \"%"
 "(state_value)s\" ເທົັ້ນັ້ນ"
@@ -848,6 +864,12 @@ msgstr ""
 "                \""
 
 #. module: base_automation
+#. odoo-python
+#: code:addons/base_automation/models/base_automation.py:0
+msgid "The scheduled action for Automation Rules seems to have vanished."
+msgstr "ການດຳເນີນການທີ່ກຳນົດເວລາໄວ້ສຳລັບກົດລະບຽບອັດຕະໂນມັດເບິ່ງຄືວ່າໄດ້ຫາຍໄປ."
+
+#. module: base_automation
 #: model:ir.model.fields,help:base_automation.field_base_automation__record_getter
 msgid ""
 "This code will be run to find on which record the automation rule should be "
@@ -862,9 +884,15 @@ msgid "Timing Conditions"
 msgstr "ເງື່ອນໄຂເວລາ"
 
 #. module: base_automation
+#: model:digest.tip,name:base_automation.digest_tip_base_automation_0
+#: model_terms:digest.tip,tip_description:base_automation.digest_tip_base_automation_0
+msgid "Tip: Automate everything with Automation Rules"
+msgstr "ເຄັດລັບ: ເຮັດໃຫ້ທຸກສິ່ງເປັນອັດຕະໂນມັດດ້ວຍກົດລະບຽບອັດຕະໂນມັດ"
+
+#. module: base_automation
 #: model:ir.model.fields,field_description:base_automation.field_base_automation__trigger
 msgid "Trigger"
-msgstr "ຕົວກະຕຸ້ນ"
+msgstr "ຕົວມາກະຕຸ້ນ"
 
 #. module: base_automation
 #: model:ir.model.fields,field_description:base_automation.field_base_automation__trg_date_id
@@ -892,41 +920,14 @@ msgid "Trigger Reference"
 msgstr "ການອ້າງອີງຕົວກະຕຸ້ນ"
 
 #. module: base_automation
-#: model:ir.model.fields,field_description:base_automation.field_base_automation__trg_field_ref_display_name
-msgid "Trigger Reference Display Name"
-msgstr "ຊື່ທີ່ສະແດງຂອງການອ້າງອີງຕົວກະຕຸ້ນ"
-
-#. module: base_automation
-#: model_terms:ir.ui.view,arch_db:base_automation.ir_actions_server_view_form_automation
-msgid "Type"
-msgstr "ປະເພດ"
-
-#. module: base_automation
-#: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
-msgid "URL"
-msgstr "URL"
-
-#. module: base_automation
-#: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
-msgid "URL will be created once the rule is saved."
-msgstr "URL ຈະຖືກສ້າງຂຶ້ນເມື່ອກົດລະບຽບຖືກບັນທຶກ."
-
-#. module: base_automation
-#. odoo-python
-#: code:addons/base_automation/models/ir_actions_server.py:0
-msgid "Update"
-msgstr "ອັບເດດ"
-
-#. module: base_automation
-#. odoo-javascript
-#: code:addons/base_automation/static/src/base_automation_actions_one2many_field.js:0
-msgid "Update the Record"
-msgstr "ອັບເດດບັນທຶກ"
+#: model:ir.model.fields,help:base_automation.field_base_automation__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "ປະເພດຂອງກິດຈະກຳທີ່ຍົກເວັ້ນໃນຂໍ້ມູນ."
 
 #. module: base_automation
 #: model:ir.model.fields,field_description:base_automation.field_base_automation__url
 msgid "Url"
-msgstr "Url"
+msgstr "URL"
 
 #. module: base_automation
 #: model:ir.model.fields,field_description:base_automation.field_ir_actions_server__usage
@@ -938,6 +939,11 @@ msgstr "ການນຳໃຊ້"
 #: model:ir.model.fields,field_description:base_automation.field_base_automation__trg_date_calendar_id
 msgid "Use Calendar"
 msgstr "ໃຊ້ປະຕິທິນ"
+
+#. module: base_automation
+#: model:ir.model.fields,help:base_automation.field_base_automation__url
+msgid "Use this URL in the third-party app to call this webhook."
+msgstr "ໃຊ້ URL ນີ້ໃນແອັບພາກສ່ວນທີສາມເພື່ອເອີ້ນໃຊ້ webhook ນີ້."
 
 #. module: base_automation
 #: model:ir.model.fields.selection,name:base_automation.selection__base_automation__trigger__on_user_set
@@ -974,18 +980,12 @@ msgid "Webhook UUID"
 msgstr "Webhook UUID"
 
 #. module: base_automation
-#. odoo-javascript
-#: code:addons/base_automation/static/src/base_automation_actions_one2many_field.js:0
-msgid "Weeks"
-msgstr "ອາທິດ"
-
-#. module: base_automation
 #: model:ir.model.fields,help:base_automation.field_base_automation__trg_date_calendar_id
 msgid ""
-"When calculating a day-based timed condition, it is possibleto use a "
+"When calculating a day-based timed condition, it is possible to use a "
 "calendar to compute the date based on working days."
 msgstr ""
-"ເມື່ອຄຳນວນເງື່ອນໄຂເວລາແບບລາຍວັນ, ສາມາດໃຊ້ປະຕິທິນເພື່ອຄຳນວນວັນທີໂດຍອີງຕາມມື້ເຮັດວຽກ."
+"ເມື່ອຄິດໄລ່ເງື່ອນໄຂເວລາແບບລາຍວັນ, ສາມາດໃຊ້ປະຕິທິນເພື່ອຄິດໄລ່ວັນທີໂດຍອີງຕາມວັນເຮັດວຽກໄດ້."
 
 #. module: base_automation
 #: model:ir.model.fields,help:base_automation.field_base_automation__trg_date_id
@@ -1020,15 +1020,9 @@ msgstr ""
 #. module: base_automation
 #. odoo-javascript
 #: code:addons/base_automation/static/src/base_automation_error_dialog.xml:0
-msgid ""
-"You can ask an administrator to disable or correct this automation rule."
-msgstr "ທ່ານສາມາດຂໍໃຫ້ຜູ້ດູແລລະບົບປິດໃຊ້ງານ ຫຼື ແກ້ໄຂກົດລະບຽບອັດຕະໂນມັດນີ້."
-
-#. module: base_automation
-#. odoo-javascript
-#: code:addons/base_automation/static/src/base_automation_error_dialog.xml:0
-msgid "You can disable this automation rule or edit it to solve the issue."
-msgstr "ທ່ານສາມາດປິດໃຊ້ງານກົດລະບຽບອັດຕະໂນມັດນີ້ ຫຼື ແກ້ໄຂມັນເພື່ອແກ້ໄຂບັນຫາ."
+msgid "You can ask an administrator to disable or fix this automation."
+msgstr ""
+"ທ່ານສາມາດຂໍໃຫ້ຜູ້ເບິ່ງແຍງລະບົບປິດການໃຊ້ງານ ຫຼື ແກ້ໄຂລະບົບອັດຕະໂນມັດນີ້ໄດ້."
 
 #. module: base_automation
 #. odoo-python
@@ -1040,23 +1034,24 @@ msgstr ""
 "ທ່ານບໍ່ສາມາດສົ່ງອີເມວ, ເພີ່ມຜູ້ຕິດຕາມ ຫຼື ສ້າງກິດຈະກຳສຳລັບບັນທຶກທີ່ຖືກລົບໄປແລ້ວໄດ້. ມັນບໍ່ສາມາດເຮັດວຽກໄດ້."
 
 #. module: base_automation
-#: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
-msgid ""
-"Your webhook URL contains a secret. Don't share it online or carelessly."
-msgstr "URL ຂອງ webhook ຂອງທ່ານມີຄວາມລັບ. ຢ່າແບ່ງປັນມັນທາງອອນໄລນ໌ ຫຼື ປະໝາດ."
-
-#. module: base_automation
 #: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_kanban
 msgid "based on"
 msgstr "ອີງຕາມ"
-
-#. module: base_automation
-#: model_terms:ir.ui.view,arch_db:base_automation.view_base_automation_form
-msgid "e.g. Support flow"
-msgstr "ຕົວຢ່າງ: ຂະບວນການຊ່ວຍເຫຼືອ"
 
 #. module: base_automation
 #. odoo-javascript
 #: code:addons/base_automation/static/src/base_automation_actions_one2many_field.xml:0
 msgid "no action defined..."
 msgstr "ບໍ່ມີການດຳເນີນການທີ່ກຳນົດໄວ້..."
+
+#. module: base_automation
+#. odoo-python
+#: code:addons/base_automation/models/base_automation.py:0
+msgid "path"
+msgstr "ເສັ້ນທາງ (path)"
+
+msgid "Website Messages"
+msgstr "ຂໍ້ຄວາມຈາກເວັບໄຊ"
+
+msgid "Website communication history"
+msgstr "ປະຫວັດການສື່ສານຜ່ານເວັບໄຊ"

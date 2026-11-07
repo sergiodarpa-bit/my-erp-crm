@@ -1,29 +1,16 @@
-import { animationFrame } from "@odoo/hoot-dom";
-import { contains, getService } from "@web/../tests/web_test_helpers";
-
-export function isMobile() {
-    return getService("ui").isSmall;
-}
-
-export async function ensurePane(targetPane) {
-    if (!isMobile()) {
-        return;
-    }
-    const pos = getService("pos");
-    if (pos.mobile_pane !== targetPane) {
-        pos.switchPane();
-        await animationFrame();
-    }
-}
-
-export async function clickDisplayedProduct(name) {
-    await ensurePane("right");
-    await contains(`article.product .product-name:contains("${name}")`).click();
-    await animationFrame();
-}
-
-export async function clickFastPaymentMethod(name) {
-    await ensurePane("left");
-    await contains(`.fast-pay-button:contains("${name}")`).click();
-    await animationFrame();
-}
+export * from "./ui_utils/chrome_util";
+export * from "./ui_utils/combo_popup_util";
+export * from "./ui_utils/common";
+export * from "./ui_utils/dialog_util";
+export * from "./ui_utils/feedback_screen_util";
+export * from "./ui_utils/mount_util";
+export * from "./ui_utils/notification_util";
+export * from "./ui_utils/number_popup_util";
+export * from "./ui_utils/numpad_util";
+export * from "./ui_utils/order_widget_util";
+export * from "./ui_utils/partner_list_util";
+export * from "./ui_utils/payment_screen_util";
+export * from "./ui_utils/product_configurator_util";
+export * from "./ui_utils/product_screen_util";
+export * from "./ui_utils/split_bill_screen_util";
+export * from "./ui_utils/ticket_screen_util";

@@ -10,7 +10,7 @@ from odoo.exceptions import UserError
 from odoo.tools import float_round
 
 if TYPE_CHECKING:
-    from odoo.orm.types import Self
+    from typing import Self
     from odoo.tools.float_utils import RoundingMethod
 
 
@@ -36,7 +36,6 @@ class UomUom(models.Model):
     relative_factor = fields.Float(
         'Contains', default=1.0, digits=0, required=True,  # force NUMERIC with unlimited precision
         help='How much bigger or smaller this unit is compared to the reference UoM for this unit')
-    rounding = fields.Float('Rounding Precision', compute="_compute_rounding")
     active = fields.Boolean('Active', default=True, help="Uncheck the active field to disable a unit of measure without deleting it.")
     relative_uom_id = fields.Many2one('uom.uom', 'Reference Unit', ondelete='cascade', index='btree_not_null')
     related_uom_ids = fields.One2many('uom.uom', 'relative_uom_id', 'Related UoMs')
@@ -58,13 +57,6 @@ class UomUom(models.Model):
                 # there is no value.
                 continue
             uom.sequence = min(int(uom.relative_factor * 100.0), 1000)
-
-    def _compute_rounding(self):
-        """ All Units of Measure share the same rounding precision defined in 'Product Unit'.
-            Set in a compute to ensure compatibility with previous calls to `uom.rounding`.
-        """
-        decimal_precision = self.env['decimal.precision'].precision_get('Product Unit')
-        self.rounding = 10 ** -decimal_precision
 
     @api.depends('relative_factor', 'relative_uom_id', 'relative_uom_id.factor')
     def _compute_factor(self):
@@ -115,6 +107,7 @@ class UomUom(models.Model):
 
     def round(self, value: float, rounding_method: RoundingMethod = 'HALF-UP') -> float:
         """Round the value using the 'Product Unit' precision"""
+        self.ensure_one()
         digits = self.env['decimal.precision'].precision_get('Product Unit')
         return tools.float_round(value, precision_digits=digits, rounding_method=rounding_method)
 
@@ -125,11 +118,13 @@ class UomUom(models.Model):
         :param value2: value to compare to
         :return: -1, 0 or 1, if ``value1`` is lower than, equal to, or greater than ``value2``.
         """
+        self.ensure_one()
         digits = self.env['decimal.precision'].precision_get('Product Unit')
         return tools.float_compare(value1, value2, precision_digits=digits)
 
     def is_zero(self, value: float) -> bool:
         """Check if the value is zero after rounding with the 'Product Unit' precision"""
+        self.ensure_one()
         digits = self.env['decimal.precision'].precision_get('Product Unit')
         return tools.float_is_zero(value, precision_digits=digits)
 
@@ -168,7 +163,8 @@ class UomUom(models.Model):
                 amount = amount / to_unit.factor
 
         if to_unit and round:
-            amount = tools.float_round(amount, precision_rounding=to_unit.rounding, rounding_method=rounding_method)
+            digits = self.env['decimal.precision'].precision_get('Product Unit')
+            amount = tools.float_round(amount, precision_digits=digits, rounding_method=rounding_method)
 
         return amount
 

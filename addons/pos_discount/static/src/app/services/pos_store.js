@@ -10,23 +10,23 @@ patch(PosStore.prototype, {
     async setup() {
         await super.setup(...arguments);
         this.debouncedDiscount = debounce(this.applyDiscount.bind(this));
-
         const updateOrderDiscount = (order) => {
             if (!order || order.state !== "draft") {
                 return;
             }
-            if (!order.globalDiscountPc) {
+
+            if (!order.globalDiscountPc.value) {
                 return;
             }
 
-            const percentage = order.globalDiscountPc;
-            this.debouncedDiscount(percentage, order); // Wait an animation frame before applying the discount
+            const { value, type } = order.globalDiscountPc;
+            this.debouncedDiscount(value, type, order); // Wait an animation frame before applying the discount
         };
 
         this.models["pos.order.line"].addEventListener("update", (data) => {
             const line = this.models["pos.order.line"].get(data.id);
 
-            if (line && !line.isDiscountLine) {
+            if (line && !line.isDiscountLine && !line.isServiceFeeLine()) {
                 const order = line.order_id;
                 updateOrderDiscount(order);
             }
@@ -42,14 +42,21 @@ patch(PosStore.prototype, {
             }
         });
     },
+    selectOrderLine(order, line) {
+        super.selectOrderLine(order, line);
+        // Ensure the numpadMode should be `price` when the discount line is selected
+        if (line?.isDiscountLine) {
+            this.numpadMode = "price";
+        }
+    },
     getLinesToMerge(sourceOrder, destinationOrder) {
         const res = super.getLinesToMerge(...arguments);
-        if (destinationOrder.globalDiscountPc) {
+        if (destinationOrder.globalDiscountPc.value) {
             return res.filter((line) => !line.isDiscountLine);
         }
         return res;
     },
-    async applyDiscount(percent, order = this.getOrder()) {
+    async applyDiscount(value, type = "percent", order = this.getOrder()) {
         const taxKey = (taxIds) =>
             taxIds
                 .map((tax) => tax.id)
@@ -90,11 +97,14 @@ patch(PosStore.prototype, {
             raw_grouping_key: { product_id: product.id },
         });
 
+        // A fixed discount ignores the base sign, so negate it on refunds to mirror the
+        // negative base (percentages already follow it). Keep `discount_value` as-is below.
+        const discountAmount = type === "fixed" && order.is_refund ? -value : value;
         const globalDiscountBaseLines = accountTaxHelpers.prepare_global_discount_lines(
             baseLines,
             order.company_id,
-            "percent",
-            percent,
+            type,
+            discountAmount,
             {
                 computation_key: "global_discount",
                 grouping_function: groupingFunction,
@@ -103,8 +113,8 @@ patch(PosStore.prototype, {
         let lastDiscountLine = null;
         for (const baseLine of globalDiscountBaseLines) {
             const extra_tax_data = accountTaxHelpers.export_base_line_extra_tax_data(baseLine);
-            extra_tax_data.discount_percentage = percent;
-
+            extra_tax_data.discount_value = value;
+            extra_tax_data.discount_type = type;
             const key = taxKey(baseLine.tax_ids);
             const existingLine = discountLinesMap[key];
 
@@ -133,15 +143,11 @@ patch(PosStore.prototype, {
             line.delete();
         });
 
+        order.recomputeServiceFees();
+
         if (lastDiscountLine && isGlobalDiscountBtnClicked) {
             order.selectOrderline(lastDiscountLine);
             this.numpadMode = "price";
         }
-    },
-    showDiscountLineEditError() {
-        return this.dialog.add(AlertDialog, {
-            title: _t("Error"),
-            body: _t("You cannot edit a discount line."),
-        });
     },
 });

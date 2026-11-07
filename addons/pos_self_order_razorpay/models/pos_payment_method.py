@@ -1,7 +1,6 @@
 from hashlib import sha1
 
-from odoo import models, api
-from odoo.fields import Domain
+from odoo import models
 from odoo.tools.misc import hmac
 
 
@@ -9,7 +8,8 @@ class PosPaymentMethod(models.Model):
     _inherit = 'pos.payment.method'
 
     def _payment_request_from_kiosk(self, order):
-        if self.use_payment_terminal != 'razorpay':
+        self.ensure_one()
+        if self.payment_provider != 'razorpay':
             return super()._payment_request_from_kiosk(order)
         data = {
             'amount': order.amount_total,
@@ -35,13 +35,3 @@ class PosPaymentMethod(models.Model):
         this signature back to prove the Razorpay reference was issued for the order being validated.
         """
         return hmac(self.env(su=True), 'pos_self_order_razorpay', f'{p2p_request_id}/{reference_id}')
-
-    @api.model
-    def _load_pos_self_data_domain(self, data, config):
-        domain = super()._load_pos_self_data_domain(data, config)
-        if config.self_ordering_mode == 'kiosk':
-            domain = Domain.OR([
-                [('use_payment_terminal', '=', 'razorpay'), ('id', 'in', config.payment_method_ids.ids)],
-                domain
-            ])
-        return domain

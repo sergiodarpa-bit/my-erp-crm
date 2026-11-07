@@ -11,6 +11,7 @@ from odoo.addons.stock.tests.test_report import TestReportsCommon
 from odoo.addons.sale.tests.common import TestSaleCommon
 
 
+@tagged('at_install', '-post_install')  # LEGACY at_install
 class TestSaleStockReports(TestReportsCommon):
     def test_report_forecast_1_sale_order_replenishment(self):
         """ Create and confirm two sale orders: one for the next week and one
@@ -24,7 +25,7 @@ class TestSaleStockReports(TestReportsCommon):
         # Put some quantity in stock.
         quant_vals = {
             'product_id': self.product.id,
-            'product_uom_id': self.product.uom_id.id,
+            'uom_id': self.product.uom_id.id,
             'location_id': self.stock_location.id,
             'quantity': 5,
             'reserved_quantity': 0,
@@ -165,7 +166,6 @@ class TestSaleStockReports(TestReportsCommon):
             'login': 'other',
             'group_ids': [
                 Command.link(self.env.ref('sales_team.group_sale_salesman').id),
-                Command.link(self.env.ref('stock.group_stock_user').id),
             ],
         })
 
@@ -206,13 +206,13 @@ class TestSaleStockReports(TestReportsCommon):
         })
         picking_receipt.action_confirm()
 
-        self.env['report.stock.report_reception']._action_assign(
+        self.env['stock.allocation.report']._allocate_moves(
             picking_receipt.move_ids,
             so_delivery.move_ids,
         )
         self.assertEqual(picking_receipt.move_ids.reference_ids, so_delivery.move_ids.reference_ids)
 
-        self.env['report.stock.report_reception']._action_unassign(
+        self.env['stock.allocation.report']._unallocate_moves(
             picking_receipt.move_ids,
             so_delivery.move_ids,
         )
@@ -221,6 +221,8 @@ class TestSaleStockReports(TestReportsCommon):
 
 @tagged('post_install', '-at_install')
 class TestSaleStockInvoices(TestSaleCommon):
+
+    _test_user_groups = None  # FIXME list needed groups
 
     def setUp(self):
         super(TestSaleStockInvoices, self).setUp()
@@ -507,40 +509,6 @@ class TestSaleStockInvoices(TestSaleCommon):
         self.assertEqual([rec['lot_id'] for rec in invoice02._get_invoiced_lot_values()], [lot02.id])
         self.assertEqual([rec['lot_id'] for rec in invoice03._get_invoiced_lot_values()], [lot01.id])
 
-    def test_backorder_and_invoicing_legacy_invoice(self):
-        """
-        Sell 2 products tracked by serial number. Deliver and invoice the first one(SN1).
-        The invoice then becomes 'invoicing_legacy' (Invoicing Switch Threshold).
-        Deliver and invoice the second product (SN2).
-        The second invoice should only contain its own serial number (SN2).
-        """
-        if self.env['ir.module.module']._get('account_accountant').state != 'installed':
-            self.skipTest("This test requires the installation of the account_accountant module")
-
-        self.product_by_usn.invoice_policy = 'delivery'
-        so = self.env['sale.order'].create({
-            'partner_id': self.partner_a.id,
-            'order_line': [
-                Command.create({'product_id': self.product_by_usn.id, 'product_uom_qty': 2}),
-            ],
-        })
-        so.action_confirm()
-
-        picking = so.picking_ids
-        picking.move_ids.quantity = 1
-        picking.with_context(skip_backorder=True).button_validate()
-        invoice01 = so._create_invoices()
-        invoice01.action_post()
-        self.env['res.config.settings'].create({
-            'invoicing_switch_threshold': invoice01.invoice_date + timedelta(days=1),
-        }).execute()
-
-        backorder = picking.backorder_ids
-        backorder.button_validate()
-        invoice02 = so._create_invoices()
-        invoice02.action_post()
-        self.assertEqual([lot['lot_id'] for lot in invoice02._get_invoiced_lot_values()], backorder.move_line_ids.lot_id.ids)
-
     def test_invoice_with_several_returns(self):
         """
         Mix of returns and partial invoice
@@ -580,11 +548,10 @@ class TestSaleStockInvoices(TestSaleCommon):
         self.assertEqual(delivery01.move_line_ids.lot_id.name, 'LOT0001')
 
         # Return delivery01 (-> 10 x LOT0001)
-        return_form = Form(self.env['stock.return.picking'].with_context(active_ids=[delivery01.id], active_id=delivery01.id, active_model='stock.picking'))
-        return_wizard = return_form.save()
-        return_wizard.product_return_moves.quantity = 10
-        action = return_wizard.action_create_returns()
-        pick_return = self.env['stock.picking'].browse(action['res_id'])
+        pick_return = delivery01._create_return()
+        pick_return.move_ids.product_uom_qty = 10
+        pick_return.action_confirm()
+        pick_return.action_assign()
 
         move_form = Form(pick_return.move_ids, view='stock.view_stock_move_operations')
         with move_form.move_line_ids.edit(0) as line:
@@ -595,11 +562,10 @@ class TestSaleStockInvoices(TestSaleCommon):
         pick_return.button_validate()
 
         # Return pick_return
-        return_form = Form(self.env['stock.return.picking'].with_context(active_ids=[pick_return.id], active_id=pick_return.id, active_model='stock.picking'))
-        return_wizard = return_form.save()
-        return_wizard.product_return_moves.quantity = 10
-        action = return_wizard.action_create_returns()
-        delivery02 = self.env['stock.picking'].browse(action['res_id'])
+        delivery02 = pick_return._create_return()
+        delivery02.move_ids.product_uom_qty = 10
+        delivery02.action_confirm()
+        delivery02.action_assign()
 
         # Deliver 3 x LOT0002
         delivery02.do_unreserve()
@@ -691,11 +657,10 @@ class TestSaleStockInvoices(TestSaleCommon):
         refund_invoice.action_post()
 
         # recieve the returned product
-        stock_return_picking_form = Form(self.env['stock.return.picking'].with_context(active_ids=picking.ids, active_id=picking.sorted().ids[0], active_model='stock.picking'))
-        return_wiz = stock_return_picking_form.save()
-        return_wiz.product_return_moves.quantity = 2
-        res = return_wiz.action_create_returns()
-        pick_return = self.env['stock.picking'].browse(res['res_id'])
+        pick_return = picking._create_return()
+        pick_return.move_ids.product_uom_qty = 2
+        pick_return.action_confirm()
+        pick_return.action_assign()
 
         move_form = Form(pick_return.move_ids, view='stock.view_stock_move_operations')
         with move_form.move_line_ids.edit(0) as line:
@@ -705,7 +670,6 @@ class TestSaleStockInvoices(TestSaleCommon):
             line.lot_id = self.usn02
             line.quantity = 1
         move_form.save()
-        pick_return.move_ids.picked = True
         pick_return.button_validate()
 
         # reversed invoice

@@ -1,6 +1,4 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
-import base64
-
 from odoo.tests import common
 
 
@@ -27,7 +25,7 @@ class TestFleetSendMail(common.TransactionCase):
         })
         attachment = self.env["ir.attachment"].create({
             "name": "test.txt",
-            "datas": base64.b64encode(b"Test attachment"),
+            "raw": b"Test attachment",
         })
 
         wizard = self.env["fleet.vehicle.send.mail"].create({

@@ -142,13 +142,14 @@ export default class DeviceIdentifierSequence {
 }
 
 /**
- * Clears local storage while preserving the device UUID so the customer
+ * Clears local storage while preserving the device identifier so the customer
  * display can reconnect to the POS after reload.
  */
 export function clearLocalStorage() {
-    const deviceUuid = localStorage.getItem("device_uuid");
+    const key = DeviceIdentifierSequence.uniqueDeviceIdentifierKey;
+    const deviceIdentifier = localStorage.getItem(key);
     localStorage.clear();
-    if (deviceUuid) {
-        localStorage.setItem("device_uuid", deviceUuid);
+    if (deviceIdentifier) {
+        localStorage.setItem(key, deviceIdentifier);
     }
 }

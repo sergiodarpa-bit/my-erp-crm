@@ -16,7 +16,7 @@ class TestCiiImportFacturXFRInvoiceLine(CiiImportFacturXFR):
         self.assertRecordValues(invoice.invoice_line_ids, [{
             'price_unit': 1050.00,
             'quantity': 1.0,
-            'discount': 9.523809523809524,
+            'discount': 9.5238095238095,
         }])
 
     def test_partial_import_invoice_line_line_extension_amount_price_allowance_base_amount(self):
@@ -33,7 +33,7 @@ class TestCiiImportFacturXFRInvoiceLine(CiiImportFacturXFR):
         self.assertRecordValues(invoice.invoice_line_ids, [{
             'price_unit': 210.00,
             'quantity': 5.0,
-            'discount': 9.523809523809524,
+            'discount': 9.52380952380953,
         }])
 
     def test_partial_import_invoice_line_line_extension_amount_price_allowance_base_amount_and_amount(self):
@@ -54,7 +54,7 @@ class TestCiiImportFacturXFRInvoiceLine(CiiImportFacturXFR):
             {
                 'price_unit': 260.00,
                 'quantity': 5.0,
-                'discount': 26.923076923076923,
+                'discount': 26.92307692307695,
             },
         ])
 
@@ -112,7 +112,7 @@ class TestCiiImportFacturXFRInvoiceLine(CiiImportFacturXFR):
         self.assertRecordValues(invoice.invoice_line_ids, [{
             'price_unit': 210.00,
             'quantity': 5.0,
-            'discount': 9.523809523809524,
+            'discount': 9.52380952380953,
         }])
 
     def test_partial_import_invoice_line_line_extension_amount_price_amount(self):
@@ -131,7 +131,7 @@ class TestCiiImportFacturXFRInvoiceLine(CiiImportFacturXFR):
         self.assertRecordValues(invoice.invoice_line_ids, [{
             'price_unit': 210.00,
             'quantity': 5.0,
-            'discount': 9.523809523809524,
+            'discount': 9.52380952380953,
         }])
 
     def test_partial_import_invoice_line_line_extension_amount_zero_quantity(self):
@@ -145,7 +145,7 @@ class TestCiiImportFacturXFRInvoiceLine(CiiImportFacturXFR):
         self.assertRecordValues(invoice.invoice_line_ids, [{
             'price_unit': 1050.00,
             'quantity': 1.0,
-            'discount': 9.523809523809524,
+            'discount': 9.52380952380953,
         }])
 
     def test_partial_import_invoice_line_line_extension_amount_zero_quantity_zero_price_amount(self):
@@ -159,7 +159,7 @@ class TestCiiImportFacturXFRInvoiceLine(CiiImportFacturXFR):
         self.assertRecordValues(invoice.invoice_line_ids, [{
             'price_unit': 1050.00,
             'quantity': 1.0,
-            'discount': 9.523809523809524,
+            'discount': 9.52380952380953,
         }])
 
     def test_partial_import_invoice_line_price_amount_base_quantity(self):
@@ -179,7 +179,7 @@ class TestCiiImportFacturXFRInvoiceLine(CiiImportFacturXFR):
         self.assertRecordValues(invoice.invoice_line_ids, [{
             'price_unit': 210.00,
             'quantity': 5.0,
-            'discount': 9.523809523809524,
+            'discount': 9.52380952380953,
         }])
 
     def test_partial_import_invoice_line_price_unit_precision(self):
@@ -233,7 +233,7 @@ class TestCiiImportFacturXFRInvoiceLine(CiiImportFacturXFR):
             'payment_reference': 'INV/2026/00001',
         }])
         self.assertRecordValues(imported_invoice.invoice_line_ids, [{
-            'name': self.product_a.name,
+            'label': self.product_a.name,
             'price_subtotal': 1.5,
             'price_unit': 2.0,
             'discount': 25.0,

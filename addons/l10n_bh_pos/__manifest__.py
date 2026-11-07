@@ -11,6 +11,9 @@ Bahrain POS Localization
         'l10n_gcc_pos',
         'l10n_bh',
     ],
+    'data': [
+        'receipt/pos_order_receipt.xml',
+    ],
     'assets': {
         'point_of_sale._assets_pos': [
             'l10n_bh_pos/static/src/**/*',

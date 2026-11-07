@@ -2,16 +2,16 @@
 # This file contains the translation of the following modules:
 # * pos_stripe
 #
-# "Tiffany Chang (tic)" <tic@odoo.com>, 2025, 2026.
+# "Tiffany Chang (tic)" <tic@odoo.com>, 2025.
 # "Noemi Pla Garcia (nopl)" <nopl@odoo.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: my-erp-crm Server saas~18.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-30 17:38+0000\n"
-"PO-Revision-Date: 2026-10-30 14:33+0000\n"
+"POT-Creation-Date: 2026-08-28 17:41+0000\n"
+"PO-Revision-Date: 2026-10-30 13:56+0000\n"
 "Last-Translator: \"Noemi Pla Garcia (nopl)\" <nopl@odoo.com>\n"
-"Language-Team: Spanish <https://translate.odoo.com/projects/odoo-19/"
+"Language-Team: Spanish <https://translate.odoo.com/projects/odoo-20/"
 "pos_stripe/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -34,20 +34,8 @@ msgstr "Nombre a mostrar"
 #. module: pos_stripe
 #. odoo-python
 #: code:addons/pos_stripe/models/pos_payment_method.py:0
-msgid "Do not have access to fetch the Stripe account"
-msgstr ""
-
-#. module: pos_stripe
-#. odoo-python
-#: code:addons/pos_stripe/models/pos_payment_method.py:0
 msgid "Do not have access to fetch token from Stripe"
 msgstr "No tienes acceso para obtener el token de Stripe"
-
-#. module: pos_stripe
-#. odoo-python
-#: code:addons/pos_stripe/models/pos_payment_method.py:0
-msgid "Do not have access to refund Stripe payment"
-msgstr "No tienes acceso para reembolsar el pago de Stripe"
 
 #. module: pos_stripe
 #: model_terms:ir.ui.view,arch_db:pos_stripe.pos_payment_method_view_form_inherit_pos_stripe
@@ -87,10 +75,20 @@ msgid "ID"
 msgstr "ID"
 
 #. module: pos_stripe
+#: model:ir.module.module,summary:base.module_pos_stripe
+msgid "Integrate your POS with a Stripe payment terminal"
+msgstr "Integra tu TPV con un terminal de pago Stripe"
+
+#. module: pos_stripe
 #. odoo-javascript
 #: code:addons/pos_stripe/static/src/app/payment_stripe.js:0
 msgid "No available Stripe readers."
 msgstr "No hay lectores de Stripe disponibles."
+
+#. module: pos_stripe
+#: model:ir.module.module,shortdesc:base.module_pos_stripe
+msgid "POS Stripe"
+msgstr "PdV - Stripe"
 
 #. module: pos_stripe
 #. odoo-javascript
@@ -100,8 +98,8 @@ msgstr "Pago cancelado porque no hay ningún lector conectado"
 
 #. module: pos_stripe
 #: model:ir.model,name:pos_stripe.model_pos_payment_method
-msgid "Point of Sale Payment Methods"
-msgstr "Métodos de pago del punto de venta"
+msgid "Point of Sale Payment Method"
+msgstr "Método de pago del punto de venta"
 
 #. module: pos_stripe
 #. odoo-javascript
@@ -112,6 +110,7 @@ msgstr "Lector desconectado"
 #. module: pos_stripe
 #. odoo-python
 #: code:addons/pos_stripe/models/pos_payment_method.py:0
+#: model_terms:ir.ui.view,arch_db:pos_stripe.pos_payment_method_view_form_inherit_pos_stripe
 msgid "Stripe"
 msgstr "Stripe"
 

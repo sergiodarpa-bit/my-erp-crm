@@ -16,10 +16,15 @@ class ProductAttributeCustomValue(models.Model):
         ondelete='restrict')
     custom_value = fields.Char(string="Custom Value")
 
-    @api.depends('custom_product_template_attribute_value_id.name', 'custom_value')
+    @api.depends('custom_product_template_attribute_value_id.display_name', 'custom_value')
+    @api.depends_context('lang')
     def _compute_name(self):
         for record in self:
             name = (record.custom_value or '').strip()
             if record.custom_product_template_attribute_value_id.display_name:
                 name = "%s: %s" % (record.custom_product_template_attribute_value_id.display_name, name)
             record.name = name
+
+    @api.depends_context('lang')
+    def _compute_display_name(self):
+        super()._compute_display_name()

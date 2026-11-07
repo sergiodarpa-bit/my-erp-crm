@@ -1,11 +1,7 @@
 import { test, expect } from "@odoo/hoot";
-import {
-    makeServerError,
-    mountWithCleanup,
-    onRpc,
-    patchWithCleanup,
-} from "@web/../tests/web_test_helpers";
-import { browser } from "@web/core/browser/browser";
+import { makeServerError, mountWithCleanup, onRpc } from "@web/../tests/web_test_helpers";
+import { location } from "@web/core/browser/browser";
+import { patch } from "@web/core/utils/patch";
 import { setupPosEnv } from "@point_of_sale/../tests/unit/utils";
 import { definePosModels } from "@point_of_sale/../tests/unit/data/generate_model_definitions";
 import { OpeningControlPopup } from "@point_of_sale/app/components/popups/opening_control_popup/opening_control_popup";
@@ -15,10 +11,8 @@ definePosModels();
 const setupOpeningControlPopup = async ({ sessionDeleted }) => {
     const store = await setupPosEnv();
     store.session.state = "opening_control";
-    patchWithCleanup(browser.location, {
-        reload() {
-            expect.step("reload");
-        },
+    patch(location, {
+        reload: () => expect.step("reload"),
     });
     onRpc("pos.session", "set_opening_control", () => {
         throw makeServerError({ type: "MissingError" });

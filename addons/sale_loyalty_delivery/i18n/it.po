@@ -2,16 +2,16 @@
 # This file contains the translation of the following modules:
 # * sale_loyalty_delivery
 #
-# "Tiffany Chang (tic)" <tic@odoo.com>, 2025, 2026.
+# "Tiffany Chang (tic)" <tic@odoo.com>, 2025.
 # "Marianna Ciofani (cima)" <cima@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: my-erp-crm Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-24 17:38+0000\n"
-"PO-Revision-Date: 2026-10-30 11:33+0000\n"
-"Last-Translator: \"Marianna Ciofani (cima)\" <cima@odoo.com>\n"
-"Language-Team: Italian <https://translate.odoo.com/projects/odoo-19/"
+"POT-Creation-Date: 2026-09-25 17:38+0000\n"
+"PO-Revision-Date: 2026-08-31 18:14+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Italian <https://translate.odoo.com/projects/odoo-s19-4/"
 "sale_loyalty_delivery/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -32,6 +32,11 @@ msgid "( Max"
 msgstr "(Max"
 
 #. module: sale_loyalty_delivery
+#: model:ir.module.module,summary:base.module_sale_loyalty_delivery
+msgid "Adds free shipping mechanism in sales orders"
+msgstr ""
+
+#. module: sale_loyalty_delivery
 #. odoo-python
 #: code:addons/sale_loyalty_delivery/models/loyalty_program.py:0
 msgid "Automatic promotion: free shipping on orders higher than $50"
@@ -44,8 +49,6 @@ msgid ""
 "Cannot process payment: Gift cards and eWallets are not compatible with on "
 "site payment"
 msgstr ""
-"Impossibile elaborare il pagamento: le carte regalo e gli eWallet non sono "
-"compatibili con il pagamento in sede"
 
 #. module: sale_loyalty_delivery
 #: model:ir.model.fields,field_description:sale_loyalty_delivery.field_loyalty_program__display_name
@@ -83,6 +86,11 @@ msgid "ID"
 msgstr "ID"
 
 #. module: sale_loyalty_delivery
+#: model:ir.module.module,description:base.module_sale_loyalty_delivery
+msgid "Integrate free shipping in sales orders."
+msgstr ""
+
+#. module: sale_loyalty_delivery
 #: model:ir.model,name:sale_loyalty_delivery.model_loyalty_program
 msgid "Loyalty Program"
 msgstr "Programma fedeltà"
@@ -93,14 +101,25 @@ msgid "Loyalty Reward"
 msgstr "Premio fedeltà"
 
 #. module: sale_loyalty_delivery
+#. odoo-python
+#: code:addons/sale_loyalty_delivery/tests/test_loyalty_delivery.py:0
+msgid "No reward to claim with this coupon"
+msgstr "Nessun premio da richiedere con questo coupon"
+
+#. module: sale_loyalty_delivery
 #: model:ir.model,name:sale_loyalty_delivery.model_payment_provider
 msgid "Payment Provider"
-msgstr "Fornitore di pagamenti"
+msgstr ""
 
 #. module: sale_loyalty_delivery
 #: model:ir.model.fields,field_description:sale_loyalty_delivery.field_loyalty_reward__reward_type
 msgid "Reward Type"
 msgstr "Tipo di riconoscimento"
+
+#. module: sale_loyalty_delivery
+#: model:ir.module.module,shortdesc:base.module_sale_loyalty_delivery
+msgid "Sale Loyalty - Delivery"
+msgstr ""
 
 #. module: sale_loyalty_delivery
 #: model:ir.model,name:sale_loyalty_delivery.model_sale_order
@@ -111,4 +130,4 @@ msgstr "Ordine di vendita"
 #. odoo-python
 #: code:addons/sale_loyalty_delivery/models/payment_provider.py:0
 msgid "incompatible with gift cards and eWallets"
-msgstr "incompatibile con carte regalo ed eWallet"
+msgstr ""

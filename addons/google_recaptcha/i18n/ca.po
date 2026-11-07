@@ -2,16 +2,15 @@
 # This file contains the translation of the following modules:
 # * google_recaptcha
 #
-# "Dylan Kiss (dyki)" <dyki@odoo.com>, 2025, 2026.
-# Josep Anton <jabelchi@gmail.com>, 2026.
+# "Dylan Kiss (dyki)" <dyki@odoo.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.2alpha1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:36+0000\n"
-"PO-Revision-Date: 2026-10-13 08:29+0000\n"
-"Last-Translator: Josep Anton <jabelchi@gmail.com>\n"
-"Language-Team: Catalan <https://translate.odoo.com/projects/odoo-19/"
+"POT-Creation-Date: 2026-08-28 17:42+0000\n"
+"PO-Revision-Date: 2026-08-31 21:26+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Catalan <https://translate.odoo.com/projects/odoo-s19-4/"
 "google_recaptcha/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -21,8 +20,16 @@ msgstr ""
 "X-Generator: Weblate 2026.8.1\n"
 
 #. module: google_recaptcha
+#: model:ir.module.module,description:base.module_google_recaptcha
+msgid ""
+"\n"
+"This module implements reCaptchaV3 so that you can prevent bot spam on your "
+"public modules.\n"
+msgstr ""
+
+#. module: google_recaptcha
 #: model_terms:ir.ui.view,arch_db:google_recaptcha.res_config_settings_view_form
-msgid "<i class=\"oi oi-arrow-right\"/> Generate reCAPTCHA v3 keys"
+msgid "<i class=\"oi\" data-icon=\"east\"/> Generate reCAPTCHA v3 keys"
 msgstr ""
 
 #. module: google_recaptcha
@@ -48,7 +55,12 @@ msgstr ""
 #. module: google_recaptcha
 #: model:ir.model.fields,field_description:google_recaptcha.field_res_config_settings__enable_recaptcha
 msgid "Enable reCAPTCHA"
-msgstr "Habilitar reCAPTCHA"
+msgstr ""
+
+#. module: google_recaptcha
+#: model:ir.module.module,shortdesc:base.module_google_recaptcha
+msgid "Google reCAPTCHA integration"
+msgstr ""
 
 #. module: google_recaptcha
 #: model:ir.model,name:google_recaptcha.model_ir_http
@@ -78,14 +90,12 @@ msgid ""
 "Protect your forms from spam and abuse. If no keys are provided, no checks "
 "will be done."
 msgstr ""
-"Protegeix els formularis de spam i abusos. Si no es faciliten claus, no es "
-"faran comprovacions."
 
 #. module: google_recaptcha
 #. odoo-javascript
 #: code:addons/google_recaptcha/static/src/xml/recaptcha.xml:0
 msgid "Protected by reCAPTCHA,"
-msgstr "Protegit per reCAPTCHA,"
+msgstr ""
 
 #. module: google_recaptcha
 #: model:ir.model.fields,field_description:google_recaptcha.field_res_config_settings__recaptcha_private_key
@@ -143,7 +153,7 @@ msgstr "La seva sol·licitud s'ha esgotat, si us plau torneu a intentar-ho."
 #. odoo-javascript
 #: code:addons/google_recaptcha/static/src/xml/recaptcha.xml:0
 msgid "apply."
-msgstr "aplica."
+msgstr ""
 
 #. module: google_recaptcha
 #. odoo-javascript
@@ -152,6 +162,3 @@ msgid ""
 "reCAPTCHA disabled or no site key has been configured. Please check your "
 "settings."
 msgstr ""
-
-#~ msgid "No recaptcha site key set."
-#~ msgstr "No s'ha establert la clau del lloc recaptcha."

@@ -4,20 +4,33 @@ import calendar
 import math
 import re
 import typing
-from datetime import date, datetime, time, timedelta, tzinfo
+import zoneinfo
+import contextlib
+import babel
+from datetime import date, datetime, time, timedelta, tzinfo, UTC
+from operator import methodcaller
 
-import pytz
 from dateutil.relativedelta import relativedelta, weekdays
 
+from .func import lazy
 from .float_utils import float_round
 
 if typing.TYPE_CHECKING:
-    import babel
     from collections.abc import Callable, Iterable, Iterator
     from odoo.orm.types import Environment
     D = typing.TypeVar('D', date, datetime)
 
-utc = pytz.utc
+
+# cache `available_timezones` as it's recomputed on every call
+@lazy
+def all_timezones():
+    tzs = []
+    for tz in zoneinfo.available_timezones():
+        with contextlib.suppress(LookupError):
+            babel.dates.get_timezone(tz)
+            tzs.append(tz)
+    return tzs
+
 
 TRUNCATE_TODAY = relativedelta(microsecond=0, second=0, minute=0, hour=0)
 TRUNCATE_UNIT = {
@@ -89,13 +102,13 @@ def time_to_float(duration: time | timedelta) -> float:
 
 def localized(dt: datetime) -> datetime:
     """ When missing, add tzinfo to a datetime. """
-    return dt if dt.tzinfo else dt.replace(tzinfo=utc)
+    return dt if dt.tzinfo else dt.replace(tzinfo=UTC)
 
 
 def to_timezone(tz: tzinfo | None) -> Callable[[datetime], datetime]:
     """ Get a function converting a datetime to another localized datetime. """
     if tz is None:
-        return lambda dt: dt.astimezone(utc).replace(tzinfo=None)
+        return lambda dt: dt.astimezone(UTC).replace(tzinfo=None)
     return lambda dt: dt.astimezone(tz)
 
 
@@ -111,16 +124,6 @@ def parse_iso_date(value: str) -> date | datetime:
     if now.tzinfo is not None:
         raise ValueError(f"expecting only datetimes with no timezone: {value!r}")
     return now
-
-
-def _localize_wall_time(dt: datetime, tz: pytz.BaseTzInfo) -> datetime:
-    naive = datetime.combine(dt, dt.time())
-    try:
-        return tz.localize(naive, is_dst=None)
-    except pytz.AmbiguousTimeError:
-        return tz.localize(naive, is_dst=bool(dt.dst()))
-    except pytz.NonExistentTimeError:
-        return tz.localize(naive, is_dst=False)
 
 
 def parse_date(value: str, env: Environment) -> date | datetime:
@@ -195,15 +198,13 @@ def parse_date(value: str, env: Environment) -> date | datetime:
             elif isinstance(dt, datetime):
                 dt += TRUNCATE_TODAY
             dt += timedelta(weekday_offset)
-            if isinstance(dt, datetime) and dt.tzinfo:
-                dt = _localize_wall_time(dt, env.tz)
             continue
 
         # Operations on dates
         try:
             unit = _SHORT_DATE_UNIT[term[-1]]
             if unit in ("hours", "minutes", "seconds") and not isinstance(dt, datetime):
-                dt = env.tz.localize(datetime.combine(dt, time.min))
+                dt = datetime.combine(dt, time.min, tzinfo=env.tz)
             if operator in ('+', '-'):
                 number = int(term[:-1])  # positive or negative
             else:
@@ -212,17 +213,17 @@ def parse_date(value: str, env: Environment) -> date | datetime:
                 if isinstance(dt, datetime):
                     dt += TRUNCATE_UNIT[unit]
                 # note: '=Nw' is not supported
-            dt += relativedelta(**{unit: number})
-            if isinstance(dt, datetime) and dt.tzinfo and unit in ("hours", "minutes", "seconds"):
-                dt = env.tz.normalize(dt)
-            elif isinstance(dt, datetime) and dt.tzinfo:
-                dt = _localize_wall_time(dt, env.tz)
+            delta = relativedelta(**{unit: number})
+            if isinstance(dt, datetime) and unit in ("hours", "minutes", "seconds"):
+                dt = (dt.astimezone(UTC) + delta).astimezone(dt.tzinfo)
+            else:
+                dt += delta
         except (ValueError, TypeError, KeyError):
             raise ValueError(f"Invalid term {term!r} in expression date: {value!r}")
 
     # always return a naive date
     if isinstance(dt, datetime) and dt.tzinfo is not None:
-        dt = dt.astimezone(pytz.utc).replace(tzinfo=None)
+        dt = dt.astimezone(UTC).replace(tzinfo=None)
     return dt
 
 
@@ -410,19 +411,19 @@ def date_range(start: D, end: D, step: relativedelta = relativedelta(months=1)) 
     post_process = lambda dt: dt  # noqa: E731
     if isinstance(start, datetime) and isinstance(end, datetime):
         are_naive = start.tzinfo is None and end.tzinfo is None
-        are_utc = start.tzinfo == pytz.utc and end.tzinfo == pytz.utc
+        are_utc = start.tzinfo == UTC and end.tzinfo == UTC
 
         # Cases with miscellenous timezone are more complexe because of DST.
         are_others = start.tzinfo and end.tzinfo and not are_utc
 
-        if are_others and start.tzinfo.zone != end.tzinfo.zone:
+        if are_others and start.tzinfo != end.tzinfo:
             raise ValueError("Timezones of start argument and end argument seem inconsistent")
 
         if not are_naive and not are_utc and not are_others:
             raise ValueError("Timezones of start argument and end argument mismatch")
 
         if not are_naive:
-            post_process = start.tzinfo.localize
+            post_process = methodcaller('replace', tzinfo=start.tzinfo)
             start = start.replace(tzinfo=None)
             end = end.replace(tzinfo=None)
 
@@ -524,3 +525,20 @@ def weekend(locale: babel.Locale, date: date):
         - weekend of Sat 30 Aug -> Sat 30 Aug
     """
     return weekstart(locale, date) + relativedelta(days=6)
+
+
+def convert_timezone(utc_naive_datetime: datetime, tz_from: tzinfo, tz_to: tzinfo):
+    """
+        Convert a naive date to another timezone that initial timezone
+        used to generate the date.
+        :param utc_naive_datetime: utc date without tzinfo
+        :type utc_naive_datetime: datetime
+        :param tz_from: timezone used to obtained `utc_naive_datetime`
+        :param tz_to: timezone in which we want the date
+        :return: datetime converted into tz_to without tzinfo
+        :rtype: datetime
+    """
+    naive_datetime_from = utc_naive_datetime.astimezone(tz_from).replace(tzinfo=None)
+    aware_datetime_to = naive_datetime_from.replace(tzinfo=tz_to)
+    utc_naive_datetime_to = aware_datetime_to.astimezone(UTC).replace(tzinfo=None)
+    return utc_naive_datetime_to

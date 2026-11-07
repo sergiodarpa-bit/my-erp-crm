@@ -5,23 +5,32 @@
 # Bone NI <bounkirdni@gmail.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: my-erp-crm Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server 19.4a1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:36+0000\n"
-"PO-Revision-Date: 2026-08-04 04:12+0000\n"
+"POT-Creation-Date: 2026-08-28 17:43+0000\n"
+"PO-Revision-Date: 2026-10-25 10:33+0000\n"
 "Last-Translator: Bone NI <bounkirdni@gmail.com>\n"
-"Language-Team: Lao <https://translate.odoo.com/projects/odoo-19/rating/lo/>\n"
+"Language-Team: Lao <https://translate.odoo.com/projects/odoo-20/rating/lo/>\n"
 "Language: lo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.6.1\n"
+"X-Generator: Weblate 2026.8.1\n"
+
+#. module: rating
+#: model:ir.module.module,description:base.module_rating
+msgid ""
+"\n"
+"This module allows a customer to give rating.\n"
+msgstr ""
+"\n"
+"ໂມດູນນີ້ຊ່ວຍໃຫ້ລູກຄ້າສາມາດໃຫ້ຄະແນນໄດ້.\n"
 
 #. module: rating
 #: model_terms:ir.ui.view,arch_db:rating.rating_external_page_invalid_partner
 msgid "\" or someone from the same company can give it a rating."
-msgstr "\" ຫຼື ບາງຄົນຈາກບໍລິສັດດຽວກັນສາມາດໃຫ້ຄະແນນໄດ້."
+msgstr "\" ຫຼື ຄົນທີ່ມາຈາກບໍລິສັດດຽວກັນສາມາດໃຫ້ຄະແນນໄດ້."
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_parent_mixin__rating_count
@@ -30,18 +39,22 @@ msgstr "# ການໃຫ້ຄະແນນ"
 
 #. module: rating
 #: model_terms:ir.ui.view,arch_db:rating.rating_external_page_view
-msgid "<i class=\"fa fa-arrow-left me-1\"/> Back to the Homepage"
-msgstr "<i class=\"fa fa-arrow-left me-1\"/> ກັບຄືນໄປໜ້າຫຼັກ"
+msgid "<i class=\"oi me-1\" data-icon=\"arrow_back\"/> Back to the Homepage"
+msgstr "<i class=\"oi me-1\" data-icon=\"arrow_back\"/> ກັບໄປໜ້າຫຼັກ"
 
 #. module: rating
 #: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_kanban_stars
-msgid "<i class=\"fa fa-clock-o me-2\" aria-label=\"Create date\"/>"
-msgstr "<i class=\"fa fa-clock-o me-2\" aria-label=\"ວັນທີສ້າງ\"/>"
+msgid ""
+"<i class=\"oi me-2\" data-icon=\"schedule\" aria-label=\"Create date\"/>"
+msgstr "<i class=\"oi me-2\" data-icon=\"schedule\" aria-label=\"ວັນທີສ້າງ\"/>"
 
 #. module: rating
 #: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_kanban_stars
-msgid "<i class=\"fa fa-folder me-2\" aria-label=\"Open folder\"/>"
-msgstr "<i class=\"fa fa-folder me-2\" aria-label=\"ເປີດໂຟນເດີ\"/>"
+msgid ""
+"<i class=\"oi oi-filled me-2\" data-icon=\"folder\" aria-label=\"Open "
+"folder\"/>"
+msgstr ""
+"<i class=\"oi oi-filled me-2\" data-icon=\"folder\" aria-label=\"ເປີດໂຟນເດີ\"/>"
 
 #. module: rating
 #: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_kanban_stars
@@ -51,7 +64,7 @@ msgstr "ໜຶ່ງດາວ"
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_mixin__message_needaction
 msgid "Action Needed"
-msgstr "ຈຳເປັນຕ້ອງດຳເນີນການ"
+msgstr "ຕ້ອງການການດຳເນີນການ"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_mixin__message_attachment_count
@@ -86,6 +99,11 @@ msgid "Customer"
 msgstr "ລູກຄ້າ"
 
 #. module: rating
+#: model:ir.module.module,shortdesc:base.module_rating
+msgid "Customer Rating"
+msgstr "ການໃຫ້ຄະແນນຂອງລູກຄ້າ"
+
+#. module: rating
 #: model:ir.model.fields,field_description:rating.field_mail_message__display_name
 #: model:ir.model.fields,field_description:rating.field_mail_thread__display_name
 #: model:ir.model.fields,field_description:rating.field_rating_mixin__display_name
@@ -103,7 +121,7 @@ msgstr "ເອກະສານ"
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_rating__res_model
 msgid "Document Model"
-msgstr "ແບບຈຳລອງເອກະສານ"
+msgstr "ໂມເດວເອກະສານ"
 
 #. module: rating
 #: model:ir.model,name:rating.model_mail_thread
@@ -138,7 +156,6 @@ msgstr "ເຄິ່ງດາວ"
 #. module: rating
 #. odoo-python
 #: code:addons/rating/controllers/main.py:0
-#: model:ir.model.fields.selection,name:rating.selection__discuss_channel__rating_avg_text__top
 #: model:ir.model.fields.selection,name:rating.selection__product_template__rating_avg_text__top
 #: model:ir.model.fields.selection,name:rating.selection__project_task__rating_avg_text__top
 #: model:ir.model.fields.selection,name:rating.selection__rating_mixin__rating_avg_text__top
@@ -146,7 +163,7 @@ msgstr "ເຄິ່ງດາວ"
 #: model:ir.model.fields.selection,name:rating.selection__slide_channel__rating_avg_text__top
 #: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_search
 msgid "Happy"
-msgstr "ມີຄວາມສຸກ"
+msgstr "ພໍໃຈ"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_mixin__has_message
@@ -157,8 +174,7 @@ msgstr "ມີຂໍ້ຄວາມ"
 #: model:ir.model.fields,help:rating.field_rating_rating__is_internal
 msgid ""
 "Hide to public / portal users, independently from subtype configuration."
-msgstr ""
-"ເຊື່ອງຈາກສາທາລະນະ / ຜູ້ໃຊ້ພໍທັລ (Portal), ໂດຍບໍ່ຂຶ້ນກັບການຕັ້ງຄ່າປະເພດຍ່ອຍ."
+msgstr "ເຊື່ອງຈາກສາທາລະນະ / ຜູ້ໃຊ້ພອດທັລ, ໂດຍບໍ່ຂຶ້ນກັບການກຳນົດຄ່າປະເພດຍ່ອຍ."
 
 #. module: rating
 #: model_terms:ir.ui.view,arch_db:rating.rating_external_page_invalid_partner
@@ -172,17 +188,17 @@ msgstr "ໜ້າຫຼັກ"
 #: model:ir.model.fields,field_description:rating.field_rating_parent_mixin__id
 #: model:ir.model.fields,field_description:rating.field_rating_rating__id
 msgid "ID"
-msgstr "ໄອດີ"
+msgstr "ລະຫັດ"
 
 #. module: rating
 #: model:ir.model.fields,help:rating.field_rating_mixin__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr "ຖ້າໝາຍໄວ້, ຂໍ້ຄວາມໃໝ່ຈະແຈ້ງເຕືອນໃຫ້ທ່ານເອົາໃຈໃສ່."
+msgstr "ຖ້າເລືອກ, ຂໍ້ຄວາມໃໝ່ຈະຕ້ອງການຄວາມສົນໃຈຈາກທ່ານ."
 
 #. module: rating
 #: model:ir.model.fields,help:rating.field_rating_mixin__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr "ຖ້າໝາຍໄວ້, ບາງຂໍ້ຄວາມອາດມີຂໍ້ຜິດພາດໃນການສົ່ງ."
+msgstr "ຖ້າເລືອກ, ມີບາງຂໍ້ຄວາມເກີດຂໍ້ຜິດພາດໃນການສົ່ງ."
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_rating__rating_image
@@ -192,23 +208,23 @@ msgstr "ຮູບພາບ"
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_rating__rating_image_url
 msgid "Image URL"
-msgstr "URL ຂອງຮູບພາບ"
+msgstr "URL ຮູບພາບ"
 
 #. module: rating
 #. odoo-python
 #: code:addons/rating/controllers/main.py:0
 msgid ""
-"Incorrect rating: should be %(rating_unhappy)d, %(rating_neutral)d or "
-"%(rating_happy)d (received %(rate)d)"
+"Incorrect rating: should be %(rating_unhappy)d, %(rating_neutral)d or %"
+"(rating_happy)d (received %(rate)d)"
 msgstr ""
-"ການໃຫ້ຄະແນນບໍ່ຖືກຕ້ອງ: ຄວນເປັນ %(rating_unhappy)d, %(rating_neutral)d ຫຼື %"
-"(rating_happy)d (ທີ່ໄດ້ຮັບແມ່ນ %(rate)d)"
+"ຄະແນນບໍ່ຖືກຕ້ອງ: ຄວນເປັນ %(rating_unhappy)d, %(rating_neutral)d ຫຼື %(rating_happy)"
+"d (ໄດ້ຮັບ %(rate)d)"
 
 #. module: rating
 #. odoo-python
 #: code:addons/rating/models/mail_thread.py:0
 msgid "Invalid token or rating."
-msgstr "ໂທເຄັນ (Token) ຫຼື ຄະແນນ ບໍ່ຖືກຕ້ອງ."
+msgstr "ໂທເຄັນ ຫຼື ຄະແນນບໍ່ຖືກຕ້ອງ."
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_mixin__message_is_follower
@@ -233,12 +249,12 @@ msgstr "7 ວັນຜ່ານມາ"
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_rating__write_uid
 msgid "Last Updated by"
-msgstr "ແກ້ໄຂລ້າສຸດໂດຍ"
+msgstr "ອັບເດດລ່າສຸດໂດຍ"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_rating__write_date
 msgid "Last Updated on"
-msgstr "ແກ້ໄຂລ້າສຸດເມື່ອ"
+msgstr "ອັບເດດລ່າສຸດເມື່ອ"
 
 #. module: rating
 #: model:ir.model,name:rating.model_mail_message
@@ -269,7 +285,6 @@ msgstr "ຊື່"
 #. module: rating
 #. odoo-python
 #: code:addons/rating/controllers/main.py:0
-#: model:ir.model.fields.selection,name:rating.selection__discuss_channel__rating_avg_text__ok
 #: model:ir.model.fields.selection,name:rating.selection__product_template__rating_avg_text__ok
 #: model:ir.model.fields.selection,name:rating.selection__project_task__rating_avg_text__ok
 #: model:ir.model.fields.selection,name:rating.selection__rating_mixin__rating_avg_text__ok
@@ -277,22 +292,21 @@ msgstr "ຊື່"
 #: model:ir.model.fields.selection,name:rating.selection__slide_channel__rating_avg_text__ok
 #: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_search
 msgid "Neutral"
-msgstr "ປົກກະຕິ"
+msgstr "ປານກາງ"
 
 #. module: rating
 #: model_terms:ir.actions.act_window,help:rating.rating_rating_action
 msgid "No rating yet"
-msgstr "ຍັງບໍ່ມີການໃຫ້ຄະແນນ"
+msgstr "ຍັງບໍ່ມີການໃຫ້ຄະແນນເທື່ອ"
 
 #. module: rating
-#: model:ir.model.fields.selection,name:rating.selection__discuss_channel__rating_avg_text__none
 #: model:ir.model.fields.selection,name:rating.selection__product_template__rating_avg_text__none
 #: model:ir.model.fields.selection,name:rating.selection__project_task__rating_avg_text__none
 #: model:ir.model.fields.selection,name:rating.selection__rating_mixin__rating_avg_text__none
 #: model:ir.model.fields.selection,name:rating.selection__rating_rating__rating_text__none
 #: model:ir.model.fields.selection,name:rating.selection__slide_channel__rating_avg_text__none
 msgid "Not Rated yet"
-msgstr "ຍັງບໍ່ທັນໄດ້ໃຫ້ຄະແນນ"
+msgstr "ຍັງບໍ່ໄດ້ຮັບການໃຫ້ຄະແນນເທື່ອ"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_mixin__message_needaction_counter
@@ -307,7 +321,7 @@ msgstr "ຈຳນວນຂໍ້ຜິດພາດ"
 #. module: rating
 #: model:ir.model.fields,help:rating.field_rating_mixin__message_needaction_counter
 msgid "Number of messages requiring action"
-msgstr "ຈຳນວນຂໍ້ຄວາມທີ່ຕ້ອງດຳເນີນການ"
+msgstr "ຈຳນວນຂໍ້ຄວາມທີ່ຕ້ອງການການດຳເນີນການ"
 
 #. module: rating
 #: model:ir.model.fields,help:rating.field_rating_mixin__message_has_error_counter
@@ -327,7 +341,7 @@ msgstr "ເອກະສານຫຼັກ"
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_rating__parent_res_model
 msgid "Parent Document Model"
-msgstr "ແບບຈຳລອງເອກະສານຫຼັກ"
+msgstr "ໂມເດວເອກະສານຫຼັກ"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_rating__parent_res_name
@@ -342,17 +356,17 @@ msgstr "ຜູ້ຖືຄອງຫຼັກ"
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_rating__parent_ref
 msgid "Parent Ref"
-msgstr "ອ້າງອີງຫຼັກ"
+msgstr "ການອ້າງອີງຫຼັກ"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_rating__parent_res_model_id
 msgid "Parent Related Document Model"
-msgstr "ແບບຈຳລອງເອກະສານທີ່ກ່ຽວຂ້ອງຫຼັກ"
+msgstr "ໂມເດວເອກະສານທີ່ກ່ຽວຂ້ອງຫຼັກ"
 
 #. module: rating
 #: model:ir.model.fields,help:rating.field_rating_parent_mixin__rating_percentage_satisfaction
 msgid "Percentage of happy ratings"
-msgstr "ເປີເຊັນຂອງການໃຫ້ຄະແນນທີ່ມີຄວາມສຸກ"
+msgstr "ເປີເຊັນຂອງການໃຫ້ຄະແນນທີ່ພໍໃຈ"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_rating__rated_on
@@ -364,7 +378,7 @@ msgstr "ໃຫ້ຄະແນນເມື່ອ"
 #: model:ir.model.fields,field_description:rating.field_rating_rating__rated_partner_id
 #: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_search
 msgid "Rated Operator"
-msgstr "ຜູ້ປະຕິບັດການທີ່ຖືກໃຫ້ຄະແນນ"
+msgstr "ຜູ້ປະຕິບັດງານທີ່ຖືກໃຫ້ຄະແນນ"
 
 #. module: rating
 #: model:ir.model,name:rating.model_rating_rating
@@ -390,17 +404,17 @@ msgstr "ຂໍ້ຄວາມຄະແນນສະເລ່ຍ"
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_mixin__rating_last_feedback
 msgid "Rating Last Feedback"
-msgstr "ຄຳຄິດເຫັນລ້າສຸດຂອງການໃຫ້ຄະແນນ"
+msgstr "ຄຳຄິດເຫັນການໃຫ້ຄະແນນລ່າສຸດ"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_mixin__rating_last_image
 msgid "Rating Last Image"
-msgstr "ຮູບພາບລ້າສຸດຂອງການໃຫ້ຄະແນນ"
+msgstr "ຮູບພາບການໃຫ້ຄະແນນລ່າສຸດ"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_mixin__rating_last_value
 msgid "Rating Last Value"
-msgstr "ຄ່າລ້າສຸດຂອງການໃຫ້ຄະແນນ"
+msgstr "ຄ່າການໃຫ້ຄະແນນລ່າສຸດ"
 
 #. module: rating
 #: model:ir.model,name:rating.model_rating_mixin
@@ -416,7 +430,7 @@ msgstr "Rating Parent Mixin"
 #: model:ir.model.fields,field_description:rating.field_rating_mixin__rating_percentage_satisfaction
 #: model:ir.model.fields,field_description:rating.field_rating_parent_mixin__rating_percentage_satisfaction
 msgid "Rating Satisfaction"
-msgstr "ຄວາມເພິ່ງພໍໃຈໃນການໃຫ້ຄະແນນ"
+msgstr "ຄວາມພໍໃຈໃນການໃຫ້ຄະແນນ"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_mixin__rating_last_text
@@ -428,7 +442,7 @@ msgstr "ຂໍ້ຄວາມການໃຫ້ຄະແນນ"
 #: model:ir.model.fields,field_description:rating.field_mail_message__rating_value
 #: model:ir.model.fields,field_description:rating.field_rating_rating__rating
 msgid "Rating Value"
-msgstr "ຄ່າຂອງການໃຫ້ຄະແນນ"
+msgstr "ຄ່າຄະແນນ"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_mixin__rating_count
@@ -459,15 +473,16 @@ msgstr "ການໃຫ້ຄະແນນ:"
 #: model:ir.model.fields,field_description:rating.field_gamification_badge_user__rating_ids
 #: model:ir.model.fields,field_description:rating.field_gamification_challenge__rating_ids
 #: model:ir.model.fields,field_description:rating.field_iap_account__rating_ids
+#: model:ir.model.fields,field_description:rating.field_ir_access__rating_ids
 #: model:ir.model.fields,field_description:rating.field_ir_actions_server__rating_ids
 #: model:ir.model.fields,field_description:rating.field_ir_cron__rating_ids
 #: model:ir.model.fields,field_description:rating.field_lunch_supplier__rating_ids
 #: model:ir.model.fields,field_description:rating.field_mail_blacklist__rating_ids
 #: model:ir.model.fields,field_description:rating.field_mail_thread__rating_ids
 #: model:ir.model.fields,field_description:rating.field_mail_thread_blacklist__rating_ids
-#: model:ir.model.fields,field_description:rating.field_mail_thread_cc__rating_ids
 #: model:ir.model.fields,field_description:rating.field_mail_thread_main_attachment__rating_ids
 #: model:ir.model.fields,field_description:rating.field_mail_thread_phone__rating_ids
+#: model:ir.model.fields,field_description:rating.field_mail_thread_subject_suggested__rating_ids
 #: model:ir.model.fields,field_description:rating.field_mail_tracking_duration_mixin__rating_ids
 #: model:ir.model.fields,field_description:rating.field_maintenance_equipment__rating_ids
 #: model:ir.model.fields,field_description:rating.field_maintenance_request__rating_ids
@@ -494,7 +509,7 @@ msgstr "ການໃຫ້ຄະແນນ"
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_rating__res_model_id
 msgid "Related Document Model"
-msgstr "ແບບຈຳລອງເອກະສານທີ່ກ່ຽວຂ້ອງ"
+msgstr "ໂມເດວເອກະສານທີ່ກ່ຽວຂ້ອງ"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_mail_mail__rating_ids
@@ -510,7 +525,7 @@ msgstr "ຊັບພະຍາກອນ"
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_rating__resource_ref
 msgid "Resource Ref"
-msgstr "ອ້າງອີງຊັບພະຍາກອນ"
+msgstr "ການອ້າງອີງຊັບພະຍາກອນ"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_rating__res_name
@@ -520,7 +535,7 @@ msgstr "ຊື່ຊັບພະຍາກອນ"
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_rating__access_token
 msgid "Security Token"
-msgstr "ລະຫັດຄວາມປອດໄພ (Token)"
+msgstr "ໂທເຄັນຄວາມປອດໄພ"
 
 #. module: rating
 #: model_terms:ir.ui.view,arch_db:rating.rating_external_page_submit
@@ -546,12 +561,11 @@ msgstr "ຂອບໃຈສຳລັບຄຳຄິດເຫັນຂອງທ່
 #. module: rating
 #: model_terms:ir.actions.act_window,help:rating.rating_rating_action
 msgid "There is no rating for this object at the moment."
-msgstr "ຍັງບໍ່ມີການໃຫ້ຄະແນນສຳລັບສິ່ງນີ້ໃນເວລານີ້."
+msgstr "ຍັງບໍ່ມີການໃຫ້ຄະແນນສຳລັບລາຍການນີ້ໃນຕອນນີ້."
 
 #. module: rating
 #. odoo-python
 #: code:addons/rating/controllers/main.py:0
-#: model:ir.model.fields.selection,name:rating.selection__discuss_channel__rating_avg_text__ko
 #: model:ir.model.fields.selection,name:rating.selection__product_template__rating_avg_text__ko
 #: model:ir.model.fields.selection,name:rating.selection__project_task__rating_avg_text__ko
 #: model:ir.model.fields.selection,name:rating.selection__rating_mixin__rating_avg_text__ko
@@ -559,7 +573,7 @@ msgstr "ຍັງບໍ່ມີການໃຫ້ຄະແນນສຳລັບ
 #: model:ir.model.fields.selection,name:rating.selection__slide_channel__rating_avg_text__ko
 #: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_search
 msgid "Unhappy"
-msgstr "ບໍ່ມີຄວາມສຸກ"
+msgstr "ບໍ່ພໍໃຈ"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_rating__is_internal
@@ -570,12 +584,12 @@ msgstr "ເຫັນໄດ້ສະເພາະພາຍໃນເທົ່ານ
 #. odoo-python
 #: code:addons/rating/models/mail_thread.py:0
 msgid "Wrong rating value. A rate should be between 0 and 5 (received %d)."
-msgstr "ຄ່າການໃຫ້ຄະແນນບໍ່ຖືກຕ້ອງ. ຄະແນນຄວນຢູ່ລະຫວ່າງ 0 ຫາ 5 (ໄດ້ຮັບແມ່ນ %d)."
+msgstr "ຄ່າຄະແນນບໍ່ຖືກຕ້ອງ. ຄະແນນຄວນຢູ່ລະຫວ່າງ 0 ຫາ 5 (ໄດ້ຮັບ %d)."
 
 #. module: rating
 #: model_terms:ir.ui.view,arch_db:rating.rating_external_page_invalid_partner
 msgid "You cannot rate this"
-msgstr "ທ່ານບໍ່ສາມາດໃຫ້ຄະແນນສິ່ງນີ້ໄດ້"
+msgstr "ທ່ານບໍ່ສາມາດໃຫ້ຄະແນນລາຍການນີ້ໄດ້"
 
 #. module: rating
 #: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_kanban
@@ -590,4 +604,4 @@ msgstr "ສຳລັບ"
 #. module: rating
 #: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_kanban
 msgid "on"
-msgstr "ໃນ"
+msgstr "ເມື່ອ"

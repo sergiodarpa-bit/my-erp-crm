@@ -20,7 +20,7 @@ class TestPdpLatePaymentPenaltyNotes(TestL10nFrPdpCommon):
         self.assertTrue(invoice.ubl_cii_xml_id)
         self.assertIn(
             b"#PMD#Late payment penalties at an annual rate of 12.40%",
-            invoice.ubl_cii_xml_id.raw,
+            invoice.ubl_cii_xml_id.raw.content,
         )
-        self.assertIn(b"#PMT#In the event of late payment", invoice.ubl_cii_xml_id.raw)
-        self.assertIn(b"#AAB#", invoice.ubl_cii_xml_id.raw)
+        self.assertIn(b"#PMT#In the event of late payment", invoice.ubl_cii_xml_id.raw.content)
+        self.assertIn(b"#AAB#", invoice.ubl_cii_xml_id.raw.content)

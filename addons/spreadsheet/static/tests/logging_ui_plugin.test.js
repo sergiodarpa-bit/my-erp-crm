@@ -38,8 +38,8 @@ test("getLoadedDataSources discards datasources with an invalid model", async ()
         },
     });
 
-    const definition = getChartDefinition("odoo_bar");
-    definition.metaData.resModel = "unknown";
+    const definition = getChartDefinition("bar");
+    definition.dataSource.metaData.resModel = "unknown";
     insertChartInSpreadsheet(model, "chart1", definition);
     await waitForDataLoaded(model);
 
@@ -48,7 +48,10 @@ test("getLoadedDataSources discards datasources with an invalid model", async ()
 
 test("list source sent to the export log carries its column names", async () => {
     const { model } = await createSpreadsheetWithList({
-        columns: ["foo", "bar"],
+        columns: [
+            { name: "foo", string: "Foo" },
+            { name: "bar", string: "Bar" },
+        ],
     });
     const listSources = model.getters.getLoadedDataSources().filter((s) => s.type === "list");
     expect(listSources).toHaveLength(1);

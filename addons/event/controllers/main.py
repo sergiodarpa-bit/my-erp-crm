@@ -1,12 +1,13 @@
-# -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 import json
+
 from werkzeug.exceptions import NotFound
 
-from odoo import http, _
+from odoo import _, http
 from odoo.fields import Domain
-from odoo.http import Controller, request, route, content_disposition
+from odoo.http import Controller, request, route
+from odoo.http.stream import content_disposition
 from odoo.tools import consteq, format_datetime
 
 

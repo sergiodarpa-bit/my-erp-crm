@@ -8,10 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: my-erp-crm Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-24 17:38+0000\n"
-"PO-Revision-Date: 2026-10-30 14:33+0000\n"
+"POT-Creation-Date: 2026-10-30 17:39+0000\n"
+"PO-Revision-Date: 2026-10-30 09:33+0000\n"
 "Last-Translator: \"Noemi Pla Garcia (nopl)\" <nopl@odoo.com>\n"
-"Language-Team: Spanish <https://translate.odoo.com/projects/odoo-19/"
+"Language-Team: Spanish <https://translate.odoo.com/projects/odoo-20/"
 "pos_glory_cash/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -50,6 +50,11 @@ msgid "Cash Machine IP"
 msgstr "IP del reciclador de efectivo"
 
 #. module: pos_glory_cash
+#: model:ir.model.fields,field_description:pos_glory_cash.field_pos_payment_method__glory_use_lna
+msgid "Cash Machine Local Network Access"
+msgstr ""
+
+#. module: pos_glory_cash
 #: model:ir.model.fields,field_description:pos_glory_cash.field_pos_payment_method__glory_password
 msgid "Cash Machine Password"
 msgstr "Contraseña del reciclador de efectivo"
@@ -58,18 +63,6 @@ msgstr "Contraseña del reciclador de efectivo"
 #: model:ir.model.fields,field_description:pos_glory_cash.field_pos_payment_method__glory_username
 msgid "Cash Machine Username"
 msgstr "Nombre de usuario del reciclador de efectivo"
-
-#. module: pos_glory_cash
-#. odoo-javascript
-#: code:addons/pos_glory_cash/static/src/app/payment_glory.js:0
-msgid "Cash deposited: %s"
-msgstr "Efectivo depositado: %s"
-
-#. module: pos_glory_cash
-#. odoo-javascript
-#: code:addons/pos_glory_cash/static/src/app/screens/payment_screen/payment_lines/payment_lines.xml:0
-msgid "Cash inserted:"
-msgstr "Efectivo introducido:"
 
 #. module: pos_glory_cash
 #. odoo-javascript
@@ -89,12 +82,6 @@ msgstr "El reciclador de efectivo está desconectado"
 #: code:addons/pos_glory_cash/static/src/app/screens/payment_screen/payment_lines/payment_lines.xml:0
 msgid "Cash machine status:"
 msgstr "Estado del reciclador de efectivo:"
-
-#. module: pos_glory_cash
-#. odoo-javascript
-#: code:addons/pos_glory_cash/static/src/app/payment_glory.js:0
-msgid "Change given: %s"
-msgstr "Cambio dado: %s"
 
 #. module: pos_glory_cash
 #. odoo-javascript
@@ -205,18 +192,6 @@ msgstr ""
 "favor, comprueba el usuario y la contraseña configurados."
 
 #. module: pos_glory_cash
-#. odoo-javascript
-#: code:addons/pos_glory_cash/static/src/app/payment_glory.js:0
-msgid "GLORY TRANSACTION CANCELLED"
-msgstr "TRANSACCIÓN DE GLORY CANCELADA"
-
-#. module: pos_glory_cash
-#. odoo-javascript
-#: code:addons/pos_glory_cash/static/src/app/payment_glory.js:0
-msgid "GLORY TRANSACTION SUCCESSFUL"
-msgstr "TRANSACCIÓN DE GLORY REALIZADA CORRECTAMENTE"
-
-#. module: pos_glory_cash
 #: model_terms:ir.ui.view,arch_db:pos_glory_cash.pos_payment_method_view_form_inherit_pos_glory_cash
 msgid "Glory Settings"
 msgstr "Configuración de Glory"
@@ -239,6 +214,11 @@ msgid "Initializing"
 msgstr "Inicializando"
 
 #. module: pos_glory_cash
+#: model:ir.module.module,summary:base.module_pos_glory_cash
+msgid "Integrate your POS with a Glory automatic cash payment device"
+msgstr ""
+
+#. module: pos_glory_cash
 #. odoo-javascript
 #: code:addons/pos_glory_cash/static/src/app/payment_glory.js:0
 msgid "Only managers can withdraw cash from the cash machine."
@@ -251,6 +231,11 @@ msgstr ""
 #: code:addons/pos_glory_cash/static/src/backend/glory_admin_buttons/glory_admin_buttons.xml:0
 msgid "Open Admin Page"
 msgstr "Abrir página de administración"
+
+#. module: pos_glory_cash
+#: model:ir.module.module,shortdesc:base.module_pos_glory_cash
+msgid "POS Glory Cash Machines"
+msgstr ""
 
 #. module: pos_glory_cash
 #. odoo-javascript
@@ -270,14 +255,15 @@ msgstr ""
 
 #. module: pos_glory_cash
 #: model:ir.model,name:pos_glory_cash.model_pos_payment_method
-msgid "Point of Sale Payment Methods"
-msgstr "Métodos de pago del punto de venta"
+#, fuzzy
+msgid "Point of Sale Payment Method"
+msgstr "Método de pago del punto de venta"
 
 #. module: pos_glory_cash
 #. odoo-javascript
 #: code:addons/pos_glory_cash/static/src/app/components/glory_error_dialog.xml:0
 msgid "Reset"
-msgstr "Restablecer"
+msgstr ""
 
 #. module: pos_glory_cash
 #. odoo-javascript
@@ -431,12 +417,6 @@ msgstr ""
 
 #. module: pos_glory_cash
 #. odoo-javascript
-#: code:addons/pos_glory_cash/static/src/app/payment_glory.js:0
-msgid "Transaction ID: %s"
-msgstr "ID de la transacción: %s"
-
-#. module: pos_glory_cash
-#. odoo-javascript
 #: code:addons/pos_glory_cash/static/src/utils/constants.js:0
 msgid "Waiting for cancellation"
 msgstr "A la espera de la cancelación"
@@ -479,15 +459,3 @@ msgstr "Esperando el inventario"
 
 #~ msgid "There is insufficient cash in the machine to give change."
 #~ msgstr "No hay suficiente efectivo en la máquina para dar cambio."
-
-#~ msgid "Request sent"
-#~ msgstr "Solicitud enviada"
-
-#~ msgid "Are you sure you want to reset the cash machine?"
-#~ msgstr "¿Estás seguro de que deseas reiniciar la máquina de efectivo?"
-
-#~ msgid "Discard"
-#~ msgstr "Descartar"
-
-#~ msgid "Download logs"
-#~ msgstr "Descargar registros"

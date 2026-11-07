@@ -5,32 +5,34 @@
 # Translators:
 # Martin Trigaux, 2022
 #
-# "Dylan Kiss (dyki)" <dyki@odoo.com>, 2025, 2026.
+# "Dylan Kiss (dyki)" <dyki@odoo.com>, 2025.
+# "Maitê Dietze (madi)" <madi@odoo.com>, 2026.
+# OpenAI <noreply-mt-openai@weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: my-erp-crm Server 16.0beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-30 17:39+0000\n"
-"PO-Revision-Date: 2026-08-02 19:29+0000\n"
-"Last-Translator: \"Dylan Kiss (dyki)\" <dyki@odoo.com>\n"
-"Language-Team: Portuguese (Brazil) <https://translate.odoo.com/projects/"
-"odoo-19/product_matrix/pt_BR/>\n"
+"POT-Creation-Date: 2026-08-28 17:42+0000\n"
+"PO-Revision-Date: 2026-10-29 18:57+0000\n"
+"Last-Translator: OpenAI <noreply-mt-openai@weblate.org>\n"
+"Language-Team: Portuguese (Brazil) <https://translate.odoo.com/projects/odoo-"
+"20/product_matrix/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : ((n != 0 && n % "
 "1000000 == 0) ? 1 : 2);\n"
-"X-Generator: Weblate 2026.6.1\n"
+"X-Generator: Weblate 2026.8.1\n"
 
 #. module: product_matrix
-#. odoo-python
-#: code:addons/product_matrix/models/product_template.py:0
+#: model:ir.module.module,description:base.module_product_matrix
 msgid ""
-"%(products)s have more than %(limit)s attribute combinations and cannot be "
-"selected through the grid entry. Consider splitting them into several "
-"products."
+"\n"
+"Please refer to Sale Matrix or Purchase Matrix for the use of this module.\n"
 msgstr ""
+"\n"
+"Consulte a Matriz de Vendas ou a Matriz de Compras para o uso deste módulo.\n"
 
 #. module: product_matrix
 #: model_terms:ir.ui.view,arch_db:product_matrix.matrix
@@ -52,12 +54,6 @@ msgid "Cell name"
 msgstr "Nome da célula"
 
 #. module: product_matrix
-#. odoo-javascript
-#: code:addons/product_matrix/static/src/xml/product_matrix_dialog.xml:0
-msgid "Choose Product Variants"
-msgstr "Selecione as variantes de produto"
-
-#. module: product_matrix
 #: model_terms:ir.ui.view,arch_db:product_matrix.matrix
 msgid "Column name"
 msgstr "Nome da coluna"
@@ -72,7 +68,7 @@ msgstr "Confirmar"
 #. odoo-javascript
 #: code:addons/product_matrix/static/src/xml/product_matrix_dialog.xml:0
 msgid "Discard"
-msgstr "Cancelar"
+msgstr "Descartar"
 
 #. module: product_matrix
 #: model:ir.model.fields,field_description:product_matrix.field_product_template__display_name
@@ -103,6 +99,11 @@ msgid "Product"
 msgstr "Produto"
 
 #. module: product_matrix
+#: model:ir.module.module,shortdesc:base.module_product_matrix
+msgid "Product Matrix"
+msgstr "Matriz de produtos"
+
+#. module: product_matrix
 #: model:ir.model,name:product_matrix.model_product_template_attribute_value
 msgid "Product Template Attribute Value"
 msgstr "Valor de atributo do modelo de produto"
@@ -111,6 +112,11 @@ msgstr "Valor de atributo do modelo de produto"
 #: model:product.template,description_sale:product_matrix.matrix_product_template_shirt
 msgid "Show your company love around you =)."
 msgstr "Mostre o amor da sua empresa à sua volta =)."
+
+#. module: product_matrix
+#: model:ir.module.module,summary:base.module_product_matrix
+msgid "Technical module: Matrix Implementation"
+msgstr "Módulo técnico: Implementação de matriz"
 
 #. module: product_matrix
 #: model_terms:ir.ui.view,arch_db:product_matrix.matrix
@@ -122,42 +128,6 @@ msgstr ""
 "uma."
 
 #. module: product_matrix
-#. odoo-python
-#: code:addons/product_matrix/models/product_template.py:0
-msgid "Too many combinations"
-msgstr ""
-
-#. module: product_matrix
 #: model_terms:ir.ui.view,arch_db:product_matrix.extra_price
 msgid "Variant price"
 msgstr "Preço da variante"
-
-#~ msgid "Blue"
-#~ msgstr "Azul"
-
-#~ msgid "Gender"
-#~ msgstr "Sexo"
-
-#~ msgid "Men"
-#~ msgstr "Homem"
-
-#~ msgid "Pink"
-#~ msgstr "Rosa"
-
-#~ msgid "Rainbow"
-#~ msgstr "Arco iris"
-
-#~ msgid "Size"
-#~ msgstr "Tamanho"
-
-#~ msgid "Women"
-#~ msgstr "Mulher"
-
-#~ msgid "XL"
-#~ msgstr "GG"
-
-#~ msgid "XS"
-#~ msgstr "PP"
-
-#~ msgid "Yellow"
-#~ msgstr "Amarelo"

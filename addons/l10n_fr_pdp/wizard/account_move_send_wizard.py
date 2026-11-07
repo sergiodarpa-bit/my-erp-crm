@@ -19,7 +19,7 @@ class AccountMoveSendWizard(models.TransientModel):
         if self.move_id.peppol_is_sent:
             return super()._get_peppol_checkbox_addendum_disable_reason()
         pdp_partner = self.move_id.partner_id.commercial_partner_id.with_company(self.company_id)
-        if pdp_partner._get_pdp_receiver_identification_info()[0] != 'pdp':
+        if not pdp_partner.l10n_fr_is_pdp:
             if self.company_id._l10n_fr_pdp_uses_french_terminology() and pdp_partner.peppol_verification_state in ('not_valid', 'not_verified'):
                 return self.env._(" (Customer not available for French E-Invoicing)")
             return super()._get_peppol_checkbox_addendum_disable_reason()
@@ -48,19 +48,20 @@ class AccountMoveSendWizard(models.TransientModel):
 
             if (
                 not move or move.company_id._get_peppol_proxy_type() != 'pdp'
-                or (partner.peppol_eas == '0225' and partner.peppol_endpoint)
+                or (partner.routing_scheme == '0225' and partner.routing_endpoint)
                 or not (siren := partner._l10n_fr_pdp_get_siren())
             ):
                 continue
 
-            lookup_result = self.env['res.partner']._fetch_active_annuaire_lines(siren)
+            result = self.env['res.partner']._fetch_active_annuaire_lines(siren)
+            identifiers = list({line['identifier'] for line in result.get("lines", [])})
 
-            if identifiers := lookup_result.get('identifiers', []):
+            if identifiers:
                 if len(identifiers) == 1:
                     updated_identifier = identifiers[0]
                 else:
-                    id_type, id_value = partner._l10n_fr_pdp_get_base_identifier()
-                    siren_siret = f"{siren}_{id_value}" if id_type == 'siret' else None
+                    siret = partner._l10n_fr_pdp_get_siret()
+                    siren_siret = f"{siren}_{siret}" if siret else None
 
                     if siren_siret and (siren_siret_identifiers := [identifier for identifier in identifiers if identifier.startswith(siren_siret)]):
                         updated_identifier = min(siren_siret_identifiers, key=len)
@@ -70,9 +71,11 @@ class AccountMoveSendWizard(models.TransientModel):
                         updated_identifier = min(identifiers, key=len)
 
                 partner.write({
-                    'peppol_eas': '0225',
-                    'peppol_endpoint': updated_identifier,
+                    'routing_scheme': '0225',
+                    'routing_endpoint': updated_identifier,
                     'invoice_edi_format': 'ubl_21_fr',
                 })
+
+                partner.button_account_peppol_check_partner_endpoint()
 
         super()._compute_sending_method_checkboxes()

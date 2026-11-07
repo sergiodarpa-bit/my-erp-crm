@@ -1,15 +1,22 @@
-import { describe, expect, test } from "@odoo/hoot";
-import { click, dblclick, queryAll, queryAllTexts, queryOne, select } from "@odoo/hoot-dom";
+import { describe, expect, runAllTimers, test } from "@odoo/hoot";
+import {
+    click,
+    dblclick,
+    queryAll,
+    queryAllTexts,
+    queryOne,
+    select,
+    waitFor,
+} from "@odoo/hoot-dom";
 import { animationFrame, tick } from "@odoo/hoot-mock";
 import { setupEditor } from "./_helpers/editor";
-import { getContent, setSelection } from "./_helpers/selection";
+import { getContent, setContent, setSelection } from "./_helpers/selection";
 import { QWebPlugin } from "@html_editor/others/qweb_plugin";
-import { MAIN_PLUGINS } from "@html_editor/plugin_sets";
-import { dispatchCleanForSave } from "./_helpers/dispatch";
-import { setColor, setFontSize } from "./_helpers/user_actions";
-import { unformat } from "./_helpers/format";
+import { processThroughCleanForSave } from "./_helpers/dispatch";
+import { expectElementCount } from "./_helpers/ui_expectations";
+import { EditorVersionPlugin } from "../src/core/editor_version_plugin";
 
-const config = { Plugins: [...MAIN_PLUGINS, QWebPlugin] };
+const config = { includePlugins: [QWebPlugin] };
 describe("qweb picker", () => {
     test("switch selected value to t-else value", async () => {
         const { el, editor } = await setupEditor(
@@ -38,13 +45,13 @@ describe("qweb picker", () => {
                 '<p data-selection-placeholder=""><br></p>'
         );
 
-        dispatchCleanForSave(editor, { root: el });
+        processThroughCleanForSave(editor, el);
         expect(getContent(el)).toBe(`<div><t t-if="test">yes</t><t t-else="">no</t></div>`);
     });
 
     test("plugin's dom markers are not savable", async () => {
         const resources = {
-            handleNewRecords: () => {
+            on_pending_mutations_staged_handlers: () => {
                 expect.step("handleNewRecords");
             },
         };
@@ -244,6 +251,34 @@ describe("qweb picker", () => {
     });
 });
 
+test("show t-out expression in picker on click", async () => {
+    const { el } = await setupEditor(`<div><t t-out="test">Hello</t></div>`, {
+        config,
+    });
+    expect(getContent(el)).toBe(
+        '<p data-selection-placeholder=""><br></p>' +
+            `<div><t t-out="test" data-oe-t-inline="true" data-oe-protected="true" contenteditable="false">Hello</t></div>` +
+            '<p data-selection-placeholder=""><br></p>'
+    );
+    await click(queryOne(`[t-out]`));
+    await expectElementCount(".o-we-qweb-picker", 1);
+    expect(queryOne(".o-we-qweb-picker div")).toHaveText("t-out: test");
+});
+
+test("show t-field expression in picker on click", async () => {
+    const { el } = await setupEditor(`<div><t t-field="test">Hello</t></div>`, {
+        config,
+    });
+    expect(getContent(el)).toBe(
+        '<p data-selection-placeholder=""><br></p>' +
+            `<div><t t-field="test" data-oe-t-inline="true" data-oe-protected="true" contenteditable="false">Hello</t></div>` +
+            '<p data-selection-placeholder=""><br></p>'
+    );
+    await click(queryOne(`[t-field]`));
+    await expectElementCount(".o-we-qweb-picker", 1);
+    expect(queryOne(".o-we-qweb-picker div")).toHaveText("t-field: test");
+});
+
 test("select text inside t-out", async () => {
     const { el } = await setupEditor(`<div><t t-out="test">Hello</t></div>`, {
         config,
@@ -266,32 +301,6 @@ test("select text inside t-out", async () => {
     expect(getContent(el)).toBe(
         '<p data-selection-placeholder=""><br></p>' +
             `<div>[<t t-out="test" data-oe-t-inline="true" data-oe-protected="true" contenteditable="false">Hello</t>]</div>` +
-            '<p data-selection-placeholder=""><br></p>'
-    );
-});
-
-test("select text inside t-esc", async () => {
-    const { el } = await setupEditor(`<div><t t-esc="test">Hello</t></div>`, {
-        config,
-    });
-    expect(getContent(el)).toBe(
-        '<p data-selection-placeholder=""><br></p>' +
-            `<div><t t-esc="test" data-oe-t-inline="true" data-oe-protected="true" contenteditable="false">Hello</t></div>` +
-            '<p data-selection-placeholder=""><br></p>'
-    );
-
-    setSelection({ anchorNode: el.querySelector("t[t-esc]").childNodes[0], anchorOffset: 1 });
-
-    await tick();
-    expect(getContent(el)).toBe(
-        '<p data-selection-placeholder=""><br></p>' +
-            `<div><t t-esc="test" data-oe-t-inline="true" data-oe-protected="true" contenteditable="false">H[]ello</t></div>` +
-            '<p data-selection-placeholder=""><br></p>'
-    );
-    await dblclick("t");
-    expect(getContent(el)).toBe(
-        '<p data-selection-placeholder=""><br></p>' +
-            `<div>[<t t-esc="test" data-oe-t-inline="true" data-oe-protected="true" contenteditable="false">Hello</t>]</div>` +
             '<p data-selection-placeholder=""><br></p>'
     );
 });
@@ -328,18 +337,21 @@ test("cleaning removes content editable", async () => {
         <div>
             <t t-field="test">Hello</t>
             <t t-out="test">Hello</t>
-            <t t-esc="test">Hello</t>
+            <t t-out="test">Hello</t>
             <t t-raw="test">Hello</t>
         </div>`,
         {
-            config: { Plugins: config.Plugins.filter((plugin) => plugin.id !== "editorVersion") },
+            config: {
+                includePlugins: config.includePlugins,
+                excludePlugins: [EditorVersionPlugin],
+            },
         }
     );
     expect(getContent(el)).toBe(`
         <p data-selection-placeholder=""><br></p><div>
             <t t-field="test" data-oe-t-inline="true" data-oe-protected="true" contenteditable="false">Hello</t>
             <t t-out="test" data-oe-t-inline="true" data-oe-protected="true" contenteditable="false">Hello</t>
-            <t t-esc="test" data-oe-t-inline="true" data-oe-protected="true" contenteditable="false">Hello</t>
+            <t t-out="test" data-oe-t-inline="true" data-oe-protected="true" contenteditable="false">Hello</t>
             <t t-raw="test" data-oe-t-inline="true" data-oe-protected="true" contenteditable="false">Hello</t>
         </div><p data-selection-placeholder=""><br></p>`);
 
@@ -347,7 +359,7 @@ test("cleaning removes content editable", async () => {
         <div>
             <t t-field="test">Hello</t>
             <t t-out="test">Hello</t>
-            <t t-esc="test">Hello</t>
+            <t t-out="test">Hello</t>
             <t t-raw="test">Hello</t>
         </div>`);
 });
@@ -369,93 +381,41 @@ test("cleaning does not remove t-out links", async () => {
     );
 });
 
-test("should wrap `t` in `span and be able to remove it`", async () => {
-    const { editor, el } = await setupEditor(`<p>x[<t t-out="hello">abc</t>]x</p>`, { config });
-    expect(getContent(el)).toBe(
-        `<p>x[<t t-out="hello" data-oe-t-inline="true" data-oe-protected="true" contenteditable="false">abc</t>]x</p>`
-    );
-    setFontSize("10px")(editor);
-    expect(getContent(el)).toBe(
-        `<p>x[<span style="font-size: 10px;"><t t-out="hello" data-oe-t-inline="true" data-oe-protected="true" contenteditable="false">abc</t></span>]x</p>`
-    );
-    setFontSize("")(editor);
-    expect(getContent(el)).toBe(
-        `<p>x[<t t-out="hello" data-oe-t-inline="true" data-oe-protected="true" contenteditable="false">abc</t>]x</p>`
-    );
-});
-
-test("should apply font size to the span parent when `t` tag is the sole child of a span and be able to remove it", async () => {
-    const { editor, el } = await setupEditor(`<p><span>[<t t-out="'Test'">Test</t>]</span></p>`, {
+test("formatting toolbar items are disabled on t-att-class and t-att-style (and their format counterparts)", async () => {
+    const { el } = await setupEditor(`<p>[<t>foo</t>]</p>`, {
         config,
     });
-    expect(getContent(el)).toBe(
-        `<p><span>[<t t-out="'Test'" data-oe-t-inline="true" data-oe-protected="true" contenteditable="false">Test</t>]</span></p>`
-    );
-    setFontSize("10px")(editor);
-    expect(getContent(el)).toBe(
-        `<p><span style="font-size: 10px;">[<t t-out="'Test'" data-oe-t-inline="true" data-oe-protected="true" contenteditable="false">Test</t>]</span></p>`
-    );
-    setFontSize("")(editor);
-    expect(getContent(el)).toBe(
-        `<p>[<t t-out="'Test'" data-oe-t-inline="true" data-oe-protected="true" contenteditable="false">Test</t>]</p>`
-    );
-});
 
-test("should color `t` with `span` and be able to remove it", async () => {
-    const { editor, el } = await setupEditor(
-        `<p>x<span style="color: rgb(255, 0, 0)">[<t t-out="hello">abc</t>]</span>x</p>`,
-        { config }
-    );
-    expect(getContent(el)).toBe(
-        `<p>x<span style="color: rgb(255, 0, 0)">[<t t-out="hello" data-oe-t-inline="true" data-oe-protected="true" contenteditable="false">abc</t>]</span>x</p>`
-    );
-    setColor("", "color")(editor);
-    expect(getContent(el)).toBe(
-        `<p>x[<t t-out="hello" data-oe-t-inline="true" data-oe-protected="true" contenteditable="false">abc</t>]x</p>`
-    );
-});
+    await waitFor(".o-we-toolbar button[name=expand_toolbar]");
+    await click(".o-we-toolbar button[name=expand_toolbar]");
+    await waitFor("button[name=remove_format]");
 
-test("should not apply font tag to t nodes (protects if else nodes separation)", async () => {
-    const { editor, el } = await setupEditor(
-        unformat(`[
-            <p>
-                <t t-if="object.partner_id.parent_id">
-                   <t t-out="object.partner_id.parent_id.name or ''">Azure Interior</t>
-                </t>
-                <t t-else="">
-                    <t t-out="object.partner_id.name or ''">Brandon Freeman</t>
-                </t>
-            </p>
-        ]`),
-        { config }
-    );
-    expect(getContent(el)).toBe(
-        unformat(`[
-            <p>
-                <t t-if="object.partner_id.parent_id" data-oe-t-inline="true" data-oe-t-group="0" data-oe-t-selectable="true" data-oe-t-group-active="true">
-                    <t t-out="object.partner_id.parent_id.name or ''" data-oe-t-inline="true" data-oe-protected="true" contenteditable="false">Azure Interior</t>
-                </t>
-                <t t-else="" data-oe-t-inline="true" data-oe-t-selectable="true" data-oe-t-group="0">
-                    <t t-out="object.partner_id.name or ''" data-oe-t-inline="true" data-oe-protected="true" contenteditable="false">Brandon Freeman</t>
-                </t>
-            </p>
-        ]`)
-    );
-    setColor("red", "color")(editor);
-    expect(getContent(el)).toBe(
-        unformat(`[
-            <p>
-                <t t-if="object.partner_id.parent_id" data-oe-t-inline="true" data-oe-t-group="1" data-oe-t-selectable="true" data-oe-t-group-active="true">
-                    <font style="color: red;">
-                        <t t-out="object.partner_id.parent_id.name or ''" data-oe-t-inline="true" data-oe-protected="true" contenteditable="false">Azure Interior</t>
-                    </font>
-                </t>
-                <t t-else="" data-oe-t-inline="true" data-oe-t-selectable="true" data-oe-t-group="1">
-                    <font style="color: red;">
-                        <t t-out="object.partner_id.name or ''" data-oe-t-inline="true" data-oe-protected="true" contenteditable="false">Brandon Freeman</t>
-                    </font>
-                </t>
-            </p>
-        ]`)
-    );
+    expect(`button[name="bold"]`).not.toHaveAttribute("disabled");
+    expect(`button[name="italic"]`).not.toHaveAttribute("disabled");
+    expect(`button[name="underline"]`).not.toHaveAttribute("disabled");
+    expect(`button[name="strikethrough"]`).not.toHaveAttribute("disabled");
+    expect(`button[name="font_type"]`).not.toHaveAttribute("disabled");
+    expect(`button[name="font_family"]`).not.toHaveAttribute("disabled");
+    expect(`button[name="font_size"]`).not.toHaveAttribute("disabled");
+    expect(`button[title="Apply Font Color"]`).not.toHaveAttribute("disabled");
+    expect(`button[title="Apply Background Color"]`).not.toHaveAttribute("disabled");
+    expect(`button[name="link"]`).not.toHaveAttribute("disabled");
+
+    setContent(el, `<p>[<t t-att-class="expr_class">foo</t>]</p>`);
+    await animationFrame();
+    await runAllTimers();
+    await waitFor("button[name=remove_format]");
+
+    expect(`button[name="font_type"]`).toHaveAttribute("disabled");
+    expect(`button[name="font_family"]`).toHaveAttribute("disabled");
+    expect(`button[title="Apply Font Color"]`).toHaveAttribute("disabled");
+    expect(`button[title="Apply Background Color"]`).toHaveAttribute("disabled");
+    expect(`button[name="link"]`).toHaveAttribute("disabled");
+
+    // These buttons are hidden since the command is not available
+    expect(`button[name="bold"]`).toHaveCount(0);
+    expect(`button[name="italic"]`).toHaveCount(0);
+    expect(`button[name="underline"]`).toHaveCount(0);
+    expect(`button[name="strikethrough"]`).toHaveCount(0);
+    expect(`button[name="font_size"]`).toHaveCount(0);
 });

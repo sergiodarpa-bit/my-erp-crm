@@ -1,5 +1,5 @@
 from odoo.exceptions import UserError
-from odoo.fields import Command, Date, Datetime
+from odoo.fields import Command, Date
 from odoo.tools import float_is_zero, mute_logger
 from odoo.tests import Form, tagged
 from odoo.addons.stock_account.tests.common import TestStockValuationCommon
@@ -7,6 +7,8 @@ from odoo.addons.stock_account.tests.common import TestStockValuationCommon
 
 @tagged('post_install', '-at_install')
 class TestAngloSaxonValuationPurchaseMRP(TestStockValuationCommon):
+
+    _test_user_groups = None  # FIXME list needed groups
 
     def test_kit_anglo_saxo_price_diff(self):
         """
@@ -134,7 +136,7 @@ class TestAngloSaxonValuationPurchaseMRP(TestStockValuationCommon):
             'location_dest_id': customer_location.id,
             'move_ids': [(0, 0, {
                 'product_id': kit.id,
-                'product_uom': kit.uom_id.id,
+                'uom_id': kit.uom_id.id,
                 'product_uom_qty': 1.0,
                 'location_id': stock_location.id,
                 'location_dest_id': customer_location.id,
@@ -144,8 +146,8 @@ class TestAngloSaxonValuationPurchaseMRP(TestStockValuationCommon):
         delivery.move_ids.move_line_ids.quantity = 1
         delivery.button_validate()
 
-        self.assertEqual(delivery.move_ids.filtered(lambda m: m.product_id == component01).value, 25)
-        self.assertEqual(delivery.move_ids.filtered(lambda m: m.product_id == component02).value, 75)
+        self.assertEqual(delivery.move_ids.filtered(lambda m: m.product_id == component01).value, -25)
+        self.assertEqual(delivery.move_ids.filtered(lambda m: m.product_id == component02).value, -75)
 
         with mute_logger('odoo.tests.form.onchange'):
             with Form(bom_kit) as kit_form:
@@ -154,12 +156,9 @@ class TestAngloSaxonValuationPurchaseMRP(TestStockValuationCommon):
                 with kit_form.bom_line_ids.edit(1) as line:
                     line.cost_share = 70
 
-        wizard_form = Form(self.env['stock.return.picking'].with_context(active_id=delivery.id, active_model='stock.picking'))
-        wizard = wizard_form.save()
-        wizard.product_return_moves.quantity = 1
-        action = wizard.action_create_returns()
-        return_picking = self.env["stock.picking"].browse(action["res_id"])
-        return_picking.move_ids.move_line_ids.quantity = 1
+        return_picking = delivery._create_return()
+        return_picking.move_ids.product_uom_qty = 1
+        return_picking.action_assign()
         return_picking.button_validate()
 
         self.assertEqual(return_picking.move_ids.filtered(lambda m: m.product_id == component01).value, 25)
@@ -188,11 +187,11 @@ class TestAngloSaxonValuationPurchaseMRP(TestStockValuationCommon):
         eur = self.env.ref('base.EUR')
         eur.active = True
         self.env['res.currency.rate'].create({
-            'name': Datetime.today(),
+            'name': Date.subtract(Date.today(), days=1),
             'currency_id': usd.id,
             'rate': 1})
         self.env['res.currency.rate'].create({
-            'name': Datetime.today(),
+            'name': Date.subtract(Date.today(), days=1),
             'currency_id': eur.id,
             'rate': 2})
 
@@ -250,13 +249,13 @@ class TestAngloSaxonValuationPurchaseMRP(TestStockValuationCommon):
 
         self.env['mrp.bom'].create({
             'product_tmpl_id': kit.product_tmpl_id.id,
-            'product_uom_id': uom_unit.id,
+            'uom_id': uom_unit.id,
             'product_qty': 1.0,
             'type': 'phantom',
             'bom_line_ids': [Command.create({
                 'product_id': component.id,
                 'product_qty': 1.0,
-                'product_uom_id': uom_meter.id,
+                'uom_id': uom_meter.id,
             })],
         })
 
@@ -266,7 +265,7 @@ class TestAngloSaxonValuationPurchaseMRP(TestStockValuationCommon):
             'order_line': [Command.create({
                 'product_id': kit.id,
                 'product_qty': 1.0,
-                'product_uom_id': kit.uom_id.id,
+                'uom_id': kit.uom_id.id,
                 'price_unit': 100.0,
             })],
         })
@@ -347,7 +346,6 @@ class TestAngloSaxonValuationPurchaseMRP(TestStockValuationCommon):
             mo_form = Form(production)
             mo_form.qty_producing = 1
             production = mo_form.save()
-            production._post_inventory()
             production.button_mark_done()
             return production
 
@@ -356,19 +354,24 @@ class TestAngloSaxonValuationPurchaseMRP(TestStockValuationCommon):
             ('company_ids', 'in', self.env.company.id),
         ], limit=1)
         self.category_avco_auto.property_stock_account_production_cost_id = cost_of_production_account.id
+        manu_route, buy_route = (
+            self.env['stock.route'].search([('name', '=', name)], limit=1)
+            for name in ('Manufacture', 'Buy')
+        )
+        (manu_route + buy_route).product_selectable = True
         final_product = self.env['product.product'].create({
             'name': 'final product',
             'is_storable': True,
             'standard_price': 0,
             'categ_id': self.category_avco_auto.id,
-            'route_ids': [(6, 0, self.env['stock.route'].search([('name', '=', 'Manufacture')], limit=1).ids)],
+            'route_ids': [(6, 0, manu_route.ids)],
         })
         comp_1, comp_2 = self.env['product.product'].create([{
             'name': name,
             'is_storable': True,
             'standard_price': 0,
             'categ_id': self.category_avco_auto.id,
-            'route_ids': [(4, self.env['stock.route'].search([('name', '=', 'Buy')], limit=1).id)],
+            'route_ids': [(4, buy_route.id)],
         } for name in ('comp_1', 'comp_2')])
         final_product_bom = self.env['mrp.bom'].create({
             'product_tmpl_id': final_product.product_tmpl_id.id,
@@ -562,8 +565,10 @@ class TestAngloSaxonValuationPurchaseMRP(TestStockValuationCommon):
         self.assertRecordValues(receipts.move_ids.sorted(lambda m: (m.picking_id, m.product_id.id, m.cost_share)), expected_values)
 
         move_form = Form(self.env['account.move'].with_context(default_move_type='in_invoice'))
-        move_form.purchase_vendor_bill_id = self.env['purchase.bill.union'].browse(-purchase_orders[0].id)
-        move_form.invoice_date = Datetime.today()
+        move_form.partner_id = purchase_orders[0].partner_id
+        with mute_logger('odoo.tests.form.onchange'):  # Mute "x PO lines added to the bill" notification
+            move_form.purchase_vendor_bill_id = self.env['purchase.bill.union'].browse(-purchase_orders[0].id)
+        move_form.invoice_date = Date.today()
         move = move_form.save()
         move.action_post()
         self.assertRecordValues(receipts.move_ids.sorted(lambda m: (m.picking_id, m.product_id.id, m.cost_share)), expected_values)
@@ -604,7 +609,7 @@ class TestAngloSaxonValuationPurchaseMRP(TestStockValuationCommon):
         with self.assertRaises(UserError):
             self.env['mrp.bom'].create({
                 'product_tmpl_id': product_template.id,
-                'product_uom_id': product_template.uom_id.id,
+                'uom_id': product_template.uom_id.id,
                 'product_qty': 1.0,
                 'type': 'phantom',
                 'bom_line_ids': [
@@ -617,7 +622,7 @@ class TestAngloSaxonValuationPurchaseMRP(TestStockValuationCommon):
         with self.assertRaises(UserError):
             self.env['mrp.bom'].create({
                 'product_tmpl_id': product_template.id,
-                'product_uom_id': product_template.uom_id.id,
+                'uom_id': product_template.uom_id.id,
                 'product_qty': 1.0,
                 'type': 'phantom',
                 'bom_line_ids': [
@@ -630,7 +635,7 @@ class TestAngloSaxonValuationPurchaseMRP(TestStockValuationCommon):
         # Check that optional lines (with a product_qty of 0) are ignored -> Valid
         self.env['mrp.bom'].create({
             'product_tmpl_id': product_template.id,
-            'product_uom_id': product_template.uom_id.id,
+            'uom_id': product_template.uom_id.id,
             'product_qty': 1.0,
             'type': 'phantom',
             'bom_line_ids': [
@@ -642,7 +647,7 @@ class TestAngloSaxonValuationPurchaseMRP(TestStockValuationCommon):
         # Variant with S attribute sum up to 100% others to 0% -> Valid
         self.env['mrp.bom'].create({
             'product_tmpl_id': product_template.id,
-            'product_uom_id': product_template.uom_id.id,
+            'uom_id': product_template.uom_id.id,
             'product_qty': 1.0,
             'type': 'phantom',
             'bom_line_ids': [
@@ -655,7 +660,7 @@ class TestAngloSaxonValuationPurchaseMRP(TestStockValuationCommon):
         # All attribute values of a given attribute are equi-distributed -> Valid
         self.env['mrp.bom'].create({
             'product_tmpl_id': product_template.id,
-            'product_uom_id': product_template.uom_id.id,
+            'uom_id': product_template.uom_id.id,
             'product_qty': 1.0,
             'type': 'phantom',
             'bom_line_ids': [
@@ -673,7 +678,7 @@ class TestAngloSaxonValuationPurchaseMRP(TestStockValuationCommon):
         # Set up is fine for S Blue and M Red but fails for other non existing combination -> Valid
         self.env['mrp.bom'].create({
             'product_tmpl_id': product_template.id,
-            'product_uom_id': product_template.uom_id.id,
+            'uom_id': product_template.uom_id.id,
             'product_qty': 1.0,
             'type': 'phantom',
             'bom_line_ids': [
@@ -907,7 +912,7 @@ class TestAngloSaxonValuationPurchaseMRP(TestStockValuationCommon):
         ])
         self.env['mrp.bom'].create({
             'product_tmpl_id': product_template.id,
-            'product_uom_id': product_template.uom_id.id,
+            'uom_id': product_template.uom_id.id,
             'product_qty': 1.0,
             'type': 'phantom',
             'bom_line_ids': [

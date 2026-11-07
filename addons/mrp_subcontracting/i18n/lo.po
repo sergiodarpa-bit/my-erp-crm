@@ -2,22 +2,23 @@
 # This file contains the translation of the following modules:
 # * mrp_subcontracting
 #
+# Odoo Translation Bot <c3p@odoo.com>, 2026.
 # Bone NI <bounkirdni@gmail.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: my-erp-crm Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server 19.4a1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:36+0000\n"
-"PO-Revision-Date: 2026-08-06 00:35+0000\n"
+"POT-Creation-Date: 2026-09-25 17:38+0000\n"
+"PO-Revision-Date: 2026-10-26 10:33+0000\n"
 "Last-Translator: Bone NI <bounkirdni@gmail.com>\n"
-"Language-Team: Lao <https://translate.odoo.com/projects/odoo-19/"
+"Language-Team: Lao <https://translate.odoo.com/projects/odoo-20/"
 "mrp_subcontracting/lo/>\n"
 "Language: lo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.6.1\n"
+"X-Generator: Weblate 2026.8.1\n"
 
 #. module: mrp_subcontracting
 #. odoo-python
@@ -32,9 +33,20 @@ msgid "%(name)s Sequence subcontracting"
 msgstr "%(name)s ລໍາດັບການຈ້າງນອກ"
 
 #. module: mrp_subcontracting
+#. odoo-python
+#: code:addons/mrp_subcontracting/report/mrp_report_bom_structure.py:0
+msgid "%(qty)s To %(route)s"
+msgstr "%(qty)s ໄປຍັງ %(route)s"
+
+#. module: mrp_subcontracting
 #: model_terms:ir.ui.view,arch_db:mrp_subcontracting.subcontracting_portal
 msgid "/my/productions"
 msgstr "/my/productions"
+
+#. module: mrp_subcontracting
+#: model_terms:ir.ui.view,arch_db:mrp_subcontracting.mrp_production_subcontracting_form_view
+msgid "<span class=\"o_stat_text\">Overview</span>"
+msgstr "<span class=\"o_stat_text\">ພາບລວມ</span>"
 
 #. module: mrp_subcontracting
 #. odoo-python
@@ -46,6 +58,12 @@ msgstr "ທັງໝົດ"
 #: model:ir.model,name:mrp_subcontracting.model_mrp_production_serials
 msgid "Assign serial numbers to production order"
 msgstr "ກຳນົດເລກຊີຣີໃຫ້ກັບໃບສັ່ງຜະລິດ"
+
+#. module: mrp_subcontracting
+#. odoo-javascript
+#: code:addons/mrp_subcontracting/static/src/components/bom_overview_table/mrp_bom_overview_table.xml:0
+msgid "Availabilities on subcontract location."
+msgstr "ຈຳນວນສິນຄ້າທີ່ມີຢູ່ໃນສະຖານທີ່ຈ້າງນອກ."
 
 #. module: mrp_subcontracting
 #: model:ir.model,name:mrp_subcontracting.model_report_mrp_report_bom_structure
@@ -79,12 +97,6 @@ msgid "Change Production Qty"
 msgstr "ປ່ຽນແປງຈຳນວນການຜະລິດ"
 
 #. module: mrp_subcontracting
-#. odoo-javascript
-#: code:addons/mrp_subcontracting/static/src/components/subcontracting_production_form_controller.js:0
-msgid "Check Availability"
-msgstr "ກວດສອບສິນຄ້າທີ່ມີ"
-
-#. module: mrp_subcontracting
 #: model:ir.model.fields,help:mrp_subcontracting.field_product_supplierinfo__is_subcontractor
 msgid ""
 "Choose a vendor of type subcontractor if you want to subcontract the product"
@@ -92,7 +104,7 @@ msgstr "ເລືອກຜູ້ສະໜອງປະເພດຜູ້ຮັບ
 
 #. module: mrp_subcontracting
 #: model:ir.model,name:mrp_subcontracting.model_res_company
-msgid "Companies"
+msgid "Company"
 msgstr "ບໍລິສັດ"
 
 #. module: mrp_subcontracting
@@ -149,6 +161,7 @@ msgstr "ລາຍລະອຽດ"
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_product_product__display_name
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_product_supplierinfo__display_name
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_report_mrp_report_bom_structure__display_name
+#: model:ir.model.fields,field_description:mrp_subcontracting.field_report_mrp_report_mo_overview__display_name
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_res_company__display_name
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_res_partner__display_name
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_stock_location__display_name
@@ -156,8 +169,6 @@ msgstr "ລາຍລະອຽດ"
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_stock_move_line__display_name
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_stock_picking__display_name
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_stock_quant__display_name
-#: model:ir.model.fields,field_description:mrp_subcontracting.field_stock_return_picking__display_name
-#: model:ir.model.fields,field_description:mrp_subcontracting.field_stock_return_picking_line__display_name
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_stock_rule__display_name
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_stock_warehouse__display_name
 msgid "Display Name"
@@ -168,17 +179,12 @@ msgstr "ຊື່ທີ່ສະແດງ"
 #: code:addons/mrp_subcontracting/controllers/portal.py:0
 #: model_terms:ir.ui.view,arch_db:mrp_subcontracting.subcontracting_portal_production_form_view
 msgid "Done"
-msgstr "ສຳເລັດ"
+msgstr "ສຳເລັດແລ້ວ"
 
 #. module: mrp_subcontracting
-#: model_terms:ir.ui.view,arch_db:mrp_subcontracting.portal_my_home_productions
+#: model:portal.entry,description:mrp_subcontracting.portal_manufacturing_orders
 msgid "Follow manufacturing orders you have to fulfill"
 msgstr "ຕິດຕາມໃບສັ່ງຜະລິດທີ່ທ່ານຕ້ອງເຮັດໃຫ້ສຳເລັດ"
-
-#. module: mrp_subcontracting
-#: model:ir.model.fields,field_description:mrp_subcontracting.field_mrp_production__subcontracting_has_been_recorded
-msgid "Has been recorded?"
-msgstr "ຖືກບັນທຶກແລ້ວບໍ?"
 
 #. module: mrp_subcontracting
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_change_production_qty__id
@@ -188,6 +194,7 @@ msgstr "ຖືກບັນທຶກແລ້ວບໍ?"
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_product_product__id
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_product_supplierinfo__id
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_report_mrp_report_bom_structure__id
+#: model:ir.model.fields,field_description:mrp_subcontracting.field_report_mrp_report_mo_overview__id
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_res_company__id
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_res_partner__id
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_stock_location__id
@@ -195,12 +202,10 @@ msgstr "ຖືກບັນທຶກແລ້ວບໍ?"
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_stock_move_line__id
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_stock_picking__id
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_stock_quant__id
-#: model:ir.model.fields,field_description:mrp_subcontracting.field_stock_return_picking__id
-#: model:ir.model.fields,field_description:mrp_subcontracting.field_stock_return_picking_line__id
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_stock_rule__id
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_stock_warehouse__id
 msgid "ID"
-msgstr "ໄອດີ"
+msgstr "ລະຫັດ"
 
 #. module: mrp_subcontracting
 #. odoo-python
@@ -218,8 +223,8 @@ msgstr "ການໂອນເຂົ້າ"
 
 #. module: mrp_subcontracting
 #: model:ir.model,name:mrp_subcontracting.model_stock_location
-msgid "Inventory Locations"
-msgstr "ສະຖານທີ່ສາງ"
+msgid "Inventory Location"
+msgstr "ສະຖານທີ່ສະຕັອກ"
 
 #. module: mrp_subcontracting
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_stock_quant__is_subcontract
@@ -229,16 +234,26 @@ msgstr "ແມ່ນການຈ້າງນອກ"
 #. module: mrp_subcontracting
 #: model:ir.model.fields,help:mrp_subcontracting.field_mrp_production__bom_product_ids
 msgid ""
-"List of Products used in the BoM, used to filter the list of products in the"
-" subcontracting portal view"
+"List of Products used in the BoM, used to filter the list of products in the "
+"subcontracting portal view"
 msgstr ""
 "ລາຍຊື່ຜະລິດຕະພັນທີ່ໃຊ້ໃນໂຄງສ້າງ, ໃຊ້ເພື່ອມັດສະແດງລາຍຊື່ຜະລິດຕະພັນໃນໜ້າພໍທໍ (portal) ຂອງການຈ້າງນອກ"
+
+#. module: mrp_subcontracting
+#: model:ir.model,name:mrp_subcontracting.model_report_mrp_report_mo_overview
+msgid "MO Overview Report"
+msgstr "ບົດລາຍງານພາບລວມໃບສັ່ງຜະລິດ"
 
 #. module: mrp_subcontracting
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_res_partner__production_ids
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_res_users__production_ids
 msgid "MRP Productions for which the Partner is the subcontractor"
 msgstr "ການຜະລິດ MRP ທີ່ຄູ່ຄ້າເປັນຜູ້ຮັບຈ້າງນອກ"
+
+#. module: mrp_subcontracting
+#: model:ir.module.module,shortdesc:base.module_mrp_subcontracting
+msgid "MRP Subcontracting"
+msgstr "ການຈ້າງນອກ MRP"
 
 #. module: mrp_subcontracting
 #. odoo-python
@@ -256,7 +271,7 @@ msgid "Manufacturing Order"
 msgstr "ໃບສັ່ງຜະລິດ"
 
 #. module: mrp_subcontracting
-#: model_terms:ir.ui.view,arch_db:mrp_subcontracting.portal_my_home_productions
+#: model:portal.entry,name:mrp_subcontracting.portal_manufacturing_orders
 #: model_terms:ir.ui.view,arch_db:mrp_subcontracting.subcontracting_portal_production_form_view
 msgid "Manufacturing Orders"
 msgstr "ໃບສັ່ງຜະລິດ"
@@ -286,7 +301,7 @@ msgstr "ການດຳເນີນການ"
 #. module: mrp_subcontracting
 #: model_terms:ir.ui.view,arch_db:mrp_subcontracting.portal_my_productions
 msgid "Order"
-msgstr "ຄຳສັ່ງ"
+msgstr "ຄຳສັ່ງຊື້"
 
 #. module: mrp_subcontracting
 #. odoo-python
@@ -313,7 +328,7 @@ msgstr "ການເຄື່ອນຍ້າຍຜະລິດຕະພັນ (�
 #. module: mrp_subcontracting
 #: model:ir.model,name:mrp_subcontracting.model_product_product
 msgid "Product Variant"
-msgstr "ລຸ້ນຜະລິດຕະພັນ"
+msgstr "ສິນຄ້າທີ່ແຕກຕ່າງ"
 
 #. module: mrp_subcontracting
 #: model_terms:ir.ui.view,arch_db:mrp_subcontracting.portal_my_home_menu_production
@@ -323,8 +338,8 @@ msgstr "ການຜະລິດ"
 
 #. module: mrp_subcontracting
 #: model:ir.model,name:mrp_subcontracting.model_stock_quant
-msgid "Quants"
-msgstr "Quants"
+msgid "Quant"
+msgstr "Quant (ຈຳນວນ)"
 
 #. module: mrp_subcontracting
 #. odoo-python
@@ -344,6 +359,12 @@ msgid "Replenish on Order (MTO)"
 msgstr "ເຕີມເຕັມຕາມຄຳສັ່ງ (MTO)"
 
 #. module: mrp_subcontracting
+#. odoo-javascript
+#: code:addons/mrp_subcontracting/static/src/components/subcontracting_production_form_controller.js:0
+msgid "Reserve"
+msgstr "ສຳຮອງ"
+
+#. module: mrp_subcontracting
 #. odoo-python
 #: code:addons/mrp_subcontracting/models/stock_warehouse.py:0
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_stock_warehouse__subcontracting_route_id
@@ -361,16 +382,6 @@ msgstr "ສະໜອງຄືນຜູ້ຮັບຈ້າງນອກຕາມ
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_stock_warehouse__subcontracting_to_resupply
 msgid "Resupply Subcontractors"
 msgstr "ສະໜອງຄືນຜູ້ຮັບຈ້າງນອກ"
-
-#. module: mrp_subcontracting
-#: model:ir.model,name:mrp_subcontracting.model_stock_return_picking
-msgid "Return Picking"
-msgstr "ການສົ່ງຄືນສິນຄ້າ"
-
-#. module: mrp_subcontracting
-#: model:ir.model,name:mrp_subcontracting.model_stock_return_picking_line
-msgid "Return Picking Line"
-msgstr "ລາຍການສົ່ງຄືນສິນຄ້າ"
 
 #. module: mrp_subcontracting
 #: model_terms:ir.ui.view,arch_db:mrp_subcontracting.portal_my_productions
@@ -396,7 +407,7 @@ msgstr "ສະຖານະ"
 #. module: mrp_subcontracting
 #: model:ir.model,name:mrp_subcontracting.model_stock_move
 msgid "Stock Move"
-msgstr "ການເຄື່ອນໄຫວສາງ"
+msgstr "ການເຄື່ອນຍ້າຍສະຕັອກ"
 
 #. module: mrp_subcontracting
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_res_partner__picking_ids
@@ -410,9 +421,19 @@ msgid "Stock Rule"
 msgstr "ກົດລະບຽບສາງ"
 
 #. module: mrp_subcontracting
+#: model:ir.module.module,summary:base.module_mrp_subcontracting
+msgid "Subcontract Productions"
+msgstr "ການຜະລິດແບບຈ້າງນອກ"
+
+#. module: mrp_subcontracting
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_product_supplierinfo__is_subcontractor
 msgid "Subcontracted"
 msgstr "ຖືກຈ້າງນອກແລ້ວ"
+
+#. module: mrp_subcontracting
+#: model_terms:ir.ui.view,arch_db:mrp_subcontracting.stock_picking_form_view
+msgid "Subcontracted Productions"
+msgstr "ການຜະລິດທີ່ຈ້າງນອກ"
 
 #. module: mrp_subcontracting
 #. odoo-python
@@ -466,11 +487,6 @@ msgid "Subcontracting Portal"
 msgstr "ພໍທໍການຈ້າງນອກ"
 
 #. module: mrp_subcontracting
-#: model_terms:ir.ui.view,arch_db:mrp_subcontracting.stock_picking_form_view
-msgid "Subcontracting Productions"
-msgstr "ການຜະລິດແບບຈ້າງນອກ"
-
-#. module: mrp_subcontracting
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_stock_warehouse__subcontracting_resupply_type_id
 msgid "Subcontracting Resupply Operation Type"
 msgstr "ປະເພດການດຳເນີນການສະໜອງຄືນການຈ້າງນອກ"
@@ -500,6 +516,15 @@ msgstr "ຜູ້ຮັບຈ້າງນອກ"
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_res_users__property_stock_subcontractor
 msgid "Subcontractor Location"
 msgstr "ສະຖານທີ່ຜູ້ຮັບຈ້າງນອກ"
+
+#. module: mrp_subcontracting
+#. odoo-javascript
+#: code:addons/mrp_subcontracting/static/src/components/bom_overview_table/mrp_bom_overview_table.xml:0
+#: code:addons/mrp_subcontracting/static/src/components/mo_overview/mrp_mo_overview.xml:0
+#: model_terms:ir.ui.view,arch_db:mrp_subcontracting.mo_overview_content
+#: model_terms:ir.ui.view,arch_db:mrp_subcontracting.report_mrp_bom
+msgid "Subcontractor Stock"
+msgstr "ສາງຜູ້ຮັບຈ້າງນອກ"
 
 #. module: mrp_subcontracting
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_mrp_bom__subcontractor_ids
@@ -538,6 +563,12 @@ msgid "There are currently no productions for your account."
 msgstr "ປັດຈຸບັນບໍ່ມີລາຍການຜະລິດສຳລັບບັນຊີຂອງທ່ານ."
 
 #. module: mrp_subcontracting
+#. odoo-python
+#: code:addons/mrp_subcontracting/report/mrp_report_mo_overview.py:0
+msgid "To Order"
+msgstr "ທີ່ຈະສັ່ງ"
+
+#. module: mrp_subcontracting
 #: model_terms:ir.ui.view,arch_db:mrp_subcontracting.mrp_subcontracting_move_form_view
 msgid "Total Consumed"
 msgstr "ລວມທີ່ໃຊ້ໄປ"
@@ -546,6 +577,11 @@ msgstr "ລວມທີ່ໃຊ້ໄປ"
 #: model:ir.model,name:mrp_subcontracting.model_stock_picking
 #: model:ir.model.fields,field_description:mrp_subcontracting.field_mrp_production__incoming_picking
 msgid "Transfer"
+msgstr "ໂອນ"
+
+#. module: mrp_subcontracting
+#: model_terms:ir.ui.view,arch_db:mrp_subcontracting.mrp_production_subcontracting_form_view
+msgid "Transfers"
 msgstr "ການໂອນ"
 
 #. module: mrp_subcontracting
@@ -595,3 +631,7 @@ msgstr "ຕົວຢ່າງ: PO0032"
 #: code:addons/mrp_subcontracting/controllers/portal.py:0
 msgid "state"
 msgstr "ສະຖານະ"
+
+#, fuzzy
+#~ msgid "Check Availability"
+#~ msgstr "ກວດສອບສິນຄ້າທີ່ມີ"

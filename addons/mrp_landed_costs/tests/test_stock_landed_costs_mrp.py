@@ -7,6 +7,8 @@ from odoo.tests import tagged, Form
 @tagged('post_install', '-at_install')
 class TestStockLandedCostsMrp(ValuationReconciliationTestCommon):
 
+    _test_user_groups = None  # FIXME list needed groups
+
     @classmethod
     def setUpClass(cls):
         super(TestStockLandedCostsMrp, cls).setUpClass()
@@ -38,7 +40,7 @@ class TestStockLandedCostsMrp(ValuationReconciliationTestCommon):
         cls.bom_refri = cls.env['mrp.bom'].create({
             'product_id': cls.product_refrigerator.id,
             'product_tmpl_id': cls.product_refrigerator.product_tmpl_id.id,
-            'product_uom_id': cls.uom_unit.id,
+            'uom_id': cls.uom_unit.id,
             'product_qty': 1.0,
             'type': 'normal',
         })

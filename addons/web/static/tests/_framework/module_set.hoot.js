@@ -1,7 +1,6 @@
 // ! WARNING: this module cannot depend on modules not ending with ".hoot" (except libs) !
 
 import {
-    Deferred,
     delay,
     describe,
     dryRun,
@@ -12,15 +11,15 @@ import {
     watchKeys,
     watchListeners,
 } from "@odoo/hoot";
-import { collectGarbageAndReport } from "@web/../lib/hoot/core/gc";
 
-import { disposeBootstrapInstances } from "./bootstrap.hoot";
+import { mockAssetsFactory } from "./mock_assets.hoot";
 import { mockBrowserFactory } from "./mock_browser.hoot";
 import { mockCurrencyFactory } from "./mock_currency.hoot";
 import { mockFunctionsFactory } from "./mock_functions.hoot";
-import { mockIndexedDB } from "./mock_indexed_db.hoot";
+import { mockIndexedDBFactory } from "./mock_indexed_db.hoot";
+import { mockPatchFactory } from "./mock_patch.hoot";
 import { mockSessionFactory } from "./mock_session.hoot";
-import { makeTemplateFactory } from "./mock_templates.hoot";
+import { mockTemplatesFactory } from "./mock_templates.hoot";
 import { mockUserFactory } from "./mock_user.hoot";
 
 /**
@@ -136,12 +135,12 @@ async function fetchDependencies(addons) {
     for (const addon of addons) {
         if (!dependencyCache[addon] && !DEFAULT_ADDONS.includes(addon)) {
             addonsToFetch.push(addon);
-            dependencyCache[addon] = new Deferred();
+            dependencyCache[addon] = Promise.withResolvers();
         }
     }
     if (addonsToFetch.length) {
         if (!dependencyBatch.length) {
-            dependencyBatchPromise = Deferred.resolve().then(() => {
+            dependencyBatchPromise = Promise.resolve().then(() => {
                 const module_names = [...new Set(dependencyBatch)];
                 dependencyBatch = [];
                 return unmockedOrm("ir.module.module.dependency", "all_dependencies", [], {
@@ -153,7 +152,7 @@ async function fetchDependencies(addons) {
         dependencyBatchPromise.then(
             (allDependencies) => {
                 for (const [moduleName, dependencyNames] of Object.entries(allDependencies)) {
-                    dependencyCache[moduleName] ||= new Deferred();
+                    dependencyCache[moduleName] ||= Promise.withResolvers();
                     dependencyCache[moduleName].resolve();
 
                     dependencies[moduleName] = dependencyNames.filter(
@@ -176,7 +175,7 @@ async function fetchDependencies(addons) {
         );
     }
 
-    await Promise.all([...addons].map((addon) => dependencyCache[addon]));
+    await Promise.all([...addons].map((addon) => dependencyCache[addon]?.promise));
 
     return getDependencies(addons);
 }
@@ -288,16 +287,21 @@ function getSuitePath(name) {
 }
 
 /**
- * Keeps the original definition of a factory.
+ * Returns a mocked version of the module factory function to ensure that the same
+ * module instance is used for all test suites.
  *
- * @param {string} name
+ * These "fixed" modules CANNOT require any other module, except:
+ * - Owl/Hoot;
+ * - other "fixed" modules.
+ *
+ * @param {string} moduleName
  */
-function makeFixedFactory(name) {
-    return () => {
-        if (!loader.modules.has(name)) {
-            loader.startModule(name);
+function mockFixedFactory(moduleName) {
+    return function fixedFactory() {
+        if (loader.modules.has(moduleName)) {
+            return loader.modules.get(moduleName);
         }
-        return loader.modules.get(name);
+        return loader.startModule(moduleName);
     };
 }
 
@@ -329,34 +333,6 @@ function resolveAddonDependencies(dependencies) {
 }
 
 /**
- * @param {Map<string, OdooModuleFactory>} factories
- */
-function sortModuleNames(factories) {
-    function findJob() {
-        for (const job of remainingJobs) {
-            if (factories.get(job).deps.every((dep) => sortedNames.has(dep))) {
-                return job;
-            }
-        }
-        return null;
-    }
-
-    /** @type {Set<string>} */
-    const remainingJobs = new Set();
-    /** @type {Set<string>} */
-    const sortedNames = new Set();
-    for (const name of factories.keys()) {
-        remainingJobs.add(name);
-        let job;
-        while ((job = findJob())) {
-            remainingJobs.delete(job);
-            sortedNames.add(job);
-        }
-    }
-    return sortedNames;
-}
-
-/**
  * @param {Record<string, unknown>>} model
  */
 function unfreezeModel(model) {
@@ -367,6 +343,51 @@ function unfreezeModel(model) {
         }
     }
     return { ...model, fields };
+}
+
+/**
+ * This method tries to manually run the garbage collector (if exposed) and logs
+ * the current heap size (if available). It is meant to be called right after a
+ * suite's module set has been fully executed.
+ *
+ * This is used for debugging memory leaks, or if the containing process running
+ * unit tests doesn't know how much available memory it actually has.
+ *
+ * To enable this feature, the containing process must simply use the `--expose-gc`
+ * flag.
+ *
+ * @param {string} label
+ * @param {number} [testCount]
+ */
+async function __gcAndLogMemory(label, testCount) {
+    if (typeof window.gc !== "function") {
+        return;
+    }
+
+    // Cleanup last retained textarea
+    const textarea = document.createElement("textarea");
+    document.body.appendChild(textarea);
+    textarea.value = "aaa";
+    textarea.focus();
+    textarea.remove();
+
+    // Run garbage collection
+    await window.gc({ type: "major", execution: "async" });
+
+    // Log memory usage
+    const logs = [
+        `[MEMINFO] ${label} (after GC)`,
+        "- used:",
+        window.performance.memory.usedJSHeapSize,
+        "- total:",
+        window.performance.memory.totalJSHeapSize,
+        "- limit:",
+        window.performance.memory.jsHeapSizeLimit,
+    ];
+    if (Number.isInteger(testCount)) {
+        logs.push("- tests:", testCount);
+    }
+    console.log(...logs);
 }
 
 /** @extends {OdooModuleLoader} */
@@ -510,19 +531,22 @@ const CSRF_TOKEN = odoo.csrf_token;
 const DEFAULT_ADDONS = ["base", "web"];
 const MODULE_MOCKS_BY_NAME = new Map([
     // Fixed modules
-    ["@web/core/template_inheritance", makeFixedFactory],
+    ["@web/core/emoji_picker/emoji_loader", mockFixedFactory],
+    ["@web/core/template_inheritance", mockFixedFactory],
     // Other mocks
+    ["@web/core/assets", mockAssetsFactory],
     ["@web/core/browser/browser", mockBrowserFactory],
-    ["@web/core/utils/indexed_db", mockIndexedDB],
     ["@web/core/currency", mockCurrencyFactory],
-    ["@web/core/templates", makeTemplateFactory],
+    ["@web/core/templates", mockTemplatesFactory],
     ["@web/core/user", mockUserFactory],
     ["@web/core/utils/functions", mockFunctionsFactory],
+    ["@web/core/utils/indexed_db", mockIndexedDBFactory],
+    ["@web/core/utils/patch", mockPatchFactory],
     ["@web/session", mockSessionFactory],
 ]);
 const MODULE_MOCKS_BY_REGEX = new Map([
     // Fixed modules
-    [/\.bundle\.xml$/, makeFixedFactory],
+    [/\.bundle\.xml$/, mockFixedFactory],
 ]);
 const R_DEFAULT_MODULE = /^@odoo\/(owl|hoot)/;
 const R_PATH_ADDON = /^[@/]?(\w+)/;
@@ -530,7 +554,7 @@ const TEMPLATE_MODULE_NAME = "@web/core/templates";
 
 /** @type {Record<string, string[]} */
 const dependencies = {};
-/** @type {Record<string, Deferred} */
+/** @type {Record<string, PromiseWithResolvers>} */
 const dependencyCache = {};
 /** @type {Record<string, Promise<Response>} */
 const globalFetchCache = Object.create(null);
@@ -635,16 +659,28 @@ export async function runTests(options) {
     }
 
     // Sort modules to accelerate loading time
-    sortedModuleNames.push(...sortModuleNames(loader.factories));
-
-    // Register test modules
+    /** @type {Record<string, PromiseWithResolvers>} */
+    const defs = {};
     /** @type {string[]} */
     const testModuleNames = [];
-    for (const name of loader.factories.keys()) {
+    for (const [name, { deps }] of loader.factories) {
+        // Register test module
         if (name.endsWith(fileSuffix)) {
-            testModuleNames.push(name.slice(0, -fileSuffix.length));
+            const baseName = name.slice(0, -fileSuffix.length);
+            testModuleNames.push(baseName);
         }
+
+        // Register module dependencies
+        const [modDef, ...depDefs] = [name, ...deps].map(
+            (dep) => (defs[dep] ||= Promise.withResolvers())
+        );
+        Promise.all(depDefs.map((d) => d.promise)).then(() => {
+            sortedModuleNames.push(name);
+            modDef.resolve();
+        });
     }
+
+    await Promise.all(Object.values(defs).map((d) => d.promise));
 
     // Dry run
     const { suites } = await dryRun(() => describeDrySuite(fileSuffix, testModuleNames));
@@ -656,7 +692,7 @@ export async function runTests(options) {
     let lastNumberTests = 0;
     for (const moduleName of testModuleNames) {
         if (lastSuiteName) {
-            await collectGarbageAndReport(lastSuiteName, lastNumberTests);
+            await __gcAndLogMemory(lastSuiteName, lastNumberTests);
             lastSuiteName = null;
         }
         const suitePath = getSuitePath(moduleName);
@@ -687,7 +723,6 @@ export async function runTests(options) {
         const running = await start(suite);
 
         await moduleSetLoader.cleanup();
-        disposeBootstrapInstances();
 
         lastSuiteName = suite.fullName;
         lastNumberTests = suite.reporting.tests;
@@ -697,7 +732,7 @@ export async function runTests(options) {
         }
     }
     if (lastSuiteName) {
-        await collectGarbageAndReport(lastSuiteName, lastNumberTests);
+        await __gcAndLogMemory(lastSuiteName, lastNumberTests);
     }
 
     // Perform final cleanups
@@ -712,7 +747,7 @@ export async function runTests(options) {
         templateModule.clearProcessedTemplates();
     }
 
-    await collectGarbageAndReport("tests done");
+    await __gcAndLogMemory("tests done");
 
     // Report last, as the server kills the browser on the result report.
     await stop();

@@ -6,15 +6,16 @@
 # cafonso <cafonso62@gmail.com>, 2022
 # Manuela Silva <mmsrs@sky.com>, 2022
 # Martin Trigaux, 2022
-# Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
+# Weblate <noreply-mt-weblate@weblate.org>, 2025.
+# Cristina Paniagua Ramiro <crpan@odoo.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: my-erp-crm Server 15.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:36+0000\n"
-"PO-Revision-Date: 2026-08-05 00:41+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Portuguese <https://translate.odoo.com/projects/odoo-19/"
+"POT-Creation-Date: 2026-08-28 17:42+0000\n"
+"PO-Revision-Date: 2026-10-28 16:45+0000\n"
+"Last-Translator: Cristina Paniagua Ramiro <crpan@odoo.com>\n"
+"Language-Team: Portuguese <https://translate.odoo.com/projects/odoo-20/"
 "mass_mailing_event_track/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +23,18 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : ((n != 0 && n % "
 "1000000 == 0) ? 1 : 2);\n"
-"X-Generator: Weblate 2026.6.1\n"
+"X-Generator: Weblate 2026.8.1\n"
+
+#. module: mass_mailing_event_track
+#: model:ir.module.module,description:base.module_mass_mailing_event_track
+msgid ""
+"\n"
+"Mass mail event track speakers\n"
+"==============================\n"
+"\n"
+"Bridge module adding UX requirements to ease mass mailing of event track "
+"speakers.\n"
+msgstr ""
 
 #. module: mass_mailing_event_track
 #: model_terms:ir.ui.view,arch_db:mass_mailing_event_track.event_event_view_form_inherit_mass_mailing_track
@@ -57,5 +69,7 @@ msgstr ""
 msgid "ID"
 msgstr "ID"
 
-#~ msgid "Contact Track Speakers"
-#~ msgstr "Contacto do Orador do Tema"
+#. module: mass_mailing_event_track
+#: model:ir.module.module,shortdesc:base.module_mass_mailing_event_track
+msgid "Mass mailing on track speakers"
+msgstr ""

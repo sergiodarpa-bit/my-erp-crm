@@ -1,0 +1,33 @@
+.o_attendance_calendar {
+    flex-grow: 1;
+    min-width: 0;
+
+    .o_calendar_renderer {
+        border-top: 1px solid var(--o-cw-border-color);
+    }
+}
+
+.o_attendance_calendar .o_attendance_info_bar {
+    .o_attendance_entry_card {
+        min-height: 80px;
+
+        > div {
+            flex-wrap: wrap;
+            justify-content: center;
+            white-space: nowrap;
+        }
+
+        .o_attendance_entry_duration {
+            font-size: 40px;
+            font-weight: 500;
+            line-height: 1;
+        }
+
+        .o_attendance_entry_name {
+            font-size: 15px;
+            font-weight: 600;
+            color: $body-color;
+            line-height: 1;
+        }
+    }
+}

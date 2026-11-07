@@ -9,6 +9,8 @@ from .common import TestEsEdiTbaiCommonBizkaia
 @tagged('post_install', '-at_install', 'post_install_l10n')
 class TestSendBillEdiBizkaia(TestEsEdiTbaiCommonBizkaia):
 
+    _test_user_groups = None  # FIXME list needed groups
+
     def test_post_and_cancel_bill_tbai_success(self):
         bill = self._create_posted_bill()
 
@@ -51,7 +53,9 @@ class TestSendBillEdiBizkaia(TestEsEdiTbaiCommonBizkaia):
             bill.l10n_es_tbai_send_bill()
         refund = bill._reverse_moves([{'invoice_date': bill.invoice_date, 'ref': 'RINV123'}])
         refund.action_post()
-        self.assertFalse(refund.l10n_es_tbai_refund_reason)
+        # Credit notes default to R4 through the shared invoice type field.
+        refund.l10n_es_invoice_type = False
+        self.assertFalse(refund.l10n_es_invoice_type)
 
         with patch(
             'odoo.addons.l10n_es_edi_tbai.models.l10n_es_edi_tbai_document.requests.Session.request',

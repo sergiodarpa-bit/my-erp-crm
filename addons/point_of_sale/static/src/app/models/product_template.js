@@ -21,19 +21,6 @@ export class ProductTemplate extends ProductTemplateAccounting {
         this.onUpdate();
     }
 
-    isAllowOnlyOneLot() {
-        return this.tracking === "lot" || !this.uom_id || !this.uom_id.is_pos_groupable;
-    }
-
-    isTracked() {
-        const pickingType = this.models["stock.picking.type"].readAll()[0];
-
-        return (
-            ["serial", "lot"].includes(this.tracking) &&
-            (pickingType.use_create_lots || pickingType.use_existing_lots)
-        );
-    }
-
     async _onScaleNotAvailable() {}
 
     isConfigurable() {
@@ -98,41 +85,9 @@ export class ProductTemplate extends ProductTemplateAccounting {
     }
 
     getImageUrl() {
-        return `/web/image?model=product.template&field=image_128&id=${this.id}&unique=${this.write_date}`;
-    }
-
-    hasDynamicAttributes() {
-        return this.attribute_line_ids.some(
-            (line) => line.attribute_id.create_variant === "dynamic"
-        );
-    }
-
-    getVariantForCombination(attributeValues) {
-        const valueIds = attributeValues
-            .filter((value) => value.attribute_id.create_variant !== "no_variant")
-            .map(({ id }) => id);
-        if (!valueIds.length) {
-            return false;
-        }
-
-        return (
-            this.product_variant_ids.find((variant) => {
-                // Not product_template_variant_value_ids: its domain drops values from
-                // single-value attribute lines, which are part of the combination.
-                const variantValueIds = variant.product_template_attribute_value_ids.map(
-                    ({ id }) => id
-                );
-                return valueIds.every((id) => variantValueIds.includes(id));
-            }) || false
-        );
-    }
-
-    isDeletedCombination(attributeValues) {
-        return (
-            !this.hasDynamicAttributes() &&
-            attributeValues.some((value) => value.attribute_id.create_variant !== "no_variant") &&
-            !this.getVariantForCombination(attributeValues)
-        );
+        return this.image_128
+            ? `/web/image?model=product.template&field=image_256&id=${this.id}&unique=${this.write_date}`
+            : false;
     }
 
     _isArchivedCombination(attributeValueIds) {
@@ -173,6 +128,11 @@ export class ProductTemplate extends ProductTemplateAccounting {
 
     get canBeDisplayed() {
         return this.active && this.available_in_pos;
+    }
+
+    get showProductImageInSelf() {
+        const config = this.models["pos.config"].getFirst();
+        return config.self_ordering_mode === "kiosk" || this.image_128;
     }
 
     get searchString() {

@@ -4,7 +4,7 @@ import { _t } from "@web/core/l10n/translation";
 import { PaymentInterface } from "@point_of_sale/app/utils/payment/payment_interface";
 import { AlertDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
 import { serializeDateTime } from "@web/core/l10n/dates";
-import { register_payment_method } from "@point_of_sale/app/services/pos_store";
+import { registry } from "@web/core/registry";
 
 const REQUEST_TIMEOUT = 10000;
 const { DateTime } = luxon;
@@ -18,17 +18,17 @@ export class PaymentRazorpay extends PaymentInterface {
         this.payment_stopped = false;
     }
 
-    sendPaymentRequest(cid) {
-        super.sendPaymentRequest(cid);
-        return this._processRazorpay(cid);
+    async sendPaymentRequest(line) {
+        await super.sendPaymentRequest(...arguments);
+        return this._processRazorpay(line.uuid);
     }
 
     pendingRazorpayline() {
         return this.pos.getPendingPaymentLine("razorpay");
     }
 
-    sendPaymentCancel(order, cid) {
-        super.sendPaymentCancel(order, cid);
+    async sendPaymentCancel(line) {
+        await super.sendPaymentCancel(...arguments);
         return this._razorpayCancel();
     }
 
@@ -139,7 +139,7 @@ export class PaymentRazorpay extends PaymentInterface {
         }
 
         const sequenceNumber = order.payment_ids.filter(
-            (pi) => pi.payment_method_id.use_payment_terminal === "razorpay"
+            (pi) => pi.payment_method_id.payment_provider === "razorpay"
         ).length;
         const referenceId = Sha1.hash(
             `${this.pos.config.id}/${order.uuid}/${this.payment_method_id.id}/${this.pos.config.currency_id.name}/${line.amount}/${sequenceNumber}`
@@ -233,7 +233,7 @@ export class PaymentRazorpay extends PaymentInterface {
             clearTimeout(this.pollingTimeout);
 
             // If the user navigates to another screen, stop the polling
-            if (this.pos.router.state.current !== "PaymentScreen") {
+            if (this.pos.router.currentScreen() !== "PaymentScreen") {
                 return;
             }
 
@@ -311,4 +311,4 @@ export class PaymentRazorpay extends PaymentInterface {
     }
 }
 
-register_payment_method("razorpay", PaymentRazorpay);
+registry.category("pos_payment_providers").add("razorpay", PaymentRazorpay);

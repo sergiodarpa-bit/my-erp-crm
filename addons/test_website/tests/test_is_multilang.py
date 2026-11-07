@@ -3,9 +3,15 @@ from urllib.parse import urlparse
 import odoo.tests
 import lxml
 
+from odoo.addons.website.tests.common import set_url_code
+
 
 @odoo.tests.common.tagged('post_install', '-at_install')
 class TestIsMultiLang(odoo.tests.HttpCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        set_url_code(cls.env.ref('base.lang_fr'))
 
     def test_01_is_multilang_url(self):
         website = self.env['website'].search([], limit=1)
@@ -27,7 +33,7 @@ class TestIsMultiLang(odoo.tests.HttpCase):
             self.assertEqual('/get_post_nomultilang', body.find('./a[@id="get_post_nomultilang"]').get('href'))
 
     def test_02_url_lang_code_underscore(self):
-        website = self.env['website'].browse(1)
+        website = self.env.ref('base.default_website')
         it = self.env.ref('base.lang_it').sudo()
         en = self.env.ref('base.lang_en').sudo()
         be = self.env.ref('base.lang_fr_BE').sudo()

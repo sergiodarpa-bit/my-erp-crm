@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: my-erp-crm Server 19.0\n"
+"Project-Id-Version: my-erp-crm Server 19.5a1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-30 17:39+0000\n"
-"PO-Revision-Date: 2026-10-30 17:39+0000\n"
+"POT-Creation-Date: 2026-08-28 17:42+0000\n"
+"PO-Revision-Date: 2026-08-28 17:42+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,12 +16,10 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: product_matrix
-#. odoo-python
-#: code:addons/product_matrix/models/product_template.py:0
+#: model:ir.module.module,description:base.module_product_matrix
 msgid ""
-"%(products)s have more than %(limit)s attribute combinations and cannot be "
-"selected through the grid entry. Consider splitting them into several "
-"products."
+"\n"
+"Please refer to Sale Matrix or Purchase Matrix for the use of this module.\n"
 msgstr ""
 
 #. module: product_matrix
@@ -39,12 +37,6 @@ msgstr ""
 #. module: product_matrix
 #: model_terms:ir.ui.view,arch_db:product_matrix.matrix
 msgid "Cell name"
-msgstr ""
-
-#. module: product_matrix
-#. odoo-javascript
-#: code:addons/product_matrix/static/src/xml/product_matrix_dialog.xml:0
-msgid "Choose Product Variants"
 msgstr ""
 
 #. module: product_matrix
@@ -93,6 +85,11 @@ msgid "Product"
 msgstr ""
 
 #. module: product_matrix
+#: model:ir.module.module,shortdesc:base.module_product_matrix
+msgid "Product Matrix"
+msgstr ""
+
+#. module: product_matrix
 #: model:ir.model,name:product_matrix.model_product_template_attribute_value
 msgid "Product Template Attribute Value"
 msgstr ""
@@ -103,16 +100,15 @@ msgid "Show your company love around you =)."
 msgstr ""
 
 #. module: product_matrix
+#: model:ir.module.module,summary:base.module_product_matrix
+msgid "Technical module: Matrix Implementation"
+msgstr ""
+
+#. module: product_matrix
 #: model_terms:ir.ui.view,arch_db:product_matrix.matrix
 msgid ""
 "The matrix of product variants of this order will be displayed here, if "
 "there are any."
-msgstr ""
-
-#. module: product_matrix
-#. odoo-python
-#: code:addons/product_matrix/models/product_template.py:0
-msgid "Too many combinations"
 msgstr ""
 
 #. module: product_matrix

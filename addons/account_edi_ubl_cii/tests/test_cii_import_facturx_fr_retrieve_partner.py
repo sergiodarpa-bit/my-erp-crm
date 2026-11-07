@@ -58,8 +58,8 @@ class TestCiiImportFacturXFRRetrievePartner(CiiImportFacturXFR):
         self.assertRecordValues(partner, [{
             'name': 'partner_de',
             'vat': 'DE100007911',
-            'peppol_eas': 'EM',
-            'peppol_endpoint': 'partner_de+invoices@company.com',
+            'routing_scheme': 'EM',
+            'routing_endpoint': 'partner_de+invoices@company.com',
         }])
 
         # Test the partner has been retrieved.

@@ -3,7 +3,7 @@ from unittest.mock import patch
 
 from odoo import Command, fields
 from odoo.addons.account.tests.common import AccountTestInvoicingCommon
-from odoo.exceptions import AccessError
+from odoo.addons.iap.tools.iap_tools import IAPServerError
 from odoo.tests import new_test_user, tagged
 from odoo.tools import mute_logger
 
@@ -21,7 +21,7 @@ class TestLatePaymentPenalties(AccountTestInvoicingCommon):
             cls.company_data_2['company'],
             cls.env.ref('base.fr'),
         )
-        cls.env['ir.config_parameter'].sudo().set_param(
+        cls.env['ir.config_parameter'].sudo().set_str(
             'account_peppol.edi.mode',
             'test',
         )
@@ -280,7 +280,7 @@ class TestLatePaymentPenalties(AccountTestInvoicingCommon):
             ),
             patch(
                 'odoo.addons.l10n_fr_pdp_penalty_rate.models.late_payment_penalty_rate.iap_tools.iap_jsonrpc',
-                side_effect=AccessError("IAP unavailable"),
+                side_effect=IAPServerError("IAP unavailable"),
             ),
         ):
             first_invoice.action_post()

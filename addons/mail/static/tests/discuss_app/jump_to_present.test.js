@@ -1,13 +1,6 @@
 import { after, describe, expect, test } from "@odoo/hoot";
-import { animationFrame, Deferred, delay, press, queryFirst, tick } from "@odoo/hoot-dom";
-import {
-    asyncStep,
-    Command,
-    patchWithCleanup,
-    serverState,
-    waitForSteps,
-    withUser,
-} from "@web/../tests/web_test_helpers";
+import { animationFrame, delay, press, queryFirst, tick } from "@odoo/hoot-dom";
+import { Command, patchWithCleanup, serverState, withUser } from "@web/../tests/web_test_helpers";
 
 import {
     SIZES,
@@ -16,13 +9,14 @@ import {
     defineMailModels,
     insertText,
     isInViewportOf,
-    onRpcBefore,
+    listenStoreFetch,
     openDiscuss,
     openFormView,
     patchUiSize,
     scroll,
     start,
     startServer,
+    waitStoreFetch,
 } from "@mail/../tests/mail_test_helpers";
 import { PRESENT_VIEWPORT_THRESHOLD } from "@mail/core/common/thread";
 import { rpc } from "@web/core/network/rpc";
@@ -96,7 +90,7 @@ test("Jump to a pinned message during jump to present in a browser without scrol
     delete window.onscrollend;
     after(() => Object.defineProperty(window, "onscrollend", onscrollend));
     // Simulate a smooth scroll that stalls at its start.
-    const smoothScrollStarted = new Deferred();
+    const smoothScrollStarted = Promise.withResolvers();
     patchWithCleanup(Element.prototype, {
         scrollIntoView(...args) {
             if (args[0]?.behavior === "smooth") {
@@ -129,7 +123,7 @@ test("Jump to a pinned message during jump to present in a browser without scrol
     await click("[title='Pinned Messages']");
     await contains(".o-discuss-PinnedMessagesPanel a[role='button']:text(Jump):count(1)");
     await click("[title='Jump to Present']");
-    await smoothScrollStarted;
+    await smoothScrollStarted.promise;
     await click(".o-discuss-PinnedMessagesPanel a[role='button']:text(Jump)");
     await contains(".o-mail-Message.o-highlighted .o-mail-Message-body:text(pinned-message)");
     await contains(".o-mail-Message.o-highlighted", { count: 0 });
@@ -146,7 +140,7 @@ test("Jump to present keeps the position of a user who scrolls up in a browser w
     delete window.onscrollend;
     after(() => Object.defineProperty(window, "onscrollend", onscrollend));
     // Simulate a smooth scroll that stalls halfway.
-    const smoothScrollStarted = new Deferred();
+    const smoothScrollStarted = Promise.withResolvers();
     patchWithCleanup(Element.prototype, {
         scrollTo(...args) {
             if (args[0]?.behavior === "smooth") {
@@ -171,7 +165,7 @@ test("Jump to present keeps the position of a user who scrolls up in a browser w
     await openDiscuss(channelId);
     await contains(".o-mail-Message", { count: 20 });
     await click("[title='Jump to Present']");
-    await smoothScrollStarted;
+    await smoothScrollStarted.promise;
     await animationFrame();
     await animationFrame(); // wait for the scroll event of the stalled scroll
     const userScrollTop = queryFirst(".o-mail-Thread").scrollTop - 200;
@@ -203,7 +197,7 @@ test("Jump to present reaches the bottom when a message arrives during the smoot
     await start();
     await openDiscuss(channelId);
     await contains(".o-mail-Message", { count: 20 });
-    const smoothScrollStarted = new Deferred();
+    const smoothScrollStarted = Promise.withResolvers();
     patchWithCleanup(Element.prototype, {
         scrollTo(...args) {
             if (args[0]?.behavior === "smooth") {
@@ -215,7 +209,7 @@ test("Jump to present reaches the bottom when a message arrives during the smoot
         },
     });
     await click("[title='Jump to Present']");
-    await smoothScrollStarted;
+    await smoothScrollStarted.promise;
     await withUser(userId, () =>
         rpc("/mail/message/post", {
             post_data: { body: "New message", message_type: "comment" },
@@ -257,7 +251,8 @@ test("Basic jump to present when scrolling to outdated messages (DESC, chatter a
     await contains(".o-mail-Chatter", { scroll: 0 });
 });
 
-test("Basic jump to present when scrolling to outdated messages (DESC, chatter non-aside)", async () => {
+test.tags("owl3");
+test.skip("Basic jump to present when scrolling to outdated messages (DESC, chatter non-aside)", async () => {
     patchUiSize({ size: SIZES.MD });
     const pyEnv = await startServer();
     const partnerId = pyEnv["res.partner"].create({ name: "Demo User" });
@@ -325,8 +320,8 @@ test("Jump to old reply should prompt jump to present", async () => {
     await openDiscuss(channelId);
     await contains(".o-mail-Message", { count: 30 });
     await click(".o-mail-MessageInReply .cursor-pointer");
-    await contains(".o-mail-Message", { count: 30 });
-    await contains(":nth-child(1 of .o-mail-Message)", { text: "Hello world!" });
+    await contains(".o-mail-Message:eq(0):has(:text('Hello world!'))");
+    await contains(".o-mail-Message", { count: 31 });
     await click("[title='Jump to Present']");
     await contains("[title='Jump to Present']", { count: 0 });
     await contains(".o-mail-Message", { count: 30 });
@@ -370,14 +365,34 @@ test("Jump to old reply should prompt jump to present (RPC small delay)", async 
     pyEnv["discuss.channel.member"].write([selfMember.id], {
         new_message_separator: newestMessageId + 1,
     });
-    onRpcBefore("/discuss/channel/messages", tick); // small delay
+    listenStoreFetch("/discuss/channel/messages", {
+        logParams: ["/discuss/channel/messages"],
+        async onRpc() {
+            await tick();
+        },
+    });
     await start();
     await openDiscuss(channelId);
+    await waitStoreFetch([
+        [
+            "/discuss/channel/messages",
+            { channel_id: channelId, fetch_params: { limit: 60, around: 103 } },
+        ],
+    ]);
     await contains(".o-mail-Message", { count: 30 });
     await click(".o-mail-MessageInReply .cursor-pointer");
+    await contains(".o-mail-Message:eq(0):has(:text('Hello world!'))");
+    await contains(".o-mail-Message", { count: 31 });
     await click("[title='Jump to Present']");
     await contains("[title='Jump to Present']", { count: 0 });
     await contains(".o-mail-Thread", { scroll: "bottom" });
+    await waitStoreFetch([
+        [
+            "/discuss/channel/messages",
+            { channel_id: channelId, fetch_params: { limit: 60, around: 1 } },
+        ],
+        ["/discuss/channel/messages", { channel_id: channelId, fetch_params: { limit: 30 } }],
+    ]);
 });
 
 test("Post message when seeing old message should jump to present", async () => {
@@ -418,9 +433,8 @@ test("Post message when seeing old message should jump to present", async () => 
     await press("Enter");
     await contains("[title='Jump to Present']", { count: 0 });
     await contains(".o-mail-Thread", { scroll: "bottom" });
-    await contains(".o-mail-Message-content", {
-        text: "Newly posted",
-        after: [".o-mail-Message-content", { text: "Most Recent!" }], // should load around present
+    await contains(".o-mail-Message-content:has(:text('Newly posted'))", {
+        after: [".o-mail-Message-content:has(:text('Most Recent!'))"], // should load around present
     });
 });
 
@@ -448,25 +462,27 @@ test("when triggering jump to present, keeps showing old messages until recent o
             pinned_at: i === 0 ? "2020-02-12 08:30:00" : undefined,
         });
     }
-    let slowMessageFetchDeferred;
-    onRpcBefore("/discuss/channel/messages", async () => {
-        asyncStep("/discuss/channel/messages");
-        await slowMessageFetchDeferred;
+    let slowMessageFetchDeferred = Promise.withResolvers();
+    slowMessageFetchDeferred.resolve();
+    listenStoreFetch("/discuss/channel/messages", {
+        async onRpc() {
+            await slowMessageFetchDeferred.promise;
+        },
     });
     await start();
     await openDiscuss(channelId);
-    await waitForSteps(["/discuss/channel/messages"]);
+    await waitStoreFetch("/discuss/channel/messages");
     await click("[title='Pinned Messages']");
-    await click(".o-discuss-PinnedMessagesPanel a[role='button']", { text: "Jump" });
-    await contains(".o-mail-Thread .o-mail-Message", { text: "first-message" });
+    await click(".o-discuss-PinnedMessagesPanel a[role='button']:text('Jump')");
+    await contains(".o-mail-Thread .o-mail-Message:has(:text('first-message'))");
     await animationFrame();
-    slowMessageFetchDeferred = new Deferred();
+    slowMessageFetchDeferred = Promise.withResolvers();
     await click("[title='Jump to Present']");
     await animationFrame();
-    await waitForSteps(["/discuss/channel/messages"]);
-    await contains(".o-mail-Thread .o-mail-Message", { text: "first-message" });
+    await contains(".o-mail-Thread .o-mail-Message:has(:text('first-message'))");
     slowMessageFetchDeferred.resolve();
-    await contains(".o-mail-Thread .o-mail-Message", { text: "first-message", count: 0 });
+    await waitStoreFetch("/discuss/channel/messages");
+    await contains(".o-mail-Thread .o-mail-Message:has(:text('first-message'))", { count: 0 });
     await contains(".o-mail-Thread", { scroll: "bottom" });
 });
 

@@ -7,7 +7,6 @@ import { user } from "@web/core/user";
 
 export class FetchInvoicesCogMenu extends Component {
     static template = "l10n_ro_edi.FetchInvoices";
-    static props = {};
     static components = { DropdownItem };
 
     setup() {
@@ -34,10 +33,11 @@ export const CogMenuItem = {
             ["kanban", "list"].includes(config.viewType) &&
             config.actionType === "ir.actions.act_window"
         ) {
-            const data = await searchModel.orm.read("res.company", [user.activeCompany.id], ["country_code"]);
+            const data = await searchModel.orm
+                .cache({ type: "disk" })
+                .read("res.company", [user.activeCompany.id], ["country_code"]);
             return data[0]?.country_code === 'RO';
         }
-        return false;
     },
 };
 

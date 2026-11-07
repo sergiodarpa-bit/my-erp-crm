@@ -105,8 +105,8 @@ class TestCIIDE(TestUBLCommon):
         for use_new_dict_to_xml_helpers in (False, True):
             # set_param(key, False) would unlink the parameter instead of storing it (see
             # ir.config_parameter.set_param), silently falling back to its own True default.
-            self.env['ir.config_parameter'].sudo().set_param(
-                'account_edi_ubl_cii.use_new_dict_to_xml_helpers', str(use_new_dict_to_xml_helpers))
+            self.env['ir.config_parameter'].sudo().set_bool(
+                'account_edi_ubl_cii.use_new_dict_to_xml_helpers', use_new_dict_to_xml_helpers)
             for invoice, vat, stnr, expected in cases:
                 with self.subTest(use_new_dict_to_xml_helpers=use_new_dict_to_xml_helpers, invoice=invoice, vat=vat, l10n_de_stnr=stnr):
                     invoice.company_id.write({'vat': vat, 'l10n_de_stnr': stnr})

@@ -16,11 +16,8 @@ test("sanitize should remove nasty elements", async () => {
     ).toBe("<p>abc</p>");
 });
 
-test("sanitize should leave t-field, t-out, t-esc as is", async () => {
+test("sanitize should leave t-field and t-out as is", async () => {
     const { editor } = await setupEditor("");
-    expect(editor.shared.sanitize.sanitize(`<span t-esc="expr"></span>`)).toBe(
-        '<span t-esc="expr"></span>'
-    );
     expect(editor.shared.sanitize.sanitize(`<span t-out="expr"></span>`)).toBe(
         '<span t-out="expr"></span>'
     );
@@ -51,6 +48,24 @@ test("sanitize plugin should handle aria-label attribute with data-oe-aria-label
         contentAfterEdit: `<p data-oe-aria-label="status" aria-label="status">a[]</p>`,
         contentAfter: `<p data-oe-aria-label="status">a[]</p>`,
     });
+});
+
+test("sanitize plugin should preserve name attribute on form inputs inside .s_website_form", async () => {
+    const { editor } = await setupEditor("");
+    expect(
+        editor.shared.sanitize.sanitize(
+            `<section class="s_website_form"><form><input class="s_website_form_input" name="name"/></form></section>`
+        )
+    ).toBe(
+        `<section class="s_website_form"><form><input class="s_website_form_input" name="name"></form></section>`
+    );
+});
+
+test("sanitize plugin should strip name attribute on form inputs outside .s_website_form", async () => {
+    const { editor } = await setupEditor("");
+    expect(
+        editor.shared.sanitize.sanitize(`<form><input name="name"/></form>`)
+    ).toBe(`<form><input></form>`);
 });
 
 test("fixInvalidHTML should close self-closing elements", () => {

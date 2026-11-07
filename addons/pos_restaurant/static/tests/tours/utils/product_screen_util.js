@@ -1,10 +1,16 @@
 import * as Order from "@point_of_sale/../tests/generic_helpers/order_widget_util";
 import * as ProductScreen from "@point_of_sale/../tests/pos/tours/utils/product_screen_util";
+import * as Chrome from "@point_of_sale/../tests/pos/tours/utils/chrome_util";
 import * as TextInputPopup from "@point_of_sale/../tests/generic_helpers/text_input_popup_util";
 import * as Dialog from "@point_of_sale/../tests/generic_helpers/dialog_util";
 
-export function clickOrderButton() {
+export function clickOrderButton(fakePrint = false) {
+    const steps = [];
+    if (fakePrint) {
+        steps.push(Chrome.fakePrintChange());
+    }
     return [
+        ...steps,
         {
             content: "click order button",
             trigger: ".actionpad .submit-order",
@@ -26,17 +32,16 @@ export function guestNumberIs(num) {
         ...ProductScreen.clickControlButtonMore(),
         {
             content: `guest number is ${num}`,
-            trigger: ProductScreen.controlButtonTrigger("Guests") + `:contains(${num})`,
+            trigger: ProductScreen.controlButtonTrigger("Guest") + `:contains(${num})`,
         },
     ];
 }
-export function OrderButtonNotContain(data) {
+export function OrderButtonContain(data) {
     const steps = [
         {
             isActive: ["desktop"],
             content: "check order button not contain data",
-            trigger: `.product-screen .submit-order:not(:contains("${data}"))`,
-            run: function () {}, // it's a check
+            trigger: `.product-screen .submit-order:contains("${data}")`,
         },
     ];
     return steps;
@@ -107,6 +112,13 @@ export function releaseTable() {
     ];
 }
 
+export function checkCourseAtIndex(index, courseName) {
+    return {
+        content: `Verify that course "${courseName}" exists at index ${index}`,
+        trigger: `.order-course-name:eq(${index}) > span:contains("${courseName}")`,
+    };
+}
+
 export function addCourse() {
     return {
         content: `click Course button`,
@@ -123,23 +135,5 @@ export function transferCourseTo(destCourse) {
             trigger: `.modal-body button:contains(${destCourse})`,
             run: "click",
         },
-    ];
-}
-
-export function discardOrderWarningDialog() {
-    return [
-        {
-            trigger: `.modal-dialog:contains("It seems that the order has not been sent. Would you like to send it to preparation?")`,
-        },
-        Dialog.discard(),
-    ];
-}
-
-export function confirmOrderWarningDialog() {
-    return [
-        {
-            trigger: `.modal-dialog:contains("It seems that the order has not been sent. Would you like to send it to preparation?")`,
-        },
-        Dialog.confirm(),
     ];
 }

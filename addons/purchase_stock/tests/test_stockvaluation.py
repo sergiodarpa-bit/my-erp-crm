@@ -7,7 +7,7 @@ from freezegun import freeze_time
 
 from odoo import fields, Command
 from odoo.tests import Form, tagged
-from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
+from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT, mute_logger
 
 from .common import PurchaseTestCommon
 
@@ -27,6 +27,8 @@ class TestStockValuationWithCOA(PurchaseTestCommon):
             'is_storable': True,
             'categ_id': cls.category_fifo_auto.id,
         }])
+
+    _test_user_groups = None  # FIXME list needed groups
 
     def test_anglosaxon_valuation_price_total_diff_discount(self):
         """
@@ -55,7 +57,8 @@ class TestStockValuationWithCOA(PurchaseTestCommon):
         # Create an invoice with a different price and a discount
         invoice_form = Form(self.env['account.move'].with_context(default_move_type='in_invoice'))
         invoice_form.invoice_date = invoice_form.date
-        invoice_form.purchase_vendor_bill_id = self.env['purchase.bill.union'].browse(-order.id)
+        with mute_logger('odoo.tests.form.onchange'):  # Mute "x PO lines added to the bill" notification
+            invoice_form.purchase_vendor_bill_id = self.env['purchase.bill.union'].browse(-order.id)
         with invoice_form.invoice_line_ids.edit(0) as line_form:
             line_form.price_unit = 100.0
             line_form.discount = 10.0
@@ -94,7 +97,8 @@ class TestStockValuationWithCOA(PurchaseTestCommon):
         # Create an invoice with a different price and a discount
         invoice_form = Form(self.env['account.move'].with_context(default_move_type='in_invoice'))
         invoice_form.invoice_date = invoice_form.date
-        invoice_form.purchase_vendor_bill_id = self.env['purchase.bill.union'].browse(-order.id)
+        with mute_logger('odoo.tests.form.onchange'):  # Mute "x PO lines added to the bill" notification
+            invoice_form.purchase_vendor_bill_id = self.env['purchase.bill.union'].browse(-order.id)
         with invoice_form.invoice_line_ids.edit(0) as line_form:
             line_form.tax_ids.clear()
             line_form.discount = 10.0
@@ -133,7 +137,8 @@ class TestStockValuationWithCOA(PurchaseTestCommon):
         # Create an invoice with a different price and a discount
         invoice_form = Form(self.env['account.move'].with_context(default_move_type='in_invoice'))
         invoice_form.invoice_date = invoice_form.date
-        invoice_form.purchase_vendor_bill_id = self.env['purchase.bill.union'].browse(-order.id)
+        with mute_logger('odoo.tests.form.onchange'):  # Mute "x PO lines added to the bill" notification
+            invoice_form.purchase_vendor_bill_id = self.env['purchase.bill.union'].browse(-order.id)
         with invoice_form.invoice_line_ids.edit(0) as line_form:
             line_form.price_unit = 100.0
             line_form.discount = 10.0
@@ -175,13 +180,13 @@ class TestStockValuationWithCOA(PurchaseTestCommon):
         action = po.action_create_invoice()
         bill = self.env["account.move"].browse(action["res_id"])
         bill.invoice_date = fields.Date.today()
-        label01, label02 = bill.invoice_line_ids.mapped('name')
+        label01, label02 = bill.invoice_line_ids.mapped('label')
         self.assertTrue(label01)
         self.assertTrue(label02)
 
         bill.invoice_line_ids.price_unit = 11.0
         bill.action_post()
-        self.assertEqual(bill.invoice_line_ids.mapped('name'), [label01, label02])
+        self.assertEqual(bill.invoice_line_ids.mapped('label'), [label01, label02])
 
     def test_pdiff_lot_valuation(self):
         """
@@ -204,7 +209,7 @@ class TestStockValuationWithCOA(PurchaseTestCommon):
                     'name': product.name,
                     'product_id': product.id,
                     'product_qty': 3.0,
-                    'product_uom_id': product.uom_id.id,
+                    'uom_id': product.uom_id.id,
                     'price_unit': 100.0,
                     'tax_ids': False,
                 }),
@@ -250,28 +255,36 @@ class TestStockValuationWithCOA(PurchaseTestCommon):
         self.product1.categ_id = self.category_avco_auto
         self.product1.purchase_method = 'receive'
 
-        po = self._create_purchase(self.product1, quantity=100, price_unit=10.0)
+        # freeze_time as the average cost replays the move history by date
+        now = fields.Datetime.now()
 
-        receipt01 = self._receive(po, quantity=30)
+        with freeze_time(now):
+            po = self._create_purchase(self.product1, quantity=100, price_unit=10.0)
+            receipt01 = self._receive(po, quantity=30)
         self.assertEqual(receipt01.value, 300.0)
-        self._create_bill(purchase_order=po, price_unit=12)
+        with freeze_time(now + timedelta(seconds=1)):
+            self._create_bill(purchase_order=po, price_unit=12)
         # The bill revalues the goods it covers (30 at 12).
         self.assertEqual(receipt01.value, 360.0)
 
-        receipt02 = self._receive(po, quantity=30)
+        with freeze_time(now + timedelta(seconds=2)):
+            receipt02 = self._receive(po, quantity=30)
         # The first bill only covers the first delivery, so the second delivery
         # is still valued at the purchase-order price.
         self.assertEqual(receipt02.value, 300.0)
-        self._create_bill(purchase_order=po, price_unit=13)
+        with freeze_time(now + timedelta(seconds=3)):
+            self._create_bill(purchase_order=po, price_unit=13)
         # With both deliveries billed, the received goods share the running
         # average cost of 12.5 (30 at 12 and 30 at 13).
         self.assertEqual(receipt01.value, 375.0)
         self.assertEqual(receipt02.value, 375.0)
 
         # Returning part of the second delivery leaves more units billed than on hand.
-        self._make_return(receipt02, 10)
+        with freeze_time(now + timedelta(seconds=4)):
+            self._make_return(receipt02, 10)
 
-        receipt03 = self._receive(po, quantity=30)
+        with freeze_time(now + timedelta(seconds=5)):
+            receipt03 = self._receive(po, quantity=30)
         # The third delivery is not billed, so it keeps the purchase-order price
         # instead of inheriting a billed price.
         self.assertEqual(receipt03.value, 300.0)
@@ -302,7 +315,7 @@ class TestStockValuationWithCOA(PurchaseTestCommon):
                     'name': self.product1.name,
                     'product_id': self.product1.id,
                     'product_qty': 12.0,
-                    'product_uom_id': self.product1.uom_id.id,
+                    'uom_id': self.product1.uom_id.id,
                     'price_unit': 100.0,
                     'date_planned': datetime.today().strftime(DEFAULT_SERVER_DATETIME_FORMAT),
                 }),
@@ -347,7 +360,7 @@ class TestStockValuationWithCOA(PurchaseTestCommon):
                     'name': self.product1.name,
                     'product_id': self.product1.id,
                     'product_qty': 12.0,
-                    'product_uom_id': self.product1.uom_id.id,
+                    'uom_id': self.product1.uom_id.id,
                     'price_unit': 100.0,
                     'date_planned': datetime.today().strftime(DEFAULT_SERVER_DATETIME_FORMAT),
                 }),
@@ -663,11 +676,11 @@ class TestStockValuationWithCOA(PurchaseTestCommon):
         })
         purchase_order.button_confirm()
         purchase_order.picking_ids.button_validate()
-        with Form(self.env['stock.scrap']) as scrap_form:
-            scrap_form.product_id = product
-            scrap_form.scrap_qty = 10
-            scrap = scrap_form.save()
-        scrap.action_validate()
+        self.env['stock.move'].create({
+            'is_scrap': True,
+            'product_id': product.id,
+            'quantity': 10,
+        }).action_scrap()
         purchase_order.action_create_invoice()
         bill = purchase_order.invoice_ids
         bill.invoice_line_ids.price_unit = 120
@@ -789,8 +802,7 @@ class TestStockValuationWithCOA(PurchaseTestCommon):
         action = po.action_create_invoice()
         bill = self.env["account.move"].browse(action["res_id"])
         bill.invoice_date = fields.Date.today()
-        with Form(bill) as move_form:
-            move_form.invoice_currency_rate = 4
+        bill.invoice_currency_rate = 4
         bill.action_post()
         self.assertEqual(po.picking_ids.move_ids.value, 25)
 
@@ -986,13 +998,16 @@ class TestStockValuationWithCOA(PurchaseTestCommon):
         today = fields.Date.today()
         yesterday = today - timedelta(days=1)
         two_days_ago = today - timedelta(days=2)
+        three_days_ago = today - timedelta(days=3)
         self.env['res.currency.rate'].search([('currency_id', '=', eur.id)]).unlink()
+        # A rate only takes effect the day after its date, so each rate is dated
+        # one day before the day on which it should be in force.
         self.env['res.currency.rate'].create([{
             'name': day,
             'rate': 1 / rate,
             'currency_id': eur.id,
             'company_id': self.env.company.id,
-        } for (day, rate) in [(today, 1.5), (yesterday, 1.3), (two_days_ago, 1.25)]])
+        } for (day, rate) in [(yesterday, 1.5), (two_days_ago, 1.3), (three_days_ago, 1.25)]])
 
         po = self.env['purchase.order'].create({
             'partner_id': self.vendor.id,
@@ -1023,53 +1038,6 @@ class TestStockValuationWithCOA(PurchaseTestCommon):
             'standard_price': 125.0,
         }])
         self.assertEqual(sum(self._get_stock_valuation_move_lines().mapped('balance')), 125.0)
-
-    def test_pdiff_multi_curr_at_bill_date_rate(self):
-        """
-        The price difference of a foreign-currency bill for a product at
-        standard cost is converted with the rate of the bill date, the same
-        one used to convert the standard cost, not with today's rate.
-        """
-        pdiff_account = self._use_price_diff()
-        product = self.product_standard_auto
-        product.standard_price = 34.0
-        eur = self.env.ref('base.EUR')
-        eur.active = True
-        self.env.company.currency_id = self.env.ref('base.USD').id
-
-        today = fields.Date.today()
-        yesterday = today - timedelta(days=1)
-        self.env['res.currency.rate'].search([('currency_id', '=', eur.id)]).unlink()
-        self.env['res.currency.rate'].create([{
-            'name': day,
-            'rate': 1 / rate,
-            'currency_id': eur.id,
-            'company_id': self.env.company.id,
-        } for (day, rate) in [(today, 4.0), (yesterday, 2.0)]])
-
-        po = self.env['purchase.order'].create({
-            'partner_id': self.vendor.id,
-            'currency_id': eur.id,
-            'order_line': [Command.create({
-                'product_id': product.id,
-                'product_qty': 1.0,
-                'price_unit': 20.0,
-                'tax_ids': False,
-            })],
-        })
-        po.button_confirm()
-        self._receive(po)
-
-        bill = self.env['account.move'].browse(po.action_create_invoice()['res_id'])
-        bill.invoice_date = yesterday
-        bill.date = yesterday
-        bill.action_post()
-
-        # Standard cost of 34 USD = 17 EUR at the bill date: the difference
-        # of 3 EUR is worth 6 USD at that date (and 12 USD today).
-        pdiff_line = bill.line_ids.filtered(lambda line: line.account_id == pdiff_account)
-        self.assertEqual(pdiff_line.balance, 6.0)
-        self.assertTrue(bill.currency_id.is_zero(sum(bill.line_ids.mapped('balance'))))
 
     def test_multicurrency_bill_before_receipt_values_at_bill_rate(self):
         """A foreign-currency purchase billed before its goods are received
@@ -1125,7 +1093,7 @@ class TestStockValuationWithCOA(PurchaseTestCommon):
     def test_multicurrency_bill_after_delivery_revalues_at_bill_rate(self):
         """A foreign-currency purchase billed after its goods have been received
         and delivered still revalues the received goods at the bill-date
-        exchange rate; the delivery keeps the rate at which it was made.
+        exchange rate, and replays the delivery at the corrected cost.
         """
         product = self.product1
         product.categ_id = self.category_avco_auto
@@ -1135,13 +1103,16 @@ class TestStockValuationWithCOA(PurchaseTestCommon):
 
         today = fields.Date.today()
         yesterday = today - timedelta(days=1)
+        two_days_ago = today - timedelta(days=2)
         self.env['res.currency.rate'].search([('currency_id', '=', eur.id)]).unlink()
+        # A rate only takes effect the day after its date, so the rate in force
+        # today is dated yesterday and the one in force yesterday is dated two days ago.
         self.env['res.currency.rate'].create([{
             'name': day,
             'rate': 1 / rate,
             'currency_id': eur.id,
             'company_id': self.env.company.id,
-        } for (day, rate) in [(today, 2.5), (yesterday, 2.0)]])
+        } for (day, rate) in [(yesterday, 2.5), (two_days_ago, 2.0)]])
 
         po = self.env['purchase.order'].create({
             'partner_id': self.vendor.id,
@@ -1163,7 +1134,7 @@ class TestStockValuationWithCOA(PurchaseTestCommon):
         # Deliver the goods to a customer.
         out_move = self._make_out_move(product, 1)
         self.assertEqual(product.total_value, 0.0)
-        self.assertEqual(out_move.value, 2500.0)
+        self.assertEqual(out_move.value, -2500.0)
 
         # Bill the order dated one day ago, on a day with a different rate.
         bill = self.env['account.move'].browse(po.action_create_invoice()['res_id'])
@@ -1171,7 +1142,7 @@ class TestStockValuationWithCOA(PurchaseTestCommon):
         bill.action_post()
 
         # The bill revalues the receipt to the bill-date rate (1000 EUR = 2000
-        # USD); the delivery keeps the rate it was made at.
+        # USD); the delivery is replayed at the corrected cost.
         self.assertEqual(receipt.value, 2000.0)
-        self.assertEqual(out_move.value, 2500.0)
+        self.assertEqual(out_move.value, -2000.0)
         self.assertEqual(product.total_value, 0.0)

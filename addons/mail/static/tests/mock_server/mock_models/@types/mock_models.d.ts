@@ -1,6 +1,7 @@
 declare module "mock_models" {
     import { Base as Base2 } from "@mail/../tests/mock_server/mock_models/base";
     import { DiscussChannel as DiscussChannel2 } from "@mail/../tests/mock_server/mock_models/discuss_channel";
+    import { DiscussCategory as DiscussCategory2 } from "addons/mail/static/tests/mock_server/mock_models/discuss_category";
     import { DiscussChannelMember as DiscussChannelMember2 } from "@mail/../tests/mock_server/mock_models/discuss_channel_member";
     import { DiscussChannelRtcSession as DiscussChannelRtcSession2 } from "@mail/../tests/mock_server/mock_models/discuss_channel_rtc_session";
     import { DiscussVoiceMetadata as DiscussVoiceMetadata2 } from "@mail/../tests/mock_server/mock_models/discuss_voice_metadata";
@@ -15,11 +16,13 @@ declare module "mock_models" {
     import { MailMessageReaction as MailMessageReaction2 } from "@mail/../tests/mock_server/mock_models/mail_message_reaction";
     import { MailMessageSubtype as MailMessageSubtype2 } from "@mail/../tests/mock_server/mock_models/mail_message_subtype";
     import { MailNotification as MailNotification2 } from "@mail/../tests/mock_server/mock_models/mail_notification";
+    import { MailPoll as MailPoll2 } from "@mail/../tests/mock_server/mock_models/mail_poll";
+    import { MailPollOption as MailPollOption2 } from "@mail/../tests/mock_server/mock_models/mail_poll_option";
+    import { MailPollVote as MailPollVote2 } from "@mail/../tests/mock_server/mock_models/mail_poll_vote";
     import { MailScheduledMessage as MailScheduledMessage2 } from "@mail/.../tests/mock_server/mock_models/mail_scheduled_message";
     import { MailShortcode as MailShortcode2 } from "@mail/../tests/mock_server/mock_models/mail_shortcode";
     import { MailTemplate as MailTemplate2 } from "@mail/../tests/mock_server/mock_models/mail_template";
     import { MailThread as MailThread2 } from "@mail/../tests/mock_server/mock_models/mail_thread";
-    import { MailTrackingValue as MailTrackingValue2 } from "@mail/../tests/mock_server/mock_models/mail_tracking_value";
     import { ResFake as ResFake2 } from "@mail/../tests/mock_server/mock_models/res_fake";
     import { ResLang as ResLang2 } from "@mail/../tests/mock_server/mock_models/res_lang";
     import { ResRole as ResRole2 } from "addons/mail/static/tests/mock_server/mock_models/res_role";
@@ -30,6 +33,7 @@ declare module "mock_models" {
 
     export interface Base extends Base2 {}
     export interface DiscussChannel extends DiscussChannel2 {}
+    export interface DiscussCategory extends DiscussCategory2 {}
     export interface DiscussChannelMember extends DiscussChannelMember2 {}
     export interface DiscussChannelRtcSession extends DiscussChannelRtcSession2 {}
     export interface DiscussVoiceMetadata extends DiscussVoiceMetadata2 {}
@@ -44,11 +48,13 @@ declare module "mock_models" {
     export interface MailMessageReaction extends MailMessageReaction2 {}
     export interface MailMessageSubtype extends MailMessageSubtype2 {}
     export interface MailNotification extends MailNotification2 {}
+    export interface MailPoll extends MailPoll2 {}
+    export interface MailPollOption extends MailPollOption2 {}
+    export interface MailPollVote extends MailPollVote2 {}
     export interface MailScheduledMessage extends MailScheduledMessage2 {}
     export interface MailShortcode extends MailShortcode2 {}
     export interface MailTemplate extends MailTemplate2 {}
     export interface MailThread extends MailThread2 {}
-    export interface MailTrackingValue extends MailTrackingValue2 {}
     export interface ResFake extends ResFake2 {}
     export interface ResLang extends ResLang2 {}
     export interface ResPartner extends ResPartner2 {}
@@ -60,6 +66,7 @@ declare module "mock_models" {
     export interface Models {
         "base": Base,
         "discuss.channel": DiscussChannel,
+        "discuss.category": DiscussCategory,
         "discuss.channel.member": DiscussChannelMember,
         "discuss.channel.rtc.session": DiscussChannelRtcSession,
         "discuss.voice.metadata": DiscussVoiceMetadata,
@@ -74,11 +81,13 @@ declare module "mock_models" {
         "mail.message.reaction": MailMessageReaction,
         "mail.message.subtype": MailMessageSubtype,
         "mail.notification": MailNotification,
+        "mail.poll": MailPoll,
+        "mail.poll.option": MailPollOption,
+        "mail.poll.vote": MailPollVote,
         "mail.scheduled.message": MailScheduledMessage,
         "mail.shortcode": MailShortcode,
         "mail.template": MailTemplate,
         "mail.thread": MailThread,
-        "mail.tracking.value": MailTrackingValue,
         "res.fake": ResFake,
         "res.groups": ResGroups,
         "res.lang": ResLang,

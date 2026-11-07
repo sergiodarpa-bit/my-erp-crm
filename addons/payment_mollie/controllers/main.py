@@ -10,17 +10,20 @@ from odoo.http import request
 
 from odoo.addons.payment.logging import get_payment_logger
 
-
 _logger = get_payment_logger(__name__)
 
 
 class MollieController(http.Controller):
-    _return_url = '/payment/mollie/return'
-    _webhook_url = '/payment/mollie/webhook'
+    _return_url = "/payment/mollie/return"
+    _webhook_url = "/payment/mollie/webhook"
 
     @http.route(
-        _return_url, type='http', auth='public', methods=['GET', 'POST'], csrf=False,
-        save_session=False
+        _return_url,
+        type="http",
+        auth="public",
+        methods=["GET", "POST"],
+        csrf=False,
+        save_session=False,
     )
     def mollie_return_from_checkout(self, **data):
         """Process the payment data sent by Mollie after redirection from checkout.
@@ -41,9 +44,9 @@ class MollieController(http.Controller):
             self._verify_and_process(data)
         except ValidationError:
             _logger.error("Unable to process the payment data")
-        return request.redirect('/payment/status')
+        return request.redirect("/payment/status")
 
-    @http.route(_webhook_url, type='http', auth='public', methods=['POST'], csrf=False)
+    @http.route(_webhook_url, type="http", auth="public", methods=["POST"], csrf=False)
     def mollie_webhook(self, **data):
         """Process the payment data sent by Mollie to the webhook.
 
@@ -59,7 +62,7 @@ class MollieController(http.Controller):
         except ValidationError as error:
             _logger.error("Unable to process the payment data")
             raise ServiceUnavailable from error
-        return ''  # Acknowledge the notification
+        return ""  # Acknowledge the notification
 
     @staticmethod
     def _verify_and_process(data):
@@ -69,9 +72,9 @@ class MollieController(http.Controller):
         :return: None
         :raise ValidationError: If the payment data could not be fetched from Mollie
         """
-        tx_sudo = request.env['payment.transaction'].sudo()._search_by_reference('mollie', data)
+        tx_sudo = request.env["payment.transaction"].sudo()._search_by_reference("mollie", data)
         if not tx_sudo:
             return
 
         verified_data = tx_sudo._send_api_request("GET", f"/payments/{tx_sudo.provider_reference}")
-        tx_sudo._process("mollie", verified_data)
+        tx_sudo._record(verified_data)

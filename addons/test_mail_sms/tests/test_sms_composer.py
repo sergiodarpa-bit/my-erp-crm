@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.base.tests.test_ir_cron import CronMixinCase
 from odoo.addons.sms.tests.common import SMSCommon
 from odoo.addons.sms_twilio.tests.common import MockSmsTwilioApi
 from odoo.addons.test_mail_sms.tests.common import TestSMSRecipients
@@ -23,13 +22,12 @@ class TestSMSComposerComment(SMSCommon, TestSMSRecipients):
         super(TestSMSComposerComment, cls).setUpClass()
         cls._test_body = 'VOID CONTENT'
 
-        cls.test_record = cls.env['mail.test.sms'].with_context(**cls._test_context).create({
+        cls.test_record = cls.env['mail.test.sms'].create({
             'name': 'Test',
             'customer_id': cls.partner_1.id,
             'mobile_nbr': cls.test_numbers[0],
             'phone_nbr': cls.test_numbers[1],
         })
-        cls.test_record = cls._reset_mail_context(cls.test_record)
 
         cls.sms_template = cls.env['sms.template'].create({
             'name': 'Test Template',
@@ -126,7 +124,17 @@ class TestSMSComposerComment(SMSCommon, TestSMSRecipients):
             with self.mockSMSGateway():
                 messages = composer._action_send_sms()
 
-        self.assertSMSNotification([{'partner': self.test_record.customer_id, 'number': self.test_record.mobile_nbr}], 'Dear %s this is an SMS.' % self.test_record.display_name, messages)
+        self.assertSMSNotification(
+            [
+                {'partner': self.test_record.customer_id, 'number': self.test_record.mobile_nbr}
+            ],
+            'Dear %s this is an SMS.' % self.test_record.display_name,
+            messages,
+            mail_message_values={
+                'message_type': 'sms',
+                'source_sms_template_id': self.sms_template,
+            }
+        )
 
     def test_composer_comment_invalid_field(self):
         """ Test the Send Message in SMS Composer when a Model does not contain a number field name """
@@ -296,7 +304,8 @@ class TestSMSComposerComment(SMSCommon, TestSMSRecipients):
 
 
 @tagged('sms_composer')
-class TestSMSComposerBatch(SMSCommon, CronMixinCase):
+@tagged('at_install', '-post_install')  # LEGACY at_install
+class TestSMSComposerBatch(SMSCommon):
 
     @classmethod
     def setUpClass(cls):
@@ -314,7 +323,6 @@ class TestSMSComposerBatch(SMSCommon, CronMixinCase):
                 active_ids=self.records.ids
             ).create({
                 'body': self._test_body,
-                'mass_force_send': True,
             })
 
             with self.mockSMSGateway():
@@ -328,30 +336,17 @@ class TestSMSComposerBatch(SMSCommon, CronMixinCase):
             )
 
     def test_composer_batch_res_ids(self):
-        """ Posting in batch puts SMS in the queue: they are only sent by the
-        queue cron, once the transaction is committed. """
-        with self.mockSMSGateway():
-            with self.with_user('employee'), \
-                    self.capture_triggers('sms.ir_cron_sms_scheduler_action') as captured_triggers:
-                composer = self.env['sms.composer'].with_context(
-                    default_composition_mode='comment',
-                    default_res_model='mail.test.sms',
-                    default_res_ids=repr(self.records.ids),
-                ).create({
-                    'body': self._test_body,
-                })
+        with self.with_user('employee'):
+            composer = self.env['sms.composer'].with_context(
+                default_composition_mode='comment',
+                default_res_model='mail.test.sms',
+                default_res_ids=repr(self.records.ids),
+            ).create({
+                'body': self._test_body,
+            })
+
+            with self.mockSMSGateway():
                 messages = composer._action_send_sms()
-
-            self.assertEqual(self._sms, [])
-            self.assertTrue(captured_triggers.records)
-            for record, message in zip(self.records, messages):
-                self.assertSMSNotification(
-                    [{'partner': record.customer_id, 'state': 'ready'}],
-                    'Hello %s zizisse an SMS.' % record.name,
-                    message,
-                )
-
-            self.env.ref('sms.ir_cron_sms_scheduler_action').sudo().method_direct_trigger()
 
         for record, message in zip(self.records, messages):
             self.assertSMSNotification(
@@ -362,6 +357,7 @@ class TestSMSComposerBatch(SMSCommon, CronMixinCase):
 
 
 @tagged('sms_composer', 'twilio')
+@tagged('at_install', '-post_install')  # LEGACY at_install
 class TestSMSComposerBatchTwilio(SMSCommon, MockSmsTwilioApi):
 
     @classmethod
@@ -382,7 +378,6 @@ class TestSMSComposerBatchTwilio(SMSCommon, MockSmsTwilioApi):
             default_res_ids=repr(self.records.ids),
         ).create({
             'body': self._test_body,
-            'mass_force_send': True,
         })
 
         with self.mock_sms_twilio_gateway():
@@ -397,6 +392,7 @@ class TestSMSComposerBatchTwilio(SMSCommon, MockSmsTwilioApi):
 
 
 @tagged('sms_composer')
+@tagged('at_install', '-post_install')  # LEGACY at_install
 class TestSMSComposerMass(SMSCommon):
 
     @classmethod
@@ -608,7 +604,10 @@ class TestSMSComposerMass(SMSCommon):
                 record.customer_id, None,
                 content='Dear %s this is an SMS.' % record.display_name
             )
-            self.assertSMSLogged(record, 'Dear %s this is an SMS.' % record.display_name)
+            self.assertSMSLogged(
+                record, 'Dear %s this is an SMS.' % record.display_name,
+                message_values={'source_sms_template_id': self.sms_template}
+            )
 
     def test_composer_template_context_action(self):
         """ Test the context action from a SMS template (Add context action button)
@@ -686,6 +685,7 @@ class TestSMSComposerMass(SMSCommon):
 
 
 @tagged('sms_composer', 'twilio')
+@tagged('at_install', '-post_install')  # LEGACY at_install
 class TestSMSComposerMassTwilio(SMSCommon, MockSmsTwilioApi):
 
     @classmethod

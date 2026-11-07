@@ -18,18 +18,19 @@ class PosPaymentMethod(models.Model):
         string="Merchant ID", help="Log into Viva.com then navigate to Settings > API Access > Access credentials"
     )
     viva_com_api_key = fields.Char(
-        string="API Key", help="Log into Viva.com then navigate to Settings > API Access > Access credentials"
+        string="API Key", help="Log into Viva.com then navigate to Settings > API Access > Access credentials",
+        groups="point_of_sale.group_pos_manager"
     )
     viva_com_client_id = fields.Char(
         string="Client ID", help="Log into Viva.com then navigate to Settings > API Access > POS APIs Credentials"
     )
     viva_com_client_secret = fields.Char(
-        string="Client secret", help="Log into Viva.com then navigate to Settings > API Access > POS APIs Credentials"
+        string="Client secret", help="Log into Viva.com then navigate to Settings > API Access > POS APIs Credentials",
+        groups="point_of_sale.group_pos_manager"
     )
     viva_com_terminal_id = fields.Char(string="Terminal ID", help='[ID of the Viva.com terminal], e.g. 16002169')
-    viva_com_bearer_token = fields.Char(default='Bearer Token')
-    viva_com_webhook_verification_key = fields.Char()
-    viva_com_latest_response = fields.Json()  # not used anymore, to remove in master
+    viva_com_bearer_token = fields.Char(default='Bearer Token', groups="point_of_sale.group_pos_manager")
+    viva_com_webhook_verification_key = fields.Char(groups="point_of_sale.group_pos_manager")
     viva_com_test_mode = fields.Boolean(string="Test mode", help="Run transactions in the test environment.")
     viva_com_webhook_endpoint = fields.Char(compute='_compute_viva_com_webhook_endpoint', readonly=True)
 
@@ -50,25 +51,25 @@ class PosPaymentMethod(models.Model):
         return 'https://www.vivapayments.com'
 
     def _compute_viva_com_webhook_endpoint(self):
-        web_base_url = self.get_base_url()
-        self.viva_com_webhook_endpoint = (
-            f"{web_base_url}/pos_viva_com/notification?company_id={self.company_id.id}"
-            f"&token={self.viva_com_webhook_verification_key}"
-        )
+        for record in self:
+            web_base_url = record.get_base_url()
+            record.viva_com_webhook_endpoint = (
+                f"{web_base_url}/pos_viva_com/notification?company_id={record.company_id.id}"
+                f"&token={record.viva_com_webhook_verification_key}"
+            )
 
-    def _is_write_forbidden(self, fields):
-        # Allow the modification of these fields even if a pos_session is open
-        whitelisted_fields = {'viva_com_bearer_token', 'viva_com_webhook_verification_key', 'viva_com_latest_response'}
-        return super(PosPaymentMethod, self)._is_write_forbidden(fields - whitelisted_fields)
+    def _get_terminal_provider_selection(self):
+        return super()._get_terminal_provider_selection() + [('viva_com', 'Viva.com')]
 
-    def _get_payment_terminal_selection(self):
-        return super()._get_payment_terminal_selection() + [('viva_com', 'Viva.com')]
+    @api.model
+    def _allowed_actions_in_self_order(self):
+        return super()._allowed_actions_in_self_order() + ["viva_com_send_payment_request", "viva_com_get_payment_status"]
 
     def _bearer_token(self, session):
         self.ensure_one()
 
         data = {'grant_type': 'client_credentials'}
-        auth = requests.auth.HTTPBasicAuth(self.viva_com_client_id, self.viva_com_client_secret)
+        auth = requests.auth.HTTPBasicAuth(self.viva_com_client_id, self.sudo().viva_com_client_secret)
         try:
             resp = session.post(f"{self._viva_com_account_get_endpoint()}/connect/token", auth=auth, data=data, timeout=TIMEOUT)
         except requests.exceptions.RequestException as e:
@@ -90,7 +91,7 @@ class PosPaymentMethod(models.Model):
 
     def _call_viva_com(self, endpoint, action, data=None, should_retry=True):
         session = get_viva_com_session(should_retry)
-        session.headers.update({'Authorization': f"Bearer {self.viva_com_bearer_token}"})
+        session.headers.update({'Authorization': f"Bearer {self.sudo().viva_com_bearer_token}"})
         endpoint = f"{self._viva_com_api_get_endpoint()}/ecr/v1/{endpoint}"
         try:
             resp = session.request(action, endpoint, json=data, timeout=TIMEOUT)
@@ -113,6 +114,49 @@ class PosPaymentMethod(models.Model):
         else:
             return {'error': _("There are some issues between us and Viva.com, try again later. %s", resp.json().get('detail'))}
 
+    def _viva_com_get_transactions(self, transaction_id):
+        """
+        Retrieve all transactions with the given id from Viva.com
+        """
+        self.ensure_one()
+        endpoint = f"{self._viva_com_webhook_get_endpoint()}/api/transactions/{transaction_id}"
+        session = get_viva_com_session(should_retry=False)
+        try:
+            resp = session.get(
+                endpoint,
+                auth=(self.viva_com_merchant_id, self.viva_com_api_key),
+                timeout=TIMEOUT,
+            )
+            resp.raise_for_status()
+            transactions = resp.json().get('Transactions') or []
+            return transactions
+        except requests.exceptions.RequestException as e:
+            _logger.warning("Failed to retrieve Viva.com transactions %s: %s", transaction_id, e)
+            return []
+
+    def _viva_com_find_payment(self, session_id):
+        """
+        Return the payment line of the given Viva.com session.
+        """
+        self.ensure_one()
+        payment = self.env['pos.payment'].search([('viva_com_session_id', '=', session_id)], limit=1)
+        if payment:
+            return payment
+        # The frontend builds the session id as "<order uuid> - <random uuid>".
+        order = self.env['pos.order'].search([
+            ('uuid', '=', session_id.partition(' - ')[0]),
+            ('state', '=', 'draft'),
+            ('config_id', 'in', self.config_ids.ids),
+        ], limit=1)
+        if not order:
+            return payment
+        return self.env['pos.payment'].new({
+            'pos_order_id': order.id,
+            'payment_method_id': self.id,
+            'amount': order.amount_total - order.amount_paid,
+            'viva_com_session_id': session_id,
+        })
+
     def _retrieve_session_id(self, data_webhook):
         # Send a request to confirm the status of the sesions_id
         # Need wait to the status of sesions_id is updated setted in session headers; code 202
@@ -127,8 +171,24 @@ class PosPaymentMethod(models.Model):
         data = self._call_viva_com(endpoint, 'get')
 
         if data.get('success'):
-            data.update({'pos_session_id': pos_session_id, 'data_webhook': data_webhook})
-            self._send_notification(data)
+            payment = self._viva_com_find_payment(data.get('sessionId'))
+            transactions = payment._viva_com_verify_transactions(data.get('transactionId')) if payment else []
+            mismatch = next((t for t in transactions if t['status'] == 'mismatch'), None)
+            if any(t['status'] == 'valid' for t in transactions):
+                data.update({'pos_session_id': pos_session_id, 'data_webhook': data_webhook})
+                self._send_notification(data)
+            elif mismatch:
+                payment.filtered('id').write({'payment_status': 'error'})
+                if mismatch['currency']:
+                    currency = self.env['res.currency'].search([('iso_numeric', '=', mismatch['currency'])], limit=1)
+                    notification = {'currency_ask': payment.currency_id.full_name, 'currency_paid': currency.full_name or mismatch['currency']}
+                if mismatch['amount']:
+                    notification = {'amount_ask': payment.amount, 'amount_paid': mismatch['amount']}
+                self._send_notification({
+                    'pos_session_id': pos_session_id,
+                    'sessionId': session_id,
+                    'mismatch': notification,
+                })
         else:
             self._send_notification({
                 'error': _("There are some issues between us and Viva.com, try again later. %s",data.get('detail'))
@@ -146,6 +206,7 @@ class PosPaymentMethod(models.Model):
                 'cardType': data.get('cardType'),
                 'applicationLabel': data.get('applicationLabel'),
                 'primaryAccountNumberMasked': data.get('primaryAccountNumberMasked'),
+                'mismatch': data.get('mismatch'),
             })
 
     def _load_pos_data_fields(self, config):
@@ -179,7 +240,22 @@ class PosPaymentMethod(models.Model):
             raise AccessError(_("Only 'group_pos_user' are allowed to get the payment status from Viva.com"))
 
         endpoint = f"sessions/{session_id}"
-        return self._call_viva_com(endpoint, 'get', should_retry=False)
+        data = self._call_viva_com(endpoint, 'get', should_retry=False)
+        if not data.get('success'):
+            return data
+        payment = self._viva_com_find_payment(session_id)
+        transactions = payment._viva_com_verify_transactions(data.get('transactionId')) if payment else []
+        mismatch = next((t for t in transactions if t['status'] == 'mismatch'), None)
+        if any(t['status'] == 'valid' for t in transactions):
+            return data
+        if mismatch:
+            if mismatch['currency']:
+                currency = self.env['res.currency'].search([('iso_numeric', '=', mismatch['currency'])], limit=1)
+                return {'success': False, 'mismatch': {'currency_ask': payment.currency_id.full_name, 'currency_paid': currency.full_name or mismatch['currency']}}
+            if mismatch['amount']:
+                return {'success': False, 'mismatch': {'amount_ask': payment.amount, 'amount_paid': mismatch['amount']}}
+            return {'success': False}
+        return {}
 
     def write(self, vals):
         record = super().write(vals)
@@ -211,15 +287,11 @@ class PosPaymentMethod(models.Model):
 
         return records
 
-    def get_latest_viva_com_status(self):
-        # Not used anymore, to remove in master
-        return {'error': 'Your POS is out of date, please refresh the page.'}
-
-    @api.constrains('use_payment_terminal')
+    @api.constrains('payment_provider')
     def _check_viva_com_credentials(self):
         for record in self:
             if (
-                record.use_payment_terminal == 'viva_com'
+                record.payment_provider == 'viva_com'
                 and not all(record[f] for f in [
                     'viva_com_merchant_id',
                     'viva_com_api_key',

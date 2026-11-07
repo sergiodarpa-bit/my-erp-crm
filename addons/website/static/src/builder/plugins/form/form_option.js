@@ -1,14 +1,15 @@
-import { BaseOptionComponent, useDomState } from "@html_builder/core/utils";
-import { getModelName, getParsedDataFor } from "./utils";
+import { BaseOptionComponent } from "@html_builder/core/base_option_component";
+import { useDomState } from "@html_builder/core/utils";
+import { getModelName } from "./utils";
 import { FormActionFieldsOption } from "./form_action_fields_option";
 import { session } from "@web/session";
 import { selectElements } from "@html_editor/utils/dom_traversal";
+import { registry } from "@web/core/registry";
 
 export class FormOption extends BaseOptionComponent {
+    static id = "form_option";
     static template = "website.s_website_form_form_option";
     static dependencies = ["websiteFormOption"];
-    static selector = ".s_website_form";
-    static applyTo = "form";
     static components = { FormActionFieldsOption };
     static async cleanForSave(el, { dependencies, services }) {
         for (const hiddenDescEl of el.querySelectorAll(
@@ -32,7 +33,7 @@ export class FormOption extends BaseOptionComponent {
                 ),
             ]
                 .map((el) => el.name)
-                .filter((name) => !authorizedFields[name]?._property);
+                .filter((name) => authorizedFields[name] && !authorizedFields[name]._property);
             if (fields.length) {
                 services.orm.call("ir.model.fields", "formbuilder_whitelist", [
                     model,
@@ -52,13 +53,6 @@ export class FormOption extends BaseOptionComponent {
         const el = this.env.getEditingElement();
         this.messageEl = el.parentElement.querySelector(".s_website_form_end_message");
         this.showEndMessage = false;
-        // Get the email_to value from the data-for attribute if it exists. We
-        // use it if there is no value on the email_to input.
-        const formId = el.id;
-        const dataForValues = getParsedDataFor(formId, el.ownerDocument);
-        if (dataForValues) {
-            this.dataForEmailTo = dataForValues["email_to"];
-        }
         this.state = useDomState(async (el) => {
             const modelName = getModelName(el);
 
@@ -75,12 +69,17 @@ export class FormOption extends BaseOptionComponent {
             // Apply the default model selected in willStart on it.
             if (!el.dataset.model_name) {
                 const formInfo = await prepareFormModel(el, activeForm);
-                applyFormModel(el, activeForm, activeForm.id, formInfo);
+                await applyFormModel(el, activeForm, activeForm.id, formInfo);
             }
             return {
                 models,
                 activeForm,
+                canChangeFieldsLayout: !!el.querySelector(
+                    ".s_website_form_field:not(.s_website_form_dnone)"
+                ),
             };
         });
     }
 }
+
+registry.category("website-options").add(FormOption.id, FormOption);

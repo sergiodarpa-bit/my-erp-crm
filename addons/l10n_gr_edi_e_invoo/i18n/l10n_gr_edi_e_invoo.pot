@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0+e\n"
+"Project-Id-Version: Odoo Server 20.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-24 18:09+0000\n"
-"PO-Revision-Date: 2026-10-24 18:09+0000\n"
+"POT-Creation-Date: 2026-09-18 18:19+0000\n"
+"PO-Revision-Date: 2026-09-18 18:19+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -66,13 +66,8 @@ msgid "Account EDI proxy user"
 msgstr ""
 
 #. module: l10n_gr_edi_e_invoo
-#: model:ir.model,name:l10n_gr_edi_e_invoo.model_account_move_send
-msgid "Account Move Send"
-msgstr ""
-
-#. module: l10n_gr_edi_e_invoo
 #: model:ir.model,name:l10n_gr_edi_e_invoo.model_res_company
-msgid "Companies"
+msgid "Company"
 msgstr ""
 
 #. module: l10n_gr_edi_e_invoo
@@ -104,6 +99,11 @@ msgstr ""
 #. odoo-python
 #: code:addons/l10n_gr_edi_e_invoo/models/account_edi_proxy_user.py:0
 msgid "Go to company"
+msgstr ""
+
+#. module: l10n_gr_edi_e_invoo
+#: model:ir.module.module,shortdesc:base.module_l10n_gr_edi_e_invoo
+msgid "Greece - myDATA E-invoicing through e-invoo"
 msgstr ""
 
 #. module: l10n_gr_edi_e_invoo
@@ -182,6 +182,11 @@ msgstr ""
 #. module: l10n_gr_edi_e_invoo
 #: model:ir.model.fields.selection,name:l10n_gr_edi_e_invoo.selection__l10n_gr_edi_document__provider_pdf_state__sent
 msgid "Sent"
+msgstr ""
+
+#. module: l10n_gr_edi_e_invoo
+#: model:ir.model,name:l10n_gr_edi_e_invoo.model_account_move_send
+msgid "Shared Send Invoice Wizard Functions"
 msgstr ""
 
 #. module: l10n_gr_edi_e_invoo

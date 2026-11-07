@@ -1,7 +1,6 @@
-from lxml import etree
 from unittest.mock import patch
 
-from odoo import Command, fields
+from odoo import Command
 from odoo.tests import tagged
 
 from odoo.addons.l10n_fr_pdp.models.account_edi_xml_ubl_21_fr import CPRO_INVOICE_IDENTIFIER
@@ -12,13 +11,7 @@ from .common import TestL10nFrPdpCommon
 @tagged('post_install_l10n', 'post_install', '-at_install')
 class TestL10nFrPdpXml(TestL10nFrPdpCommon):
 
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.ubl_namespaces = {
-            'cbc': "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2",
-            'cac': "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2",
-        }
+    _test_user_groups = None  # FIXME list needed groups
 
     @classmethod
     def subfolders(cls):
@@ -40,8 +33,7 @@ class TestL10nFrPdpXml(TestL10nFrPdpCommon):
         self.env.company._reset_peppol_configuration()
         # To be able to generate the same XML as in `test_export_invoice_partner_fr`
         self.env.company.write({
-            'peppol_eas': '0225',
-            'peppol_endpoint': '968515759_96851575905899',
+            'routing_identifier': '0225:968515759_96851575905899',
         })
         # Simulate a company that isn't connected to the PDP proxy at all
         self.proxy_user.unlink()
@@ -152,7 +144,7 @@ class TestL10nFrPdpXml(TestL10nFrPdpCommon):
         self._assert_invoice_ubl_file(final_invoice, "ubl_21_fr_out_final_invoice")
 
     def test_export_invoice_with_no_vat(self):
-        self.company_data['company'].write({'vat': False, 'company_registry': '96851575905808'})
+        self.company_data['company'].write({'vat': False, 'additional_identifiers': {'FR_SIRET': '96851575905899'}})
         invoice = self._create_french_invoice()
         invoice.action_post()
 
@@ -212,76 +204,11 @@ class TestL10nFrPdpXml(TestL10nFrPdpCommon):
             'name': 'SUPER FRENCH PARTNER PARIS',
             'country_id': self.env.ref('base.fr').id,
             'vat': 'FR23334175221',
-            'company_registry': '33417522100012',
+            'additional_identifiers': {'FR_SIRET': '33417522100012'},
         })
         bill = self._import_invoice_as_attachment_on('ubl_21_fr_in_invoice_establishment')
         self.assertEqual(bill.partner_id, other_establishment)
         self.assertEqual(bill.partner_bank_id.partner_id, other_establishment)
-
-    def test_ubl_use_correct_vat(self):
-        """Test that UBL use the foreign VAT when available, else the company VAT."""
-        germany = self.env.ref("base.de")
-
-        tax_group = self.env['account.tax.group'].create({
-            'name': 'German Taxes',
-            'company_id': self.company.id,
-            'country_id': germany.id,
-        })
-        tax = self.env['account.tax'].create({
-            'name': 'DE VAT 19%',
-            'amount': 19,
-            'amount_type': 'percent',
-            'type_tax_use': 'sale',
-            'country_id': germany.id,
-            'tax_group_id': tax_group.id,
-        })
-
-        fiscal_position = self.env['account.fiscal.position'].create({
-            'name': 'German FP',
-            'vat_required': True,
-            'foreign_vat': 'DE123456788',
-            'country_id': germany.id,
-        })
-
-        invoice_with_fp = self.env['account.move'].create({
-            'partner_id': self.partner_a.id,
-            'move_type': 'out_invoice',
-            'fiscal_position_id': fiscal_position.id,
-            'invoice_date': fields.Date.from_string('2025-12-22'),
-            'invoice_line_ids': [Command.create({
-                'product_id': self.product_a.id,
-                'tax_ids': [Command.set(tax.ids)],
-            })],
-        })
-        local_invoice = self.env['account.move'].create({
-            'partner_id': self.partner_a.id,
-            'move_type': 'out_invoice',
-            'invoice_date': fields.Date.from_string('2025-12-22'),
-            'invoice_line_ids': [Command.create({
-                'product_id': self.product_a.id,
-            })],
-        })
-        invoice_with_fp.action_post()
-        local_invoice.action_post()
-
-        # Check XML for foreign VAT
-        xml_bytes = self.env["account.edi.xml.ubl_21_fr"]._export_invoice(invoice_with_fp)[0]
-        xml_tree = etree.fromstring(xml_bytes)
-        node = xml_tree.xpath(
-            "//cac:AccountingSupplierParty//cac:PartyTaxScheme/cbc:CompanyID",
-            namespaces=self.ubl_namespaces,
-        )
-        self.assertEqual(node[0].text, fiscal_position.foreign_vat, "Foreign Fiscal Position VAT")
-
-        # Check XML for company VAT fallback
-        xml_bytes = self.env["account.edi.xml.ubl_21_fr"]._export_invoice(local_invoice)[0]
-        xml_tree = etree.fromstring(xml_bytes)
-        node = xml_tree.xpath(
-            "//cac:AccountingSupplierParty//cac:PartyTaxScheme/cbc:CompanyID",
-            namespaces=self.ubl_namespaces,
-        )
-        self.assertEqual(node[0].text, self.company.vat, "Company VAT fallback")
-
 
 # Tests below tests unusuals invoice line.
 # Since ubl 2.1 doesn't include the peppol rule https://docs.peppol.eu/poacc/billing/3.0/rules/ubl-peppol/PEPPOL-EN16931-R120/

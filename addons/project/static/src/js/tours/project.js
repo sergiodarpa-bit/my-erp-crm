@@ -5,7 +5,6 @@ import { stepUtils } from "@web_tour/tour_utils";
 import { markup } from "@odoo/owl";
 
 registry.category("web_tour.tours").add('project_tour', {
-    url: "/odoo",
     steps: () => [stepUtils.showAppsMenuItem(), {
     isActive: ["community"],
     trigger: '.o_app[data-menu-xmlid="project.menu_main_pm"]',
@@ -58,6 +57,13 @@ registry.category("web_tour.tours").add('project_tour', {
     trigger: ".o_kanban_group",
 },
 {
+    isActive: [".o_kanban_project_tasks .o_column_quick_create.o_quick_create_folded"],
+    trigger: ".o_kanban_project_tasks .o_column_quick_create .o_quick_create_button",
+    content: markup(_t("Let's add another <b>stage</b> to your project.")),
+    tooltipPosition: "left",
+    run: "click",
+},
+{
     trigger: ".o_kanban_project_tasks .o_column_quick_create .o_kanban_header input",
     content: markup(_t("Add columns to organize your tasks into <b>stages</b> <i>e.g. New - In Progress - Done</i>.")),
     tooltipPosition: 'bottom',
@@ -72,24 +78,28 @@ registry.category("web_tour.tours").add('project_tour', {
     trigger: ".o_kanban_group:eq(1)",
 },
 {
+    isActive: [".o_form_project_tasks:not(.o_kanban_quick_create_form)"],
+    trigger: ".o_breadcrumb .o_back_button",
+    content: markup(_t("Let's go back to the <b>kanban view</b> to see your task.")),
+    tooltipPosition: "right",
+    run: "click",
+},
+{
+    isActive: [".o_kanban_project_tasks"],
     trigger: '.o-kanban-button-new',
     content: markup(_t("Let's create your first <b>task</b>.")),
     tooltipPosition: 'bottom',
     run: "click",
 },
 {
-    trigger: ".o_kanban_project_tasks",
-},
-{
+    isActive: [".o_kanban_project_tasks"],
     trigger: '.o_kanban_quick_create div.o_field_char[name=display_name] input',
     content: markup(_t('Choose a task <b>name</b> <i>(e.g. Website Design, Purchase Goods...)</i>')),
     tooltipPosition: 'right',
     run: "edit Test",
 },
 {
-    trigger: ".o_kanban_project_tasks",
-},
-{
+    isActive: [".o_kanban_project_tasks"],
     trigger: '.o_kanban_quick_create .o_kanban_add',
     content: _t("Add your task once it is ready."),
     tooltipPosition: "bottom",
@@ -178,12 +188,12 @@ registry.category("web_tour.tours").add('project_tour', {
     run: "click",
 }, {
     isActive: ["auto"],
-    trigger: 'a[name="sub_tasks_page"]',
+    trigger: 'button[name="sub_tasks_page"]',
     content: _t('Open sub-tasks notebook section'),
     run: 'click',
 }, {
     isActive: ["auto"],
-    trigger: '.o_field_subtasks_one2many .o_list_renderer a[role="button"]',
+    trigger: '.o_field_subtasks_one2many .o_list_renderer .o_field_x2many_list_row_add button',
     content: _t('Add a sub-task'),
     run: 'click',
 }, {
@@ -193,6 +203,7 @@ registry.category("web_tour.tours").add('project_tour', {
     run: "edit New Sub-task",
 },
 {
+    isActive: ["auto"],
     trigger: ".o_form_project_tasks .o_form_dirty",
 },
 {
@@ -217,6 +228,7 @@ registry.category("web_tour.tours").add('project_tour', {
     run: "click",
 },
 {
+    isActive: ["auto"],
     trigger: ".o_widget_subtask_kanban_list .subtask_list",
 },
 {
@@ -226,6 +238,7 @@ registry.category("web_tour.tours").add('project_tour', {
     run: "click",
 },
 {
+    isActive: ["auto"],
     trigger: ".subtask_create_input",
 },
 {
@@ -240,6 +253,7 @@ registry.category("web_tour.tours").add('project_tour', {
     run: "click",
 },
 {
+    isActive: ["auto"],
     trigger: ".project_task_state_selection_menu.dropdown-menu",
 },
 {
@@ -248,6 +262,7 @@ registry.category("web_tour.tours").add('project_tour', {
     content: markup(_t("Mark the task as <b>Cancelled</b>")),
     run: "click",
 }, {
+    isActive: ["auto"],
     trigger: ".o-overlay-container:not(:visible):not(:has(.project_task_state_selection_menu))",
 }, {
     isActive: ["auto"],

@@ -9,29 +9,43 @@ msgid ""
 msgstr ""
 "Project-Id-Version: my-erp-crm Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-16 13:48+0000\n"
-"PO-Revision-Date: 2026-08-02 11:44+0000\n"
+"POT-Creation-Date: 2026-10-30 17:39+0000\n"
+"PO-Revision-Date: 2026-10-30 05:33+0000\n"
 "Last-Translator: Bone NI <bounkirdni@gmail.com>\n"
-"Language-Team: Lao <https://translate.odoo.com/projects/odoo-19/analytic/lo/>"
-"\n"
+"Language-Team: Lao <https://translate.odoo.com/projects/odoo-20/analytic/lo/"
+">\n"
 "Language: lo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.6.1\n"
+"X-Generator: Weblate 2026.8.1\n"
+
+#. module: analytic
+#: model:ir.module.module,description:base.module_analytic
+msgid ""
+"\n"
+"Module for defining analytic accounting object.\n"
+"===============================================\n"
+"\n"
+"In my-erp-crm, analytic accounts are linked to general accounts but are treated\n"
+"totally independently. So, you can enter various different analytic "
+"operations\n"
+"that have no counterpart in the general financial accounts.\n"
+msgstr ""
+"\n"
+"ໂມດູນສຳລັບກຳນົດເປົ້າໝາຍການບັນຊີວິເຄາະ.\n"
+"===============================================\n"
+"\n"
+"ໃນ my-erp-crm, ບັນຊີວິເຄາະແມ່ນເຊື່ອມໂຍງກັບບັນຊີທົ່ວໄປ ແຕ່ຖືກຈັດການແບບ\n"
+"ເປັນເອກະລາດຢ່າງສິ້ນເຊີງ. ດັ່ງນັ້ນ, ທ່ານສາມາດປ້ອນການດຳເນີນງານວິເຄາະຕ່າງໆ\n"
+"ທີ່ບໍ່ມີລາຍການຄູ່ທຽບໃນບັນຊີການເງິນທົ່ວໄປໄດ້.\n"
 
 #. module: analytic
 #. odoo-python
-#: code:addons/analytic/models/analytic_account.py:0
-msgid "%s (copy)"
-msgstr "%s (ສຳເນົາ)"
-
-#. module: analytic
-#. odoo-javascript
-#: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.xml:0
-msgid "(no accounts)"
-msgstr "(ບໍ່ມີບັນຊີ)"
+#: code:addons/analytic/models/analytic_line.py:0
+msgid "%s analytic lines created"
+msgstr "ສ້າງ %s ລາຍການວິເຄາະແລ້ວ"
 
 #. module: analytic
 #: model_terms:ir.ui.view,arch_db:analytic.account_analytic_plan_form_view
@@ -41,7 +55,28 @@ msgstr "<span class=\"o_stat_text\">ບັນຊີວິເຄາະ</span>"
 #. module: analytic
 #: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_account_form
 msgid "<span class=\"o_stat_text\">Gross Margin</span>"
-msgstr "<span class=\"o_stat_text\">ສ່ວນຕ່າງກຳໄລຂັ້ນຕົ້ນ</span>"
+msgstr "<span class=\"o_stat_text\">ກຳໄລຂັ້ນຕົ້ນ</span>"
+
+#. module: analytic
+#. odoo-python
+#: code:addons/analytic/models/analytic_plan.py:0
+msgid ""
+"A 'Project' plan needs to exist and its id needs to be set as "
+"`analytic.project_plan` in the system variables"
+msgstr ""
+"ຈຳເປັນຕ້ອງມີແຜນ 'ໂຄງການ' ແລະ ລະຫັດ ID ຕ້ອງຖືກຕັ້ງເປັນ `analytic.project_plan` "
+"ໃນຕົວປ່ຽນຂອງລະບົບ"
+
+#. module: analytic
+#: model:ir.model,name:analytic.model_res_groups
+msgid "Access Groups"
+msgstr "ກຸ່ມສິດການນຳໃຊ້"
+
+#. module: analytic
+#. odoo-javascript
+#: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.js:0
+msgid "Account field"
+msgstr "ຫ້ອງຂໍ້ມູນບັນຊີ"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_plan__account_ids
@@ -49,9 +84,14 @@ msgid "Accounts"
 msgstr "ບັນຊີ"
 
 #. module: analytic
+#: model:account.analytic.account,name:analytic.analytic_agrolait
+msgid "Acme Corporation"
+msgstr "ບໍລິສັດ ແອັກມີ (Acme Corporation)"
+
+#. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__message_needaction
 msgid "Action Needed"
-msgstr "ຕ້ອງການການດຳເນີນການ"
+msgstr "ຈຳເປັນຕ້ອງມີການດຳເນີນການ"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__active
@@ -59,9 +99,14 @@ msgid "Active"
 msgstr "ເປີດໃຊ້ງານ"
 
 #. module: analytic
+#: model:account.analytic.account,name:analytic.analytic_active_account
+msgid "Active account"
+msgstr "ບັນຊີທີ່ພວມໃຊ້ງານ"
+
+#. module: analytic
 #. odoo-javascript
 #: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.xml:0
-msgid "Add a line"
+msgid "Add a Line"
 msgstr "ເພີ່ມລາຍການ"
 
 #. module: analytic
@@ -73,7 +118,7 @@ msgstr "ເພີ່ມບັນຊີວິເຄາະໃໝ່"
 #. module: analytic
 #: model:account.analytic.account,name:analytic.analytic_administratif
 msgid "Administrative"
-msgstr "ບໍລິຫານ"
+msgstr "ບໍລິຫານງານ"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_plan__all_account_count
@@ -84,7 +129,13 @@ msgstr "ຈຳນວນບັນຊີວິເຄາະທັງໝົດ"
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line__amount
 #: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_line_form
 msgid "Amount"
-msgstr "ຈຳນວນເງິນ"
+msgstr "ມູນຄ່າ"
+
+#. module: analytic
+#. odoo-javascript
+#: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.js:0
+msgid "Amount field"
+msgstr "ຫ້ອງຂໍ້ມູນມູນຄ່າ"
 
 #. module: analytic
 #. odoo-javascript
@@ -95,15 +146,16 @@ msgstr "ວິເຄາະ"
 #. module: analytic
 #: model:ir.model,name:analytic.model_account_analytic_account
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__name
-#: model:ir.model.fields,field_description:analytic.field_account_analytic_line__account_id
+#: model:ir.model.fields,field_description:analytic.field_account_analytic_line__auto_account_id
+#: model:ir.model.fields,field_description:analytic.field_analytic_plan_fields_mixin__auto_account_id
 #: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_account_form
 #: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_account_search
-#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_line_filter
 msgid "Analytic Account"
 msgstr "ບັນຊີວິເຄາະ"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_res_config_settings__group_analytic_accounting
+#: model:ir.module.module,shortdesc:base.module_analytic
 #: model:res.groups,name:analytic.group_analytic_accounting
 msgid "Analytic Accounting"
 msgstr "ການບັນຊີວິເຄາະ"
@@ -121,33 +173,24 @@ msgstr "ຈຳນວນບັນຊີວິເຄາະ"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_distribution_model__analytic_distribution
+#: model:ir.model.fields,field_description:analytic.field_account_analytic_line__analytic_distribution
 #: model:ir.model.fields,field_description:analytic.field_analytic_mixin__analytic_distribution
 msgid "Analytic Distribution"
-msgstr "ການແຈກຢາຍການວິເຄາະ"
-
-#. module: analytic
-#: model:ir.model,name:analytic.model_account_analytic_distribution_model
-#: model_terms:ir.ui.view,arch_db:analytic.account_analytic_distribution_model_form_view
-#: model_terms:ir.ui.view,arch_db:analytic.account_analytic_distribution_model_tree_view
-msgid "Analytic Distribution Model"
-msgstr "ແບບຈຳລອງການແຈກຢາຍການວິເຄາະ"
-
-#. module: analytic
-#: model:ir.actions.act_window,name:analytic.action_analytic_distribution_model
-msgid "Analytic Distribution Models"
-msgstr "ແບບຈຳລອງການແຈກຢາຍການວິເຄາະ"
-
-#. module: analytic
-#: model:ir.model.fields,field_description:analytic.field_account_analytic_distribution_model__analytic_distribution_search
-#: model:ir.model.fields,field_description:analytic.field_analytic_mixin__analytic_distribution_search
-msgid "Analytic Distribution Search"
-msgstr "ຄົ້ນຫາການແຈກຢາຍການວິເຄາະ"
+msgstr "ການປັນສ່ວນວິເຄາະ"
 
 #. module: analytic
 #. odoo-javascript
 #: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.js:0
-msgid "Analytic Distribution Template"
-msgstr "ແມ່ແບບການແຈກຢາຍການວິເຄາະ"
+#: model:ir.model,name:analytic.model_account_analytic_distribution_model
+#: model_terms:ir.ui.view,arch_db:analytic.account_analytic_distribution_model_form_view
+#: model_terms:ir.ui.view,arch_db:analytic.account_analytic_distribution_model_tree_view
+msgid "Analytic Distribution Model"
+msgstr "ຮູບແບບການປັນສ່ວນວິເຄາະ"
+
+#. module: analytic
+#: model:ir.actions.act_window,name:analytic.action_analytic_distribution_model
+msgid "Analytic Distribution Models"
+msgstr "ຮູບແບບການປັນສ່ວນວິເຄາະຕ່າງໆ"
 
 #. module: analytic
 #: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_line_form
@@ -165,12 +208,12 @@ msgstr "ລາຍການວິເຄາະ"
 #. module: analytic
 #: model:ir.model,name:analytic.model_account_analytic_line
 msgid "Analytic Line"
-msgstr "ແຖວວິເຄາະ"
+msgstr "ແຖວລາຍການວິເຄາະ"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__line_ids
 msgid "Analytic Lines"
-msgstr "ແຖວວິເຄາະ"
+msgstr "ແຖວລາຍການວິເຄາະ"
 
 #. module: analytic
 #: model:ir.model,name:analytic.model_analytic_mixin
@@ -178,29 +221,34 @@ msgid "Analytic Mixin"
 msgstr "Analytic Mixin"
 
 #. module: analytic
+#: model:ir.model,name:analytic.model_account_analytic_plan
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_applicability__analytic_plan_id
-#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_line_filter
 msgid "Analytic Plan"
-msgstr "ແຜນການວິເຄາະ"
+msgstr "ແຜນວິເຄາະ"
+
+#. module: analytic
+#: model:ir.model,name:analytic.model_analytic_plan_fields_mixin
+msgid "Analytic Plan Fields"
+msgstr "ຫ້ອງຂໍ້ມູນແຜນວິເຄາະ"
 
 #. module: analytic
 #: model:ir.model,name:analytic.model_account_analytic_applicability
 msgid "Analytic Plan's Applicabilities"
-msgstr "ການນຳໃຊ້ແຜນການວິເຄາະ"
+msgstr "ການນຳໃຊ້ຂອງແຜນວິເຄາະ"
 
 #. module: analytic
 #: model:ir.actions.act_window,name:analytic.account_analytic_plan_action
-#: model:ir.model,name:analytic.model_account_analytic_plan
 #: model_terms:ir.ui.view,arch_db:analytic.account_analytic_plan_form_view
 #: model_terms:ir.ui.view,arch_db:analytic.account_analytic_plan_tree_view
 msgid "Analytic Plans"
-msgstr "ແຜນການວິເຄາະ"
+msgstr "ແຜນວິເຄາະ"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_distribution_model__analytic_precision
+#: model:ir.model.fields,field_description:analytic.field_account_analytic_line__analytic_precision
 #: model:ir.model.fields,field_description:analytic.field_analytic_mixin__analytic_precision
 msgid "Analytic Precision"
-msgstr "ຄວາມຊັດເຈນຂອງການວິເຄາະ"
+msgstr "ຄວາມລະອຽດຂອງການວິເຄາະ"
 
 #. module: analytic
 #. odoo-python
@@ -212,7 +260,7 @@ msgstr "ບັນຊີວິເຄາະ"
 #. odoo-python
 #: code:addons/analytic/models/analytic_plan.py:0
 msgid "Analytical Plans"
-msgstr "ແຜນການວິເຄາະ"
+msgstr "ແຜນວິເຄາະ"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_applicability__applicability
@@ -238,9 +286,15 @@ msgid "Asustek"
 msgstr "Asustek"
 
 #. module: analytic
+#. odoo-python
+#: code:addons/analytic/models/analytic_line.py:0
+msgid "At least one analytic account must be set"
+msgstr "ຕ້ອງໄດ້ກຳນົດບັນຊີວິເຄາະຢ່າງໜ້ອຍໜຶ່ງບັນຊີ"
+
+#. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__message_attachment_count
 msgid "Attachment Count"
-msgstr "ຈຳນວນເອກະສານຄັດຕິດ"
+msgstr "ຈຳນວນໄຟລ໌ຄັດຕິດ"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__balance
@@ -252,6 +306,12 @@ msgstr "ຍອດເຫຼືອ"
 #: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_account_kanban
 msgid "Balance:"
 msgstr "ຍອດເຫຼືອ:"
+
+#. module: analytic
+#. odoo-javascript
+#: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.js:0
+msgid "Business domain"
+msgstr "ຂອບເຂດທຸລະກິດ"
 
 #. module: analytic
 #: model:account.analytic.account,name:analytic.analytic_partners_camp_to_camp
@@ -281,12 +341,18 @@ msgstr "ຈຳນວນແຜນຍ່ອຍ"
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_plan__children_ids
 msgid "Childrens"
-msgstr "ລູກຍ່ອຍ"
+msgstr "ແຜນຍ່ອຍ"
 
 #. module: analytic
 #: model_terms:ir.actions.act_window,help:analytic.account_analytic_plan_action
 msgid "Click to add a new analytic account plan."
-msgstr "ຄລິກເພື່ອເພີ່ມແຜນບັນຊີວິເຄາະໃໝ່."
+msgstr "ກົດເພື່ອເພີ່ມແຜນບັນຊີວິເຄາະໃໝ່."
+
+#. module: analytic
+#. odoo-javascript
+#: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.xml:0
+msgid "Close"
+msgstr "ປິດ"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_plan__color
@@ -305,9 +371,9 @@ msgstr "ການຄ້າ ແລະ ການຕະຫຼາດ"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__company_id
+#: model:ir.model.fields,field_description:analytic.field_account_analytic_applicability__company_id
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_distribution_model__company_id
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line__company_id
-#: model:ir.model.fields,field_description:analytic.field_account_analytic_plan__company_id
 msgid "Company"
 msgstr "ບໍລິສັດ"
 
@@ -319,19 +385,12 @@ msgstr "ຊື່ເຕັມ"
 #. module: analytic
 #: model_terms:ir.ui.view,arch_db:analytic.account_analytic_distribution_model_form_view
 msgid "Conditions to meet"
-msgstr "ເງື່ອນໄຂທີ່ຕ້ອງປະຕິບັດ"
+msgstr "ເງື່ອນໄຂທີ່ຕ້ອງຄົບຖ້ວນ"
 
 #. module: analytic
 #: model:ir.model,name:analytic.model_res_config_settings
 msgid "Config Settings"
-msgstr "ການຕັ້ງຄ່າ"
-
-#. module: analytic
-#: model:ir.model.fields,help:analytic.field_account_analytic_line__product_uom_category_id
-msgid "Conversion between Units of Measure can only occur if they belong to the same category. The conversion will be made based on the ratios."
-msgstr ""
-"ການປ່ຽນແປງລະຫວ່າງຫົວໜ່ວຍວັດແທກສາມາດເກີດຂຶ້ນໄດ້ຖ້າພວກມັນຢູ່ໃນໝວດໝູ່ດຽວກັນເທົ່ານັ້ນ. ການປ່ຽນແປງຈະຖືກເ"
-"ຮັດໂດຍອີງໃສ່ອັດຕາສ່ວນ."
+msgstr "ການຕັ້ງຄ່າລະບົບ"
 
 #. module: analytic
 #: model_terms:ir.actions.act_window,help:analytic.account_analytic_line_action
@@ -341,7 +400,7 @@ msgid ""
 "                invoices, expenses or timesheets."
 msgstr ""
 "ຕົ້ນທຶນຈະຖືກສ້າງຂຶ້ນໂດຍອັດຕະໂນມັດເມື່ອທ່ານລົງທະບຽນໃບແຈ້ງໜີ້ຜູ້ສະໜອງ,\n"
-"                ຄ່າໃຊ້ຈ່າຍ ຫຼື ໃບບັນທຶກເວລາ."
+"                ຄ່າໃຊ້ຈ່າຍ ຫຼື ໃບບັນທຶກເວລາເຮັດວຽກ."
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__create_uid
@@ -365,18 +424,18 @@ msgstr "ສ້າງເມື່ອ"
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__credit
 #: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_account_list
 msgid "Credit"
-msgstr "ເຄຣດິດ"
+msgstr "ມີ (Credit)"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__currency_id
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line__currency_id
 msgid "Currency"
-msgstr "ສະກຸນເງິນ"
+msgstr "ເງິນຕາ"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__partner_id
 msgid "Customer"
-msgstr "ລູກຄ້າ"
+msgstr "ຄຸ່ຄ້າ"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line__date
@@ -387,18 +446,13 @@ msgstr "ວັນທີ"
 #. module: analytic
 #: model:ir.model.fields,help:analytic.field_account_analytic_account__active
 msgid "Deactivate the account."
-msgstr "ປິດໃຊ້ງານບັນຊີ."
+msgstr "ປິດການໃຊ້ງານບັນຊີ."
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__debit
 #: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_account_list
 msgid "Debit"
-msgstr "ເດບິດ"
-
-#. module: analytic
-#: model:account.analytic.account,name:analytic.analytic_agrolait
-msgid "Deco Addict"
-msgstr "Deco Addict"
+msgstr "ໜີ້ (Debit)"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_plan__default_applicability
@@ -427,29 +481,57 @@ msgid "Desertic - Hispafuentes"
 msgstr "Desertic - Hispafuentes"
 
 #. module: analytic
+#. odoo-javascript
+#: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.js:0
+msgid "Disable save"
+msgstr "ປິດການບັນທຶກ"
+
+#. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__display_name
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_applicability__display_name
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_distribution_model__display_name
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line__display_name
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_plan__display_name
+#: model:ir.model.fields,field_description:analytic.field_analytic_mixin__display_name
+#: model:ir.model.fields,field_description:analytic.field_analytic_plan_fields_mixin__display_name
+#: model:ir.model.fields,field_description:analytic.field_ir_config_parameter__display_name
+#: model:ir.model.fields,field_description:analytic.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:analytic.field_res_groups__display_name
 msgid "Display Name"
 msgstr "ຊື່ສະແດງ"
 
 #. module: analytic
+#: model:ir.model.fields,field_description:analytic.field_account_analytic_distribution_model__distribution_analytic_account_ids
+#: model:ir.model.fields,field_description:analytic.field_analytic_mixin__distribution_analytic_account_ids
+msgid "Distribution Analytic Account"
+msgstr "ບັນຊີວິເຄາະການປັນສ່ວນ"
+
+#. module: analytic
 #: model_terms:ir.ui.view,arch_db:analytic.account_analytic_distribution_model_form_view
 msgid "Distribution to apply"
-msgstr "ການແຈກຢາຍທີ່ຈະນຳໃຊ້"
+msgstr "ການປັນສ່ວນທີ່ຈະນຳໃຊ້"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_applicability__business_domain
 msgid "Domain"
-msgstr "ໂດເມນ"
+msgstr "ຂອບເຂດ"
+
+#. module: analytic
+#. odoo-javascript
+#: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.xml:0
+msgid "Don't update"
+msgstr "ບໍ່ປັບປຸງ"
 
 #. module: analytic
 #. odoo-javascript
 #: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.js:0
-msgid "Editing"
-msgstr "ກຳລັງແກ້ໄຂ"
+msgid "Dynamic Placeholder"
+msgstr "ຕົວແທນຂໍ້ຄວາມແບບໄດນາມິກ"
+
+#. module: analytic
+#: model:account.analytic.account,name:analytic.analytic_rd_finance
+msgid "Finance"
+msgstr "ການເງິນ"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__message_follower_ids
@@ -462,15 +544,15 @@ msgid "Followers (Partners)"
 msgstr "ຜູ້ຕິດຕາມ (ຄູ່ຄ້າ)"
 
 #. module: analytic
-#: model:ir.actions.act_window,name:analytic.account_analytic_line_action
-msgid "Gross Margin"
-msgstr "ສ່ວນຕ່າງກຳໄລຂັ້ນຕົ້ນ"
+#. odoo-javascript
+#: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.js:0
+msgid "Force applicability"
+msgstr "ບັງຄັບໃຊ້"
 
 #. module: analytic
-#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_account_search
-#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_line_filter
-msgid "Group By..."
-msgstr "ຈັດກຸ່ມໂດຍ..."
+#: model:ir.actions.act_window,name:analytic.account_analytic_line_action
+msgid "Gross Margin"
+msgstr "ກຳໄລຂັ້ນຕົ້ນ"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__has_message
@@ -478,46 +560,51 @@ msgid "Has Message"
 msgstr "ມີຂໍ້ຄວາມ"
 
 #. module: analytic
+#: model:account.analytic.account,name:analytic.analytic_rd_hr
+msgid "Human Resources"
+msgstr "ບຸກຄະລາກອນ"
+
+#. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__id
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_applicability__id
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_distribution_model__id
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line__id
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_plan__id
+#: model:ir.model.fields,field_description:analytic.field_analytic_mixin__id
+#: model:ir.model.fields,field_description:analytic.field_analytic_plan_fields_mixin__id
+#: model:ir.model.fields,field_description:analytic.field_ir_config_parameter__id
+#: model:ir.model.fields,field_description:analytic.field_res_config_settings__id
+#: model:ir.model.fields,field_description:analytic.field_res_groups__id
 msgid "ID"
-msgstr "ໄອດີ"
+msgstr "ລະຫັດ"
 
 #. module: analytic
 #: model:ir.model.fields,help:analytic.field_account_analytic_account__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr "ຖ້າໝາຍໄວ້, ຂໍ້ຄວາມໃໝ່ຕ້ອງການຄວາມສົນໃຈຈາກທ່ານ."
+msgstr "ຖ້າໝາຍຕິກ, ຂໍ້ຄວາມໃໝ່ຈະຮຽກຮ້ອງຄວາມສົນໃຈຈາກທ່ານ."
 
 #. module: analytic
 #: model:ir.model.fields,help:analytic.field_account_analytic_account__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr "ຖ້າໝາຍໄວ້, ບາງຂໍ້ຄວາມມີຂໍ້ຜິດພາດໃນການສົ່ງ."
+msgstr "ຖ້າໝາຍຕິກ, ບາງຂໍ້ຄວາມມີຂໍ້ຜິດພາດໃນການສົ່ງ."
 
 #. module: analytic
 #: model_terms:ir.actions.act_window,help:analytic.account_analytic_line_action
 #: model_terms:ir.actions.act_window,help:analytic.account_analytic_line_action_entries
 msgid ""
 "In my-erp-crm, sales orders and projects are implemented using\n"
-"                analytic accounts. You can track costs and revenues to analyse\n"
+"                analytic accounts. You can track costs and revenues to "
+"analyse\n"
 "                your margins easily."
 msgstr ""
-"ໃນ my-erp-crm, ໃບສັ່ງຊື້ ແລະ ໂຄງການຕ່າງໆ ແມ່ນຖືກນຳໃຊ້ໂດຍຜ່ານ\n"
-"                ບັນຊີວິເຄາະ. ທ່ານສາມາດຕິດຕາມຕົ້ນທຶນ ແລະ ລາຍຮັບເພື່ອວິເຄາະ\n"
-"                ສ່ວນຕ່າງກຳໄລຂອງທ່ານໄດ້ຢ່າງງ່າຍດາຍ."
+"ໃນ my-erp-crm, ໃບສັ່ງຂາຍ ແລະ ໂຄງການຕ່າງໆ ແມ່ນຖືກນຳໃຊ້ຜ່ານ\n"
+"                ບັນຊີວິເຄາະ. ທ່ານສາມາດຕິດຕາມຕົ້ນທຶນ ແລະ ລາຍຮັບ ເພື່ອວິເຄາະ\n"
+"                ຜົນກຳໄລຂອງທ່ານໄດ້ຢ່າງງ່າຍດາຍ."
 
 #. module: analytic
 #: model:account.analytic.plan,name:analytic.analytic_plan_internal
 msgid "Internal"
 msgstr "ພາຍໃນ"
-
-#. module: analytic
-#. odoo-javascript
-#: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.js:0
-msgid "Invalid"
-msgstr "ບໍ່ຖືກຕ້ອງ"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__message_is_follower
@@ -531,7 +618,7 @@ msgstr "ແມ່ນຜູ້ຕິດຕາມ"
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line__write_uid
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_plan__write_uid
 msgid "Last Updated by"
-msgstr "ອັບເດດລ້າສຸດໂດຍ"
+msgstr "ປັບປຸງຫຼ້າສຸດໂດຍ"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__write_date
@@ -540,13 +627,12 @@ msgstr "ອັບເດດລ້າສຸດໂດຍ"
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line__write_date
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_plan__write_date
 msgid "Last Updated on"
-msgstr "ອັບເດດລ້າສຸດເມື່ອ"
+msgstr "ປັບປຸງຫຼ້າສຸດເມື່ອ"
 
 #. module: analytic
-#. odoo-javascript
-#: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.js:0
-msgid "Loading..."
-msgstr "ກຳລັງໂຫລດ..."
+#: model:account.analytic.account,name:analytic.analytic_rd_legal
+msgid "Legal"
+msgstr "ກົດໝາຍ"
 
 #. module: analytic
 #: model:account.analytic.account,name:analytic.analytic_think_big_systems
@@ -559,8 +645,6 @@ msgid "Luminous Technologies"
 msgstr "Luminous Technologies"
 
 #. module: analytic
-#. odoo-javascript
-#: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.js:0
 #: model:ir.model.fields.selection,name:analytic.selection__account_analytic_applicability__applicability__mandatory
 #: model:ir.model.fields.selection,name:analytic.selection__account_analytic_plan__default_applicability__mandatory
 msgid "Mandatory"
@@ -584,7 +668,13 @@ msgstr "Millennium Industries"
 #. module: analytic
 #: model:ir.model.fields.selection,name:analytic.selection__account_analytic_applicability__business_domain__general
 msgid "Miscellaneous"
-msgstr "ອື່ນໆ"
+msgstr "ອື່ນໆທົ່ວໄປ"
+
+#. module: analytic
+#. odoo-javascript
+#: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.js:0
+msgid "Multi edit"
+msgstr "ແກ້ໄຂຫຼາຍລາຍການ"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_plan__name
@@ -599,25 +689,25 @@ msgstr "Nebula"
 
 #. module: analytic
 #. odoo-javascript
-#: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.js:0
-msgid "No Analytic Accounts for this plan"
-msgstr "ບໍ່ມີບັນຊີວິເຄາະສຳລັບແຜນການນີ້"
+#: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.xml:0
+msgid "New Model"
+msgstr "ຮູບແບບໃໝ່"
 
 #. module: analytic
 #: model_terms:ir.actions.act_window,help:analytic.account_analytic_line_action_entries
 msgid "No activity yet"
-msgstr "ຍັງບໍ່ມີການເຄື່ອນໄຫວ"
+msgstr "ຍັງບໍ່ມີການເຄື່ອນໄຫວເທື່ອ"
 
 #. module: analytic
 #: model_terms:ir.actions.act_window,help:analytic.account_analytic_line_action
 msgid "No activity yet on this account"
-msgstr "ຍັງບໍ່ມີການເຄື່ອນໄຫວໃນບັນຊີນີ້"
+msgstr "ຍັງບໍ່ມີການເຄື່ອນໄຫວເທື່ອໃນບັນຊີນີ້"
 
 #. module: analytic
 #. odoo-javascript
 #: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.xml:0
-msgid "No plans available"
-msgstr "ບໍ່ມີແຜນທີ່ພ້ອມໃຊ້ງານ"
+msgid "No analytic plans found"
+msgstr "ບໍ່ພົບແຜນວິເຄາະ"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__message_needaction_counter
@@ -631,8 +721,8 @@ msgstr "ຈຳນວນຂໍ້ຜິດພາດ"
 
 #. module: analytic
 #: model:ir.model.fields,help:analytic.field_account_analytic_account__message_needaction_counter
-msgid "Number of messages which requires an action"
-msgstr "ຈຳນວນຂໍ້ຄວາມທີ່ຕ້ອງການການດຳເນີນການ"
+msgid "Number of messages requiring action"
+msgstr "ຈຳນວນຂໍ້ຄວາມທີ່ຮຽກຮ້ອງໃຫ້ດຳເນີນການ"
 
 #. module: analytic
 #: model:ir.model.fields,help:analytic.field_account_analytic_account__message_has_error_counter
@@ -640,35 +730,27 @@ msgid "Number of messages with delivery error"
 msgstr "ຈຳນວນຂໍ້ຄວາມທີ່ມີຂໍ້ຜິດພາດໃນການສົ່ງ"
 
 #. module: analytic
-#. odoo-javascript
-#: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.js:0
-msgid "OK"
-msgstr "ຕົກລົງ"
-
-#. module: analytic
 #. odoo-python
 #: code:addons/analytic/models/analytic_mixin.py:0
 msgid "One or more lines require a 100% analytic distribution."
-msgstr "ໜຶ່ງ ຫຼື ຫຼາຍລາຍການຕ້ອງການການແຈກຢາຍການວິເຄາະ 100%."
+msgstr "ມີໜຶ່ງ ຫຼື ຫຼາຍແຖວຕ້ອງການການປັນສ່ວນວິເຄາະໃຫ້ຄົບ 100%."
 
 #. module: analytic
 #: model:account.analytic.account,name:analytic.analytic_internal
 msgid "Operating Costs"
-msgstr "ຕົ້ນທຶນການດຳເນີນງານ"
+msgstr "ຕົ້ນທຶນດຳເນີນງານ"
 
 #. module: analytic
 #. odoo-python
 #: code:addons/analytic/models/analytic_mixin.py:0
 msgid "Operation not supported"
-msgstr "ການດຳເນີນການບໍ່ຮອງຮັບ"
+msgstr "ບໍ່ຮອງຮັບການດຳເນີນງານນີ້"
 
 #. module: analytic
-#. odoo-javascript
-#: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.js:0
 #: model:ir.model.fields.selection,name:analytic.selection__account_analytic_applicability__applicability__optional
 #: model:ir.model.fields.selection,name:analytic.selection__account_analytic_plan__default_applicability__optional
 msgid "Optional"
-msgstr "ທາງເລືອກ"
+msgstr "ເລືອກໄດ້"
 
 #. module: analytic
 #: model:ir.model.fields.selection,name:analytic.selection__account_analytic_line__category__other
@@ -678,23 +760,23 @@ msgstr "ອື່ນໆ"
 #. module: analytic
 #: model:account.analytic.account,name:analytic.analytic_our_super_product
 msgid "Our Super Product"
-msgstr "Our Super Product"
+msgstr "ຜະລິດຕະພັນດີເດັ່ນຂອງພວກເຮົາ"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_plan__parent_id
 msgid "Parent"
-msgstr "ຕົວຫຼັກ (ແມ່)"
+msgstr "ຂັ້ນຫຼັກ"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_plan__parent_path
 msgid "Parent Path"
-msgstr "ເສັ້ນທາງຫຼັກ"
+msgstr "ເສັ້ນທາງຂັ້ນຫຼັກ"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_distribution_model__partner_id
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line__partner_id
 msgid "Partner"
-msgstr "ຄູ່ຄ້າ"
+msgstr "ຄຸ່ຄ້າ"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_distribution_model__partner_category_id
@@ -702,15 +784,38 @@ msgid "Partner Category"
 msgstr "ໝວດໝູ່ຄູ່ຄ້າ"
 
 #. module: analytic
+#. odoo-javascript
+#: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.js:0
+#: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.xml:0
+msgid "Percentage"
+msgstr "ເປີເຊັນ"
+
+#. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__plan_id
-#: model:ir.model.fields,field_description:analytic.field_account_analytic_line__plan_id
 msgid "Plan"
 msgstr "ແຜນ"
 
 #. module: analytic
+#. odoo-javascript
+#: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.js:0
+msgid "Product field"
+msgstr "ຫ້ອງຂໍ້ມູນສິນຄ້າ"
+
+#. module: analytic
+#: model:account.analytic.account,name:analytic.analytic_rd_production
+msgid "Production"
+msgstr "ການຜະລິດ"
+
+#. module: analytic
+#: model:ir.model.fields,field_description:analytic.field_account_analytic_line__account_id
+#: model:ir.model.fields,field_description:analytic.field_analytic_plan_fields_mixin__account_id
+msgid "Project Account"
+msgstr "ບັນຊີໂຄງການ"
+
+#. module: analytic
 #: model:account.analytic.plan,name:analytic.analytic_plan_projects
-msgid "Projects"
-msgstr "ໂຄງການ"
+msgid "Project Plan"
+msgstr "ແຜນໂຄງການ"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line__unit_amount
@@ -721,31 +826,44 @@ msgstr "ຈຳນວນ"
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__code
 msgid "Reference"
-msgstr "ອ້າງອີງ"
+msgstr "ເອກະສານອ້າງອີງ"
 
 #. module: analytic
 #: model:account.analytic.account,name:analytic.analytic_rd_department
 msgid "Research & Development"
-msgstr "ການວິໄຈ ແລະ ພັດທະນາ"
+msgstr "ການຄົ້ນຄວ້າ ແລະ ພັດທະນາ"
 
 #. module: analytic
 #: model_terms:ir.actions.act_window,help:analytic.account_analytic_line_action
 #: model_terms:ir.actions.act_window,help:analytic.account_analytic_line_action_entries
 msgid ""
 "Revenues will be created automatically when you create customer\n"
-"                invoices. Customer invoices can be created based on sales orders\n"
-"                (fixed price invoices), on timesheets (based on the work done) or\n"
+"                invoices. Customer invoices can be created based on sales "
+"orders\n"
+"                (fixed price invoices), on timesheets (based on the work "
+"done) or\n"
 "                on expenses (e.g. reinvoicing of travel costs)."
 msgstr ""
 "ລາຍຮັບຈະຖືກສ້າງຂຶ້ນໂດຍອັດຕະໂນມັດເມື່ອທ່ານສ້າງໃບແຈ້ງໜີ້ລູກຄ້າ.\n"
-"                ໃບແຈ້ງໜີ້ລູກຄ້າສາມາດສ້າງຂຶ້ນໂດຍອີງໃສ່ໃບສັ່ງຂາຍ\n"
-"                (ໃບແຈ້ງໜີ້ລາຄາຄົງທີ່), ໃບບັນທຶກເວລາ (ອີງຕາມວຽກທີ່ເຮັດແລ້ວ) ຫຼື\n"
-"                ຄ່າໃຊ້ຈ່າຍ (ເຊັ່ນ: ການຄິດໄລ່ຄືນຄ່າເດີນທາງ)."
+"                ໃບແຈ້ງໜີ້ລູກຄ້າສາມາດສ້າງຂຶ້ນຕາມໃບສັ່ງຂາຍ\n"
+"                (ໃບແຈ້ງໜີ້ລາຄາຄົງທີ່), ຕາມໃບບັນທຶກເວລາ (ຕາມວຽກທີ່ສຳເລັດ) ຫຼື\n"
+"                ຕາມຄ່າໃຊ້ຈ່າຍ (ເຊັ່ນ: ການເກັບເງິນຄ່າໃຊ້ຈ່າຍໃນການເດີນທາງຄືນ)."
+
+#. module: analytic
+#: model:ir.model.fields,field_description:analytic.field_account_analytic_plan__root_id
+msgid "Root"
+msgstr "ຮາກຖານ"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__root_plan_id
 msgid "Root Plan"
-msgstr "ແຜນຫຼັກ"
+msgstr "ແຜນຮາກຖານ"
+
+#. module: analytic
+#. odoo-javascript
+#: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.xml:0
+msgid "Save as new analytic distribution model"
+msgstr "ບັນທຶກເປັນຮູບແບບການປັນສ່ວນວິເຄາະໃໝ່"
 
 #. module: analytic
 #: model:account.analytic.account,name:analytic.analytic_seagate_p2
@@ -755,28 +873,49 @@ msgstr "Seagate P2"
 #. module: analytic
 #: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_line_filter
 msgid "Search Analytic Lines"
-msgstr "ຄົ້ນຫາແຖວວິເຄາະ"
+msgstr "ຄົ້ນຫາແຖວລາຍການວິເຄາະ"
+
+#. module: analytic
+#. odoo-python
+#: code:addons/analytic/models/analytic_account.py:0
+msgid "See them"
+msgstr "ເບິ່ງລາຍການເຫຼົ່ານັ້ນ"
 
 #. module: analytic
 #: model:ir.model.fields,help:analytic.field_account_analytic_distribution_model__company_id
-msgid "Select a company for which the analytic distribution will be used (e.g. create new customer invoice or Sales order if we select this company, it will automatically take this as an analytic account)"
+msgid ""
+"Select a company for which the analytic distribution will be used (e.g. "
+"create new customer invoice or Sales order if we select this company, it "
+"will automatically take this as an analytic account)"
 msgstr ""
-"ເລືອກບໍລິສັດທີ່ຈະໃຊ້ການແຈກຢາຍການວິເຄາະ (ເຊັ່ນ: ສ້າງໃບແຈ້ງໜີ້ລູກຄ້າໃໝ່ ຫຼື ໃບສັ່ງຂາຍ ຖ້າພວກເຮົາເລືອກບໍລິ"
-"ສັດນີ້, ມັນຈະຖືກກຳນົດເປັນບັນຊີວິເຄາະໂດຍອັດຕະໂນມັດ)"
+"ເລືອກບໍລິສັດທີ່ຈະນຳໃຊ້ການປັນສ່ວນວິເຄາະ (ຕົວຢ່າງ: ສ້າງໃບແຈ້ງໜີ້ລູກຄ້າໃໝ່ ຫຼື ໃບສັ່ງຂາຍ "
+"ຖ້າພວກເຮົາເລືອກບໍລິສັດນີ້, ລະບົບຈະດຶງຄ່ານີ້ໄປເປັນບັນຊີວິເຄາະໂດຍອັດຕະໂນມັດ)"
 
 #. module: analytic
 #: model:ir.model.fields,help:analytic.field_account_analytic_distribution_model__partner_category_id
-msgid "Select a partner category for which the analytic distribution will be used (e.g. create new customer invoice or Sales order if we select this partner, it will automatically take this as an analytic account)"
+msgid ""
+"Select a partner category for which the analytic distribution will be used "
+"(e.g. create new customer invoice or Sales order if we select this partner, "
+"it will automatically take this as an analytic account)"
 msgstr ""
-"ເລືອກໝວດໝູ່ຄູ່ຄ້າທີ່ຈະໃຊ້ການແຈກຢາຍການວິເຄາະ (ເຊັ່ນ: ສ້າງໃບແຈ້ງໜີ້ລູກຄ້າໃໝ່ ຫຼື ໃບສັ່ງຂາຍ ຖ້າພວກເຮົາເລືອ"
-"ກຄູ່ຄ້ານີ້, ມັນຈະຖືກກຳນົດເປັນບັນຊີວິເຄາະໂດຍອັດຕະໂນມັດ)"
+"ເລືອກໝວດໝູ່ຄູ່ຄ້າທີ່ຈະນຳໃຊ້ການປັນສ່ວນວິເຄາະ (ຕົວຢ່າງ: ສ້າງໃບແຈ້ງໜີ້ລູກຄ້າໃໝ່ ຫຼື ໃບສັ່ງຂາຍ "
+"ຖ້າພວກເຮົາເລືອກຄູ່ຄ້ານີ້, ລະບົບຈະດຶງຄ່ານີ້ໄປເປັນບັນຊີວິເຄາະໂດຍອັດຕະໂນມັດ)"
 
 #. module: analytic
 #: model:ir.model.fields,help:analytic.field_account_analytic_distribution_model__partner_id
-msgid "Select a partner for which the analytic distribution will be used (e.g. create new customer invoice or Sales order if we select this partner, it will automatically take this as an analytic account)"
+msgid ""
+"Select a partner for which the analytic distribution will be used (e.g. "
+"create new customer invoice or Sales order if we select this partner, it "
+"will automatically take this as an analytic account)"
 msgstr ""
-"ເລືອກຄູ່ຄ້າທີ່ຈະໃຊ້ການແຈກຢາຍການວິເຄາະ (ເຊັ່ນ: ສ້າງໃບແຈ້ງໜີ້ລູກຄ້າໃໝ່ ຫຼື ໃບສັ່ງຂາຍ ຖ້າພວກເຮົາເລືອກຄູ່ຄ້າ"
-"ນີ້, ມັນຈະຖືກກຳນົດເປັນບັນຊີວິເຄາະໂດຍອັດຕະໂນມັດ)"
+"ເລືອກຄູ່ຄ້າທີ່ຈະນຳໃຊ້ການປັນສ່ວນວິເຄາະ (ຕົວຢ່າງ: ສ້າງໃບແຈ້ງໜີ້ລູກຄ້າໃໝ່ ຫຼື ໃບສັ່ງຂາຍ "
+"ຖ້າພວກເຮົາເລືອກຄູ່ຄ້ານີ້, ລະບົບຈະດຶງຄ່ານີ້ໄປເປັນບັນຊີວິເຄາະໂດຍອັດຕະໂນມັດ)"
+
+#. module: analytic
+#: model:ir.model.fields,field_description:analytic.field_account_analytic_distribution_model__sequence
+#: model:ir.model.fields,field_description:analytic.field_account_analytic_plan__sequence
+msgid "Sequence"
+msgstr "ລຳດັບ"
 
 #. module: analytic
 #: model:account.analytic.account,name:analytic.analytic_spark
@@ -789,11 +928,17 @@ msgid "Subplans"
 msgstr "ແຜນຍ່ອຍ"
 
 #. module: analytic
+#: model:ir.model,name:analytic.model_ir_config_parameter
+msgid "System Parameter"
+msgstr "ພາຣາມິເຕີຂອງລະບົບ"
+
+#. module: analytic
 #. odoo-python
-#: code:addons/analytic/models/analytic_line.py:0
-msgid "The selected account belongs to another company than the one you're trying to create an analytic item for"
-msgstr ""
-"ບັນຊີທີ່ເລືອກເປັນຂອງບໍລິສັດອື່ນ ນອກຈາກບໍລິສັດທີ່ທ່ານກຳລັງພະຍາຍາມສ້າງລາຍການວິເຄາະໃຫ້"
+#: code:addons/analytic/models/ir_config_parameter.py:0
+msgid ""
+"The value for %s must be the ID to a valid analytic plan that is not a "
+"subplan"
+msgstr "ຄ່າສຳລັບ %s ຕ້ອງແມ່ນລະຫັດ ID ຂອງແຜນວິເຄາະທີ່ຖືກຕ້ອງ ແລະ ບໍ່ແມ່ນແຜນຍ່ອຍ"
 
 #. module: analytic
 #: model:account.analytic.account,name:analytic.analytic_absences
@@ -813,40 +958,69 @@ msgstr "ບໍ່ພ້ອມໃຊ້ງານ"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line__product_uom_id
-msgid "Unit of Measure"
-msgstr "ຫົວໜ່ວຍວັດແທກ"
+msgid "Unit"
+msgstr "ຫົວໜ່ວຍ"
 
 #. module: analytic
-#: model:ir.model.fields,field_description:analytic.field_account_analytic_line__product_uom_category_id
-msgid "UoM Category"
-msgstr "ໝວດໝູ່ຫົວໜ່ວຍວັດແທກ"
+#. odoo-javascript
+#: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.xml:0
+msgid "Update"
+msgstr "ປັບປຸງ"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line__user_id
 msgid "User"
-msgstr "ຜູ້ໃຊ້"
+msgstr "ຜູ້ໃຊ້ງານ"
 
 #. module: analytic
+#: model_terms:ir.ui.view,arch_db:analytic.account_analytic_distribution_model_form_view
 #: model_terms:ir.ui.view,arch_db:analytic.account_analytic_distribution_model_tree_view
-msgid "View"
-msgstr "ເບິ່ງ"
+#: model_terms:ir.ui.view,arch_db:analytic.account_analytic_plan_form_view
+#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_account_form
+msgid "Visible to all"
+msgstr "ມອງເຫັນໄດ້ທຸກຄົນ"
 
 #. module: analytic
 #. odoo-python
 #: code:addons/analytic/models/analytic_account.py:0
-msgid "You can't set a different company on your analytic account since there are some analytic items linked to it."
+msgid ""
+"Whoa there! Making this change would wipe out your current data. Let's avoid "
+"that, shall we?"
+msgstr "ຊ້າກ່ອນ! ການປ່ຽນແປງນີ້ຈະລຶບຂໍ້ມູນປະຈຸບັນຂອງທ່ານທັງໝົດ. ພວກເຮົາຫຼີກລ່ຽງສິ່ງນີ້ດີກວ່າບໍ່?"
+
+#. module: analytic
+#. odoo-python
+#: code:addons/analytic/models/analytic_mixin.py:0
+msgid "Wrong analytic distribution format"
 msgstr ""
-"ທ່ານບໍ່ສາມາດຕັ້ງບໍລິສັດອື່ນໃນບັນຊີວິເຄາະຂອງທ່ານໄດ້ ເນື່ອງຈາກມີບາງລາຍການວິເຄາະເຊື່ອມໂຍງກັບມັນແລ້ວ."
+
+#. module: analytic
+#. odoo-python
+#: code:addons/analytic/models/analytic_account.py:0
+msgid ""
+"You can't change the company of an analytic account that already has "
+"analytic items! It's a recipe for an analytical disaster!"
+msgstr ""
+"ທ່ານບໍ່ສາມາດປ່ຽນບໍລິສັດຂອງບັນຊີວິເຄາະທີ່ມີລາຍການວິເຄາະຢູ່ແລ້ວໄດ້! "
+"ມັນອາດຈະສ້າງຄວາມເສຍຫາຍຮ້າຍແຮງຕໍ່ລະບົບວິເຄາະ!"
+
+#. module: analytic
+#. odoo-python
+#: code:addons/analytic/models/analytic_plan.py:0
+msgid "You cannot add a parent to the base plan '%s'"
+msgstr "ທ່ານບໍ່ສາມາດເພີ່ມຂັ້ນຫຼັກໃຫ້ກັບແຜນພື້ນຖານ '%s' ໄດ້"
 
 #. module: analytic
 #. odoo-python
 #: code:addons/analytic/models/analytic_distribution_model.py:0
-msgid "You defined a distribution with analytic account(s) belonging to a specific company but a model shared between companies or with a different company"
+msgid ""
+"You defined a distribution with analytic account(s) belonging to a specific "
+"company but a model shared between companies or with a different company"
 msgstr ""
-"ທ່ານໄດ້ກຳນົດການແຈກຢາຍດ້ວຍບັນຊີວິເຄາະທີ່ເປັນຂອງບໍລິສັດໃດໜຶ່ງໂດຍສະເພາະ ແຕ່ຕົວແບບຖືກແບ່ງປັນລະຫວ່າງບໍລິສັ"
-"ດ ຫຼື ໃຊ້ກັບບໍລິສັດອື່ນ"
+"ທ່ານໄດ້ກຳນົດການປັນສ່ວນທີ່ມີບັນຊີວິເຄາະຂຶ້ນກັບບໍລິສັດສະເພາະໃດໜຶ່ງ ແຕ່ຮູບແບບພັດຖືກໃຊ້ຮ່ວມກັນລະຫວ່າງບໍລິສັດ ຫຼື "
+"ກັບບໍລິສັດອື່ນ"
 
 #. module: analytic
 #: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_account_form
 msgid "e.g. Project XYZ"
-msgstr "ເຊັ່ນ: ໂຄງການ XYZ"
+msgstr "ຕົວຢ່າງ: ໂຄງການ XYZ"

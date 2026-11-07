@@ -13,7 +13,8 @@ class TestPosDpoPayPaymentMethod(TransactionCase):
     def setUpClass(cls):
         super().setUpClass()
         common_field = {
-            'use_payment_terminal': 'dpopay',
+            'type': 'bank',
+            'payment_provider': 'dpopay',
             'dpopay_test_mode': True,
             'dpopay_mid': '123456789012',
             'dpopay_tid': 'TESTTID',

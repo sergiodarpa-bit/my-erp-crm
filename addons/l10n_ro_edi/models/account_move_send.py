@@ -19,11 +19,11 @@ class AccountMoveSend(models.AbstractModel):
         return res
 
     @api.model
-    def _get_default_extra_edis(self, move) -> set:
+    def _get_default_extra_edis(self, move) -> list:
         # EXTENDS 'account'
         extra_edis = super()._get_default_extra_edis(move)
         if move.commercial_partner_id.country_code and move.commercial_partner_id.country_code != 'RO':
-            extra_edis -= {'ro_edi'}
+            extra_edis = [edi for edi in extra_edis if edi != 'ro_edi']
         return extra_edis
 
     # -------------------------------------------------------------------------

@@ -5,7 +5,6 @@ import {
 } from "@html_builder/../tests/helpers";
 import { BuilderAction } from "@html_builder/core/builder_action";
 import { BuilderUrlPicker } from "@html_builder/core/building_blocks/builder_urlpicker";
-import { BaseOptionComponent } from "@html_builder/core/utils";
 import { describe, expect, test } from "@odoo/hoot";
 import { queryOne } from "@odoo/hoot-dom";
 import { xml } from "@odoo/owl";
@@ -14,13 +13,11 @@ import { contains, patchWithCleanup } from "@web/../tests/web_test_helpers";
 describe.current.tags("desktop");
 
 function setupUrlPickerTest() {
-    addBuilderOption(
-        class extends BaseOptionComponent {
-            static selector = ".test-options-target";
-            static template = xml`<BuilderUrlPicker action="'customUrlAction'"/>`;
-            static components = { BuilderUrlPicker };
-        }
-    );
+    addBuilderOption({
+        selector: ".test-options-target",
+        template: xml`<BuilderUrlPicker action="'customUrlAction'"/>`,
+        components: { BuilderUrlPicker },
+    });
 
     addBuilderAction({
         customUrlAction: class extends BuilderAction {
@@ -45,11 +42,12 @@ function setupUrlPickerTest() {
 test("BuilderUrlPicker normalizes URL values before committing", async () => {
     setupUrlPickerTest();
 
-    await setupHTMLBuilder(`<div class="test-options-target">Target</div>`);
+    await setupHTMLBuilder(`<a class="test-options-target">Target</a>`);
     await contains(":iframe .test-options-target").click();
     const targetEl = queryOne(":iframe .test-options-target");
 
     const testCases = [
+        ["x.com", "https://x.com"],
         ["odoo.com", "https://odoo.com"],
         ["ftp://odoo.com", "ftp://odoo.com"],
         ["http://odoo.com", "http://odoo.com"],
@@ -64,7 +62,11 @@ test("BuilderUrlPicker normalizes URL values before committing", async () => {
 
     for (const [url, expectedUrl] of testCases) {
         await contains("[data-action-id='customUrlAction'] input").edit(url);
-        expect(targetEl).toHaveAttribute("href", expectedUrl);
+        if (expectedUrl) {
+            expect(targetEl).toHaveAttribute("href", expectedUrl);
+        } else {
+            expect(targetEl).not.toHaveAttribute("href");
+        }
     }
 });
 
@@ -72,7 +74,7 @@ test("BuilderUrlPicker preserves the current HTTP protocol when committing a bar
     setupUrlPickerTest();
 
     await setupHTMLBuilder(
-        `<div class="test-options-target" href="http://old.example.com">Target</div>`
+        `<a class="test-options-target" href="http://old.example.com">Target</a>`
     );
     await contains(":iframe .test-options-target").click();
     await contains("[data-action-id='customUrlAction'] input").edit("odoo.com");
@@ -87,9 +89,9 @@ test("BuilderUrlPicker opens the normalized URL from the preview button", async 
     });
     setupUrlPickerTest();
 
-    await setupHTMLBuilder(`<div class="test-options-target">Target</div>`);
+    await setupHTMLBuilder(`<a class="test-options-target">Target</a>`);
     await contains(":iframe .test-options-target").click();
-    await contains("[data-action-id='customUrlAction'] input").fill("odoo.com");
+    await contains("[data-action-id='customUrlAction'] input").edit("odoo.com");
     await contains("[data-action-id='customUrlAction'] button").click();
 
     expect.verifySteps(["https://odoo.com _blank"]);

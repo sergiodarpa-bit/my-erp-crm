@@ -5,12 +5,12 @@
 # Bren Driesen <brdri@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: Odoo Server 19.5a1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-10 17:38+0000\n"
-"PO-Revision-Date: 2026-08-27 10:02+0000\n"
+"POT-Creation-Date: 2026-08-28 17:44+0000\n"
+"PO-Revision-Date: 2026-10-30 09:33+0000\n"
 "Last-Translator: Bren Driesen <brdri@odoo.com>\n"
-"Language-Team: Dutch <https://translate.odoo.com/projects/odoo-19/"
+"Language-Team: Dutch <https://translate.odoo.com/projects/odoo-20/"
 "payment_payu/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -24,6 +24,16 @@ msgstr ""
 #: code:addons/payment_payu/models/payment_transaction.py:0
 msgid "%(code)s: %(explanation)s"
 msgstr "%(code)s: %(explanation)s"
+
+#. module: payment_payu
+#: model:ir.module.module,summary:base.module_payment_payu
+msgid "A payment provider covering India."
+msgstr "Een betaalprovider voor India."
+
+#. module: payment_payu
+#: model:payment.method,name:payment_payu.payment_method_amex
+msgid "American Express"
+msgstr "American Express"
 
 #. module: payment_payu
 #: model_terms:ir.ui.view,arch_db:payment_payu.authorization_error
@@ -45,6 +55,11 @@ msgstr "Weet je zeker dat je de verbinding wilt verbreken?"
 #: model_terms:ir.ui.view,arch_db:payment_payu.authorization_error
 msgid "Back to the PayU provider"
 msgstr "Terug naar de PayU-provider"
+
+#. module: payment_payu
+#: model:payment.method,name:payment_payu.payment_method_card
+msgid "Card"
+msgstr "Kaart"
 
 #. module: payment_payu
 #: model:ir.model.fields,field_description:payment_payu.field_payment_provider__code
@@ -71,7 +86,12 @@ msgstr "Verbinding verbreken"
 #: model:ir.model.fields,field_description:payment_payu.field_payment_provider__display_name
 #: model:ir.model.fields,field_description:payment_payu.field_payment_transaction__display_name
 msgid "Display Name"
-msgstr "Schermnaam"
+msgstr "Weergavenaam"
+
+#. module: payment_payu
+#: model:payment.method,name:payment_payu.payment_method_emi_india
+msgid "EMI"
+msgstr "EMI"
 
 #. module: payment_payu
 #: model:ir.model.fields,field_description:payment_payu.field_payment_provider__id
@@ -85,15 +105,30 @@ msgid "Key ID"
 msgstr "Sleutel-ID"
 
 #. module: payment_payu
+#: model:payment.method,name:payment_payu.payment_method_mastercard
+msgid "MasterCard"
+msgstr "MasterCard"
+
+#. module: payment_payu
 #: model_terms:ir.ui.view,arch_db:payment_payu.payment_provider_form
 msgid "Merchant Salt"
 msgstr "Handelaar salt"
+
+#. module: payment_payu
+#: model:payment.method,name:payment_payu.payment_method_netbanking
+msgid "Netbanking"
+msgstr "Netbanking"
 
 #. module: payment_payu
 #. odoo-python
 #: code:addons/payment_payu/models/payment_provider.py:0
 msgid "Other Payment Providers"
 msgstr "Andere betaalproviders"
+
+#. module: payment_payu
+#: model:payment.method,name:payment_payu.payment_method_paylater_india
+msgid "Pay Later"
+msgstr "Pay Later"
 
 #. module: payment_payu
 #: model:ir.model.fields.selection,name:payment_payu.selection__payment_provider__code__payu
@@ -133,9 +168,19 @@ msgid "Payment Provider"
 msgstr "Betaalprovider"
 
 #. module: payment_payu
+#: model:ir.module.module,shortdesc:base.module_payment_payu
+msgid "Payment Provider: PayU"
+msgstr "Betaalprovider: PayU"
+
+#. module: payment_payu
 #: model:ir.model,name:payment_payu.model_payment_transaction
 msgid "Payment Transaction"
 msgstr "Betalingstransactie"
+
+#. module: payment_payu
+#: model:payment.method,name:payment_payu.payment_method_rupay
+msgid "RuPay"
+msgstr "RuPay"
 
 #. module: payment_payu
 #: model:ir.model.fields,help:payment_payu.field_payment_provider__code
@@ -143,7 +188,22 @@ msgid "The technical code of this payment provider."
 msgstr "De technische code van deze betaalprovider."
 
 #. module: payment_payu
+#: model:payment.method,name:payment_payu.payment_method_upi
+msgid "UPI"
+msgstr "UPI"
+
+#. module: payment_payu
 #. odoo-python
 #: code:addons/payment_payu/models/payment_transaction.py:0
 msgid "Unknown status code: %s"
 msgstr "Onbekende statuscode: %s"
+
+#. module: payment_payu
+#: model:payment.method,name:payment_payu.payment_method_visa
+msgid "VISA"
+msgstr "VISA"
+
+#. module: payment_payu
+#: model:payment.method,name:payment_payu.payment_method_wallets_india
+msgid "Wallets India"
+msgstr "Wallets India"

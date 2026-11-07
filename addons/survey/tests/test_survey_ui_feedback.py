@@ -12,6 +12,7 @@ class TestUiFeedback(HttpCaseWithUserDemo):
         super(TestUiFeedback, self).setUp()
         self.survey_feedback = self.env['survey.survey'].create({
             'title': 'User Feedback Form',
+            'lang_ids': [Command.set(self.env.ref('base.lang_en').ids)],
             'access_token': 'b137640d-14d4-4748-9ef6-344caaaaaae',
             'access_mode': 'public',
             'users_can_go_back': True,
@@ -153,7 +154,6 @@ class TestUiFeedback(HttpCaseWithUserDemo):
                     'scale_min': 1,
                     'scale_max': 5,
                     'scale_min_label': 'Bad experience',
-                    'scale_mid_label': 'Do the job',
                     'scale_max_label': 'Very good experience',
                     'constr_mandatory': True,
                 }),
@@ -170,13 +170,18 @@ class TestUiFeedback(HttpCaseWithUserDemo):
 
     def test_03_public_multilingual_survey_tour(self):
         # Setup survey translation
-        self.assertEqual([lang[0] for lang in self.env['res.lang'].get_installed()], ['en_US'])
-        self.env['res.lang']._activate_lang('fr_BE')
-        self.survey_feedback_fr = self.survey_feedback.with_context(lang='fr_BE')
-        self.survey_feedback_fr.title = "Enquête de satisfaction"
-        for survey_item in self.survey_feedback_fr.question_and_page_ids:
-            survey_item.title = f"FR: {survey_item.with_context(lang='en_US').title}"
-        self.survey_feedback.lang_ids = self.env['res.lang'].search([('code', 'in', ['fr_BE', 'en_US'])])
+        parseltongue = self.env['res.lang'].create({
+            'name': 'Parseltongue',
+            'code': 'pa_GB',
+            'iso_code': 'pa_GB',
+            'url_code': 'pa_GB',
+        })
+        self.env['res.lang']._activate_lang(parseltongue.code)
+        self.survey_feedback_pa = self.survey_feedback.with_context(lang='pa_GB')
+        self.survey_feedback_pa.title = "Parseltongue Feedback Form"
+        for survey_item in self.survey_feedback_pa.question_and_page_ids:
+            survey_item.title = f"PA: {survey_item.with_context(lang='en_US').title}"
+        self.survey_feedback.lang_ids = parseltongue + self.env.ref('base.lang_en')
 
         access_token = self.survey_feedback.access_token
         self.start_tour("/survey/start/%s" % access_token, 'test_survey_multilang')
@@ -194,6 +199,7 @@ class TestUiFeedback(HttpCaseWithUserDemo):
         """
         survey_with_triggers = self.env['survey.survey'].create({
             'title': 'Survey With Triggers',
+            'lang_ids': [Command.set(self.env.ref('base.lang_en').ids)],
             'access_token': '3cfadce3-3f7e-41da-920d-10fa0eb19527',
             'access_mode': 'public',
             'users_can_go_back': True,
@@ -252,6 +258,7 @@ class TestUiFeedback(HttpCaseWithUserDemo):
         """Check that conditional questions are shown when triggered from a different page too."""
         survey_with_trigger_on_different_page = self.env['survey.survey'].create({
             'title': 'Survey With Trigger on a different page',
+            'lang_ids': [Command.set(self.env.ref('base.lang_en').ids)],
             'access_token': '1cb935bd-2399-4ed1-9e10-c649318fb4dc',
             'access_mode': 'public',
             'users_can_go_back': True,
@@ -295,15 +302,9 @@ class TestUiFeedback(HttpCaseWithUserDemo):
                 }),
             ]
         })
-
-        q1 = survey_with_trigger_on_different_page.question_ids.filtered(lambda q: q.title == 'Q1')
+        q1, q2, q3 = survey_with_trigger_on_different_page.question_ids
         q1_a1 = q1.suggested_answer_ids.filtered(lambda a: a.value == 'Answer 1')
-
-        q2 = survey_with_trigger_on_different_page.question_ids.filtered(lambda q: q.title == 'Q2')
         q2_a1 = q2.suggested_answer_ids.filtered(lambda a: a.value == 'Answer 1')
-
-        q3 = survey_with_trigger_on_different_page.question_ids.filtered(lambda q: q.title == 'Q3')
-
         q3.triggering_answer_ids = q1_a1 | q2_a1
 
         access_token = survey_with_trigger_on_different_page.access_token
@@ -316,6 +317,7 @@ class TestUiFeedback(HttpCaseWithUserDemo):
     def test_07_survey_roaming_mandatory_questions(self):
         survey_with_mandatory_questions = self.env['survey.survey'].create({
             'title': 'Survey With Mandatory questions',
+            'lang_ids': [Command.set(self.env.ref('base.lang_en').ids)],
             'access_token': '853ebb30-40f2-43bf-a95a-bbf0e367a365',
             'access_mode': 'public',
             'users_can_go_back': True,
@@ -351,9 +353,31 @@ class TestUiFeedback(HttpCaseWithUserDemo):
                         Command.create({'value': 'Answer 1'}),
                         Command.create({'value': 'Answer 2'}),
                     ],
+                }), Command.create({
+                    'title': 'Q4',
+                    'sequence': 4,
+                    'question_type': 'simple_choice',
+                    'constr_mandatory': True,
+                    'suggested_answer_ids': [
+                        Command.create({'value': 'Answer 1'}),
+                        Command.create({'value': 'Answer 2'}),
+                    ],
+                }), Command.create({
+                    'title': 'Q5',
+                    'sequence': 5,
+                    'question_type': 'simple_choice',
+                    'constr_mandatory': False,
+                    'suggested_answer_ids': [
+                        Command.create({'value': 'Answer 1'}),
+                        Command.create({'value': 'Answer 2'}),
+                    ],
                 }),
             ]
         })
+        _, q2, _, q4, q5 = survey_with_mandatory_questions.question_ids
+        q2_a3 = q2.suggested_answer_ids.filtered(lambda a: a.value == 'Answer 3')
+        q4.triggering_answer_ids = q2_a3
+        q5.triggering_answer_ids = q2_a3
 
         access_token = survey_with_mandatory_questions.access_token
         self.start_tour("/survey/start/%s" % access_token, 'test_survey_roaming_mandatory_questions')

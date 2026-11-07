@@ -1,13 +1,12 @@
-# -*- coding: utf-8 -*-
 from odoo import Command
 from odoo.addons.l10n_account_edi_ubl_cii_tests.tests.common import TestUBLCommon
 from odoo.tests import tagged
-from odoo.exceptions import UserError
-import base64
 
 
 @tagged('post_install_l10n', 'post_install', '-at_install')
 class TestUBLDE(TestUBLCommon):
+
+    _test_user_groups = None  # FIXME list needed groups
 
     @classmethod
     @TestUBLCommon.setup_country("de")
@@ -23,7 +22,7 @@ class TestUBLDE(TestUBLCommon):
             'phone': '+49 180 6 225789',
             'email': 'info@legoland.de',
             'country_id': cls.env.ref('base.de').id,
-            'bank_ids': [(0, 0, {'acc_number': 'DE48500105176424548921', 'allow_out_payment': True})],
+            'bank_ids': [(0, 0, {'account_number': 'DE48500105176424548921', 'allow_out_payment': True})],
             'ref': 'ref_partner_1',
             'invoice_edi_format': 'xrechnung',
         })
@@ -35,7 +34,7 @@ class TestUBLDE(TestUBLCommon):
             'city': "Rust",
             'vat': 'DE186775212',
             'country_id': cls.env.ref('base.de').id,
-            'bank_ids': [(0, 0, {'acc_number': 'DE50500105175653254743', 'allow_out_payment': True})],
+            'bank_ids': [(0, 0, {'account_number': 'DE50500105175653254743', 'allow_out_payment': True})],
             'ref': 'ref_partner_2',
             'invoice_edi_format': 'zugferd',
         })
@@ -79,10 +78,6 @@ class TestUBLDE(TestUBLCommon):
     ####################################################
 
     def test_export_import_invoice(self):
-        company = self.company_data['company']
-        if "predict_bill_product" in company._fields:
-            company.predict_bill_product = True
-
         invoice = self._generate_move(
             self.partner_1,
             self.partner_2,
@@ -121,13 +116,9 @@ class TestUBLDE(TestUBLCommon):
         self._assert_imported_invoice_from_etree(invoice, attachment)
 
     def test_export_import_invoice_xrechnung(self):
-        company = self.company_data['company']
-        if "predict_bill_product" in company._fields:
-            company.predict_bill_product = True
-
         self.partner_2.write({
-            'peppol_eas': '0204',
-            'peppol_endpoint': '123456789',
+            'routing_identifier': '0204:123456789',
+            'additional_identifiers': {'DE_LTW': '123456789'},
             'invoice_edi_format': 'xrechnung'
         })
         invoice = self._generate_move(
@@ -187,14 +178,11 @@ class TestUBLDE(TestUBLCommon):
         self.assertEqual(attachment.name[-13:], "xrechnung.xml")
         self._assert_imported_invoice_from_etree(invoice, attachment)
 
-    def test_export_import_invoice_without_vat_and_peppol_endpoint(self):
-        company = self.company_data['company']
-        if "predict_bill_product" in company._fields:
-            company.predict_bill_product = True
-
+    def test_export_import_invoice_without_vat_and_routing_endpoint(self):
         self.partner_2.write({
             'vat': False,
-            'peppol_endpoint': False,
+            'routing_identifier': False,
+            'additional_identifiers': False,
             'email': 'partner_2@test.test',
         })
         invoice = self._generate_move(
@@ -218,10 +206,6 @@ class TestUBLDE(TestUBLCommon):
         self._assert_imported_invoice_from_etree(invoice, attachment)
 
     def test_export_import_refund(self):
-        company = self.company_data['company']
-        if "predict_bill_product" in company._fields:
-            company.predict_bill_product = True
-
         refund = self._generate_move(
             self.partner_1,
             self.partner_2,
@@ -262,10 +246,10 @@ class TestUBLDE(TestUBLCommon):
     def test_export_import_invoice_global_location_number(self):
         """
         ram:GlobalID (schemeID 0088) is exported on:
-        - SellerTradeParty/BuyerTradeParty when the partner's Peppol endpoint is a GLN (EAS 0088)
+        - SellerTradeParty/BuyerTradeParty when the partner's routing endpoint is a GLN (scheme 0088)
         - ShipToTradeParty when a GLN is set on the delivery address
         """
-        self.env['ir.config_parameter'].sudo().set_param('account_edi_ubl_cii.use_new_dict_to_xml_helpers', True)
+        self.env['ir.config_parameter'].sudo().set_bool('account_edi_ubl_cii.use_new_dict_to_xml_helpers', True)
         company = self.company_data['company']
         if "predict_bill_product" in company._fields:
             company.predict_bill_product = True
@@ -275,7 +259,7 @@ class TestUBLDE(TestUBLCommon):
             'parent_id': self.partner_2.id,
             'type': 'delivery',
             'country_id': self.env.ref('base.de').id,
-            'global_location_number': '4098765000006',
+            'global_location_number': '9780471117094',
         })
 
         invoice = self._generate_move(
@@ -292,9 +276,9 @@ class TestUBLDE(TestUBLCommon):
             }],
         )
         # Set after _generate_move, which writes the seller's VAT on the company: like a user setting
-        # the VAT first, as editing it resets the EAS (0088 isn't part of the DE EAS mapping).
-        self.partner_1.write({'peppol_eas': '0088', 'peppol_endpoint': '4012345000009'})
-        self.partner_2.write({'peppol_eas': '0088', 'peppol_endpoint': '4012345000016'})
+        # the VAT first, as editing it recomputes the routing, where the VAT (9930) wins over the GLN (0088).
+        self.partner_1.write({'routing_identifier': '0088:4012345000009'})
+        self.partner_2.write({'routing_identifier': '0088:4012345000016'})
         invoice._generate_and_send(sending_methods=['manual'])
         attachment = self._assert_invoice_attachment(
             invoice.ubl_cii_xml_id,
@@ -305,7 +289,7 @@ class TestUBLDE(TestUBLCommon):
 
     def test_export_vendor_bill_global_location_number_ship_to(self):
         """ On a vendor bill, ShipToTradeParty is our own delivery address: its GLN must be ours, not the vendor's. """
-        self.env['ir.config_parameter'].sudo().set_param('account_edi_ubl_cii.use_new_dict_to_xml_helpers', True)
+        self.env['ir.config_parameter'].sudo().set_bool('account_edi_ubl_cii.use_new_dict_to_xml_helpers', True)
         our_delivery = self.env['res.partner'].create({
             'name': 'Our Delivery',
             'parent_id': self.partner_1.id,
@@ -316,7 +300,7 @@ class TestUBLDE(TestUBLCommon):
             'name': 'Vendor Delivery',
             'parent_id': self.partner_2.id,
             'type': 'delivery',
-            'global_location_number': '4098765000006',
+            'global_location_number': '4098765000003',
         })
 
         bill = self._generate_move(
@@ -332,13 +316,9 @@ class TestUBLDE(TestUBLCommon):
         self.assertEqual(ship_to.findtext('{*}GlobalID'), '4012345000009')
 
     def test_export_import_refund_xrehnung(self):
-        company = self.company_data['company']
-        if "predict_bill_product" in company._fields:
-            company.predict_bill_product = True
-
         self.partner_2.write({
-            'peppol_eas': '0204',
-            'peppol_endpoint': '123456789',
+            'routing_identifier': '0204:123456789',
+            'additional_identifiers': {'DE_LTW': '123456789'},
             'invoice_edi_format': 'xrechnung'
         })
 
@@ -421,7 +401,7 @@ class TestUBLDE(TestUBLCommon):
         and imported in the xml file
         """
         acc_bank = self.env['res.partner.bank'].create({
-            'acc_number': 'BE15001559627232',
+            'account_number': 'BE15001559627232',
             'partner_id': self.company_data['company'].partner_id.id,
             'allow_out_payment': True,
         })
@@ -449,7 +429,7 @@ class TestUBLDE(TestUBLCommon):
 
         self.assertTrue(attachment)
 
-        xml_content = base64.b64decode(attachment.with_context(bin_size=False).datas)
+        xml_content = attachment.raw.content
         xml_etree = self.get_xml_tree_from_string(xml_content)
 
         # Export: BuyerReference is in the out_invoice xml
@@ -467,13 +447,13 @@ class TestUBLDE(TestUBLCommon):
     def test_leitweg_id(self):
         partner = self.partner_2
         partner.write({
-            'peppol_eas': '0204',
-            'peppol_endpoint': '123456789',
+            'routing_identifier': '0204:123456789',
+            'additional_identifiers': {'DE_LTW': '123456789'},
             'invoice_edi_format': 'xrechnung',
         })
 
         acc_bank = self.env['res.partner.bank'].create({
-            'acc_number': 'DE15001559627232',
+            'account_number': 'DE15001559627232',
             'partner_id': partner.id,
             'allow_out_payment': True,
         })
@@ -491,14 +471,14 @@ class TestUBLDE(TestUBLCommon):
 
         self.assertTrue(attachment)
 
-        xml_content = base64.b64decode(attachment.with_context(bin_size=False).datas)
+        xml_content = attachment.raw.content
         xml_etree = self.get_xml_tree_from_string(xml_content)
         self.assertEqual(xml_etree.find('{*}BuyerReference').text, '123456789')
 
     def test_leitweg_id_for_child_contact(self):
         self.partner_2.write({
-            'peppol_eas': '0204',
-            'peppol_endpoint': '13075957-K000-52',
+            'routing_identifier': '0204:13075957-K000-52',
+            'additional_identifiers': {'DE_LTW': '13075957-K000-52'},
             'invoice_edi_format': 'xrechnung',
         })
 
@@ -518,6 +498,6 @@ class TestUBLDE(TestUBLCommon):
         attachment = invoice.ubl_cii_xml_id
         self.assertTrue(attachment)
 
-        xml_content = base64.b64decode(attachment.with_context(bin_size=False).datas)
+        xml_content = attachment.raw.content
         xml_etree = self.get_xml_tree_from_string(xml_content)
         self.assertEqual(xml_etree.find('{*}BuyerReference').text, '13075957-K000-52')

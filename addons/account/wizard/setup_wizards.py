@@ -19,6 +19,7 @@ class AccountFinancialYearOp(models.TransientModel):
     fiscalyear_last_month = fields.Selection(related="company_id.fiscalyear_last_month", readonly=False,
                                              required=True,
                                              help="The last day of the month will be used if the chosen day doesn't exist.")
+    company_vat_disabled = fields.Boolean(related="company_id.vat_disabled", readonly=False)
 
     @api.depends('company_id.account_opening_move_id')
     def _compute_opening_move_posted(self):
@@ -41,7 +42,7 @@ class AccountFinancialYearOp(models.TransientModel):
 
     @api.model
     def _company_fields_to_update(self):
-        return {'fiscalyear_last_day', 'fiscalyear_last_month', 'opening_date'}
+        return {'fiscalyear_last_day', 'fiscalyear_last_month', 'opening_date', 'company_vat_disabled'}
 
     @api.model
     def _update_company(self, company_id, vals):
@@ -51,7 +52,7 @@ class AccountFinancialYearOp(models.TransientModel):
         # one value at a time... so it is likely to fail.
         company_fields_to_update = {k: k for k in self._company_fields_to_update()}
         company_fields_to_update['opening_date'] = 'account_opening_date'
-        # Accounting managers are allowed to use this wizard but have no write access on res.company
+        company_fields_to_update['company_vat_disabled'] = 'vat_disabled'
         company_to_update = company_id
         if company_id in self.env.companies and self.env.user.has_group('account.group_account_manager'):
             company_to_update = company_id.sudo()
@@ -72,8 +73,7 @@ class AccountFinancialYearOp(models.TransientModel):
                 company = self.env['res.company'].browse(vals['company_id'])
                 self._update_company(company, vals)
 
-                # we need to keep opening_date in vals since it's a required field otherwise the wizard fails to be created
-                for key in self._company_fields_to_update() - {'opening_date'}:
+                for key in self._company_fields_to_update():
                     vals.pop(key, None)
 
         return super().create(vals_list)
@@ -109,7 +109,6 @@ class AccountSetupBankManualConfig(models.TransientModel):
         compute="_compute_linked_journal_id",
         check_company=True,
     )
-    bank_bic = fields.Char(related='bank_id.bic', readonly=False, string="Bic")
     num_journals_without_account_bank = fields.Integer(default=lambda self: self._number_unlinked_journal('bank'))
     num_journals_without_account_credit = fields.Integer(default=lambda self: self._number_unlinked_journal('credit'))
     company_id = fields.Many2one('res.company', required=True, compute='_compute_company_id')
@@ -121,10 +120,10 @@ class AccountSetupBankManualConfig(models.TransientModel):
             ('id', '!=', self.default_linked_journal_id(journal_type)),
         ])
 
-    @api.onchange('acc_number')
-    def _onchange_acc_number(self):
+    @api.onchange('account_number')
+    def _onchange_account_number(self):
         for record in self:
-            record.new_journal_name = record.acc_number
+            record.new_journal_name = record.account_number
 
     @api.model_create_multi
     def create(self, vals_list):
@@ -134,12 +133,7 @@ class AccountSetupBankManualConfig(models.TransientModel):
         """
         for vals in vals_list:
             vals['partner_id'] = self.env.company.partner_id.id
-            vals['new_journal_name'] = vals['acc_number']
-
-            # If no bank has been selected, but we have a bic, we are using it to find or create the bank
-            if not vals.get('bank_id') and vals.get('bank_bic'):
-                vals['bank_id'] = self.env['res.bank'].search([('bic', '=', vals['bank_bic'])], limit=1).id \
-                                  or self.env['res.bank'].create({'name': vals['bank_bic'], 'bic': vals['bank_bic']}).id
+            vals['new_journal_name'] = vals['account_number']
 
         return super().create(vals_list)
 

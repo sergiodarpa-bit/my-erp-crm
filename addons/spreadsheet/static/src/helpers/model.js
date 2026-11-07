@@ -5,7 +5,7 @@ import { isLoadingError } from "@spreadsheet/o_spreadsheet/errors";
 import { OdooSpreadsheetModel } from "@spreadsheet/model";
 import { OdooDataProvider } from "@spreadsheet/data_sources/odoo_data_provider";
 
-const { formatValue, isDefined, toCartesian, addStyleToWorkbookData, toXC } = helpers;
+const { formatValue, isDefined, toCartesian, toXC, addStyleToWorkbookData } = helpers;
 import {
     isMarkdownViewUrl,
     isMarkdownIrMenuIdUrl,
@@ -94,7 +94,8 @@ function containsLinkToOdoo(link) {
  */
 export async function freezeOdooData(model) {
     await waitForDataLoaded(model);
-    const data = model.exportData();
+    const data = model._exportData(false);
+    //TODO: rewrite with normal export and squished positions ?
     for (const sheet of Object.values(data.sheets)) {
         sheet.formats ??= {};
         for (const [xc, content] of Object.entries(sheet.cells)) {
@@ -138,7 +139,7 @@ export async function freezeOdooData(model) {
         for (const figure of sheet.figures) {
             if (
                 figure.tag === "chart" &&
-                (figure.data.type.startsWith("odoo_") || figure.data.type === "geo")
+                (figure.data.dataSource?.type === "odoo" || figure.data.type === "geo")
             ) {
                 const img = odooChartToImage(model, figure, figure.data.chartId);
                 figure.tag = "image";
@@ -153,7 +154,8 @@ export async function freezeOdooData(model) {
                     }
                     const chartDefinition = model.getters.getChartDefinition(item.chartId);
                     return (
-                        chartDefinition.type.startsWith("odoo_") || chartDefinition.type === "geo"
+                        chartDefinition.dataSource?.type === "odoo" ||
+                        chartDefinition.type === "geo"
                     );
                 });
                 if (hasImageChart) {
@@ -193,7 +195,7 @@ function exportGlobalFiltersToSheet(model, data) {
     model.getters.exportSheetWithActiveFilters(data);
     const locale = model.getters.getLocale();
     for (const filter of data.globalFilters) {
-        const content = model.getters.getFilterDisplayValue(filter.label);
+        const content = model.getters.getFilterDisplayValue(filter);
         filter["value"] = content
             .flat()
             .filter(isDefined)
@@ -320,7 +322,7 @@ function freezeDynamicTable(model, position, data) {
     const sheetId = position.sheetId;
     const coreTable = model.getters.getCoreTable(position);
     const table = model.getters.getTable(position);
-    if (!table || !coreTable || coreTable?.type !== "dynamic") {
+    if (!table || (coreTable?.type !== "dynamic" && !table.isPivotTable)) {
         return;
     }
     const tableZone = table.range.zone;
@@ -328,10 +330,13 @@ function freezeDynamicTable(model, position, data) {
 
     const sheetData = data.sheets.find((sheet) => sheet.id === sheetId);
     const tableIndex = sheetData?.tables?.findIndex((t) => t.range === xc);
-    if (!sheetData || !sheetData.tables || tableIndex === -1) {
+    if (!sheetData) {
         return;
     }
-    sheetData.tables.splice(tableIndex, 1);
+    // Pivot tables won't have a table in the data
+    if (sheetData.tables && tableIndex !== -1) {
+        sheetData.tables.splice(tableIndex, 1);
+    }
 
     const { left, right, top, bottom } = table.range.zone;
     for (let row = top; row <= bottom; row++) {

@@ -12,6 +12,8 @@ from odoo.tests import tagged, Form
 @tagged('post_install', '-at_install')
 class TestLandedCosts(TestStockLandedCostsCommon):
 
+    _test_user_groups = None  # FIXME list needed groups
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -25,14 +27,14 @@ class TestLandedCosts(TestStockLandedCostsCommon):
         cls.Move.create({
             'product_id': cls.product_refrigerator.id,
             'product_uom_qty': 5,
-            'product_uom': cls.product_refrigerator.uom_id.id,
+            'uom_id': cls.product_refrigerator.uom_id.id,
             'picking_id': cls.picking_in.id,
             'location_id': cls.supplier_location_id,
             'location_dest_id': cls.warehouse.lot_stock_id.id})
         cls.Move.create({
             'product_id': cls.product_oven.id,
             'product_uom_qty': 10,
-            'product_uom': cls.product_oven.uom_id.id,
+            'uom_id': cls.product_oven.uom_id.id,
             'picking_id': cls.picking_in.id,
             'location_id': cls.supplier_location_id,
             'location_dest_id': cls.warehouse.lot_stock_id.id})
@@ -46,7 +48,7 @@ class TestLandedCosts(TestStockLandedCostsCommon):
         cls.Move.create({
             'product_id': cls.product_refrigerator.id,
             'product_uom_qty': 2,
-            'product_uom': cls.product_refrigerator.uom_id.id,
+            'uom_id': cls.product_refrigerator.uom_id.id,
             'picking_id': cls.picking_out.id,
             'location_id': cls.warehouse.lot_stock_id.id,
             'location_dest_id': cls.customer_location_id})
@@ -100,18 +102,18 @@ class TestLandedCosts(TestStockLandedCostsCommon):
         self.assertRecordValues(stock_landed_cost.account_move_id.line_ids, [
             {'name': 'equal split - Refrigerator', 'balance': 5},
             {'name': 'equal split - Refrigerator', 'balance': -5},
-            {'name': 'split by quantity - Refrigerator', 'balance': 50},
-            {'name': 'split by quantity - Refrigerator', 'balance': -50},
-            {'name': 'split by weight - Refrigerator', 'balance': 50},
-            {'name': 'split by weight - Refrigerator', 'balance': -50},
-            {'name': 'split by volume - Refrigerator', 'balance': 5},
-            {'name': 'split by volume - Refrigerator', 'balance': -5},
             {'name': 'equal split - Microwave Oven', 'balance': 5},
             {'name': 'equal split - Microwave Oven', 'balance': -5},
+            {'name': 'split by quantity - Refrigerator', 'balance': 50},
+            {'name': 'split by quantity - Refrigerator', 'balance': -50},
             {'name': 'split by quantity - Microwave Oven', 'balance': 100},
             {'name': 'split by quantity - Microwave Oven', 'balance': -100},
+            {'name': 'split by weight - Refrigerator', 'balance': 50},
+            {'name': 'split by weight - Refrigerator', 'balance': -50},
             {'name': 'split by weight - Microwave Oven', 'balance': 200},
             {'name': 'split by weight - Microwave Oven', 'balance': -200},
+            {'name': 'split by volume - Refrigerator', 'balance': 5},
+            {'name': 'split by volume - Refrigerator', 'balance': -5},
             {'name': 'split by volume - Microwave Oven', 'balance': 15},
             {'name': 'split by volume - Microwave Oven', 'balance': -15},
         ])
@@ -343,6 +345,7 @@ class TestLandedCosts(TestStockLandedCostsCommon):
 
 @tagged('post_install', '-at_install')
 class TestLandedCostsWithPurchaseAndInv(TestStockValuationLCCommon):
+    _test_user_groups = None  # FIXME list needed groups
 
     def test_lc_with_avco_ordered_qty_backorder(self):
         """ Make sure the landed cost added in invoices are taken into account to compute product
@@ -396,7 +399,6 @@ class TestLandedCostsWithPurchaseAndInv(TestStockValuationLCCommon):
         bill.action_post()
         action = bill.button_create_landed_costs()
         lc_form = Form(self.env[action['res_model']].browse(action['res_id']))
-        lc_form.picking_ids.add(receipt)
         lc = lc_form.save()
         lc.button_validate()
         self.assertEqual(self.product1.standard_price, 2)
@@ -453,7 +455,6 @@ class TestLandedCostsWithPurchaseAndInv(TestStockValuationLCCommon):
         bill.action_post()
         action = bill.button_create_landed_costs()
         lc_form = Form(self.env[action['res_model']].browse(action['res_id']))
-        lc_form.picking_ids.add(receipt)
         lc = lc_form.save()
         lc.button_validate()
         self.assertEqual(product.standard_price, 2.35)
@@ -513,7 +514,6 @@ class TestLandedCostsWithPurchaseAndInv(TestStockValuationLCCommon):
 
         action = bill.button_create_landed_costs()
         lc_form = Form(self.env[action['res_model']].browse(action['res_id']))
-        lc_form.picking_ids.add(receipt)
         lc = lc_form.save()
         lc.button_validate()
 
@@ -614,7 +614,7 @@ class TestLandedCostsWithPurchaseAndInv(TestStockValuationLCCommon):
                     'name': self.product1.name,
                     'product_id': self.product1.id,
                     'product_qty': 190.0,
-                    'product_uom_id': self.product1.uom_id.id,
+                    'uom_id': self.product1.uom_id.id,
                     'price_unit': 110.0,
                 })
             ],
@@ -692,8 +692,9 @@ class TestLandedCostsWithPurchaseAndInv(TestStockValuationLCCommon):
         self.assertAlmostEqual(self.product1.total_value, 20995)
 
     def test_landed_cost_partial_cogs(self):
-        """ Check that when billing a landed cost product and then creating the associate
-        landed cost, the default accounts are correct
+        """ Check that when billing a landed cost product in a foreign currency and then
+        creating the associate landed cost, the default accounts are correct and the amounts
+        are converted with the rate set on the bill rather than the rate of the day
         """
         self.landed_cost.landed_cost_ok = True
         self.landed_cost.categ_id.property_cost_method = 'average'
@@ -702,16 +703,18 @@ class TestLandedCostsWithPurchaseAndInv(TestStockValuationLCCommon):
         self.product_a.is_storable = True
         lc_stock_valuation_account = self.landed_cost.categ_id.property_stock_valuation_account_id
         lc_expense_account = self.landed_cost.categ_id.property_account_expense_categ_id
+        # The rate of the day differs from the one that will be set on the bill
+        foreign_currency = self.setup_other_currency('EUR', rates=[('1900-01-01', 0.25)])
 
         po = self.env['purchase.order'].create({
             'partner_id': self.partner_a.id,
-            'currency_id': self.company_data['currency'].id,
+            'currency_id': foreign_currency.id,
             'order_line': [
                 Command.create({
                     'name': self.product_a.name,
                     'product_id': self.product_a.id,
                     'product_qty': 10.0,
-                    'product_uom_id': self.product_a.uom_id.id,
+                    'uom_id': self.product_a.uom_id.id,
                     'price_unit': 100.0,
                     'tax_ids': False,
                 }),

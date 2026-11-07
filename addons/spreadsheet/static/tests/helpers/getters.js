@@ -86,7 +86,7 @@ export function getCells(model, sheetId = model.getters.getActiveSheetId()) {
  */
 export function getCellFormula(model, xc, sheetId = model.getters.getActiveSheetId()) {
     const cell = getCell(model, xc, sheetId);
-    return cell && cell.isFormula ? cell.content : "";
+    return cell && cell.isFormula ? cell.compiledFormula.toFormulaString(model.getters) : "";
 }
 
 /**
@@ -99,7 +99,7 @@ export function getCellContent(model, xc, sheetId = model.getters.getActiveSheet
 
 export function getCorrespondingCellFormula(model, xc, sheetId = model.getters.getActiveSheetId()) {
     const cell = model.getters.getCorrespondingFormulaCell({ sheetId, ...toCartesian(xc) });
-    return cell && cell.isFormula ? cell.content : "";
+    return cell && cell.isFormula ? cell.compiledFormula.toFormulaString(model.getters) : "";
 }
 
 /**

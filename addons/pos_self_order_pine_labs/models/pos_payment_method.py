@@ -1,7 +1,6 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, models
-from odoo.fields import Domain
+from odoo import models
 from odoo.tools.misc import hmac
 
 
@@ -9,7 +8,8 @@ class PosPaymentMethod(models.Model):
     _inherit = 'pos.payment.method'
 
     def _payment_request_from_kiosk(self, order):
-        if self.use_payment_terminal != 'pine_labs':
+        self.ensure_one()
+        if self.payment_provider != 'pine_labs':
             return super()._payment_request_from_kiosk(order)
         # We need to provide the amount in paisa since Pine Labs processes amounts in paisa.
         # The conversion rate between INR and paisa is set as 1 INR = 100 paisa.
@@ -38,10 +38,3 @@ class PosPaymentMethod(models.Model):
         this signature back to prove the Plutus reference was issued for the order being validated.
         """
         return hmac(self.env(su=True), 'pos_self_order_pine_labs', f'{plutus_transaction_ref}/{transaction_number}')
-
-    @api.model
-    def _load_pos_self_data_domain(self, data, config):
-        domain = super()._load_pos_self_data_domain(data, config)
-        if data['pos.config'][0]['self_ordering_mode'] == 'kiosk':
-            domain = Domain.OR([[('use_payment_terminal', '=', 'pine_labs'), ('id', 'in', config.payment_method_ids.ids)], domain])
-        return domain

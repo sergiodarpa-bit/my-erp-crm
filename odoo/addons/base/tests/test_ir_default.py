@@ -1,9 +1,10 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo.exceptions import AccessError, ValidationError
-from odoo.tests.common import TransactionCase
+from odoo.tests.common import TransactionCase, tagged
 
 
+@tagged('at_install', '-post_install')  # LEGACY at_install
 class TestIrDefault(TransactionCase):
 
     def test_defaults(self):
@@ -160,7 +161,7 @@ class TestIrDefault(TransactionCase):
         IrDefault.with_user(user).create({'field_id': field_id, 'json_value': '"test"', 'user_id': user.id}).unlink()
 
         # the user cannot add a default if they cannot create records
-        access = self.env['ir.model.access'].search([('perm_create', '=', True), ('model_id.model', '=', 'res.partner')])
+        access = self.env['ir.access'].search([('for_create', '=', True), ('model_id.model', '=', 'res.partner')])
         access.active = False
         with self.assertRaises(AccessError):
             IrDefault.with_user(user).create({'field_id': field_id, 'json_value': '"test"', 'user_id': user.id})

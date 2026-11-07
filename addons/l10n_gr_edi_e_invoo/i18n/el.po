@@ -4,12 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0+e\n"
+"Project-Id-Version: Odoo Server 19.5a1+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-24 18:09+0000\n"
-"PO-Revision-Date: 2026-10-24 18:09+0000\n"
+"POT-Creation-Date: 2026-09-18 18:19+0000\n"
+"PO-Revision-Date: 2026-09-11 18:12+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -66,13 +67,8 @@ msgid "Account EDI proxy user"
 msgstr ""
 
 #. module: l10n_gr_edi_e_invoo
-#: model:ir.model,name:l10n_gr_edi_e_invoo.model_account_move_send
-msgid "Account Move Send"
-msgstr ""
-
-#. module: l10n_gr_edi_e_invoo
 #: model:ir.model,name:l10n_gr_edi_e_invoo.model_res_company
-msgid "Companies"
+msgid "Company"
 msgstr ""
 
 #. module: l10n_gr_edi_e_invoo
@@ -104,6 +100,11 @@ msgstr ""
 #. odoo-python
 #: code:addons/l10n_gr_edi_e_invoo/models/account_edi_proxy_user.py:0
 msgid "Go to company"
+msgstr ""
+
+#. module: l10n_gr_edi_e_invoo
+#: model:ir.module.module,shortdesc:base.module_l10n_gr_edi_e_invoo
+msgid "Greece - myDATA E-invoicing through e-invoo"
 msgstr ""
 
 #. module: l10n_gr_edi_e_invoo
@@ -185,6 +186,11 @@ msgid "Sent"
 msgstr ""
 
 #. module: l10n_gr_edi_e_invoo
+#: model:ir.model,name:l10n_gr_edi_e_invoo.model_account_move_send
+msgid "Shared Send Invoice Wizard Functions"
+msgstr ""
+
+#. module: l10n_gr_edi_e_invoo
 #. odoo-python
 #: code:addons/l10n_gr_edi_e_invoo/models/account_move.py:0
 msgid ""
@@ -220,8 +226,8 @@ msgstr ""
 #. odoo-python
 #: code:addons/l10n_gr_edi_e_invoo/models/account_move.py:0
 msgid ""
-"The invoice was not issued because of a transmission failure (%s). Retry the"
-" submission."
+"The invoice was not issued because of a transmission failure (%s). Retry the "
+"submission."
 msgstr ""
 
 #. module: l10n_gr_edi_e_invoo

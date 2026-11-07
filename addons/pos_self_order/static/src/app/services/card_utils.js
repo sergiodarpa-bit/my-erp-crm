@@ -1,6 +1,5 @@
 import { PosOrderline } from "@point_of_sale/app/models/pos_order_line";
 import { STORE_SYMBOL } from "@point_of_sale/app/models/related_models/utils";
-import { computeComboItems } from "@point_of_sale/app/models/utils/compute_combo_items";
 
 export function computeTotalComboPrice(selfOrder, productTemplate, comboValues, qty) {
     if (!comboValues || !comboValues.length) {
@@ -35,7 +34,14 @@ export function computeTotalComboPrice(selfOrder, productTemplate, comboValues, 
 }
 
 export function getProductVariantByAttributes(models, productTemplate, selectedAttributes) {
-    return productTemplate.getVariantForCombination(getAttributeValues(selectedAttributes, models));
+    return models["product.product"].find(
+        (prd) =>
+            prd.product_tmpl_id.id === productTemplate.id &&
+            prd.product_template_variant_value_ids.length &&
+            prd.product_template_variant_value_ids.every((ptav) =>
+                Object.values(selectedAttributes).some((value) => ptav.id == value)
+            )
+    );
 }
 
 export function getAttributeValues(selectedValues, models) {
@@ -86,8 +92,11 @@ export function getOrderLineValues(
     };
 
     if (Object.entries(selectedValues).length > 0) {
-        const attributeValues = getAttributeValues(selectedValues, models);
-        const productVariant = productTemplate.getVariantForCombination(attributeValues);
+        const productVariant = getProductVariantByAttributes(
+            models,
+            productTemplate,
+            selectedValues
+        );
 
         if (productVariant) {
             const productVariantPrice = selfOrder.getProductPriceInfo(
@@ -102,7 +111,7 @@ export function getOrderLineValues(
             });
         }
 
-        values.attribute_value_ids = attributeValues;
+        values.attribute_value_ids = getAttributeValues(selectedValues, models);
         values.price_extra += getAttributeValuesExtraPrice(values.attribute_value_ids);
 
         if (Object.values(customValues).length > 0) {
@@ -148,16 +157,7 @@ export function getOrderLineValues(
             }
         }
 
-        const comboPrices = computeComboItems(
-            product,
-            freeItems,
-            order.pricelist_id,
-            models["decimal.precision"].getAll(),
-            models["product.template.attribute.value"].getAllBy("id"),
-            extraItems,
-            selfOrder.currency
-        );
-
+        const comboPrices = product.getComboPrice(freeItems, extraItems, order.pricelist_id);
         values.price_unit = 0;
         values.combo_id = product.combo_id;
         values.combo_line_ids = comboPrices.map((comboItem) => [
