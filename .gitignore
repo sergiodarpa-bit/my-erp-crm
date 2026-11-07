@@ -51,3 +51,8 @@ package.json
 /man/
 /share/
 /src/
+
+# my-erp-crm
+!.env.example
+!.dockerignore
+.env

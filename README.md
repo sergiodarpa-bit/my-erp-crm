@@ -1,37 +1,99 @@
-# Odoo
+# my-erp-crm
 
-[![Build Status](https://runbot.odoo.com/runbot/badge/flat/1/master.svg)](https://runbot.odoo.com/runbot)
-[![Tech Doc](https://img.shields.io/badge/master-docs-875A7B.svg?style=flat&colorA=8F8F8F)](https://www.odoo.com/documentation/master)
-[![Help](https://img.shields.io/badge/master-help-875A7B.svg?style=flat&colorA=8F8F8F)](https://www.odoo.com/forum/help-1)
-[![Nightly Builds](https://img.shields.io/badge/master-nightly-875A7B.svg?style=flat&colorA=8F8F8F)](https://nightly.odoo.com/)
+![my-erp-crm](addons/my_erp_crm_brand/static/img/logo.svg)
 
-Odoo is a suite of web based open source business apps.
+**my-erp-crm** è un gestionale ERP e CRM open source: contatti, opportunità commerciali,
+preventivi e ordini, calendario, email e, quando servono, contabilità, magazzino,
+progetti e tutte le altre applicazioni incluse.
 
-The main Odoo Apps include an [Open Source CRM](https://www.odoo.com/page/crm),
-[Website Builder](https://www.odoo.com/app/website),
-[eCommerce](https://www.odoo.com/app/ecommerce),
-[Warehouse Management](https://www.odoo.com/app/inventory),
-[Project Management](https://www.odoo.com/app/project),
-[Billing &amp; Accounting](https://www.odoo.com/app/accounting),
-[Point of Sale](https://www.odoo.com/app/point-of-sale-shop),
-[Human Resources](https://www.odoo.com/app/employees),
-[Marketing](https://www.odoo.com/app/social-marketing),
-[Manufacturing](https://www.odoo.com/app/manufacturing),
-[...](https://www.odoo.com/)
+- **Gratuito** e con **codice sorgente pubblico**
+- Licenza **GNU LGPL v3** (vedi [LICENSE](LICENSE))
+- Basato su **Odoo Community Edition 19.0** (vedi [NOTICE.md](NOTICE.md))
+- Interfaccia in italiano
 
-Odoo Apps can be used as stand-alone applications, but they also integrate seamlessly so you get
-a full-featured [Open Source ERP](https://www.odoo.com) when you install several Apps.
+| Accesso | CRM |
+|---|---|
+| ![Pagina di accesso](addons/my_erp_crm_brand/static/description/screenshot_login.png) | ![Flusso CRM](addons/my_erp_crm_brand/static/description/screenshot_crm.png) |
 
-## Getting started with Odoo
+## Avvio rapido con Docker
 
-For a standard installation please follow the [Setup instructions](https://www.odoo.com/documentation/master/administration/install/install.html)
-from the documentation.
+Serve un computer o server con Docker e il plugin Compose.
 
-To learn the software, we recommend the [Odoo eLearning](https://www.odoo.com/slides),
-or [Scale-up, the business game](https://www.odoo.com/page/scale-up-business-game).
-Developers can start with [the developer tutorials](https://www.odoo.com/documentation/master/developer/howtos.html).
+```bash
+git clone https://github.com/sergiodarpa-bit/my-erp-crm.git
+```
 
-## Security
+```bash
+cd my-erp-crm
+```
 
-If you believe you have found a security issue, check our [Responsible Disclosure page](https://www.odoo.com/security-report)
-for details and get in touch with us via email.
+```bash
+cp .env.example .env
+```
+
+Apri `.env` e cambia `POSTGRES_PASSWORD`. Apri `deploy/my-erp-crm.conf` e cambia `admin_passwd`.
+
+```bash
+./scripts/init.sh
+```
+
+Il primo avvio costruisce l'immagine (qualche minuto), crea il database `my-erp-crm` in
+italiano e installa CRM, Vendite, Contatti e Calendario. Poi apri http://localhost:8069,
+entra con `admin` / `admin` e **cambia subito la password**.
+
+Per scegliere altre applicazioni al primo avvio:
+
+```bash
+APPS=crm,sale_management,contacts,calendar,account,stock ./scripts/init.sh
+```
+
+Avvii successivi:
+
+```bash
+docker compose up -d
+```
+
+## Avvio senza Docker (sviluppo)
+
+Servono Python 3.10–3.13 e PostgreSQL.
+
+```bash
+python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+```
+
+```bash
+.venv/bin/python my-erp-crm --addons-path=addons -d my-erp-crm -i crm --load-language=it_IT
+```
+
+## Cosa abbiamo cambiato rispetto a Odoo Community
+
+| Dove | Cosa |
+|---|---|
+| `addons/my_erp_crm_brand` | Nome, colori e logo nell'interfaccia; pagina di accesso; menu utente senza link commerciali a odoo.com; sezione *Informazioni* con note di licenza; titoli delle finestre di errore |
+| `addons/my_erp_crm_brand_mail` | "Fornito da my-erp-crm" nelle email; assistente automatico "my-erp-crm Bot" |
+| `addons/my_erp_crm_brand_portal` | Collegamento "Fornito da" nel portale clienti |
+| `addons/web/static/img` | Logo, icone e favicon sostituiti con quelli di my-erp-crm |
+| `odoo/release.py` | Nome del prodotto |
+| `my-erp-crm` | Comando di avvio (equivalente a `odoo-bin`) |
+| `Dockerfile`, `docker-compose.yml`, `deploy/`, `scripts/` | Installazione |
+
+I moduli del marchio si installano da soli in ogni nuovo database. Il resto del codice è
+quello originale, così da poter ricevere le correzioni di sicurezza.
+
+## Aggiornamenti di sicurezza dal progetto originale
+
+Il file `UPSTREAM_COMMIT` indica la versione di Odoo Community da cui partiamo. Per portare
+dentro le correzioni pubblicate in seguito sul ramo 19.0:
+
+```bash
+./scripts/aggiorna-da-odoo.sh
+```
+
+Lo script scarica le differenze, le applica e crea un commit. Se una modifica tocca un file
+che abbiamo cambiato anche noi, si ferma e segnala il conflitto da risolvere a mano.
+
+## Marchi
+
+"Odoo" è un marchio registrato di Odoo S.A. my-erp-crm non è affiliato a Odoo S.A. né da
+essa approvato; il nome compare solo per indicare la provenienza del codice, come richiesto
+dalla licenza.

@@ -1,0 +1,39 @@
+name: my-erp-crm
+
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: ${POSTGRES_USER:-myerp}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?imposta POSTGRES_PASSWORD nel file .env}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-myerp}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build: .
+    image: my-erp-crm:19.0
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      # Letti direttamente dal driver PostgreSQL.
+      PGHOST: db
+      PGUSER: ${POSTGRES_USER:-myerp}
+      PGPASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "${HTTP_PORT:-8069}:8069"
+    volumes:
+      - app-data:/var/lib/my-erp-crm
+      - ./deploy/my-erp-crm.conf:/etc/my-erp-crm/my-erp-crm.conf:ro
+
+volumes:
+  db-data:
+  app-data:
