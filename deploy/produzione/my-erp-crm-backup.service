@@ -1,0 +1,9 @@
+[Unit]
+Description=my-erp-crm: backup operativo (database e allegati)
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/my-erp-crm
+ExecStart=/opt/my-erp-crm/backup.sh
