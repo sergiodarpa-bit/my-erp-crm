@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Il documento per il cliente non mostra i codici interni dei prodotti
+         (es. "[CONSULTING]"): l'etichetta della riga si calcola senza codice.
+         Nell'interfaccia il codice resta visibile. Solo attributi, priority 1:
+         i moduli che personalizzano la fattura lavorano sopra. -->
+    <template id="report_invoice_document" inherit_id="account.report_invoice_document" priority="1">
+        <xpath expr="//td[@name='account_invoice_line_name']/span[@t-field='line.label']" position="attributes">
+            <attribute name="t-field"></attribute>
+            <attribute name="t-if">line.with_context(display_default_code=False).label</attribute>
+            <attribute name="t-out">line.with_context(display_default_code=False).label</attribute>
+        </xpath>
+    </template>
+
+</odoo>

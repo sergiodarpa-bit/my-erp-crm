@@ -116,3 +116,14 @@ class TestVatRules(TransactionCase):
         self.assertEqual(invoice.fiscal_position_id, self.fp_rc)
         invoice.action_post()
         self.assertIn("indicata valida a mano", invoice.vat_treatment_proof)
+
+    def test_printed_invoice_hides_internal_code(self):
+        self.product.default_code = "CODICE-INTERNO"
+        partner = self.env["res.partner"].create({"name": "Cliente UK", "country_id": self.env.ref("base.uk").id})
+        invoice = self._invoice(partner)
+        invoice.invoice_line_ids.name = "Oggetto del contratto"
+        self.assertIn("[CODICE-INTERNO]", invoice.invoice_line_ids.label)  # nell'interfaccia resta
+        html = self.env["ir.actions.report"]._render_qweb_html("account.report_invoice", invoice.ids)[0].decode()
+        self.assertNotIn("CODICE-INTERNO", html)
+        self.assertIn("Servizio", html)
+        self.assertIn("Oggetto del contratto", html)

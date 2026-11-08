@@ -208,15 +208,22 @@ elif phase == "finanza":
 
     # 6. Prodotti di partenza (prezzi da completare nel listino in euro).
     Product = env["product.template"]
-    for default_code, name, tax in (("APP-SUB", "App subscription", digital),
-                                    ("BIO-CHECKUP", "Biometric check-up", general)):
+    # La consulenza e la formazione non hanno listino: il prezzo si scrive contratto per contratto.
+    italiano = env["res.lang"].search([("code", "=", "it_IT"), ("active", "=", True)], limit=1)
+    for default_code, name, name_it, tax in (
+            ("APP-SUB", "App subscription", "Abbonamento app", digital),
+            ("BIO-CHECKUP", "Biometric check-up", "Check-up biometrico", general),
+            ("CONSULTING", "Consulting & training (custom contract)",
+             "Consulenza e formazione (contratto su misura)", general)):
         product = Product.search([("default_code", "=", default_code)], limit=1)
         if product:
             product.taxes_id = tax
         else:
-            Product.create({"name": name, "default_code": default_code, "type": "service",
-                            "sale_ok": True, "purchase_ok": False, "list_price": 0.0,
-                            "taxes_id": [(6, 0, tax.ids)]})
+            product = Product.create({"name": name, "default_code": default_code, "type": "service",
+                                      "sale_ok": True, "purchase_ok": False, "list_price": 0.0,
+                                      "taxes_id": [(6, 0, tax.ids)]})
+            if italiano:
+                product.update_field_translations("name", {"it_IT": name_it})
     print("IVA: società non registrata VAT; imprese UE reverse charge (VIES), imprese svizzere Bezugsteuer, "
           f"resto del mondo fuori campo; servizi digitali a privati UE: {'OSS attivo' if oss_registered else 'BLOCCATI finché manca la registrazione OSS'}")
 

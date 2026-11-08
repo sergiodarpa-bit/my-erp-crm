@@ -39,20 +39,24 @@ BIN="/opt/my-erp-crm/my-erp-crm"
 CONF="--config=/etc/my-erp-crm/my-erp-crm.conf"
 APP="$BIN $CONF"
 
-# Le immagini dal registro si scaricano; un'immagine costruita qui (IMAGE senza "/") no.
-$COMPOSE pull --quiet db caddy
+# Database e Caddy: se Docker Hub rifiuta (limite di richieste anonime) si usano le
+# immagini già presenti; se mancano, "up" più sotto si ferma con l'errore.
+# L'applicazione invece è ciò che si aggiorna: se non si scarica, ci si ferma qui.
+# Un'immagine costruita qui (IMAGE senza "/") non si scarica.
+$COMPOSE pull --quiet db caddy || echo "Avviso: Docker Hub non risponde, uso le immagini di database e Caddy già presenti"
 if [[ "${IMAGE:-ghcr.io/}" == */* ]]; then $COMPOSE pull --quiet app; fi
 $COMPOSE up -d db
-
-db_exists() {
-  $COMPOSE exec -T db psql -U "${POSTGRES_USER:-myerp}" -d postgres -tAc \
-    "SELECT 1 FROM pg_database WHERE datname = 'my-erp-crm'" | grep -q 1
-}
 
 for i in $(seq 1 30); do
   $COMPOSE exec -T db pg_isready -U "${POSTGRES_USER:-myerp}" >/dev/null 2>&1 && break
   sleep 2
 done
+
+# Il database c'è già? La domanda sta fuori da ogni "if" e senza pipe: se psql
+# fallisce, set -e ferma tutto invece di far credere assente un database che c'è
+# (e rifare la prima installazione sopra i dati).
+DB_PRESENTE=$($COMPOSE exec -T db psql -U "${POSTGRES_USER:-myerp}" -d postgres -tAc \
+  "SELECT 1 FROM pg_database WHERE datname = 'my-erp-crm'")
 
 ENVVARS=(-e SETUP_PHASE -e ADMIN_PASSWORD -e ADMIN_LANG -e PUBLIC_CURRENCY
          -e COMPANY_NAME -e COMPANY_COUNTRY -e COMPANY_VAT -e COMPANY_REGISTRY -e COMPANY_STREET
@@ -61,7 +65,7 @@ ENVVARS=(-e SETUP_PHASE -e ADMIN_PASSWORD -e ADMIN_LANG -e PUBLIC_CURRENCY
          -e COMPANY_STREET2 -e COMPANY_IBAN -e COMPANY_BANK_NAME -e COMPANY_BIC -e COMPANY_REPORT_FOOTER
          -e INVOICE_JOURNAL_CODE)
 
-if db_exists; then
+if [ "$DB_PRESENTE" = "1" ]; then
   echo "== Backup del database"
   mkdir -p backups
   $COMPOSE exec -T db pg_dump -U "${POSTGRES_USER:-myerp}" -Fc my-erp-crm > "backups/my-erp-crm-$(date +%Y%m%d-%H%M%S).dump"
@@ -78,5 +82,5 @@ else
   SETUP_PHASE=finanza $RUN "${ENVVARS[@]}" app $BIN shell $CONF --no-http < configura_azienda.py
 fi
 
-$COMPOSE up -d --remove-orphans
+$COMPOSE up -d --no-deps db app caddy
 echo "== Pronto: https://${DOMAIN}"

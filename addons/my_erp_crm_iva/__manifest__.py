@@ -11,9 +11,10 @@ Regole IVA rese automatiche in contabilità:
   aziende con sede fuori dall'UE; senza verifica il cliente è trattato come privato;
 - vendite OSS a privati UE solo con due prove di localizzazione;
 - nessuna fattura cliente senza paese del cliente o con righe senza imposta;
-- ogni fattura conserva le prove del proprio trattamento IVA.
+- ogni fattura conserva le prove del proprio trattamento IVA;
+- la fattura stampata non mostra i codici interni dei prodotti.
 """,
-    "version": "1.0",
+    "version": "1.1",
     "category": "Accounting",
     "author": "my-erp-crm",
     "website": "https://github.com/sergiodarpa-bit/my-erp-crm",
@@ -23,6 +24,7 @@ Regole IVA rese automatiche in contabilità:
         "views/res_partner_views.xml",
         "views/account_fiscal_position_views.xml",
         "views/account_move_views.xml",
+        "views/report_invoice.xml",
     ],
     "installable": True,
 }
