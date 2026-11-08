@@ -35,6 +35,8 @@ services:
     volumes:
       - app-data:/var/lib/my-erp-crm
       - ./my-erp-crm.conf:/etc/my-erp-crm/my-erp-crm.conf:ro
+      # Moduli aggiuntivi (anche privati), scaricati da moduli-privati.sh; vuota = nessuno.
+      - ${EXTRA_ADDONS:-./addons-extra}:/mnt/extra-addons:ro
 
   caddy:
     image: caddy:2

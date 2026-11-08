@@ -1,5 +1,5 @@
 [options]
-addons_path = /opt/my-erp-crm/addons
+addons_path = /opt/my-erp-crm/addons,/mnt/extra-addons
 data_dir = /var/lib/my-erp-crm
 db_name = my-erp-crm
 dbfilter = ^my-erp-crm$

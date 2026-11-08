@@ -30,7 +30,11 @@ load_env .env
 # La cartella è riservata (750) e .env leggibile solo dal proprietario; il file di
 # configurazione deve restare leggibile dall'utente senza privilegi del container.
 chmod 750 . && chmod 600 .env
-sed "s|__MASTER_PASSWORD__|${MASTER_PASSWORD}|" my-erp-crm.conf.template > my-erp-crm.conf
+# Sostituzione della shell: la password non passa per la riga di comando (regola 6).
+MODELLO="$(< my-erp-crm.conf.template)"
+printf '%s\n' "${MODELLO//__MASTER_PASSWORD__/$MASTER_PASSWORD}" > my-erp-crm.conf
+unset MODELLO
+mkdir -p addons-extra
 chmod 644 my-erp-crm.conf
 
 COMPOSE="docker compose"

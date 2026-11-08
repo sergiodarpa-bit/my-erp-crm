@@ -298,6 +298,12 @@ elif phase == "finanza":
         righe = [r.strip() for r in setting("COMPANY_REPORT_FOOTER").split("|") if r.strip()]
         company.report_footer = "".join(f"<p>{r}</p>" for r in righe)
 
+    # --- Gestionale chiuso: niente registrazione libera, niente tour guidato -----------------
+    env["ir.config_parameter"].sudo().set_str("auth_signup.invitation_scope", "b2b")
+    interni = env["res.users"].search([("share", "=", False)])
+    if "tour_enabled" in interni._fields:
+        interni.write({"tour_enabled": False})
+
     # --- Cambi BCE subito, così una fattura in valuta estera non nasce col cambio 1 --------
     if hasattr(env["res.company"], "_cron_update_ecb_rates"):
         try:
