@@ -88,4 +88,4 @@ else
 fi
 
 $COMPOSE up -d --no-deps db app caddy
-echo "== Pronto: https://${DOMAIN}"
+echo "== Pronto: https://${DOMAIN%%,*}"
