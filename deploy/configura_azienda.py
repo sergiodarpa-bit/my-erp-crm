@@ -12,7 +12,7 @@
 # COMPANY_REGISTRY, COMPANY_STREET, COMPANY_CITY, COMPANY_ZIP, COMPANY_EMAIL,
 # COMPANY_PHONE, COMPANY_WEBSITE, PUBLIC_CURRENCY, ADMIN_LANG, ADMIN_PASSWORD, OSS_REGISTERED,
 # SELF_BILLING_FLAG_FIELD, COMPANY_IBAN, COMPANY_BANK_NAME, COMPANY_BIC, COMPANY_REPORT_FOOTER,
-# COMPANY_STREET2.
+# COMPANY_STREET2, INVOICE_JOURNAL_CODE.
 import ast
 import os
 
@@ -270,6 +270,20 @@ elif phase == "finanza":
         if banca:
             banca.bank_account_id = conto
         print(f"Conto per i bonifici: {conto.bank_name or ''} {iban[:4]}…{iban[-4:]} (registro {banca.name or '-'})")
+
+    # --- Prefisso dei numeri di fattura (es. INV/2026/00001) ------------------------------
+    # Senza INVOICE_JOURNAL_CODE il registro vendite tiene il codice della lingua
+    # d'installazione. Si cambia solo finché il registro non ha documenti confermati.
+    codice = setting("INVOICE_JOURNAL_CODE").replace(" ", "").upper()
+    if codice:
+        vendite = env["account.journal"].search([("type", "=", "sale"), ("company_id", "=", company.id)],
+                                                order="sequence, id", limit=1)
+        if vendite and vendite.code != codice:
+            if env["account.move"].search_count([("journal_id", "=", vendite.id), ("state", "=", "posted")]):
+                print(f"Registro vendite già usato: il prefisso resta {vendite.code}")
+            else:
+                vendite.code = codice
+        print(f"Prefisso delle fatture: {vendite.code}/")
 
     # --- Piè di pagina dei documenti (dati legali dell'azienda) ----------------------------
     # COMPANY_REPORT_FOOTER: righe separate da " | ".
