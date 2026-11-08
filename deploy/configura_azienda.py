@@ -11,7 +11,8 @@
 # Variabili d'ambiente (vedi .env.example): COMPANY_NAME, COMPANY_COUNTRY, COMPANY_VAT,
 # COMPANY_REGISTRY, COMPANY_STREET, COMPANY_CITY, COMPANY_ZIP, COMPANY_EMAIL,
 # COMPANY_PHONE, COMPANY_WEBSITE, PUBLIC_CURRENCY, ADMIN_LANG, ADMIN_PASSWORD, OSS_REGISTERED,
-# SELF_BILLING_FLAG_FIELD.
+# SELF_BILLING_FLAG_FIELD, COMPANY_IBAN, COMPANY_BANK_NAME, COMPANY_BIC, COMPANY_REPORT_FOOTER,
+# COMPANY_STREET2.
 import ast
 import os
 
@@ -31,10 +32,12 @@ if phase == "azienda":
     values = {"country_id": country.id}
     for field, var in (
         ("name", "COMPANY_NAME"), ("vat", "COMPANY_VAT"), ("company_registry", "COMPANY_REGISTRY"),
-        ("street", "COMPANY_STREET"), ("city", "COMPANY_CITY"), ("zip", "COMPANY_ZIP"),
-        ("email", "COMPANY_EMAIL"), ("phone", "COMPANY_PHONE"), ("website", "COMPANY_WEBSITE"),
+        ("street", "COMPANY_STREET"), ("street2", "COMPANY_STREET2"), ("city", "COMPANY_CITY"),
+        ("zip", "COMPANY_ZIP"), ("email", "COMPANY_EMAIL"), ("phone", "COMPANY_PHONE"),
+        ("website", "COMPANY_WEBSITE"),
     ):
-        if setting(var):
+        # Odoo 20 non ha più company_registry sull'azienda: il numero va nel piè di pagina.
+        if setting(var) and field in company._fields:
             values[field] = setting(var)
     company.write(values)
     # Inglese sempre attivo (documenti per i clienti), più la lingua dell'amministratore.
@@ -241,6 +244,46 @@ elif phase == "finanza":
             pricelist.sequence = 10
         if pricelist.name == "Default":
             pricelist.name = f"Internal prices ({pricelist.currency_id.name})"
+    # --- Conto bancario per i bonifici: compare in fattura -----------------------------------
+    iban = setting("COMPANY_IBAN").replace(" ", "").upper()
+    if iban:
+        Bank = env["res.partner.bank"]
+        conto = Bank.search([("partner_id", "=", company.partner_id.id),
+                             ("sanitized_account_number", "=", iban)], limit=1)
+        valori = {"partner_id": company.partner_id.id, "account_number": iban,
+                  "holder_name": company.name, "company_id": company.id}
+        if setting("COMPANY_BANK_NAME"):
+            valori["bank_name"] = setting("COMPANY_BANK_NAME")
+        if setting("COMPANY_BIC"):
+            valori["bank_bic"] = setting("COMPANY_BIC").replace(" ", "").upper()
+        if conto:
+            conto.write(valori)
+        else:
+            conto = Bank.create(valori)
+        # Un conto aziendale "non fidato" viene tolto dalla fattura al momento della conferma.
+        # L'IBAN arriva da .env, scritto da chi amministra il server: lo si marca come fidato
+        # a nome dell'amministratore (l'utente di sistema non può farlo, per regola del modulo).
+        if not conto.allow_out_payment:
+            conto.with_user(env.ref("base.user_admin")).write({"allow_out_payment": True})
+        banca = env["account.journal"].search([("type", "=", "bank"), ("company_id", "=", company.id)],
+                                              order="sequence, id", limit=1)
+        if banca:
+            banca.bank_account_id = conto
+        print(f"Conto per i bonifici: {conto.bank_name or ''} {iban[:4]}…{iban[-4:]} (registro {banca.name or '-'})")
+
+    # --- Piè di pagina dei documenti (dati legali dell'azienda) ----------------------------
+    # COMPANY_REPORT_FOOTER: righe separate da " | ".
+    if setting("COMPANY_REPORT_FOOTER"):
+        righe = [r.strip() for r in setting("COMPANY_REPORT_FOOTER").split("|") if r.strip()]
+        company.report_footer = "".join(f"<p>{r}</p>" for r in righe)
+
+    # --- Cambi BCE subito, così una fattura in valuta estera non nasce col cambio 1 --------
+    if hasattr(env["res.company"], "_cron_update_ecb_rates"):
+        try:
+            env["res.company"]._cron_update_ecb_rates()
+        except Exception as errore:  # noqa: BLE001 - il cron ritenta ogni giorno
+            print(f"Cambi BCE non aggiornati ora ({errore}): il cron ritenta ogni giorno")
+
     env.cr.commit()
     print(f"Listino predefinito: {public.name}; valuta contabile: {company.currency_id.name}")
 

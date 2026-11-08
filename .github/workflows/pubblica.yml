@@ -64,7 +64,7 @@ jobs:
           ssh -i ~/.ssh/id_deploy "$USER@$HOST" "mkdir -p $DIR"
           scp -i ~/.ssh/id_deploy deploy/produzione/docker-compose.yml deploy/produzione/Caddyfile \
             deploy/produzione/my-erp-crm.conf.template deploy/produzione/.env.example \
-            deploy/produzione/aggiorna.sh deploy/configura_azienda.py "$USER@$HOST:$DIR/"
+            deploy/produzione/aggiorna.sh deploy/produzione/costruisci.sh deploy/configura_azienda.py "$USER@$HOST:$DIR/"
       - name: Installa la nuova versione
         run: |
           ssh -i ~/.ssh/id_deploy "$USER@$HOST" bash -s <<EOF

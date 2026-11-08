@@ -39,7 +39,9 @@ BIN="/opt/my-erp-crm/my-erp-crm"
 CONF="--config=/etc/my-erp-crm/my-erp-crm.conf"
 APP="$BIN $CONF"
 
-$COMPOSE pull --quiet
+# Le immagini dal registro si scaricano; un'immagine costruita qui (IMAGE senza "/") no.
+$COMPOSE pull --quiet db caddy
+if [[ "${IMAGE:-ghcr.io/}" == */* ]]; then $COMPOSE pull --quiet app; fi
 $COMPOSE up -d db
 
 db_exists() {
@@ -55,7 +57,8 @@ done
 ENVVARS=(-e SETUP_PHASE -e ADMIN_PASSWORD -e ADMIN_LANG -e PUBLIC_CURRENCY
          -e COMPANY_NAME -e COMPANY_COUNTRY -e COMPANY_VAT -e COMPANY_REGISTRY -e COMPANY_STREET
          -e COMPANY_CITY -e COMPANY_ZIP -e COMPANY_EMAIL -e COMPANY_PHONE -e COMPANY_WEBSITE
-         -e OSS_REGISTERED -e SELF_BILLING_FLAG_FIELD)
+         -e OSS_REGISTERED -e SELF_BILLING_FLAG_FIELD
+         -e COMPANY_STREET2 -e COMPANY_IBAN -e COMPANY_BANK_NAME -e COMPANY_BIC -e COMPANY_REPORT_FOOTER)
 
 if db_exists; then
   echo "== Backup del database"
