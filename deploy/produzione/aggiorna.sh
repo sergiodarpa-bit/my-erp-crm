@@ -47,10 +47,15 @@ $COMPOSE pull --quiet db caddy || echo "Avviso: Docker Hub non risponde, uso le 
 if [[ "${IMAGE:-ghcr.io/}" == */* ]]; then $COMPOSE pull --quiet app; fi
 $COMPOSE up -d db
 
-for i in $(seq 1 30); do
-  $COMPOSE exec -T db pg_isready -U "${POSTGRES_USER:-myerp}" >/dev/null 2>&1 && break
+# Pronto solo quando accetta connessioni TCP: al primo avvio l'immagine di Postgres
+# accende un server temporaneo, solo sul socket locale, per inizializzarsi e poi lo
+# spegne; chiedere sul socket in quel momento dà "pronto" e subito dopo "shutting down".
+PRONTO=0
+for i in $(seq 1 60); do
+  if $COMPOSE exec -T db pg_isready -h 127.0.0.1 -U "${POSTGRES_USER:-myerp}" >/dev/null 2>&1; then PRONTO=1; break; fi
   sleep 2
 done
+if [ "$PRONTO" != 1 ]; then echo "Il database non risponde dopo 2 minuti: mi fermo." >&2; exit 1; fi
 
 # Il database c'è già? La domanda sta fuori da ogni "if" e senza pipe: se psql
 # fallisce, set -e ferma tutto invece di far credere assente un database che c'è
