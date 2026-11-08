@@ -19,6 +19,14 @@ done
 [ "${#DOMINI[@]}" -gt 0 ] || { echo "DOMAIN vuoto in .env."; exit 1; }
 PRIMO="${DOMINI[0]}"
 POSTA="$(sed -n 's/^COMPANY_EMAIL=.*@//p' .env)"
+# HTTPS_LOCALE=0: l'HTTPS lo fa il proxy FRONTE (un altro server della rete privata) e
+# l'applicazione ascolta sull'IP privato APP_BIND.
+HTTPS_LOCALE="$(sed -n 's/^HTTPS_LOCALE=//p' .env)"; HTTPS_LOCALE="${HTTPS_LOCALE:-1}"
+FRONTE="$(sed -n 's/^FRONTE=//p' .env)"
+APP_BIND="$(sed -n 's/^APP_BIND=//p' .env)"
+if [ "$HTTPS_LOCALE" = 0 ] && { [ -z "$FRONTE" ] || [ -z "$APP_BIND" ]; }; then
+  echo "Con HTTPS_LOCALE=0 servono FRONTE e APP_BIND in .env."; exit 1
+fi
 
 echo "== Servizi: $(docker compose ps --format '{{.Service}}={{.State}}' | tr '\n' ' ')"
 
@@ -61,41 +69,66 @@ echo "== Dove puntano i domini"
 TOK=$(curl -sf -m 3 -X PUT http://169.254.169.254/latest/api/token -H 'X-aws-ec2-metadata-token-ttl-seconds: 60')
 IPPUB=$(printf 'X-aws-ec2-metadata-token: %s\n' "$TOK" | curl -sf -m 3 -H @- http://169.254.169.254/latest/meta-data/public-ipv4)
 [ -n "$IPPUB" ] || IPPUB=$(curl -sf -m 5 https://checkip.amazonaws.com)
-echo "IP di questo server: ${IPPUB:-?}"
+if [ "$HTTPS_LOCALE" = 0 ]; then BERSAGLIO="$FRONTE"; echo "Ingresso HTTPS: il proxy $FRONTE (questo server, $IPPUB, non riceve dall'esterno)"
+else BERSAGLIO="$IPPUB"; echo "IP di questo server: ${IPPUB:-?}"; fi
 QUI=(); ALTROVE=()
 for d in "${DOMINI[@]}"; do
   A="$(D A "$d" | tail -1)"
-  if [ -n "$A" ] && [ "$A" = "$IPPUB" ]; then QUI+=("$d"); echo "  $d → qui"; else ALTROVE+=("$d"); echo "  $d → ${A:-nessun indirizzo}"; fi
+  if [ -n "$A" ] && [ "$A" = "$BERSAGLIO" ]; then QUI+=("$d"); echo "  $d → $A (giusto)"; else ALTROVE+=("$d"); echo "  $d → ${A:-nessun indirizzo}"; fi
 done
 
-echo "== HTTPS"
-case " ${QUI[*]} " in
-  *" $PRIMO "*)
-    docker compose up -d --no-deps caddy
-    CODICE_PRIMO=000
-    for d in "${QUI[@]}"; do
-      CODICE=000
-      for i in $(seq 1 24); do
-        CODICE=$(curl -s -o /dev/null -w '%{http_code}' -m 5 "https://$d/web/login")
-        [ "$CODICE" = 200 ] && break
-        sleep 5
-      done
-      echo "  https://$d/web/login → $CODICE"
-      [ "$d" = "$PRIMO" ] && CODICE_PRIMO="$CODICE"
+prova_https() {
+  CODICE_PRIMO=000
+  for d in "${QUI[@]}"; do
+    CODICE=000
+    for i in $(seq 1 24); do
+      CODICE=$(curl -s -o /dev/null -w '%{http_code}' -m 5 "https://$d/web/login")
+      [ "$CODICE" = 200 ] && break
+      sleep 5
     done
-    if [ "$CODICE_PRIMO" = 200 ]; then
-      echo "PRONTO: apri https://$PRIMO (utente admin; password: sudo grep ADMIN_PASSWORD $PWD/.env)"
-    else
-      echo "$PRIMO non risponde ancora 200: controlla nel gruppo di sicurezza le porte 80 e 443 aperte a 0.0.0.0/0, poi rilancia tra un minuto."
-    fi
-    ;;
-  *)
-    docker compose stop caddy >/dev/null 2>&1
-    echo "$PRIMO non punta ancora qui: Caddy resta spento."
-    ;;
-esac
+    echo "  https://$d/web/login → $CODICE"
+    [ "$d" = "$PRIMO" ] && CODICE_PRIMO="$CODICE"
+  done
+}
+
+echo "== HTTPS"
+if [ "$HTTPS_LOCALE" = 0 ]; then
+  docker compose stop caddy >/dev/null 2>&1
+  docker compose up -d --no-deps app
+  LOCALE=000
+  for i in $(seq 1 24); do
+    LOCALE=$(curl -s -o /dev/null -w '%{http_code}' -m 5 "http://$APP_BIND:8069/web/login")
+    [ "$LOCALE" = 200 ] && break
+    sleep 5
+  done
+  echo "  applicazione su http://$APP_BIND:8069 → $LOCALE (è l'indirizzo che il proxy deve raggiungere)"
+  [ "$LOCALE" = 200 ] || echo "  l'applicazione non risponde sull'IP privato: mandami queste righe."
+  prova_https
+  case " ${QUI[*]} " in
+    *" $PRIMO "*)
+      if [ "$CODICE_PRIMO" = 200 ]; then
+        echo "PRONTO: apri https://$PRIMO (utente admin; password: sudo grep ADMIN_PASSWORD $PWD/.env)"
+      else
+        echo "$PRIMO punta al proxy ma non risponde 200: manca il blocco nel Caddy del proxy, o il gruppo di sicurezza di questo server non lascia entrare il proxy sulle porte 8069 e 8072."
+      fi ;;
+  esac
+else
+  case " ${QUI[*]} " in
+    *" $PRIMO "*)
+      docker compose up -d --no-deps caddy
+      prova_https
+      if [ "$CODICE_PRIMO" = 200 ]; then
+        echo "PRONTO: apri https://$PRIMO (utente admin; password: sudo grep ADMIN_PASSWORD $PWD/.env)"
+      else
+        echo "$PRIMO non risponde ancora 200: controlla nel gruppo di sicurezza le porte 80 e 443 aperte a 0.0.0.0/0, poi rilancia tra un minuto."
+      fi ;;
+    *)
+      docker compose stop caddy >/dev/null 2>&1
+      echo "$PRIMO non punta ancora qui: Caddy resta spento." ;;
+  esac
+fi
 if [ "${#ALTROVE[@]}" -gt 0 ]; then
-  echo "In Cloudflare, per ognuno di questi: elimina il CNAME e crea un record A → ${IPPUB}, solo DNS (nuvola grigia):"
+  echo "In Cloudflare, per ognuno di questi: elimina il CNAME e crea un record A → ${BERSAGLIO}, solo DNS (nuvola grigia):"
   for d in "${ALTROVE[@]}"; do echo "  - $d"; done
   echo "Nessun MX e nessun TXT verso Odoo. Poi, dopo 2-3 minuti, rilancia la stessa riga."
 fi

@@ -27,6 +27,11 @@ services:
       PGHOST: db
       PGUSER: ${POSTGRES_USER:-myerp}
       PGPASSWORD: ${POSTGRES_PASSWORD}
+    # Con un proxy HTTPS su un altro server (HTTPS_LOCALE=0) l'applicazione ascolta
+    # sull'IP privato APP_BIND; senza, resta raggiungibile solo da questa macchina.
+    ports:
+      - "${APP_BIND:-127.0.0.1}:8069:8069"
+      - "${APP_BIND:-127.0.0.1}:8072:8072"
     volumes:
       - app-data:/var/lib/my-erp-crm
       - ./my-erp-crm.conf:/etc/my-erp-crm/my-erp-crm.conf:ro

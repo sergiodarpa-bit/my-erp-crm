@@ -43,7 +43,10 @@ APP="$BIN $CONF"
 # immagini già presenti; se mancano, "up" più sotto si ferma con l'errore.
 # L'applicazione invece è ciò che si aggiorna: se non si scarica, ci si ferma qui.
 # Un'immagine costruita qui (IMAGE senza "/") non si scarica.
-$COMPOSE pull --quiet db caddy || echo "Avviso: Docker Hub non risponde, uso le immagini di database e Caddy già presenti"
+# HTTPS_LOCALE=0: l'HTTPS lo fa un proxy su un altro server, il Caddy di qui non serve.
+if [ "${HTTPS_LOCALE:-1}" = 0 ]; then SERVIZI="db app"; else SERVIZI="db app caddy"; fi
+# shellcheck disable=SC2086
+$COMPOSE pull --quiet ${SERVIZI/app/} || echo "Avviso: Docker Hub non risponde, uso le immagini già presenti"
 if [[ "${IMAGE:-ghcr.io/}" == */* ]]; then $COMPOSE pull --quiet app; fi
 $COMPOSE up -d db
 
@@ -87,5 +90,7 @@ else
   SETUP_PHASE=finanza $RUN "${ENVVARS[@]}" app $BIN shell $CONF --no-http < configura_azienda.py
 fi
 
-$COMPOSE up -d --no-deps db app caddy
+# shellcheck disable=SC2086
+$COMPOSE up -d --no-deps $SERVIZI
+if [ "${HTTPS_LOCALE:-1}" = 0 ]; then $COMPOSE stop caddy >/dev/null 2>&1 || true; fi
 echo "== Pronto: https://${DOMAIN%%,*}"
