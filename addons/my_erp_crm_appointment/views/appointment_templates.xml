@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Elenco dei tipi di appuntamento pubblicati sul sito corrente -->
+    <template id="index" name="Prenotazioni: elenco">
+        <t t-call="website.layout">
+            <t t-set="additional_title">Prenota un appuntamento</t>
+            <div id="wrap" class="o_appointment_index">
+                <div class="container py-5">
+                    <h1 class="mb-4">Prenota un appuntamento</h1>
+                    <p t-if="not apt_types" class="text-muted">Nessun appuntamento prenotabile al momento.</p>
+                    <div class="row g-4">
+                        <div t-foreach="apt_types" t-as="apt_type" class="col-12 col-md-6 col-lg-4">
+                            <a t-att-href="apt_type.website_url" class="o_appointment_card card h-100 text-decoration-none">
+                                <div class="card-body d-flex flex-column">
+                                    <h2 class="h5 card-title mb-2" t-out="apt_type.name"/>
+                                    <div class="text-muted small mb-3">
+                                        <span t-out="apt_type.duration_minutes"/> minuti
+                                        <t t-if="apt_type.location_type == 'online'"> &#183; videochiamata</t>
+                                        <t t-elif="apt_type.location_type == 'phone'"> &#183; telefonata</t>
+                                        <t t-else=""> &#183; di persona</t>
+                                    </div>
+                                    <div t-if="apt_type.description" class="o_appointment_card_text text-body small flex-grow-1" t-out="apt_type.description"/>
+                                    <div class="mt-3 small">
+                                        <t t-if="len(apt_type.user_ids) == 1">Con <t t-out="apt_type.user_ids.name"/></t>
+                                        <t t-else="">Con <t t-out="', '.join(apt_type.user_ids.mapped('name'))"/></t>
+                                    </div>
+                                    <span class="btn btn-primary mt-3 align-self-start">Scegli un orario</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Intestazione comune: titolo, durata, dove, persona -->
+    <template id="type_header" name="Prenotazioni: intestazione del tipo">
+        <div class="o_appointment_header mb-4">
+            <a t-if="not reschedule_token" href="/appointment" class="small text-muted d-inline-block mb-2">Tutti gli appuntamenti</a>
+            <h1 class="h2 mb-2" t-out="apt_type.name"/>
+            <div class="text-muted">
+                <span t-out="apt_type.duration_minutes"/> minuti
+                <t t-if="apt_type.location_type == 'online'"> &#183; videochiamata (il link arriva con la conferma)</t>
+                <t t-elif="apt_type.location_type == 'phone'"> &#183; telefonata</t>
+                <t t-else=""> &#183; di persona<t t-if="apt_type.location">: <t t-out="apt_type.location"/></t></t>
+                <t t-if="host"> &#183; con <strong t-out="host.name"/></t>
+            </div>
+            <div t-if="apt_type.description and not hide_description" class="o_appointment_intro mt-3" t-out="apt_type.description"/>
+        </div>
+    </template>
+
+    <!-- Scelta della persona -->
+    <template id="choose_host" name="Prenotazioni: scelta della persona">
+        <t t-call="website.layout">
+            <t t-set="additional_title" t-value="apt_type.name"/>
+            <div id="wrap" class="o_appointment_page">
+                <div class="container py-5">
+                    <t t-call="my_erp_crm_appointment.type_header"/>
+                    <h2 class="h5 mb-3">Con chi vuoi parlare?</h2>
+                    <div class="row g-4">
+                        <div t-foreach="hosts" t-as="person" class="col-12 col-md-6 col-lg-4">
+                            <a t-attf-href="#{apt_type.website_url}?host=#{person.id}&amp;tz=#{visitor_tz}" class="o_appointment_card card h-100 text-decoration-none">
+                                <div class="card-body d-flex align-items-center">
+                                    <img t-attf-src="/web/image/res.users/#{person.id}/avatar_128" class="o_appointment_avatar rounded-circle me-3" t-att-alt="person.name" width="64" height="64"/>
+                                    <div>
+                                        <div class="h5 mb-1" t-out="person.name"/>
+                                        <div t-if="person.partner_id.function" class="small text-muted" t-out="person.partner_id.function"/>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="mt-4 small text-muted" t-if="apt_type.assign_method == 'choose'">
+                        Oppure <a t-attf-href="#{apt_type.website_url}?host=any&amp;tz=#{visitor_tz}">lascia scegliere a noi</a> la prima persona libera.
+                    </p>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Calendario con gli slot liberi (prenotazione e riprogrammazione) -->
+    <template id="calendar_page" name="Prenotazioni: calendario">
+        <t t-call="website.layout">
+            <t t-set="additional_title" t-value="apt_type.name"/>
+            <div id="wrap" class="o_appointment_page">
+                <div class="container py-5">
+                    <t t-call="my_erp_crm_appointment.type_header"/>
+                    <div t-if="reschedule_token" class="alert alert-info" role="status">
+                        Stai spostando la prenotazione del <strong t-out="event._appointment_display_start(tz=visitor_tz)"/>.
+                        Scegli il nuovo orario: quello attuale resta riservato finche' non confermi.
+                    </div>
+                    <div t-if="error == 'slot'" class="alert alert-warning" role="alert">
+                        L'orario scelto non e' piu' disponibile. Scegline un altro.
+                    </div>
+                    <div class="o_appointment_calendar row g-4"
+                         t-att-data-type-id="apt_type.id"
+                         t-att-data-host-id="'any' if host_any else (host.id if host else '')"
+                         t-att-data-tz="visitor_tz"
+                         t-att-data-book-url="apt_type.website_url + '/book'"
+                         t-att-data-reschedule-token="reschedule_token or ''"
+                         t-att-data-today="today">
+                        <div class="col-12 col-lg-7">
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <button type="button" class="btn btn-outline-secondary o_appointment_prev" aria-label="Mese precedente">&#8249;</button>
+                                <h2 class="h5 mb-0 o_appointment_month_title" aria-live="polite">&#160;</h2>
+                                <button type="button" class="btn btn-outline-secondary o_appointment_next" aria-label="Mese successivo">&#8250;</button>
+                            </div>
+                            <div class="o_appointment_grid" role="grid" aria-label="Giorni disponibili">
+                                <div class="o_appointment_weekdays" role="row">
+                                    <span role="columnheader">Lun</span><span role="columnheader">Mar</span><span role="columnheader">Mer</span>
+                                    <span role="columnheader">Gio</span><span role="columnheader">Ven</span><span role="columnheader">Sab</span><span role="columnheader">Dom</span>
+                                </div>
+                                <div class="o_appointment_days" role="row"/>
+                            </div>
+                            <p class="o_appointment_loading small text-muted mt-2">Carico le disponibilita'...</p>
+                            <p class="o_appointment_empty small text-muted mt-2 d-none">Nessun orario libero in questo mese: prova il mese successivo.</p>
+                        </div>
+                        <div class="col-12 col-lg-5">
+                            <label for="o_appointment_tz" class="form-label small text-muted">Fuso orario</label>
+                            <select id="o_appointment_tz" class="form-select form-select-sm mb-3 o_appointment_tz">
+                                <t t-foreach="timezones" t-as="tz_item">
+                                    <option t-att-value="tz_item[0]" t-att-selected="tz_item[0] == visitor_tz" t-out="tz_item[1]"/>
+                                </t>
+                            </select>
+                            <h3 class="h6 o_appointment_day_title mb-2">Scegli un giorno</h3>
+                            <div class="o_appointment_slots d-flex flex-wrap gap-2" role="list"/>
+                        </div>
+                        <form t-if="reschedule_token" method="post" class="o_appointment_reschedule_form d-none"
+                              t-attf-action="/appointment/view/#{reschedule_token}/reschedule">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <input type="hidden" name="start" value=""/>
+                            <input type="hidden" name="tz" t-att-value="visitor_tz"/>
+                        </form>
+                    </div>
+                    <noscript>
+                        <p class="alert alert-warning mt-4">Per vedere gli orari disponibili serve JavaScript attivo.</p>
+                    </noscript>
+                    <p t-if="reschedule_token" class="mt-4">
+                        <a t-attf-href="/appointment/view/#{reschedule_token}">Torna alla prenotazione senza modificarla</a>
+                    </p>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Modulo di prenotazione -->
+    <template id="booking_form" name="Prenotazioni: modulo">
+        <t t-call="website.layout">
+            <t t-set="additional_title" t-value="apt_type.name"/>
+            <t t-set="hide_description" t-value="True"/>
+            <div id="wrap" class="o_appointment_page">
+                <div class="container py-5">
+                    <div class="row g-5">
+                        <div class="col-12 col-lg-5">
+                            <t t-call="my_erp_crm_appointment.type_header"/>
+                            <div class="o_appointment_summary p-3 rounded">
+                                <div class="small text-muted">Orario scelto</div>
+                                <div class="h5 mb-1" t-out="start_display"/>
+                                <div class="small text-muted"><t t-out="visitor_tz"/> &#183; <t t-out="apt_type.duration_minutes"/> minuti</div>
+                                <a t-attf-href="#{apt_type.website_url}?tz=#{visitor_tz}#{'&amp;host=%s' % host_param if host_param and apt_type.assign_method == 'choose' else ''}" class="small d-inline-block mt-2">Cambia orario</a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-7">
+                            <form method="post" class="o_appointment_form" data-captcha="appointment"
+                                  t-attf-action="#{apt_type.website_url}/book?start=#{start.isoformat(timespec='seconds')}&amp;tz=#{visitor_tz}#{'&amp;host=%s' % host_param if host_param else ''}">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                <!-- Campo esca: resta vuoto per le persone, i robot lo compilano -->
+                                <div class="o_appointment_hp" aria-hidden="true">
+                                    <label for="website_hp">Lascia vuoto</label>
+                                    <input type="text" id="website_hp" name="website_hp" tabindex="-1" autocomplete="off"/>
+                                </div>
+                                <div t-if="form_errors.get('captcha')" class="alert alert-danger" role="alert" t-out="form_errors['captcha']"/>
+                                <div class="mb-3">
+                                    <label for="o_apt_name" class="form-label">Nome e cognome <span class="text-danger" aria-hidden="true">*</span></label>
+                                    <input type="text" class="form-control" id="o_apt_name" name="name" required="required" autocomplete="name"
+                                           t-att-value="form_values.get('name') or (partner and partner.name) or ''"
+                                           t-att-aria-invalid="'true' if form_errors.get('name') else None"/>
+                                    <div t-if="form_errors.get('name')" class="text-danger small mt-1" t-out="form_errors['name']"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="o_apt_email" class="form-label">Email <span class="text-danger" aria-hidden="true">*</span></label>
+                                    <input type="email" class="form-control" id="o_apt_email" name="email" required="required" autocomplete="email"
+                                           t-att-value="form_values.get('email') or (partner and partner.email) or ''"
+                                           t-att-aria-invalid="'true' if form_errors.get('email') else None"/>
+                                    <div t-if="form_errors.get('email')" class="text-danger small mt-1" t-out="form_errors['email']"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="o_apt_phone" class="form-label">Telefono <span class="text-danger" aria-hidden="true">*</span></label>
+                                    <input type="tel" class="form-control" id="o_apt_phone" name="phone" required="required" autocomplete="tel"
+                                           t-att-value="form_values.get('phone') or (partner and partner.phone) or ''"
+                                           t-att-aria-invalid="'true' if form_errors.get('phone') else None"/>
+                                    <div t-if="form_errors.get('phone')" class="text-danger small mt-1" t-out="form_errors['phone']"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="o_apt_company" class="form-label">Azienda o organizzazione</label>
+                                    <input type="text" class="form-control" id="o_apt_company" name="company_name" autocomplete="organization"
+                                           t-att-value="form_values.get('company_name') or ''"/>
+                                </div>
+                                <t t-foreach="apt_type.question_ids" t-as="question">
+                                    <t t-set="key" t-value="'question_%s' % question.id"/>
+                                    <t t-set="field_id" t-value="'o_apt_%s' % key"/>
+                                    <div class="mb-3">
+                                        <t t-if="question.question_type == 'checkbox'">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" t-att-id="field_id" t-att-name="key" value="1"
+                                                       t-att-checked="'checked' if form_values.get(key) else None"
+                                                       t-att-required="'required' if question.required else None"/>
+                                                <label class="form-check-label" t-att-for="field_id">
+                                                    <t t-out="question.name"/> <span t-if="question.required" class="text-danger" aria-hidden="true">*</span>
+                                                </label>
+                                            </div>
+                                        </t>
+                                        <t t-else="">
+                                            <label t-att-for="field_id" class="form-label">
+                                                <t t-out="question.name"/> <span t-if="question.required" class="text-danger" aria-hidden="true">*</span>
+                                            </label>
+                                            <t t-if="question.question_type == 'text'">
+                                                <textarea class="form-control" rows="4" t-att-id="field_id" t-att-name="key"
+                                                          t-att-placeholder="question.placeholder or None"
+                                                          t-att-required="'required' if question.required else None"><t t-out="form_values.get(key) or ''"/></textarea>
+                                            </t>
+                                            <t t-elif="question.question_type == 'select'">
+                                                <select class="form-select" t-att-id="field_id" t-att-name="key"
+                                                        t-att-required="'required' if question.required else None">
+                                                    <option value="">Scegli...</option>
+                                                    <t t-foreach="question._get_options()" t-as="option">
+                                                        <option t-att-value="option" t-att-selected="'selected' if form_values.get(key) == option else None" t-out="option"/>
+                                                    </t>
+                                                </select>
+                                            </t>
+                                            <t t-else="">
+                                                <input type="text" class="form-control" t-att-id="field_id" t-att-name="key"
+                                                       t-att-placeholder="question.placeholder or None"
+                                                       t-att-value="form_values.get(key) or ''"
+                                                       t-att-required="'required' if question.required else None"/>
+                                            </t>
+                                        </t>
+                                        <div t-if="form_errors.get(key)" class="text-danger small mt-1" t-out="form_errors[key]"/>
+                                    </div>
+                                </t>
+                                <div t-if="apt_type.allow_guests" class="mb-3">
+                                    <label for="o_apt_guests" class="form-label">Ospiti (email separate da virgola)</label>
+                                    <input type="text" class="form-control" id="o_apt_guests" name="guests" t-att-value="form_values.get('guests') or ''"/>
+                                    <div t-if="form_errors.get('guests')" class="text-danger small mt-1" t-out="form_errors['guests']"/>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-lg mt-2">
+                                    <t t-if="apt_type.manual_confirmation">Invia la richiesta</t>
+                                    <t t-else="">Conferma la prenotazione</t>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Pagina di gestione: conferma, dettagli, cancellazione, riprogrammazione -->
+    <template id="manage_page" name="Prenotazioni: gestione">
+        <t t-call="website.layout">
+            <t t-set="additional_title" t-value="apt_type.name"/>
+            <div id="wrap" class="o_appointment_page">
+                <div class="container py-5">
+                    <div class="col-12 col-lg-8 mx-auto">
+                        <t t-if="event.appointment_state == 'cancelled'">
+                            <h1 class="h2 mb-3">Prenotazione cancellata</h1>
+                            <p>Questa prenotazione e' stata cancellata<t t-if="event.appointment_cancel_reason">: <t t-out="event.appointment_cancel_reason"/></t>.</p>
+                            <a t-att-href="apt_type.website_url" class="btn btn-primary">Prenota un nuovo orario</a>
+                        </t>
+                        <t t-else="">
+                            <t t-if="is_new and event.appointment_state == 'pending'">
+                                <h1 class="h2 mb-3">Richiesta ricevuta</h1>
+                                <p>L'orario e' riservato. Riceverai un'email di conferma appena la prenotazione sara' approvata.</p>
+                            </t>
+                            <t t-elif="is_new">
+                                <h1 class="h2 mb-3">Prenotazione confermata</h1>
+                                <p>Ti abbiamo inviato un'email con l'invito per il calendario e questo link per gestire la prenotazione.</p>
+                            </t>
+                            <t t-elif="is_rescheduled">
+                                <h1 class="h2 mb-3">Nuovo orario confermato</h1>
+                                <p>Ti abbiamo inviato un'email con il nuovo invito per il calendario.</p>
+                            </t>
+                            <t t-else="">
+                                <h1 class="h2 mb-3">La tua prenotazione</h1>
+                            </t>
+                            <div class="o_appointment_summary p-4 rounded mb-4">
+                                <div class="row g-3">
+                                    <div class="col-12 col-md-6">
+                                        <div class="small text-muted">Appuntamento</div>
+                                        <div class="fw-bold" t-out="apt_type.name"/>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="small text-muted">Stato</div>
+                                        <div class="fw-bold">
+                                            <t t-if="event.appointment_state == 'pending'">In attesa di conferma</t>
+                                            <t t-else="">Confermata</t>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="small text-muted">Quando</div>
+                                        <div class="fw-bold" t-out="start_display"/>
+                                        <div class="small text-muted"><t t-out="visitor_tz"/> &#183; <t t-out="apt_type.duration_minutes"/> minuti</div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="small text-muted">Con</div>
+                                        <div class="fw-bold" t-out="event.user_id.name"/>
+                                    </div>
+                                    <div t-if="event.videocall_location" class="col-12">
+                                        <div class="small text-muted">Videochiamata</div>
+                                        <a t-att-href="event.videocall_location" t-out="event.videocall_location"/>
+                                    </div>
+                                    <div t-if="event.location" class="col-12">
+                                        <div class="small text-muted">Dove</div>
+                                        <div t-out="event.location"/>
+                                    </div>
+                                    <div t-if="event.appointment_guest_emails" class="col-12">
+                                        <div class="small text-muted">Ospiti</div>
+                                        <div t-out="event.appointment_guest_emails"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div t-if="apt_type.confirmation_message" class="o_appointment_intro mb-4" t-out="apt_type.confirmation_message"/>
+                            <t t-if="event.appointment_can_self_manage">
+                                <div class="d-flex flex-wrap gap-2">
+                                    <a t-attf-href="/appointment/view/#{event.appointment_token}/reschedule" class="btn btn-outline-primary">Cambia orario</a>
+                                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="collapse" data-bs-target="#o_appointment_cancel_box" aria-expanded="false" aria-controls="o_appointment_cancel_box">Cancella la prenotazione</button>
+                                </div>
+                                <div class="collapse mt-3" id="o_appointment_cancel_box">
+                                    <form method="post" t-attf-action="/appointment/view/#{event.appointment_token}/cancel" class="card card-body">
+                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                        <label for="o_apt_cancel_reason" class="form-label">Motivo (facoltativo)</label>
+                                        <textarea id="o_apt_cancel_reason" name="reason" class="form-control mb-3" rows="2" maxlength="500"/>
+                                        <button type="submit" class="btn btn-danger align-self-start">Confermo la cancellazione</button>
+                                    </form>
+                                </div>
+                            </t>
+                            <p t-else="" class="small text-muted">
+                                Per cambiare o cancellare questa prenotazione a questo punto, scrivi direttamente a
+                                <a t-attf-href="mailto:#{event.user_id.email}" t-out="event.user_id.email"/>.
+                            </p>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+</odoo>
