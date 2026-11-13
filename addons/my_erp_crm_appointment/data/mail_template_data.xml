@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Blocco comune: riepilogo della prenotazione (inizio, persona, dove, risposte) -->
+    <template id="mail_booking_summary" name="Prenotazione: riepilogo per email">
+        <t t-set="event" t-value="object.event_id"/>
+        <t t-set="is_customer" t-value="object.partner_id == event.appointment_booker_id"/>
+        <table style="width: 100%; border-collapse: collapse; margin: 16px 0;">
+            <tr>
+                <td style="padding: 6px 0; width: 140px; color: #6b7280;">Appuntamento</td>
+                <td style="padding: 6px 0;"><strong t-out="event.appointment_type_id.name or event.name"/></td>
+            </tr>
+            <tr>
+                <td style="padding: 6px 0; color: #6b7280;">Quando</td>
+                <td style="padding: 6px 0;">
+                    <t t-out="event._appointment_display_start(tz=object.mail_tz or event.appointment_tz)"/>
+                    (<t t-out="object.mail_tz or event.appointment_tz or ''"/>),
+                    <t t-out="event.appointment_type_id.duration_minutes"/> minuti
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 6px 0; color: #6b7280;" t-out="'Con' if is_customer else 'Prenotato da'"/>
+                <td style="padding: 6px 0;" t-out="event.user_id.name if is_customer else event.appointment_booker_id.name"/>
+            </tr>
+            <tr t-if="event.videocall_location">
+                <td style="padding: 6px 0; color: #6b7280;">Videochiamata</td>
+                <td style="padding: 6px 0;"><a t-att-href="event.videocall_location" t-out="event.videocall_location"/></td>
+            </tr>
+            <tr t-if="event.location">
+                <td style="padding: 6px 0; color: #6b7280;">Dove</td>
+                <td style="padding: 6px 0;" t-out="event.location"/>
+            </tr>
+            <tr t-if="not is_customer and event.appointment_company_name">
+                <td style="padding: 6px 0; color: #6b7280;">Azienda</td>
+                <td style="padding: 6px 0;" t-out="event.appointment_company_name"/>
+            </tr>
+            <tr t-if="not is_customer and event.appointment_booker_id.email">
+                <td style="padding: 6px 0; color: #6b7280;">Contatti</td>
+                <td style="padding: 6px 0;">
+                    <t t-out="event.appointment_booker_id.email"/>
+                    <t t-if="event.appointment_booker_id.phone"> &#183; <t t-out="event.appointment_booker_id.phone"/></t>
+                </td>
+            </tr>
+            <tr t-if="event.appointment_guest_emails">
+                <td style="padding: 6px 0; color: #6b7280;">Ospiti</td>
+                <td style="padding: 6px 0;" t-out="event.appointment_guest_emails"/>
+            </tr>
+        </table>
+        <t t-if="event.appointment_answer_ids">
+            <p style="margin: 0 0 4px 0; color: #6b7280;">Risposte</p>
+            <ul style="margin: 0 0 16px 0; padding-left: 18px;">
+                <t t-foreach="event.appointment_answer_ids" t-as="answer">
+                    <li t-if="answer.value"><strong t-out="answer.question_name"/>: <t t-out="answer.value"/></li>
+                </t>
+            </ul>
+        </t>
+        <t t-if="is_customer and event.appointment_type_id.confirmation_message">
+            <div style="margin: 16px 0;" t-out="event.appointment_type_id.confirmation_message"/>
+        </t>
+        <p t-if="is_customer and event.appointment_manage_url and event.appointment_state != 'cancelled'" style="margin: 16px 0 0 0;">
+            Per riprogrammare o cancellare:
+            <a t-att-href="event.appointment_manage_url" t-out="event.appointment_manage_url"/>
+        </p>
+    </template>
+
+    <data noupdate="1">
+    <record id="mail_template_booking_confirmed" model="mail.template">
+        <field name="name">Prenotazione: confermata</field>
+        <field name="model_id" ref="calendar.model_calendar_attendee"/>
+        <field name="subject">Prenotazione confermata: {{ object.event_id.appointment_type_id.name or object.event_id.name }}</field>
+        <field name="email_from">{{ (object.event_id.user_id.email_formatted or user.email_formatted or '') }}</field>
+        <field name="email_to" eval="False"/>
+        <field name="partner_to" eval="False"/>
+        <field name="use_default_to" eval="True"/>
+        <field name="description">Inviata a chi ha prenotato e a chi riceve l'appuntamento quando la prenotazione e' confermata.</field>
+        <field name="email_layout_xmlid">mail.mail_notification_light</field>
+        <field name="body_html" type="html">
+<div style="font-size: 13px; color: #374151;">
+    <p style="margin: 0 0 12px 0;">Buongiorno <t t-out="object.common_name or ''"/>,</p>
+    <p style="margin: 0 0 12px 0;">
+        <t t-if="object.partner_id == object.event_id.appointment_booker_id">la tua prenotazione e' confermata. Trovi l'invito per il calendario in allegato.</t>
+        <t t-else="">hai una nuova prenotazione confermata.</t>
+    </p>
+    <t t-call="my_erp_crm_appointment.mail_booking_summary"/>
+</div>
+        </field>
+    </record>
+
+    <record id="mail_template_booking_pending" model="mail.template">
+        <field name="name">Prenotazione: in attesa di conferma</field>
+        <field name="model_id" ref="calendar.model_calendar_attendee"/>
+        <field name="subject">Prenotazione ricevuta: {{ object.event_id.appointment_type_id.name or object.event_id.name }}</field>
+        <field name="email_from">{{ (object.event_id.user_id.email_formatted or user.email_formatted or '') }}</field>
+        <field name="email_to" eval="False"/>
+        <field name="partner_to" eval="False"/>
+        <field name="use_default_to" eval="True"/>
+        <field name="description">Inviata quando la prenotazione richiede una conferma manuale.</field>
+        <field name="email_layout_xmlid">mail.mail_notification_light</field>
+        <field name="body_html" type="html">
+<div style="font-size: 13px; color: #374151;">
+    <p style="margin: 0 0 12px 0;">Buongiorno <t t-out="object.common_name or ''"/>,</p>
+    <p style="margin: 0 0 12px 0;">
+        <t t-if="object.partner_id == object.event_id.appointment_booker_id">abbiamo ricevuto la tua richiesta. L'orario e' riservato: riceverai una seconda email appena la prenotazione sara' confermata.</t>
+        <t t-else="">c'e' una nuova prenotazione da confermare. La trovi tra le attivita' e nell'elenco delle prenotazioni.</t>
+    </p>
+    <t t-call="my_erp_crm_appointment.mail_booking_summary"/>
+</div>
+        </field>
+    </record>
+
+    <record id="mail_template_booking_rescheduled" model="mail.template">
+        <field name="name">Prenotazione: riprogrammata</field>
+        <field name="model_id" ref="calendar.model_calendar_attendee"/>
+        <field name="subject">Nuovo orario: {{ object.event_id.appointment_type_id.name or object.event_id.name }}</field>
+        <field name="email_from">{{ (object.event_id.user_id.email_formatted or user.email_formatted or '') }}</field>
+        <field name="email_to" eval="False"/>
+        <field name="partner_to" eval="False"/>
+        <field name="use_default_to" eval="True"/>
+        <field name="description">Inviata a tutti i partecipanti quando la prenotazione cambia orario.</field>
+        <field name="email_layout_xmlid">mail.mail_notification_light</field>
+        <field name="body_html" type="html">
+<div style="font-size: 13px; color: #374151;">
+    <p style="margin: 0 0 12px 0;">Buongiorno <t t-out="object.common_name or ''"/>,</p>
+    <p style="margin: 0 0 12px 0;">la prenotazione e' stata spostata. Il nuovo invito per il calendario e' in allegato.</p>
+    <t t-call="my_erp_crm_appointment.mail_booking_summary"/>
+</div>
+        </field>
+    </record>
+
+    <record id="mail_template_booking_cancelled" model="mail.template">
+        <field name="name">Prenotazione: cancellata</field>
+        <field name="model_id" ref="calendar.model_calendar_attendee"/>
+        <field name="subject">Prenotazione cancellata: {{ object.event_id.appointment_type_id.name or object.event_id.name }}</field>
+        <field name="email_from">{{ (object.event_id.user_id.email_formatted or user.email_formatted or '') }}</field>
+        <field name="email_to" eval="False"/>
+        <field name="partner_to" eval="False"/>
+        <field name="use_default_to" eval="True"/>
+        <field name="description">Inviata a tutti i partecipanti quando la prenotazione viene cancellata.</field>
+        <field name="email_layout_xmlid">mail.mail_notification_light</field>
+        <field name="body_html" type="html">
+<div style="font-size: 13px; color: #374151;">
+    <p style="margin: 0 0 12px 0;">Buongiorno <t t-out="object.common_name or ''"/>,</p>
+    <p style="margin: 0 0 12px 0;">la prenotazione qui sotto e' stata cancellata<t t-if="object.event_id.appointment_cancel_reason">: <t t-out="object.event_id.appointment_cancel_reason"/></t>.</p>
+    <t t-call="my_erp_crm_appointment.mail_booking_summary"/>
+    <p t-if="object.partner_id == object.event_id.appointment_booker_id and object.event_id.appointment_type_id.website_url" style="margin: 16px 0 0 0;">
+        Per prenotare un nuovo orario: <a t-att-href="object.event_id.get_base_url() + object.event_id.appointment_type_id.website_url" t-out="object.event_id.get_base_url() + object.event_id.appointment_type_id.website_url"/>
+    </p>
+</div>
+        </field>
+    </record>
+
+    </data>
+</odoo>
