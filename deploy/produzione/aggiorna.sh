@@ -85,6 +85,21 @@ if [ "$DB_PRESENTE" = "1" ]; then
   echo "== Aggiornamento dei moduli"
   $COMPOSE stop app || true
   $RUN app $APP -u all --stop-after-init
+  # I moduli nuovi di my-erp-crm che si installano da soli (i ponti del marchio, es.
+  # my_erp_crm_brand_sale): in un database che c'è già «-u all» non li installa, perché Odoo
+  # installa un modulo automatico solo insieme a una delle sue dipendenze. Si installano qui
+  # quelli che hanno già installate tutte le dipendenze che li accendono.
+  NUOVI_AUTO=$($COMPOSE exec -T db psql -U "${POSTGRES_USER:-myerp}" -d my-erp-crm -tAc "
+    SELECT string_agg(m.name, ',' ORDER BY m.name) FROM ir_module_module m
+     WHERE m.state = 'uninstalled' AND m.auto_install AND m.name LIKE 'my\_erp\_crm\_%'
+       AND NOT EXISTS (SELECT 1 FROM ir_module_module_dependency d
+                         LEFT JOIN ir_module_module x ON x.name = d.name
+                        WHERE d.module_id = m.id AND d.auto_install_required
+                          AND x.state IS DISTINCT FROM 'installed')")
+  if [ -n "$NUOVI_AUTO" ]; then
+    echo "== Moduli nuovi di my-erp-crm: $NUOVI_AUTO"
+    $RUN app $APP -i "$NUOVI_AUTO" --stop-after-init
+  fi
 else
   echo "== Primo avvio: creazione del database"
   : "${ADMIN_PASSWORD:?ADMIN_PASSWORD vuota in .env}"

@@ -119,9 +119,13 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 | Dove | Cosa |
 |---|---|
 | tutto il codice e le traduzioni | il nome "Odoo" nei testi diventa "my-erp-crm" ([`scripts/rebrand.py`](scripts/rebrand.py)) |
-| `addons/my_erp_crm_brand` | colori e logo; pagina di accesso; menu utente senza link commerciali; sezione *Informazioni* con le note di licenza; niente app e opzioni della versione a pagamento |
+| `addons/my_erp_crm_brand` | colori e logo; pagina di accesso; menu utente senza link commerciali (anche "My Subscription"); sezione *Informazioni* con le note di licenza; niente app e opzioni della versione a pagamento, né la finestra "passa a Enterprise" |
 | `addons/my_erp_crm_brand_mail` | "Fornito da my-erp-crm" nelle email; assistente "my-erp-crm Bot" |
 | `addons/my_erp_crm_brand_portal` | collegamento "Fornito da" nel portale clienti |
+| `addons/my_erp_crm_brand_sale` | elenco dei preventivi vuoto senza il video promozionale di Odoo |
+| `addons/my_erp_crm_brand_crm` | menu "Genera" del CRM senza i servizi a pagamento di Odoo S.A. ("Lead Sourcing", "Mail plugins") |
+| `addons/my_erp_crm_brand_digest` | email di riepilogo senza badge dell'app Odoo e senza immagini scaricate dai server di Odoo |
+| `addons/my_erp_crm_brand_payment` | metodi di pagamento senza quelli della versione a pagamento |
 | `addons/my_erp_crm_currency_ecb` | tassi di cambio BCE giornalieri |
 | `addons/my_erp_crm_iva` | regole IVA: VIES, inversione contabile, OSS, prove in fattura |
 | `addons/web/static/img` | logo, icone e favicon |

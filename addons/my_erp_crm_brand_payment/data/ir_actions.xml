@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Metodi di pagamento: niente quelli della versione a pagamento del progetto originale
+         (comparirebbero con il badge "Enterprise" e il pulsante "Aggiorna" verso odoo.com). -->
+    <record id="payment.action_payment_provider" model="ir.actions.act_window">
+        <field name="domain">[('module_to_buy', '=', False)]</field>
+    </record>
+</odoo>

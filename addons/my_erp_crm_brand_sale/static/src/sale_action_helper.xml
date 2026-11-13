@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <!-- Elenco dei preventivi vuoto: niente miniatura del video di Odoo su YouTube -->
+    <t t-inherit="sale.SaleActionHelper" t-inherit-mode="extension">
+        <xpath expr="//a[hasclass('o_sale_action_preview')]" position="replace"/>
+    </t>
+
+</templates>

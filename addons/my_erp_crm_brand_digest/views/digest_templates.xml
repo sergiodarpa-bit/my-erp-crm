@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="digest_mail_main" inherit_id="digest.digest_mail_main" priority="1">
+        <!-- «Sent by» e «Powered by»: a my-erp-crm, non a odoo.com -->
+        <xpath expr="//div[hasclass('by_odoo')]/a[@href='https://www.odoo.com']" position="attributes">
+            <attribute name="href">https://github.com/sergiodarpa-bit/my-erp-crm</attribute>
+        </xpath>
+        <xpath expr="//p[@id='powered']/a[@href='https://www.odoo.com']" position="attributes">
+            <attribute name="href">https://github.com/sergiodarpa-bit/my-erp-crm</attribute>
+        </xpath>
+        <!-- Niente riquadro «scarica l'app Odoo» (Google Play, App Store, immagine da odoo.com) -->
+        <xpath expr="//tr[@t-if='display_mobile_banner']" position="replace"/>
+    </template>
+
+</odoo>
