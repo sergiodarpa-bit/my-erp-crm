@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="appointment_type_demo_call" model="appointment.type">
+        <field name="name">Call conoscitiva</field>
+        <field name="user_ids" eval="[(6, 0, [ref('base.user_admin'), ref('base.user_demo')])]"/>
+        <field name="assign_method">auto</field>
+        <field name="duration_minutes">30</field>
+        <field name="buffer_minutes">10</field>
+        <field name="min_notice_hours">24</field>
+        <field name="max_days_ahead">30</field>
+        <field name="tz">Europe/Rome</field>
+        <field name="is_published" eval="True"/>
+        <field name="description" type="html">
+            <p>Trenta minuti per capire di cosa hai bisogno e se possiamo aiutarti. Scegli l'orario che preferisci: la persona libera in quel momento ti sara' assegnata automaticamente.</p>
+        </field>
+        <field name="confirmation_message" type="html">
+            <p>Grazie. Riceverai il link della videochiamata con l'invito per il calendario.</p>
+        </field>
+    </record>
+    <record id="appointment_slot_demo_1" model="appointment.slot">
+        <field name="type_id" ref="appointment_type_demo_call"/>
+        <field name="weekday">0</field>
+        <field name="hour_from">9.0</field>
+        <field name="hour_to">13.0</field>
+    </record>
+    <record id="appointment_slot_demo_2" model="appointment.slot">
+        <field name="type_id" ref="appointment_type_demo_call"/>
+        <field name="weekday">0</field>
+        <field name="hour_from">14.5</field>
+        <field name="hour_to">18.0</field>
+    </record>
+    <record id="appointment_slot_demo_3" model="appointment.slot">
+        <field name="type_id" ref="appointment_type_demo_call"/>
+        <field name="weekday">1</field>
+        <field name="hour_from">9.0</field>
+        <field name="hour_to">13.0</field>
+    </record>
+    <record id="appointment_slot_demo_4" model="appointment.slot">
+        <field name="type_id" ref="appointment_type_demo_call"/>
+        <field name="weekday">2</field>
+        <field name="hour_from">9.0</field>
+        <field name="hour_to">13.0</field>
+    </record>
+    <record id="appointment_slot_demo_5" model="appointment.slot">
+        <field name="type_id" ref="appointment_type_demo_call"/>
+        <field name="weekday">3</field>
+        <field name="hour_from">9.0</field>
+        <field name="hour_to">13.0</field>
+    </record>
+    <record id="appointment_slot_demo_6" model="appointment.slot">
+        <field name="type_id" ref="appointment_type_demo_call"/>
+        <field name="weekday">4</field>
+        <field name="hour_from">9.0</field>
+        <field name="hour_to">13.0</field>
+    </record>
+    <record id="appointment_question_demo_1" model="appointment.question">
+        <field name="type_id" ref="appointment_type_demo_call"/>
+        <field name="sequence">10</field>
+        <field name="name">Di cosa vorresti parlare?</field>
+        <field name="question_type">text</field>
+        <field name="required" eval="True"/>
+    </record>
+    <record id="appointment_question_demo_2" model="appointment.question">
+        <field name="type_id" ref="appointment_type_demo_call"/>
+        <field name="sequence">20</field>
+        <field name="name">Come ci hai conosciuto?</field>
+        <field name="question_type">select</field>
+        <field name="options">Passaparola
+Ricerca sul web
+LinkedIn
+Evento</field>
+    </record>
+    <record id="appointment_question_demo_3" model="appointment.question">
+        <field name="type_id" ref="appointment_type_demo_call"/>
+        <field name="sequence">30</field>
+        <field name="name">Ho letto l'informativa sulla privacy</field>
+        <field name="question_type">checkbox</field>
+        <field name="required" eval="True"/>
+    </record>
+</odoo>

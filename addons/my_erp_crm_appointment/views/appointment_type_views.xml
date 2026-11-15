@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="appointment_type_view_form" model="ir.ui.view">
+        <field name="name">appointment.type.view.form</field>
+        <field name="model">appointment.type</field>
+        <field name="arch" type="xml">
+            <form string="Tipo di appuntamento">
+                <header>
+                    <button name="action_open_public_page" type="object" string="Apri la pagina pubblica" class="btn-secondary"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <field name="is_published" widget="website_redirect_button"/>
+                        <button name="action_view_bookings" type="object" class="oe_stat_button" icon="fa-calendar">
+                            <div class="o_stat_info">
+                                <span class="o_stat_value"><field name="booking_count"/></span>
+                                <span class="o_stat_text">Prenotazioni</span>
+                            </div>
+                        </button>
+                        <button name="action_view_bookings" type="object" class="oe_stat_button" icon="fa-clock-o"
+                                invisible="not pending_count" context="{'search_default_pending': 1}">
+                            <div class="o_stat_info">
+                                <span class="o_stat_value"><field name="pending_count"/></span>
+                                <span class="o_stat_text">In attesa</span>
+                            </div>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Archiviato" bg_color="text-bg-danger" invisible="active"/>
+                    <field name="active" invisible="1"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="es. Call conoscitiva 20 minuti"/></h1>
+                        <div class="text-muted" invisible="not id">
+                            Indirizzo pubblico: <field name="website_url" readonly="1" class="oe_inline"/>
+                        </div>
+                    </div>
+                    <group>
+                        <group string="Chi e come">
+                            <field name="user_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                            <field name="assign_method" widget="radio"/>
+                            <field name="location_type"/>
+                            <field name="location" invisible="location_type == 'online'" placeholder="es. Via Maistra 1, St. Moritz"/>
+                            <field name="website_id" options="{'no_create': True}" groups="website.group_multi_website"/>
+                        </group>
+                        <group string="Durata e regole">
+                            <field name="duration_minutes"/>
+                            <field name="slot_step_minutes"/>
+                            <field name="buffer_minutes"/>
+                            <field name="min_notice_hours"/>
+                            <field name="max_days_ahead"/>
+                            <field name="cancel_limit_hours"/>
+                            <field name="tz"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Orari" name="schedule">
+                            <p class="text-muted">
+                                Le fasce in cui questo appuntamento e' prenotabile. Gli impegni gia' presenti nel
+                                calendario delle persone tolgono automaticamente gli orari occupati.
+                            </p>
+                            <field name="slot_ids">
+                                <list editable="bottom">
+                                    <field name="weekday"/>
+                                    <field name="hour_from" widget="float_time"/>
+                                    <field name="hour_to" widget="float_time"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Domande" name="questions">
+                            <p class="text-muted">
+                                Nome, email e telefono sono sempre richiesti. Qui si aggiungono le altre domande.
+                            </p>
+                            <field name="question_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="question_type"/>
+                                    <field name="options" invisible="question_type != 'select'" placeholder="una opzione per riga"/>
+                                    <field name="placeholder" optional="hide"/>
+                                    <field name="required"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Opzioni" name="options">
+                            <group>
+                                <group string="Conferma e CRM">
+                                    <field name="manual_confirmation"/>
+                                    <field name="allow_guests"/>
+                                    <field name="create_lead"/>
+                                </group>
+                                <group string="Promemoria">
+                                    <field name="alarm_ids" widget="many2many_tags" nolabel="1" colspan="2"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Messaggi" name="messages">
+                            <group>
+                                <field name="description" nolabel="1" colspan="2" placeholder="Introduzione mostrata nella pagina pubblica, sopra il calendario"/>
+                                <field name="confirmation_message" nolabel="1" colspan="2" placeholder="Messaggio mostrato dopo la prenotazione e nell'email di conferma"/>
+                            </group>
+                        </page>
+                        <page string="Pubblicazione" name="seo">
+                            <group>
+                                <field name="website_meta_title" string="Titolo per i motori di ricerca"/>
+                                <field name="website_meta_description" string="Descrizione per i motori di ricerca"/>
+                                <field name="seo_name"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="appointment_type_view_list" model="ir.ui.view">
+        <field name="name">appointment.type.view.list</field>
+        <field name="model">appointment.type</field>
+        <field name="arch" type="xml">
+            <list string="Tipi di appuntamento">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="user_ids" widget="many2many_tags"/>
+                <field name="duration_minutes"/>
+                <field name="assign_method"/>
+                <field name="website_id" groups="website.group_multi_website"/>
+                <field name="is_published" string="Pubblicato"/>
+                <field name="booking_count"/>
+                <field name="pending_count"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="appointment_type_view_kanban" model="ir.ui.view">
+        <field name="name">appointment.type.view.kanban</field>
+        <field name="model">appointment.type</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="color"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="d-flex flex-column">
+                            <strong class="mb-1"><field name="name"/></strong>
+                            <div class="text-muted small">
+                                <field name="duration_minutes"/> minuti
+                                <t t-if="record.website_id.raw_value"> &#183; <field name="website_id"/></t>
+                            </div>
+                            <div class="mt-2"><field name="user_ids" widget="many2many_avatar_user"/></div>
+                            <div class="mt-2 d-flex justify-content-between">
+                                <span><field name="booking_count"/> prenotazioni</span>
+                                <span t-if="record.is_published.raw_value" class="badge text-bg-success">Pubblicato</span>
+                                <span t-else="" class="badge text-bg-secondary">Non pubblicato</span>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="appointment_type_view_search" model="ir.ui.view">
+        <field name="name">appointment.type.view.search</field>
+        <field name="model">appointment.type</field>
+        <field name="arch" type="xml">
+            <search string="Tipi di appuntamento">
+                <field name="name"/>
+                <field name="user_ids"/>
+                <filter string="Pubblicati" name="published" domain="[('is_published', '=', True)]"/>
+                <filter string="Non pubblicati" name="unpublished" domain="[('is_published', '=', False)]"/>
+                <filter string="Con me" name="mine" domain="[('user_ids', 'in', uid)]"/>
+                <separator/>
+                <filter string="Archiviati" name="inactive" domain="[('active', '=', False)]"/>
+                <group>
+                    <filter string="Sito web" name="group_website" domain="[]" context="{'group_by': 'website_id'}"/>
+                    <filter string="Assegnazione" name="group_assign" domain="[]" context="{'group_by': 'assign_method'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="appointment_type_action" model="ir.actions.act_window">
+        <field name="name">Tipi di appuntamento</field>
+        <field name="res_model">appointment.type</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="search_view_id" ref="appointment_type_view_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Crea il primo tipo di appuntamento</p>
+            <p>
+                Un tipo di appuntamento e' una pagina pubblica di prenotazione: durata, orari,
+                persone, domande e regole. Pubblicalo e condividi il suo indirizzo.
+            </p>
+        </field>
+    </record>
+
+</odoo>

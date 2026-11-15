@@ -1,0 +1,13 @@
+id,name,model_id,group_id/id,operation,domain
+access_appointment_type_user,appointment.type: utente,appointment.type,my_erp_crm_appointment.group_appointment_user,r,
+access_appointment_type_user_own,appointment.type: utente (propri),appointment.type,my_erp_crm_appointment.group_appointment_user,u,"[('user_ids', 'in', user.id)]"
+access_appointment_type_manager,appointment.type: responsabile,appointment.type,my_erp_crm_appointment.group_appointment_manager,crud,
+access_appointment_slot_user,appointment.slot: utente,appointment.slot,my_erp_crm_appointment.group_appointment_user,r,
+access_appointment_slot_user_own,appointment.slot: utente (propri),appointment.slot,my_erp_crm_appointment.group_appointment_user,cud,"[('type_id.user_ids', 'in', user.id)]"
+access_appointment_slot_manager,appointment.slot: responsabile,appointment.slot,my_erp_crm_appointment.group_appointment_manager,crud,
+access_appointment_question_user,appointment.question: utente,appointment.question,my_erp_crm_appointment.group_appointment_user,r,
+access_appointment_question_user_own,appointment.question: utente (propri),appointment.question,my_erp_crm_appointment.group_appointment_user,cud,"[('type_id.user_ids', 'in', user.id)]"
+access_appointment_question_manager,appointment.question: responsabile,appointment.question,my_erp_crm_appointment.group_appointment_manager,crud,
+access_appointment_answer_user,appointment.answer: utente interno,appointment.answer,base.group_user,crud,
+access_appointment_type_public,appointment.type: visitatori (solo pubblicati),appointment.type,base.group_public,r,"[('is_published', '=', True)]"
+access_appointment_type_portal,appointment.type: portale (solo pubblicati),appointment.type,base.group_portal,r,"[('is_published', '=', True)]"

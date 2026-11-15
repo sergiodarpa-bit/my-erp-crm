@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="appointment_menu_root" name="Prenotazioni" sequence="55" web_icon="my_erp_crm_appointment,static/description/icon.png"
+              groups="my_erp_crm_appointment.group_appointment_user"/>
+    <menuitem id="appointment_menu_bookings" name="Prenotazioni" parent="appointment_menu_root" sequence="10"
+              action="calendar_event_action_appointment"/>
+    <menuitem id="appointment_menu_types" name="Tipi di appuntamento" parent="appointment_menu_root" sequence="20"
+              action="appointment_type_action"/>
+    <menuitem id="appointment_menu_config" name="Configurazione" parent="appointment_menu_root" sequence="90"
+              groups="my_erp_crm_appointment.group_appointment_manager"/>
+    <menuitem id="appointment_menu_alarms" name="Promemoria" parent="appointment_menu_config" sequence="10"
+              action="calendar.action_calendar_alarm"/>
+</odoo>

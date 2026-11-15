@@ -1,0 +1,103 @@
+// Pagine pubbliche di prenotazione: sobrie, leggibili, senza decorazioni.
+
+.o_appointment_card {
+    color: inherit;
+    transition: box-shadow 0.15s ease-in-out;
+
+    &:hover, &:focus-visible {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.12);
+    }
+}
+
+.o_appointment_card_text {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.o_appointment_summary {
+    background-color: rgba(o-color('primary'), 0.06);
+    border: $border-width solid var(--o-border-color);
+}
+
+.o_appointment_grid {
+    max-width: 34rem;
+}
+
+.o_appointment_weekdays,
+.o_appointment_days {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 0.35rem;
+}
+
+.o_appointment_weekdays span {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--bs-secondary-color);
+    padding-bottom: 0.25rem;
+}
+
+.o_appointment_calendar .o_appointment_day {
+    aspect-ratio: 1 / 1;
+    padding: 0;
+    border: 1px solid transparent !important;
+    border-radius: 50%;
+    background-color: transparent;
+    color: var(--bs-body-color);
+    font-weight: 500;
+    box-shadow: none;
+
+    &:disabled,
+    &.disabled {
+        color: var(--bs-secondary-color);
+        background-color: transparent;
+        opacity: 0.4;
+    }
+
+    &.o_appointment_day_available {
+        background-color: rgba(o-color('primary'), 0.12);
+        color: o-color('primary');
+        font-weight: 600;
+
+        &:hover,
+        &:focus-visible {
+            background-color: rgba(o-color('primary'), 0.25);
+            color: o-color('primary');
+        }
+    }
+
+    &.active,
+    &.o_appointment_day_available.active {
+        background-color: o-color('primary');
+        color: color-contrast(o-color('primary'));
+    }
+}
+
+.o_appointment_contents {
+    display: contents;
+}
+
+.o_appointment_day_filler {
+    visibility: hidden;
+}
+
+.o_appointment_slot {
+    min-width: 5.5rem;
+}
+
+// Campo esca per i robot: fuori dallo schermo, non nascosto con display none
+// (alcuni automatismi saltano i campi nascosti).
+.o_appointment_hp {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.o_appointment_avatar {
+    object-fit: cover;
+}
