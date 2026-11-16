@@ -25,6 +25,15 @@ Dal 7 novembre 2026 il codice è stato modificato da my-erp-crm come segue:
 
 L'elenco completo e datato di ogni modifica è nella cronologia git di questo repository.
 
+## Moduli di terze parti
+
+- `addons/sign_oca` (firma dei documenti): dal progetto
+  [OCA/sign](https://github.com/OCA/sign) della Odoo Community Association, Copyright Dixmit e
+  collaboratori OCA, licenza **GNU AGPL v3 o successiva** (indicata nel suo
+  `__manifest__.py`). Questo modulo resta sotto AGPL: chi lo usa in rete ha diritto al suo
+  codice sorgente, pubblicato in questo repository. Le modifiche di my-erp-crm sono elencate
+  in [doc/firma-documenti.md](doc/firma-documenti.md).
+
 ## Marchi
 
 "Odoo" e il relativo logo sono marchi di Odoo S.A. La licenza LGPL non concede diritti sui

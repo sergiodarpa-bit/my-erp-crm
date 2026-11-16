@@ -11,10 +11,12 @@ una patch del progetto originale, passata da --patch, si applica pulita sul nost
 (vedi scripts/aggiorna-da-odoo.sh).
 
 Non vengono toccati:
-- note di copyright e licenza ("Odoo S.A.", commenti "Part of Odoo...");
+- note di copyright e licenza ("Odoo S.A.", "Odoo Community Association", commenti
+  "Part of Odoo...");
 - indirizzi web (odoo.com, odoo.sh) e nomi tecnici (OdooBot, X-Odoo-..., @odoo/...);
-- i moduli che dialogano con servizi esterni o con le autorità fiscali (vedi SKIP_MODULES),
-  tranne il loro __manifest__.py (descrizione mostrata nell'elenco delle applicazioni);
+- i moduli che dialogano con servizi esterni o con le autorità fiscali e i moduli della
+  Odoo Community Association (*_oca) (vedi SKIP_MODULES), tranne il loro __manifest__.py
+  (descrizione mostrata nell'elenco delle applicazioni);
 - i nostri moduli my_erp_crm_* e le librerie di terze parti (static/lib).
 """
 import argparse
@@ -31,6 +33,7 @@ PATTERN = re.compile(
     r"(?![\w\-]"                     # non OdooBot, Odoo-xxx
     r"|\.(?:com|sh)\b"               # non odoo.com / odoo.sh
     r"|\s+S\.?\s?A\b"                # non "Odoo S.A." (copyright)
+    r"|\s+Community\s+Association"   # non "Odoo Community Association" (autori dei moduli OCA)
     r"|\s+Unicode\s+Support)"         # nome tecnico del font "Odoo Unicode Support Noto"
 )
 
@@ -38,7 +41,8 @@ SKIP_MODULES = re.compile(
     r"^(?:my_erp_crm.*"
     r"|l10n_.*|payment_.*|.*_edi(?:_.*)?|account_edi.*|account_peppol.*|.*peppol.*"
     r"|iot.*|pos_iot.*|iap.*|.*_iap|mail_plugin|crm_mail_plugin|google_.*|microsoft_.*"
-    r"|spreadsheet.*|cloud_storage.*|base_geolocalize|snailmail.*|sms.*|partner_autocomplete)$"
+    r"|spreadsheet.*|cloud_storage.*|base_geolocalize|snailmail.*|sms.*|partner_autocomplete"
+    r"|.*_oca)$"                     # moduli della Odoo Community Association, di terze parti
 )
 
 

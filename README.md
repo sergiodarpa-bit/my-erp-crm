@@ -129,6 +129,7 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 | `addons/my_erp_crm_currency_ecb` | tassi di cambio BCE giornalieri |
 | `addons/my_erp_crm_iva` | regole IVA: VIES, inversione contabile, OSS, prove in fattura |
 | `addons/my_erp_crm_appointment` | prenotazioni: calendari pubblici di prenotazione sul sito (modello Calendly), con assegnazione automatica, domande, promemoria, cancellazione e riprogrammazione, opportunita' nel CRM; vedi il suo [README](addons/my_erp_crm_appointment/README.md) |
+| `addons/sign_oca` | firma dei documenti PDF (consensi, contratti) da portale, telefono o gestionale: modulo della Odoo Community Association, licenza AGPL-3, adattato alla 20.0; vedi la [guida](doc/firma-documenti.md) |
 | `addons/web/static/img` | logo, icone e favicon |
 | `my-erp-crm` | comando di avvio (equivalente a `odoo-bin`) |
 | `Dockerfile`, `docker-compose.yml`, `deploy/`, `scripts/`, `.github/` | installazione e pubblicazione |
