@@ -52,6 +52,13 @@ if [ "${HTTPS_LOCALE:-1}" = 0 ]; then SERVIZI="db app"; else SERVIZI="db app cad
 # shellcheck disable=SC2086
 $COMPOSE pull --quiet ${SERVIZI/app/} || echo "Avviso: Docker Hub non risponde, uso le immagini già presenti"
 if [[ "${IMAGE:-ghcr.io/}" == */* ]]; then $COMPOSE pull --quiet app; fi
+# Quale versione del programma gira: con IMAGE fissata a un commit (…:<40 caratteri>) questo
+# script NON prende le novità di main, anche se finisce senza errori (15/11/2026: il server è
+# rimasto all'8/11 e la pubblicità tolta il 13/11 non è arrivata). Lo si dice subito.
+echo "== Versione del programma: ${IMAGE:-ghcr.io/sergiodarpa-bit/my-erp-crm:20.0}"
+if [[ "${IMAGE:-}" =~ :[0-9a-f]{40}$ ]]; then
+  echo "   (fissata a un commit: per le novità di main metti in .env IMAGE=…:<commit nuovo> o …:20.0)"
+fi
 $COMPOSE up -d db
 
 # Pronto solo quando accetta connessioni TCP: al primo avvio l'immagine di Postgres
