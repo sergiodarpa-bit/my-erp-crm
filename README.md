@@ -22,9 +22,13 @@ Il server di produzione è **https://erp.kliniksanktmoritz.ch**. A ogni modifica
 
 1. costruisce l'immagine Docker e la pubblica su `ghcr.io/sergiodarpa-bit/my-erp-crm`;
 2. se il server è configurato, copia i file di [`deploy/produzione`](deploy/produzione) in
-   `/opt/my-erp-crm` ed esegue `aggiorna.sh`: al primo avvio crea il database e configura
-   l'azienda; le volte successive fa un **backup del database** e aggiorna i moduli.
-   I dati non vengono mai cancellati.
+   `/opt/my-erp-crm`, scrive in `.env` la versione appena costruita (`IMAGE=…:<commit>`) ed
+   esegue `aggiorna.sh` come root (con `sudo` se l'utente SSH non è root): al primo avvio
+   crea il database e configura l'azienda; le volte successive fa un **backup del
+   database** e aggiorna i moduli. I dati non vengono mai cancellati.
+
+   `IMAGE` in `.env` dice quindi sempre quale commit gira. Per tornare a una versione
+   precedente si rimette a mano il commit voluto in `IMAGE` e si lancia `./aggiorna.sh`.
 
 HTTPS è automatico (Caddy con certificato Let's Encrypt).
 
@@ -35,10 +39,14 @@ record DNS di `erp.kliniksanktmoritz.ch` che punta al suo indirizzo IP.
 
 | Tipo | Nome | Valore |
 |---|---|---|
-| Variable | `DEPLOY_HOST` | indirizzo IP o nome del server |
-| Variable | `DEPLOY_USER` | utente SSH (predefinito `root`) |
+| Variable | `DEPLOY_HOST` | indirizzo IP pubblico fisso del server (su AWS l'IP elastico) o il suo nome, raggiungibile da internet sulla porta 22 |
+| Variable | `DEPLOY_USER` | utente SSH (predefinito `root`); un altro utente, come `ec2-user` su AWS, deve avere `sudo` senza password |
 | Secret | `DEPLOY_SSH_KEY` | chiave privata SSH con accesso al server |
-| Secret | `DEPLOY_KNOWN_HOSTS` | risultato di `ssh-keyscan <server>` |
+| Secret | `DEPLOY_KNOWN_HOSTS` | riga `<DEPLOY_HOST> ssh-ed25519 …` con la chiave del server (`/etc/ssh/ssh_host_ed25519_key.pub`) |
+
+`DEPLOY_HOST` e `DEPLOY_USER` vanno create come variabili **del repository**, non
+dell'ambiente `produzione`: GitHub decide se pubblicare prima di entrare nell'ambiente, e
+lì le variabili dell'ambiente non le vede (la pubblicazione resterebbe "skipped").
 
 Prima del primo avvio, sul server: crea `/opt/my-erp-crm/.env` partendo da
 [`deploy/produzione/.env.example`](deploy/produzione/.env.example) (password, dati
