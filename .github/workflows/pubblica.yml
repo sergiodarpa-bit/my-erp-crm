@@ -59,18 +59,38 @@ jobs:
           mkdir -p ~/.ssh && chmod 700 ~/.ssh
           printf '%s\n' "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/id_deploy && chmod 600 ~/.ssh/id_deploy
           printf '%s\n' "${{ secrets.DEPLOY_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+      # I file arrivano prima in una cartella dell'utente SSH: con un utente diverso da root
+      # (ec2-user sui server AWS) /opt/my-erp-crm è di root e non si può scrivere direttamente.
       - name: Copia i file di produzione
         run: |
-          ssh -i ~/.ssh/id_deploy "$USER@$HOST" "mkdir -p $DIR"
+          ssh -i ~/.ssh/id_deploy "$USER@$HOST" 'mkdir -p "$HOME/.my-erp-crm-pubblicazione"'
           scp -i ~/.ssh/id_deploy deploy/produzione/docker-compose.yml deploy/produzione/Caddyfile \
             deploy/produzione/my-erp-crm.conf.template deploy/produzione/.env.example \
-            deploy/produzione/aggiorna.sh deploy/produzione/costruisci.sh deploy/configura_azienda.py "$USER@$HOST:$DIR/"
+            deploy/produzione/aggiorna.sh deploy/produzione/costruisci.sh deploy/configura_azienda.py \
+            "$USER@$HOST:.my-erp-crm-pubblicazione/"
+      # Lo script gira come root: direttamente se l'utente SSH è root, altrimenti con
+      # "sudo -n" (sudo senza password, come ec2-user su AWS; se la chiede, si ferma).
+      # Le variabili $... restano per il server: l'heredoc è tra apici.
       - name: Installa la nuova versione
         run: |
-          ssh -i ~/.ssh/id_deploy "$USER@$HOST" bash -s <<EOF
+          ssh -i ~/.ssh/id_deploy "$USER@$HOST" \
+            'S="$HOME/.my-erp-crm-pubblicazione"; if [ "$(id -u)" = 0 ]; then bash -s -- "$S"; else sudo -n bash -s -- "$S"; fi' <<'EOF'
           set -euo pipefail
+          ARRIVO="$1"
+          DIR="${{ env.DIR }}"
+          NUOVA="${{ env.IMAGE }}:${{ github.sha }}"
+          mkdir -p "$DIR"
+          install -m 644 "$ARRIVO/docker-compose.yml" "$ARRIVO/Caddyfile" "$ARRIVO/my-erp-crm.conf.template" \
+            "$ARRIVO/.env.example" "$ARRIVO/configura_azienda.py" "$DIR/"
+          install -m 755 "$ARRIVO/aggiorna.sh" "$ARRIVO/costruisci.sh" "$DIR/"
           cd "$DIR"
+          if [ ! -f .env ]; then echo "Manca $DIR/.env: il primo avvio si prepara a mano (README)."; exit 1; fi
+          # La versione appena costruita si scrive in .env: aggiorna.sh (e gli altri script del
+          # server) leggono IMAGE da lì, e un valore fissato a mano vincerebbe su quello passato
+          # per variabile (15/11/2026: aggiornamento senza errori ma server rimasto all'8/11).
+          if grep -q '^IMAGE=' .env; then sed -i "s|^IMAGE=.*|IMAGE=$NUOVA|" .env; else printf 'IMAGE=%s\n' "$NUOVA" >> .env; fi
+          echo "== IMAGE in .env: $(sed -n 's/^IMAGE=//p' .env)"
           echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
-          IMAGE="${{ env.IMAGE }}:${{ github.sha }}" ./aggiorna.sh
+          ./aggiorna.sh
           docker logout ghcr.io
           EOF
