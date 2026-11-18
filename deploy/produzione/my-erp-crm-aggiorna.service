@@ -1,0 +1,11 @@
+[Unit]
+Description=my-erp-crm: aggiornamento automatico all'ultima versione di main
+Requires=docker.service
+After=docker.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/my-erp-crm
+ExecStart=/opt/my-erp-crm/aggiorna-da-solo.sh controlla
+TimeoutStartSec=2h

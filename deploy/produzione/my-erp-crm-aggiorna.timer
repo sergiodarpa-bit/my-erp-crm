@@ -1,0 +1,10 @@
+[Unit]
+Description=my-erp-crm: controllo degli aggiornamenti ogni 15 minuti
+
+[Timer]
+# Ai minuti 07, 22, 37 e 52: lontano dal backup delle ore piene.
+OnCalendar=*:07/15
+RandomizedDelaySec=60
+
+[Install]
+WantedBy=timers.target
