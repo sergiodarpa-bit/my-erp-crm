@@ -47,24 +47,40 @@ Per accenderlo, una volta, sul server:
 sudo bash -c 'set -e; cd /opt/my-erp-crm; B=https://raw.githubusercontent.com/sergiodarpa-bit/my-erp-crm/main/deploy/produzione; for f in aggiorna-da-solo.sh my-erp-crm-aggiorna.service my-erp-crm-aggiorna.timer; do curl -fsSL -o "$f.nuovo" "$B/$f"; mv "$f.nuovo" "$f"; done; chmod 755 aggiorna-da-solo.sh; ./aggiorna-da-solo.sh attiva'
 ```
 
+Il primo controllo parte subito, come **servizio di sistema**: continua anche se la
+connessione SSH cade. Si segue con `journalctl -fu my-erp-crm-aggiorna` (Ctrl+C chiude solo
+la visualizzazione); quando finisce, `./aggiorna-da-solo.sh stato`.
+
 Poi, sempre da `/opt/my-erp-crm` con `sudo`:
 
 | Comando | Cosa fa |
 |---|---|
-| `./aggiorna-da-solo.sh stato` | versione in uso, prossimo controllo, ultimi aggiornamenti |
-| `./aggiorna-da-solo.sh` | controlla subito, senza aspettare il timer |
+| `./aggiorna-da-solo.sh stato` | versione in uso, servizio, contenitori, prossimo controllo, ultimi aggiornamenti |
+| `./aggiorna-da-solo.sh` | fa partire subito un controllo, come servizio di sistema |
 | `./aggiorna-da-solo.sh spegni` | spegne l'aggiornamento automatico (`AGGIORNA_DA_SOLO=0`) |
-| `journalctl -u my-erp-crm-aggiorna -n 100` | dettaglio dell'ultimo aggiornamento |
+| `journalctl -fu my-erp-crm-aggiorna` | segue il controllo in corso (Ctrl+C chiude solo la visualizzazione) |
+| `journalctl -u my-erp-crm-aggiorna -n 100` | dettaglio dell'ultimo controllo |
 
-Ogni aggiornamento lascia una riga in `aggiornamenti.log`. Se `aggiorna.sh` fallisce, lo
-script rimette la versione di prima, riaccende l'applicazione e non riprova quella versione
-finché non ne esce una nuova (o finché non si cancella `.aggiornamento-fallito`). Non parte
+Il controllo non gira mai dentro il terminale: il 18/11/2026 il primo aggiornamento, lanciato
+dal terminale, si è interrotto quando è caduta la connessione e ha lasciato l'applicazione
+ferma. Ogni aggiornamento lascia una riga in `aggiornamenti.log`. Se `aggiorna.sh` fallisce,
+lo script rimette la versione di prima, riaccende l'applicazione e non riprova quella
+versione finché non ne esce una nuova (o finché non si cancella `.aggiornamento-fallito`).
+Se un aggiornamento si interrompe a metà (riavvio del server, servizio fermato), resta il
+file `.aggiornamento-in-corso` e il controllo successivo lo **riprende** da capo. Non parte
 mentre gira il backup o un altro script di manutenzione. Gli script di produzione
 (`aggiorna.sh`, `docker-compose.yml`, …) li prende dall'immagine nuova, quindi sono sempre
 della stessa versione del programma. Tiene la versione in uso e le due precedenti.
 
 Per **tornare a una versione precedente**: prima `./aggiorna-da-solo.sh spegni`, poi in
-`.env` si rimette il commit voluto in `IMAGE` e si lancia `./aggiorna.sh`.
+`.env` si rimette il commit voluto in `IMAGE` e si lancia `aggiorna.sh` come servizio di
+sistema, così non dipende dalla connessione:
+
+```bash
+sudo systemd-run --collect --unit=my-erp-crm-manuale --working-directory=/opt/my-erp-crm /opt/my-erp-crm/aggiorna.sh
+```
+
+e lo si segue con `journalctl -fu my-erp-crm-manuale`.
 
 ### In alternativa: pubblicazione da GitHub via SSH
 

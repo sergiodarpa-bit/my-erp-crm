@@ -4,10 +4,16 @@
 # my-erp-crm-aggiorna.timer (ogni 15 minuti, ai minuti 07, 22, 37 e 52: lontano dal backup
 # delle ore piene).
 #
-#   ./aggiorna-da-solo.sh            controlla e, se c'è una versione nuova, aggiorna
+#   ./aggiorna-da-solo.sh            fa partire subito un controllo (come servizio di sistema)
 #   ./aggiorna-da-solo.sh attiva     installa e accende il timer (AGGIORNA_DA_SOLO=1 in .env)
+#                                    e fa partire il primo controllo
 #   ./aggiorna-da-solo.sh spegni     spegne il timer (AGGIORNA_DA_SOLO=0 in .env)
-#   ./aggiorna-da-solo.sh stato      versione in uso, prossimo controllo, ultimi aggiornamenti
+#   ./aggiorna-da-solo.sh stato      versione in uso, applicazione, prossimo controllo, registro
+#
+# Il controllo gira SOLO come servizio di sistema (my-erp-crm-aggiorna.service), mai dentro
+# il terminale: il 18/11/2026 il primo aggiornamento, lanciato dal terminale, si è interrotto
+# quando è caduta la connessione SSH e ha lasciato l'applicazione ferma. Dal terminale lo
+# script si limita a far partire il servizio, che continua anche se la connessione cade.
 #
 # Il controllo:
 #   1. scarica ghcr.io/sergiodarpa-bit/my-erp-crm:20.0 (l'ultima versione di main) e legge il
@@ -18,7 +24,10 @@
 #      del database e aggiorna i moduli;
 #   4. se aggiorna.sh fallisce rimette in .env la versione di prima, riaccende l'applicazione
 #      con quella e non riprova la versione fallita finché non ne esce una nuova (o finché
-#      non si cancella .aggiornamento-fallito).
+#      non si cancella .aggiornamento-fallito);
+#   5. se un aggiornamento si è interrotto a metà (riavvio del server, servizio fermato,
+#      tempo scaduto), lo riconosce dal file .aggiornamento-in-corso e al controllo successivo
+#      lo riprende: aggiorna.sh rifà backup, aggiornamento dei moduli e riaccensione.
 # Ogni aggiornamento lascia una riga in aggiornamenti.log; il dettaglio è in
 # journalctl -u my-erp-crm-aggiorna. Con AGGIORNA_DA_SOLO diverso da 1 non fa niente: serve
 # per fissare a mano una versione precedente senza che il timer la cambi.
@@ -63,7 +72,66 @@ pulizia() {  # tiene la versione in uso e le due precedenti, per tornare indietr
   docker image prune -f >/dev/null 2>&1 || true
 }
 
+SEGUI="Per seguirlo: journalctl -fu my-erp-crm-aggiorna   (Ctrl+C chiude solo la visualizzazione)"
+
+avvia_servizio() {  # il controllo parte come servizio di sistema, staccato dal terminale
+  systemctl start --no-block my-erp-crm-aggiorna.service \
+    || { echo "Il servizio non è installato: prima ./aggiorna-da-solo.sh attiva"; return 1; }
+  echo "Controllo avviato come servizio di sistema: continua anche se la connessione cade."
+  echo "$SEGUI"
+  echo "Alla fine: ./aggiorna-da-solo.sh stato"
+}
+
+# aggiorna PRIMA NUOVA [NOTA]: segna l'aggiornamento come in corso, scrive IMAGE e lancia
+# aggiorna.sh; se fallisce torna a PRIMA. PRIMA è il valore di IMAGE di prima (anche vuoto).
+aggiorna() {
+  local attuale="$1" nuova="$2" nota="${3:-}" commit="${2##*:}"
+  # Con IMAGE vuota la versione di prima era :20.0, che ora punta già all'immagine nuova:
+  # in quel caso, dopo un errore, tornare indietro va fatto a mano (backup in backups/).
+  local prima="${attuale:-$CANALE}"
+  echo "== Aggiornamento${nota}: $prima → $nuova"
+  printf '%s\n%s\n' "$attuale" "$nuova" > .aggiornamento-in-corso
+  scrivi IMAGE "$nuova"
+  if ./aggiorna.sh; then
+    rm -f .aggiornamento-fallito .aggiornamento-in-corso
+    registro "OK${nota} ${prima##*:} -> $commit"
+    pulizia "$nuova"
+  else
+    echo "$commit" > .aggiornamento-fallito
+    scrivi IMAGE "$attuale"
+    docker compose up -d --no-deps app || true
+    rm -f .aggiornamento-in-corso
+    registro "ERRORE con $commit: rimessa la versione ${prima##*:} (dettagli: journalctl -u my-erp-crm-aggiorna; backup in backups/)"
+    return 1
+  fi
+}
+
+# Un aggiornamento interrotto a metà ha lasciato .aggiornamento-in-corso (riga 1: IMAGE di
+# prima, riga 2: IMAGE nuova). Se IMAGE in .env è una delle due, lo si rifà da capo:
+# aggiorna.sh si può ripetere (backup, aggiornamento dei moduli, riaccensione).
+riprendi() {
+  local prima nuova ora
+  prima=""; nuova=""
+  { read -r prima || true; read -r nuova || true; } < .aggiornamento-in-corso
+  ora="$(valore IMAGE)"
+  if [ -z "$nuova" ]; then
+    echo "Il segno di aggiornamento interrotto non si legge: lo tolgo e controllo da capo al prossimo giro."
+    rm -f .aggiornamento-in-corso
+    return 0
+  fi
+  if [ "$ora" != "$nuova" ] && [ "$ora" != "$prima" ]; then
+    echo "IMAGE è stata cambiata a mano dopo l'interruzione: non riprendo niente."
+    rm -f .aggiornamento-in-corso
+    return 0
+  fi
+  echo "L'aggiornamento a ${nuova##*:} si era interrotto a metà: lo riprendo."
+  aggiorna "$prima" "$nuova" " (ripreso dopo un'interruzione)"
+}
+
 controlla() {
+  # Dal terminale non si aggiorna: se la connessione cade, l'aggiornamento si interrompe con
+  # l'applicazione ferma. Si fa partire il servizio di sistema (che imposta INVOCATION_ID).
+  if [ -z "${INVOCATION_ID:-}" ]; then avvia_servizio; return; fi
   exec 9> "$LOCK"
   flock -n 9 || { echo "Un altro controllo è in corso."; return 0; }
   if [ "$(valore AGGIORNA_DA_SOLO)" != 1 ]; then
@@ -80,6 +148,7 @@ controlla() {
      || pgrep -f "(aggiorna|moduli-privati|prosegui|backup)\.sh" >/dev/null; then
     echo "Backup o manutenzione in corso: riprovo al prossimo controllo."; return 0
   fi
+  if [ -f .aggiornamento-in-corso ]; then riprendi; return; fi
 
   docker pull -q "$CANALE" >/dev/null || { echo "ghcr.io non risponde: nessuna modifica."; return 1; }
   commit="$(docker image inspect -f '{{ index .Config.Labels "org.opencontainers.image.revision" }}' "$CANALE")"
@@ -94,23 +163,8 @@ controlla() {
   # Prima di toccare qualcosa, l'immagine esatta deve essere scaricabile.
   docker pull -q "$nuova" >/dev/null || { echo "Non riesco a scaricare $nuova: nessuna modifica."; return 1; }
 
-  # Con IMAGE vuota la versione di prima era :20.0, che ora punta già all'immagine nuova:
-  # in quel caso, dopo un errore, tornare indietro va fatto a mano (backup in backups/).
-  local prima="${attuale:-$CANALE}"
-  echo "== Aggiornamento: $prima → $nuova"
   prendi_file "$nuova"
-  scrivi IMAGE "$nuova"
-  if ./aggiorna.sh; then
-    rm -f .aggiornamento-fallito
-    registro "OK ${prima##*:} -> $commit"
-    pulizia "$nuova"
-  else
-    echo "$commit" > .aggiornamento-fallito
-    scrivi IMAGE "$attuale"
-    docker compose up -d --no-deps app || true
-    registro "ERRORE con $commit: rimessa la versione ${prima##*:} (dettagli: journalctl -u my-erp-crm-aggiorna; backup in backups/)"
-    return 1
-  fi
+  aggiorna "$attuale" "$nuova"
 }
 
 attiva() {
@@ -118,8 +172,8 @@ attiva() {
   scrivi AGGIORNA_DA_SOLO 1
   systemctl daemon-reload
   systemctl enable --now my-erp-crm-aggiorna.timer
-  echo "Aggiornamento automatico acceso. Primo controllo adesso:"
-  controlla
+  echo "Aggiornamento automatico acceso: un controllo ogni 15 minuti."
+  avvia_servizio
 }
 
 spegni() {
@@ -129,10 +183,22 @@ spegni() {
 }
 
 stato() {
+  local servizio
+  servizio="$(systemctl is-active my-erp-crm-aggiorna.service 2>/dev/null || true)"
+  case "$servizio" in
+    activating) servizio="al lavoro adesso ($SEGUI)" ;;
+    failed) servizio="l'ultimo controllo è finito con un errore (journalctl -u my-erp-crm-aggiorna -n 50)" ;;
+    *) servizio="fermo, in attesa del prossimo controllo" ;;
+  esac
   echo "Versione in uso: $(valore IMAGE)"
   echo "AGGIORNA_DA_SOLO: $(valore AGGIORNA_DA_SOLO)"
+  echo "Servizio di aggiornamento: $servizio"
+  echo "Contenitori: $(docker compose ps --format '{{.Service}}={{.State}}' 2>/dev/null | tr '\n' ' ')"
   systemctl list-timers my-erp-crm-aggiorna.timer --no-pager 2>/dev/null || true
-  [ -f .aggiornamento-fallito ] && echo "Versione fallita, non riprovata: $(cat .aggiornamento-fallito)"
+  if [ -f .aggiornamento-in-corso ]; then
+    echo "Aggiornamento rimasto a metà verso $(sed -n 2p .aggiornamento-in-corso): si riprende al prossimo controllo."
+  fi
+  if [ -f .aggiornamento-fallito ]; then echo "Versione fallita, non riprovata: $(cat .aggiornamento-fallito)"; fi
   echo "Ultimi aggiornamenti:"; tail -n 5 aggiornamenti.log 2>/dev/null || echo "  nessuno"
 }
 
