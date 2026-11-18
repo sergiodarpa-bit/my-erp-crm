@@ -18,22 +18,61 @@ magazzino, progetti e tutte le altre applicazioni incluse.
 ## Messa online (produzione)
 
 Il server di produzione è **https://erp.kliniksanktmoritz.ch**. A ogni modifica del ramo
-`main`, GitHub Actions ([`.github/workflows/pubblica.yml`](.github/workflows/pubblica.yml)):
+`main`, GitHub Actions ([`.github/workflows/pubblica.yml`](.github/workflows/pubblica.yml))
+costruisce l'immagine Docker e la pubblica su `ghcr.io/sergiodarpa-bit/my-erp-crm` con due
+nomi: `:20.0` (sempre l'ultima) e `:<commit>`. Il commit è scritto anche dentro l'immagine.
 
-1. costruisce l'immagine Docker e la pubblica su `ghcr.io/sergiodarpa-bit/my-erp-crm`;
-2. se il server è configurato, copia i file di [`deploy/produzione`](deploy/produzione) in
-   `/opt/my-erp-crm`, scrive in `.env` la versione appena costruita (`IMAGE=…:<commit>`) ed
-   esegue `aggiorna.sh` come root (con `sudo` se l'utente SSH non è root): al primo avvio
-   crea il database e configura l'azienda; le volte successive fa un **backup del
-   database** e aggiorna i moduli. I dati non vengono mai cancellati.
-
-   `IMAGE` in `.env` dice quindi sempre quale commit gira. Per tornare a una versione
-   precedente si rimette a mano il commit voluto in `IMAGE` e si lancia `./aggiorna.sh`.
+Sul server, `aggiorna.sh` porta in produzione la versione indicata da `IMAGE` in `.env`: al
+primo avvio crea il database e configura l'azienda; le volte successive fa un **backup del
+database** e aggiorna i moduli. I dati non vengono mai cancellati. `IMAGE=…:<commit>` dice
+quindi sempre quale versione gira.
 
 HTTPS è automatico (Caddy con certificato Let's Encrypt).
 
 **Cosa serve sul server:** Linux con Docker e il plugin Compose, porte 80 e 443 libere, e il
 record DNS di `erp.kliniksanktmoritz.ch` che punta al suo indirizzo IP.
+
+### Aggiornamento automatico dal server (consigliato)
+
+Il server controlla ogni 15 minuti se su ghcr.io c'è una versione nuova di `main` e, se c'è,
+si aggiorna da solo ([`aggiorna-da-solo.sh`](deploy/produzione/aggiorna-da-solo.sh) con il
+timer `my-erp-crm-aggiorna.timer`). **Nessuna porta in entrata, nessun IP fisso, nessuna
+chiave su GitHub**: è il server che chiede. Dopo un merge su `main` la nuova versione è in
+produzione entro circa 20 minuti (costruzione dell'immagine più un controllo), con qualche
+minuto di fermo dell'applicazione durante l'aggiornamento dei moduli.
+
+Per accenderlo, una volta, sul server:
+
+```bash
+sudo bash -c 'set -e; cd /opt/my-erp-crm; B=https://raw.githubusercontent.com/sergiodarpa-bit/my-erp-crm/main/deploy/produzione; for f in aggiorna-da-solo.sh my-erp-crm-aggiorna.service my-erp-crm-aggiorna.timer; do curl -fsSL -o "$f.nuovo" "$B/$f"; mv "$f.nuovo" "$f"; done; chmod 755 aggiorna-da-solo.sh; ./aggiorna-da-solo.sh attiva'
+```
+
+Poi, sempre da `/opt/my-erp-crm` con `sudo`:
+
+| Comando | Cosa fa |
+|---|---|
+| `./aggiorna-da-solo.sh stato` | versione in uso, prossimo controllo, ultimi aggiornamenti |
+| `./aggiorna-da-solo.sh` | controlla subito, senza aspettare il timer |
+| `./aggiorna-da-solo.sh spegni` | spegne l'aggiornamento automatico (`AGGIORNA_DA_SOLO=0`) |
+| `journalctl -u my-erp-crm-aggiorna -n 100` | dettaglio dell'ultimo aggiornamento |
+
+Ogni aggiornamento lascia una riga in `aggiornamenti.log`. Se `aggiorna.sh` fallisce, lo
+script rimette la versione di prima, riaccende l'applicazione e non riprova quella versione
+finché non ne esce una nuova (o finché non si cancella `.aggiornamento-fallito`). Non parte
+mentre gira il backup o un altro script di manutenzione. Gli script di produzione
+(`aggiorna.sh`, `docker-compose.yml`, …) li prende dall'immagine nuova, quindi sono sempre
+della stessa versione del programma. Tiene la versione in uso e le due precedenti.
+
+Per **tornare a una versione precedente**: prima `./aggiorna-da-solo.sh spegni`, poi in
+`.env` si rimette il commit voluto in `IMAGE` e si lancia `./aggiorna.sh`.
+
+### In alternativa: pubblicazione da GitHub via SSH
+
+Se il server è configurato su GitHub, dopo la costruzione dell'immagine GitHub entra nel
+server via SSH, copia i file di [`deploy/produzione`](deploy/produzione) in
+`/opt/my-erp-crm`, scrive in `.env` la versione appena costruita ed esegue `aggiorna.sh`
+come root (con `sudo` se l'utente SSH non è root). Richiede la porta 22 del server aperta a
+tutto internet, perché GitHub non si collega da indirizzi fissi.
 
 **Cosa serve su GitHub** (Settings → Secrets and variables → Actions):
 
