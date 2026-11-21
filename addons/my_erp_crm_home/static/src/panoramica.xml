@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="my_erp_crm_home.Panoramica">
+        <div class="o_action o_my_erp_crm_panoramica">
+            <div class="o_panoramica_testa">
+                <h1 t-out="this.saluto"/>
+                <p class="o_panoramica_data" t-out="this.oggi"/>
+            </div>
+            <div class="o_panoramica_griglia">
+                <t t-foreach="this.app" t-as="app" t-key="app.id">
+                    <t t-set="numero" t-value="this.numero(app)"/>
+                    <div class="o_panoramica_app" role="button" tabindex="0"
+                         t-att-data-menu-xmlid="app.xmlid"
+                         t-on-click="() => this.apriApp(app)"
+                         t-on-keydown="(ev) => this.alTasto(ev, app)">
+                        <img class="o_panoramica_icona" t-att-src="this.icona(app)" alt=""/>
+                        <div class="o_panoramica_nome" t-out="app.name"/>
+                        <button t-if="numero" type="button" class="o_panoramica_numero"
+                                t-att-title="numero.titolo"
+                                t-on-click.stop="() => this.apriNumero(app)">
+                            <span class="o_panoramica_valore" t-out="numero.valore"/>
+                            <span class="o_panoramica_etichetta" t-out="numero.etichetta"/>
+                        </button>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+</templates>

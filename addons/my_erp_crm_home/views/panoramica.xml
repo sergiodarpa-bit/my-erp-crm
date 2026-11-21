@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_panoramica" model="ir.actions.client">
+        <field name="name">Panoramica</field>
+        <field name="tag">my_erp_crm_home.panoramica</field>
+        <field name="path">panoramica</field>
+    </record>
+
+    <!-- Prima voce del menu: senza un'azione iniziale scelta dall'utente, my-erp-crm apre la
+         prima app del menu, quindi la Panoramica diventa la pagina dopo l'accesso. -->
+    <menuitem id="menu_panoramica"
+              name="Panoramica"
+              action="action_panoramica"
+              sequence="-100"
+              groups="base.group_user"
+              web_icon="my_erp_crm_home,static/description/icon.png"/>
+</odoo>

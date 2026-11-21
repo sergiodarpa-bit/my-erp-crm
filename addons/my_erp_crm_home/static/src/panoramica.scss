@@ -1,0 +1,98 @@
+.o_my_erp_crm_panoramica {
+    overflow: auto;
+    padding: 32px 24px 48px;
+    background-color: $o-webclient-background-color;
+
+    .o_panoramica_testa {
+        max-width: 1200px;
+        margin: 0 auto 24px;
+
+        h1 {
+            margin-bottom: 4px;
+            font-size: 1.75rem;
+        }
+
+        .o_panoramica_data {
+            margin: 0;
+            color: $text-muted;
+            text-transform: capitalize;
+        }
+    }
+
+    .o_panoramica_griglia {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+        gap: 16px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .o_panoramica_app {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        min-height: 150px;
+        padding: 18px;
+        border: 1px solid $border-color;
+        border-radius: 12px;
+        background-color: $o-view-background-color;
+        cursor: pointer;
+        transition: box-shadow 0.15s, border-color 0.15s;
+
+        &:hover,
+        &:focus-visible {
+            border-color: $o-brand-primary;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+            outline: none;
+        }
+    }
+
+    .o_panoramica_icona {
+        width: 48px;
+        height: 48px;
+        border-radius: 10px;
+    }
+
+    .o_panoramica_nome {
+        font-size: 1.05rem;
+        font-weight: 600;
+    }
+
+    .o_panoramica_numero {
+        display: flex;
+        align-items: baseline;
+        gap: 6px;
+        margin-top: auto;
+        padding: 0;
+        border: 0;
+        background: none;
+        color: $o-brand-primary;
+        text-align: left;
+
+        &:hover .o_panoramica_etichetta {
+            text-decoration: underline;
+        }
+    }
+
+    .o_panoramica_valore {
+        font-size: 1.6rem;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    .o_panoramica_etichetta {
+        color: $text-muted;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .o_my_erp_crm_panoramica {
+        padding: 20px 16px 32px;
+
+        .o_panoramica_griglia {
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 12px;
+        }
+    }
+}
