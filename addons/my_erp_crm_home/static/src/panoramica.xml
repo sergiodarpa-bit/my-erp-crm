@@ -2,6 +2,7 @@
 <templates xml:space="preserve">
     <t t-name="my_erp_crm_home.Panoramica">
         <div class="o_action o_my_erp_crm_panoramica">
+          <div class="o_content o_panoramica_contenuto">
             <div class="o_panoramica_testa">
                 <h1 t-out="this.saluto"/>
                 <p class="o_panoramica_data" t-out="this.oggi"/>
@@ -24,6 +25,7 @@
                     </div>
                 </t>
             </div>
+          </div>
         </div>
     </t>
 </templates>

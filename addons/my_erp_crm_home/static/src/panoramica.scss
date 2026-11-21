@@ -1,7 +1,12 @@
 .o_my_erp_crm_panoramica {
-    overflow: auto;
-    padding: 32px 24px 48px;
-    background-color: $o-webclient-background-color;
+    // .o_action è un contenitore flex in colonna (regola del client web): un figlio con i
+    // margini automatici si restringe al contenuto, cioè a tutte le tessere in fila (1122 px su
+    // un telefono largo 390). Il contenuto sta quindi dentro .o_content, che riempie lo spazio e
+    // scorre come nelle viste di Odoo; dentro, testa e griglia sono blocchi normali.
+    .o_panoramica_contenuto {
+        padding: 32px 24px 48px;
+        background-color: $o-webclient-background-color;
+    }
 
     .o_panoramica_testa {
         max-width: 1200px;
@@ -88,7 +93,9 @@
 
 @include media-breakpoint-down(md) {
     .o_my_erp_crm_panoramica {
-        padding: 20px 16px 32px;
+        .o_panoramica_contenuto {
+            padding: 20px 16px 32px;
+        }
 
         .o_panoramica_griglia {
             grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
