@@ -8,6 +8,9 @@
     "license": "AGPL-3",
     "author": "Dixmit,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/sign",
+    # my-erp-crm: applicazione, così compare in Applicazioni anche con il filtro attivo.
+    "category": "Productivity",
+    "application": True,
     "depends": ["portal"],
     "data": [
         "security/security.xml",
