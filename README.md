@@ -193,6 +193,7 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 | `addons/my_erp_crm_iva` | regole IVA: VIES, inversione contabile, OSS, prove in fattura |
 | `addons/my_erp_crm_appointment` | prenotazioni: calendari pubblici di prenotazione sul sito (modello Calendly), con assegnazione automatica, domande, promemoria, cancellazione e riprogrammazione, opportunita' nel CRM; vedi il suo [README](addons/my_erp_crm_appointment/README.md) |
 | `addons/my_erp_crm_home` | **Panoramica**, la pagina dopo l'accesso: una tessera per ogni app installata con un numero chiave (opportunità aperte, preventivi da confermare, prenotazioni e appuntamenti di oggi, documenti da firmare, fatture da incassare); prima voce del menu, al posto della prima app (era il Commercio elettronico) |
+| `addons/my_erp_crm_home_website` | con il Sito web installato, l'indirizzo del gestionale (erp.…) apre il gestionale invece della pagina iniziale del sito (era il negozio): la radice «/» porta a /odoo, cioè accesso e poi Panoramica; /shop e gli altri siti non cambiano. Opzione «La radice apre il gestionale» in Sito web → Impostazioni |
 | `addons/sign_oca` | firma dei documenti PDF (consensi, contratti) da portale, telefono o gestionale: modulo della Odoo Community Association, licenza AGPL-3, adattato alla 20.0; vedi la [guida](doc/firma-documenti.md) |
 | `addons/web/static/img` | logo, icone e favicon |
 | `my-erp-crm` | comando di avvio (equivalente a `odoo-bin`) |

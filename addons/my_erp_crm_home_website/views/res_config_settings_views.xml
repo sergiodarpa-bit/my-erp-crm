@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form (my_erp_crm_home_website)</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="website.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//setting[@id='website_login_documents']" position="before">
+                <setting id="my_erp_crm_apri_gestionale"
+                         help="L'indirizzo principale di questo sito porta al gestionale (accesso, poi la Panoramica) invece della pagina iniziale del sito. Le altre pagine, per esempio il negozio su /shop, restano raggiungibili.">
+                    <field name="my_erp_crm_apri_gestionale"/>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

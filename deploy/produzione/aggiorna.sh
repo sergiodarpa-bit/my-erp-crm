@@ -107,6 +107,14 @@ if [ "$DB_PRESENTE" = "1" ]; then
     echo "== Moduli nuovi di my-erp-crm: $NUOVI_AUTO"
     $RUN app $APP -i "$NUOVI_AUTO" --stop-after-init
   fi
+  # Nomi tradotti delle app non ancora installate, come fa «Aggiorna elenco applicazioni»:
+  # «-u all» registra i moduli nuovi solo con il nome inglese del manifest (21/11/2026: la
+  # Firma compariva come «Sign Oca» e cercando «Firma» non si trovava).
+  echo "== Nomi tradotti delle applicazioni"
+  $RUN app $BIN shell $CONF --no-http >/dev/null 2>&1 <<'PY' || echo "Avviso: nomi delle applicazioni non tradotti"
+env["ir.module.module"]._load_non_installed_modules_manifest_terms([code for code, _ in env["res.lang"].get_installed()])
+env.cr.commit()
+PY
 else
   echo "== Primo avvio: creazione del database"
   : "${ADMIN_PASSWORD:?ADMIN_PASSWORD vuota in .env}"
