@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_firma" model="ir.ui.view">
+        <field name="name">sale.order.form.firma</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header/button[@id='action_confirm']" position="after">
+                <button string="Invia alla firma"
+                    name="action_invia_alla_firma"
+                    type="object"
+                    class="btn-secondary"
+                    groups="sign_oca.sign_oca_group_user"
+                    invisible="state == 'cancel'"/>
+            </xpath>
+            <div name="button_box" position="inside">
+                <button name="action_view_firme"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="contract"
+                    groups="sign_oca.sign_oca_group_user"
+                    invisible="firma_count == 0">
+                    <field name="firma_count" widget="statinfo" string="Firme"/>
+                </button>
+            </div>
+        </field>
+    </record>
+</odoo>

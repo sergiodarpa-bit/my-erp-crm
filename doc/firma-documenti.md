@@ -52,6 +52,33 @@ Il **Certificato firma** si stampa dalla richiesta.
 
 Un utente interno indicato come firmatario firma dal gestionale con **Firma adesso**.
 
+## Firmare i preventivi (contratti)
+
+Con le Vendite installate si aggiunge da solo il modulo `my_erp_crm_sale_sign`. Nel
+preventivo c'è il pulsante **Invia alla firma**, che offre due scelte:
+
+- **Il preventivo, con una pagina per le firme**: si firma il PDF del preventivo stesso. In
+  fondo viene aggiunta una pagina "Accettazione del preventivo" con cliente, numero, data e
+  totale, e gli spazi per *Nome e cognome* (si compila da solo), *Luogo e data* e *Firma*.
+  Con **Firma anche la clinica** la pagina ha anche lo spazio per chi firma per la clinica
+  (di solito tu).
+- **Un modello di Firma**, per esempio il contratto in PDF. Il modello deve avere il campo
+  *Modello* = **Ordine di vendita**, e il ruolo del cliente deve avere la politica
+  *Espressione* con `{{object.partner_id.id}}`. Questa scelta compare solo se esiste
+  almeno un modello così, e allora è proposta per prima.
+
+Dopo **Invia**:
+- il link per firmare arriva per email a chi firma;
+- il preventivo passa a *Preventivo inviato*;
+- nel registro del preventivo resta la nota con il link alla richiesta.
+
+Chi firma per la clinica ed è un utente del gestionale riceve la richiesta anche nella posta
+interna: può non avere l'email.
+
+Il pulsante **Firme** del preventivo apre le richieste che lo riguardano. Quando tutti hanno
+firmato, il **PDF firmato viene allegato al preventivo**, con la nota "Documento firmato
+da …". Il preventivo **non** viene confermato da solo: lo confermi tu con **Conferma**.
+
 ## Cosa vale legalmente
 
 È una **firma elettronica semplice**: identifica chi firma tramite il link personale inviato
