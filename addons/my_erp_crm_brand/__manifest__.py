@@ -7,7 +7,7 @@ Applica il marchio my-erp-crm all'interfaccia: pagina di accesso, piè di pagina
 finestre di errore e logo mostrato quando l'azienda non ha ancora caricato il proprio.
 Si installa automaticamente con ogni nuovo database.
 """,
-    "version": "1.1",
+    "version": "1.2",
     "category": "Hidden",
     "author": "my-erp-crm",
     "website": "https://github.com/sergiodarpa-bit/my-erp-crm",

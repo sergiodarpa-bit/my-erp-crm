@@ -27,3 +27,20 @@ class IrModuleModule(models.Model):
         return super().web_search_read(
             domain, specification, offset=offset, limit=limit, order=order, count_limit=count_limit,
         )
+
+    @api.model
+    def search_panel_select_range(self, field_name, **kwargs):
+        # Colonna di sinistra della pagina Applicazioni: i contatori delle categorie non contano
+        # le app a pagamento, e spariscono le categorie che contengono solo quelle (in produzione
+        # «Firma 1», «Helpdesk 1»…: cliccando, l'elenco restava vuoto).
+        if field_name != "category_id" or _chiede_settori(kwargs.get("category_domain", [])):
+            return super().search_panel_select_range(field_name, **kwargs)
+        kwargs["search_domain"] = Domain.AND([kwargs.get("search_domain") or [], [("to_buy", "=", False)]])
+        risultato = super().search_panel_select_range(field_name, **kwargs)
+        radici = set()
+        for categoria in self.search([("to_buy", "=", False)]).category_id:
+            while categoria.parent_id:
+                categoria = categoria.parent_id
+            radici.add(categoria.id)
+        risultato["values"] = [valore for valore in risultato["values"] if valore["id"] in radici]
+        return risultato

@@ -17,6 +17,26 @@ class TestApplicazioni(TransactionCase):
         self.assertNotIn("helpdesk", nomi)
         self.assertEqual(risultato["length"], len(nomi))
 
+    def test_colonna_senza_categorie_di_sole_app_a_pagamento(self):
+        moduli = self.env["ir.module.module"]
+        a_pagamento = moduli.search([("to_buy", "=", True), ("application", "=", True)])
+        self.assertTrue(a_pagamento, "mancano i segnaposto da nascondere")
+        filtro_app = [("application", "=", True)]
+        colonna = moduli.search_panel_select_range("category_id", enable_counters=True, search_domain=filtro_app)
+        categorie = self.env["ir.module.category"].browse([v["id"] for v in colonna["values"]])
+        for valore in colonna["values"]:
+            # Ogni categoria ha almeno un modulo vero, e il contatore non conta le app a pagamento.
+            dentro = [("category_id", "child_of", valore["id"])]
+            self.assertTrue(moduli.search(dentro + [("to_buy", "=", False)], limit=1), valore["display_name"])
+            self.assertEqual(valore["__count"], moduli.search_count(dentro + filtro_app + [("to_buy", "=", False)]))
+        # Le categorie che contengono solo app a pagamento non ci sono.
+        for modulo in a_pagamento:
+            radice = modulo.category_id
+            while radice.parent_id:
+                radice = radice.parent_id
+            if not moduli.search([("category_id", "child_of", radice.id), ("to_buy", "=", False)], limit=1):
+                self.assertNotIn(radice, categorie, radice.name)
+
     def test_settori_non_toccati(self):
         self.assertTrue(_chiede_settori([("module_type", "=", "industries")]))
         self.assertTrue(_chiede_settori([("module_type", "in", ["industries"])]))
