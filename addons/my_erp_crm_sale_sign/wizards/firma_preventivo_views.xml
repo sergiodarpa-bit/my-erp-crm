@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="firma_preventivo_view_form" model="ir.ui.view">
+        <field name="name">my_erp_crm.firma.preventivo.form</field>
+        <field name="model">my_erp_crm.firma.preventivo</field>
+        <field name="arch" type="xml">
+            <form string="Invia alla firma">
+                <field name="ha_modelli" invisible="1"/>
+                <group>
+                    <field name="order_id"/>
+                    <field name="documento" widget="radio" invisible="not ha_modelli"/>
+                    <field name="template_id" invisible="documento != 'modello'" required="documento == 'modello'"
+                        options="{'no_create': True}"/>
+                    <field name="partner_id" invisible="documento != 'preventivo'" required="documento == 'preventivo'"/>
+                    <field name="firma_clinica" invisible="documento != 'preventivo'"/>
+                    <field name="firmatario_clinica_id" invisible="documento != 'preventivo' or not firma_clinica"
+                        required="documento == 'preventivo' and firma_clinica"/>
+                </group>
+                <div class="text-muted mb-3" invisible="documento != 'preventivo'">
+                    In fondo al PDF del preventivo viene aggiunta una pagina con lo spazio per nome, luogo e data e firma.
+                </div>
+                <div class="text-muted mb-3" invisible="documento != 'modello'">
+                    I firmatari sono quelli dei ruoli del modello (Firma → Impostazioni → Ruoli).
+                </div>
+                <field name="message" placeholder="Messaggio per chi firma (facoltativo)"/>
+                <footer>
+                    <button name="invia" string="Invia" type="object" class="btn-primary" data-hotkey="q"/>
+                    <button string="Annulla" class="btn-secondary" special="cancel" data-hotkey="x"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

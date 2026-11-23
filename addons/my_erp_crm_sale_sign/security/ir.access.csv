@@ -1,0 +1,2 @@
+id,name,model_id,group_id/id,operation,domain
+access_firma_preventivo,Invia un preventivo alla firma: utenti di Firma,my_erp_crm.firma.preventivo,sign_oca.sign_oca_group_user,crud,

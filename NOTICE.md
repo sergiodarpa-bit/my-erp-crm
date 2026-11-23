@@ -33,6 +33,8 @@ L'elenco completo e datato di ogni modifica è nella cronologia git di questo re
   `__manifest__.py`). Questo modulo resta sotto AGPL: chi lo usa in rete ha diritto al suo
   codice sorgente, pubblicato in questo repository. Le modifiche di my-erp-crm sono elencate
   in [doc/firma-documenti.md](doc/firma-documenti.md).
+- `addons/my_erp_crm_sale_sign` (firma dei preventivi) è scritto da my-erp-crm ma estende
+  `sign_oca`: per questo è distribuito anch'esso con licenza **GNU AGPL v3**.
 
 ## Marchi
 
