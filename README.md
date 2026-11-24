@@ -151,6 +151,12 @@ avvio con i dati di `.env`:
 - **Tassi di cambio** aggiornati ogni giorno con i tassi di riferimento della Banca Centrale
   Europea (modulo `my_erp_crm_currency_ecb`).
 
+## Posta in uscita
+
+Finché il server di posta in uscita non è configurato e provato **nessuna email parte**
+(conferme, preventivi, fatture, richieste di firma). I passi, gli errori tipici e la voce di
+attivazione per la versione SaaS sono in [`doc/posta-in-uscita.md`](doc/posta-in-uscita.md).
+
 ## Avvio in locale con Docker
 
 ```bash
