@@ -1,0 +1,245 @@
+# Translation of my-erp-crm Server.
+# This file contains the translation of the following modules:
+# 	* my_erp_crm_subscription
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: my-erp-crm Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 15:09+0000\n"
+"PO-Revision-Date: 2026-11-27 15:09+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: my_erp_crm_subscription
+#. odoo-python
+#: code:addons/my_erp_crm_subscription/models/abbonamento.py:0
+msgid "%(start)s to %(end)s"
+msgstr "dal %(start)s al %(end)s"
+
+#. module: my_erp_crm_subscription
+#. odoo-python
+#: code:addons/my_erp_crm_subscription/models/abbonamento.py:0
+msgid "Active"
+msgstr "Attivo"
+
+#. module: my_erp_crm_subscription
+#: model_terms:ir.ui.view,arch_db:my_erp_crm_subscription.portal_my_abbonamento
+msgid "Active until"
+msgstr "Attivo fino al"
+
+#. module: my_erp_crm_subscription
+#: model_terms:ir.ui.view,arch_db:my_erp_crm_subscription.portal_my_abbonamenti
+#: model_terms:ir.ui.view,arch_db:my_erp_crm_subscription.portal_my_abbonamento
+msgid "Amount"
+msgstr "Importo"
+
+#. module: my_erp_crm_subscription
+#: model_terms:ir.ui.view,arch_db:my_erp_crm_subscription.portal_my_abbonamento
+msgid "Cancel subscription"
+msgstr "Disdici l'abbonamento"
+
+#. module: my_erp_crm_subscription
+#. odoo-python
+#: code:addons/my_erp_crm_subscription/models/abbonamento.py:0
+msgid "Cancelled, active until the end of the period"
+msgstr "Disdetto, attivo fino alla fine del periodo"
+
+#. module: my_erp_crm_subscription
+#: model_terms:ir.ui.view,arch_db:my_erp_crm_subscription.portal_my_abbonamento
+msgid ""
+"Cancelling stops the next renewals; the period already paid stays active "
+"until its end."
+msgstr "La disdetta ferma i rinnovi successivi; il periodo già pagato resta attivo fino alla sua fine."
+
+#. module: my_erp_crm_subscription
+#: model_terms:ir.ui.view,arch_db:my_erp_crm_subscription.portal_my_abbonamento
+msgid "Card for renewals"
+msgstr "Carta per i rinnovi"
+
+#. module: my_erp_crm_subscription
+#: model_terms:ir.ui.view,arch_db:my_erp_crm_subscription.portal_my_abbonamento
+msgid "Change card"
+msgstr "Cambia carta"
+
+#. module: my_erp_crm_subscription
+#. odoo-python
+#: code:addons/my_erp_crm_subscription/models/abbonamento.py:0
+msgid "Ended"
+msgstr "Terminato"
+
+#. module: my_erp_crm_subscription
+#: model_terms:ir.ui.view,arch_db:my_erp_crm_subscription.portal_my_abbonamenti
+#: model_terms:ir.ui.view,arch_db:my_erp_crm_subscription.portal_my_abbonamento
+msgid "Next payment"
+msgstr "Prossimo pagamento"
+
+#. module: my_erp_crm_subscription
+#: model_terms:ir.ui.view,arch_db:my_erp_crm_subscription.portal_my_abbonamento
+msgid "Pay the renewal"
+msgstr "Paga il rinnovo"
+
+#. module: my_erp_crm_subscription
+#. odoo-python
+#: code:addons/my_erp_crm_subscription/models/abbonamento.py:0
+msgid "Payment failed"
+msgstr "Pagamento non riuscito"
+
+#. module: my_erp_crm_subscription
+#. odoo-python
+#: code:addons/my_erp_crm_subscription/models/abbonamento.py:0
+msgid "Payment for your subscription %s did not go through"
+msgstr "Il pagamento del tuo abbonamento %s non è andato a buon fine"
+
+#. module: my_erp_crm_subscription
+#: model_terms:ir.ui.view,arch_db:my_erp_crm_subscription.portal_my_abbonamento
+msgid "Reactivate subscription"
+msgstr "Riattiva l'abbonamento"
+
+#. module: my_erp_crm_subscription
+#: model:portal.entry,description:my_erp_crm_subscription.portal_abbonamenti
+msgid "See your subscriptions, the next payment, cancel or pay a renewal"
+msgstr "Vedi i tuoi abbonamenti e il prossimo pagamento, disdici o paga un rinnovo"
+
+#. module: my_erp_crm_subscription
+#: model_terms:ir.ui.view,arch_db:my_erp_crm_subscription.portal_my_abbonamenti
+#: model_terms:ir.ui.view,arch_db:my_erp_crm_subscription.portal_my_abbonamento
+msgid "Services"
+msgstr "Servizi"
+
+#. module: my_erp_crm_subscription
+#: model_terms:ir.ui.view,arch_db:my_erp_crm_subscription.portal_my_abbonamento
+msgid "Started on"
+msgstr "Attivo dal"
+
+#. module: my_erp_crm_subscription
+#: model_terms:ir.ui.view,arch_db:my_erp_crm_subscription.portal_my_abbonamenti
+msgid "Status"
+msgstr "Stato"
+
+#. module: my_erp_crm_subscription
+#: model_terms:ir.ui.view,arch_db:my_erp_crm_subscription.portal_my_abbonamenti
+msgid "Subscription"
+msgstr "Abbonamento"
+
+#. module: my_erp_crm_subscription
+#: model_terms:ir.ui.view,arch_db:my_erp_crm_subscription.avviso_abbonamento_pagamento
+msgid "Subscription with automatic renewal"
+msgstr "Abbonamento con rinnovo automatico"
+
+#. module: my_erp_crm_subscription
+#: model:portal.entry,name:my_erp_crm_subscription.portal_abbonamenti
+#: model_terms:ir.ui.view,arch_db:my_erp_crm_subscription.portal_breadcrumbs_abbonamenti
+#: model_terms:ir.ui.view,arch_db:my_erp_crm_subscription.portal_my_abbonamenti
+msgid "Subscriptions"
+msgstr "Abbonamenti"
+
+#. module: my_erp_crm_subscription
+#. odoo-python
+#: code:addons/my_erp_crm_subscription/models/abbonamento.py:0
+msgid "Suspended"
+msgstr "Sospeso"
+
+#. module: my_erp_crm_subscription
+#: model_terms:ir.ui.view,arch_db:my_erp_crm_subscription.portal_my_abbonamento
+msgid "The renewal of this subscription is waiting for payment."
+msgstr "Il rinnovo di questo abbonamento è in attesa di pagamento."
+
+#. module: my_erp_crm_subscription
+#. odoo-python
+#: code:addons/my_erp_crm_subscription/models/abbonamento.py:0
+msgid ""
+"The renewal of your subscription %(name)s (%(amount)s %(recurrence)s) is "
+"ready to be paid."
+msgstr "Il rinnovo del tuo abbonamento %(name)s (%(amount)s %(recurrence)s) è pronto da pagare."
+
+#. module: my_erp_crm_subscription
+#. odoo-python
+#: code:addons/my_erp_crm_subscription/models/abbonamento.py:0
+msgid "To change the card used for the next renewals: %s"
+msgstr "Per cambiare la carta dei prossimi rinnovi: %s"
+
+#. module: my_erp_crm_subscription
+#. odoo-python
+#: code:addons/my_erp_crm_subscription/models/abbonamento.py:0
+msgid ""
+"We could not charge your card for the renewal of your subscription %(name)s "
+"(%(amount)s %(recurrence)s)."
+msgstr "Non siamo riusciti ad addebitare sulla tua carta il rinnovo del tuo abbonamento %(name)s (%(amount)s %(recurrence)s)."
+
+#. module: my_erp_crm_subscription
+#. odoo-python
+#: code:addons/my_erp_crm_subscription/models/abbonamento.py:0
+msgid "You can pay it online here: %s"
+msgstr "Puoi pagarlo online qui: %s"
+
+#. module: my_erp_crm_subscription
+#. odoo-python
+#: code:addons/my_erp_crm_subscription/models/abbonamento.py:0
+msgid "You can pay the renewal online, also with another card, here: %s"
+msgstr "Puoi pagare il rinnovo online, anche con un'altra carta, qui: %s"
+
+#. module: my_erp_crm_subscription
+#: model_terms:ir.ui.view,arch_db:my_erp_crm_subscription.portal_my_abbonamenti
+msgid "You have no subscriptions."
+msgstr "Non hai abbonamenti."
+
+#. module: my_erp_crm_subscription
+#: model_terms:ir.ui.view,arch_db:my_erp_crm_subscription.avviso_abbonamento_pagamento
+msgid ""
+"Your card is saved securely with our payment provider. By paying, you "
+"authorise us to charge these amounts to the same card at each renewal, until"
+" you cancel. You can cancel at any time from your account (Subscriptions) or"
+" from the link in our emails; the period already paid stays active until its"
+" end."
+msgstr "La tua carta viene salvata in modo sicuro presso il nostro fornitore di pagamenti. Pagando, ci autorizzi ad addebitare questi importi sulla stessa carta a ogni rinnovo, finché non disdici. Puoi disdire in qualsiasi momento dal tuo account (Abbonamenti) o dal link nelle nostre email; il periodo già pagato resta attivo fino alla sua fine."
+
+#. module: my_erp_crm_subscription
+#. odoo-python
+#: code:addons/my_erp_crm_subscription/models/abbonamento.py:0
+msgid ""
+"Your subscription %(name)s has been cancelled. It stays active until "
+"%(date)s and will not be renewed."
+msgstr "Il tuo abbonamento %(name)s è stato disdetto. Resta attivo fino al %(date)s e non verrà rinnovato."
+
+#. module: my_erp_crm_subscription
+#. odoo-python
+#: code:addons/my_erp_crm_subscription/models/abbonamento.py:0
+msgid "Your subscription %s has been cancelled"
+msgstr "Il tuo abbonamento %s è stato disdetto"
+
+#. module: my_erp_crm_subscription
+#. odoo-python
+#: code:addons/my_erp_crm_subscription/models/abbonamento.py:0
+msgid "Your subscription %s is due for renewal"
+msgstr "Il tuo abbonamento %s è da rinnovare"
+
+#. module: my_erp_crm_subscription
+#: model_terms:ir.ui.view,arch_db:my_erp_crm_subscription.portal_my_abbonamento
+msgid ""
+"Your subscription has been cancelled. It will not be renewed and stays "
+"active until the end of the period already paid."
+msgstr "Il tuo abbonamento è stato disdetto. Non verrà rinnovato e resta attivo fino alla fine del periodo già pagato."
+
+#. module: my_erp_crm_subscription
+#: model_terms:ir.ui.view,arch_db:my_erp_crm_subscription.portal_my_abbonamento
+msgid "Your subscription has been reactivated: it will be renewed as before."
+msgstr "Il tuo abbonamento è stato riattivato: si rinnoverà come prima."
+
+#. module: my_erp_crm_subscription
+#. odoo-python
+#: code:addons/my_erp_crm_subscription/models/abbonamento.py:0
+#: code:addons/my_erp_crm_subscription/models/sale_order.py:0
+msgid "every month"
+msgstr "ogni mese"
+
+#. module: my_erp_crm_subscription
+#. odoo-python
+#: code:addons/my_erp_crm_subscription/models/abbonamento.py:0
+#: code:addons/my_erp_crm_subscription/models/sale_order.py:0
+msgid "every year"
+msgstr "ogni anno"
