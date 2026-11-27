@@ -15,6 +15,8 @@ my-erp-crm. Si installa da solo dove il negozio c'è già, al primo aggiornament
 | **Pagamento mai perso** | se una fattura automatica non si può emettere, il pagamento è registrato, l'ordine confermato, la fattura resta in bozza con un'attività |
 | **Panoramica** | i carrelli del sito non contano più fra i «preventivi da confermare»; la tessera **Sito web** mostra gli **ordini online da gestire** |
 | **Dashboard** | il cruscotto **E-commerce** dell'app Dashboard è sempre installato |
+| **Abbonamenti** (`my_erp_crm_subscription`) | servizi mensili e annuali con rinnovo addebitato da solo sulla carta salvata in Stripe, disdetta dal portale, ricavo mensile ricorrente; vedi [sotto](#abbonamenti-mensili-e-annuali) |
+| **Niente testo di Odoo** | la pagina `/terms` non riceve il modello di esempio di Odoo; il piè di pagina del sito dice «Fornito da my-erp-crm» senza la pubblicità di Odoo |
 
 All'installazione il modulo imposta, una volta sola (poi si cambia dalle Impostazioni):
 
@@ -79,10 +81,13 @@ Le chiavi si scrivono solo nei campi del gestionale: mai in `.env`, in documenti
 ### 4. Termini e condizioni
 
 **Contabilità → Configurazione → Impostazioni → «Condizioni Generali»** → «Come pagina web»:
-il testo delle condizioni di vendita (servizi, recesso, rimborsi, legge applicabile), scritto
-con chi segue gli aspetti legali. Diventa la pagina `/terms`. Poi nel negozio, alla pagina di
-pagamento, «Modifica» → accendere **«Accetta termini e condizioni»**: il cliente deve
-spuntarla per pagare.
+il testo delle condizioni di vendita, scritto con chi segue gli aspetti legali. Diventa la
+pagina `/terms`. La pagina parte **vuota**: my-erp-crm non mette il modello di esempio di Odoo
+(«STANDARD TERMS AND CONDITIONS OF SALE…»), e all'installazione del negozio lo toglie se c'era.
+Con gli abbonamenti le condizioni devono dire almeno: rinnovo automatico e prezzo, come e
+quando si disdice, che cosa succede se un addebito non riesce, diritto di recesso per i servizi
+digitali. Poi nel negozio, alla pagina di pagamento, «Modifica» → accendere **«Accetta termini e
+condizioni»**: il cliente deve spuntarla per pagare.
 
 ### 5. Prova d'acquisto
 
@@ -97,6 +102,14 @@ Con Stripe in prova si compra davvero dal negozio, da una finestra anonima:
 
 Poi si guarda che l'ordine sia nella Panoramica e nei cruscotti (sotto), e che la fattura sia
 nella contabilità con il pagamento abbinato.
+
+Per gli abbonamenti, sempre in prova: si compra un servizio «· mensile» con la carta di prova
+`4242 4242 4242 4242`; in Vendite → Ordini → Abbonamenti nasce l'abbonamento con la carta. Per
+provare un rinnovo senza aspettare un mese si sposta indietro di un mese la sua data
+«Inizio» e si esegue l'azione pianificata «Abbonamenti: rinnovi e addebiti» (Impostazioni →
+Tecnico → Azioni pianificate, «Esegui manualmente», in modalità sviluppatore). Con la carta di
+prova `4000 0000 0000 0341` (accettata al primo pagamento, rifiutata ai successivi) si prova
+l'addebito non riuscito.
 
 ### 6. Lancio
 
@@ -130,19 +143,55 @@ l'opzione `geoip_country_db`): finché manca, il controllo di lancio lo segnala.
 
 ## Abbonamenti mensili e annuali
 
-Odoo Community, e quindi my-erp-crm, **non ha la fatturazione ricorrente**: l'app «Abbonamenti»
-è della versione a pagamento. Un prodotto «· mensile» venduto dal negozio si paga **una volta**:
-il mese dopo non parte nessun addebito né nessuna fattura. Finché non c'è un rinnovo
-automatico, le strade sono:
+Odoo Community non ha la fatturazione ricorrente (l'app «Abbonamenti» è della versione a
+pagamento). La aggiunge il modulo `my_erp_crm_subscription`, che arriva da solo con il negozio
+e si appoggia a Stripe: la carta resta in Stripe, mentre ordini, fatture, regole IVA e numeri
+restano in my-erp-crm.
 
-- vendere **periodi prepagati** (un mese, un anno) e chiedere il rinnovo al cliente prima della
-  scadenza;
-- far gestire il rinnovo a **Stripe Billing** (abbonamenti sul conto Stripe) e registrare gli
-  incassi nel gestionale;
-- aggiungere un modulo di abbonamenti della Odoo Community Association adattato alla 20.0,
-  come è stato fatto per la firma (`sign_oca`).
+**Il prodotto.** Nella scheda del servizio, campo **«Abbonamento»**: «Ogni mese» oppure «Ogni
+anno»; vuoto vuol dire che si paga una volta sola. All'installazione il campo si compila da solo
+per i servizi in vendita il cui nome finisce con «mensile» o «annuale» (per esempio «Gemello
+Digitale · mensile»). Il filtro «Abbonamenti» nell'elenco dei prodotti li mostra tutti.
 
-Va deciso prima del lancio, e scritto nei termini di vendita.
+**Il primo acquisto.** Se nel carrello c'è un abbonamento:
+
+- sopra il pagamento compare l'avviso **«Abbonamento con rinnovo automatico»**: che cosa si
+  rinnova, quanto e ogni quanto, e come si disdice. È il consenso del cliente agli addebiti
+  successivi, richiesto dalle regole delle carte;
+- si paga solo con metodi che **salvano la carta** (Stripe con «Permetti di salvare metodi di
+  pagamento», acceso all'installazione); il bonifico non compare;
+- pagato l'ordine, nasce l'abbonamento (**Vendite → Ordini → Abbonamenti**, numero `ABB/…`), con
+  i prezzi bloccati a quelli pagati e la carta salvata.
+
+**I rinnovi.** Ogni giorno l'azione pianificata «Abbonamenti: rinnovi e addebiti»:
+
+1. a fine periodo crea l'ordine di rinnovo, con il periodo nella descrizione (per esempio «dal
+   27/12/2026 al 26/01/2027»), e lo addebita sulla carta senza il cliente (pagamento
+   «off-session» di Stripe);
+2. pagato il rinnovo: ordine confermato, fattura emessa e inviata (fattura automatica), periodo
+   successivo coperto. L'IVA si ricalcola a ogni rinnovo con le regole del momento;
+3. **se l'addebito non riesce** (carta scaduta, fondi insufficienti, banca che chiede la
+   conferma del cliente): email al cliente con il link per pagare il rinnovo, anche con un'altra
+   carta, e per cambiare carta; nuovo tentativo dopo 3 giorni. Dopo **3 tentativi**
+   l'abbonamento si **sospende** e il venditore riceve un'attività. Se il cliente paga dal
+   link, l'abbonamento torna attivo con la carta nuova. Il rinnovo in attesa compare fra gli
+   **ordini online da gestire** della Panoramica;
+4. senza carta salvata (per esempio se il cliente l'ha tolta) il rinnovo si manda al cliente
+   da pagare, con gli stessi tentativi.
+
+Un addebito non si ripete per errore: la transazione si salva prima di chiamare Stripe, e se il
+lavoro si interrompe si riprova la stessa richiesta, che Stripe riconosce e non addebita due
+volte.
+
+**La disdetta.** Il cliente disdice da **Il mio account → Abbonamenti** o dal link nelle email
+(funziona anche per chi ha comprato senza account): l'abbonamento resta attivo fino alla fine
+del periodo pagato e poi si chiude, senza altri addebiti. Si può riattivare prima della fine.
+Dal gestionale: «Disdici», «Riattiva», «Chiudi subito», «Riprova l'addebito».
+
+**I numeri.** In Vendite → Ordini → Abbonamenti: elenco con stato, prossimo addebito, importo;
+viste tabella pivot e grafico del **ricavo mensile ricorrente (MRR)**, cioè l'imponibile riportato
+al mese degli abbonamenti che si rinnovano (un annuale conta un dodicesimo). Il controllo di
+lancio ha la voce «Abbonamenti».
 
 ## Quando una fattura non si può emettere
 
@@ -165,6 +214,7 @@ emessa.
 | **Panoramica** (prima pagina dopo l'accesso) | tessera Sito web: **ordini online da gestire** (bonifici attesi, fatture da emettere); tessera Vendite: preventivi da confermare, senza i carrelli; tessera Contabilità: fatture da incassare |
 | **Dashboard → E-commerce** | incasso, ordini, carrelli e carrelli abbandonati, prodotti e categorie più venduti (per i responsabili vendite); accanto, i cruscotti **Vendite** e **Fatturazione** |
 | **Sito web → Rendiconto → Vendite online** | analisi a tabella e grafico degli ordini del sito, per prodotto, paese, periodo |
+| **Vendite → Ordini → Abbonamenti** | abbonamenti per stato, prossimi addebiti, pagamenti non riusciti; pivot e grafico del ricavo mensile ricorrente (MRR) |
 | **Sito web → E-commerce → Ordini** | gli ordini uno per uno; **Carrelli abbandonati** (in modalità sviluppatore) per ricontattare chi non ha finito |
 | **Contabilità** | gli incassi online nel registro del metodo di pagamento (campo «Registro» del metodo), le fatture del negozio |
 | **Email di riepilogo** | le vendite e-commerce nel riepilogo periodico, con gli altri numeri |

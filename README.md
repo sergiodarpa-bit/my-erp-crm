@@ -165,7 +165,8 @@ cosa manca (prodotti e prezzi in euro, pagamenti Stripe o bonifico, posta in usc
 condizioni, …). Il negozio applica le regole IVA **prima del pagamento**: un carrello che non
 si potrebbe fatturare (per esempio servizi digitali a privati UE senza OSS) non arriva al
 pagamento. Se una fattura automatica non si può emettere, il pagamento non si perde: ordine
-confermato, fattura in bozza con un'attività. I passi, la prova d'acquisto e dove si vedono i
+confermato, fattura in bozza con un'attività. I servizi mensili e annuali sono **abbonamenti**
+che si rinnovano da soli sulla carta salvata in Stripe, e il cliente li disdice dal portale. I passi, la prova d'acquisto e dove si vedono i
 numeri (Panoramica, Dashboard → E-commerce, Vendite online) sono in
 [`doc/commercio-elettronico.md`](doc/commercio-elettronico.md).
 
@@ -213,6 +214,7 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 | `addons/my_erp_crm_home` | **Panoramica**, la pagina dopo l'accesso: una tessera per ogni app installata con un numero chiave (opportunità aperte, preventivi da confermare, prenotazioni e appuntamenti di oggi, documenti da firmare, fatture da incassare); prima voce del menu, al posto della prima app (era il Commercio elettronico) |
 | `addons/my_erp_crm_home_website` | con il Sito web installato, l'indirizzo del gestionale (erp.…) apre il gestionale invece della pagina iniziale del sito (era il negozio): la radice «/» porta a /odoo, cioè accesso e poi Panoramica; /shop e gli altri siti non cambiano. Opzione «La radice apre il gestionale» in Sito web → Impostazioni |
 | `addons/my_erp_crm_shop` | **negozio online pronto al lancio**: controllo IVA sul carrello prima del pagamento (servizi digitali a privati UE senza OSS, VIES, prove OSS raccolte al checkout e copiate in fattura), pagamento mai perso se la fattura automatica non si emette, controllo di lancio, tessera «ordini online da gestire» nella Panoramica e carrelli fuori dai preventivi, cruscotto E-commerce; si installa da solo con il negozio; vedi la [guida](doc/commercio-elettronico.md) |
+| `addons/my_erp_crm_subscription` | **abbonamenti** mensili e annuali venduti dal negozio: carta salvata in Stripe con il consenso del cliente, rinnovo addebitato da solo e fatturato, tre tentativi se non riesce poi sospensione, disdetta dal portale (anche senza account), ricavo mensile ricorrente (MRR); si installa da solo con il negozio; vedi la [guida](doc/commercio-elettronico.md#abbonamenti-mensili-e-annuali) |
 | `addons/sign_oca` | firma dei documenti PDF (consensi, contratti) da portale, telefono o gestionale: modulo della Odoo Community Association, licenza AGPL-3, adattato alla 20.0; vedi la [guida](doc/firma-documenti.md) |
 | `addons/my_erp_crm_sale_sign` | firma dei preventivi: pulsante «Invia alla firma» (il PDF del preventivo con una pagina per le firme, o un modello di Firma come il contratto), pulsante «Firme» e PDF firmato allegato al preventivo; licenza AGPL-3 come `sign_oca`; vedi la [guida](doc/firma-documenti.md#firmare-i-preventivi-contratti) |
 | `addons/web/static/img` | logo, icone e favicon |
