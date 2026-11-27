@@ -38,6 +38,7 @@ Vedi doc/commercio-elettronico.md.
         "views/sale_order_views.xml",
         "views/controllo_negozio_templates.xml",
         "views/controllo_negozio_views.xml",
+        "views/website_templates.xml",
     ],
     "post_init_hook": "configura_negozio",
     # Il negozio c'è già in produzione: il modulo arriva da solo al primo aggiornamento.

@@ -1,1 +1,1 @@
-from . import test_abbonamenti
+from . import test_abbonamenti, test_portale

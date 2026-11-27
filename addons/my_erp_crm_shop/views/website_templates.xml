@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Piè di pagina del sito: «Fornito da my-erp-crm», senza la pubblicità di Odoo che il
+         sito e il negozio aggiungono («Create a free website», «The #1 Open Source eCommerce»,
+         link a odoo.com). Si svuota il messaggio dove viene passato, dopo entrambi. -->
+    <template id="senza_pubblicita_ecommerce" inherit_id="website_sale.brand_promotion" priority="99">
+        <xpath expr="//t[@t-call='web.brand_promotion_message']" position="attributes">
+            <attribute name="_message">''</attribute>
+        </xpath>
+    </template>
+</odoo>

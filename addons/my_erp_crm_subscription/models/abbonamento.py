@@ -267,7 +267,7 @@ class MyErpCrmAbbonamento(models.Model):
             valori["stato"] = "attivo"
             # Il pagamento è arrivato: l'attività aperta per la sospensione non serve più.
             self.activity_ids.filtered(
-                lambda attivita: (attivita.summary or "").startswith("Abbonamento sospeso")
+                lambda attivita: (attivita.summary or "").startswith("Abbonamento sospeso"),
             ).action_feedback(feedback=self.env._("Rinnovo pagato: %s", ordine.name))
         # Pagato dal portale con una carta nuova: i rinnovi successivi usano quella.
         token = ordine.transaction_ids.filtered(lambda tx: tx.state == "done" and tx.token_id).token_id[-1:]
