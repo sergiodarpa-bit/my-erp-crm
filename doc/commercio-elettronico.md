@@ -57,9 +57,13 @@ Il controllo di lancio elenca i prodotti pubblicati **senza prezzo**: si vendere
 
 1. Dal proprio conto Stripe (dashboard.stripe.com → Sviluppatori → Chiavi API) si copiano la
    **chiave pubblicabile** e la **chiave privata**. Si incollano nei campi «Chiave
-   pubblicabile» e «Chiave privata» del metodo Stripe. Non si usa il pulsante **«Connetti»**:
-   apre il conto attraverso la piattaforma di Odoo S.A. (stripe.api.odoo.com), mentre
-   my-erp-crm parla direttamente con i servizi che usa.
+   pubblicabile» e «Chiave privata» del metodo Stripe. **Le chiavi non arrivano da sole.** Il
+   pulsante **«Connetti»** apre (o crea) un conto Stripe attraverso la piattaforma di Odoo S.A.
+   (stripe.api.odoo.com), ma in my-erp-crm, come in Odoo Community, al ritorno **non scrive le
+   chiavi** nel gestionale: lo scambio automatico è della versione a pagamento. Anche un
+   database su odoo.com collegato a Stripe non passa nulla a my-erp-crm: sono due sistemi
+   separati. Il controllo di lancio («Chiavi Stripe») dice se le chiavi ci sono, se sono di prova
+   o di produzione e se manca il webhook, senza mai mostrarle.
 2. **«Genera il tuo webhook»**: Stripe avvisa il gestionale di ogni pagamento, anche se il
    cliente chiude la pagina prima di tornare al negozio.
 3. Prima le chiavi **di prova** (`pk_test_…`, `sk_test_…`) con «Attivo» spento: si paga con la
@@ -123,6 +127,22 @@ Se i due paesi non coincidono, o il paese della connessione non si conosce, il p
 si apre e il cliente è invitato a contattarci. Il paese della connessione richiede sul server
 il database GeoIP gratuito di MaxMind (`GeoLite2-Country.mmdb` in `/usr/share/GeoIP/`, oppure
 l'opzione `geoip_country_db`): finché manca, il controllo di lancio lo segnala.
+
+## Abbonamenti mensili e annuali
+
+Odoo Community, e quindi my-erp-crm, **non ha la fatturazione ricorrente**: l'app «Abbonamenti»
+è della versione a pagamento. Un prodotto «· mensile» venduto dal negozio si paga **una volta**:
+il mese dopo non parte nessun addebito né nessuna fattura. Finché non c'è un rinnovo
+automatico, le strade sono:
+
+- vendere **periodi prepagati** (un mese, un anno) e chiedere il rinnovo al cliente prima della
+  scadenza;
+- far gestire il rinnovo a **Stripe Billing** (abbonamenti sul conto Stripe) e registrare gli
+  incassi nel gestionale;
+- aggiungere un modulo di abbonamenti della Odoo Community Association adattato alla 20.0,
+  come è stato fatto per la firma (`sign_oca`).
+
+Va deciso prima del lancio, e scritto nei termini di vendita.
 
 ## Quando una fattura non si può emettere
 

@@ -45,6 +45,7 @@ class MyErpCrmControlloNegozio(models.TransientModel):
             self._controllo_prodotti(sito),
             self._controllo_listino(sito),
             self._controllo_pagamenti(sito, azienda),
+            self._controllo_stripe(azienda),
             self._controllo_posta(),
             self._controllo_accesso(sito),
             self._controllo_termini(sito, azienda),
@@ -133,6 +134,44 @@ class MyErpCrmControlloNegozio(models.TransientModel):
             return self._voce(AVVISO, titolo, f"In modalità di prova (nessun incasso vero): "
                               f"{self._nomi(in_prova)}. Accendi «Attivo» per il lancio.")
         return self._voce(OK, titolo, f"Pubblicati: {self._nomi(metodi)}.")
+
+    def _controllo_stripe(self, azienda):
+        """Le chiavi di Stripe. In my-erp-crm «Connetti» apre (o crea) il conto Stripe attraverso
+        la piattaforma di Odoo S.A., ma non porta le chiavi nel gestionale: lo scambio automatico
+        è della versione a pagamento. Si mostrano solo i prefissi, mai le chiavi."""
+        titolo = "Chiavi Stripe"
+        stripe = self.env["payment.provider"].sudo().search(
+            [("code", "=", "stripe"), ("company_id", "=", azienda.id)], limit=1)
+        if not stripe:
+            return self._voce(AVVISO, titolo, "Stripe non è installato: si paga solo con gli altri "
+                              "metodi pubblicati.")
+        pubblica = stripe.stripe_publishable_key or ""
+        privata = stripe.stripe_secret_key or ""
+        dove = ("Si copiano da dashboard.stripe.com → Sviluppatori → Chiavi API e si incollano nel "
+                "metodo Stripe (Sito web → Configurazione → E-commerce → Pagamenti).")
+        if not (pubblica and privata):
+            if not stripe.is_published:
+                return self._voce(AVVISO, titolo, "Nel gestionale non ci sono chiavi Stripe. «Connetti» "
+                                  "non le porta da solo in questa versione. " + dove)
+            return self._voce(MANCA, titolo, "Stripe è pubblicato ma senza chiavi: i clienti non "
+                              "possono pagare con la carta. «Connetti» non le porta da solo in questa "
+                              "versione. " + dove)
+        prova = [chiave.startswith(("pk_test_", "sk_test_", "rk_test_")) for chiave in (pubblica, privata)]
+        if prova[0] != prova[1]:
+            return self._voce(MANCA, titolo, "Una chiave è di prova e l'altra di produzione: vanno "
+                              "prese tutte e due dalla stessa modalità del conto Stripe.")
+        if prova[0] and stripe.is_live:
+            return self._voce(MANCA, titolo, "Stripe è «Attivo» ma con le chiavi di prova "
+                              "(pk_test_…): nessun incasso vero. Metti le chiavi di produzione (pk_live_…).")
+        if not prova[0] and not stripe.is_live:
+            return self._voce(AVVISO, titolo, "Chiavi di produzione (pk_live_…) con «Attivo» spento: "
+                              "i pagamenti sono veri anche se il gestionale li mostra come prova.")
+        if not stripe.stripe_webhook_secret:
+            return self._voce(AVVISO, titolo, "Chiavi presenti, ma senza webhook: se il cliente chiude "
+                              "la pagina prima di tornare al negozio, il pagamento non arriva al "
+                              "gestionale. Nel metodo Stripe: «Genera il tuo webhook».")
+        modalita = "di prova (pk_test_…)" if prova[0] else "di produzione (pk_live_…)"
+        return self._voce(OK, titolo, f"Chiavi {modalita} e webhook presenti.")
 
     def _controllo_posta(self):
         titolo = "Email ai clienti"

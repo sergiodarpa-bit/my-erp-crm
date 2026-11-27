@@ -92,3 +92,27 @@ class TestControlloNegozio(NegozioIvaCommon, TransactionCase):
         azienda.invoice_terms_html = "<p>Condizioni di vendita dei servizi della clinica: recesso entro 14 giorni.</p>"
         _controllo, voci = self._controllo()
         self.assertNotEqual(voci["Termini e condizioni"]["stato"], "manca")
+
+    def test_chiavi_stripe(self):
+        stripe = self.env["payment.provider"].search([("code", "=", "stripe")], limit=1)
+        stripe.write({"stripe_publishable_key": False, "stripe_secret_key": False,
+                      "stripe_webhook_secret": False, "is_published": False, "is_live": False})
+
+        def voce():
+            return self._controllo()[1]["Chiavi Stripe"]
+
+        self.assertEqual(voce()["stato"], "avviso")
+        self.assertIn("«Connetti» non le porta da solo", voce()["dettaglio"])
+
+        stripe.write({"stripe_publishable_key": "pk_test_abc", "stripe_secret_key": "sk_live_xyz"})
+        self.assertEqual(voce()["stato"], "manca", "chiavi di modalità diverse")
+
+        stripe.write({"stripe_secret_key": "sk_test_xyz", "is_live": True})
+        self.assertEqual(voce()["stato"], "manca", "attivo con chiavi di prova")
+
+        stripe.write({"stripe_publishable_key": "pk_live_abc", "stripe_secret_key": "sk_live_xyz"})
+        self.assertEqual(voce()["stato"], "avviso", "manca il webhook")
+        self.assertNotIn("sk_live_xyz", voce()["dettaglio"], "le chiavi non si mostrano")
+
+        stripe.stripe_webhook_secret = "whsec_123"
+        self.assertEqual(voce()["stato"], "ok")
