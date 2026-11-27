@@ -1,4 +1,5 @@
 from odoo.tests import TransactionCase, tagged
+from odoo.tools import html2plaintext
 
 from .common import NegozioIvaCommon
 from odoo.addons.my_erp_crm_shop import configura_negozio
@@ -92,6 +93,29 @@ class TestControlloNegozio(NegozioIvaCommon, TransactionCase):
         azienda.invoice_terms_html = "<p>Condizioni di vendita dei servizi della clinica: recesso entro 14 giorni.</p>"
         _controllo, voci = self._controllo()
         self.assertNotEqual(voci["Termini e condizioni"]["stato"], "manca")
+
+    def test_niente_testo_di_odoo_nei_termini(self):
+        azienda = self.env.company
+        # Scegliendo «Come pagina web» la pagina resta vuota, invece del modello di Odoo.
+        azienda.write({"terms_type": "plain", "invoice_terms_html": False})
+        azienda.terms_type = "html"
+        self.assertFalse(html2plaintext(azienda.invoice_terms_html or "").strip())
+
+        # Il modello già presente (anche tradotto) si toglie in tutte le lingue.
+        esempio = self.env["ir.qweb"]._render(
+            "account.account_default_terms_and_conditions",
+            {"company_name": azienda.name, "company_country": azienda.country_id.name})
+        azienda.invoice_terms_html = esempio
+        self.env["res.lang"]._activate_lang("it_IT")
+        azienda.with_context(lang="it_IT").invoice_terms_html = esempio
+        self.assertEqual(azienda._my_erp_crm_togli_termini_di_esempio(), azienda)
+        for lingua in ("en_US", "it_IT"):
+            self.assertFalse(azienda.with_context(lang=lingua).invoice_terms_html)
+
+        # Le condizioni vere restano.
+        azienda.invoice_terms_html = "<p>Condizioni di vendita della clinica.</p>"
+        self.assertFalse(azienda._my_erp_crm_togli_termini_di_esempio())
+        self.assertIn("clinica", azienda.invoice_terms_html)
 
     def test_chiavi_stripe(self):
         stripe = self.env["payment.provider"].search([("code", "=", "stripe")], limit=1)

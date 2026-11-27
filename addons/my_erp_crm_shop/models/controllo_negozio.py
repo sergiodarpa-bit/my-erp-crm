@@ -202,7 +202,7 @@ class MyErpCrmControlloNegozio(models.TransientModel):
             return self._voce(MANCA, titolo, "Manca la pagina /terms con le condizioni di vendita "
                               "(recesso, rimborsi, foro): Contabilità → Configurazione → "
                               "Impostazioni → «Condizioni Generali», scegli «Come pagina web».")
-        if self._termini_di_esempio(azienda, pagina):
+        if azienda._my_erp_crm_termini_di_esempio(pagina):
             return self._voce(MANCA, titolo, "La pagina /terms contiene ancora il testo di esempio "
                               "(«STANDARD TERMS AND CONDITIONS OF SALE»): vanno scritte le condizioni "
                               "vere in Contabilità → Configurazione → Impostazioni → «Condizioni "
@@ -212,23 +212,6 @@ class MyErpCrmControlloNegozio(models.TransientModel):
                               "accettarla: nel negozio, alla pagina di pagamento, «Modifica» → "
                               "accendi «Accetta termini e condizioni».")
         return self._voce(OK, titolo, "Pagina /terms pubblicata e accettata al pagamento.")
-
-    def _termini_di_esempio(self, azienda, testo):
-        """Scegliendo «Come pagina web» la pagina si riempie col modello di esempio del modulo
-        account: non sono condizioni dell'azienda."""
-        def piano(html):
-            return " ".join(html2plaintext(html or "").split())
-
-        testo = " ".join(testo.split())
-        for codice, _nome in self.env["res.lang"].get_installed():
-            esempio = self.env["ir.qweb"].with_context(lang=codice)._render(
-                "account.account_default_terms_and_conditions",
-                {"company_name": azienda.name, "company_country": azienda.country_id.name},
-                raise_if_not_found=False)
-            inizio = piano(esempio)[:150]
-            if inizio and inizio in testo:
-                return True
-        return False
 
     def _controllo_iva(self, sito, azienda):
         titolo = "IVA nel negozio"

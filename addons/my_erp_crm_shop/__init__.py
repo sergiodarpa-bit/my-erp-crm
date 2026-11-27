@@ -27,3 +27,6 @@ def configura_negozio(env):
     riepilogo = env.ref("digest.digest_digest_default", raise_if_not_found=False)
     if riepilogo:
         riepilogo.kpi_website_sale_total = True
+
+    # Niente testo di Odoo in /terms: il modello di esempio non sono le condizioni dell'azienda.
+    env["res.company"].search([])._my_erp_crm_togli_termini_di_esempio()
