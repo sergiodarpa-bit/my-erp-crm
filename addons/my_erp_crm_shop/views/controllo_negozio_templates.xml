@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Righe del controllo di lancio: una per controllo, con lo stato a sinistra. -->
+    <template id="controllo_negozio_voci">
+        <ul class="list-unstyled mb-0">
+            <li t-foreach="voci" t-as="voce" class="d-flex gap-3 py-2 border-bottom">
+                <t t-set="etichetta" t-value="'badge align-self-start flex-shrink-0 text-nowrap'"/>
+                <span t-if="voce['stato'] == 'ok'" t-attf-class="#{etichetta} text-bg-success" style="width: 6rem">Pronto</span>
+                <span t-elif="voce['stato'] == 'avviso'" t-attf-class="#{etichetta} text-bg-warning" style="width: 6rem">Da sapere</span>
+                <span t-else="" t-attf-class="#{etichetta} text-bg-danger" style="width: 6rem">Manca</span>
+                <div>
+                    <strong t-out="voce['titolo']"/>
+                    <div class="text-muted" t-out="voce['dettaglio']"/>
+                </div>
+            </li>
+        </ul>
+    </template>
+</odoo>

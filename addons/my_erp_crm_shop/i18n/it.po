@@ -1,0 +1,83 @@
+# Translation of my-erp-crm.
+# This file contains the translation of the following modules:
+# 	* my_erp_crm_shop
+#
+# I messaggi per i clienti del negozio sono in inglese nel codice (lingua di base dei
+# documenti per i clienti) e tradotti qui; quelli del gestionale sono già in italiano.
+msgid ""
+msgstr ""
+"Project-Id-Version: my-erp-crm 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+"Language: it\n"
+
+#. module: my_erp_crm_shop
+#. odoo-python
+#: code:addons/my_erp_crm_shop/models/sale_order.py:0
+msgid "This service cannot be purchased online from your country yet."
+msgstr "Questo servizio non si può ancora acquistare online dal tuo paese."
+
+#. module: my_erp_crm_shop
+#. odoo-python
+#: code:addons/my_erp_crm_shop/models/sale_order.py:0
+msgid ""
+"Some services in your cart cannot be sold online to private customers in "
+"your country yet. If you are buying for a business, add your VAT number to "
+"your billing address; otherwise, please contact us to complete your order."
+msgstr ""
+"Alcuni servizi nel carrello non si possono ancora vendere online ai privati "
+"del tuo paese. Se acquisti per un'impresa, aggiungi la partita IVA "
+"all'indirizzo di fatturazione; altrimenti contattaci per completare l'ordine."
+
+#. module: my_erp_crm_shop
+#. odoo-python
+#: code:addons/my_erp_crm_shop/models/sale_order.py:0
+msgid "This product cannot be purchased online at the moment."
+msgstr "Questo prodotto per ora non si può acquistare online."
+
+#. module: my_erp_crm_shop
+#. odoo-python
+#: code:addons/my_erp_crm_shop/models/sale_order.py:0
+msgid ""
+"Some products in your cart cannot be purchased online at the moment. Please "
+"contact us to complete your order."
+msgstr ""
+"Alcuni prodotti nel carrello per ora non si possono acquistare online. "
+"Contattaci per completare l'ordine."
+
+#. module: my_erp_crm_shop
+#. odoo-python
+#: code:addons/my_erp_crm_shop/models/sale_order.py:0
+msgid ""
+"We could not verify your VAT number in the EU VIES register. Please check it "
+"in your billing address or contact us."
+msgstr ""
+"Non siamo riusciti a verificare la tua partita IVA nel registro VIES "
+"dell'UE. Controllala nell'indirizzo di fatturazione o contattaci."
+
+#. module: my_erp_crm_shop
+#. odoo-python
+#: code:addons/my_erp_crm_shop/models/sale_order.py:0
+msgid ""
+"We could not confirm your country from your internet connection, which is "
+"required for this purchase. Please contact us to complete your order."
+msgstr ""
+"Non siamo riusciti a confermare il tuo paese dalla connessione internet, "
+"come richiesto per questo acquisto. Contattaci per completare l'ordine."
+
+#. module: my_erp_crm_shop
+#. odoo-python
+#: code:addons/my_erp_crm_shop/models/sale_order.py:0
+msgid ""
+"The country of your billing address (%(billing)s) does not match the "
+"country of your internet connection (%(connection)s). Please check your "
+"billing address or contact us to complete your order."
+msgstr ""
+"Il paese dell'indirizzo di fatturazione (%(billing)s) non coincide con "
+"quello della tua connessione internet (%(connection)s). Controlla "
+"l'indirizzo di fatturazione o contattaci per completare l'ordine."

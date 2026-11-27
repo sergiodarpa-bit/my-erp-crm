@@ -246,11 +246,18 @@ elif phase == "finanza":
             "company_id": company.id,
         })
     public.write({"sequence": 1, "active": True})
-    for pricelist in Pricelist.search([("company_id", "in", (company.id, False)), ("id", "!=", public.id)]):
+    others = Pricelist.search([("company_id", "in", (company.id, False)), ("id", "!=", public.id)])
+    for pricelist in others:
         if pricelist.sequence <= 1:
             pricelist.sequence = 10
         if pricelist.name == "Default":
             pricelist.name = f"Internal prices ({pricelist.currency_id.name})"
+    # Negozio online (website_sale): sul sito solo il listino pubblico; quelli interni restano
+    # nel gestionale e non compaiono nella scelta del listino del cliente.
+    if "selectable" in Pricelist._fields:
+        public.write({"selectable": True, "website_id": False})
+        others.filtered(lambda p: p.name.startswith("Internal prices")).write(
+            {"selectable": False, "website_id": False})
     # --- Conto bancario per i bonifici: compare in fattura -----------------------------------
     iban = setting("COMPANY_IBAN").replace(" ", "").upper()
     if iban:

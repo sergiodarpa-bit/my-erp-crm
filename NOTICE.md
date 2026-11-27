@@ -21,6 +21,8 @@ Dal 7 novembre 2026 il codice è stato modificato da my-erp-crm come segue:
 - aggiunti i moduli `my_erp_crm_brand`, `my_erp_crm_brand_mail` e `my_erp_crm_brand_portal`
   (nome, colori e diciture dell'interfaccia, delle email e del portale);
 - aggiunti il comando `my-erp-crm`, i file di installazione Docker e gli script in `scripts/`;
+- aggiunto il modulo `my_erp_crm_shop` (negozio online: regole IVA prima del pagamento,
+  controllo di lancio, numeri nella Panoramica);
 - rimossi i modelli GitHub del progetto originale; README, CONTRIBUTING e SECURITY riscritti.
 
 L'elenco completo e datato di ogni modifica è nella cronologia git di questo repository.

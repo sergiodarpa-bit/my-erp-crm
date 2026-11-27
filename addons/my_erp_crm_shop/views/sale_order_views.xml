@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Prove di localizzazione raccolte dal negozio: sotto la posizione fiscale. -->
+    <record id="sale_order_view_form_prove_oss" model="ir.ui.view">
+        <field name="name">sale.order.form.prove.oss</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <field name="preferred_payment_method_line_id" position="before">
+                <field name="oss_location_proof_1" readonly="1" invisible="not oss_location_proof_1"/>
+                <field name="oss_location_proof_2" readonly="1" invisible="not oss_location_proof_2"/>
+            </field>
+        </field>
+    </record>
+</odoo>

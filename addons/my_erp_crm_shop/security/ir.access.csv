@@ -1,0 +1,2 @@
+id,name,model_id,group_id/id,operation,domain
+access_controllo_negozio_manager,my_erp_crm.controllo.negozio: responsabile vendite,my_erp_crm.controllo.negozio,sales_team.group_sale_manager,crud,
