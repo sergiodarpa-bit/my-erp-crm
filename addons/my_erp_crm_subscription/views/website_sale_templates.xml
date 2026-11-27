@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Sopra il pagamento: che cosa si rinnova, quanto, ogni quanto, e come si disdice. È il
+         consenso del cliente agli addebiti successivi sulla carta che salva ora. -->
+    <template id="avviso_abbonamento_pagamento" name="Subscription notice above payment"
+              inherit_id="website_sale.payment">
+        <xpath expr="//div[@name='website_sale_non_free_cart']" position="before">
+            <t t-set="ricorrenze" t-value="website_sale_order._my_erp_crm_riepilogo_ricorrenze()"/>
+            <div t-if="ricorrenze" class="alert alert-info mb-3" role="note" name="my_erp_crm_avviso_abbonamento">
+                <h5 class="alert-heading">Subscription with automatic renewal</h5>
+                <ul class="mb-2">
+                    <li t-foreach="ricorrenze" t-as="testo" t-out="testo"/>
+                </ul>
+                <p class="mb-0">
+                    Your card is saved securely with our payment provider. By paying, you authorise us to charge these amounts to the same card at each renewal, until you cancel. You can cancel at any time from your account (Subscriptions) or from the link in our emails; the period already paid stays active until its end.
+                </p>
+            </div>
+        </xpath>
+    </template>
+</odoo>

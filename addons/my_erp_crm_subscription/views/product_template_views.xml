@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_template_form_view_abbonamento" model="ir.ui.view">
+        <field name="name">product.template.form.abbonamento</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <field name="categ_id" position="before">
+                <field name="abbonamento_ricorrenza" invisible="type != 'service'" placeholder="Si paga una volta sola"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="product_template_search_view_abbonamento" model="ir.ui.view">
+        <field name="name">product.template.search.abbonamento</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view"/>
+        <field name="arch" type="xml">
+            <filter name="filter_to_sell" position="after">
+                <filter string="Abbonamenti" name="abbonamenti" domain="[('abbonamento_ricorrenza', '!=', False)]"/>
+            </filter>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="abbonamento_view_list" model="ir.ui.view">
+        <field name="name">my_erp_crm.abbonamento.list</field>
+        <field name="model">my_erp_crm.abbonamento</field>
+        <field name="arch" type="xml">
+            <list string="Abbonamenti" decoration-danger="stato in ('insoluto', 'sospeso')"
+                  decoration-muted="stato == 'chiuso'" decoration-warning="stato == 'disdetto'">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="servizi" optional="show"/>
+                <field name="ricorrenza"/>
+                <field name="importo" sum="Totale"/>
+                <field name="importo_mensile" sum="MRR" optional="show"/>
+                <field name="currency_id" column_invisible="True"/>
+                <field name="prossimo_addebito"/>
+                <field name="stato" widget="badge" decoration-success="stato == 'attivo'"
+                       decoration-danger="stato in ('insoluto', 'sospeso')" decoration-warning="stato == 'disdetto'"/>
+                <field name="user_id" optional="hide" widget="many2one_avatar_user"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="abbonamento_view_form" model="ir.ui.view">
+        <field name="name">my_erp_crm.abbonamento.form</field>
+        <field name="model">my_erp_crm.abbonamento</field>
+        <field name="arch" type="xml">
+            <form string="Abbonamento">
+                <header>
+                    <button name="action_riprova" type="object" string="Riprova l'addebito" class="btn-primary"
+                            invisible="stato not in ('insoluto', 'sospeso')"
+                            confirm="Si addebita subito il rinnovo sulla carta salvata. Procedere?"/>
+                    <button name="action_disdici" type="object" string="Disdici"
+                            invisible="stato not in ('attivo', 'insoluto', 'sospeso')"
+                            confirm="L'abbonamento non si rinnoverà più: resta attivo fino alla fine del periodo pagato (se il rinnovo non è pagato si chiude subito). Il cliente riceve un'email."/>
+                    <button name="action_riattiva" type="object" string="Riattiva" invisible="stato != 'disdetto'"/>
+                    <button name="action_chiudi" type="object" string="Chiudi subito" invisible="stato == 'chiuso'"
+                            confirm="L'abbonamento si chiude oggi e il rinnovo in attesa si annulla. Procedere?"/>
+                    <field name="stato" widget="statusbar" statusbar_visible="attivo,disdetto,chiuso"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_vedi_ordini" type="object" class="oe_stat_button" icon="fa-shopping-cart">
+                            <field name="ordini_count" widget="statinfo" string="Rinnovi"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group name="cliente">
+                            <field name="partner_id" readonly="stato == 'chiuso'"/>
+                            <field name="partner_invoice_id" readonly="stato == 'chiuso'"/>
+                            <field name="token_id" readonly="stato == 'chiuso'" options="{'no_create': True}"/>
+                            <field name="ordine_origine_id" readonly="1"/>
+                            <field name="ordine_in_corso_id" readonly="1" invisible="not ordine_in_corso_id"/>
+                        </group>
+                        <group name="periodo">
+                            <field name="ricorrenza" readonly="ordine_ids"/>
+                            <field name="data_inizio" readonly="ordine_ids"/>
+                            <field name="prossimo_addebito" invisible="stato == 'chiuso'"/>
+                            <field name="prossimo_tentativo" invisible="not prossimo_tentativo"/>
+                            <field name="tentativi" invisible="not tentativi"/>
+                            <field name="data_fine" invisible="not data_fine"/>
+                            <field name="importo"/>
+                            <field name="importo_mensile"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Servizi" name="servizi">
+                            <field name="riga_ids" readonly="stato == 'chiuso'">
+                                <list editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="name"/>
+                                    <field name="quantita"/>
+                                    <field name="prezzo_unitario"/>
+                                    <field name="sconto" optional="hide"/>
+                                    <field name="prezzo_imponibile" optional="show"/>
+                                    <field name="prezzo_totale"/>
+                                    <field name="currency_id" column_invisible="True"/>
+                                </list>
+                            </field>
+                            <p class="text-muted">
+                                I rinnovi usano questi prezzi (bloccati all'attivazione); l'IVA si ricalcola a ogni
+                                rinnovo con le regole del momento.
+                            </p>
+                        </page>
+                        <page string="Altre informazioni" name="altro">
+                            <group>
+                                <field name="company_id" groups="base.group_multi_company"/>
+                                <field name="website_id"/>
+                                <field name="pricelist_id"/>
+                                <field name="user_id" widget="many2one_avatar_user"/>
+                                <field name="team_id"/>
+                                <field name="oss_location_proof_1"/>
+                                <field name="oss_location_proof_2"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="abbonamento_view_search" model="ir.ui.view">
+        <field name="name">my_erp_crm.abbonamento.search</field>
+        <field name="model">my_erp_crm.abbonamento</field>
+        <field name="arch" type="xml">
+            <search string="Abbonamenti">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="riga_ids" string="Servizio" filter_domain="[('riga_ids.product_id', 'ilike', self)]"/>
+                <filter string="Si rinnovano" name="si_rinnovano" domain="[('stato', 'in', ('attivo', 'insoluto'))]"/>
+                <filter string="Pagamento non riuscito" name="insoluti" domain="[('stato', 'in', ('insoluto', 'sospeso'))]"/>
+                <filter string="Disdetti" name="disdetti" domain="[('stato', '=', 'disdetto')]"/>
+                <filter string="Chiusi" name="chiusi" domain="[('stato', '=', 'chiuso')]"/>
+                <separator/>
+                <filter string="Mensili" name="mensili" domain="[('ricorrenza', '=', 'mese')]"/>
+                <filter string="Annuali" name="annuali" domain="[('ricorrenza', '=', 'anno')]"/>
+                <group>
+                    <filter string="Stato" name="per_stato" context="{'group_by': 'stato'}"/>
+                    <filter string="Ricorrenza" name="per_ricorrenza" context="{'group_by': 'ricorrenza'}"/>
+                    <filter string="Inizio" name="per_inizio" context="{'group_by': 'data_inizio:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="abbonamento_view_pivot" model="ir.ui.view">
+        <field name="name">my_erp_crm.abbonamento.pivot</field>
+        <field name="model">my_erp_crm.abbonamento</field>
+        <field name="arch" type="xml">
+            <pivot string="Ricavo ricorrente">
+                <field name="ricorrenza" type="row"/>
+                <field name="data_inizio" interval="month" type="col"/>
+                <field name="importo_mensile" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="abbonamento_view_graph" model="ir.ui.view">
+        <field name="name">my_erp_crm.abbonamento.graph</field>
+        <field name="model">my_erp_crm.abbonamento</field>
+        <field name="arch" type="xml">
+            <graph string="Ricavo mensile ricorrente" type="bar" stacked="1">
+                <field name="data_inizio" interval="month"/>
+                <field name="ricorrenza"/>
+                <field name="importo_mensile" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="abbonamento_action" model="ir.actions.act_window">
+        <field name="name">Abbonamenti</field>
+        <field name="res_model">my_erp_crm.abbonamento</field>
+        <field name="path">abbonamenti</field>
+        <field name="view_mode">list,form,pivot,graph</field>
+        <field name="context">{'search_default_si_rinnovano': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Nessun abbonamento</p>
+            <p>
+                Un abbonamento nasce quando un cliente paga nel negozio un servizio con ricorrenza
+                (scheda del prodotto, campo «Abbonamento»): la carta si salva in Stripe e i rinnovi
+                si addebitano da soli.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="abbonamento_menu"
+              name="Abbonamenti"
+              parent="sale.sale_order_menu"
+              action="abbonamento_action"
+              groups="sales_team.group_sale_salesman"
+              sequence="25"/>
+</odoo>

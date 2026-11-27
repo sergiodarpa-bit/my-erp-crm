@@ -1,0 +1,6 @@
+id,name,model_id,group_id/id,operation,domain
+access_abbonamento_venditore,my_erp_crm.abbonamento: venditore,my_erp_crm.abbonamento,sales_team.group_sale_salesman,cru,
+access_abbonamento_responsabile,my_erp_crm.abbonamento: responsabile vendite,my_erp_crm.abbonamento,sales_team.group_sale_manager,crud,
+access_abbonamento_portale,my_erp_crm.abbonamento: cliente (i suoi),my_erp_crm.abbonamento,base.group_portal,r,"[('partner_id', 'child_of', [user.commercial_partner_id.id])]"
+access_abbonamento_riga_venditore,my_erp_crm.abbonamento.riga: venditore,my_erp_crm.abbonamento.riga,sales_team.group_sale_salesman,crud,
+access_abbonamento_riga_portale,my_erp_crm.abbonamento.riga: cliente (le sue),my_erp_crm.abbonamento.riga,base.group_portal,r,"[('abbonamento_id.partner_id', 'child_of', [user.commercial_partner_id.id])]"

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Testi per i clienti in inglese, tradotti in i18n/it.po. -->
+
+    <template id="portal_breadcrumbs_abbonamenti" name="Portal breadcrumbs: subscriptions"
+              inherit_id="portal.portal_breadcrumbs" priority="40">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name in ('subscriptions', 'subscription')"
+                t-attf-class="breadcrumb-item #{'active' if page_name == 'subscriptions' else ''}">
+                <a t-if="page_name == 'subscription'" href="/my/subscriptions">Subscriptions</a>
+                <t t-else="">Subscriptions</t>
+            </li>
+            <li t-if="page_name == 'subscription'" class="breadcrumb-item active" t-out="abbonamento.name"/>
+        </xpath>
+    </template>
+
+    <template id="badge_stato_abbonamento" name="Subscription status badge">
+        <span t-attf-class="badge rounded-pill #{
+            'text-bg-success' if abbonamento.stato == 'attivo' else
+            'text-bg-danger' if abbonamento.stato in ('insoluto', 'sospeso') else
+            'text-bg-warning' if abbonamento.stato == 'disdetto' else 'text-bg-secondary'}"
+              t-out="abbonamento._testo_stato()"/>
+    </template>
+
+    <template id="portal_my_abbonamenti" name="My Subscriptions">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar" title.translate="Subscriptions"/>
+            <div t-if="not abbonamenti" class="alert alert-info" role="status">
+                You have no subscriptions.
+            </div>
+            <t t-if="abbonamenti" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Subscription</th>
+                        <th>Services</th>
+                        <th class="text-end">Amount</th>
+                        <th class="text-end">Next payment</th>
+                        <th class="text-end">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr t-foreach="abbonamenti" t-as="abbonamento">
+                        <td><a t-att-href="abbonamento.get_portal_url()" t-out="abbonamento.name"/></td>
+                        <td t-out="abbonamento.servizi"/>
+                        <td class="text-end">
+                            <span t-field="abbonamento.importo"/>
+                            <span class="text-muted" t-out="abbonamento._testo_ricorrenza()"/>
+                        </td>
+                        <td class="text-end">
+                            <span t-if="abbonamento.stato in ('attivo', 'insoluto', 'sospeso')"
+                                  t-field="abbonamento.prossimo_addebito"/>
+                        </td>
+                        <td class="text-end"><t t-call="my_erp_crm_subscription.badge_stato_abbonamento"/></td>
+                    </tr>
+                </tbody>
+            </t>
+        </t>
+    </template>
+
+    <template id="portal_my_abbonamento" name="My Subscription">
+        <t t-call="portal.portal_layout">
+            <div class="mt-3">
+                <div t-if="esito == 'disdetto'" class="alert alert-info" role="status">
+                    Your subscription has been cancelled. It will not be renewed and stays active until the end of the period already paid.
+                </div>
+                <div t-if="esito == 'riattivato'" class="alert alert-success" role="status">
+                    Your subscription has been reactivated: it will be renewed as before.
+                </div>
+
+                <div class="d-flex flex-wrap align-items-center gap-3 mb-3">
+                    <h3 class="mb-0" t-out="abbonamento.name"/>
+                    <t t-call="my_erp_crm_subscription.badge_stato_abbonamento"/>
+                </div>
+
+                <table class="table table-sm mb-4" name="dettaglio_abbonamento">
+                    <tbody>
+                        <tr>
+                            <th class="w-25">Services</th>
+                            <td>
+                                <div t-foreach="abbonamento.riga_ids" t-as="riga" t-out="riga.product_id.display_name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Amount</th>
+                            <td>
+                                <span t-field="abbonamento.importo"/>
+                                <span t-out="abbonamento._testo_ricorrenza()"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Started on</th>
+                            <td><span t-field="abbonamento.data_inizio"/></td>
+                        </tr>
+                        <tr t-if="abbonamento.stato in ('attivo', 'insoluto', 'sospeso')">
+                            <th>Next payment</th>
+                            <td><span t-field="abbonamento.prossimo_addebito"/></td>
+                        </tr>
+                        <tr t-if="abbonamento.stato in ('disdetto', 'chiuso') and abbonamento.data_fine">
+                            <th>Active until</th>
+                            <td><span t-field="abbonamento.data_fine"/></td>
+                        </tr>
+                        <tr t-if="abbonamento.token_id">
+                            <th>Card for renewals</th>
+                            <td t-out="abbonamento.token_id.display_name"/>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div t-if="abbonamento.ordine_in_corso_id.state == 'sent'" class="alert alert-warning" role="alert">
+                    <p>The renewal of this subscription is waiting for payment.</p>
+                    <a class="btn btn-primary" t-att-href="abbonamento.ordine_in_corso_id.get_portal_url()">Pay the renewal</a>
+                </div>
+
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                    <form t-if="abbonamento.stato in ('attivo', 'insoluto', 'sospeso')" method="post"
+                          t-attf-action="/my/subscriptions/#{abbonamento.id}/cancel">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <input t-if="access_token" type="hidden" name="access_token" t-att-value="access_token"/>
+                        <button type="submit" class="btn btn-outline-danger">Cancel subscription</button>
+                    </form>
+                    <form t-if="abbonamento.stato == 'disdetto'" method="post"
+                          t-attf-action="/my/subscriptions/#{abbonamento.id}/reactivate">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <input t-if="access_token" type="hidden" name="access_token" t-att-value="access_token"/>
+                        <button type="submit" class="btn btn-primary">Reactivate subscription</button>
+                    </form>
+                    <a t-if="not request.env.user._is_public() and abbonamento.stato != 'chiuso'"
+                       class="btn btn-outline-secondary" href="/my/payment_method">Change card</a>
+                </div>
+                <p t-if="abbonamento.stato in ('attivo', 'insoluto', 'sospeso')" class="text-muted small">
+                    Cancelling stops the next renewals; the period already paid stays active until its end.
+                </p>
+            </div>
+        </t>
+    </template>
+</odoo>
